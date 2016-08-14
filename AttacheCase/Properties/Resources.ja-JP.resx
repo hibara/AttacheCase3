@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AttacheCase" xml:space="preserve">
+    <value>アタッシェケース</value>
+  </data>
+  <data name="ButtonTextBack" xml:space="preserve">
+    <value>戻る(&amp;B)</value>
+  </data>
+  <data name="ButtonTextCancel" xml:space="preserve">
+    <value>キャンセル(&amp;C)</value>
+  </data>
+  <data name="ButtonTextOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="DialogMessageApplicationRestart" xml:space="preserve">
+    <value>設定を有効にするには、アタッシェケースの再起動が必要です。
+いまアプリケーションの再起動を行いますか？</value>
+  </data>
+  <data name="DialogMessageDragAndDropMixedFiles" xml:space="preserve">
+    <value>暗号化するファイルまたはフォルダと、復号するものとが混在しているか、あるいは存在しないため、アタッシェケースはどちらの処理をすべきか判別できません。処理を中止します。</value>
+  </data>
+  <data name="DialogMessagePasswordsNotMatch" xml:space="preserve">
+    <value>２つのパスワードが一致しません。入力し直してください。</value>
+  </data>
+  <data name="DialogMessageUnexpectedDecryptedFiles" xml:space="preserve">
+    <value>想定外のファイルです。復号することができません。</value>
+  </data>
+  <data name="DialogTitleAlert" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="DialogTitleError" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="DialogTitleInfomation" xml:space="preserve">
+    <value>情報</value>
+  </data>
+  <data name="DialogTitleQuestion" xml:space="preserve">
+    <value>問い合わせ</value>
+  </data>
+  <data name="labelCaptionPasswordInvalid" xml:space="preserve">
+    <value>パスワードが一致しません。無効のパスワードです。</value>
+  </data>
+  <data name="labelCaptionPasswordValid" xml:space="preserve">
+    <value>パスワードが一致しました。有効です。</value>
+  </data>
+  <data name="labelComfirmToOverwriteFile" xml:space="preserve">
+    <value>以下のファイルはすでに存在しています。上書きして保存しますか？</value>
+  </data>
+  <data name="labelComfirmToOverwriteDir" xml:space="preserve">
+    <value>以下のフォルダーはすでに存在しています。上書きして保存しますか？</value>
+  </data>
+  <data name="DialogMessageExecutableFile" xml:space="preserve">
+    <value>復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？</value>
+  </data>
+  <data name="DialogMessageOpenMultipleFiles" xml:space="preserve">
+    <value>復号したファイルが{0}個以上あります。
+それでもすべてのファイルを関連付けられたアプリケーションで開きますか？</value>
+  </data>
+  <data name="labelCaptionCompleted" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="folderBrowserDialogSaveToEncryptedFile" xml:space="preserve">
+    <value>常に暗号化ファイルを保存する先のフォルダーを選択してください。</value>
+  </data>
+  <data name="folderBrowserDialogSaveToDecryptedFile" xml:space="preserve">
+    <value>常に復号するファイル、またはフォルダーを保存する先のフォルダーを選択してください。</value>
+  </data>
+  <data name="DialogMessageFilesNotFoundDelete" xml:space="preserve">
+    <value>削除するファイル、またはフォルダーが見つかりません。</value>
+  </data>
+  <data name="DialogMessageFilesNotFoundMoveToTrash" xml:space="preserve">
+    <value>ゴミ箱へ移動するファイル、またはフォルダーが見つかりません。</value>
+  </data>
+  <data name="labelMoveToTrashCanceled" xml:space="preserve">
+    <value>ファイル、またはフォルダーのゴミ箱への移動がキャンセルされました。</value>
+  </data>
+  <data name="labelMoveToTrashCompleted" xml:space="preserve">
+    <value>ファイル、またはフォルダーのゴミ箱への移動が完了しました。</value>
+  </data>
+  <data name="labelCompleteDeleteError" xml:space="preserve">
+    <value>ファイル、またはフォルダーの完全削除中にエラーが発生しました。</value>
+  </data>
+  <data name="labelCompleteDeleteFileCanceled" xml:space="preserve">
+    <value>ファイル、またはフォルダーの完全削除がキャンセルされました。</value>
+  </data>
+  <data name="labelCompleteDeletingCompleted" xml:space="preserve">
+    <value>ファイル、またはフォルダーの完全削除は正常に完了しました。</value>
+  </data>
+  <data name="DialogMessageFileAssociationSuccessful" xml:space="preserve">
+    <value>ファイルの関連付けが正常に行われました。</value>
+  </data>
+  <data name="DialogMessageFileAssociationToolNotFound" xml:space="preserve">
+    <value>ファイル関連付けツールが見つかりません。</value>
+  </data>
+  <data name="DialogMessageFileAssociationToolNotLaunched" xml:space="preserve">
+    <value>ファイル関連付けツールが起動できませんでした。</value>
+  </data>
+  <data name="DialogMessageFileUnAssociationSuccessful" xml:space="preserve">
+    <value>ファイルの関連付け解除が正常に行われました。</value>
+  </data>
+  <data name="OpenDialogFilterIconFiles" xml:space="preserve">
+    <value>アイコンファイル(*.ico)|*.ico|すべてのファイル(*.*)|*.*</value>
+  </data>
+  <data name="OpenDialogTitleIconFiles" xml:space="preserve">
+    <value>アイコンファイルの選択</value>
+  </data>
+  <data name="DialogTitleAllPackFiles" xml:space="preserve">
+    <value>一つにまとめる暗号化ファイル名の入力</value>
+  </data>
+  <data name="SaveDialogFilterAtcFiles" xml:space="preserve">
+    <value>暗号化ファイル (*.atc)|*.atc|すべてのファイル (*.*)|*.*</value>
+  </data>
+  <data name="DialogMessageDecryptionError" xml:space="preserve">
+    <value>パスワードがちがうか、ファイルが破損している可能性があります。復号できませんでした。</value>
+  </data>
+  <data name="labelCaptionCanceled" xml:space="preserve">
+    <value>キャンセルされました。</value>
+  </data>
+  <data name="labelCaptionError" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="DialogTitleSelectPasswordFile" xml:space="preserve">
+    <value>パスワードファイルを選択</value>
+  </data>
+  <data name="OpenDialogFilterAllFiles" xml:space="preserve">
+    <value>すべてのファイル(*.*)|*.*</value>
+  </data>
+  <data name="DialogMessageDecryptionPasswordFileNotFound" xml:space="preserve">
+    <value>復号時の指定されたパスワードファイルが見つかりません。</value>
+  </data>
+  <data name="DialogMessageEncryptionPasswordFileNotFound" xml:space="preserve">
+    <value>暗号化時の指定されたパスワードファイルが見つかりません。</value>
+  </data>
+  <data name="labelCompressDefault" xml:space="preserve">
+    <value>&lt;標準&gt;</value>
+  </data>
+  <data name="labelCompressMaximum" xml:space="preserve">
+    <value>&lt;最大&gt;</value>
+  </data>
+  <data name="labelCompressNone" xml:space="preserve">
+    <value>&lt;無圧縮&gt;</value>
+  </data>
+  <data name="DialogMessageAtcFileBroken" xml:space="preserve">
+    <value>この暗号化ファイルは破壊されています。処理を中止します。</value>
+  </data>
+  <data name="DialogMessageFileIndexInvalid" xml:space="preserve">
+    <value>暗号化ファイル内部で、不正なファイルインデックスがありました。</value>
+  </data>
+  <data name="DialogMessageNoDiskSpace" xml:space="preserve">
+    <value>ドライブに空き容量がありません。処理を中止します。</value>
+  </data>
+  <data name="DialogMessageNotAtcFile" xml:space="preserve">
+    <value>暗号化ファイルではありません。処理を中止します。</value>
+  </data>
+  <data name="DialogTitleEncryptSelectFiles" xml:space="preserve">
+    <value>暗号化するファイルの選択</value>
+  </data>
+  <data name="DialogTitleEncryptSelectFolder" xml:space="preserve">
+    <value>暗号化するフォルダーの選択</value>
+  </data>
+  <data name="DialogMessageNotUseWindowsFileName" xml:space="preserve">
+    <value>Windowsのファイル名には以下の文字が使えません！
+
+\\ / : , * ? \" &lt; &gt; |</value>
+  </data>
+  <data name="SaveDialogFilterIniFilles" xml:space="preserve">
+    <value>INIファイル (*.ini)|*.ini|すべてのファイル (*.*)|*.*</value>
+  </data>
+  <data name="DialogTitleSettings" xml:space="preserve">
+    <value>動作設定</value>
+  </data>
+  <data name="DialogTitleCommandLine" xml:space="preserve">
+    <value>コマンドライン</value>
+  </data>
+  <data name="DialogTitleRegistry" xml:space="preserve">
+    <value>レジストリ</value>
+  </data>
+  <data name="DialogMessageDirectoryNotFount" xml:space="preserve">
+    <value>保存先のフォルダーが見つかりません！　処理を中止します。</value>
+  </data>
+  <data name="labelProcessNameDecrypt" xml:space="preserve">
+    <value>復号しています...</value>
+  </data>
+  <data name="labelProcessNameDelete" xml:space="preserve">
+    <value>削除しています...</value>
+  </data>
+  <data name="labelProcessNameEncrypt" xml:space="preserve">
+    <value>暗号化しています...</value>
+  </data>
+  <data name="labelGettingReadyForDecryption" xml:space="preserve">
+    <value>復号するための準備をしています...</value>
+  </data>
+  <data name="labelGettingReadyForEncryption" xml:space="preserve">
+    <value>暗号化するための準備をしています...</value>
+  </data>
+  <data name="DialogMessagefTemporarySettings" xml:space="preserve">
+    <value>コマンドラインオプションからの一時設定を利用しているため、メインの設定を反映させることができません。</value>
+  </data>
+  <data name="DialogMessageNotDirectoryInPasswordFile" xml:space="preserve">
+    <value>パスワードファイルにフォルダーを使うことはできません。</value>
+  </data>
+  <data name="DialogMessagePasswordFileNotFound" xml:space="preserve">
+    <value>動作設定で指定されたパスワードファイルが見つかりません。</value>
+  </data>
+  <data name="DialogMessageDeleteOriginalFilesAndFolders" xml:space="preserve">
+    <value>暗号化ファイルの元となったファイル及びフォルダーを削除しますか？</value>
+  </data>
+  <data name="DialogMessageDeleteEncryptedFiles" xml:space="preserve">
+    <value>復号の元になった暗号化ファイルを削除しますか？</value>
+  </data>
+  <data name="labelCompletelyDeleteCompleted" xml:space="preserve">
+    <value>指定のファイル及びフォルダーは、完全削除されました。</value>
+  </data>
+  <data name="labellabelCompletelyDelete" xml:space="preserve">
+    <value>完全削除</value>
+  </data>
+  <data name="labelMoveToTrash" xml:space="preserve">
+    <value>ゴミ箱へ</value>
+  </data>
+  <data name="labelNormalDelete" xml:space="preserve">
+    <value>通常削除</value>
+  </data>
+  <data name="labelNormalDeleteCanceled" xml:space="preserve">
+    <value>ファイルまたはフォルダーの削除をキャンセルしました。</value>
+  </data>
+  <data name="labelNormalDeleteCompleted" xml:space="preserve">
+    <value>指定のファイル及びフォルダーは削除されました。</value>
+  </data>
+  <data name="labelProcessNameDeleteCompletely" xml:space="preserve">
+    <value>完全削除をしています...</value>
+  </data>
+  <data name="labelProcessNameMoveToTrash" xml:space="preserve">
+    <value>ゴミ箱へ移動しています...</value>
+  </data>
+  <data name="DialogMessageBothRandomAndZeroNotZero" xml:space="preserve">
+    <value>ランダム値と、ゼロ値の設定の両方の設定を0にすることはできません。</value>
+  </data>
+  <data name="labelDeleteError" xml:space="preserve">
+    <value>ファイルまたはフォルダーの削除中にエラーが発生しました。</value>
+  </data>
+  <data name="labelProcessDeleteCompletely" xml:space="preserve">
+    <value>完全削除は正常に完了しました。</value>
+  </data>
+  <data name="DialogMessageUnexpectedError" xml:space="preserve">
+    <value>予期せぬエラーが発生しました。処理を中止します。</value>
+  </data>
+  <data name="labelDecyptionCanceled" xml:space="preserve">
+    <value>復号処理はキャンセルされました。</value>
+  </data>
+  <data name="labelEncryptionCanceled" xml:space="preserve">
+    <value>暗号化の処理はキャンセルされました。</value>
+  </data>
+  <data name="labelProcessGettingRedyForEncryption" xml:space="preserve">
+    <value>暗号化のための準備をしています...</value>
+  </data>
+  <data name="DialogMessageHigherVersion" xml:space="preserve">
+    <value>このファイルはアタッシェケースの上位バージョンで暗号化されています。
+復号できません。処理を中止します。</value>
+  </data>
+  <data name="DialogMessageNotSameHash" xml:space="preserve">
+    <value>ファイルのハッシュ値が異なります。ファイルが壊れたか、改ざんされた可能性があります。処理を中止します。</value>
+  </data>
+  <data name="folderBrowserDialogSaveToZipFile" xml:space="preserve">
+    <value>常にZIPファイルを保存する先のフォルダーを選択してください。</value>
+  </data>
+  <data name="labelEncryptAlgoDescriptionAES" xml:space="preserve">
+    <value>WinZipAes128 値と WinZipAes256 値は zip 仕様に含まれていませんが、WinZip のベンダー固有の拡張を使用することを意味しています。相互運用可能な Zip アーカイブを生成するには、これらの値を使用しないでください。たとえば、WinZipAes256 を使用して zip アーカイブを生成する場合、Windows XP および Vista で Windows Explorer で開くことができますが、エントリーを解凍することはできません。解凍しようとすると、「未定義のエラー」となります。このため、WinZip の AES 暗号化を使用した zip アーカイブは、実際にはまったく zip アーカイブでないと言う人もいます。この方法で生成された zip アーカイブは、WinZip ツール (バージョン 11 以降) で読み込むことができます。</value>
+  </data>
+  <data name="labelEncryptAlgoDescriptionPkzipWeak" xml:space="preserve">
+    <value>PkzipWeak は Zip 2.0 暗号化を使用することを意味します。これは弱い暗号化であり、解読可能であることが知られています。
+
+相互運用性に関する注意: 値 PkzipWeak と None は PKWARE の zip 仕様 で規定されており、「標準」と見なされます。これらのオプションを使用して生成された zip アーカイブは、Windows エクスプローラーを含む他の多くの zip ツールと相互運用性があります。</value>
+  </data>
+</root>
