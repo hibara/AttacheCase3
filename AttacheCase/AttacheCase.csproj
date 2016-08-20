@@ -85,7 +85,7 @@
     <Compile Include="CommonSrc\CRC32.cs" />
     <Compile Include="CommonSrc\Iso8859Dash1Encoding.cs" />
     <Compile Include="ExeOut3.cs" />
-    <Compile Include="ExeOut.cs" />
+    <Compile Include="ExeOut2.cs" />
     <Compile Include="FileDecrypt3.cs" />
     <Compile Include="FileEncrypt2.cs" />
     <Compile Include="FileDecrypt2.cs" />

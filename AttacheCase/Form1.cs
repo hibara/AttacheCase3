@@ -278,6 +278,11 @@ namespace AttacheCase
       // Application path
       AppSettings.Instance.ApplicationPath = Application.ExecutablePath;
 
+      // Application version
+      System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+      System.Version ver = asm.GetName().Version;
+      AppSettings.Instance.AppVersion = int.Parse(ver.ToString().Replace(".", ""));
+
       // Save main form position and size
       AppSettings.Instance.FormLeft = this.Left;
       AppSettings.Instance.FormTop = this.Top;

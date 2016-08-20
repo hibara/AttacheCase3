@@ -24,6 +24,8 @@ using Exeout.Properties;
 using System.Security.Cryptography;
 using System.Globalization;
 using System.Drawing;
+using System.Collections;
+
 
 namespace Exeout
 {
@@ -157,12 +159,13 @@ namespace Exeout
 			}
 			else if (decryption.TokenStr == "_Atc_Broken_Data")
 			{
+        //
         // エラー
         // この暗号化ファイルは壊れています。処理を中止します。
         //
         // Alert
         // This encrypted file is broken. The process is aborted.
-
+        //
         string DialogTitleAlert = "Alert";
         string DialogMessageAtcFileBroken = "This encrypted file is broken. The process is aborted.";
 
@@ -187,12 +190,13 @@ namespace Exeout
 			}
 			else
 			{
+        // 
         // エラー
         // 暗号化ファイルではありません。処理を中止します。
         //
         // Alert
         // The file is not encrypted file. The process is aborted.
-
+        // 
         string DialogTitleAlert = "Alert";
         string DialogMessageNotAtcFile = "The file is not encrypted file. The process is aborted.";
         if (CurrentCultureName == "ja")
@@ -220,18 +224,25 @@ namespace Exeout
 				LimitOfInputPassword = decryption.MissTypeLimits;
 			}
 
-			// BackgroundWorker event handler
-			bkg = new BackgroundWorker();
+#if (DEBUG)
+      System.Windows.Forms.MessageBox.Show("BackgroundWorker event handler.");
+#endif
+      //======================================================================
+      // BackgroundWorker event handler
+      bkg = new BackgroundWorker();
 			bkg.RunWorkerCompleted += backgroundWorker_RunWorkerCompleted;
 			bkg.ProgressChanged += backgroundWorker_ProgressChanged;
 			bkg.WorkerReportsProgress = true;
-			
-			//======================================================================
-			// Decryption start
-			// 復号開始
-			// http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
-			//======================================================================
-			bkg.DoWork += (s, d) =>
+
+#if (DEBUG)
+      System.Windows.Forms.MessageBox.Show("Decryption start.");
+#endif
+      //======================================================================
+      // Decryption start
+      // 復号開始
+      // Refer：http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
+      //======================================================================
+      bkg.DoWork += (s, d) =>
 			{
 				decryption.Decrypt(
 					s, d,
@@ -243,23 +254,24 @@ namespace Exeout
 			
 		}
 
-		//======================================================================
-		// Backgroundworker
-		//======================================================================
-		#region
-		private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-		{
-		}
+    //======================================================================
+    // Backgroundworker
+    //======================================================================
+#region
 
-		private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+    private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
 		{
       if (e.ProgressPercentage > 0)
       {
+        ArrayList MessageList = (ArrayList)e.UserState;
+
         progressBar1.Style = ProgressBarStyle.Continuous;
         progressBar1.Value = e.ProgressPercentage / 100;
-        string msg = (string)e.UserState;
-        labelMessage.Text = msg;
         labelPercent.Text = ((float)e.ProgressPercentage / 100).ToString("F") + "%";
+
+        // ((int)MessageList[0] == DECRYPTING )
+        labelMessage.Text = (string)MessageList[1];
+        this.Update();
       }
       else
       {
@@ -280,6 +292,11 @@ namespace Exeout
 
     private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
 		{
+
+#if (DEBUG)
+      System.Windows.Forms.MessageBox.Show("backgroundWorker_RunWorkerCompleted");
+#endif
+                                
       if (e.Cancelled)
       {
         // Canceled
@@ -322,10 +339,33 @@ namespace Exeout
           DialogTitleAlert = "Error";
         }
 
-        switch ((int)e.Result)
+        /*
+        // Status code
+        private const int ENCRYPT_SUCCEEDED   = 1; // Encrypt is succeeded.
+        private const int DECRYPT_SUCCEEDED   = 2; // Decrypt is succeeded.
+        private const int DELETE_SUCCEEDED    = 3; // Delete is succeeded.
+        private const int HEADER_DATA_READING = 4; // Header data is reading.
+        private const int ENCRYPTING          = 5; // Ecrypting.
+        private const int DECRYPTING          = 6; // Decrypting.
+        private const int DELETING            = 7; // Deleting.
+
+        // Error code
+        private const int ERROR_UNEXPECTED         = -100;
+        private const int NOT_ATC_DATA             = -101;
+        private const int ATC_BROKEN_DATA          = -102;
+        private const int NO_DISK_SPACE            = -103;
+        private const int FILE_INDEX_NOT_FOUND     = -104;
+        private const int PASSWORD_TOKEN_NOT_FOUND = -105;
+        private const int NOT_CORRECT_HASH_VALUE   = -106;
+        */
+
+        FileDecrypt3ReturnVal result = (FileDecrypt3ReturnVal)e.Result;
+
+        switch (result.ReturnCode)
         {
           //-----------------------------------
           case DECRYPT_SUCCEEDED:
+
             labelPercent.Text = "100%";
             progressBar1.Value = progressBar1.Maximum;
 
@@ -502,7 +542,7 @@ namespace Exeout
 
 		}
 
-		#endregion
+#endregion
 
 		//----------------------------------------------------------------------
 		/// <summary>
@@ -538,7 +578,8 @@ namespace Exeout
         DialogTitleQuestion = "問い合わせ";
         labelComfirmToOverwriteFile = "以下のファイルはすでに存在しています。上書きして保存しますか？";
       }
-      if (MessageBox.Show(labelComfirmToOverwriteFile, DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+      if (MessageBox.Show(labelComfirmToOverwriteFile + "\n" + FilePath, 
+        DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
 			{
 				decryption.TempOverWriteOption = 2;	//Overwrite all
 			}			

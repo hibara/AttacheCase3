@@ -335,28 +335,28 @@ namespace AttacheCase
           {
             // There is a possibility of execution format?
             // 自己実行形式の可能性をチェック
-            byteArray = new byte[sizeof(Int64)];
-            fs.Seek(-sizeof(Int64), SeekOrigin.End);
-            fs.Read(byteArray, 0, sizeof(Int64));
-            _ExeOutSize = BitConverter.ToInt64(byteArray, 0);
+            byteArray = new byte[sizeof(int)];
+            fs.Seek(-sizeof(int), SeekOrigin.End);
+            fs.Read(byteArray, 0, sizeof(int));
+            _ExeOutSize = BitConverter.ToInt32(byteArray, 0);
 
-            if (fs.Length > _ExeOutSize)
+            if (_ExeOutSize > 0)
             {
-              fs.Seek(-_ExeOutSize - sizeof(Int64), SeekOrigin.End);
-            }
-            else
-            {
-              _ExeOutSize = 0;
+              fs.Seek(_ExeOutSize, SeekOrigin.Begin);
             }
 
           }
 
         } // end for;
 
+#if (DEBUG)
+        System.Windows.Forms.MessageBox.Show(_TokenStr);
+#endif
+
       } // end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
     } // end public FileDecrypt2(string FilePath);
-
+         
     /// <summary>
     /// Destructor
     /// </summary>
@@ -430,7 +430,7 @@ namespace AttacheCase
           if (_ExeOutSize > 0)
           {
             // self-executable file
-            fs.Seek(-_ExeOutSize - sizeof(Int64) + 36, SeekOrigin.End);
+            fs.Seek(_ExeOutSize + 36, SeekOrigin.Begin);
           }
           else
           {
@@ -526,7 +526,7 @@ namespace AttacheCase
         //-----------------------------------
         int FileNum;
         // e.g.)
-        // 0:sample.txt[\t]49657[\t]32[\t]734924[\t]38976000[\t]735756[\t]40300683[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
+        // 0:sample.txt[\t]49657[\t]32[\t]736194[\t]39585.875[\t]736194[\t]30186.782[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
         string[] FilePathSplits = OutputFileData[0].Split(':');
         if (Int32.TryParse(FilePathSplits[0], out FileNum) == false)
         {
@@ -652,11 +652,13 @@ namespace AttacheCase
       //-----------------------------------
       // Decrypt file main data.
       //-----------------------------------
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+      try
       {
-        try {
+        using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
           using (MemoryStream ms = new MemoryStream())
           {
+
             fs.CopyTo(ms);
 
             //-----------------------------------
@@ -664,8 +666,8 @@ namespace AttacheCase
             int mod = _AtcHeaderSize % 32;
             if (_fExecutableType == true)
             {
-              ms.SetLength(ms.Length - sizeof(Int64));
-              ms.Seek(_ExeOutSize + 36 + _AtcHeaderSize + 32 + mod, SeekOrigin.Begin);
+              ms.SetLength(ms.Length - sizeof(int));
+              ms.Seek(_ExeOutSize + 36 + _AtcHeaderSize + 32 - mod, SeekOrigin.Begin);
             }
             else
             {
@@ -692,16 +694,16 @@ namespace AttacheCase
                 using (Ionic.Zlib.DeflateStream ds = new Ionic.Zlib.DeflateStream(cse, Ionic.Zlib.CompressionMode.Decompress))
                 {
                   /*
-								  public struct FileListData
-								  {
-									  public string FilePath;
-									  public Int64 FileSize;
-									  public int FileAttribute;
-									  public DateTime LastWriteDateTime;
-									  public DateTime CreationDateTime;
+                  public struct FileListData
+                  {
+                    public string FilePath;
+                    public Int64 FileSize;
+                    public int FileAttribute;
+                    public DateTime LastWriteDateTime;
+                    public DateTime CreationDateTime;
                     public string Sha256String;
-								  }
-								  */
+                  }
+                  */
                   FileStream outfs = null;
                   Int64 FileSize = 0;
                   int FileIndex = 0;
@@ -729,7 +731,7 @@ namespace AttacheCase
                         // Create file or dirctories.
                         if (dic.ContainsKey(FileIndex) == false)
                         {
-                          if ( FileIndex > dic.Count - 1)
+                          if (FileIndex > dic.Count - 1)
                           {
                             e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
                             return (true);
@@ -842,7 +844,7 @@ namespace AttacheCase
                                   {
                                     if (TempOverWriteForNewDate == true)
                                     { // New file?
-                                      FileInfo fi = new FileInfo(Path.Combine(path));
+                                      FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                       if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                       {
                                         continue; // old file
@@ -915,7 +917,7 @@ namespace AttacheCase
                         // ハッシュ値のチェック
                         // Check the hash of a file
                         string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
-                        if (hash != (string)dic[FileIndex].Hash)
+                        if (hash != dic[FileIndex].Hash.ToString())
                         {
                           e.Result = new FileDecrypt3ReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
                           return (false);
@@ -958,7 +960,7 @@ namespace AttacheCase
                           outfs = null;
                         }
                         e.Cancel = true;
-                        return(false);
+                        return (false);
                       }
 
                     }// end while(len > 0);
@@ -971,14 +973,25 @@ namespace AttacheCase
 
             }// end using (Rijndael aes = new RijndaelManaged());
 
-          }// end using (MemoryStream ms = new MemoryStream());
-        }
-        catch (Exception ex)
-        {
-          System.Windows.Forms.MessageBox.Show(ex.Message);
-        }
+          }
 
-      }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
+
+        }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
+
+      }
+      catch (Exception ex)
+      {
+#if (DEBUG)
+        System.Windows.Forms.MessageBox.Show("Exception!");
+#endif
+
+        System.Windows.Forms.MessageBox.Show(ex.Message);
+
+        e.Result = new FileDecrypt3ReturnVal(ERROR_UNEXPECTED);
+        return (false);
+
+
+      }
 
       e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
       return (true);

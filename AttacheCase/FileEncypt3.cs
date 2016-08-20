@@ -281,7 +281,7 @@ namespace AttacheCase
                 }
 
                 if ((int)Item[0] == 0)
-                {
+                { // Directory
                   FileInfoList.Add(FileNumber.ToString() + ":" + // File number
                                     Item[2] + "\t" +             // Relative file path
                                     Item[3].ToString() + "\t" +  // File size 
@@ -292,7 +292,7 @@ namespace AttacheCase
                                     Item[8].ToString());         // Creation time
                 }
                 else
-                {
+                { // File
                   FileInfoList.Add(FileNumber.ToString() + ":" + // File number
                                     Item[2] + "\t" +             // Relative file path
                                     Item[3].ToString() + "\t" +  // File size 
@@ -317,7 +317,6 @@ namespace AttacheCase
                 }
 
                 FileNumber++;
-
 
               }// end foreach (ArrayList Item in GetFilesList(ParentPath, FilePath));
 
@@ -529,15 +528,15 @@ namespace AttacheCase
 
       } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
 
+
       // Self-executable file
       if (fExecutable == true)
       {
         using (FileStream outfs = new FileStream(OutFilePath, FileMode.Open, FileAccess.Write))
         {
-          Int64 DataSize = outfs.Seek(0, SeekOrigin.End);
-          DataSize = DataSize - _StartPos;
-          byteArray = BitConverter.GetBytes(DataSize);
-          outfs.Write(byteArray, 0, sizeof(Int64));
+          outfs.Seek(0, SeekOrigin.End);
+          byteArray = BitConverter.GetBytes(ExeOutFileSize);
+          outfs.Write(byteArray, 0, sizeof(int));
         }
       }
 
