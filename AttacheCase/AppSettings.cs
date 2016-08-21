@@ -3019,38 +3019,77 @@ namespace AttacheCase
 				byte[] twoBytes = new byte[2];
 				fs.Seek(0, SeekOrigin.Begin);
 				fs.Read(twoBytes, 0, 2);
-				if (Encoding.UTF8.GetString(twoBytes) == "MZ")
-				{
-          // There is a possibility of execution format?
-          // 自己実行形式の可能性をチェック
-          byte[] byteArray = new byte[sizeof(Int64)];
-          fs.Seek(-sizeof(Int64), SeekOrigin.End);
-          fs.Read(byteArray, 0, sizeof(Int64));
-          Int64 _ExeOutSize = BitConverter.ToInt64(byteArray, 0);
+        if (Encoding.UTF8.GetString(twoBytes) == "MZ")
+        {
+          // _AttacheCaseData
+          int[] AtcTokenByte = { 95, 65, 116, 116, 97, 99, 104, 101, 67, 97, 115, 101, 68, 97, 116, 97 };
+          // _Atc_Broken_Data
+          int[] AtcBrokenTokenByte = { 95, 65, 116, 99, 95, 66, 114, 111, 104, 101, 110, 95, 68, 97, 116, 97 };
 
-          if (fs.Length > _ExeOutSize)
+          bool fToken = false;
+          int b, pos = 0;
+          while ((b = fs.ReadByte()) > -1)
           {
-            fs.Seek(-_ExeOutSize - sizeof(Int64) + 4, SeekOrigin.End);
-          }
-          else
-          {
-            _ExeOutSize = 0;
-          }
+            //-----------------------------------
+            // Check the token "_AttacheCaseData"
+            if (b == AtcTokenByte[0])
+            {
+              fToken = true;
+              for (int i = 1; i < AtcTokenByte.Length; i++)
+              {
+                if (fs.ReadByte() != AtcTokenByte[i])
+                {
+                  fToken = false;
+                  break;
+                }
+                pos++;
+              }
+              if (fToken == true)
+              {
+                if (pos > 20)
+                { // Self executabel file
+                  return (2);
+                }
+              }
+            }
 
-          bufferSignature = new byte[16];
-          fs.Read(bufferSignature, 0, 16);
-          SignatureText = Encoding.ASCII.GetString(bufferSignature);
-          if (SignatureText == SignatureAtc)
-          {
-            return (2);
-          }
-          else
-          {
-            return (0);
-          }
+            //-----------------------------------
+            // Check the token "_AttacheCaseData"
+            if (b == AtcBrokenTokenByte[0])
+            {
+              fToken = true;
+              for (int i = 1; i < AtcBrokenTokenByte.Length; i++)
+              {
+                if (fs.ReadByte() != AtcBrokenTokenByte[i])
+                {
+                  fToken = false;
+                  break;
+                }
+                pos++;
+              }
 
-				}
+              if (fToken == true)
+              {
+                _fBroken = true;
+              }
+            }
 
+            pos++;
+
+            if (fToken == true)
+            {
+              break;
+            }
+            //-----------------------------------
+
+          }// end while();
+
+        }
+        else
+        {
+          return (0);
+        }
+         
 			}// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
 
 			//-----------------------------------

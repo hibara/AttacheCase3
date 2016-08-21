@@ -528,18 +528,6 @@ namespace AttacheCase
 
       } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
 
-
-      // Self-executable file
-      if (fExecutable == true)
-      {
-        using (FileStream outfs = new FileStream(OutFilePath, FileMode.Open, FileAccess.Write))
-        {
-          outfs.Seek(0, SeekOrigin.End);
-          byteArray = BitConverter.GetBytes(ExeOutFileSize);
-          outfs.Write(byteArray, 0, sizeof(int));
-        }
-      }
-
       // Set the timestamp of encryption file to original files or directories
       if (_fKeepTimeStamp == true)
       {
