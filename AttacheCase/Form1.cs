@@ -33,7 +33,7 @@ namespace AttacheCase
 {
   public partial class Form1 : Form
   {
-    // Status code
+    // Status Code
     private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded.
     private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded.
     private const int DELETE_SUCCEEDED  = 3; // Delete is succeeded.
@@ -43,7 +43,7 @@ namespace AttacheCase
     private const int DECRYPTING        = 7; // Decrypting.
     private const int DELETING          = 8; // Deleting.
 
-    // Error code
+    // Error Code
     private const int USER_CANCELED            = -1;   // User cancel.
     private const int ERROR_UNEXPECTED         = -100;
     private const int NOT_ATC_DATA             = -101;
@@ -53,13 +53,20 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
-    // File type
-    private const int TYPE_ERROR_ENCRYPT = -1;
-    private const int TYPE_NONE_ENCRYPT  = 0;
-    private const int TYPE_ATC_ENCRYPT   = 1;
-    private const int TYPE_EXE_ENCRYPT   = 2;
-    private const int TYPE_ZIP_ENCRYPT   = 3;
-    private const int TYPE_DECRYPT       = 4;
+    // File Type
+    private const int FILE_TYPE_ERROR        = -1;
+    private const int FILE_TYPE_NONE         = 0;
+    private const int FILE_TYPE_ATC          = 1;
+    private const int FILE_TYPE_ATC_EXE      = 2;
+    private const int FILE_TYPE_PASSWORD_ZIP = 3;
+
+    // Process Type
+    private const int PRCESS_TYPE_ERROR        = -1;
+    private const int PRCESS_TYPE_NONE         = 0;
+    private const int PRCESS_TYPE_ATC          = 1;
+    private const int PRCESS_TYPE_ATC_EXE      = 2;
+    private const int PRCESS_TYPE_PASSWORD_ZIP = 3;
+    private const int PRCESS_TYPE_DECRYPTION   = 4;
 
     // The position of mouse down in main form.
     // マウスボタンがダウンされた位置
@@ -216,7 +223,8 @@ namespace AttacheCase
       }
 
       //----------------------------------------------------------------------
-      if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.DetectProcessType() == TYPE_NONE_ENCRYPT)
+      int FileType = AppSettings.Instance.DetectFileType();
+      if (AppSettings.Instance.FileList.Count() > 0 && FileType == FILE_TYPE_NONE)
       {
         textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
         textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
@@ -227,7 +235,7 @@ namespace AttacheCase
         panelProgressState.Visible = false;
         panelEncryptConfirm.Visible = true; // Encrypt
       }
-      else if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.DetectProcessType() == TYPE_ATC_ENCRYPT)
+      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE))
       {
         textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
 
@@ -237,7 +245,7 @@ namespace AttacheCase
         panelProgressState.Visible = false;
         panelDecrypt.Visible = true;        // Decrypt
       }
-      else if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.DetectProcessType() == TYPE_ZIP_ENCRYPT)
+      else if (AppSettings.Instance.FileList.Count() > 0 && FileType == FILE_TYPE_PASSWORD_ZIP)
       {
         textBoxDecryptPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
 
@@ -408,6 +416,13 @@ namespace AttacheCase
       //----------------------------------------------------------------------
       // 問い合わせず自動判別する
 
+      // File type
+      // private const int FILE_TYPE_ERROR        = -1;
+      // private const int FILE_TYPE_NONE         = 0;
+      // private const int FILE_TYPE_ATC          = 1;
+      // private const int FILE_TYPE_ATC_EXE      = 2;
+      // private const int FILE_TYPE_PASSWORD_ZIP = 3;
+
       // すでに指定されている
       int FileType = 0;
       if (AppSettings.Instance.EncryptionFileType > 0)
@@ -417,10 +432,22 @@ namespace AttacheCase
       else
       {
         // 指定がなければ判定する
-        FileType = AppSettings.Instance.DetectProcessType();
+        FileType = AppSettings.Instance.DetectFileType();
       }
 
-      if (AppSettings.Instance.FileList.Count() > 0 && (FileType == TYPE_ERROR_ENCRYPT || FileType == TYPE_NONE_ENCRYPT || FileType == TYPE_EXE_ENCRYPT))
+      //----------------------------------------------------------------------
+      // Decryption
+      if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE))
+      {
+        panelStartPage.Visible = false;
+        panelEncrypt.Visible = false;
+        panelEncryptConfirm.Visible = false;
+        panelDecrypt.Visible = true;        // Decrypt
+        panelProgressState.Visible = false;
+      }
+      //----------------------------------------------------------------------
+      // Encryption
+      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE))
       {
         panelStartPage.Visible = false;
         panelEncrypt.Visible = true;        // Encrypt
@@ -430,22 +457,12 @@ namespace AttacheCase
       }
       //----------------------------------------------------------------------
       // Password ZIP
-      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == TYPE_ZIP_ENCRYPT))
+      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_PASSWORD_ZIP))
       {
         panelStartPage.Visible = false;
         panelEncrypt.Visible = true;         // Encrypt
         panelEncryptConfirm.Visible = false;
         panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-      }
-      //----------------------------------------------------------------------
-      // Decryption
-      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == TYPE_ATC_ENCRYPT))
-      {
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = true;        // Decrypt
         panelProgressState.Visible = false;
       }
       else
@@ -914,9 +931,8 @@ namespace AttacheCase
                 if (ret == DialogResult.Yes)
                 {
                   buttonCancel.Text = Resources.ButtonTextCancel;
-                  if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-                      AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-                      AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+                  if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
+                      AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE )
                   {
                     DeleteData(encryption3.FileList);
                   }
@@ -1530,13 +1546,13 @@ namespace AttacheCase
 
         switch (AppSettings.Instance.EncryptionFileType)
         {
-          case TYPE_ATC_ENCRYPT:
+          case FILE_TYPE_ATC:
             pictureBoxAtc.Image = pictureBoxAtcOn.Image;
             break;
-          case TYPE_EXE_ENCRYPT:
+          case FILE_TYPE_ATC_EXE:
             pictureBoxExe.Image = pictureBoxExeOn.Image;
             break;
-          case TYPE_ZIP_ENCRYPT:
+          case FILE_TYPE_PASSWORD_ZIP:
             pictureBoxZip.Image = pictureBoxZipOn.Image;
             break;
           default:
@@ -1576,7 +1592,7 @@ namespace AttacheCase
       if (panelStartPage.Visible == true)
       {
         AppSettings.Instance.FileList = null; // Clear file list
-        AppSettings.Instance.EncryptionFileType = TYPE_NONE_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
         this.AllowDrop = true;
 
         toolStripButtonEncryptSelectFiles.Enabled = true;
@@ -1666,17 +1682,17 @@ namespace AttacheCase
 
         // Select file type
         // labelPasswordValidation.Text = "";
-        if (AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT)
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC)
         {
           pictureBoxEncryption.Image = pictureBoxAtcOn.Image;
           labelEncryption.Text = labelAtc.Text;
         }
-        else if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           pictureBoxEncryption.Image = pictureBoxExeOn.Image;
           labelEncryption.Text = labelExe.Text;
         }
-        else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           pictureBoxEncryption.Image = pictureBoxZipOn.Image;
           labelEncryption.Text = labelZip.Text;
@@ -1856,9 +1872,9 @@ namespace AttacheCase
 
         switch (AppSettings.Instance.EncryptionFileType)
         {
-          case TYPE_ATC_ENCRYPT:
-          case TYPE_EXE_ENCRYPT:
-          case TYPE_ZIP_ENCRYPT:
+          case FILE_TYPE_ATC:
+          case FILE_TYPE_ATC_EXE:
+          case FILE_TYPE_PASSWORD_ZIP:
             break;
 
           default:  // Unexpected
@@ -1969,7 +1985,7 @@ namespace AttacheCase
     private void ToolStripMenuItemAtcFile_Click(object sender, EventArgs e)
     {
       // Encrypt to ATC file
-      AppSettings.Instance.EncryptionFileType = TYPE_ATC_ENCRYPT;
+      AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC;
       pictureBoxEncryption.Image = pictureBoxAtcOn.Image;
       labelEncryption.Text = labelAtc.Text;
       textBoxPassword.Focus();
@@ -1978,7 +1994,7 @@ namespace AttacheCase
     private void ToolStripMenuItemExeFile_Click(object sender, EventArgs e)
     {
       // Encrypt to EXE(ATC) file
-      AppSettings.Instance.EncryptionFileType = TYPE_EXE_ENCRYPT;
+      AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
       pictureBoxEncryption.Image = pictureBoxExeOn.Image;
       labelEncryption.Text = labelExe.Text;
       textBoxPassword.Focus();
@@ -1987,7 +2003,7 @@ namespace AttacheCase
     private void ToolStripMenuItemZipPassword_Click(object sender, EventArgs e)
     {
       // Encrypt to Zip file
-      AppSettings.Instance.EncryptionFileType = TYPE_ZIP_ENCRYPT;
+      AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
       pictureBoxEncryption.Image = pictureBoxZipOn.Image;
       labelEncryption.Text = labelZip.Text;
       textBoxPassword.Focus();
@@ -2263,15 +2279,15 @@ namespace AttacheCase
       // Encrypted files camouflage with extension
       //-----------------------------------
       string Extension = "";
-      if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT || AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT)
+      if (AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_ATC)
       {
         Extension = AppSettings.Instance.fAddCamoExt == true ? AppSettings.Instance.CamoExt : ".atc";
       }
-      else if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+      else if (AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_ATC_EXE)
       {
         Extension = AppSettings.Instance.fAddCamoExt == true ? AppSettings.Instance.CamoExt : ".exe";
       }
-      else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+      else if (AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_PASSWORD_ZIP)
       {
         Extension = AppSettings.Instance.fAddCamoExt == true ? AppSettings.Instance.CamoExt : ".zip";
       }
@@ -2296,7 +2312,7 @@ namespace AttacheCase
       // ※パスワードファイルは、記憶パスワードや通常の入力されたパスワードよりも優先される。
       // * This password files is priority than memorized encryption password and inputting normal password string.
       byte[] EncryptionPasswordBinary = null;
-      if (AppSettings.Instance.fAllowPassFile == true && AppSettings.Instance.EncryptionFileType != TYPE_ZIP_ENCRYPT)  // ATC(EXE) only
+      if (AppSettings.Instance.fAllowPassFile == true && AppSettings.Instance.EncryptionFileType != FILE_TYPE_PASSWORD_ZIP)  // ATC(EXE) only
       {
         // Check specified password file for Decryption
         if (AppSettings.Instance.fCheckPassFileDecrypt == true)
@@ -2375,7 +2391,7 @@ namespace AttacheCase
 
       string OutputDirPath = "";
 
-      if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT || AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT)
+      if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE || AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC)
       {
         pictureBoxProgress.Image = pictureBoxAtcOn.Image;
         labelProgress.Text = labelAtc.Text;
@@ -2390,7 +2406,7 @@ namespace AttacheCase
         }
 
       }
-      else if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+      else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
       {
         pictureBoxProgress.Image = pictureBoxExeOn.Image;
         labelProgress.Text = labelExe.Text;
@@ -2404,7 +2420,7 @@ namespace AttacheCase
           }
         }
       }
-      else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+      else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
       {
         pictureBoxProgress.Image = pictureBoxZipOn.Image;
         labelProgress.Text = labelZip.Text;
@@ -2454,15 +2470,15 @@ namespace AttacheCase
           
         int NumberOfFiles = 0;
 
-        if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3 = new FileEncrypt3();
           encryption3.NumberOfFiles = 0;
           encryption3.TotalNumberOfFiles = 0;
         }
-        else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           compression = new ZipEncrypt();
           compression.NumberOfFiles = 0;
@@ -2471,9 +2487,9 @@ namespace AttacheCase
 
         //-----------------------------------
         //Set number of times to input password in encrypt files
-        if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           char input_limit;
           if (0 < AppSettings.Instance.MissTypeLimitsNum && AppSettings.Instance.MissTypeLimitsNum < 11)
@@ -2486,6 +2502,7 @@ namespace AttacheCase
           }
           encryption3.MissTypeLimits = input_limit;
         }
+
         //-----------------------------------
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
@@ -2555,7 +2572,7 @@ namespace AttacheCase
         //-----------------------------------
         // Self executable file
         //-----------------------------------
-        if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3.fExecutable = true;
         }
@@ -2572,9 +2589,9 @@ namespace AttacheCase
         // BackgroundWorker event handler
         bkg = new BackgroundWorker();
 
-        if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-            AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           bkg.DoWork += (s, d) =>
           encryption3.Encrypt(
@@ -2584,7 +2601,7 @@ namespace AttacheCase
             EncryptionPassword, EncryptionPasswordBinary,
             Path.GetFileNameWithoutExtension(AtcFilePath));
         }
-        else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           bkg.DoWork += (s, d) =>
           compression.Encrypt(
@@ -2635,22 +2652,22 @@ namespace AttacheCase
 
           NumberOfFiles++;
 
-          if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
           {
             encryption3 = new FileEncrypt3();
             encryption3.NumberOfFiles = NumberOfFiles;
             encryption3.TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
           }
-          else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+          else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
           {
             compression = new ZipEncrypt();
             compression.NumberOfFiles = NumberOfFiles;
             compression.TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
           }
 
-          if (AppSettings.Instance.DetectProcessType() == TYPE_NONE_ENCRYPT)
+          if (AppSettings.Instance.DetectFileType() == FILE_TYPE_NONE)
           {
             //-----------------------------------
             // Save encryption files to same folder.
@@ -2719,7 +2736,7 @@ namespace AttacheCase
             //-----------------------------------
             // Self executable file
             //-----------------------------------
-            if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+            if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
             {
               encryption3.fExecutable = true;
             }
@@ -2736,9 +2753,9 @@ namespace AttacheCase
             // BackgroundWorker event handler
             bkg = new BackgroundWorker();
 
-            if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-                AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-                AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+            if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+                AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+                AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
             {
               bkg.DoWork += (s, d) =>
               encryption3.Encrypt(
@@ -2748,7 +2765,7 @@ namespace AttacheCase
                 EncryptionPassword, EncryptionPasswordBinary,
                 Path.GetFileNameWithoutExtension(AtcFilePath));
             }
-            else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+            else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
             {
               bkg.DoWork += (s, d) =>
               compression.Encrypt(
@@ -2794,15 +2811,15 @@ namespace AttacheCase
 
           NumberOfFiles++;
 
-          if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
           {
             encryption3 = new FileEncrypt3();
             encryption3.NumberOfFiles = NumberOfFiles;
             encryption3.TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
           }
-          else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+          else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
           {
             compression = new ZipEncrypt();
             compression.NumberOfFiles = NumberOfFiles;
@@ -2877,7 +2894,7 @@ namespace AttacheCase
           //----------------------------------------------------------------------
           // Self executable file
           //----------------------------------------------------------------------
-          if (AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
           {
             encryption3.fExecutable = true;
           }
@@ -2885,9 +2902,9 @@ namespace AttacheCase
           //-----------------------------------
           //　Set the timestamp of encryption file to original files or directories
           //-----------------------------------
-          if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
           {
             encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
           }
@@ -2899,9 +2916,9 @@ namespace AttacheCase
           // BackgroundWorker event handler
           bkg = new BackgroundWorker();
 
-          if (AppSettings.Instance.EncryptionFileType == TYPE_NONE_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_ATC_ENCRYPT ||
-              AppSettings.Instance.EncryptionFileType == TYPE_EXE_ENCRYPT)
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
           {
             bkg.DoWork += (s, d) =>
             encryption3.Encrypt(
@@ -2911,7 +2928,7 @@ namespace AttacheCase
               EncryptionPassword, EncryptionPasswordBinary,
               "");
           }
-          else if (AppSettings.Instance.EncryptionFileType == TYPE_ZIP_ENCRYPT)
+          else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
           {
             bkg.DoWork += (s, d) =>
             compression.Encrypt(
@@ -3755,7 +3772,7 @@ namespace AttacheCase
       if (pictureBoxAtc.Image == pictureBoxAtcOn.Image)
       {
         pictureBoxAtc.Image = pictureBoxAtcOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_ERROR_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ERROR;
       }
       else
       {
@@ -3763,7 +3780,7 @@ namespace AttacheCase
         pictureBoxExe.Image = pictureBoxExeOff.Image;
         pictureBoxZip.Image = pictureBoxZipOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_NONE_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
 
         pictureBoxEncryption.Image = pictureBoxAtcOn.Image;
 
@@ -3775,7 +3792,7 @@ namespace AttacheCase
       if(pictureBoxExe.Image == pictureBoxExeOn.Image)
       {
         pictureBoxExe.Image = pictureBoxExeOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_ERROR_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ERROR;
       }
       else
       {
@@ -3783,7 +3800,7 @@ namespace AttacheCase
         pictureBoxAtc.Image = pictureBoxAtcOff.Image;
         pictureBoxZip.Image = pictureBoxZipOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_EXE_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
 
         pictureBoxExe.Image = pictureBoxExeOn.Image;
       }
@@ -3794,7 +3811,7 @@ namespace AttacheCase
       if (pictureBoxZip.Image == pictureBoxZipOn.Image)
       {
         pictureBoxZip.Image = pictureBoxZipOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_ERROR_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ERROR;
       }
       else
       {
@@ -3802,7 +3819,7 @@ namespace AttacheCase
         pictureBoxAtc.Image = pictureBoxAtcOff.Image;
         pictureBoxExe.Image = pictureBoxExeOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
-        AppSettings.Instance.EncryptionFileType = TYPE_ZIP_ENCRYPT;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
 
         pictureBoxEncryption.Image = pictureBoxZipOn.Image;
 

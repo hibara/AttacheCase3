@@ -17,11 +17,18 @@ namespace AttacheCase
   /// </summary>
   public class AppSettings
 	{
-		//
-		// An INI file handling class using C#
-		// http://www.codeproject.com/Articles/1966/An-INI-file-handling-class-using-C
-		//
-		[DllImport("kernel32")]
+    // File type
+    private const int FILE_TYPE_ERROR        = -1;
+    private const int FILE_TYPE_NONE         = 0;
+    private const int FILE_TYPE_ATC          = 1;
+    private const int FILE_TYPE_ATC_EXE      = 2;
+    private const int FILE_TYPE_PASSWORD_ZIP = 3;
+
+    //
+    // An INI file handling class using C#
+    // http://www.codeproject.com/Articles/1966/An-INI-file-handling-class-using-C
+    //
+    [DllImport("kernel32")]
 		private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
 		[DllImport("kernel32")]
 		private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
@@ -3104,33 +3111,44 @@ namespace AttacheCase
 		/// 投げ込まれたファイルタイプから処理内容を決定する
 		/// </summary>
 		/// <returns>Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)</returns>
-		public int DetectProcessType()
+		public int DetectFileType()
 		{
-			_FileType = new int[4] { 0, 0, 0, 0 };
+      // File type
+      // private const int FILE_TYPE_ERROR = -1;
+      // private const int FILE_TYPE_NONE = 0;
+      // private const int FILE_TYPE_ATC = 1;
+      // private const int FILE_TYPE_ATC_EXE = 2;
+      // private const int FILE_TYPE_PASSWORD_ZIP = 3;
+
+      _FileType = new int[4] { 0, 0, 0, 0 };
 
 			foreach (string f in _FileList)
 			{
 				_FileType[CheckFileType(f)]++;
 			}
 
+      // 1: ATC, 2: EXE(ATC)
       if ((_FileType[1] > 0 || _FileType[2] > 0) && _FileType[3] == 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = 1;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC;
         return 1;
       }
+      // 2: EXE(ATC)
       else if (_FileType[1] == 0 && _FileType[2] > 0 && _FileType[3] == 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = 2;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
         return 2;
       }
+      // 3: ZIP
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] > 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = 3;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
         return 3;
       }
+      // 0: Others(Encrypt file?)
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] == 0 && _FileType[0] > 0)
       {
-        AppSettings.Instance.EncryptionFileType = 0;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
         return 0;
       }
       else
