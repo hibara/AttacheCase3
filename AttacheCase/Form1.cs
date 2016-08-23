@@ -743,10 +743,11 @@ namespace AttacheCase
 
     /// <summary>
     /// パスワードファイルとして、ファイルからSHA-1ハッシュを取得して文字列にする
+    /// Get a string of the SHA-1 hash from a file such as the password file
     /// </summary>
     /// <param name="FilePath"></param>
     /// <returns></returns>
-    private byte[] GetPasswordHash(string FilePath)
+    private byte[] GetPasswordHash2(string FilePath)
     {
       byte[] buffer = new byte[255];
       byte[] result = new byte[32];
@@ -777,19 +778,38 @@ namespace AttacheCase
         }
 
       }
-
-      //string text = System.Text.Encoding.UTF8.GetString(result);
-      string text = System.Text.Encoding.GetEncoding("shift_jis").GetString(result);
-      //string text = BitConverter.ToString(result);
-#if (DEBUG)
-      Console.WriteLine("SHA-1:" + text);
-      //Console.WriteLine("SHA-1 String Length:" + text.Length.ToString());
-      //Console.WriteLine("SHA-1:" + text);
-#endif
+      //string text = System.Text.Encoding.ASCII.GetString(result);
       return (result);
 
     }
 
+    /// <summary>
+    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得して文字列にする
+    /// Get a string of the SHA-256 hash from a file such as the password file
+    /// </summary>
+    /// <param name="FilePath"></param>
+    /// <returns></returns>
+    private byte[] GetPasswordHash3(string FilePath)
+    {
+      byte[] buffer = new byte[255];
+      byte[] result = new byte[32];
+
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      {
+        //SHA1CryptoServiceProviderオブジェクト
+        using (SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider())
+        {
+          byte[] array_bytes = sha256.ComputeHash(fs);
+          for (int i = 0; i < 32; i++)
+          {
+            result[i] = array_bytes[i];
+          }
+        }
+      }
+      //string text = System.Text.Encoding.ASCII.GetString(result);
+      return (result);
+
+    }
 
     //======================================================================
     // Backgroundworker
@@ -2319,7 +2339,7 @@ namespace AttacheCase
         {
           if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
           {
-            EncryptionPasswordBinary = GetPasswordHash(AppSettings.Instance.PassFilePath);
+            EncryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePath);
           }
           else
           {
@@ -2341,7 +2361,7 @@ namespace AttacheCase
         // Drag & Drop Password file
         if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
         {
-          EncryptionPasswordBinary = GetPasswordHash(AppSettings.Instance.TempDecryptionPassFilePath);
+          EncryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.TempDecryptionPassFilePath);
         }
       }
 
@@ -3124,7 +3144,14 @@ namespace AttacheCase
         {
           if ( File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
           {
-            DecryptionPasswordBinary = GetPasswordHash(AppSettings.Instance.PassFilePathDecrypt);
+            if(decryption3.DataFileVersion < 130)
+            {
+              DecryptionPasswordBinary = GetPasswordHash2(AppSettings.Instance.PassFilePathDecrypt);
+            }
+            else
+            {
+              DecryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePathDecrypt);
+            }
           }
           else
           {
@@ -3146,7 +3173,14 @@ namespace AttacheCase
         // Drag & Drop Password file
         if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
         {
-          DecryptionPasswordBinary = GetPasswordHash(AppSettings.Instance.TempDecryptionPassFilePath);
+          if (decryption3.DataFileVersion < 130)
+          {
+            DecryptionPasswordBinary = GetPasswordHash2(AppSettings.Instance.PassFilePathDecrypt);
+          }
+          else
+          {
+            DecryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePathDecrypt);
+          }
         }
       }
         
