@@ -147,7 +147,18 @@ namespace AttacheCase
       byte[] byteArray = null;
 
       // Salt
-      Rfc2898DeriveBytes deriveBytes = new Rfc2898DeriveBytes(Password, 8, 1000);
+      Rfc2898DeriveBytes deriveBytes;
+      if(PasswordBinary == null)
+      { // String Password
+        deriveBytes = new Rfc2898DeriveBytes(Password, 8, 1000);
+      }
+      else
+      { // Binary Password
+        byte[] random_salt = new byte[8];
+        RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+        rng.GetBytes(random_salt);
+        deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, random_salt, 1000);
+      }
       byte[] salt = deriveBytes.Salt;
       byte[] key = deriveBytes.GetBytes(32);
       byte[] iv = deriveBytes.GetBytes(32);

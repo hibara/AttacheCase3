@@ -456,7 +456,16 @@ namespace AttacheCase
         return(false);
       }
 
-      Rfc2898DeriveBytes deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
+      // Salt
+      Rfc2898DeriveBytes deriveBytes;
+      if (PasswordBinary == null)
+      { // String Password
+        deriveBytes = new Rfc2898DeriveBytes(Password, 8, 1000);
+      }
+      else
+      { // Binary Password
+        deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, _salt, 1000);
+      }
       byte[] key = deriveBytes.GetBytes(32);
       byte[] iv = deriveBytes.GetBytes(32);
       

@@ -789,7 +789,15 @@ namespace AttacheCase
 			set { this._fCheckPassFile = value; }
 		}
 
-		private string _TempEncryptionPassFilePath;    // 暗号時の一時パスワードファイルパス（保存されない）
+    private string _PassFilePath;                 // 暗号時のパスワードファイルパス
+                                                  //Password file path for encryption
+    public string PassFilePath
+    {
+      get { return this._PassFilePath; }
+      set { this._PassFilePath = value; }
+    }
+
+    private string _TempEncryptionPassFilePath;    // 暗号時の一時パスワードファイルパス（保存されない）
 		//The path of the password file that is dragged and dropped by user
 		public string TempEncryptionPassFilePath
 		{
@@ -797,13 +805,6 @@ namespace AttacheCase
 			set { this._TempEncryptionPassFilePath = value; }
 		}
 
-		private string _PassFilePath;                 // 暗号時のパスワードファイルパス
-		//Password file path for encryption
-		public string PassFilePath
-		{
-			get { return this._PassFilePath; }
-			set { this._PassFilePath = value; }
-		}
 
 		private bool _fCheckPassFileDecrypt;          // 復号時にパスワードファイルを自動チェックする
 		//Check password file for Decryption
@@ -811,14 +812,6 @@ namespace AttacheCase
 		{
 			get { return this._fCheckPassFileDecrypt; }
 			set { this._fCheckPassFileDecrypt = value; }
-		}
-
-		private string _TempDecryptionPassFilePath;    // 暗号時の一時パスワードファイルパス（保存されない）
-		//The path of the password file that is dragged and dropped by user
-		public string TempDecryptionPassFilePath
-		{
-			get { return this._TempDecryptionPassFilePath; }
-			set { this._TempDecryptionPassFilePath = value; }
 		}
 
 		private string _PassFilePathDecrypt;          // 復号時のパスワードファイルパス
@@ -829,7 +822,15 @@ namespace AttacheCase
 			set { this._PassFilePathDecrypt = value; }
 		}
 
-		private bool _fNoErrMsgOnPassFile;           // パスワードファイルがない場合エラーを出さない
+    private string _TempDecryptionPassFilePath;    // 暗号時の一時パスワードファイルパス（保存されない）
+                                                   //The path of the password file that is dragged and dropped by user
+    public string TempDecryptionPassFilePath
+    {
+      get { return this._TempDecryptionPassFilePath; }
+      set { this._TempDecryptionPassFilePath = value; }
+    }
+
+    private bool _fNoErrMsgOnPassFile;           // パスワードファイルがない場合エラーを出さない
 		//It's not issued an error message when password file doesn't exists
 		public bool fNoErrMsgOnPassFile
 		{

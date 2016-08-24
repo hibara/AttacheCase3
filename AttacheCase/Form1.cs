@@ -742,12 +742,12 @@ namespace AttacheCase
     }
 
     /// <summary>
-    /// パスワードファイルとして、ファイルからSHA-1ハッシュを取得して文字列にする
+    /// パスワードファイルとして、ファイルからSHA-1ハッシュを取得してバイト列にする
     /// Get a string of the SHA-1 hash from a file such as the password file
     /// </summary>
     /// <param name="FilePath"></param>
     /// <returns></returns>
-    private byte[] GetPasswordHash2(string FilePath)
+    private byte[] GetPasswordFileHash2(string FilePath)
     {
       byte[] buffer = new byte[255];
       byte[] result = new byte[32];
@@ -784,12 +784,12 @@ namespace AttacheCase
     }
 
     /// <summary>
-    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得して文字列にする
+    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得してバイト列にする
     /// Get a string of the SHA-256 hash from a file such as the password file
     /// </summary>
     /// <param name="FilePath"></param>
     /// <returns></returns>
-    private byte[] GetPasswordHash3(string FilePath)
+    private byte[] GetPasswordFileHash3(string FilePath)
     {
       byte[] buffer = new byte[255];
       byte[] result = new byte[32];
@@ -1658,6 +1658,15 @@ namespace AttacheCase
           pictureBoxDec.Image = pictureBoxDecOff.Image;
         }
 
+        // TextBoxes
+        textBoxPassword.Text = "";
+        textBoxRePassword.Text = "";
+        textBoxDecryptPassword.Text = "";
+
+        // Password files
+        AppSettings.Instance.TempEncryptionPassFilePath = "";
+        AppSettings.Instance.TempDecryptionPassFilePath = "";
+
       }
     }
      
@@ -2067,11 +2076,12 @@ namespace AttacheCase
 
       if ( File.Exists(FilePaths[0]) == true)
       {
-        textBoxPassword.Text = AppSettings.Instance.GetSha256HashFromFile(FilePaths[0]);
+        AppSettings.Instance.TempEncryptionPassFilePath = FilePaths[0];
+        textBoxPassword.Text = AppSettings.BytesToHexString(GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath));
         textBoxRePassword.Text = textBoxPassword.Text;
         panelStartPage.Visible = false;
         panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = true;
+        panelEncryptConfirm.Visible = true;      // EncryptConfirm
         panelDecrypt.Visible = false;
         panelProgressState.Visible = false;
       }
@@ -2299,7 +2309,7 @@ namespace AttacheCase
       // Encrypted files camouflage with extension
       //-----------------------------------
       string Extension = "";
-      if (AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_ATC)
+      if (AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_ATC || AppSettings.Instance.EncryptionFileType == PRCESS_TYPE_NONE)
       {
         Extension = AppSettings.Instance.fAddCamoExt == true ? AppSettings.Instance.CamoExt : ".atc";
       }
@@ -2335,11 +2345,11 @@ namespace AttacheCase
       if (AppSettings.Instance.fAllowPassFile == true && AppSettings.Instance.EncryptionFileType != FILE_TYPE_PASSWORD_ZIP)  // ATC(EXE) only
       {
         // Check specified password file for Decryption
-        if (AppSettings.Instance.fCheckPassFileDecrypt == true)
+        if (AppSettings.Instance.fCheckPassFile == true)
         {
-          if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
+          if (File.Exists(AppSettings.Instance.PassFilePath) == true)
           {
-            EncryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePath);
+            EncryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePath);
           }
           else
           {
@@ -2359,9 +2369,9 @@ namespace AttacheCase
         }
 
         // Drag & Drop Password file
-        if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
+        if (File.Exists(AppSettings.Instance.TempEncryptionPassFilePath) == true)
         {
-          EncryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+          EncryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath);
         }
       }
 
@@ -2982,6 +2992,7 @@ namespace AttacheCase
       textBoxPassword.Text = "";
       textBoxRePassword.Text = "";
       checkBoxNotMaskEncryptedPassword.Checked = false;
+      AppSettings.Instance.TempEncryptionPassFilePath = "";
       //
       //スタートウィンドウへ戻る
       panelStartPage.Visible = true;
@@ -3053,7 +3064,9 @@ namespace AttacheCase
 
       if (File.Exists(FilePaths[0]) == true)
       {
-        textBoxDecryptPassword.Text = AppSettings.Instance.GetSha256HashFromFile(FilePaths[0]);
+        AppSettings.Instance.TempDecryptionPassFilePath = FilePaths[0];
+        AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+        textBoxDecryptPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyDecryptPasswordBinary);
       }
       else
       {
@@ -3099,6 +3112,7 @@ namespace AttacheCase
     //======================================================================
     private void buttonDecryptStart_Click(object sender, EventArgs e)
     {
+
       // Not mask password character
       AppSettings.Instance.fNotMaskPassword = checkBoxNotMaskDecryptedPassword.Checked ? true : false;
         
@@ -3127,61 +3141,6 @@ namespace AttacheCase
       else
       {
         DecryptionPassword = textBoxDecryptPassword.Text;
-      }
-
-      //-----------------------------------
-      // Password file
-      //-----------------------------------
-
-      // ※パスワードファイルは、記憶パスワードよりも優先される。
-      // * This password files is priority than memorized encryption password.
-
-      byte[] DecryptionPasswordBinary = null;
-      if (AppSettings.Instance.fAllowPassFile == true)
-      {
-        // Check specified password file for Decryption
-        if (AppSettings.Instance.fCheckPassFileDecrypt == true )
-        {
-          if ( File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
-          {
-            if(decryption3.DataFileVersion < 130)
-            {
-              DecryptionPasswordBinary = GetPasswordHash2(AppSettings.Instance.PassFilePathDecrypt);
-            }
-            else
-            {
-              DecryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePathDecrypt);
-            }
-          }
-          else
-          {
-            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
-            {
-              // エラー
-              // 復号時の指定されたパスワードファイルが見つかりません。
-              //
-              // Error
-              // The specified password file is not found in decryption.
-              DialogResult ret = MessageBox.Show(
-                Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
-                Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            return;
-          }
-        }
-
-        // Drag & Drop Password file
-        if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
-        {
-          if (decryption3.DataFileVersion < 130)
-          {
-            DecryptionPasswordBinary = GetPasswordHash2(AppSettings.Instance.PassFilePathDecrypt);
-          }
-          else
-          {
-            DecryptionPasswordBinary = GetPasswordHash3(AppSettings.Instance.PassFilePathDecrypt);
-          }
-        }
       }
         
       //-----------------------------------
@@ -3243,6 +3202,7 @@ namespace AttacheCase
         labelProgressMessageText.Text = Resources.labelGettingReadyForDecryption;
 
         NumberOfFiles++;
+
         decryption3 = new FileDecrypt3(AtcFilePath);
 
         if (decryption3.TokenStr == "_AttacheCaseData")
@@ -3272,6 +3232,61 @@ namespace AttacheCase
           return;
         }
 
+        //-----------------------------------
+        // Password file
+        //-----------------------------------
+
+        // ※パスワードファイルは、記憶パスワードよりも優先される。
+        // * This password files is priority than memorized encryption password.
+
+        byte[] DecryptionPasswordBinary = null;
+        if (AppSettings.Instance.fAllowPassFile == true)
+        {
+          // Check specified password file for Decryption
+          if (AppSettings.Instance.fCheckPassFileDecrypt == true)
+          {
+            if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
+            {
+              if (decryption3.DataFileVersion < 130)
+              {
+                DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.PassFilePathDecrypt);
+              }
+              else
+              {
+                DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePathDecrypt);
+              }
+            }
+            else
+            {
+              if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+              {
+                // エラー
+                // 復号時の指定されたパスワードファイルが見つかりません。
+                //
+                // Error
+                // The specified password file is not found in decryption.
+                DialogResult ret = MessageBox.Show(
+                  Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
+                  Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              }
+              return;
+            }
+          }
+
+          // Drag & Drop Password file
+          if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
+          {
+            if (decryption3.DataFileVersion < 130)
+            {
+              DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.TempDecryptionPassFilePath);
+            }
+            else
+            {
+              DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+            }
+          }
+        }
+        
         // BackgroundWorker event handler
         bkg = new BackgroundWorker();
         bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
@@ -3284,7 +3299,7 @@ namespace AttacheCase
         if (decryption3.DataFileVersion < 130)
         {
           decryption2 = new FileDecrypt2(AtcFilePath);
-          decryption3 = null;
+          decryption3 = null; // ver.3 is null
           decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
           decryption2.NumberOfFiles = NumberOfFiles;
           decryption2.TotalNumberOfFiles = TotalNumberOfFiles;
@@ -3375,6 +3390,7 @@ namespace AttacheCase
       panelProgressState.Visible = false;
       panelStartPage.Visible = true;
       textBoxDecryptPassword.Text = "";
+      AppSettings.Instance.TempDecryptionPassFilePath = "";
     }
 
     private void pictureBoxDecryptBackButton_MouseEnter(object sender, EventArgs e)
