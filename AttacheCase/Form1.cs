@@ -1047,7 +1047,6 @@ namespace AttacheCase
 
         FileDecrypt3ReturnVal result = (FileDecrypt3ReturnVal)e.Result;
 
-
         switch (result.ReturnCode)
         {
           case DECRYPT_SUCCEEDED:
@@ -1274,6 +1273,7 @@ namespace AttacheCase
               panelProgressState.Visible = false;
               textBoxDecryptPassword.Focus();
               textBoxDecryptPassword.SelectAll();
+              return;
             }
             else
             {
@@ -1294,7 +1294,7 @@ namespace AttacheCase
               panelStartPage.Visible = true;
               panelEncrypt.Visible = false;
               panelEncryptConfirm.Visible = false;
-              panelDecrypt.Visible = true;
+              panelDecrypt.Visible = false;
               panelProgressState.Visible = false;
               textBoxDecryptPassword.Focus();
               textBoxDecryptPassword.SelectAll();
