@@ -121,6 +121,12 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripStatusLabelDataVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 18</value>
+  </data>
+  <data name="toolStripStatusLabelDataVersion.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 439</value>
   </data>
@@ -146,82 +152,9 @@
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="toolStripStatusLabelDataVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 18</value>
-  </data>
-  <data name="toolStripStatusLabelDataVersion.Text" xml:space="preserve">
-    <value>-</value>
-  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>141, 17</value>
   </metadata>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 26</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="ToolStripMenuItemFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 22</value>
-  </data>
-  <data name="ToolStripMenuItemFile.Text" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="ToolStripMenuItemEncrypt.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
-        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
-        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
-        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
-        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
-        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
-        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
-        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
-        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
-        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
-        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRTAxNTkwQzkw
-        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRTAxNTkwQjkw
-        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
-        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY1
-        NjlEMjVDQTU5MEU0MTFBRTRBQzI3QjM4N0E2NTEwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
-        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
-        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+JoSN4gAAAhBJREFUOE+Fkk2oYWEYx8+G
-        LEZJFlYsjOVY2N2UxSzYzVI+UrcojY26srK6SqO7Go3ULFBTU2rIhm6EBUm32KgRElEWilJKvuqZ53lu
-        czIxM//6dZ6v/3ve855XOB6PN0F9QJ6RLQLIC3J/NXc+n69AfTGZTFAqlWCz2QDWoN1ug8PhoIW+IXfi
-        7Ol0+gPUZ6/XC/v9HjC/IpPJ8CIYv84fDgcR1DudTgfb7RYwh+FwCD6fD1wuF9Trda4RdrudFvGwZ7fb
-        iaCS8XgcMIbFYgEqlYoGQ4hbKpVCq9XiHj2x1mEPvk0EVSsWi7yDVCpFQ98veqFAIMC99XpNvQPX8ZBE
-        UM+5XI4PrlAo0FDlovcUiUS4N5/PqYch1lerlQjqwe/3A8aMzWajwZ9Ix2g0wmw243o6nab6D/Ysl0sR
-        1KPVagWMRZrNJlQqFTGfTCag0WhogfeYCwIeFoNyqtVq6PV6fIC3oJ7ZbCbzE+avPvweMr+VSCSQz+f5
-        +4hGowFOpxOi0SjEYjFwu92gUCjI/Eie3wjT6ZQWSIbDYcBYhH6VXq8nQxL5inxElDR/CemTxWKB8XjM
-        JBIJ6HQ6HNdqNaCd4YwUc+EWglKphG63C6PRiAkGg6DVaqFcLoPBYCDzA9aFv8E78Hg8fF2r1Spks1mQ
-        yWRkHCCBwWAg/AvSG4Sua4iurlwuJ7O73+8L/6cv/AJWA2U5nyIoyQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="ToolStripMenuItemEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="ToolStripMenuItemEncrypt.Text" xml:space="preserve">
-    <value>&amp;Encrypt</value>
-  </data>
   <data name="ToolStripMenuItemEncryptSelectFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -294,6 +227,43 @@
   </data>
   <data name="ToolStripMenuItemEncryptSelectFolder.Text" xml:space="preserve">
     <value>Select Folder...</value>
+  </data>
+  <data name="ToolStripMenuItemEncrypt.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
+        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
+        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
+        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
+        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
+        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRTAxNTkwQzkw
+        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRTAxNTkwQjkw
+        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY1
+        NjlEMjVDQTU5MEU0MTFBRTRBQzI3QjM4N0E2NTEwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
+        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+JoSN4gAAAhBJREFUOE+Fkk2oYWEYx8+G
+        LEZJFlYsjOVY2N2UxSzYzVI+UrcojY26srK6SqO7Go3ULFBTU2rIhm6EBUm32KgRElEWilJKvuqZ53lu
+        czIxM//6dZ6v/3ve855XOB6PN0F9QJ6RLQLIC3J/NXc+n69AfTGZTFAqlWCz2QDWoN1ug8PhoIW+IXfi
+        7Ol0+gPUZ6/XC/v9HjC/IpPJ8CIYv84fDgcR1DudTgfb7RYwh+FwCD6fD1wuF9Trda4RdrudFvGwZ7fb
+        iaCS8XgcMIbFYgEqlYoGQ4hbKpVCq9XiHj2x1mEPvk0EVSsWi7yDVCpFQ98veqFAIMC99XpNvQPX8ZBE
+        UM+5XI4PrlAo0FDlovcUiUS4N5/PqYch1lerlQjqwe/3A8aMzWajwZ9Ix2g0wmw243o6nab6D/Ysl0sR
+        1KPVagWMRZrNJlQqFTGfTCag0WhogfeYCwIeFoNyqtVq6PV6fIC3oJ7ZbCbzE+avPvweMr+VSCSQz+f5
+        +4hGowFOpxOi0SjEYjFwu92gUCjI/Eie3wjT6ZQWSIbDYcBYhH6VXq8nQxL5inxElDR/CemTxWKB8XjM
+        JBIJ6HQ6HNdqNaCd4YwUc+EWglKphG63C6PRiAkGg6DVaqFcLoPBYCDzA9aFv8E78Hg8fF2r1Spks1mQ
+        yWRkHCCBwWAg/AvSG4Sua4iurlwuJ7O73+8L/6cv/AJWA2U5nyIoyQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ToolStripMenuItemEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="ToolStripMenuItemEncrypt.Text" xml:space="preserve">
+    <value>&amp;Encrypt</value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -370,11 +340,11 @@
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
-  <data name="ToolStripMenuItemOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 22</value>
+  <data name="ToolStripMenuItemFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 22</value>
   </data>
-  <data name="ToolStripMenuItemOption.Text" xml:space="preserve">
-    <value>&amp;Option</value>
+  <data name="ToolStripMenuItemFile.Text" xml:space="preserve">
+    <value>&amp;File</value>
   </data>
   <data name="ToolStripMenuItemSetting.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -414,11 +384,11 @@
   <data name="ToolStripMenuItemSetting.Text" xml:space="preserve">
     <value>Se&amp;tting</value>
   </data>
-  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 22</value>
+  <data name="ToolStripMenuItemOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 22</value>
   </data>
-  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
-    <value>&amp;Help</value>
+  <data name="ToolStripMenuItemOption.Text" xml:space="preserve">
+    <value>&amp;Option</value>
   </data>
   <data name="ToolStripMenuItemHelpContents.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -472,6 +442,36 @@
   </data>
   <data name="ToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>&amp;About...</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 22</value>
+  </data>
+  <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 26</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>263, 17</value>
@@ -529,15 +529,15 @@
   <data name="toolStripButtonDecryptSelectAtcFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG+SURBVDhPlZLPSwJBFMfH1nUn67yQWQn9DSJiSccIIiII
-        0msJXiSDkA5ChxBCAivo6M2LN2+dDDxKf0DiRcQEL8vWbrskLa95o/1YJ4QefNiZed/3ndk3Q/4K2eO5
-        VCTJWgoE9NVQ6JV6vfYcpfcspY4UU2LW5yszA6dcLkO324XBYAD1eh22NjfBL8vPTDLVRGU7v9dqNTBN
-        E6rVKpRKJej1etBqtSASDgMzvxhrxcCjRyMRGA6HUCwWUewoXu9rOp3mayfZLPgpfRrLxZAIOY+vrQGa
-        4BfnM4TsrwSDL/1+H25vboD1Q2fSwKhiFCoKGdtjcPwFzveWFxdf8DcqlQr4fb43ZJ7SB6wlc4pS24jH
-        IbiwoE8De9Jut6HRaHBi0Siwfl2ReUV5TB0dwWSMDkfIeCoEbkpl+e7bwHEcF3h9udNTOMvl+Nid/xAN
-        sMu/SR0e8iYix5mMkBcMLNvm2LbFsGF3Z+fbIHlwwNd4zrKYzhINDMNw0Ww2eaNQiI9oMi8Y6LruAkX5
-        fJ5jmIaQFww0TXOBIiwuFAp8PJn/MWAPIplIQKfT+RfrsRhQSbrGq1aZk/bX45kG1hBC1E/W5AGevAL7
-        rgAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG8SURBVDhPlZJBSwJBFMfHdtedsvOCWQl9BxHRpGMEIREE
+        2jUDL1GBSAehQwghgRl09ObFm7dOBh6lD5B4ETHBi2yt7ZK0vOaNZq0TQg9+7My8//vP7Jshf4Xicl2r
+        kmSuer36ht//RmXZ8lD6wFLaWDEnFt3uEjOwS6USdDod6Pf7UKvVYGd7G5Zk+YVJ5ppobOeParUKw+EQ
+        KpUKFAoF6Ha70Gw2IRgIADO/mmjFwKOHgkEYjUaQz+dRbKuy/JZKpfja+dkZLFL6PJGLIRFyGY1EAE3w
+        i/MFQg7Wfb7XXq8Hd8UisH7oTLoyrhiHhkLG7gQcf4Pz/TVmgL9RLpdhye1+R5YpfcRa4lHV6lY0Cj7W
+        8XlgT1qtFtTrdU44FALWrxuyrKpPx8kkzMb4cIRMpkLgplRR7qcGtm07wOvLpNNwkcnwsTP/KRpgl39z
+        fHTEm4icnpwIecHAtCyOZZkMC/ZisanBYTzO13jONJnOFA0Mw3DQaDR4o1CIj2g2Lxjouu4ARdlslmMM
+        DSEvGAwGAwcowuJcLsfHs/kfA/YgDhMJaLfb/2IzHAYqSbd41ZqqKIO/Hs88sIYQon0BlBsBexl//fgA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripButtonDecryptSelectAtcFiles.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -625,375 +625,6 @@
   </data>
   <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>panelOuter</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 51</value>
-  </data>
-  <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 388</value>
-  </data>
-  <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Name" xml:space="preserve">
-    <value>panelOuter</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Name" xml:space="preserve">
-    <value>tabPageStartPage</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Name" xml:space="preserve">
-    <value>tabPageEncrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Name" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Name" xml:space="preserve">
-    <value>tabPageDecrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Name" xml:space="preserve">
-    <value>tabPageProgressState</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 388</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>panelOuter</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Name" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Parent" xml:space="preserve">
-    <value>tabPageStartPage</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageStartPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageStartPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="tabPageStartPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageStartPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
-  </data>
-  <data name="tabPageStartPage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabPageStartPage.Text" xml:space="preserve">
-    <value>StartPage</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Name" xml:space="preserve">
-    <value>tabPageStartPage</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageStartPage.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOff.Name" xml:space="preserve">
-    <value>pictureBoxBackButtonOff</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOff.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOff.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOn.Name" xml:space="preserve">
-    <value>pictureBoxBackButtonOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxBackButtonOn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxHamburgerMenu.Name" xml:space="preserve">
-    <value>pictureBoxHamburgerMenu</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxHamburgerMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxHamburgerMenu.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxHamburgerMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonExit.Name" xml:space="preserve">
-    <value>buttonExit</value>
-  </data>
-  <data name="&gt;&gt;buttonExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonExit.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDeleteOn.Name" xml:space="preserve">
-    <value>pictureBoxDeleteOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDeleteOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDeleteOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDeleteOn.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOff.Name" xml:space="preserve">
-    <value>pictureBoxDecOff</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOff.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOff.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOn.Name" xml:space="preserve">
-    <value>pictureBoxDecOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecOn.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOff.Name" xml:space="preserve">
-    <value>pictureBoxZipOff</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOff.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOff.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOn.Name" xml:space="preserve">
-    <value>pictureBoxZipOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZipOn.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOff.Name" xml:space="preserve">
-    <value>pictureBoxExeOff</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOff.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOff.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOn.Name" xml:space="preserve">
-    <value>pictureBoxExeOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExeOn.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOff.Name" xml:space="preserve">
-    <value>pictureBoxAtcOff</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOff.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOff.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOn.Name" xml:space="preserve">
-    <value>pictureBoxAtcOn</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOn.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtcOn.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;labelDragAndDrop.Name" xml:space="preserve">
-    <value>labelDragAndDrop</value>
-  </data>
-  <data name="&gt;&gt;labelDragAndDrop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelDragAndDrop.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;labelDragAndDrop.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="panelStartPage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelStartPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelStartPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 356</value>
-  </data>
-  <data name="panelStartPage.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Name" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.Parent" xml:space="preserve">
-    <value>tabPageStartPage</value>
-  </data>
-  <data name="&gt;&gt;panelStartPage.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="pictureBoxBackButtonOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1219,126 +850,6 @@
   <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;labelDec.Name" xml:space="preserve">
-    <value>labelDec</value>
-  </data>
-  <data name="&gt;&gt;labelDec.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelDec.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;labelDec.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;labelZip.Name" xml:space="preserve">
-    <value>labelZip</value>
-  </data>
-  <data name="&gt;&gt;labelZip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelZip.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;labelZip.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;labelExe.Name" xml:space="preserve">
-    <value>labelExe</value>
-  </data>
-  <data name="&gt;&gt;labelExe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelExe.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;labelExe.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;labelAtc.Name" xml:space="preserve">
-    <value>labelAtc</value>
-  </data>
-  <data name="&gt;&gt;labelAtc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelAtc.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;labelAtc.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDec.Name" xml:space="preserve">
-    <value>pictureBoxDec</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDec.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDec.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDec.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZip.Name" xml:space="preserve">
-    <value>pictureBoxZip</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZip.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxZip.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExe.Name" xml:space="preserve">
-    <value>pictureBoxExe</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExe.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExe.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExe.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtc.Name" xml:space="preserve">
-    <value>pictureBoxAtc</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtc.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxAtc.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 354</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="labelDec.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1462,9 +973,6 @@ ATC</value>
   <data name="&gt;&gt;labelAtc.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>373, 17</value>
-  </metadata>
   <data name="pictureBoxDec.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1522,6 +1030,9 @@ ATC</value>
   <data name="pictureBoxDec.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>373, 17</value>
+  </metadata>
   <data name="pictureBoxDec.ToolTip" xml:space="preserve">
     <value>Decrypt</value>
   </data>
@@ -1780,6 +1291,30 @@ ATC</value>
   </data>
   <data name="&gt;&gt;pictureBoxAtc.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 354</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="pictureBoxDeleteOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2510,163 +2045,58 @@ in this area for encryption or decryption.</value>
   <data name="&gt;&gt;labelDragAndDrop.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;panelEncrypt.Name" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.Parent" xml:space="preserve">
-    <value>tabPageEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageEncrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
-  </data>
-  <data name="tabPageEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPageEncrypt.Text" xml:space="preserve">
-    <value>tabPageEncrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Name" xml:space="preserve">
-    <value>tabPageEncrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncrypt.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Name" xml:space="preserve">
-    <value>buttonEncryptionPasswordOk</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Name" xml:space="preserve">
-    <value>buttonEncryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Name" xml:space="preserve">
-    <value>labelPassword</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
-    <value>textBoxPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panelEncrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="panelStartPage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="panelStartPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="panelEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panelStartPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>530, 356</value>
   </data>
-  <data name="panelEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="panelStartPage.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;panelEncrypt.Name" xml:space="preserve">
-    <value>panelEncrypt</value>
+  <data name="&gt;&gt;panelStartPage.Name" xml:space="preserve">
+    <value>panelStartPage</value>
   </data>
-  <data name="&gt;&gt;panelEncrypt.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelStartPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelEncrypt.Parent" xml:space="preserve">
-    <value>tabPageEncrypt</value>
+  <data name="&gt;&gt;panelStartPage.Parent" xml:space="preserve">
+    <value>tabPageStartPage</value>
   </data>
-  <data name="&gt;&gt;panelEncrypt.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelStartPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageStartPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageStartPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabPageStartPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 362</value>
+  </data>
+  <data name="tabPageStartPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageStartPage.Text" xml:space="preserve">
+    <value>StartPage</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Name" xml:space="preserve">
+    <value>tabPageStartPage</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="pictureBoxEncryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -2771,54 +2201,6 @@ in this area for encryption or decryption.</value>
   <data name="&gt;&gt;buttonEncryptionPasswordOk.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;labelEncryption.Name" xml:space="preserve">
-    <value>labelEncryption</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Name" xml:space="preserve">
-    <value>pictureBoxEncryption</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="labelEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
@@ -2879,6 +2261,30 @@ ATC</value>
   </data>
   <data name="&gt;&gt;pictureBoxEncryption.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="checkBoxDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -3042,200 +2448,56 @@ ATC</value>
   <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Name" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Parent" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageEncryptConfirm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
-  </data>
-  <data name="tabPageEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="tabPageEncryptConfirm.Text" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Name" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageEncryptConfirm.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptConfirmBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Name" xml:space="preserve">
-    <value>pictureBoxCheckPasswordValidation</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Name" xml:space="preserve">
-    <value>buttonEncryptionConfirmCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Name" xml:space="preserve">
-    <value>buttonEncryptStart</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxInValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxReDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxReNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
-    <value>textBoxRePassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="panelEncryptConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="panelEncrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="panelEncrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panelEncrypt.Size" type="System.Drawing.Size, System.Drawing">
     <value>530, 356</value>
   </data>
-  <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
+  <data name="panelEncrypt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Name" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
+  <data name="&gt;&gt;panelEncrypt.Name" xml:space="preserve">
+    <value>panelEncrypt</value>
   </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEncrypt.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Parent" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
+  <data name="&gt;&gt;panelEncrypt.Parent" xml:space="preserve">
+    <value>tabPageEncrypt</value>
   </data>
-  <data name="&gt;&gt;panelEncryptConfirm.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelEncrypt.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabPageEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageEncrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 362</value>
+  </data>
+  <data name="tabPageEncrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabPageEncrypt.Text" xml:space="preserve">
+    <value>tabPageEncrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncrypt.Name" xml:space="preserve">
+    <value>tabPageEncrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncrypt.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncrypt.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -3368,54 +2630,6 @@ ATC</value>
   <data name="&gt;&gt;pictureBoxCheckPasswordValidation.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Name" xml:space="preserve">
-    <value>labelEncryptionConfirm</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Name" xml:space="preserve">
-    <value>pictureBoxEncryptionConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="labelEncryptionConfirm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
@@ -3476,6 +2690,30 @@ ATC</value>
   </data>
   <data name="&gt;&gt;pictureBoxEncryptionConfirm.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -3813,164 +3051,56 @@ ATC</value>
   <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;panelDecrypt.Name" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panelDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelDecrypt.Parent" xml:space="preserve">
-    <value>tabPageDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panelDecrypt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageDecrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
-  </data>
-  <data name="tabPageDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageDecrypt.Text" xml:space="preserve">
-    <value>tabPageDecrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Name" xml:space="preserve">
-    <value>tabPageDecrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageDecrypt.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Name" xml:space="preserve">
-    <value>pictureBoxDecryptBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Name" xml:space="preserve">
-    <value>checkBoxDeleteAtcFileAfterDecryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskDecryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Name" xml:space="preserve">
-    <value>buttonDecryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Name" xml:space="preserve">
-    <value>buttonDecryptStart</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Name" xml:space="preserve">
-    <value>textBoxDecryptPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panelDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="panelEncryptConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="panelEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
     <value>530, 356</value>
   </data>
-  <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
+  <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelDecrypt.Name" xml:space="preserve">
-    <value>panelDecrypt</value>
+  <data name="&gt;&gt;panelEncryptConfirm.Name" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
   </data>
-  <data name="&gt;&gt;panelDecrypt.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelEncryptConfirm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelDecrypt.Parent" xml:space="preserve">
-    <value>tabPageDecrypt</value>
+  <data name="&gt;&gt;panelEncryptConfirm.Parent" xml:space="preserve">
+    <value>tabPageEncryptConfirm</value>
   </data>
-  <data name="&gt;&gt;panelDecrypt.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelEncryptConfirm.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabPageEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageEncryptConfirm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 362</value>
+  </data>
+  <data name="tabPageEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPageEncryptConfirm.Text" xml:space="preserve">
+    <value>tabPageEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncryptConfirm.Name" xml:space="preserve">
+    <value>tabPageEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncryptConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncryptConfirm.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageEncryptConfirm.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="pictureBoxDecryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4043,54 +3173,6 @@ ATC</value>
   </data>
   <data name="&gt;&gt;pictureBoxDecryptBackButton.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Name" xml:space="preserve">
-    <value>pictureBoxDecryption</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Name" xml:space="preserve">
-    <value>labelDecryption</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="pictureBoxDecryption.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4188,6 +3270,30 @@ ATC</value>
     <value>panel4</value>
   </data>
   <data name="&gt;&gt;labelDecryption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -4388,152 +3494,56 @@ ATC</value>
   <data name="&gt;&gt;textBoxDecryptPassword.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;panelProgressState.Name" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;panelProgressState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelProgressState.Parent" xml:space="preserve">
-    <value>tabPageProgressState</value>
-  </data>
-  <data name="&gt;&gt;panelProgressState.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageProgressState.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageProgressState.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
-  </data>
-  <data name="tabPageProgressState.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tabPageProgressState.Text" xml:space="preserve">
-    <value>tabPageProgressState</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Name" xml:space="preserve">
-    <value>tabPageProgressState</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageProgressState.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgressStateBackButton.Name" xml:space="preserve">
-    <value>pictureBoxProgressStateBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgressStateBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgressStateBackButton.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgressStateBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;labelCryptionType.Name" xml:space="preserve">
-    <value>labelCryptionType</value>
-  </data>
-  <data name="&gt;&gt;labelCryptionType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCryptionType.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;labelCryptionType.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;labelProgressPercentText.Name" xml:space="preserve">
-    <value>labelProgressPercentText</value>
-  </data>
-  <data name="&gt;&gt;labelProgressPercentText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProgressPercentText.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;labelProgressPercentText.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;labelProgressMessageText.Name" xml:space="preserve">
-    <value>labelProgressMessageText</value>
-  </data>
-  <data name="&gt;&gt;labelProgressMessageText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProgressMessageText.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;labelProgressMessageText.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
-    <value>progressBar</value>
-  </data>
-  <data name="&gt;&gt;progressBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ProgressBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;progressBar.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="panelProgressState.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="panelDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panelProgressState.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="panelDecrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="panelProgressState.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
     <value>530, 356</value>
   </data>
-  <data name="panelProgressState.TabIndex" type="System.Int32, mscorlib">
+  <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelProgressState.Name" xml:space="preserve">
-    <value>panelProgressState</value>
+  <data name="&gt;&gt;panelDecrypt.Name" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="&gt;&gt;panelProgressState.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelDecrypt.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelProgressState.Parent" xml:space="preserve">
-    <value>tabPageProgressState</value>
+  <data name="&gt;&gt;panelDecrypt.Parent" xml:space="preserve">
+    <value>tabPageDecrypt</value>
   </data>
-  <data name="&gt;&gt;panelProgressState.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelDecrypt.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="tabPageDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageDecrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 362</value>
+  </data>
+  <data name="tabPageDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPageDecrypt.Text" xml:space="preserve">
+    <value>tabPageDecrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageDecrypt.Name" xml:space="preserve">
+    <value>tabPageDecrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageDecrypt.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageDecrypt.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4607,54 +3617,6 @@ ATC</value>
   <data name="&gt;&gt;pictureBoxProgressStateBackButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;labelProgress.Name" xml:space="preserve">
-    <value>labelProgress</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.Parent" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;labelProgress.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgress.Name" xml:space="preserve">
-    <value>pictureBoxProgress</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgress.Parent" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxProgress.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
-    <value>panelProgressState</value>
-  </data>
-  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labelProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
@@ -4714,6 +3676,30 @@ ATC</value>
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;pictureBoxProgress.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>panelProgressState</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="labelCryptionType.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -4869,58 +3855,111 @@ ATC</value>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>373, 17</value>
-  </metadata>
+  <data name="panelProgressState.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelProgressState.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelProgressState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>530, 356</value>
+  </data>
+  <data name="panelProgressState.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelProgressState.Name" xml:space="preserve">
+    <value>panelProgressState</value>
+  </data>
+  <data name="&gt;&gt;panelProgressState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelProgressState.Parent" xml:space="preserve">
+    <value>tabPageProgressState</value>
+  </data>
+  <data name="&gt;&gt;panelProgressState.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageProgressState.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageProgressState.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageProgressState.Size" type="System.Drawing.Size, System.Drawing">
+    <value>536, 362</value>
+  </data>
+  <data name="tabPageProgressState.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabPageProgressState.Text" xml:space="preserve">
+    <value>tabPageProgressState</value>
+  </data>
+  <data name="&gt;&gt;tabPageProgressState.Name" xml:space="preserve">
+    <value>tabPageProgressState</value>
+  </data>
+  <data name="&gt;&gt;tabPageProgressState.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageProgressState.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageProgressState.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 388</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>panelOuter</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 51</value>
+  </data>
+  <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 388</value>
+  </data>
+  <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Name" xml:space="preserve">
+    <value>panelOuter</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>592, 17</value>
   </metadata>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 132</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
-    <value>contextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="encryptToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
-        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
-        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
-        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
-        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
-        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
-        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
-        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
-        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
-        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
-        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRTAxNTkwQzkw
-        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRTAxNTkwQjkw
-        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
-        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY1
-        NjlEMjVDQTU5MEU0MTFBRTRBQzI3QjM4N0E2NTEwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
-        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
-        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+JoSN4gAAAhBJREFUOE+Fkk2oYWEYx8+G
-        LEZJFlYsjOVY2N2UxSzYzVI+UrcojY26srK6SqO7Go3ULFBTU2rIhm6EBUm32KgRElEWilJKvuqZ53lu
-        czIxM//6dZ6v/3ve855XOB6PN0F9QJ6RLQLIC3J/NXc+n69AfTGZTFAqlWCz2QDWoN1ug8PhoIW+IXfi
-        7Ol0+gPUZ6/XC/v9HjC/IpPJ8CIYv84fDgcR1DudTgfb7RYwh+FwCD6fD1wuF9Trda4RdrudFvGwZ7fb
-        iaCS8XgcMIbFYgEqlYoGQ4hbKpVCq9XiHj2x1mEPvk0EVSsWi7yDVCpFQ98veqFAIMC99XpNvQPX8ZBE
-        UM+5XI4PrlAo0FDlovcUiUS4N5/PqYch1lerlQjqwe/3A8aMzWajwZ9Ix2g0wmw243o6nab6D/Ysl0sR
-        1KPVagWMRZrNJlQqFTGfTCag0WhogfeYCwIeFoNyqtVq6PV6fIC3oJ7ZbCbzE+avPvweMr+VSCSQz+f5
-        +4hGowFOpxOi0SjEYjFwu92gUCjI/Eie3wjT6ZQWSIbDYcBYhH6VXq8nQxL5inxElDR/CemTxWKB8XjM
-        JBIJ6HQ6HNdqNaCd4YwUc+EWglKphG63C6PRiAkGg6DVaqFcLoPBYCDzA9aFv8E78Hg8fF2r1Spks1mQ
-        yWRkHCCBwWAg/AvSG4Sua4iurlwuJ7O73+8L/6cv/AJWA2U5nyIoyQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="encryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
-  </data>
-  <data name="encryptToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Encrypt</value>
-  </data>
   <data name="selectFilesToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -4993,6 +4032,43 @@ ATC</value>
   </data>
   <data name="selectFoldersToolStripMenuItem1.Text" xml:space="preserve">
     <value>Select Folders...</value>
+  </data>
+  <data name="encryptToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
+        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
+        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
+        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
+        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
+        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBRTAxNTkwQzkw
+        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBRTAxNTkwQjkw
+        QTUxMUU0OUYzODk0OENFODMwODFGQiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY1
+        NjlEMjVDQTU5MEU0MTFBRTRBQzI3QjM4N0E2NTEwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
+        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+JoSN4gAAAhBJREFUOE+Fkk2oYWEYx8+G
+        LEZJFlYsjOVY2N2UxSzYzVI+UrcojY26srK6SqO7Go3ULFBTU2rIhm6EBUm32KgRElEWilJKvuqZ53lu
+        czIxM//6dZ6v/3ve855XOB6PN0F9QJ6RLQLIC3J/NXc+n69AfTGZTFAqlWCz2QDWoN1ug8PhoIW+IXfi
+        7Ol0+gPUZ6/XC/v9HjC/IpPJ8CIYv84fDgcR1DudTgfb7RYwh+FwCD6fD1wuF9Trda4RdrudFvGwZ7fb
+        iaCS8XgcMIbFYgEqlYoGQ4hbKpVCq9XiHj2x1mEPvk0EVSsWi7yDVCpFQ98veqFAIMC99XpNvQPX8ZBE
+        UM+5XI4PrlAo0FDlovcUiUS4N5/PqYch1lerlQjqwe/3A8aMzWajwZ9Ix2g0wmw243o6nab6D/Ysl0sR
+        1KPVagWMRZrNJlQqFTGfTCag0WhogfeYCwIeFoNyqtVq6PV6fIC3oJ7ZbCbzE+avPvweMr+VSCSQz+f5
+        +4hGowFOpxOi0SjEYjFwu92gUCjI/Eie3wjT6ZQWSIbDYcBYhH6VXq8nQxL5inxElDR/CemTxWKB8XjM
+        JBIJ6HQ6HNdqNaCd4YwUc+EWglKphG63C6PRiAkGg6DVaqFcLoPBYCDzA9aFv8E78Hg8fF2r1Spks1mQ
+        yWRkHCCBwWAg/AvSG4Sua4iurlwuJ7O73+8L/6cv/AJWA2U5nyIoyQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="encryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 22</value>
+  </data>
+  <data name="encryptToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Encrypt</value>
   </data>
   <data name="decryptToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5148,18 +4224,18 @@ ATC</value>
   <data name="exitToolStripMenuItem1.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 132</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>18, 66</value>
   </metadata>
-  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 166</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
-    <value>contextMenuStrip2</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="ToolStripMenuItemAtcFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -5350,18 +4426,18 @@ ATC</value>
   <data name="ToolStripMenuItemZipPassword.Text" xml:space="preserve">
     <value>Zip password file</value>
   </data>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>207, 166</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
+    <value>contextMenuStrip2</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="contextMenuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>187, 65</value>
   </metadata>
-  <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 286</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
-    <value>contextMenuStrip3</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="selectFilesToEncryptToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -5642,6 +4718,15 @@ ATC</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Text" xml:space="preserve">
     <value>Online help</value>
+  </data>
+  <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 286</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
+    <value>contextMenuStrip3</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>473, 17</value>

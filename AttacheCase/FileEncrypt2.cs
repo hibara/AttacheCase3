@@ -326,17 +326,40 @@ namespace AttacheCase
           // Check the disk space
           //----------------------------------------------------------------------
           string RootDriveLetter = Path.GetPathRoot(OutFilePath).Substring(0, 1);
-					DriveInfo drive = new DriveInfo(RootDriveLetter);
-					// The drive is not available, or not enough free space.
-					if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
-					{
-						e.Result = NO_DISK_SPACE;
-						// not available free space
-						return Tuple.Create(false, NO_DISK_SPACE);
-					}
-					
-					//----------------------------------------------------------------------
-					// Create header data
+
+          if (RootDriveLetter == "\\")
+          {
+            // Network
+          }
+          else
+          {
+            DriveInfo drive = new DriveInfo(RootDriveLetter);
+
+            DriveType driveType = drive.DriveType;
+            switch (driveType)
+            {
+              case DriveType.CDRom:
+              case DriveType.NoRootDirectory:
+              case DriveType.Unknown:
+                break;
+              case DriveType.Fixed:     // Local Drive
+              case DriveType.Network:   // Mapped Drive
+              case DriveType.Ram:       // Ram Drive
+              case DriveType.Removable: // Usually a USB Drive
+
+                // The drive is not available, or not enough free space.
+                if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
+                {
+                  e.Result = NO_DISK_SPACE;
+                  // not available free space
+                  return Tuple.Create(false, NO_DISK_SPACE);
+                }
+                break;
+            }
+          }
+
+          //----------------------------------------------------------------------
+          // Create header data
 
           string[] FileInfoText = (string[])FileInfoList.ToArray(typeof(string));
 			

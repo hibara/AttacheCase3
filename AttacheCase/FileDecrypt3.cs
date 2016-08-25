@@ -119,6 +119,9 @@ namespace AttacheCase
 
     // Atc data size of self executable file
     private Int64 _ExeOutSize = 0;
+    private Int64 _TotalSize = 0;
+    private Int64 _TotalFileSize = 0;
+    private Int64 _StartPos = 0;
 
     //----------------------------------------------------------------------
     // For thie file list after description, open associated with file or folder.
@@ -432,8 +435,6 @@ namespace AttacheCase
       worker.ReportProgress(0, MessageList);
 
       int len = 0;
-      Int64 TotalSize = 0;
-      Int64 TotalFileSize = 0;
       byte[] byteArray;
 
       List<string> FileList = new List<string>();
@@ -456,16 +457,7 @@ namespace AttacheCase
         return(false);
       }
 
-      // Salt
-      Rfc2898DeriveBytes deriveBytes;
-      if (PasswordBinary == null)
-      { // String Password
-        deriveBytes = new Rfc2898DeriveBytes(Password, 8, 1000);
-      }
-      else
-      { // Binary Password
-        deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, _salt, 1000);
-      }
+      Rfc2898DeriveBytes deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
       byte[] key = deriveBytes.GetBytes(32);
       byte[] iv = deriveBytes.GetBytes(32);
       
@@ -563,7 +555,7 @@ namespace AttacheCase
       //----------------------------------------------------------------------
       // Make a list array of the information for each file
       //----------------------------------------------------------------------
-      TotalFileSize = 0;
+      _TotalFileSize = 0;
       string ParentFolder = "";
       FileList.ForEach(delegate (string OutputLine)
       {
@@ -619,7 +611,7 @@ namespace AttacheCase
         }
         else
         {
-          TotalFileSize += fd.FileSize;
+          _TotalFileSize += fd.FileSize;
         }
         //-----------------------------------
         // File attribute
@@ -689,18 +681,41 @@ namespace AttacheCase
 
       });
 
-      //-----------------------------------
-      // Check the disk space of decryption
-      //-----------------------------------
+      //----------------------------------------------------------------------
+      // Check the disk space
+      //----------------------------------------------------------------------
       string RootDriveLetter = Path.GetPathRoot(OutDirPath).Substring(0, 1);
-      DriveInfo drive = new DriveInfo(RootDriveLetter);
-      // The drive is not available, or not enough free space.
-      if (drive.IsReady == false || drive.AvailableFreeSpace < TotalFileSize)
-      {
-        e.Result = new FileDecrypt3ReturnVal(NO_DISK_SPACE, drive.ToString(), TotalFileSize, drive.AvailableFreeSpace);
-        return (false);
-      }
 
+      if (RootDriveLetter == "\\")
+      {
+        // Network
+      }
+      else
+      {
+        DriveInfo drive = new DriveInfo(RootDriveLetter);
+
+        DriveType driveType = drive.DriveType;
+        switch (driveType)
+        {
+          case DriveType.CDRom:
+          case DriveType.NoRootDirectory:
+          case DriveType.Unknown:
+            break;
+          case DriveType.Fixed:     // Local Drive
+          case DriveType.Network:   // Mapped Drive
+          case DriveType.Ram:       // Ram Drive
+          case DriveType.Removable: // Usually a USB Drive
+
+            // The drive is not available, or not enough free space.
+            if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
+            {
+              e.Result = new FileDecrypt3ReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
+              return (false);
+            }
+            break;
+        }
+      }
+                                                                    
       //-----------------------------------
       // Decrypt file main data.
       //-----------------------------------
@@ -934,7 +949,7 @@ namespace AttacheCase
                       {
                         outfs.Write(byteArray, BUFFER_SIZE - len, len);
                         FileSize += len;
-                        TotalSize += len;
+                        _TotalSize += len;
                         len = 0;
                       }
                     }
@@ -946,7 +961,7 @@ namespace AttacheCase
                       //Completed to writing
                       outfs.Write(byteArray, BUFFER_SIZE - len, rest);
 
-                      TotalSize += rest;
+                      _TotalSize += rest;
 
                       len -= rest;
 
@@ -996,7 +1011,7 @@ namespace AttacheCase
                     MessageList = new ArrayList();
                     MessageList.Add(DECRYPTING);
                     MessageList.Add(MessageText);
-                    float percent = ((float)TotalSize / TotalFileSize);
+                    float percent = ((float)_TotalSize / _TotalFileSize);
                     worker.ReportProgress((int)(percent * 10000), MessageList);
 
                     // User cancel

@@ -694,6 +694,7 @@
       this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
       this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
       this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
+      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
       // 
       // tabPageEncryptConfirm
       // 

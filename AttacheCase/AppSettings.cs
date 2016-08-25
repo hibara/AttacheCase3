@@ -1854,7 +1854,6 @@ namespace AttacheCase
 		//----------------------------------------------------------------------
 		public int ParserArguments()
 		{
-
 			int ResultNum;
 
 			int i = -1;
@@ -1873,8 +1872,14 @@ namespace AttacheCase
         // File list processed
         if (cmdOpt.IndexOf("/") == -1){
 					if ( File.Exists(cmdOpt) == true || Directory.Exists(cmdOpt)){
-						//何の種類のファイルか
-						_FileType[CheckFileType(cmdOpt)]++;
+
+            if (Path.IsPathRooted(cmdOpt) == false)
+            {
+              cmdOpt = Path.GetFullPath(cmdOpt);
+            }
+
+            //何の種類のファイルか
+            _FileType[CheckFileType(cmdOpt)]++;
 						_FileList.Add(cmdOpt);
 					}
 					continue;
@@ -1892,13 +1897,10 @@ namespace AttacheCase
 					#region
 					// Password
 					case "/p": // パスワード
-						if (value != "")
-						{
-							// 暗号化、復号の両方にパスワードを入れる
-							_MyEncryptPasswordString = value;
-							_MyDecryptPasswordString = value;
-							i++;
-						}
+						// 暗号化、復号の両方にパスワードを入れる
+						_MyEncryptPasswordString = value;
+						_MyDecryptPasswordString = value;
+						i++;
 						break;
 
 					// Exit AttacheCase after process.
@@ -2127,6 +2129,10 @@ namespace AttacheCase
 					case "/saveto": //常に同じ場所へ暗号化ファイルを保存する
 						if (Directory.Exists(value) == true)
 						{
+              if (Path.IsPathRooted(value) == false)
+              {
+                value = Path.GetFullPath(value);
+              }
 							_SaveToSameFldrPath = value;
 							_fSaveToSameFldr = true;
 							i++;
@@ -2241,16 +2247,24 @@ namespace AttacheCase
 					#region
 					// Save to the same folder in decryption
 					case "/dsaveto": // 常に同じ場所へファイルを復号化する
-						_DecodeToSameFldrPath = value;
-						i++;
-						break;
+            if (Directory.Exists(value) == true)
+            {
+              if (Path.IsPathRooted(value) == false)
+              {
+                value = Path.GetFullPath(value);
+              }
+              _DecodeToSameFldrPath = value;
+              _fDecodeToSameFldr = true;
+              i++;
+            }
+            break;
 
-					// Confirm overwriting when same filename exists
-					//case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
-					//	break;
-						
-					// Create no parent folder in decryption
-					case "/nopfldr": // 復号するときに親フォルダを生成しない
+          // Confirm overwriting when same filename exists
+          //case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
+          //	break;
+
+          // Create no parent folder in decryption
+          case "/nopfldr": // 復号するときに親フォルダを生成しない
 						if ( value == "1")
 						{
 							_fNoParentFldr = true;
@@ -2275,8 +2289,16 @@ namespace AttacheCase
           #region
           // Save to the same folder in ZIP
           case "/zipsaveto": // 常に同じ場所へファイルを復号化する
-            _ZipToSameFldrPath = value;
-            i++;
+            if (Directory.Exists(value) == true)
+            {
+              if (Path.IsPathRooted(value) == false)
+              {
+                value = Path.GetFullPath(value);
+              }
+              _ZipToSameFldrPath = value;
+              _fZipToSameFldr = true;
+              i++;
+            }
             break;
 
           // Confirm overwriting when same filename exists
@@ -2409,18 +2431,34 @@ namespace AttacheCase
 
 					// Password file path for encryption
 					case "/pfile": // 暗号化時のパスワードファイルパス
-						_PassFilePath = value;
-						i++;
-						break;
+            if (Directory.Exists(value) == true)
+            {
+              if (Path.IsPathRooted(value) == false)
+              {
+                value = Path.GetFullPath(value);
+              }
+              _PassFilePath = value;
+              _fAllowPassFile = true;
+              i++;
+            }
+            break;
 
-					// Password file path for decryption
-					case "/dpfile": // 復号時のパスワードファイルパス
-						_PassFilePathDecrypt = value;
-						i++;
-						break;
+          // Password file path for decryption
+          case "/dpfile": // 復号時のパスワードファイルパス
+            if (Directory.Exists(value) == true)
+            {
+              if (Path.IsPathRooted(value) == false)
+              {
+                value = Path.GetFullPath(value);
+              }
+              _PassFilePathDecrypt = value;
+              _fAllowPassFile = true;
+              i++;
+            }
+            break;
 
-					// It's not issued an error message when password file doesn't exists
-					case "/nomsgp": // パスワードファイルがない場合エラーを出さない
+          // It's not issued an error message when password file doesn't exists
+          case "/nomsgp": // パスワードファイルがない場合エラーを出さない
 						if (value == "1")
 						{
 							_fNoErrMsgOnPassFile = true;

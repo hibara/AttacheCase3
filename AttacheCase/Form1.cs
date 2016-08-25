@@ -2103,6 +2103,14 @@ namespace AttacheCase
       textBoxPassword.BackColor = SystemColors.Window;
     }
 
+    private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+    {
+      if (e.KeyCode == Keys.Enter)
+      {
+        buttonEncryptionPasswordOk.PerformClick();
+      }
+    }
+
     private void buttonEncryptionPasswordOk_Click(object sender, EventArgs e)
     {
       //-----------------------------------
@@ -2978,7 +2986,6 @@ namespace AttacheCase
         }
 
       }
-
         
     }//private void buttonEncryptStart_Click(object sender, EventArgs e)
 
