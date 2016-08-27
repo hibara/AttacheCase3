@@ -817,6 +817,42 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Getting updates information is failed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string linkLabelCheckForUpdatesFailed {
+            get {
+                return ResourceManager.GetString("linkLabelCheckForUpdatesFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Checking for update... に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string linkLabelCheckingForUpdates {
+            get {
+                return ResourceManager.GetString("linkLabelCheckingForUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Your version is latest. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string linkLabelLatestVersion {
+            get {
+                return ResourceManager.GetString("linkLabelLatestVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The latest version is released! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string linkLabelLatestVersionReleased {
+            get {
+                return ResourceManager.GetString("linkLabelLatestVersionReleased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   All files(*.*)|*.* に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string OpenDialogFilterAllFiles {

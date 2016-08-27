@@ -388,4 +388,16 @@
 
 相互運用性に関する注意: 値 PkzipWeak と None は PKWARE の zip 仕様 で規定されており、「標準」と見なされます。これらのオプションを使用して生成された zip アーカイブは、Windows エクスプローラーを含む他の多くの zip ツールと相互運用性があります。</value>
   </data>
+  <data name="linkLabelCheckForUpdatesFailed" xml:space="preserve">
+    <value>更新情報の取得に失敗しました。</value>
+  </data>
+  <data name="linkLabelCheckingForUpdates" xml:space="preserve">
+    <value>更新があるかチェックしています...</value>
+  </data>
+  <data name="linkLabelLatestVersion" xml:space="preserve">
+    <value>すでに最新バージョンです。</value>
+  </data>
+  <data name="linkLabelLatestVersionReleased" xml:space="preserve">
+    <value>最新バージョンの更新があります！</value>
+  </data>
 </root>

@@ -367,6 +367,7 @@ namespace Exeout
           case DECRYPT_SUCCEEDED:
 
             labelPercent.Text = "100%";
+            progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.Value = progressBar1.Maximum;
 
             if (CurrentCultureName == "ja")

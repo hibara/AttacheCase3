@@ -390,9 +390,6 @@
   <data name="ToolStripMenuItemOption.Text" xml:space="preserve">
     <value>&amp;Option</value>
   </data>
-  <data name="ToolStripMenuItemHelpContents.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ToolStripMenuItemHelpContents.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -529,15 +526,15 @@
   <data name="toolStripButtonDecryptSelectAtcFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG8SURBVDhPlZJBSwJBFMfHdtedsvOCWQl9BxHRpGMEIREE
-        2jUDL1GBSAehQwghgRl09ObFm7dOBh6lD5B4ETHBi2yt7ZK0vOaNZq0TQg9+7My8//vP7Jshf4Xicl2r
-        kmSuer36ht//RmXZ8lD6wFLaWDEnFt3uEjOwS6USdDod6Pf7UKvVYGd7G5Zk+YVJ5ppobOeParUKw+EQ
-        KpUKFAoF6Ha70Gw2IRgIADO/mmjFwKOHgkEYjUaQz+dRbKuy/JZKpfja+dkZLFL6PJGLIRFyGY1EAE3w
-        i/MFQg7Wfb7XXq8Hd8UisH7oTLoyrhiHhkLG7gQcf4Pz/TVmgL9RLpdhye1+R5YpfcRa4lHV6lY0Cj7W
-        8XlgT1qtFtTrdU44FALWrxuyrKpPx8kkzMb4cIRMpkLgplRR7qcGtm07wOvLpNNwkcnwsTP/KRpgl39z
-        fHTEm4icnpwIecHAtCyOZZkMC/ZisanBYTzO13jONJnOFA0Mw3DQaDR4o1CIj2g2Lxjouu4ARdlslmMM
-        DSEvGAwGAwcowuJcLsfHs/kfA/YgDhMJaLfb/2IzHAYqSbd41ZqqKIO/Hs88sIYQon0BlBsBexl//fgA
-        AAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG7SURBVDhPlZLPSwJBFMendted0vOCmdA/ISKadJQgIoKg
+        uqbgRSoI6SB0CCEkMIOO3rx421snA4/SH5B4ETHBi2yu7ZK0vOaN9mMdEXrwYWfmfd93Zt8MmRfK0tKN
+        KknWmt9vbASDQyrLtpfSR5bSJooFseLxlJmBUy6XodPpQL/fh1qtBtuJBKzK8iuTLDTR2M4fuq7DaDSC
+        arUKxWIRut0uNJtNCIdCwMyvp1ox8OiRcBjG4zEUCgUUO6osD9PpNF87PzuDFUpfpnIxJEKu4rEYoAl+
+        cb5MyMF6IPDW6/XgvlQC1g+DSdcmFZPQUMjYmYLjb3C+H2AG+BuVSgVWPZ53xEfpE9YSr6rqW/E4+FnH
+        F4E9abVaUK/XOdFIBFi/bolPVZ9TySTMxuRwhEynQuCmVFEefgwcx3GB15e9uIDLbJaP3flP0QC7/JfU
+        yQlvInKayQh5wcCybY5tWwwb9nZ3fwyODw/5Gs9ZFtNZooFpmi4ajQZvFArxEc3mBQPDMFygKJfLccyR
+        KeQFg8Fg4AJFWJzP5/l4Nv9rwB7E8dERtNvtf7EZjQKVpDu8ak1VlMG8x7MIrCGEaF8/JwFHNKJzagAA
+        AABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripButtonDecryptSelectAtcFiles.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -800,7 +797,7 @@
 </value>
   </data>
   <data name="pictureBoxHamburgerMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>476, 3</value>
+    <value>474, 3</value>
   </data>
   <data name="pictureBoxHamburgerMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -827,7 +824,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>428, 306</value>
+    <value>426, 304</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 32</value>
@@ -2021,7 +2018,7 @@ ATC</value>
     <value>96, 149</value>
   </data>
   <data name="labelDragAndDrop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>407, 35</value>
+    <value>405, 33</value>
   </data>
   <data name="labelDragAndDrop.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>

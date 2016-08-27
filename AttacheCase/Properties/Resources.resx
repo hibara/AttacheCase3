@@ -390,4 +390,16 @@ It can not be decrypted. The process is aborted.</value>
 
 A note on interoperability: Values of PkzipWeak and None are specified in PKWARE's zip specification, and are considered to be "standard". Zip archives produced using these options will be interoperable with many other zip tools and libraries, including Windows Explorer.</value>
   </data>
+  <data name="linkLabelCheckForUpdatesFailed" xml:space="preserve">
+    <value>Getting updates information is failed.</value>
+  </data>
+  <data name="linkLabelCheckingForUpdates" xml:space="preserve">
+    <value>Checking for update...</value>
+  </data>
+  <data name="linkLabelLatestVersion" xml:space="preserve">
+    <value>Your version is latest.</value>
+  </data>
+  <data name="linkLabelLatestVersionReleased" xml:space="preserve">
+    <value>The latest version is released!</value>
+  </data>
 </root>

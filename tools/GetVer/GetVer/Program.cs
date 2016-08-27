@@ -28,7 +28,7 @@ namespace GetVer
       //バージョン番号
       //Console.WriteLine("FileVersion:{0}", vi.FileVersion);
       //メジャー、マイナー、ビルド、プライベートパート番号
-      Console.WriteLine("{0}{1}{2}{3}", vi.ProductMajorPart, vi.ProductMinorPart, vi.ProductPrivatePart, vi.ProductBuildPart);
+      Console.WriteLine("{0}{1}{2}{3}", vi.ProductMajorPart, vi.ProductMinorPart, vi.ProductBuildPart, vi.ProductPrivatePart);
 
 #if DEBUG
       System.Console.ReadLine();

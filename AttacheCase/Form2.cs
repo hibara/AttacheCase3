@@ -18,11 +18,16 @@
 using System;
 using System.Windows.Forms;
 using System.Reflection;
+using System.Net;
+using AttacheCase.Properties;
 
 namespace AttacheCase
 {
   public partial class Form2 : Form
   {
+
+    WebClient client;
+
     public Form2()
     {
       InitializeComponent();
@@ -37,6 +42,16 @@ namespace AttacheCase
       labelBeta.Left = labelVersion.Left + labelVersion.Width;
       labelBeta.Top = labelVersion.Top;
 
+      linkLabelCheckForUpdates.Left = pictureBoxApplicationIcon.Left;
+
+    }
+
+    private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+    {
+      if (client != null)
+      {
+        client.CancelAsync();
+      }
     }
 
     private void buttonOK_Click(object sender, EventArgs e)
@@ -48,6 +63,65 @@ namespace AttacheCase
     {
       linkLabel1.LinkVisited = true;
       System.Diagnostics.Process.Start(linkLabel1.Text);
+    }
+
+    private void linkLabelCheckForUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+
+      if (pictureBoxProgressCircle.Image == pictureBoxExclamationMark.Image)
+      {
+        System.Diagnostics.Process.Start("https://hibara.org/software/attachecase/");
+        return;
+      }
+
+      pictureBoxProgressCircle.Visible = true;
+      linkLabelCheckForUpdates.Left = pictureBoxProgressCircle.Left + pictureBoxProgressCircle.Width;
+      // "Checking for update..."
+      linkLabelCheckForUpdates.Text = Resources.linkLabelCheckingForUpdates; 
+
+      try
+      {
+
+        using (client = new WebClient())
+        {
+          // Check the update in server.
+          client.DownloadStringCompleted += (s, ev) =>
+          {
+            if (ev.Cancelled)
+            {
+              client.Dispose();
+              return;
+            }
+
+            int current = int.Parse(ev.Result);
+            if (current > AppSettings.Instance.AppVersion)
+            {
+              pictureBoxProgressCircle.Image = pictureBoxExclamationMark.Image;
+              // "The latest version is released!"
+              linkLabelCheckForUpdates.Text = Resources.linkLabelLatestVersionReleased;
+            }
+            else
+            {
+              pictureBoxProgressCircle.Image = pictureBoxCheckMark.Image;
+              // "Your version is latest."
+              linkLabelCheckForUpdates.Text = Resources.linkLabelLatestVersion;
+              linkLabelCheckForUpdates.Enabled = false;
+            }
+
+          };
+
+          Uri url = new Uri("https://hibara.org/software/attachecase/current/");
+          client.DownloadStringAsync(url);
+        }
+      }
+      catch (Exception exp)
+      {
+        // "Getting updates information is failed."
+        linkLabelCheckForUpdates.Text = Resources.linkLabelCheckForUpdatesFailed;
+        linkLabelCheckForUpdates.Enabled = false;
+
+      }
+
     }
 
   }

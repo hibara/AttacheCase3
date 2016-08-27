@@ -303,7 +303,7 @@ namespace AttacheCase
             }
             if ( fToken == true)
             {
-              if ( fs.Length > 20)
+              if ( fs.Position > 20)
               { // Self executabel file
                 _fExecutableType = true;
                 _ExeOutSize = fs.Position - 20;
@@ -328,8 +328,9 @@ namespace AttacheCase
 
             if (fToken == true)
             {
-              if (fs.Length > 20)
+              if (fs.Position > 20)
               { // Self executabel file
+                _fExecutableType = true;
                 _fBroken = true;
                 _ExeOutSize = fs.Position - 20;
               }
@@ -434,7 +435,7 @@ namespace AttacheCase
       MessageList.Add(Path.GetFileName(FilePath));
       worker.ReportProgress(0, MessageList);
 
-      int len = 0;
+      int len = 0, pos = 0;
       byte[] byteArray;
 
       List<string> FileList = new List<string>();
@@ -505,8 +506,9 @@ namespace AttacheCase
                 len = cse.Read(byteArray, 0, _AtcHeaderSize);
                 ms.Write(byteArray, 0, _AtcHeaderSize);
 #if (DEBUG)
-                string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
-                string TempFilePath = Path.Combine(AppDirPath, "decrypt_header.txt");
+                //string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
+                string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                string TempFilePath = Path.Combine(DesktopPath, "decrypt_header.txt");
                 using (StreamWriter sw = new StreamWriter(TempFilePath, false, Encoding.UTF8))
                 {
                   sw.Write(Encoding.UTF8.GetString(byteArray));
@@ -723,8 +725,6 @@ namespace AttacheCase
       {
         using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-
-
           //-----------------------------------
           // Adjust the header data in 32 bytes
           int mod = _AtcHeaderSize % 32;
@@ -940,34 +940,37 @@ namespace AttacheCase
                     }// end if (outfs == null);
 
                     //----------------------------------------------------------------------
-                    //　Write data
+                    //　TODO: Write data
                     //----------------------------------------------------------------------
-                    if (FileSize + len < (Int64)dic[FileIndex].FileSize)
+                    if (FileSize + (len - pos) < (Int64)dic[FileIndex].FileSize)
                     {
-                      //まだまだ書き込める
+                      // まだまだ書き込める
+                      // Still write...
                       if (outfs != null)
                       {
-                        outfs.Write(byteArray, BUFFER_SIZE - len, len);
-                        FileSize += len;
-                        _TotalSize += len;
+                        //outfs.Write(byteArray, BUFFER_SIZE - len, len);
+                        outfs.Write(byteArray, pos, len-pos);
+                        FileSize += (len - pos);
+                        _TotalSize += (len - pos);
                         len = 0;
+                        pos = 0;
                       }
                     }
                     else
                     {
-                      //データの境界を超えて読み込んでいる
-                      //Reading data over the border of data
+                      // データの境界を超えて読み込んでいる
+                      // Reading data over the border of data
                       int rest = (int)((Int64)dic[FileIndex].FileSize - FileSize);
-                      //Completed to writing
-                      outfs.Write(byteArray, BUFFER_SIZE - len, rest);
+
+                      outfs.Write(byteArray, pos, rest);
 
                       _TotalSize += rest;
-
-                      len -= rest;
+                      pos += rest;
 
                       outfs.Close();
                       outfs = null;
 
+                      //----------------------------------------------------------------------
                       // ファイル属性の復元
                       // Restore file attribute.
                       FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
@@ -994,8 +997,8 @@ namespace AttacheCase
                         e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
                         return (true);
                       }
-                    }
 
+                    }
                     //----------------------------------------------------------------------
                     //進捗の表示
                     string MessageText = "";
