@@ -174,7 +174,7 @@ namespace AttacheCase
       // Not mask password character
       checkBoxNotMaskEncryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
       checkBoxNotMaskDecryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
-      
+
       //----------------------------------------------------------------------
       // 内容にかかわらず暗号化か復号かを問い合わせる
       // Ask to encrypt or decrypt regardless of contents.
@@ -223,50 +223,54 @@ namespace AttacheCase
       }
 
       //----------------------------------------------------------------------
-      int FileType = AppSettings.Instance.DetectFileType();
-      if (AppSettings.Instance.FileList.Count() > 0 && FileType == FILE_TYPE_NONE)
+      if (AppSettings.Instance.FileList.Count() > 0)
       {
-        textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-        textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
 
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = false;
-        panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-        panelEncryptConfirm.Visible = true; // Encrypt
-      }
-      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE))
-      {
-        textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+        int FileType = AppSettings.Instance.DetectFileType();
+        if (FileType == FILE_TYPE_NONE)
+        {
+          textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
 
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelProgressState.Visible = false;
-        panelDecrypt.Visible = true;        // Decrypt
-      }
-      else if (AppSettings.Instance.FileList.Count() > 0 && FileType == FILE_TYPE_PASSWORD_ZIP)
-      {
-        textBoxDecryptPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+          panelEncryptConfirm.Visible = true; // Encrypt
+        }
+        else if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
 
-        panelStartPage.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = false;        
-        panelProgressState.Visible = false;
-        panelEncrypt.Visible = true;       // Encrypt(ZIP)
-      }
-      else
-      {
-        panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-        panelStartPage.Visible = true;     // Main Window
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelProgressState.Visible = false;
+          panelDecrypt.Visible = true;        // Decrypt
+        }
+        else if (FileType == FILE_TYPE_PASSWORD_ZIP)
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+
+          panelStartPage.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+          panelEncrypt.Visible = true;       // Encrypt(ZIP)
+        }
+        else
+        {
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+          panelStartPage.Visible = true;     // Main Window
+
+        }
 
       }
-             
+
     }
-
     /// <summary>
     /// Form shown event
     /// </summary>
@@ -391,6 +395,7 @@ namespace AttacheCase
           panelEncryptConfirm.Visible = false;
           panelDecrypt.Visible = false;
           panelProgressState.Visible = false;
+          return;
         }
         //-----------------------------------
         // Decryption
@@ -402,6 +407,7 @@ namespace AttacheCase
           panelEncryptConfirm.Visible = false;
           panelDecrypt.Visible = true;        // Decrypt
           panelProgressState.Visible = false;
+          return;
         }
         //-----------------------------------
         // Cancel
@@ -435,49 +441,63 @@ namespace AttacheCase
         FileType = AppSettings.Instance.DetectFileType();
       }
 
-      //----------------------------------------------------------------------
-      // Decryption
-      if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE))
+      if (AppSettings.Instance.FileList.Count() > 0)
       {
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = true;        // Decrypt
-        panelProgressState.Visible = false;
-      }
-      //----------------------------------------------------------------------
-      // Encryption
-      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE))
-      {
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = true;        // Encrypt
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-      }
-      //----------------------------------------------------------------------
-      // Password ZIP
-      else if (AppSettings.Instance.FileList.Count() > 0 && (FileType == FILE_TYPE_PASSWORD_ZIP))
-      {
-        panelStartPage.Visible = false;
-        panelEncrypt.Visible = true;         // Encrypt
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-      }
-      else
-      {
-        panelStartPage.Visible = true;     // Main Window
-        panelEncrypt.Visible = false;
-        panelEncryptConfirm.Visible = false;
-        panelDecrypt.Visible = false;
-        panelProgressState.Visible = false;
-      }
+        //----------------------------------------------------------------------
+        // Decryption
+        if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;        // Encrypt
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;        
+          panelProgressState.Visible = false;
+        }
+        //----------------------------------------------------------------------
+        // Encryption
+        else if (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;        // Encrypt
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+        }
+        //----------------------------------------------------------------------
+        // Password ZIP
+        else if (FileType == FILE_TYPE_PASSWORD_ZIP)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;         // Encrypt
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+        }
+        else
+        {
+          panelStartPage.Visible = true;     // Main Window
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+        }
 
-      this.BackColor = Color.White;
+        //----------------------------------------------------------------------
+        // Decrypt files?
+        FileType = AppSettings.Instance.DetectFileType();
+        if (FileType == 1 || FileType == 2)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = true;         // Decrypt
+          panelProgressState.Visible = false;
+        }
 
+        this.BackColor = Color.White;
+
+      }
     }
-
     #endregion
 
     //======================================================================
@@ -2107,7 +2127,8 @@ namespace AttacheCase
     {
       if (e.KeyCode == Keys.Enter)
       {
-        buttonEncryptionPasswordOk.PerformClick();
+        e.Handled = true;
+        buttonEncryptionPasswordOk_Click(sender, e);
       }
     }
 

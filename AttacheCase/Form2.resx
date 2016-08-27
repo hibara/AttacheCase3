@@ -537,27 +537,9 @@
   <data name="pictureBoxExclamationMark.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADZmlUWHRYTUw6Y29tLmFkb2Jl
-        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
-        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
-        cmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJE
-        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
-        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv
-        bS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlw
-        ZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1w
-        TU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOkQ1OTI4NEM5RTI2QkU2MTFCMTY2OERCQjRFMjU5
-        RjE0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdCM0YwRkM0NkJFNTExRTY5NTMzQzgzQUUxMkQz
-        REVBIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjdCM0YwRkMzNkJFNTExRTY5NTMzQzgzQUUxMkQz
-        REVBIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUuMSBXaW5kb3dzIj4gPHhtcE1N
-        OkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QjFBRUI5NzZFNTZCRTYxMUI4MkNE
-        NEM5RkJFOTUyMTAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDU5Mjg0QzlFMjZCRTYxMUIxNjY4
-        REJCNEUyNTlGMTQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/
-        eHBhY2tldCBlbmQ9InIiPz7w0v8RAAABK0lEQVQ4T23TMUuCYRSGYSEIgn5Aa2v/oKm1qTUImgIHV2kK
-        BxENRBAHgxaTXMXBkLApTJCgRXDI1cEhcWhMlLsn+3g9X6fhQrjfhzP5JYC/9iQrb8aLnInbuyBZ2m3I
-        5zeKReX1Ebd3Qa5ptSCZ3MhklHk3m8AFSdLrxQ+Uy8o8mU3gghwzGsUPNBrK3JpN4IIcMJ3GD3Q6ylyZ
-        TeCC7LBYxA8MBsqcm03gQuSDdHpzYDxW4si8By5EXikUNgdmMyX2zXvgQuSB4RAmE9a/y6US2+Y9cEG2
-        WK2g2YRcDqpVmM+VOTWbwAXx/4NSSZlnswlckDvq9fiBVEqZL7MJXJAL+v34gUpFmUezCVyI3NDt/n5I
-        tRp8fipxYt4DFyK7cik/n/K9HMo/OxLf9n4akePVaBAAAAAASUVORK5CYII=
+        YQUAAAB3SURBVDhP7dLBCYAwEETRKc+aPKUGy7AC7cVeVgcJZjcTE+8eHmjIfBBEAirHAovUPZKHHNj6
+        +AMDAV6IYiBygX32gx7ed4EvkXLsAtSLxDG5F2pF1JiqA4qR1pjkIeXI25jkYdYbE2ybrKn4DOUOXA/q
+        RxmRAJzp+3p/gRITEgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="pictureBoxProgressCircle.Visible" type="System.Boolean, mscorlib">
@@ -595,8 +577,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ja-JP</value>
   </metadata>
 </root>

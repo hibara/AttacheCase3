@@ -3074,7 +3074,7 @@ namespace AttacheCase
 
           bool fToken = false;
           int b, pos = 0;
-          while ((b = fs.ReadByte()) > -1)
+          while ((b = fs.ReadByte()) > -1 || pos < 50000)
           {
             //-----------------------------------
             // Check the token "_AttacheCaseData"
@@ -3100,7 +3100,7 @@ namespace AttacheCase
             }
 
             //-----------------------------------
-            // Check the token "_AttacheCaseData"
+            // Check the token "_Atc_Broken_Data"
             if (b == AtcBrokenTokenByte[0])
             {
               fToken = true;
