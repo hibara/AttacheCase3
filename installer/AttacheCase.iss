@@ -19,6 +19,22 @@ TouchTime=00:00
 ShowLanguageDialog=yes
 UsePreviousLanguage=no
 
+[CustomMessages]
+en.AppName=AttacheCase#3
+jp.AppName=アタッシェケース#3
+en.AppComments=File and folder encryption software
+jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
+en.SetUpProgramDescription=Set up program for 'AttacheCase#3'
+jp.SetUpProgramDescription=「アタッシェケース#3」をセットアップするプログラム 
+en.UnintallName=Uninstall
+jp.UnintallName=アンインストール
+en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
+jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
+en.mdSampleFile=help.md
+jp.mdSampleFile=help-ja.md
+en.LaunchProgram=Start AttacheCase3 after finishing installation.
+jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
+
 ;-----------------------------------
 ;インストーラプログラム
 ;-----------------------------------
@@ -60,22 +76,6 @@ AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
 
-[CustomMessages]
-en.AppName=AttacheCase#3
-jp.AppName=アタッシェケース#3
-en.AppComments=File and folder encryption software
-jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
-en.SetUpProgramDescription=Set up program for 'AttacheCase3'
-jp.SetUpProgramDescription=「アタッシェケース#3」をセットアップするプログラム 
-en.UnintallName=Uninstall
-jp.UnintallName=アンインストール
-en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
-jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
-en.mdSampleFile=help.md
-jp.mdSampleFile=help-ja.md
-en.LaunchProgram=Start AttacheCase3 after finishing installation.
-jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
-
 [Files]
 Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
@@ -96,7 +96,7 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon};
 Name: association; Description: {cm:AssocFileExtension,*.atc,AttacheCase};
 
 [Run]
-Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0"; Tasks: association; Flags: nowait skipifsilent runascurrentuser
+Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks: association; Flags: nowait skipifsilent runascurrentuser
 Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: nowait postinstall skipifsilent
 
 [UninstallDelete]
