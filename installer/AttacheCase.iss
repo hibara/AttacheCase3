@@ -80,7 +80,7 @@ AppComments={cm:AppComments}
 Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\ja-JP\AttacheCase.resources.dll"; DestDir: "{app}\\ja-JP"; Flags: ignoreversion touch
-Source: "bin\readme.txt"; DestDir: "{userappdata}\AttacheCase3"; Flags: ignoreversion touch
+;Source: "bin\readme.txt"; DestDir: "{userappdata}\AttacheCase3"; Flags: ignoreversion touch
 
 [Icons]
 Name: "{group}\AttacheCase"; Filename: "{app}\AttacheCase.exe"; WorkingDir: "{app}"

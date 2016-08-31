@@ -9,7 +9,7 @@ using System.Resources;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HiBARA Software")]
-[assembly: AssemblyProduct("アタッシェケース3")]
+[assembly: AssemblyProduct("アタッシェケース#3")]
 [assembly: AssemblyCopyright("Copyright © 2016 M.Hibara, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,6 +32,6 @@ using System.Resources;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.0.6")]
-[assembly: AssemblyFileVersion("3.0.0.6")]
+[assembly: AssemblyVersion("3.0.0.8")]
+[assembly: AssemblyFileVersion("3.0.0.8")]
 [assembly: NeutralResourcesLanguage("")]

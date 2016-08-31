@@ -45,9 +45,9 @@ copy ..\images\main_icon\main_icon_48x48.png bin\
 @echo. -----------------------------------
 
 if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
-"%ProgramFiles(x86)%\Inno Setup 5\ISCC.exe" AttacheCase.iss
+"%ProgramFiles(x86)%\Inno Setup 5\ISCC.exe" InnoSetup\AttacheCase.iss
 ) else (
-"%ProgramFiles%\Inno Setup 5\ISCC.exe" AttacheCase.iss
+"%ProgramFiles%\Inno Setup 5\ISCC.exe" InnoSetup\AttacheCase.iss
 )
 
 echo %ERRORLEVEL%

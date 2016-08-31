@@ -526,15 +526,15 @@
   <data name="toolStripButtonDecryptSelectAtcFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG7SURBVDhPlZLPSwJBFMendted0vOCmdA/ISKadJQgIoKg
-        uqbgRSoI6SB0CCEkMIOO3rx421snA4/SH5B4ETHBi2yu7ZK0vOaN9mMdEXrwYWfmfd93Zt8MmRfK0tKN
-        KknWmt9vbASDQyrLtpfSR5bSJooFseLxlJmBUy6XodPpQL/fh1qtBtuJBKzK8iuTLDTR2M4fuq7DaDSC
-        arUKxWIRut0uNJtNCIdCwMyvp1ox8OiRcBjG4zEUCgUUO6osD9PpNF87PzuDFUpfpnIxJEKu4rEYoAl+
-        cb5MyMF6IPDW6/XgvlQC1g+DSdcmFZPQUMjYmYLjb3C+H2AG+BuVSgVWPZ53xEfpE9YSr6rqW/E4+FnH
-        F4E9abVaUK/XOdFIBFi/bolPVZ9TySTMxuRwhEynQuCmVFEefgwcx3GB15e9uIDLbJaP3flP0QC7/JfU
-        yQlvInKayQh5wcCybY5tWwwb9nZ3fwyODw/5Gs9ZFtNZooFpmi4ajQZvFArxEc3mBQPDMFygKJfLccyR
-        KeQFg8Fg4AJFWJzP5/l4Nv9rwB7E8dERtNvtf7EZjQKVpDu8ak1VlMG8x7MIrCGEaF8/JwFHNKJzagAA
-        AABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVDhPlZJBSwJBFMendtcd0/OCifQpQkSTjhJERBCo
+        VxW8SAUhHYQOIYQEVtDRmxdv3joZeJQ+QOJFxAQvsrW2S9LymjeatY4IPfixM/P+7z+zb4YsC2Vt7VqV
+        JNPn8+lbgcA7lWXLQ+kjS2lTxYpwu1wVZmBXKhXo9XowHA6h0WjAXiwGG7L8yiQrTTS282e9XofxeAy1
+        Wg3K5TL0+31ot9sQ3N4GZn4104qBRw8FgzCZTKBUKqHYVmX5PZvN8rWz01NwU/oyk4shEXIZjUQATfCL
+        83VCjv1+/9tgMID7uztg/dCZdHNaMQ0NhYz9GTj+AedHaIC/Ua1WYcPl+kC8lD5hLfGoan03GgXs+Cqw
+        J51OB5rNJiccCgHr1w3xqupzJp2GxZgejpDZVAjclCrKw9zAtm0HeH3583O4yOf52Jn/Eg2wy3/JpFK8
+        ichJLifkBQPTsjiWZTIsODw4mBsk43G+xnOmyXSmaGAYhoNWq8UbhUJ8RIt5wUDXdQcoKhQKHGNsCHnB
+        YDQaOUARFheLRT5ezP8asAeRTCSg2+3+i51wGKgk3eJVa6qijJY9nlVgDSFE+wY0XgFEmEssoQAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="toolStripButtonDecryptSelectAtcFiles.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -4424,7 +4424,7 @@ ATC</value>
     <value>Zip password file</value>
   </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 166</value>
+    <value>207, 188</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
     <value>contextMenuStrip2</value>
