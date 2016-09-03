@@ -441,9 +441,9 @@ namespace AttacheCase
         if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
         {
           panelStartPage.Visible = false;
-          panelEncrypt.Visible = true;        // Encrypt
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = false;        
+          panelEncrypt.Visible = false;        
+          panelEncryptConfirm.Visible = false; 
+          panelDecrypt.Visible = true;         // Decrypt
           panelProgressState.Visible = false;
         }
         //----------------------------------------------------------------------
@@ -3832,6 +3832,7 @@ namespace AttacheCase
       {
         pictureBoxAtc.Image = pictureBoxAtcOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_NONE;
       }
       else
       {
@@ -3840,6 +3841,7 @@ namespace AttacheCase
         pictureBoxZip.Image = pictureBoxZipOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_ATC;
 
         pictureBoxEncryption.Image = pictureBoxAtcOn.Image;
 
@@ -3852,6 +3854,7 @@ namespace AttacheCase
       {
         pictureBoxExe.Image = pictureBoxExeOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_NONE;
       }
       else
       {
@@ -3860,6 +3863,7 @@ namespace AttacheCase
         pictureBoxZip.Image = pictureBoxZipOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_ATC_EXE;
 
         pictureBoxExe.Image = pictureBoxExeOn.Image;
       }
@@ -3871,6 +3875,7 @@ namespace AttacheCase
       {
         pictureBoxZip.Image = pictureBoxZipOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_NONE;
       }
       else
       {
@@ -3879,6 +3884,7 @@ namespace AttacheCase
         pictureBoxExe.Image = pictureBoxExeOff.Image;
         pictureBoxDec.Image = pictureBoxDecOff.Image;
         AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
+        AppSettings.Instance.SameEncryptionFileTypeBefore = FILE_TYPE_PASSWORD_ZIP;
 
         pictureBoxEncryption.Image = pictureBoxZipOn.Image;
 

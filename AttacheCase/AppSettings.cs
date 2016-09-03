@@ -2288,7 +2288,7 @@ namespace AttacheCase
           //-----------------------------------		
           #region
           // Save to the same folder in ZIP
-          case "/zipsaveto": // 常に同じ場所へファイルを復号化する
+          case "/zipsaveto": // 常に同じ場所へファイルを暗号化する
             if (Directory.Exists(value) == true)
             {
               if (Path.IsPathRooted(value) == false)

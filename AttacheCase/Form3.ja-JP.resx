@@ -410,6 +410,12 @@
   <data name="checkBoxEncryptionSameFileTypeBefore.Text" xml:space="preserve">
     <value>前に使ったファイルタイプで暗号化する</value>
   </data>
+  <data name="radioButtonNotSpecified.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 20</value>
+  </data>
+  <data name="radioButtonNotSpecified.Text" xml:space="preserve">
+    <value>特に指定しない</value>
+  </data>
   <data name="radioButtonEncryptionFileTypeZIP.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 20</value>
   </data>
