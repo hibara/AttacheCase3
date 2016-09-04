@@ -45,12 +45,22 @@ copy ..\images\main_icon\main_icon_48x48.png bin\
 @echo. -----------------------------------
 
 if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
-"%ProgramFiles(x86)%\Inno Setup 5\ISCC.exe" InnoSetup\AttacheCase.iss
+"%ProgramFiles(x86)%\Inno Setup 5\ISCC.exe" AttacheCase.iss
 ) else (
-"%ProgramFiles%\Inno Setup 5\ISCC.exe" InnoSetup\AttacheCase.iss
+"%ProgramFiles%\Inno Setup 5\ISCC.exe" AttacheCase.iss
 )
 
 echo %ERRORLEVEL%
+
+@rem Code signing
+if exist "code_signing\_password.txt" (
+
+for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i 
+
+)
+
+"C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 atc*.exe
+
 
 @echo. 
 @echo. -----------------------------------
@@ -62,7 +72,7 @@ for /F "delims=" %%s in ('..\tools\getver\getver\bin\Release\GetVer.exe bin\Atta
 
 @rem ZIP
 cd bin
-7z a -tzip ..\atcs%NUM%b.zip AttacheCase.exe AtcSetup.exe ja-JP\AttacheCase.resources.dll
+7z a -tzip ..\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe ja-JP\AttacheCase.resources.dll
 cd ..\
 
 

@@ -42,8 +42,8 @@ namespace Exeout
       labelVersion.Text = "Version." + ApplicationInfo.Version;
 			labelCopyright.Text = ApplicationInfo.CopyrightHolder;
 
-      labelBeta.Left = labelVersion.Left + labelVersion.Width;
-      labelBeta.Top = labelVersion.Top;
+      //labelBeta.Left = labelVersion.Left + labelVersion.Width;
+      //labelBeta.Top = labelVersion.Top;
       
 		}
 

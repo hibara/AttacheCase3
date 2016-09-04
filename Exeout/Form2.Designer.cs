@@ -35,7 +35,6 @@
       this.labelVersion = new System.Windows.Forms.Label();
       this.labelCopyright = new System.Windows.Forms.Label();
       this.linkLabelURL = new System.Windows.Forms.LinkLabel();
-      this.labelBeta = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -75,17 +74,11 @@
       this.linkLabelURL.TabStop = true;
       this.linkLabelURL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelURL_LinkClicked);
       // 
-      // labelBeta
-      // 
-      resources.ApplyResources(this.labelBeta, "labelBeta");
-      this.labelBeta.Name = "labelBeta";
-      // 
       // Form2
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.buttonOK;
-      this.Controls.Add(this.labelBeta);
       this.Controls.Add(this.linkLabelURL);
       this.Controls.Add(this.labelCopyright);
       this.Controls.Add(this.labelVersion);
@@ -109,6 +102,5 @@
 		private System.Windows.Forms.Label labelVersion;
 		private System.Windows.Forms.Label labelCopyright;
 		private System.Windows.Forms.LinkLabel linkLabelURL;
-    private System.Windows.Forms.Label labelBeta;
   }
 }

@@ -35,7 +35,6 @@
       this.pictureBoxApplicationIcon = new System.Windows.Forms.PictureBox();
       this.labelCopyright = new System.Windows.Forms.Label();
       this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-      this.labelBeta = new System.Windows.Forms.Label();
       this.pictureBoxProgressCircle = new System.Windows.Forms.PictureBox();
       this.linkLabelCheckForUpdates = new System.Windows.Forms.LinkLabel();
       this.pictureBoxCheckMark = new System.Windows.Forms.PictureBox();
@@ -83,15 +82,10 @@
       this.linkLabel1.VisitedLinkColor = System.Drawing.Color.Blue;
       this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
       // 
-      // labelBeta
-      // 
-      resources.ApplyResources(this.labelBeta, "labelBeta");
-      this.labelBeta.Name = "labelBeta";
-      // 
       // pictureBoxProgressCircle
       // 
-      resources.ApplyResources(this.pictureBoxProgressCircle, "pictureBoxProgressCircle");
       this.pictureBoxProgressCircle.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.pictureBoxProgressCircle, "pictureBoxProgressCircle");
       this.pictureBoxProgressCircle.Name = "pictureBoxProgressCircle";
       this.pictureBoxProgressCircle.TabStop = false;
       // 
@@ -125,7 +119,6 @@
       this.Controls.Add(this.pictureBoxCheckMark);
       this.Controls.Add(this.linkLabelCheckForUpdates);
       this.Controls.Add(this.pictureBoxProgressCircle);
-      this.Controls.Add(this.labelBeta);
       this.Controls.Add(this.linkLabel1);
       this.Controls.Add(this.labelCopyright);
       this.Controls.Add(this.pictureBoxApplicationIcon);
@@ -159,7 +152,6 @@
     private System.Windows.Forms.PictureBox pictureBoxApplicationIcon;
     private System.Windows.Forms.Label labelCopyright;
     private System.Windows.Forms.LinkLabel linkLabel1;
-    private System.Windows.Forms.Label labelBeta;
     private System.Windows.Forms.PictureBox pictureBoxProgressCircle;
     private System.Windows.Forms.LinkLabel linkLabelCheckForUpdates;
     private System.Windows.Forms.PictureBox pictureBoxCheckMark;

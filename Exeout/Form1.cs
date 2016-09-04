@@ -359,7 +359,7 @@ namespace Exeout
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         */
 
-        FileDecrypt3ReturnVal result = (FileDecrypt3ReturnVal)e.Result;
+        FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
 
         switch (result.ReturnCode)
         {
