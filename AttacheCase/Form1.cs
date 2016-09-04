@@ -1046,7 +1046,7 @@ namespace AttacheCase
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         */
 
-        FileDecrypt3ReturnVal result = (FileDecrypt3ReturnVal)e.Result;
+        FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
 
         switch (result.ReturnCode)
         {
@@ -1090,7 +1090,7 @@ namespace AttacheCase
 
                 foreach (string path in OutputFileList)
                 {
-                  if (Path.GetExtension(path).ToLower() == ".exe")
+                  if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat")
                   {
                     if (AppSettings.Instance.fShowDialogWhenExeFile == true)
                     {
@@ -3307,8 +3307,8 @@ namespace AttacheCase
         // Old version 
         if (decryption3.DataFileVersion < 130)
         {
-          decryption2 = new FileDecrypt2(AtcFilePath);
           decryption3 = null; // ver.3 is null
+          decryption2 = new FileDecrypt2(AtcFilePath);
           decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
           decryption2.NumberOfFiles = NumberOfFiles;
           decryption2.TotalNumberOfFiles = TotalNumberOfFiles;

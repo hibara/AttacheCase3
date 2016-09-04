@@ -26,26 +26,26 @@ using System.ComponentModel;
 
 namespace AttacheCase
 {
-  class FileDecrypt3ReturnVal
+  class FileDecryptReturnVal
   {
-    public FileDecrypt3ReturnVal(int ReturnCode, string FilePath, Int64 TotalFileSize, Int64 AvailableFreeSpace)
+    public FileDecryptReturnVal(int ReturnCode, string FilePath, Int64 TotalFileSize, Int64 AvailableFreeSpace)
     {
       this._ReturnCode = ReturnCode;
       this._FilePath = FilePath;
       this._TotalFileSize = TotalFileSize;
       this._AvailableFreeSpace = AvailableFreeSpace;
     }
-    public FileDecrypt3ReturnVal(int ReturnCode, string FilePath)
+    public FileDecryptReturnVal(int ReturnCode, string FilePath)
     {
       this._ReturnCode = ReturnCode;
       this._FilePath = FilePath;
     }
-    public FileDecrypt3ReturnVal(int ReturnCode, int FileIndex)
+    public FileDecryptReturnVal(int ReturnCode, int FileIndex)
     {
       this._ReturnCode = ReturnCode;
       this._FileIndex = FileIndex;
     }
-    public FileDecrypt3ReturnVal(int ReturnCode)
+    public FileDecryptReturnVal(int ReturnCode)
     {
       this._ReturnCode = ReturnCode;
     }
@@ -448,13 +448,13 @@ namespace AttacheCase
       else if (_TokenStr.Trim() == "_Atc_Broken_Data")
       {
         // Atc file is broken
-        e.Result = new FileDecrypt3ReturnVal(ATC_BROKEN_DATA, FilePath);
+        e.Result = new FileDecryptReturnVal(ATC_BROKEN_DATA, FilePath);
         return (false);
       }
       else
       {
         // not AttacheCase data
-        e.Result = new FileDecrypt3ReturnVal(NOT_ATC_DATA, FilePath);
+        e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
         return(false);
       }
 
@@ -467,7 +467,7 @@ namespace AttacheCase
         if (fs.Length < 32)
         {
           // not AttacheCase data
-          e.Result = new FileDecrypt3ReturnVal(NOT_ATC_DATA, FilePath);
+          e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
           return (false);
         }
         else
@@ -522,7 +522,7 @@ namespace AttacheCase
                 else
                 {
                   // Token is not match ( Password is not correct )
-                  e.Result = new FileDecrypt3ReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
+                  e.Result = new FileDecryptReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
                   return (false);
                 }
 
@@ -548,7 +548,7 @@ namespace AttacheCase
         }
         catch (Exception ex)
         {
-          e.Result = new FileDecrypt3ReturnVal(ERROR_UNEXPECTED, "");
+          e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED, "");
           return (false);
         }
 
@@ -711,7 +711,7 @@ namespace AttacheCase
             // The drive is not available, or not enough free space.
             if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
             {
-              e.Result = new FileDecrypt3ReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
+              e.Result = new FileDecryptReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
               return (false);
             }
             break;
@@ -796,12 +796,12 @@ namespace AttacheCase
                       {
                         if (FileIndex > dic.Count - 1)
                         {
-                          e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
+                          e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
                           return (true);
                         }
                         else
                         {
-                          e.Result = new FileDecrypt3ReturnVal(FILE_INDEX_NOT_FOUND, FileIndex);
+                          e.Result = new FileDecryptReturnVal(FILE_INDEX_NOT_FOUND, FileIndex);
                           return (false);
                         }
                       }
@@ -826,7 +826,7 @@ namespace AttacheCase
                               // Cancel
                               if (TempOverWriteOption == -1)
                               {
-                                e.Result = new FileDecrypt3ReturnVal(USER_CANCELED);
+                                e.Result = new FileDecryptReturnVal(USER_CANCELED);
                                 return (false);
                               }
                               // No
@@ -856,7 +856,7 @@ namespace AttacheCase
 
                           if (FileIndex > dic.Count - 1)
                           {
-                            e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
+                            e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
                             return (true);
                           }
 
@@ -895,7 +895,7 @@ namespace AttacheCase
                                 dialog(1, Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                 if (TempOverWriteOption == -1)
                                 {
-                                  e.Result = new FileDecrypt3ReturnVal(USER_CANCELED);
+                                  e.Result = new FileDecryptReturnVal(USER_CANCELED);
                                   return (false);
                                 }
                                 // No
@@ -985,7 +985,7 @@ namespace AttacheCase
                       string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
                       if (hash != dic[FileIndex].Hash.ToString())
                       {
-                        e.Result = new FileDecrypt3ReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
+                        e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
                         return (false);
                       }
 
@@ -994,7 +994,7 @@ namespace AttacheCase
 
                       if (FileIndex > dic.Count - 1)
                       {
-                        e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
+                        e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
                         return (true);
                       }
 
@@ -1050,13 +1050,13 @@ namespace AttacheCase
 
         System.Windows.Forms.MessageBox.Show(ex.Message);
 
-        e.Result = new FileDecrypt3ReturnVal(ERROR_UNEXPECTED);
+        e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED);
         return (false);
 
 
       }
 
-      e.Result = new FileDecrypt3ReturnVal(DECRYPT_SUCCEEDED);
+      e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
       return (true);
 
     }// end Decrypt2();
