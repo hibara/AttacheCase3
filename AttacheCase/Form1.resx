@@ -260,7 +260,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="ToolStripMenuItemEncrypt.Text" xml:space="preserve">
     <value>&amp;Encrypt</value>
@@ -295,13 +295,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Text" xml:space="preserve">
     <value>&amp;Decrypt</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="ToolStripMenuItemExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -335,7 +335,7 @@
     <value>True</value>
   </data>
   <data name="ToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
@@ -526,14 +526,14 @@
   <data name="toolStripButtonDecryptSelectAtcFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVDhPlZJBSwJBFMendtcd0/OCifQpQkSTjhJERBCo
-        VxW8SAUhHYQOIYQEVtDRmxdv3joZeJQ+QOJFxAQvsrW2S9LymjeatY4IPfixM/P+7z+zb4YsC2Vt7VqV
-        JNPn8+lbgcA7lWXLQ+kjS2lTxYpwu1wVZmBXKhXo9XowHA6h0WjAXiwGG7L8yiQrTTS282e9XofxeAy1
-        Wg3K5TL0+31ot9sQ3N4GZn4104qBRw8FgzCZTKBUKqHYVmX5PZvN8rWz01NwU/oyk4shEXIZjUQATfCL
-        83VCjv1+/9tgMID7uztg/dCZdHNaMQ0NhYz9GTj+AedHaIC/Ua1WYcPl+kC8lD5hLfGoan03GgXs+Cqw
-        J51OB5rNJiccCgHr1w3xqupzJp2GxZgejpDZVAjclCrKw9zAtm0HeH3583O4yOf52Jn/Eg2wy3/JpFK8
-        ichJLifkBQPTsjiWZTIsODw4mBsk43G+xnOmyXSmaGAYhoNWq8UbhUJ8RIt5wUDXdQcoKhQKHGNsCHnB
-        YDQaOUARFheLRT5ezP8asAeRTCSg2+3+i51wGKgk3eJVa6qijJY9nlVgDSFE+wY0XgFEmEssoQAAAABJ
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG4SURBVDhPlZLPSwJBFMfHdtedyvOCiX9GiFjSUYKICAL1
+        qoEXqUCkg9AhhJDADDp68+LNWycDj9IfkHgRMcGLbO62S9Lymjfaj3VE6MGHnZn3fd+ZfTNkWSgez40q
+        SZbf79eDweCEyrK9SekjS2kzxYpY93qrzMCpVqvQ7/dhNBpBs9mE/VgMNmT5lUlWmmhs549GowGmaUK9
+        XodyuQyDwQA6nQ6EtreBmV/PtWLg0cOhEEynUyiVSih2VFmeZDIZvnZxfg7rlL7M5WJIhFxFd3YATfCL
+        8zVCTgKBwNtwOIT7SgVYP3Qm3ZpVzEJDIeNgDo6/wfkxGuBv1Go12PB63xEfpU9YSzZVtbEXjQJ2fBXY
+        k263C61WixMJh4H165b4VPX5NJ2GxZgdjpD5VAjclCrKw4+B4zgu8PryuRxc5vN87M5/igbY5b+cplK8
+        ichZNivkBQPLtjm2bTFsODo8/DFIxuN8jecsi+ks0cAwDBftdps3CoX4iBbzgoGu6y5QVCgUOIZpCHnB
+        YDweu0ARFheLRT5ezP8asAeRTCSg1+v9i91IBKgk3eFVa6qijJc9nlVgDSFE+wIsgAFCjhIRFAAAAABJ
         RU5ErkJggg==
 </value>
   </data>
@@ -4424,7 +4424,7 @@ ATC</value>
     <value>Zip password file</value>
   </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 188</value>
+    <value>207, 166</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
     <value>contextMenuStrip2</value>

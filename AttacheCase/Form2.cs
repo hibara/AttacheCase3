@@ -63,6 +63,7 @@ namespace AttacheCase
     {
       linkLabel1.LinkVisited = true;
       System.Diagnostics.Process.Start(linkLabel1.Text);
+      this.Close();
     }
 
     private void linkLabelCheckForUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -71,6 +72,7 @@ namespace AttacheCase
       if (pictureBoxProgressCircle.Image == pictureBoxExclamationMark.Image)
       {
         System.Diagnostics.Process.Start("https://hibara.org/software/attachecase/");
+        this.Close();
         return;
       }
 
@@ -81,7 +83,6 @@ namespace AttacheCase
 
       try
       {
-
         using (client = new WebClient())
         {
           // Check the update in server.

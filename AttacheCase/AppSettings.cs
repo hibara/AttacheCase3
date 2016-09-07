@@ -967,7 +967,7 @@ namespace AttacheCase
 		private string _ApplicationPath;              //アタッシェケース本体（EXE）の場所
 		public string ApplicationPath
 		{
-			get { return this._ApplicationPath; }
+			get { return this._ApplicationPath;  }
 			set { this._ApplicationPath = value; }
 		}
 
@@ -1109,9 +1109,10 @@ namespace AttacheCase
 			// Open the key (HKEY_CURRENT_USER\Software\Hibara\AttacheCase）by ReadOnly
 			using (RegistryKey reg = Registry.CurrentUser.OpenSubKey(RegistryPathAppInfo, true))
 			{
-				//Application infomation
-				_ApplicationPath = (string)reg.GetValue("AppPath", "");
-				_AppVersion = (int)reg.GetValue("AppVersion", 0);
+        //Application infomation
+        //_ApplicationPath = (string)reg.GetValue("AppPath", "");
+        _ApplicationPath = Application.ExecutablePath;
+        _AppVersion = (int)reg.GetValue("AppVersion", 0);
 			}
 
 			//----------------------------------------------------------------------
@@ -1292,7 +1293,7 @@ namespace AttacheCase
 			// Open the registry key (AppInfo).
 			using (RegistryKey reg = Registry.CurrentUser.CreateSubKey(RegistryPathAppInfo))
 			{
-				reg.SetValue("AppPath", _ApplicationPath);
+				reg.SetValue("AppPath", Application.ExecutablePath);
 				reg.SetValue("AppVersion", _AppVersion);
 			}
 
@@ -2613,7 +2614,7 @@ namespace AttacheCase
 			}
 			// Get the drive name where the application is installed
 			//アプリケーションがインストールされているドライブ名を取得
-			string RootDriveName = Path.GetPathRoot(_ApplicationPath);
+			string RootDriveName = Path.GetPathRoot(Application.ExecutablePath);
 			// Get the drive serial number.
 			string volNumString = GetDriveSerialNumber();
 
@@ -2635,7 +2636,7 @@ namespace AttacheCase
         BlockSize = 256,              // BlockSize = 32bytes
         KeySize = 256,                // KeySize = 32byte
         Mode = CipherMode.CBC,
-        Padding = PaddingMode.PKCS7
+        Padding = PaddingMode.Zeros
       };
       
 			aes.Key = key;
@@ -2670,19 +2671,19 @@ namespace AttacheCase
 		{
 			// Get the drive name where the application is installed
 			//アプリケーションがインストールされているドライブ名を取得
-			string RootDriveName = Path.GetPathRoot(_ApplicationPath);
+			string RootDriveName = Path.GetPathRoot(Application.ExecutablePath);
 			// Get the drive serial number.
 			string volNumString = GetDriveSerialNumber();
 			// "The serial number of the drive volume + MachineName" is set by encryption for stored passwords
 			// ex).  818980454_HIBARA
 			string Password = volNumString + "_" + Environment.MachineName;
 
-			RijndaelManaged aes = new RijndaelManaged
+      RijndaelManaged aes = new RijndaelManaged
       {
         BlockSize = 256,
         KeySize = 256,
         Mode = CipherMode.CBC,
-        Padding = PaddingMode.PKCS7
+        Padding = PaddingMode.Zeros
       };
 
 			using (MemoryStream ms = new MemoryStream(MyPasswordBinary))
@@ -2900,7 +2901,7 @@ namespace AttacheCase
 		private string GetDriveSerialNumber()
 		{
 			//アプリケーションがインストールされているドライブ名を取得
-			string RootDriveName = Path.GetPathRoot(_ApplicationPath);
+			string RootDriveName = Path.GetPathRoot(Application.ExecutablePath);
 
 			uint serial_number = 0;
 			uint max_component_length = 0;

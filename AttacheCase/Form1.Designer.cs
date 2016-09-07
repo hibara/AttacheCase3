@@ -1158,10 +1158,6 @@
       this.saveFileDialog1.DefaultExt = "atc";
       resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
       // 
-      // openFileDialog1
-      // 
-      this.openFileDialog1.FileName = "openFileDialog1";
-      // 
       // Form1
       // 
       this.AllowDrop = true;

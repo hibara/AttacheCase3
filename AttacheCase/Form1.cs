@@ -1467,6 +1467,9 @@ namespace AttacheCase
         {
           AppSettings.Instance.FileList.Add(folderBrowserDialog1.SelectedPath);
         }
+        else{
+          return;
+        }
 
         // Check memorized password
         if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
