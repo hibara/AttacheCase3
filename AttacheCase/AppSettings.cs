@@ -1367,7 +1367,8 @@ namespace AttacheCase
 				reg.SetValue("fFilesOneByOne", _fFilesOneByOne == true ? "1" : "0");
 				reg.SetValue("fNormal", _fNormal == true ? "1" : "0");
 				reg.SetValue("fKeepTimeStamp", _fKeepTimeStamp == true ? "1" : "0");
-				reg.SetValue("fAutoName", _fAutoName == true ? "1" : "0");
+        reg.SetValue("fExtInAtcFileName", _fExtInAtcFileName == true ? "1" : "0");
+        reg.SetValue("fAutoName", _fAutoName == true ? "1" : "0");
 				reg.SetValue("AutoNameFormatText", _AutoNameFormatText);
 				reg.SetValue("fAutoNameAlphabets", _fAutoNameAlphabets == true ? "1" : "0");
 				reg.SetValue("fAutoNameLowerCase", _fAutoNameLowerCase == true ? "1" : "0");
@@ -1666,9 +1667,10 @@ namespace AttacheCase
 			WriteIniFile(IniFilePath, _fAllFilePack, "Option", "fAllFilePack");
 			WriteIniFile(IniFilePath, _fFilesOneByOne, "Option", "fFilesOneByOne");
 			WriteIniFile(IniFilePath, _fNormal, "Option", "fNormal");
-			WriteIniFile(IniFilePath, _fKeepTimeStamp, "Option", "fKeepTimeStamp");
+      WriteIniFile(IniFilePath, _fKeepTimeStamp, "Option", "fKeepTimeStamp");
+      WriteIniFile(IniFilePath, _fExtInAtcFileName, "Option", "fExtInAtcFileName");
 
-			WriteIniFile(IniFilePath, _fAutoName, "Option", "fAutoName");
+      WriteIniFile(IniFilePath, _fAutoName, "Option", "fAutoName");
 			WriteIniFile(IniFilePath, _AutoNameFormatText, "Option", "AutoNameFormatText");
 			WriteIniFile(IniFilePath, _fAutoNameAlphabets, "Option", "fAutoNameAlphabets");
 			WriteIniFile(IniFilePath, _fAutoNameLowerCase, "Option", "fAutoNameLowerCase");

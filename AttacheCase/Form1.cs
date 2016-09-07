@@ -221,18 +221,24 @@ namespace AttacheCase
         int FileType = AppSettings.Instance.DetectFileType();
         if (FileType == FILE_TYPE_NONE)
         {
-          textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-          textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
+          {
+            textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+            textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          }
 
           panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;
+          panelEncrypt.Visible = true;         // Encrypt
+          panelEncryptConfirm.Visible = false;
           panelDecrypt.Visible = false;
           panelProgressState.Visible = false;
-          panelEncryptConfirm.Visible = true; // Encrypt
         }
         else if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
         {
-          textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+          if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
+          {
+            textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+          }
 
           panelStartPage.Visible = false;
           panelEncrypt.Visible = false;
@@ -242,13 +248,17 @@ namespace AttacheCase
         }
         else if (FileType == FILE_TYPE_PASSWORD_ZIP)
         {
-          textBoxDecryptPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
+          {
+            textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+            textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          }
 
           panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;       // Encrypt(ZIP)
           panelEncryptConfirm.Visible = false;
           panelDecrypt.Visible = false;
           panelProgressState.Visible = false;
-          panelEncrypt.Visible = true;       // Encrypt(ZIP)
         }
         else
         {
@@ -1047,7 +1057,7 @@ namespace AttacheCase
         */
 
         FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
-
+        bool fCancel = false;
         switch (result.ReturnCode)
         {
           case DECRYPT_SUCCEEDED:
@@ -1068,7 +1078,7 @@ namespace AttacheCase
               }
               else
               {
-                OutputFileList = decryption3.OutputFileList;
+                OutputFileList = decryption2.OutputFileList;
               }
 
               if (OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum)
@@ -1087,61 +1097,56 @@ namespace AttacheCase
                 {
                   return;
                 }
+              }
 
-                foreach (string path in OutputFileList)
+              foreach (string path in OutputFileList)
+              {
+                if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat")
                 {
-                  if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat")
+                  if (AppSettings.Instance.fShowDialogWhenExeFile == true)
                   {
-                    if (AppSettings.Instance.fShowDialogWhenExeFile == true)
-                    {
-                      // 問い合わせ
-                      // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
-                      //
-                      // Question
-                      // It contains the executable files in the decrypted file.
-                      // Do you run the following file?
-                      ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
-                      Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    // 問い合わせ
+                    // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
+                    //
+                    // Question
+                    // It contains the executable files in the decrypted file.
+                    // Do you run the following file?
+                    DialogResult ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
+                    Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                      if (ret == DialogResult.No)
-                      {
-                        continue;
-                      }
-                      else
-                      { // Executable
-                        System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-                      }
+                    if (ret == DialogResult.No)
+                    {
+                      continue;
+                    }
+                    else
+                    { // Executable
+                      System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
                     }
                   }
-                  else if ( File.Exists(path) == true)
-                  {
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-                  }
-                  else if ( Directory.Exists(path) == true)
-                  {
-                    // Open the folder by Explorer
-                    System.Diagnostics.Process.Start("EXPLORER.EXE", path);
-                  }
-                  else
-                  {
-                  }
-                  
-                }// end foreach;
-                
-
-                // Set the timestamp of files or directories to decryption time.
-                if (AppSettings.Instance.fSameTimeStamp == true)
+                }
+                else if (File.Exists(path) == true)
                 {
-                  OutputFileList.ForEach(delegate (String FilePath)
-                  {
-                    DateTime dtNow = DateTime.Now;
-                    File.SetCreationTime(FilePath, dtNow);
-                    File.SetLastWriteTime(FilePath, dtNow);
-                    File.SetLastAccessTime(FilePath, dtNow);
-                  });
+                  System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
+                }
+                else if (Directory.Exists(path) == true)
+                {
+                  // Open the folder by Explorer
+                  System.Diagnostics.Process.Start("EXPLORER.EXE", path);
                 }
 
-              }// end if (decryption.OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum);
+              }// end foreach;
+
+              // Set the timestamp of files or directories to decryption time.
+              if (AppSettings.Instance.fSameTimeStamp == true)
+              {
+                OutputFileList.ForEach(delegate (String FilePath)
+                {
+                  DateTime dtNow = DateTime.Now;
+                  File.SetCreationTime(FilePath, dtNow);
+                  File.SetLastWriteTime(FilePath, dtNow);
+                  File.SetLastAccessTime(FilePath, dtNow);
+                });
+              }
 
             }// end if (AppSettings.Instance.fOpenFile == true);
 
@@ -1252,8 +1257,6 @@ namespace AttacheCase
 
           //-----------------------------------
           case PASSWORD_TOKEN_NOT_FOUND:
-
-          default:
             // エラー
             // パスワードがちがうか、ファイルが破損している可能性があります。
             // 復号できませんでした。
@@ -1302,11 +1305,26 @@ namespace AttacheCase
               return;
             }
             break;
+
+          default:
+            // ユーザーキャンセル
+            fCancel = true;
+            break;
         }
 
         labelProgressPercentText.Text = "- %";
         progressBar.Value = 0;
-        labelCryptionType.Text = "";
+        progressBar.Style = ProgressBarStyle.Continuous;
+
+        if(fCancel == true)
+        {
+          labelCryptionType.Text = Resources.labelDecyptionCanceled;
+        }
+        else
+        {
+          labelCryptionType.Text = Resources.labelCaptionError;
+        }
+
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         AppSettings.Instance.FileList = null;
 
@@ -1812,7 +1830,7 @@ namespace AttacheCase
 
         // 記憶パスワード（保存されたパスワードファイルより優先される）
         // Memorized password is priority than the saved password file
-        if (AppSettings.Instance.MyEncryptPasswordString != "")
+        if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
         {
           textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
           textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
@@ -1930,7 +1948,7 @@ namespace AttacheCase
         {
           checkBoxDeleteAtcFileAfterDecryption.Visible = false;
         }
-          
+
         textBoxDecryptPassword.Focus();
 
         //Allow Drag and Drop file instead of password
@@ -1969,7 +1987,10 @@ namespace AttacheCase
 
         // 記憶パスワード（保存されたパスワードファイルより優先される）
         // Memorized password is priority than the saved password file
-        textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+        if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+        }
 
         // 確認せず即座に実行
         // Run immediately without confirming
