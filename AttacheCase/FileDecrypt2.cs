@@ -73,6 +73,9 @@ namespace AttacheCase
     private Int64 _TotalFileSize = 0;
     private Int64 _StartPos = 0;
 
+    // "U_" or "Fn_" is number of char
+    int prefix;
+
     //----------------------------------------------------------------------
     // For thie file list after description, open associated with file or folder.
     private readonly List<string> _OutputFileList = new List<string>();
@@ -383,7 +386,7 @@ namespace AttacheCase
 			byte[] bufferPassword;
 			byte[] bufferKey = new byte[32];
 
-			List<string> FileList = new List<string>();
+      List<string> FileList = new List<string>();
 			Dictionary<int, FileListData> dic = new Dictionary<int, FileListData>();
 
       if (_TokenStr.Trim() == "_AttacheCaseData")
@@ -499,6 +502,7 @@ namespace AttacheCase
                   if (Regex.IsMatch(line, @"^U_"))
                   {
                     FileList.Add(line);
+                    prefix = 2;
                   }
                 }
 
@@ -509,9 +513,10 @@ namespace AttacheCase
                   sr = new StreamReader(ms, Encoding.GetEncoding("shift_jis"));
                   while ((line = sr.ReadLine()) != null)
                   {
-                    if (Regex.IsMatch(line, @"^S_"))
+                    if (Regex.IsMatch(line, @"^Fn_"))
                     {
                       FileList.Add(line);
+                      prefix = 3;
                     }
                   }
                 }
@@ -548,9 +553,11 @@ namespace AttacheCase
 
 				//-----------------------------------
 				int FileNum;
-				// U_0:sample.txt[\t]49657[\t]32[\t]734924[\t]38976000[\t]735756[\t]40300683
-				string[] FilePathSplits = OutputFileData[0].Split(':');
-				if (Int32.TryParse(FilePathSplits[0].Split(':')[0].Remove(0, 2), out FileNum) == false)
+        // U_0:sample.txt[\t]49657[\t]32[\t]734924[\t]38976000[\t]735756[\t]40300683
+        // or
+        // Fn_0:dummy.bin[\t]52426752[\t]32[\t]736214[\t]74714078[\t]736214[\t]74714078
+        string[] FilePathSplits = OutputFileData[0].Split(':');
+				if (Int32.TryParse(FilePathSplits[0].Split(':')[0].Remove(0, prefix), out FileNum) == false)
 				{
 					FileNum = -1;
 				}

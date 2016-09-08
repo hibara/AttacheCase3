@@ -286,7 +286,14 @@ namespace AttacheCase
 			#region
 			checkBoxEndToExit.Checked = AppSettings.Instance.fEndToExit;
 			checkBoxOpenFile.Checked = AppSettings.Instance.fOpenFile;
-			checkBoxAskEncDecode.Checked = AppSettings.Instance.fAskEncDecode;
+
+      checkBoxShowDialogWhenExeFile.Checked = AppSettings.Instance.fShowDialogWhenExeFile;
+      if( AppSettings.Instance.ShowDialogWhenMultipleFilesNum > 0)
+      {
+        checkBoxShowDialogWhenMultipleFiles.Checked = true;
+        numericUpDownLaunchFiles.Value = AppSettings.Instance.ShowDialogWhenMultipleFilesNum;
+      }
+      checkBoxAskEncDecode.Checked = AppSettings.Instance.fAskEncDecode;
 			checkBoxNoHidePassword.Checked = AppSettings.Instance.fNoHidePassword;
 			if (lang == "ja")
 			{
@@ -931,7 +938,11 @@ This License constitutes the entire agreement between the parties with respect t
       // General
       AppSettings.Instance.fEndToExit = checkBoxEndToExit.Checked;
 			AppSettings.Instance.fOpenFile = checkBoxOpenFile.Checked;
-			AppSettings.Instance.fAskEncDecode = checkBoxAskEncDecode.Checked;
+
+      AppSettings.Instance.fShowDialogWhenExeFile = checkBoxShowDialogWhenExeFile.Checked;
+      AppSettings.Instance.ShowDialogWhenMultipleFilesNum = Decimal.ToInt32(numericUpDownLaunchFiles.Value);
+                                                           
+      AppSettings.Instance.fAskEncDecode = checkBoxAskEncDecode.Checked;
 			AppSettings.Instance.fNoHidePassword = checkBoxNoHidePassword.Checked;
 			AppSettings.Instance.TabSelectedIndex = tabControl1.SelectedIndex;
 
@@ -1167,6 +1178,21 @@ This License constitutes the entire agreement between the parties with respect t
     // General
     //======================================================================
     #region
+
+    private void checkBoxShowDialogWhenMultipleFiles_CheckedChanged(object sender, EventArgs e)
+    {
+      if (checkBoxShowDialogWhenMultipleFiles.Checked == false)
+      {
+        numericUpDownLaunchFiles.Enabled = false;
+        numericUpDownLaunchFiles.BackColor = SystemColors.ButtonFace;
+      }
+      else
+      {
+        numericUpDownLaunchFiles.Enabled = true;
+        numericUpDownLaunchFiles.BackColor = Color.White;
+      }
+    }
+
     private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (fLoading == false)
@@ -2077,15 +2103,13 @@ This License constitutes the entire agreement between the parties with respect t
 			buttonApply.Enabled = true;
 		}
 
-
     #endregion
 
 
     //======================================================================
     // PasswordInputLimit
     //======================================================================
-
-
+     
 
 
 

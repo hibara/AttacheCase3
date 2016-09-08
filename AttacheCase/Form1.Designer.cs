@@ -729,7 +729,6 @@
       this.pictureBoxEncryptConfirmBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxEncryptConfirmBackButton.Name = "pictureBoxEncryptConfirmBackButton";
       this.pictureBoxEncryptConfirmBackButton.TabStop = false;
-      this.pictureBoxEncryptConfirmBackButton.Click += new System.EventHandler(this.buttonEncryptionConfirmCancel_Click);
       this.pictureBoxEncryptConfirmBackButton.MouseEnter += new System.EventHandler(this.pictureBoxEncryptConfirmBackButton_MouseEnter);
       this.pictureBoxEncryptConfirmBackButton.MouseLeave += new System.EventHandler(this.pictureBoxEncryptConfirmBackButton_MouseLeave);
       // 
@@ -901,6 +900,7 @@
       // 
       // textBoxDecryptPassword
       // 
+      this.textBoxDecryptPassword.AllowDrop = true;
       resources.ApplyResources(this.textBoxDecryptPassword, "textBoxDecryptPassword");
       this.textBoxDecryptPassword.Name = "textBoxDecryptPassword";
       this.textBoxDecryptPassword.UseSystemPasswordChar = true;

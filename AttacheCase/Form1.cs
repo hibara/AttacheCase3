@@ -1682,8 +1682,16 @@ namespace AttacheCase
 
         // TextBoxes
         textBoxPassword.Text = "";
+        textBoxPassword.Enabled = true;
+        textBoxPassword.BackColor = Color.White;
+
         textBoxRePassword.Text = "";
+        textBoxRePassword.Enabled = true;
+        textBoxRePassword.BackColor = Color.White;
+
         textBoxDecryptPassword.Text = "";
+        textBoxDecryptPassword.Enabled = true;
+        textBoxDecryptPassword.BackColor = Color.White;
 
         // Password files
         AppSettings.Instance.TempEncryptionPassFilePath = "";
@@ -1834,6 +1842,14 @@ namespace AttacheCase
         {
           textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
           textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+        }
+
+        // さらにコマンドラインオプションが優先される
+        // 
+        if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != "")
+        {
+          textBoxPassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
+          textBoxRePassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
         }
 
         // 確認せず即座に実行
@@ -1992,6 +2008,12 @@ namespace AttacheCase
           textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
         }
 
+        // さらにコマンドラインからのパスワードが優先される
+        if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != "")
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
+        }
+                                                                                                  
         // 確認せず即座に実行
         // Run immediately without confirming
         if (AppSettings.Instance.fMemPasswordExe == true)
@@ -3100,6 +3122,8 @@ namespace AttacheCase
         AppSettings.Instance.TempDecryptionPassFilePath = FilePaths[0];
         AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
         textBoxDecryptPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyDecryptPasswordBinary);
+        textBoxDecryptPassword.BackColor = SystemColors.ButtonFace;
+        textBoxDecryptPassword.Enabled = false;
       }
       else
       {
@@ -3306,16 +3330,25 @@ namespace AttacheCase
             }
           }
 
+          // コマンドラインからのパスワード
+          if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != "")
+          {
+            DecryptionPassword = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
+            DecryptionPasswordBinary = null;
+          } 
+
           // Drag & Drop Password file
           if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
           {
             if (decryption3.DataFileVersion < 130)
             {
               DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.TempDecryptionPassFilePath);
+              DecryptionPassword = "";
             }
             else
             {
               DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+              DecryptionPassword = "";
             }
           }
         }

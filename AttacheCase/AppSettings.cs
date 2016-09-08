@@ -230,7 +230,14 @@ namespace AttacheCase
 			set { this._MyEncryptPasswordBinary = value; }
 		}
 
-		private bool _fMyDecryptPasswordKeep;             // 復号パスワードを記憶するか
+    private string _EncryptPasswordStringFromCommandLine; // コマンドラインからの暗号化パスワード（文字列）
+    public string EncryptPasswordStringFromCommandLine
+    {
+      get { return this._EncryptPasswordStringFromCommandLine; }
+      set { this._EncryptPasswordStringFromCommandLine = value; }
+    }
+                  
+    private bool _fMyDecryptPasswordKeep;             // 復号パスワードを記憶するか
 		//Remember &Decryption password
 		public bool fMyDecryptPasswordKeep
 		{
@@ -252,7 +259,14 @@ namespace AttacheCase
 			set { this._MyDecryptPasswordBinary = value; }
 		}
 
-		private bool _fMemPasswordExe;                 //記憶パスワードで確認なく実行する
+    private string _DecryptPasswordStringFromCommandLine; // コマンドラインからの復号パスワード（文字列）
+    public string DecryptPasswordStringFromCommandLine
+    {
+      get { return this._DecryptPasswordStringFromCommandLine; }
+      set { this._EncryptPasswordStringFromCommandLine = value; }
+    }
+
+    private bool _fMemPasswordExe;                 //記憶パスワードで確認なく実行する
 		//Encrypt/Decrypt by &memorized password without confirming
 		public bool fMemPasswordExe
 		{
@@ -1176,7 +1190,7 @@ namespace AttacheCase
 				_ShowDialogWhenMultipleFilesNum = int.Parse((string)reg.GetValue("ShowDialogWhenMultipleFilesNum", "5"));
 				_fAskEncDecode = ((string)reg.GetValue("fAskEncDecode", "0") == "1") ? true : false;
 				_fNoHidePassword = ((string)reg.GetValue("fNoHidePassword", "0") == "1") ? true : false;
-				_fSaveToExeout = ((string)reg.GetValue("fSaveToExeout", "0") == "1") ? true : false;
+				_fSaveToExeout = ((string)reg.GetValue("fSaveToExeout", "1") == "1") ? true : false;
 				_fShowExeoutChkBox = ((string)reg.GetValue("fShowExeoutChkBox", "1") == "1") ? true : false;
 
 				//-----------------------------------
@@ -1495,7 +1509,7 @@ namespace AttacheCase
 			// General
 			ReadIniFile(IniFilePath, ref _fEndToExit, "Option", "fEndToExit", "0");
 			ReadIniFile(IniFilePath, ref _fOpenFile, "Option", "fOpenFile", "0");
-			ReadIniFile(IniFilePath, ref _fShowDialogWhenExeFile, "Option", "fShowDialogWhenExeFile", "0");
+			ReadIniFile(IniFilePath, ref _fShowDialogWhenExeFile, "Option", "fShowDialogWhenExeFile", "1");
 			ReadIniFile(IniFilePath, ref _fAskEncDecode, "Option", "fAskEncDecode", "0");
 			ReadIniFile(IniFilePath, ref _fNoHidePassword, "Option", "fNoHidePassword", "0");
 			ReadIniFile(IniFilePath, ref _fSaveToExeout, "Option", "fSaveToExeout", "0");
@@ -1900,9 +1914,9 @@ namespace AttacheCase
 					#region
 					// Password
 					case "/p": // パスワード
-						// 暗号化、復号の両方にパスワードを入れる
-						_MyEncryptPasswordString = value;
-						_MyDecryptPasswordString = value;
+                     // 暗号化、復号の両方にパスワードを入れる
+            _EncryptPasswordStringFromCommandLine = value;
+            _DecryptPasswordStringFromCommandLine = value;
 						i++;
 						break;
 
