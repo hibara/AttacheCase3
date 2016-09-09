@@ -231,7 +231,7 @@ namespace AttacheCase
           panelEncrypt.Visible = true;         // Encrypt
           panelEncryptConfirm.Visible = false;
           panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
+          //panelProgressState.Visible = false;
         }
         else if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
         {
@@ -1845,7 +1845,7 @@ namespace AttacheCase
         }
 
         // さらにコマンドラインオプションが優先される
-        // 
+        // The password of command line option is still more priority.
         if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != "")
         {
           textBoxPassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
@@ -1858,9 +1858,10 @@ namespace AttacheCase
         {
           panelStartPage.Visible = false;
           panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = true; // Encrypt confirm
           panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-          panelEncryptConfirm.Visible = true;
+          panelProgressState.Visible = true;  // Progress page
+          
           buttonEncryptStart.PerformClick();  // Execute to encrypt
         }
         
@@ -3330,13 +3331,6 @@ namespace AttacheCase
             }
           }
 
-          // コマンドラインからのパスワード
-          if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != "")
-          {
-            DecryptionPassword = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
-            DecryptionPasswordBinary = null;
-          } 
-
           // Drag & Drop Password file
           if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
           {
@@ -3351,8 +3345,16 @@ namespace AttacheCase
               DecryptionPassword = "";
             }
           }
+
+          // コマンドラインからのパスワード
+          if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != "")
+          {
+            DecryptionPassword = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
+            DecryptionPasswordBinary = null;
+          }
+
         }
-        
+
         // BackgroundWorker event handler
         bkg = new BackgroundWorker();
         bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
