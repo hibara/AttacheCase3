@@ -2567,19 +2567,20 @@ namespace AttacheCase
 						break;
 
 					case "/list": // リストファイルからのパスの読み込み
-						if (File.Exists(value) == true)
+            string dir = Path.GetDirectoryName(value);
+            if (File.Exists(value) == true)
 						{
 							int c = 0;
 							string line;
-
 							// Read the List file and Add to FileList.
-							using (StreamReader sr = new System.IO.StreamReader(value))
+							using (StreamReader sr = new StreamReader(value))
 							{
 								while ((line = sr.ReadLine()) != null)
 								{
-									if ( File.Exists(line) == true )
+                  string filename = Path.Combine(dir, line);
+                  if ( File.Exists(filename))
 									{
-										_FileList.Add(line);
+										_FileList.Add(filename);
 									}
 									c++;
 								}
