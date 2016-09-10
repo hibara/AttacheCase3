@@ -781,7 +781,7 @@ namespace AttacheCase
                 //----------------------------------------------------------------------
                 byteArray = new byte[BUFFER_SIZE];
 
-                while ((len = cse.Read(byteArray, 0, BUFFER_SIZE)) > 0)
+                while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
                 {
                   while (len > 0)
                   {

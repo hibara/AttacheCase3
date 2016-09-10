@@ -513,7 +513,7 @@ namespace AttacheCase
                     len = 0;
                     while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
                     {
-                      cse.Write(buffer, 0, len);
+                      ds.Write(buffer, 0, len);
                       _TotalSize += len;
 
                       string MessageText = "";
