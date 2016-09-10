@@ -8,7 +8,7 @@ Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
 [Setup]
 AppName={cm:AppName}
 AppVersion={#MyAppVer}
-AppVerName={cm:AppName} ver.{#MyAppVer}
+;AppVerName={cm:AppName} ver.{#MyAppVer}
 DefaultGroupName={cm:AppName}
 OutputBaseFilename=atcs{#MyAppVerNum}
 DefaultDirName={pf}\AttacheCase3
@@ -18,22 +18,6 @@ OutputDir=.\
 TouchTime=00:00
 ShowLanguageDialog=yes
 UsePreviousLanguage=no
-
-[CustomMessages]
-en.AppName=AttacheCase#3
-jp.AppName=アタッシェケース#3
-en.AppComments=File and folder encryption software
-jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
-en.SetUpProgramDescription=Set up program for 'AttacheCase#3'
-jp.SetUpProgramDescription=「アタッシェケース#3」をセットアップするプログラム 
-en.UnintallName=Uninstall
-jp.UnintallName=アンインストール
-en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
-jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
-en.mdSampleFile=help.md
-jp.mdSampleFile=help-ja.md
-en.LaunchProgram=Start AttacheCase3 after finishing installation.
-jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
 
 ;-----------------------------------
 ;インストーラプログラム
@@ -75,6 +59,22 @@ AppReadmeFile="{app}\AttacheCase3\readme.txt"
 AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
+
+[CustomMessages]
+en.AppName=AttacheCase#3
+jp.AppName=アタッシェケース#3
+en.AppComments=File and folder encryption software
+jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
+en.SetUpProgramDescription=Set up program for 'AttacheCase#3'
+jp.SetUpProgramDescription=「アタッシェケース#3」をセットアップするプログラム 
+en.UnintallName=Uninstall
+jp.UnintallName=アンインストール
+en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
+jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
+en.mdSampleFile=help.md
+jp.mdSampleFile=help-ja.md
+en.LaunchProgram=Start AttacheCase3 after finishing installation.
+jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
 
 [Files]
 Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch

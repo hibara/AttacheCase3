@@ -371,7 +371,7 @@ namespace AttacheCase
         // Plain text header
         byteArray = new byte[2];
         fs.Read(byteArray, 0, 2);
-        _AppVersion = (short)byteArray[0];                     // AppVersion
+        _AppVersion = BitConverter.ToInt16(byteArray, 0);                     // AppVersion
 
         byteArray = new byte[1];
         fs.Read(byteArray, 0, 1);
@@ -781,8 +781,23 @@ namespace AttacheCase
                 //----------------------------------------------------------------------
                 byteArray = new byte[BUFFER_SIZE];
 
-                while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
+                //while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
+                while(true)
                 {
+                  if (_AppVersion < 3013)
+                  {
+                    if ( (len = cse.Read(byteArray, 0, BUFFER_SIZE)) == 0 ){
+                      break;
+                    }
+                  }
+                  else
+                  {
+                    if ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) == 0)
+                    {
+                      break;
+                    }
+                  }
+
                   while (len > 0)
                   {
                     //----------------------------------------------------------------------
