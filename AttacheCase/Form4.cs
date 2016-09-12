@@ -176,30 +176,27 @@ namespace AttacheCase
 				return;
 			}
 			
-			if (textBoxPassword.Text.Length == 0)
-			{
-				textBoxRePassword.Enabled = false;
-				textBoxRePassword.BackColor = SystemColors.ButtonFace;
-			}
-			else
-			{
-				textBoxRePassword.Enabled = true;
-				textBoxRePassword.BackColor = SystemColors.Window;
+			textBoxRePassword.Enabled = true;
+			textBoxRePassword.BackColor = SystemColors.Window;
 
-				if (textBoxPassword.Text == textBoxRePassword.Text)
-				{
-					buttonPasswordOK.Enabled = true;
-					pictureBoxPasswordValid.Visible = true;
-					labelPasswordValid.Visible = true;
-				}
-				else
-				{
-					buttonPasswordOK.Enabled = false;
-					pictureBoxPasswordValid.Visible = false;
-					labelPasswordValid.Visible = false;
-				}
-			}
-		}
+      if (textBoxPassword.Text == textBoxRePassword.Text)
+      {
+        // Light green
+        textBoxRePassword.BackColor = Color.Honeydew;
+        buttonPasswordOK.Enabled = true;
+        pictureBoxPasswordValid.Visible = true;
+        labelPasswordValid.Visible = true;
+      }
+      else
+      {
+        // Light pink
+        textBoxRePassword.BackColor = Color.MistyRose;
+        buttonPasswordOK.Enabled = false;
+        pictureBoxPasswordValid.Visible = false;
+        labelPasswordValid.Visible = false;
+      }
+
+    }
 
 		private void textBoxRePassword_TextChanged(object sender, EventArgs e)
 		{
@@ -217,7 +214,6 @@ namespace AttacheCase
 					buttonPasswordOK.Enabled = true;
 					pictureBoxPasswordValid.Visible = true;
 					labelPasswordValid.Visible = true;
-
 				}
 				else
 				{

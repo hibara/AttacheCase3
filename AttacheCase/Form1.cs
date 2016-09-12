@@ -368,6 +368,11 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void Form1_DragDrop(object sender, DragEventArgs e)
     {
+      if(panelStartPage.Visible == false)
+      {
+        return;
+      }
+
       panelStartPage.BackColor = Color.White;
 
       string[] ArrayFiles = (string[])e.Data.GetData(DataFormats.FileDrop, false);
@@ -377,117 +382,8 @@ namespace AttacheCase
         AppSettings.Instance.FileList.Add(FilePath);
       }
 
-      // 内容にかかわらず暗号化か復号かを問い合わせる
-      // Ask to encrypt or decrypt regardless of contents.
-      if (AppSettings.Instance.fAskEncDecode == true)
-      {
-        // Show dialog for confirming to orverwrite
-        Form4 frm4 = new Form4("AskEncryptOrDecrypt", "");
-        frm4.ShowDialog();
-        int ProcessNum = frm4.AskEncryptOrDecrypt;  // 1: Encryption, 2: Decryption, -1: Cancel
-        frm4.Dispose();
+      StartProcess();
 
-        //-----------------------------------
-        // Encryption
-        //-----------------------------------
-        if (ProcessNum == 1)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = true;        // Encrypt
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-          return;
-        }
-        //-----------------------------------
-        // Decryption
-        //-----------------------------------
-        else if (ProcessNum == 2)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = true;        // Decrypt
-          panelProgressState.Visible = false;
-          return;
-        }
-        //-----------------------------------
-        // Cancel
-        //-----------------------------------
-        else
-        {
-          this.BackColor = Color.White;
-          return;
-        }
-      }
-
-      //----------------------------------------------------------------------
-      // 問い合わせず自動判別する
-
-      // File type
-      // private const int FILE_TYPE_ERROR        = -1;
-      // private const int FILE_TYPE_NONE         = 0;
-      // private const int FILE_TYPE_ATC          = 1;
-      // private const int FILE_TYPE_ATC_EXE      = 2;
-      // private const int FILE_TYPE_PASSWORD_ZIP = 3;
-
-      // すでに指定されている
-      int FileType = 0;
-      if (AppSettings.Instance.EncryptionFileType > 0)
-      {
-        FileType = AppSettings.Instance.EncryptionFileType;
-      }
-      else
-      {
-        // 指定がなければ判定する
-        FileType = AppSettings.Instance.DetectFileType();
-        AppSettings.Instance.EncryptionFileType = FileType;
-      }
-
-      if (AppSettings.Instance.FileList.Count() > 0)
-      {
-        //----------------------------------------------------------------------
-        // Decryption
-        if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;        
-          panelEncryptConfirm.Visible = false; 
-          panelDecrypt.Visible = true;         // Decrypt
-          panelProgressState.Visible = false;
-        }
-        //----------------------------------------------------------------------
-        // Encryption
-        else if (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = true;        // Encrypt
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-        }
-        //----------------------------------------------------------------------
-        // Password ZIP
-        else if (FileType == FILE_TYPE_PASSWORD_ZIP)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = true;         // Encrypt
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-        }
-        else
-        {
-          panelStartPage.Visible = true;     // Main Window
-          panelEncrypt.Visible = false;
-          panelEncryptConfirm.Visible = false;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-        }
-
-        this.BackColor = Color.White;
-
-      }
     }
     #endregion
 
@@ -1626,6 +1522,223 @@ namespace AttacheCase
     // 各ウィンドウページが表示されたときに発生するイベント
     //======================================================================
 #region
+    private void StartProcess()
+    {
+      // 内容にかかわらず暗号化か復号かを問い合わせる
+      // Ask to encrypt or decrypt regardless of contents.
+      if (AppSettings.Instance.fAskEncDecode == true)
+      {
+        // Show dialog for confirming to orverwrite
+        Form4 frm4 = new Form4("AskEncryptOrDecrypt", "");
+        frm4.ShowDialog();
+        int ProcessNum = frm4.AskEncryptOrDecrypt;  // 1: Encryption, 2: Decryption, -1: Cancel
+        frm4.Dispose();
+
+        //-----------------------------------
+        // Encryption
+        //-----------------------------------
+        if (ProcessNum == 1)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;        // Encrypt
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+        }
+        //-----------------------------------
+        // Decryption
+        //-----------------------------------
+        else if (ProcessNum == 2)
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = true;        // Decrypt
+          panelProgressState.Visible = false;
+        }
+        //-----------------------------------
+        // Cancel
+        //-----------------------------------
+        else
+        {
+          this.BackColor = Color.White;
+          return;
+        }
+
+      }
+      else
+      {
+        //----------------------------------------------------------------------
+        // 問い合わせず自動判別する
+        // Auto detect without asking you
+
+        // File type
+        // private const int FILE_TYPE_ERROR        = -1;
+        // private const int FILE_TYPE_NONE         = 0;
+        // private const int FILE_TYPE_ATC          = 1;
+        // private const int FILE_TYPE_ATC_EXE      = 2;
+        // private const int FILE_TYPE_PASSWORD_ZIP = 3;
+
+        // すでに指定されている
+        int FileType = 0;
+        if (AppSettings.Instance.EncryptionFileType > 0)
+        {
+          FileType = AppSettings.Instance.EncryptionFileType;
+        }
+        else
+        {
+          // 指定がなければ判定する
+          FileType = AppSettings.Instance.DetectFileType();
+          AppSettings.Instance.EncryptionFileType = FileType;
+        }
+
+        if (AppSettings.Instance.FileList.Count() > 0)
+        {
+          //----------------------------------------------------------------------
+          // Decryption
+          if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
+          {
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = true;         // Decrypt
+            panelProgressState.Visible = false;
+          }
+          //----------------------------------------------------------------------
+          // Encryption
+          else if (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE)
+          {
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = true;        // Encrypt
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+          }
+          //----------------------------------------------------------------------
+          // Password ZIP
+          else if (FileType == FILE_TYPE_PASSWORD_ZIP)
+          {
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = true;         // Encrypt
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+          }
+          else
+          {
+            panelStartPage.Visible = true;     // Main Window
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+          }
+
+          this.BackColor = Color.White;
+        }
+
+      }
+
+      //----------------------------------------------------------------------
+      // コマンドラインオプションからのパスワードが優先される
+      // The password of command line option is still more priority.
+      if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != null ||
+          AppSettings.Instance.DecryptPasswordStringFromCommandLine != null)
+      {
+        if (panelEncrypt.Visible == true)
+        {
+          textBoxPassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
+          textBoxRePassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
+        }
+        else if (panelDecrypt.Visible == true)
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
+        }
+
+        // 確認せず即座に実行
+        // Run immediately without confirming
+        if (AppSettings.Instance.fMemPasswordExe == true)
+        {
+          if (panelEncrypt.Visible == true)
+          {
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = true;
+            buttonEncryptStart.PerformClick();
+          }
+          else if (panelDecrypt.Visible == true)
+          {
+            buttonDecryptStart.PerformClick();
+          }
+        }
+
+      }
+      //-----------------------------------
+      // 記憶パスワード（保存されたパスワードファイルより優先される）
+      // Memorized password is priority than the saved password file
+      else if (AppSettings.Instance.fMyEncryptPasswordKeep == true || 
+                AppSettings.Instance.fMyDecryptPasswordKeep == true)
+      {
+        if (panelEncrypt.Visible == true)
+        {
+          textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+        }
+        else if (panelDecrypt.Visible == true)
+        {
+          textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+        }
+
+        // 確認せず即座に実行
+        // Run immediately without confirming
+        if (AppSettings.Instance.fMemPasswordExe == true)
+        {
+          if (panelEncrypt.Visible == true)
+          {
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = true;
+            buttonEncryptStart.PerformClick();
+          }
+          else if (panelDecrypt.Visible == true)
+          {
+            buttonDecryptStart.PerformClick();
+          }
+        }
+
+      }
+      //-----------------------------------
+      // パスワードファイル
+      // Password file
+      else if (AppSettings.Instance.fCheckPassFile == true)
+      {
+        if (File.Exists(AppSettings.Instance.PassFilePath) == true)
+        {
+          textBoxPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePath);
+          textBoxRePassword.Text = textBoxPassword.Text;
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = true;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
+        }
+        else
+        {
+          if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+          {
+            // 注意
+            // 動作設定で指定されたパスワードファイルが見つかりません。
+            // [FilePath]
+            //
+            // Alert
+            // Password is not found that specified in setting panel.
+            // [FilePath]
+            DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
+            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+          }
+          return;
+        }
+      }
+
+    }
+
     /// <summary>
     /// panelStartPage
     /// </summary>
@@ -1701,7 +1814,6 @@ namespace AttacheCase
 
       }
     }
-     
 
     /// <summary>
     /// panelEncrypt
@@ -1792,81 +1904,13 @@ namespace AttacheCase
         if (AppSettings.Instance.fAllowPassFile == true)
         {
           this.AllowDrop = true;
-        }
-        else
-        {
-          this.AllowDrop = false;
-        }
-
-        // Password file
-        if (AppSettings.Instance.fAllowPassFile == true)
-        {
           textBoxPassword.AllowDrop = true;
         }
         else
         {
+          this.AllowDrop = false;
           textBoxPassword.AllowDrop = false;
         }
-
-        if (AppSettings.Instance.fCheckPassFile == true)
-        {
-          if (File.Exists(AppSettings.Instance.PassFilePath) == true)
-          {
-            textBoxPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePath);
-            textBoxRePassword.Text = textBoxPassword.Text;
-            panelStartPage.Visible = false;
-            panelEncrypt.Visible = false;
-            panelEncryptConfirm.Visible = true;
-            panelDecrypt.Visible = false;
-            panelProgressState.Visible = false;
-          }
-          else
-          {
-            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
-            {
-              // 注意
-              // 動作設定で指定されたパスワードファイルが見つかりません。
-              // [FilePath]
-              //
-              // Alert
-              // Password is not found that specified in setting panel.
-              // [FilePath]
-              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
-              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            return;
-          }
-        }
-
-        // 記憶パスワード（保存されたパスワードファイルより優先される）
-        // Memorized password is priority than the saved password file
-        if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
-        {
-          textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-          textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-        }
-
-        // さらにコマンドラインオプションが優先される
-        // The password of command line option is still more priority.
-        if (AppSettings.Instance.EncryptPasswordStringFromCommandLine != "")
-        {
-          textBoxPassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
-          textBoxRePassword.Text = AppSettings.Instance.EncryptPasswordStringFromCommandLine;
-        }
-
-        // 確認せず即座に実行
-        // Run immediately without confirming
-        if (AppSettings.Instance.fMemPasswordExe == true)
-        {
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;
-          panelEncryptConfirm.Visible = true; // Encrypt confirm
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = true;  // Progress page
-          
-          buttonEncryptStart.PerformClick();  // Execute to encrypt
-        }
-        
       }
     }
 
@@ -1886,11 +1930,6 @@ namespace AttacheCase
         {
           pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
           textBoxRePassword.BackColor = Color.Honeydew;
-
-          if (AppSettings.Instance.fMemPasswordExe == true)
-          {
-            buttonEncryptStart.PerformClick();
-          }
         }
         else
         {
@@ -1978,50 +2017,6 @@ namespace AttacheCase
         else
         {
           textBoxDecryptPassword.AllowDrop = false;
-        }
-
-        if (AppSettings.Instance.fCheckPassFileDecrypt == true)
-        {
-          if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
-          {
-            textBoxDecryptPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePath);
-          }
-          else
-          {
-            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
-            {
-              // 注意
-              // 動作設定で指定されたパスワードファイルが見つかりません。
-              // [FilePath]
-              //
-              // Alert
-              // Password is not found that specified in setting panel.
-              // [FilePath]
-              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
-              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            return;
-          }
-        }
-
-        // 記憶パスワード（保存されたパスワードファイルより優先される）
-        // Memorized password is priority than the saved password file
-        if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
-        {
-          textBoxDecryptPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
-        }
-
-        // さらにコマンドラインからのパスワードが優先される
-        if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != "")
-        {
-          textBoxDecryptPassword.Text = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
-        }
-                                                                                                  
-        // 確認せず即座に実行
-        // Run immediately without confirming
-        if (AppSettings.Instance.fMemPasswordExe == true)
-        {
-          buttonDecryptStart.PerformClick();  // Execute to decrypt
         }
 
       }

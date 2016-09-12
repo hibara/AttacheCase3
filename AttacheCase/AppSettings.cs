@@ -1341,7 +1341,8 @@ namespace AttacheCase
 				reg.SetValue("fMyDecryptPasswordKeep", _fMyDecryptPasswordKeep == true ? "1" : "0");
 				reg.SetValue("MyEncryptPasswordString", EncryptMyPassword(_MyEncryptPasswordString), RegistryValueKind.Binary);
 				reg.SetValue("MyDecryptPasswordString", EncryptMyPassword(_MyDecryptPasswordString), RegistryValueKind.Binary);
-				reg.SetValue("fNotMaskPassword", _fNotMaskPassword == true ? "1" : "0");
+        reg.SetValue("fMemPasswordExe", _fMemPasswordExe == true ? "1" : "0");
+        reg.SetValue("fNotMaskPassword", _fNotMaskPassword == true ? "1" : "0");
 			}
 
 			//----------------------------------------------------------------------

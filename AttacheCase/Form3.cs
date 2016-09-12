@@ -1292,15 +1292,33 @@ This License constitutes the entire agreement between the parties with respect t
 				if (AppSettings.Instance.MyEncryptPasswordString == "")
 				{
 					checkBoxMyEncodePasswordKeep.Checked = false;
+          if (checkBoxMyDecodePasswordKeep.Checked == false)
+          {
+            checkBoxDobyMemorizedPassword.Checked = false;
+            checkBoxDobyMemorizedPassword.Enabled = false;
+          }             
 				}
 				else
 				{
 					//textBoxMyEncodePassword.Text = new string('*', AppSettings.Instance.MyEncryptPasswordString.Length);
 					textBoxMyEncodePassword.Text = new string('*', 16);
 					textBoxAutoNameFormatText.UseSystemPasswordChar = true;
-				}
-			}
-			buttonApply.Enabled = true;
+
+          //checkBoxDobyMemorizedPassword.Checked = true;
+          checkBoxDobyMemorizedPassword.Enabled = true;
+        }
+      }
+      else
+      {
+        checkBoxMyEncodePasswordKeep.Checked = false;
+        if (checkBoxMyDecodePasswordKeep.Checked == false)
+        {
+          checkBoxDobyMemorizedPassword.Checked = false;
+          checkBoxDobyMemorizedPassword.Enabled = false;
+        }
+      }
+
+      buttonApply.Enabled = true;
 
 		}
 
@@ -1327,14 +1345,24 @@ This License constitutes the entire agreement between the parties with respect t
 				{
 					textBoxMyDecodePassword.Text = "";
 					checkBoxMyDecodePasswordKeep.Checked = false;
-				}
+
+          if (checkBoxMyEncodePasswordKeep.Checked == false)
+          {
+            checkBoxDobyMemorizedPassword.Checked = false;
+            checkBoxDobyMemorizedPassword.Enabled = false;
+          }
+        }
 				else
 				{
 					//textBoxMyEncodePassword.Text = new string('*', AppSettings.Instance.MyEncryptPasswordString.Length);
 					textBoxMyDecodePassword.Text = new string('*', 16);
-				}
-			}
-			buttonApply.Enabled = true;
+
+          //checkBoxDobyMemorizedPassword.Checked = true;
+          checkBoxDobyMemorizedPassword.Enabled = true;
+        }
+      }
+
+      buttonApply.Enabled = true;
 
 		}
 
