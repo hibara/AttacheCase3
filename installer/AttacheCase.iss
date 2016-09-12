@@ -5,16 +5,31 @@
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "jp"; MessagesFile: "compiler:Languages\Japanese.isl"
 
+[CustomMessages]
+en.AppName=AttacheCase#3
+jp.AppName=アタッシェケース#3
+en.AppComments=File and folder encryption software
+jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
+en.SetUpProgramDescription=Set up program for 'AttacheCase#3'
+jp.SetUpProgramDescription=「アタッシェケース#3」セットアッププログラム 
+en.UnintallName=Uninstall
+jp.UnintallName=アンインストール
+en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
+jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
+en.mdSampleFile=help.md
+jp.mdSampleFile=help-ja.md
+en.LaunchProgram=Start AttacheCase3 after finishing installation.
+jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
+
 [Setup]
 AppName={cm:AppName}
-AppVersion={#MyAppVer}
-;AppVerName={cm:AppName} ver.{#MyAppVer}
+AppVersion={#MyAppVer}AppVerName={cm:AppName} ver.{#MyAppVer}
 DefaultGroupName={cm:AppName}
 OutputBaseFilename=atcs{#MyAppVerNum}
 DefaultDirName={pf}\AttacheCase3
 UsePreviousAppDir=yes
 AppendDefaultDirName=yes 
-OutputDir=.\
+OutputDir=.\archives
 TouchTime=00:00
 ShowLanguageDialog=yes
 UsePreviousLanguage=no
@@ -23,7 +38,7 @@ UsePreviousLanguage=no
 ;インストーラプログラム
 ;-----------------------------------
 VersionInfoVersion={#MyAppVer}
-VersionInfoDescription={cm:SetUpProgramDescription}
+;VersionInfoDescription={cm:SetUpProgramDescription}
 AppCopyright=Copyright(C) 2016 M.Hibara, All rights reserved.
 ;SetupIconFile=icon\main_icon.ico
 ;ウィザードページに表示されるグラフィック（*.bmp: 164 x 314）
@@ -53,33 +68,16 @@ AppPublisherURL=https://hibara.org
 AppContact=m@hibara.org
 ;サポートサイトURL
 AppSupportURL=https://hibara.org/software/
-;ReadMeファイルパス
-AppReadmeFile="{app}\AttacheCase3\readme.txt"
+;ReadMeファイルパス;AppReadmeFile="{app}\AttacheCase3\readme.txt"
 ;製品更新先のURL
 AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
 
-[CustomMessages]
-en.AppName=AttacheCase#3
-jp.AppName=アタッシェケース#3
-en.AppComments=File and folder encryption software
-jp.AppComments=ファイル・フォルダー暗号化ソフトウェア
-en.SetUpProgramDescription=Set up program for 'AttacheCase#3'
-jp.SetUpProgramDescription=「アタッシェケース#3」をセットアップするプログラム 
-en.UnintallName=Uninstall
-jp.UnintallName=アンインストール
-en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlease install the .NET Framework 4.0 such as from Windows update.%nAnd then please start this setup program again.
-jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
-en.mdSampleFile=help.md
-jp.mdSampleFile=help-ja.md
-en.LaunchProgram=Start AttacheCase3 after finishing installation.
-jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
-
 [Files]
 Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
-Source: "bin\ja-JP\AttacheCase.resources.dll"; DestDir: "{app}\\ja-JP"; Flags: ignoreversion touch
+Source: "bin\ja-JP\AttacheCase.resources.dll"; DestDir: "{app}\ja-JP"; Flags: ignoreversion touch
 ;Source: "bin\readme.txt"; DestDir: "{userappdata}\AttacheCase3"; Flags: ignoreversion touch
 
 [Icons]

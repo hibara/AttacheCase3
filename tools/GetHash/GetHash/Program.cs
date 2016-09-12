@@ -17,25 +17,14 @@ namespace GetHash
       }
       else
       {
-
         List<string> FileList = new List<string>();
 
-        string[] files = Directory.GetFiles(Directory.GetCurrentDirectory());
-
-        for (int i = 0; i < files.Length; i++)
+        string[] cmds = Environment.GetCommandLineArgs();
+        foreach (string cmd in cmds)
         {
-
-          // Create a new wildcard to search for all
-          // .txt files, regardless of case
-          Wildcard wildcard = new Wildcard(args[0], RegexOptions.IgnoreCase);
-
-          // Print all matching files
-          foreach (string file in files)
+          if (File.Exists(Path.GetFullPath(cmd)) == true)
           {
-            if (wildcard.IsMatch(file))
-            {
-              FileList.Add(file);
-            }
+            FileList.Add(Path.GetFullPath(cmd));
           }
         }
         

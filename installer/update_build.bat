@@ -59,7 +59,7 @@ for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i
 
 )
 
-"C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 atc*.exe
+"C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
 
 
 @echo. 
@@ -72,7 +72,7 @@ for /F "delims=" %%s in ('..\tools\getver\getver\bin\Release\GetVer.exe bin\Atta
 
 @rem ZIP
 cd bin
-7z a -tzip ..\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe ja-JP\AttacheCase.resources.dll
+7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe ja-JP\AttacheCase.resources.dll
 cd ..\
 
 
@@ -81,18 +81,18 @@ cd ..\
 @echo. make hash file
 @echo. -----------------------------------
 
-..\tools\GetHash\GetHash\bin\Release\GetHash.exe *.exe
-..\tools\GetHash\GetHash\bin\Release\GetHash.exe *.zip
+..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.exe
+..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.zip
 
 @echo. 
 @echo. -----------------------------------
 @echo. Timestamp ( only time ) zero clear
 @echo. -----------------------------------
 
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w *.exe
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w *.zip
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w *.md5
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w *.sha1
+..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.exe
+..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.zip
+..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.md5
+..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.sha1
 
 
 @echo. 

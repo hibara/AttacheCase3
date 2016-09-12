@@ -1439,7 +1439,7 @@ namespace AttacheCase
     {
       if (panelStartPage.Visible == true)
       {
-        AppSettings.Instance.FileList = null;
+        AppSettings.Instance.FileList = new List<string>();
         openFileDialog1.Title = Resources.DialogTitleEncryptSelectFiles;
         openFileDialog1.Filter = Resources.OpenDialogFilterAllFiles;
         openFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
@@ -1478,7 +1478,7 @@ namespace AttacheCase
     {
       if (panelStartPage.Visible == true)
       {
-        AppSettings.Instance.FileList = null;
+        AppSettings.Instance.FileList = new List<string>();
         folderBrowserDialog1.Description = Resources.DialogTitleEncryptSelectFolder;
         folderBrowserDialog1.SelectedPath = AppSettings.Instance.InitDirPath;
         if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -1530,6 +1530,8 @@ namespace AttacheCase
             }
             AppSettings.Instance.FileList.Add(filname);
           }
+
+          AppSettings.Instance.DetectFileType();
 
           // Check memorized password
           if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
@@ -2087,7 +2089,8 @@ namespace AttacheCase
     }
 
     /// <summary>
-    /// テキストボックスの入力イベント
+    /// パスワードファイルパス
+    /// The path of Password file 
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -2125,7 +2128,8 @@ namespace AttacheCase
       if ( File.Exists(FilePaths[0]) == true)
       {
         AppSettings.Instance.TempEncryptionPassFilePath = FilePaths[0];
-        textBoxPassword.Text = AppSettings.BytesToHexString(GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath));
+        AppSettings.Instance.MyEncryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath);
+        textBoxPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyEncryptPasswordBinary);
         textBoxRePassword.Text = textBoxPassword.Text;
         panelStartPage.Visible = false;
         panelEncrypt.Visible = false;
@@ -3346,8 +3350,9 @@ namespace AttacheCase
             }
           }
 
-          // コマンドラインからのパスワード
-          if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != "")
+          // コマンドラインからのパスワードがさらに優先される
+          // The password from command line option that is still more priority.
+          if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != null)
           {
             DecryptionPassword = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
             DecryptionPasswordBinary = null;
@@ -3370,6 +3375,7 @@ namespace AttacheCase
           decryption2 = new FileDecrypt2(AtcFilePath);
           decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
           decryption2.NumberOfFiles = NumberOfFiles;
+          decryption2.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
           decryption2.TotalNumberOfFiles = TotalNumberOfFiles;
           decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
           if (LimitOfInputPassword == -1)
@@ -3403,6 +3409,7 @@ namespace AttacheCase
           decryption3.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
           decryption3.NumberOfFiles = NumberOfFiles;
           decryption3.TotalNumberOfFiles = TotalNumberOfFiles;
+          decryption3.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
           decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
           if (LimitOfInputPassword == -1)
           {

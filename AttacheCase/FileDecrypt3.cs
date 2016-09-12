@@ -181,7 +181,16 @@ namespace AttacheCase
       get { return this._MissTypeLimits; }
     }
 
-    //  一つずつ親フォルダーを確認、生成しながら復号する（サルベージモード）
+    // ファイル、フォルダーのタイムスタンプを復号時に合わせる
+    private bool _fSameTimeStamp = false;                   
+    //Set the timestamp to decrypted files or directories
+    public bool fSameTimeStamp
+    {
+      get { return this._fSameTimeStamp; }
+      set { this._fSameTimeStamp = value; }
+    }
+
+    // 一つずつ親フォルダーを確認、生成しながら復号する（サルベージモード）
     private bool _fSalvageToCreateParentFolderOneByOne = false;
     // Decrypt one by one while creating the parent folder ( Salvage mode ).
     public bool fSalvageToCreateParentFolderOneByOne
@@ -458,7 +467,16 @@ namespace AttacheCase
         return(false);
       }
 
-      Rfc2898DeriveBytes deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
+      Rfc2898DeriveBytes deriveBytes;
+      if (PasswordBinary == null)
+      {
+        deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
+      }
+      else
+      {
+        deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, _salt, 1000);
+      }
+
       byte[] key = deriveBytes.GetBytes(32);
       byte[] iv = deriveBytes.GetBytes(32);
       
@@ -561,8 +579,8 @@ namespace AttacheCase
       string ParentFolder = "";
       FileList.ForEach(delegate (string OutputLine)
       {
-        int LastWriteDate, LastWriteTime;
-        int CreateDate, CreateTime;
+        int LastWriteDate, CreateDate;
+        double LastWriteTime, CreateTime;
         DateTime LastWriteDateTime = DateTime.Parse("0001/01/01");
         DateTime CreationDateTime = DateTime.Parse("0001/01/01");
 
@@ -630,7 +648,7 @@ namespace AttacheCase
 				*/
         //-----------------------------------
         // Last update timestamp
-        if (Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
+        if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
         {
           LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate); // Add days
         }
@@ -638,9 +656,10 @@ namespace AttacheCase
         {
           LastWriteDateTime = DateTime.Now;
         }
-        if (Int32.TryParse(OutputFileData[4], out LastWriteTime) == true)
+
+        if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
         {
-          LastWriteDateTime = LastWriteDateTime.AddMilliseconds(LastWriteTime);
+          LastWriteDateTime = LastWriteDateTime.AddSeconds(LastWriteTime);  // Add seconds
         }
         else
         {
@@ -651,7 +670,7 @@ namespace AttacheCase
 
         //-----------------------------------
         // Create datetime
-        if (Int32.TryParse(OutputFileData[5], out CreateDate) == true)
+        if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[5], out CreateDate) == true)
         {
           CreationDateTime = CreationDateTime.AddDays(CreateDate);
         }
@@ -659,9 +678,10 @@ namespace AttacheCase
         {
           CreationDateTime = DateTime.Now;
         }
-        if (Int32.TryParse(OutputFileData[6], out CreateTime) == true)
+
+        if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[6], out CreateTime) == true)
         {
-          CreationDateTime = CreationDateTime.AddMilliseconds(CreateTime);
+          CreationDateTime = CreationDateTime.AddSeconds(CreateTime);
         }
         else
         {
@@ -770,6 +790,9 @@ namespace AttacheCase
                 FileStream outfs = null;
                 Int64 FileSize = 0;
                 int FileIndex = 0;
+
+                bool fNo = false;
+
                 if (_fNoParentFolder == true)
                 {
                   if (dic[0].FilePath.EndsWith("\\") == true)
@@ -847,6 +870,7 @@ namespace AttacheCase
                               // No
                               else if (TempOverWriteOption == 0)
                               {
+                                FileIndex++;
                                 continue;
                               }
                               else
@@ -856,6 +880,7 @@ namespace AttacheCase
                                   FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                   if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                   {
+                                    FileIndex++;
                                     continue; // old directory
                                   }
                                 }
@@ -908,6 +933,7 @@ namespace AttacheCase
                               {
                                 // Show dialog of comfirming to overwrite. 
                                 dialog(1, Path.Combine(OutDirPath, dic[FileIndex].FilePath));
+                                fNo = false;
                                 if (TempOverWriteOption == -1)
                                 {
                                   e.Result = new FileDecryptReturnVal(USER_CANCELED);
@@ -916,7 +942,7 @@ namespace AttacheCase
                                 // No
                                 else if (TempOverWriteOption == 0)
                                 {
-                                  continue;
+                                  fNo = true;
                                 }
                                 else
                                 {
@@ -925,7 +951,7 @@ namespace AttacheCase
                                     FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                     if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                     {
-                                      continue; // old file
+                                      fNo = true;
                                     }
                                   }
                                 }
@@ -944,8 +970,16 @@ namespace AttacheCase
                             Directory.CreateDirectory(Path.GetDirectoryName(path));
                           }
 
-                          // Full path of output file
-                          outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                          if (fNo == false)
+                          { // ここで、"OpenOrCreate"を使用するとなぜか同じファイルと復号されない。
+                            // Use the "OpenOrCreate" here, then they are not decrypted to the same file.
+                            outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                          }
+                          else
+                          {
+                            outfs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+                          }
+
                           _OutputFileList.Add(path);
                           FileSize = 0;
 
@@ -955,7 +989,7 @@ namespace AttacheCase
                     }// end if (outfs == null);
 
                     //----------------------------------------------------------------------
-                    //　TODO: Write data
+                    // Write data
                     //----------------------------------------------------------------------
                     if (FileSize + (len - pos) < (Int64)dic[FileIndex].FileSize)
                     {
@@ -963,8 +997,11 @@ namespace AttacheCase
                       // Still write...
                       if (outfs != null)
                       {
-                        //outfs.Write(byteArray, BUFFER_SIZE - len, len);
-                        outfs.Write(byteArray, pos, len-pos);
+                        if (fNo == false)
+                        {
+                          outfs.Write(byteArray, pos, len - pos);
+                        }
+
                         FileSize += (len - pos);
                         _TotalSize += (len - pos);
                         len = 0;
@@ -977,35 +1014,47 @@ namespace AttacheCase
                       // Reading data over the border of data
                       int rest = (int)((Int64)dic[FileIndex].FileSize - FileSize);
 
-                      outfs.Write(byteArray, pos, rest);
+                      if (fNo == false)
+                      {
+                        outfs.Write(byteArray, pos, rest);
+                      }
 
                       _TotalSize += rest;
                       pos += rest;
 
-                      outfs.Close();
-                      outfs = null;
+                      if (outfs != null)
+                      {
+                        outfs.Close();
+                        outfs = null;
+                      }
 
                       //----------------------------------------------------------------------
                       // ファイル属性の復元
-                      // Restore file attribute.
-                      FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
-                      fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
-                      // タイムスタンプなどの復元
-                      // Restore the timestamp of a file
-                      fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
-                      fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
 
-                      // ハッシュ値のチェック
-                      // Check the hash of a file
-                      string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
-                      if (hash != dic[FileIndex].Hash.ToString())
+                      if (fNo == false)
                       {
-                        e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
-                        return (false);
+                        // Restore file attribute.
+                        FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
+                        fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
+                        // タイムスタンプの復元
+                        // Restore the timestamp of a file
+                        fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
+                        fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
+
+                        // ハッシュ値のチェック
+                        // Check the hash of a file
+                        string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
+                        if (hash != dic[FileIndex].Hash.ToString())
+                        {
+                          e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
+                          return (false);
+                        }
                       }
 
                       FileSize = 0;
                       FileIndex++;
+
+                      fNo = false;
 
                       if (FileIndex > dic.Count - 1)
                       {

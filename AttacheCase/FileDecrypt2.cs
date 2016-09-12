@@ -160,11 +160,20 @@ namespace AttacheCase
 			get { return this._fExecutableType; }
 		}
 
-		//----------------------------------------------------------------------
-		// The plain text header data of encrypted file ( ReadOnly)
-		//----------------------------------------------------------------------
-		// Data Sub Version ( ver.2.00~ = "5", ver.2.70~ = "6" )
-		private int _DataSebVersion = 0;
+    // ファイル、フォルダーのタイムスタンプを復号時に合わせる
+    private bool _fSameTimeStamp = false;
+    //Set the timestamp to decrypted files or directories
+    public bool fSameTimeStamp
+    {
+      get { return this._fSameTimeStamp; }
+      set { this._fSameTimeStamp = value; }
+    }
+
+    //----------------------------------------------------------------------
+    // The plain text header data of encrypted file ( ReadOnly)
+    //----------------------------------------------------------------------
+    // Data Sub Version ( ver.2.00~ = "5", ver.2.70~ = "6" )
+    private int _DataSebVersion = 0;
 		public int DataSebVersion
 		{
 			get { return this._DataSebVersion; }
@@ -613,7 +622,7 @@ namespace AttacheCase
 				*/
 				//-----------------------------------
 				// Last update timestamp
-				if (Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
+				if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
 				{
 					LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate);	// Add days
 				}
@@ -621,9 +630,10 @@ namespace AttacheCase
 				{
 					LastWriteDateTime = DateTime.Now;
 				}
-				if (Int32.TryParse(OutputFileData[4], out LastWriteTime) == true)
+
+				if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[4], out LastWriteTime) == true)
 				{
-					LastWriteDateTime = LastWriteDateTime.AddMilliseconds(LastWriteTime);
+					LastWriteDateTime = LastWriteDateTime.AddSeconds(LastWriteTime);
 				}
 				else
 				{
@@ -634,7 +644,7 @@ namespace AttacheCase
 
 				//-----------------------------------
 				// Create datetime
-				if (Int32.TryParse(OutputFileData[5], out CreateDate) == true)
+				if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[5], out CreateDate) == true)
 				{
 					CreationDateTime = CreationDateTime.AddDays(CreateDate);
 				}
@@ -642,9 +652,9 @@ namespace AttacheCase
 				{
 					CreationDateTime = DateTime.Now;
 				}
-				if (Int32.TryParse(OutputFileData[6], out CreateTime) == true)
+				if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[6], out CreateTime) == true)
 				{
-					CreationDateTime = CreationDateTime.AddMilliseconds(CreateTime);
+					CreationDateTime = CreationDateTime.AddSeconds(CreateTime);
 				}
 				else
 				{
@@ -771,6 +781,9 @@ namespace AttacheCase
                 FileStream outfs = null;
                 Int64 FileSize = 0;
                 int FileIndex = 0;
+
+                bool fNo = false;
+
                 if (_fNoParentFolder == true)
                 {
                   if (dic[0].FilePath.EndsWith("\\") == true)
@@ -823,6 +836,7 @@ namespace AttacheCase
                             {
                               // Show dialog of comfirming to overwrite. 
                               dialog(0, Path.Combine(OutDirPath, dic[FileIndex].FilePath));
+                              fNo = false;
                               // Cancel
                               if (TempOverWriteOption == -1)
                               {
@@ -832,7 +846,7 @@ namespace AttacheCase
                               // No
                               else if (TempOverWriteOption == 0)
                               {
-                                continue;
+                                fNo = true;
                               }
                               else
                               { // Yes
@@ -841,7 +855,7 @@ namespace AttacheCase
                                   FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                   if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                   {
-                                    continue; // old directory
+                                    fNo = true; // old directory
                                   }
                                 }
                               }
@@ -922,8 +936,16 @@ namespace AttacheCase
                             Directory.CreateDirectory(Path.GetDirectoryName(path));
                           }
 
-                          // Full path of output file
-                          outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                          if (fNo == false)
+                          { // ここで、"OpenOrCreate"を使用するとなぜか同じファイルと復号されない。
+                            // Use the "OpenOrCreate" here, then they are not decrypted to the same file.
+                            outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                          }
+                          else
+                          {
+                            outfs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+                          }
+
                           _OutputFileList.Add(path);
                           FileSize = 0;
 
@@ -937,36 +959,54 @@ namespace AttacheCase
                     //----------------------------------------------------------------------
                     if (FileSize + len < (Int64)dic[FileIndex].FileSize)
                     {
-                      //まだまだ書き込める
-                      outfs.Write(byteArray, BUFFER_SIZE - len, len);
-                      FileSize += len;
-                      _TotalSize += len;
-                      len = 0;
+                      if (outfs != null || fNo == true)
+                      {
+                        //まだまだ書き込める
+                        if (fNo == false)
+                        {
+                          outfs.Write(byteArray, BUFFER_SIZE - len, len);
+                        }
+                        FileSize += len;
+                        _TotalSize += len;
+                        len = 0;
+                      }
                     }
                     else
                     {
                       //データの境界を超えて読み込んでいる
                       int rest = (int)((Int64)dic[FileIndex].FileSize - FileSize);
-                      //書き込み完了
-                      outfs.Write(byteArray, BUFFER_SIZE - len, rest);
+
+                      if (fNo == false)
+                      {
+                        //書き込み完了
+                        outfs.Write(byteArray, BUFFER_SIZE - len, rest);
+                      }
 
                       _TotalSize += rest;
 
                       len -= rest;
 
-                      //生成したファイルを閉じる
-                      outfs.Close();
-                      outfs = null;
+                      if (outfs != null)
+                      {
+                        //生成したファイルを閉じる
+                        outfs.Close();
+                        outfs = null;
+                      }
 
-                      // ファイル属性の復元
-                      FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
-                      fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
-                      // タイムスタンプなどの復元
-                      fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
-                      fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
+                      if (fNo == false)
+                      {
+                        // ファイル属性の復元
+                        FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
+                        fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
+                        // タイムスタンプなどの復元
+                        fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
+                        fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
+                      }
 
                       FileSize = 0;
                       FileIndex++;
+
+                      fNo = false;
 
                     }
 

@@ -585,7 +585,7 @@ namespace AttacheCase
 			set { this._fNoParentFldr = value; }
 		}
 
-		private bool _fSameTimeStamp;                   // 復号したファイルのタイムスタンプを生成日時にする
+		private bool _fSameTimeStamp;                   // ファイル、フォルダーのタイムスタンプを復号時に合わせる
 		//Set the timestamp to decrypted files or directories
 		public bool fSameTimeStamp
 		{
@@ -1435,8 +1435,10 @@ namespace AttacheCase
 				//Password file
 				reg.SetValue("fAllowPassFile", _fAllowPassFile == true ? "1" : "0");
 				reg.SetValue("fCheckPassFile", _fCheckPassFile == true ? "1" : "0");
-				reg.SetValue("fCheckPassFileDecrypt", _fCheckPassFileDecrypt == true ? "1" : "0");
-				reg.SetValue("PassFilePath", _PassFilePathDecrypt);
+        reg.SetValue("PassFilePath", _PassFilePath);
+
+        reg.SetValue("fCheckPassFileDecrypt", _fCheckPassFileDecrypt == true ? "1" : "0");
+				reg.SetValue("PassFilePathDecrypt", _PassFilePathDecrypt);
 				reg.SetValue("fNoErrMsgOnPassFile", _fNoErrMsgOnPassFile == true ? "1" : "0");
 
 				//-----------------------------------
@@ -1585,7 +1587,8 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fAllowPassFile, "Option", "fAllowPassFile", "0");
 			ReadIniFile(IniFilePath, ref _fCheckPassFile, "Option", "fCheckPassFile", "0");
 			ReadIniFile(IniFilePath, ref _PassFilePath, "Option", "PassFilePath", "");
-			ReadIniFile(IniFilePath, ref _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt", "0");
+
+      ReadIniFile(IniFilePath, ref _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt", "0");
 			ReadIniFile(IniFilePath, ref _PassFilePathDecrypt, "Option", "PassFilePathDecrypt", "");
 			ReadIniFile(IniFilePath, ref _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile", "0");
 
@@ -1736,9 +1739,11 @@ namespace AttacheCase
 			//-----------------------------------
 			//Password file
 			WriteIniFile(IniFilePath, _fAllowPassFile, "Option", "fAllowPassFile");
-			WriteIniFile(IniFilePath, _fCheckPassFile, "Option", "fCheckPassFile");
-			WriteIniFile(IniFilePath, _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt");
-			WriteIniFile(IniFilePath, _PassFilePathDecrypt, "Option", "PassFilePath");
+      WriteIniFile(IniFilePath, _fCheckPassFile, "Option", "fCheckPassFile");
+      WriteIniFile(IniFilePath, _PassFilePath, "Option", "PassFilePath");
+
+      WriteIniFile(IniFilePath, _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt");
+			WriteIniFile(IniFilePath, _PassFilePathDecrypt, "Option", "PassFilePathDecrypt");
 			WriteIniFile(IniFilePath, _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile");
 
 			//-----------------------------------

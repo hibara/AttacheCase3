@@ -444,11 +444,22 @@ namespace AttacheCase
 			//-----------------------------------
 			#region
 			checkBoxDecodeToSameFldr.Checked = AppSettings.Instance.fDecodeToSameFldr;
-			textBoxDecodeToSameFldrPath.Text = AppSettings.Instance.DecodeToSameFldrPath;
+      if (checkBoxDecodeToSameFldr.Checked == true)
+      {
+        textBoxDecodeToSameFldrPath.Enabled = true;
+        textBoxDecodeToSameFldrPath.BackColor = SystemColors.Window;
+        buttonSaveDecryptedFileToFolder.Enabled = true;
+      }
+      else
+      {
+        textBoxDecodeToSameFldrPath.Enabled = false;
+        textBoxDecodeToSameFldrPath.BackColor = SystemColors.ButtonFace;
+        buttonSaveDecryptedFileToFolder.Enabled = false;
+      }
+      textBoxDecodeToSameFldrPath.Text = AppSettings.Instance.DecodeToSameFldrPath;
 			checkBoxDecryptConfirmOverwrite.Checked = AppSettings.Instance.fDecryptConfirmOverwrite;
 			checkBoxfNoParentFldr.Checked = AppSettings.Instance.fNoParentFldr;
 			checkBoxSameTimeStamp.Checked = AppSettings.Instance.fSameTimeStamp;
-      //checkBoxCompareFile.Checked = AppSettings.Instance.fCompareFile;
 
       #endregion
 
@@ -620,7 +631,8 @@ namespace AttacheCase
 			checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
 			checkBoxCheckPassFile.Checked = AppSettings.Instance.fCheckPassFile;
 			textBoxPassFilePath.Text = AppSettings.Instance.PassFilePath;
-			checkBoxCheckPassFileDecrypt.Checked = AppSettings.Instance.fCheckPassFileDecrypt;
+
+      checkBoxCheckPassFileDecrypt.Checked = AppSettings.Instance.fCheckPassFileDecrypt;
 			textBoxPassFilePathDecrypt.Text = AppSettings.Instance.PassFilePathDecrypt;
 			checkBoxNoErrMsgOnPassFile.Checked = AppSettings.Instance.fNoErrMsgOnPassFile;
 			checkBoxAllowPassFile_CheckedChanged(sender, e);
@@ -1119,6 +1131,7 @@ This License constitutes the entire agreement between the parties with respect t
 			AppSettings.Instance.fAllowPassFile = checkBoxAllowPassFile.Checked;
 			AppSettings.Instance.fCheckPassFile = checkBoxCheckPassFile.Checked;
 			AppSettings.Instance.PassFilePath = textBoxPassFilePath.Text;
+
 			AppSettings.Instance.fCheckPassFileDecrypt = checkBoxCheckPassFileDecrypt.Checked;
 			AppSettings.Instance.PassFilePathDecrypt = textBoxPassFilePathDecrypt.Text;
 			AppSettings.Instance.fNoErrMsgOnPassFile = checkBoxNoErrMsgOnPassFile.Checked;
@@ -2091,7 +2104,49 @@ This License constitutes the entire agreement between the parties with respect t
 			}
 		}
 
-		private void buttonOpenFileDialogForDecryption_Click(object sender, EventArgs e)
+    private void textBoxPassFilePath_DragEnter(object sender, DragEventArgs e)
+    {
+      if (e.Data.GetDataPresent(DataFormats.FileDrop))
+      {
+        e.Effect = DragDropEffects.Copy;
+        textBoxPassFilePath.BackColor = Color.Honeydew;
+      }
+      else
+      {
+        e.Effect = DragDropEffects.None;
+      }
+
+    }
+
+    private void textBoxPassFilePath_DragLeave(object sender, EventArgs e)
+    {
+      textBoxPassFilePath.BackColor = SystemColors.Window;
+    }
+
+    private void textBoxPassFilePath_DragDrop(object sender, DragEventArgs e)
+    {
+      string[] FilePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+
+      if (File.Exists(FilePaths[0]) == true)
+      {
+        textBoxPassFilePath.Text = FilePaths[0];
+      }
+      else
+      {
+        // 注意
+        // パスワードファイルにフォルダーを使うことはできません。
+        //
+        // Alert
+        // Not use the folder to the password file.
+        DialogResult ret = MessageBox.Show(Resources.DialogMessageNotDirectoryInPasswordFile,
+        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+      }
+
+      textBoxPassFilePath.BackColor = SystemColors.Window;
+
+    }
+
+    private void buttonOpenFileDialogForDecryption_Click(object sender, EventArgs e)
 		{
 			openFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
 			openFileDialog1.Title = Resources.DialogTitleSelectPasswordFile;
@@ -2103,15 +2158,49 @@ This License constitutes the entire agreement between the parties with respect t
 			buttonApply.Enabled = true;
 		}
 
+    private void textBoxPassFilePathDecrypt_DragEnter(object sender, DragEventArgs e)
+    {
+      if (e.Data.GetDataPresent(DataFormats.FileDrop))
+      {
+        e.Effect = DragDropEffects.Copy;
+        textBoxPassFilePathDecrypt.BackColor = Color.Honeydew;
+      }
+      else
+      {
+        e.Effect = DragDropEffects.None;
+      }
+    }
+
+    private void textBoxPassFilePathDecrypt_DragLeave(object sender, EventArgs e)
+    {
+      textBoxPassFilePathDecrypt.BackColor = SystemColors.Window;
+    }
+
+    private void textBoxPassFilePathDecrypt_DragDrop(object sender, DragEventArgs e)
+    {
+      string[] FilePaths = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+
+      if (File.Exists(FilePaths[0]) == true)
+      {
+        textBoxPassFilePathDecrypt.Text = FilePaths[0];
+      }
+      else
+      {
+        // 注意
+        // パスワードファイルにフォルダーを使うことはできません。
+        //
+        // Alert
+        // Not use the folder to the password file.
+        DialogResult ret = MessageBox.Show(Resources.DialogMessageNotDirectoryInPasswordFile,
+        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+      }
+
+      textBoxPassFilePathDecrypt.BackColor = SystemColors.Window;
+
+    }
+
+
     #endregion
-
-
-    //======================================================================
-    // PasswordInputLimit
-    //======================================================================
-     
-
-
 
   }
 
