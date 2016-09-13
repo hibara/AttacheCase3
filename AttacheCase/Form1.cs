@@ -1524,6 +1524,8 @@ namespace AttacheCase
 #region
     private void StartProcess()
     {
+      int FileType = 0;
+
       // 内容にかかわらず暗号化か復号かを問い合わせる
       // Ask to encrypt or decrypt regardless of contents.
       if (AppSettings.Instance.fAskEncDecode == true)
@@ -1580,7 +1582,6 @@ namespace AttacheCase
         // private const int FILE_TYPE_PASSWORD_ZIP = 3;
 
         // すでに指定されている
-        int FileType = 0;
         if (AppSettings.Instance.EncryptionFileType > 0)
         {
           FileType = AppSettings.Instance.EncryptionFileType;
@@ -1672,7 +1673,7 @@ namespace AttacheCase
 
       }
       //-----------------------------------
-      // 記憶パスワード（保存されたパスワードファイルより優先される）
+      // 記憶パスワード（パスワードファイルより優先される）
       // Memorized password is priority than the saved password file
       else if (AppSettings.Instance.fMyEncryptPasswordKeep == true || 
                 AppSettings.Instance.fMyDecryptPasswordKeep == true)
@@ -1707,34 +1708,81 @@ namespace AttacheCase
       //-----------------------------------
       // パスワードファイル
       // Password file
-      else if (AppSettings.Instance.fCheckPassFile == true)
+      else if (AppSettings.Instance.fCheckPassFile == true || AppSettings.Instance.fCheckPassFileDecrypt == true)
       {
-        if (File.Exists(AppSettings.Instance.PassFilePath) == true)
+        //----------------------------------------------------------------------
+        // Decryption
+        if (FileType == FILE_TYPE_ATC || FileType == FILE_TYPE_ATC_EXE)
         {
-          textBoxPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePath);
-          textBoxRePassword.Text = textBoxPassword.Text;
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;
-          panelEncryptConfirm.Visible = true;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-        }
-        else
-        {
-          if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+          if (File.Exists(AppSettings.Instance.PassFilePath) == true)
           {
-            // 注意
-            // 動作設定で指定されたパスワードファイルが見つかりません。
-            // [FilePath]
-            //
-            // Alert
-            // Password is not found that specified in setting panel.
-            // [FilePath]
-            DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            textBoxDecryptPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePathDecrypt);
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = true;
+            panelProgressState.Visible = false;
           }
-          return;
+          else
+          {
+            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+            {
+              // 注意
+              // 動作設定で指定されたパスワードファイルが見つかりません。
+              // [FilePath]
+              //
+              // Alert
+              // Password is not found that specified in setting panel.
+              // [FilePath]
+              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return;
+          }
         }
+        //----------------------------------------------------------------------
+        // Encryption
+        else if (FileType == FILE_TYPE_ERROR || FileType == FILE_TYPE_NONE)
+        {
+          if (File.Exists(AppSettings.Instance.PassFilePath) == true)
+          {
+            textBoxPassword.Text = AppSettings.Instance.GetSha256HashFromFile(AppSettings.Instance.PassFilePath);
+            textBoxRePassword.Text = textBoxPassword.Text;
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = true;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+          }
+          else
+          {
+            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+            {
+              // 注意
+              // 動作設定で指定されたパスワードファイルが見つかりません。
+              // [FilePath]
+              //
+              // Alert
+              // Password is not found that specified in setting panel.
+              // [FilePath]
+              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return;
+          }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
       }
 
     }
@@ -1794,6 +1842,12 @@ namespace AttacheCase
           pictureBoxZip.Image = pictureBoxZipOff.Image;
           pictureBoxDec.Image = pictureBoxDecOff.Image;
         }
+
+        // label
+
+        // 確認のためもう一度パスワードを入力してください：
+        // Input password again to confirm:
+        labelInputPasswordAgain.Text = Resources.labelInputPasswordAgainToConfirm;
 
         // TextBoxes
         textBoxPassword.Text = "";
@@ -1950,15 +2004,36 @@ namespace AttacheCase
     /// </summary>
     private void textBoxRePassword_TextChanged(object sender, EventArgs e)
     {
-      if (textBoxPassword.Text == textBoxRePassword.Text)
+      if (AppSettings.Instance.MyEncryptPasswordBinary != null)
       {
-        pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
-        textBoxRePassword.BackColor = Color.Honeydew;
+        textBoxPassword.Enabled = false;
+        textBoxRePassword.Enabled = false;           
+        textBoxPassword.BackColor = SystemColors.ButtonFace;
+        textBoxRePassword.BackColor = SystemColors.ButtonFace;
+        // すでにパスワードファイルが入力済みです：
+        // Password file is entered already:
+        labelInputPasswordAgain.Text = Resources.labelPasswordFileIsEnteredAlready;
       }
       else
       {
-        pictureBoxCheckPasswordValidation.Image = pictureBoxInValidIcon.Image;
-        textBoxRePassword.BackColor = Color.PapayaWhip;
+        textBoxRePassword.Enabled = true;
+        textBoxRePassword.Enabled = true;
+        textBoxRePassword.BackColor = SystemColors.Window;
+        textBoxRePassword.BackColor = SystemColors.Window;
+        // 確認のためもう一度パスワードを入力してください：
+        // Input password again to confirm:
+        labelInputPasswordAgain.Text = Resources.labelInputPasswordAgainToConfirm;
+
+        if (textBoxPassword.Text == textBoxRePassword.Text)
+        {
+          pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
+          textBoxRePassword.BackColor = Color.Honeydew;
+        }
+        else
+        {
+          pictureBoxCheckPasswordValidation.Image = pictureBoxInValidIcon.Image;
+          textBoxRePassword.BackColor = Color.PapayaWhip;
+        }
       }
     }
 
@@ -2091,14 +2166,25 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void textBoxPassword_TextChanged(object sender, EventArgs e)
     {
-      if(textBoxPassword.Text == textBoxRePassword.Text)
+
+      if (AppSettings.Instance.MyEncryptPasswordBinary != null)
       {
-        pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
-        textBoxRePassword.BackColor = Color.Honeydew;
+        textBoxRePassword.Enabled = false;
+        textBoxRePassword.Enabled = false;
+        textBoxRePassword.BackColor = SystemColors.ButtonFace;
+        textBoxRePassword.BackColor = SystemColors.ButtonFace;
       }
       else
       {
-        textBoxRePassword.BackColor = Color.PapayaWhip;
+        if (textBoxPassword.Text == textBoxRePassword.Text)
+        {
+          pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
+          textBoxRePassword.BackColor = Color.Honeydew;
+        }
+        else
+        {
+          textBoxRePassword.BackColor = Color.PapayaWhip;
+        }
       }
 
     }
@@ -2126,6 +2212,7 @@ namespace AttacheCase
         AppSettings.Instance.MyEncryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath);
         textBoxPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyEncryptPasswordBinary);
         textBoxRePassword.Text = textBoxPassword.Text;
+
         panelStartPage.Visible = false;
         panelEncrypt.Visible = false;
         panelEncryptConfirm.Visible = true;      // EncryptConfirm
@@ -2182,7 +2269,6 @@ namespace AttacheCase
       panelEncryptConfirm.Visible = false;
       panelDecrypt.Visible = false;
       panelProgressState.Visible = false;
-      textBoxRePassword.Text = "";
 
     }
 
@@ -3134,6 +3220,28 @@ namespace AttacheCase
     {
 
     }
+
+    private void textBoxDecryptPassword_TextChanged(object sender, EventArgs e)
+    {
+      if (AppSettings.Instance.MyEncryptPasswordBinary != null)
+      {
+        textBoxDecryptPassword.Enabled = false;
+        textBoxDecryptPassword.BackColor = SystemColors.ButtonFace;
+        // すでにパスワードファイルが入力済みです：
+        // Password file is entered already:
+        labelDecryptionPassword.Text = Resources.labelPasswordFileIsEnteredAlready;
+      }
+      else
+      {
+        textBoxDecryptPassword.Enabled = true;
+        textBoxDecryptPassword.BackColor = SystemColors.Window;
+        // パスワード：
+        // Password:
+        labelDecryptionPassword.Text = Resources.labelPassword;
+      }
+
+    }
+
 
     //======================================================================
     /// <summary>

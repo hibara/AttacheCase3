@@ -691,6 +691,15 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Input password again to confirm: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelInputPasswordAgainToConfirm {
+            get {
+                return ResourceManager.GetString("labelInputPasswordAgainToConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Delete Completely に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labellabelCompletelyDelete {
@@ -750,6 +759,24 @@ namespace AttacheCase.Properties {
         public static string labelNormalDeleteCompleted {
             get {
                 return ResourceManager.GetString("labelNormalDeleteCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Password: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPassword {
+            get {
+                return ResourceManager.GetString("labelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Password file is entered already: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPasswordFileIsEnteredAlready {
+            get {
+                return ResourceManager.GetString("labelPasswordFileIsEnteredAlready", resourceCulture);
             }
         }
         

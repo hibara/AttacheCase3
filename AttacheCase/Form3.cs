@@ -2181,7 +2181,7 @@ This License constitutes the entire agreement between the parties with respect t
 			openFileDialog1.Filter = Resources.OpenDialogFilterAllFiles;
 			if (openFileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				textBoxPassFilePath.Text = openFileDialog1.FileName;
+        textBoxPassFilePathDecrypt.Text = openFileDialog1.FileName;
 			}
 			buttonApply.Enabled = true;
 		}

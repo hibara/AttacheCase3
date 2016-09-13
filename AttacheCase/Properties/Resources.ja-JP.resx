@@ -400,4 +400,13 @@
   <data name="linkLabelLatestVersionReleased" xml:space="preserve">
     <value>最新バージョンの更新があります！</value>
   </data>
+  <data name="labelInputPasswordAgainToConfirm" xml:space="preserve">
+    <value>確認のためもう一度パスワードを入力してください：</value>
+  </data>
+  <data name="labelPasswordFileIsEnteredAlready" xml:space="preserve">
+    <value>すでにパスワードファイルが入力済みです：</value>
+  </data>
+  <data name="labelPassword" xml:space="preserve">
+    <value>パスワード：</value>
+  </data>
 </root>

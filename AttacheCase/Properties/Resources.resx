@@ -402,4 +402,13 @@ A note on interoperability: Values of PkzipWeak and None are specified in PKWARE
   <data name="linkLabelLatestVersionReleased" xml:space="preserve">
     <value>The latest version is released!</value>
   </data>
+  <data name="labelInputPasswordAgainToConfirm" xml:space="preserve">
+    <value>Input password again to confirm:</value>
+  </data>
+  <data name="labelPasswordFileIsEnteredAlready" xml:space="preserve">
+    <value>Password file is entered already:</value>
+  </data>
+  <data name="labelPassword" xml:space="preserve">
+    <value>Password:</value>
+  </data>
 </root>

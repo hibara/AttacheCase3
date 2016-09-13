@@ -107,7 +107,7 @@
       this.pictureBoxValidIcon = new System.Windows.Forms.PictureBox();
       this.checkBoxReDeleteOriginalFileAfterEncryption = new System.Windows.Forms.CheckBox();
       this.checkBoxReNotMaskEncryptedPassword = new System.Windows.Forms.CheckBox();
-      this.label5 = new System.Windows.Forms.Label();
+      this.labelInputPasswordAgain = new System.Windows.Forms.Label();
       this.textBoxRePassword = new System.Windows.Forms.TextBox();
       this.tabPageDecrypt = new System.Windows.Forms.TabPage();
       this.panelDecrypt = new System.Windows.Forms.Panel();
@@ -119,7 +119,7 @@
       this.checkBoxNotMaskDecryptedPassword = new System.Windows.Forms.CheckBox();
       this.buttonDecryptCancel = new System.Windows.Forms.Button();
       this.buttonDecryptStart = new System.Windows.Forms.Button();
-      this.label1 = new System.Windows.Forms.Label();
+      this.labelDecryptionPassword = new System.Windows.Forms.Label();
       this.textBoxDecryptPassword = new System.Windows.Forms.TextBox();
       this.tabPageProgressState = new System.Windows.Forms.TabPage();
       this.panelProgressState = new System.Windows.Forms.Panel();
@@ -715,7 +715,7 @@
       this.panelEncryptConfirm.Controls.Add(this.pictureBoxValidIcon);
       this.panelEncryptConfirm.Controls.Add(this.checkBoxReDeleteOriginalFileAfterEncryption);
       this.panelEncryptConfirm.Controls.Add(this.checkBoxReNotMaskEncryptedPassword);
-      this.panelEncryptConfirm.Controls.Add(this.label5);
+      this.panelEncryptConfirm.Controls.Add(this.labelInputPasswordAgain);
       this.panelEncryptConfirm.Controls.Add(this.textBoxRePassword);
       resources.ApplyResources(this.panelEncryptConfirm, "panelEncryptConfirm");
       this.panelEncryptConfirm.Name = "panelEncryptConfirm";
@@ -797,11 +797,11 @@
       this.checkBoxReNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
       this.checkBoxReNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxReNotMaskEncryptedPassword_CheckedChanged);
       // 
-      // label5
+      // labelInputPasswordAgain
       // 
-      resources.ApplyResources(this.label5, "label5");
-      this.label5.BackColor = System.Drawing.Color.Transparent;
-      this.label5.Name = "label5";
+      resources.ApplyResources(this.labelInputPasswordAgain, "labelInputPasswordAgain");
+      this.labelInputPasswordAgain.BackColor = System.Drawing.Color.Transparent;
+      this.labelInputPasswordAgain.Name = "labelInputPasswordAgain";
       // 
       // textBoxRePassword
       // 
@@ -827,7 +827,7 @@
       this.panelDecrypt.Controls.Add(this.checkBoxNotMaskDecryptedPassword);
       this.panelDecrypt.Controls.Add(this.buttonDecryptCancel);
       this.panelDecrypt.Controls.Add(this.buttonDecryptStart);
-      this.panelDecrypt.Controls.Add(this.label1);
+      this.panelDecrypt.Controls.Add(this.labelDecryptionPassword);
       this.panelDecrypt.Controls.Add(this.textBoxDecryptPassword);
       resources.ApplyResources(this.panelDecrypt, "panelDecrypt");
       this.panelDecrypt.Name = "panelDecrypt";
@@ -891,12 +891,12 @@
       this.buttonDecryptStart.UseVisualStyleBackColor = true;
       this.buttonDecryptStart.Click += new System.EventHandler(this.buttonDecryptStart_Click);
       // 
-      // label1
+      // labelDecryptionPassword
       // 
-      resources.ApplyResources(this.label1, "label1");
-      this.label1.Name = "label1";
-      this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
-      this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+      resources.ApplyResources(this.labelDecryptionPassword, "labelDecryptionPassword");
+      this.labelDecryptionPassword.Name = "labelDecryptionPassword";
+      this.labelDecryptionPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+      this.labelDecryptionPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
       // textBoxDecryptPassword
       // 
@@ -904,6 +904,7 @@
       resources.ApplyResources(this.textBoxDecryptPassword, "textBoxDecryptPassword");
       this.textBoxDecryptPassword.Name = "textBoxDecryptPassword";
       this.textBoxDecryptPassword.UseSystemPasswordChar = true;
+      this.textBoxDecryptPassword.TextChanged += new System.EventHandler(this.textBoxDecryptPassword_TextChanged);
       this.textBoxDecryptPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxDecryptPassword_DragDrop);
       this.textBoxDecryptPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxDecryptPassword_DragEnter);
       this.textBoxDecryptPassword.DragOver += new System.Windows.Forms.DragEventHandler(this.textBoxDecryptPassword_DragOver);
@@ -1287,7 +1288,7 @@
 				private System.Windows.Forms.Button buttonEncryptCancel;
 				private System.Windows.Forms.Button buttonDecryptCancel;
 				private System.Windows.Forms.Button buttonDecryptStart;
-				private System.Windows.Forms.Label label1;
+				private System.Windows.Forms.Label labelDecryptionPassword;
 				private System.Windows.Forms.TextBox textBoxDecryptPassword;
 				private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
 				private System.Windows.Forms.CheckBox checkBoxNotMaskDecryptedPassword;
@@ -1329,7 +1330,7 @@
     private System.Windows.Forms.PictureBox pictureBoxValidIcon;
     private System.Windows.Forms.CheckBox checkBoxReDeleteOriginalFileAfterEncryption;
     private System.Windows.Forms.CheckBox checkBoxReNotMaskEncryptedPassword;
-    private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.Label labelInputPasswordAgain;
     private System.Windows.Forms.TextBox textBoxRePassword;
     private System.Windows.Forms.Panel panel4;
     internal System.Windows.Forms.PictureBox pictureBoxDecryption;
