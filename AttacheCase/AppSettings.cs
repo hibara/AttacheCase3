@@ -1161,7 +1161,8 @@ namespace AttacheCase
 				else
 				{
 					MyEncryptPasswordString = DecryptMyPassword(_MyEncryptPasswordBinary);
-				}
+          _MyEncryptPasswordBinary = null;
+        }
 
 				_MyDecryptPasswordBinary = (byte[])reg.GetValue("MyDecryptPasswordString", null);
 				if (_MyDecryptPasswordBinary == null)
@@ -1171,7 +1172,9 @@ namespace AttacheCase
 				else
 				{
 					_MyDecryptPasswordString = DecryptMyPassword(_MyDecryptPasswordBinary);
-				}
+          _MyDecryptPasswordBinary = null;
+
+        }
 
 				_fMemPasswordExe = ((string)reg.GetValue("fMemPasswordExe", "0") == "1") ? true : false;
 				_fNotMaskPassword = ((string)reg.GetValue("fNotMaskPassword", "0") == "1") ? true : false; 

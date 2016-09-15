@@ -1896,9 +1896,9 @@ namespace AttacheCase
       }
       else
       {
+        textBoxPassword.Enabled = true;
         textBoxRePassword.Enabled = true;
-        textBoxRePassword.Enabled = true;
-        textBoxRePassword.BackColor = SystemColors.Window;
+        textBoxPassword.BackColor = SystemColors.Window;
         textBoxRePassword.BackColor = SystemColors.Window;
         // 確認のためもう一度パスワードを入力してください：
         // Input password again to confirm:
@@ -2049,10 +2049,11 @@ namespace AttacheCase
 
       if (AppSettings.Instance.MyEncryptPasswordBinary != null)
       {
+        textBoxPassword.Enabled = false;
         textBoxRePassword.Enabled = false;
-        textBoxRePassword.Enabled = false;
+        textBoxPassword.BackColor = SystemColors.ButtonFace;
         textBoxRePassword.BackColor = SystemColors.ButtonFace;
-        textBoxRePassword.BackColor = SystemColors.ButtonFace;
+        return;
       }
       else
       {
