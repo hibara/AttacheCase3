@@ -1909,6 +1909,10 @@ namespace AttacheCase
 				}
 
 				string[] values = cmdOpt.Split('=');
+        if (values.Length < 2)
+        { // Mistaken?
+          continue;
+        }
 				string key = values[0];
 				string value = values[1];
 
@@ -1923,7 +1927,7 @@ namespace AttacheCase
                      // 暗号化、復号の両方にパスワードを入れる
             _EncryptPasswordStringFromCommandLine = value;
             _DecryptPasswordStringFromCommandLine = value;
-						i++;
+            i++;
 						break;
 
 					// Exit AttacheCase after process.
@@ -2583,10 +2587,12 @@ namespace AttacheCase
 							{
 								while ((line = sr.ReadLine()) != null)
 								{
+                  if (line == "") continue;
                   string filename = Path.Combine(dir, line);
-                  if ( File.Exists(filename))
+                  string fullpath = Path.GetFullPath(filename);
+                  if ( File.Exists(fullpath))
 									{
-										_FileList.Add(filename);
+										_FileList.Add(fullpath);
 									}
 									c++;
 								}

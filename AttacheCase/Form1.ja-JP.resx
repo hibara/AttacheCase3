@@ -1769,13 +1769,13 @@ ATC</value>
   <data name="checkBoxReNotMaskEncryptedPassword.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelInputPasswordAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>317, 16</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="labelInputPasswordAgain.Text" xml:space="preserve">
     <value>確認のためもう一度パスワードを入力してください：</value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
+  <data name="labelInputPasswordAgain.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="textBoxRePassword.ToolTip" xml:space="preserve">
@@ -1925,13 +1925,13 @@ ATC</value>
   <data name="buttonDecryptStart.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 16</value>
+  <data name="labelDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 16</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>パスワード：</value>
+  <data name="labelDecryptionPassword.Text" xml:space="preserve">
+    <value>パスワード:</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
+  <data name="labelDecryptionPassword.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="textBoxDecryptPassword.ToolTip" xml:space="preserve">

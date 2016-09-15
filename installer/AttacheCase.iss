@@ -21,8 +21,7 @@ jp.mdSampleFile=help-ja.md
 en.LaunchProgram=Start AttacheCase3 after finishing installation.
 jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
 
-[Setup]
-AppName={cm:AppName}
+[Setup]AppName={cm:AppName}
 AppVersion={#MyAppVer}AppVerName={cm:AppName} ver.{#MyAppVer}
 DefaultGroupName={cm:AppName}
 OutputBaseFilename=atcs{#MyAppVerNum}
@@ -32,7 +31,7 @@ AppendDefaultDirName=yes
 OutputDir=.\archives
 TouchTime=00:00
 ShowLanguageDialog=yes
-UsePreviousLanguage=no
+UsePreviousLanguage=no;SignTool=MySignTool;SignedUninstaller=yes
 
 ;-----------------------------------
 ;インストーラプログラム
@@ -75,7 +74,7 @@ AppUpdatesURL=https://hibara.org/software/AttacheCase/
 AppComments={cm:AppComments}
 
 [Files]
-Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch
+Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch; Check: InitializeSetup
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\ja-JP\AttacheCase.resources.dll"; DestDir: "{app}\ja-JP"; Flags: ignoreversion touch
 ;Source: "bin\readme.txt"; DestDir: "{userappdata}\AttacheCase3"; Flags: ignoreversion touch
@@ -105,6 +104,9 @@ Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: nowai
 ; Delete association *.md file extension with this application to uninstall.
 Root: HKCR; Subkey: "AttacheCase3.DataFile"; Flags: uninsdeletekey
 Root: HKCR; Subkey: ".atc"; Flags: uninsdeletekey
+;動作設定を削除
+Root: HKCU; Subkey: "Software\Hibara\AttacheCase3"; Flags: uninsdeletekey
+
 
 [Code]
 function IsDotNetDetected(version: string; service: cardinal): boolean;
