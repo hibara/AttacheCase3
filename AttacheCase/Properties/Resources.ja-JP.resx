@@ -409,4 +409,13 @@
   <data name="labelPassword" xml:space="preserve">
     <value>パスワード：</value>
   </data>
+  <data name="labelPasswordFile" xml:space="preserve">
+    <value>パスワードファイル：</value>
+  </data>
+  <data name="labelPasswordMemorized" xml:space="preserve">
+    <value>記憶パスワード：</value>
+  </data>
+  <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
+    <value>コマンドラインオプションからのパスワード：</value>
+  </data>
 </root>

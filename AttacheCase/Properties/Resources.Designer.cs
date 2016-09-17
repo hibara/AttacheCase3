@@ -772,11 +772,38 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   The password file: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPasswordFile {
+            get {
+                return ResourceManager.GetString("labelPasswordFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Password file is entered already: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labelPasswordFileIsEnteredAlready {
             get {
                 return ResourceManager.GetString("labelPasswordFileIsEnteredAlready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The memorized password: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPasswordMemorized {
+            get {
+                return ResourceManager.GetString("labelPasswordMemorized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The password of command line option: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPasswordOfCommandLineOption {
+            get {
+                return ResourceManager.GetString("labelPasswordOfCommandLineOption", resourceCulture);
             }
         }
         

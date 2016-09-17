@@ -411,4 +411,13 @@ A note on interoperability: Values of PkzipWeak and None are specified in PKWARE
   <data name="labelPassword" xml:space="preserve">
     <value>Password:</value>
   </data>
+  <data name="labelPasswordFile" xml:space="preserve">
+    <value>The password file:</value>
+  </data>
+  <data name="labelPasswordMemorized" xml:space="preserve">
+    <value>The memorized password:</value>
+  </data>
+  <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
+    <value>The password of command line option:</value>
+  </data>
 </root>

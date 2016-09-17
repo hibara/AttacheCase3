@@ -1054,6 +1054,7 @@
       this.checkBoxConfirmToDeleteAfterDecryption.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxConfirmToDeleteAfterDecryption.Name = "checkBoxConfirmToDeleteAfterDecryption";
       this.checkBoxConfirmToDeleteAfterDecryption.UseVisualStyleBackColor = true;
+      this.checkBoxConfirmToDeleteAfterDecryption.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // checkBoxDecryptShowDeleteChkBox
       // 
@@ -1087,6 +1088,7 @@
       this.checkBoxConfirmToDeleteAfterEncryption.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxConfirmToDeleteAfterEncryption.Name = "checkBoxConfirmToDeleteAfterEncryption";
       this.checkBoxConfirmToDeleteAfterEncryption.UseVisualStyleBackColor = true;
+      this.checkBoxConfirmToDeleteAfterEncryption.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // checkBoxEncryptShowDeleteChkBox
       // 
