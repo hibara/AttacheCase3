@@ -57,7 +57,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
-    private const int BUFFER_SIZE = 8; // compatible ver.2 data buffer
+    private const int BUFFER_SIZE = 10240; // compatible ver.2 data buffer
 
     // Header data variables
     private const char DATA_SUB_VERSION = (char)6;  //ver.2.00~ = "5", ver.2.70~ = "6"

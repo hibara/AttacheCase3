@@ -5,6 +5,7 @@ using Microsoft.VisualBasic.FileIO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections;
 
 namespace AttacheCase
 {
@@ -97,6 +98,8 @@ namespace AttacheCase
         Int64 TotalSectors = 0;
         Int64 TotalFileSectors = 0;
 
+        ArrayList MessageList = new ArrayList();
+
         ParallelOptions options = new ParallelOptions();
         options.MaxDegreeOfParallelism = Environment.ProcessorCount;
 
@@ -150,9 +153,12 @@ namespace AttacheCase
                       string MessageText =
                         Path.GetFileName(FilePath) + "(" + NumOfTimes + "/" + TotalTimes + ") - " +
                         TotalSectors.ToString() + "/" + TotalFileSectors.ToString() + "sectors";
-
+        
                       float percent = ((float)TotalSectors / TotalFileSectors);
-                      worker.ReportProgress((int)(percent * 10000), MessageText);
+                      MessageList = new ArrayList();
+                      MessageList.Add(DELETING);
+                      MessageList.Add(MessageText);
+                      worker.ReportProgress((int)(percent * 10000), MessageList);
                     }
 
                     //-----------------------------------
@@ -170,7 +176,7 @@ namespace AttacheCase
                     else
                     {
                       // Zeros fills
-                      Array.Clear(dummyBuffer, 0, 512);
+                      Array.Clear(dummyBuffer, 0, dummyBuffer.Length);
                     }
                     //-----------------------------------
                     // Write it to the stream
@@ -233,6 +239,7 @@ namespace AttacheCase
       }
       catch (Exception ex)
       {
+        System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
         e.Result = ERROR_UNEXPECTED;
         return (ERROR_UNEXPECTED);
       }

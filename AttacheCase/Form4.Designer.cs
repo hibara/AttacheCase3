@@ -73,28 +73,29 @@
       // 
       // panelOuter
       // 
-      this.panelOuter.Controls.Add(this.tabControl1);
       resources.ApplyResources(this.panelOuter, "panelOuter");
+      this.panelOuter.Controls.Add(this.tabControl1);
       this.panelOuter.Name = "panelOuter";
       // 
       // tabControl1
       // 
+      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Controls.Add(this.tabPageInputPassword);
       this.tabControl1.Controls.Add(this.tabPageOverwriteConfirm);
       this.tabControl1.Controls.Add(this.tabPageAskEncryptOrDecrypt);
-      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       // 
       // tabPageInputPassword
       // 
-      this.tabPageInputPassword.Controls.Add(this.panelInputPassword);
       resources.ApplyResources(this.tabPageInputPassword, "tabPageInputPassword");
+      this.tabPageInputPassword.Controls.Add(this.panelInputPassword);
       this.tabPageInputPassword.Name = "tabPageInputPassword";
       this.tabPageInputPassword.UseVisualStyleBackColor = true;
       // 
       // panelInputPassword
       // 
+      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
       this.panelInputPassword.Controls.Add(this.labelPasswordValid);
       this.panelInputPassword.Controls.Add(this.pictureBoxPasswordValid);
@@ -104,7 +105,6 @@
       this.panelInputPassword.Controls.Add(this.textBoxPassword);
       this.panelInputPassword.Controls.Add(this.buttonPasswordCancel);
       this.panelInputPassword.Controls.Add(this.buttonPasswordOK);
-      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Name = "panelInputPassword";
       // 
       // checkBoxNotMaskEncryptedPassword
@@ -167,13 +167,14 @@
       // 
       // tabPageOverwriteConfirm
       // 
-      this.tabPageOverwriteConfirm.Controls.Add(this.panelOverwriteConfirm);
       resources.ApplyResources(this.tabPageOverwriteConfirm, "tabPageOverwriteConfirm");
+      this.tabPageOverwriteConfirm.Controls.Add(this.panelOverwriteConfirm);
       this.tabPageOverwriteConfirm.Name = "tabPageOverwriteConfirm";
       this.tabPageOverwriteConfirm.UseVisualStyleBackColor = true;
       // 
       // panelOverwriteConfirm
       // 
+      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Controls.Add(this.checkBoxOverwriteForNewDate);
       this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteCancel);
       this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteNo);
@@ -181,7 +182,6 @@
       this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteAll);
       this.panelOverwriteConfirm.Controls.Add(this.labelMessageText);
       this.panelOverwriteConfirm.Controls.Add(this.pictureBoxQuestionIcon);
-      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Name = "panelOverwriteConfirm";
       // 
       // checkBoxOverwriteForNewDate
@@ -231,19 +231,19 @@
       // 
       // tabPageAskEncryptOrDecrypt
       // 
-      this.tabPageAskEncryptOrDecrypt.Controls.Add(this.panelAskEncryptOrDecrypt);
       resources.ApplyResources(this.tabPageAskEncryptOrDecrypt, "tabPageAskEncryptOrDecrypt");
+      this.tabPageAskEncryptOrDecrypt.Controls.Add(this.panelAskEncryptOrDecrypt);
       this.tabPageAskEncryptOrDecrypt.Name = "tabPageAskEncryptOrDecrypt";
       this.tabPageAskEncryptOrDecrypt.UseVisualStyleBackColor = true;
       // 
       // panelAskEncryptOrDecrypt
       // 
+      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonAskEncryptOrDecryptCancel);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonEncrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.labelAskEncryptOrDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.pictureBox1);
-      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Name = "panelAskEncryptOrDecrypt";
       // 
       // buttonAskEncryptOrDecryptCancel
@@ -286,6 +286,8 @@
       this.Controls.Add(this.panelOuter);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.KeyPreview = true;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "Form4";
       this.ShowIcon = false;
       this.TopMost = true;

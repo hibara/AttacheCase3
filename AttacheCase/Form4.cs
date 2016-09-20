@@ -112,7 +112,7 @@ namespace AttacheCase
 			//暗号化、復号の選択ダイアログ
 			else if (_FormType == "AskEncryptOrDecrypt")
 			{
-				panelOverwriteConfirm.Visible = true;
+        panelAskEncryptOrDecrypt.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
 			}
 			//-----------------------------------

@@ -2361,12 +2361,15 @@ namespace AttacheCase
           //-----------------------------------					
           #region
           // Delete original files or directories after encryption
-          case "/del": // 元ファイルの完全削除を行うか(0:削除しない, 1:通常，2:完全削除 3:ごみ箱）
-						if (int.TryParse(value, out ResultNum))
+          case "/del": // 元ファイルの完全削除を行うか(0:削除しない, 1:通常，2:ごみ箱，3:完全削除）
+            if (int.TryParse(value, out ResultNum))
 						{
-							_fDelOrgFile = true;
-							_fCompleteDelFile = ResultNum;
-							i++;
+              if (ResultNum > -1 && ResultNum < 4)
+              {
+                _fDelOrgFile = true;
+                _fCompleteDelFile = ResultNum - 1;  // -1: 削除しない, 0: 通常削除, 1: ごみ箱, 2: 完全削除
+                i++;
+              }
 						}
 						break;
 
@@ -2374,10 +2377,11 @@ namespace AttacheCase
 					case "/delenc": // 暗号化ファイルの完全削除を行うか(0:削除しない, 1:通常，2:ごみ箱，3:完全削除）
 						if (int.TryParse(value, out ResultNum))
 						{
-							if ( ResultNum == 0 || ResultNum == 1 || ResultNum == 2){
+							if ( ResultNum > -1 && ResultNum < 4)
+              {
 								_fDelEncFile = true;
-								_fCompleteDelFile = ResultNum;
-								i++;
+								_fCompleteDelFile = ResultNum -1;  // -1: 削除しない, 0: 通常削除, 1: ごみ箱, 2: 完全削除
+                i++;
 							}
 						}
 						break;

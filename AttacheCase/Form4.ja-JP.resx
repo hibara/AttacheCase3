@@ -124,6 +124,44 @@
   <data name="labelPasswordValid.Text" xml:space="preserve">
     <value>パスワードは合致しています。</value>
   </data>
+  <data name="pictureBoxPasswordValid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADaGlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv
+        bS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlw
+        ZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1w
+        TU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MDgzRTJGMjkyOTI0
+        RDcwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkE4MEYzQjJDOUQ4MTExRTQ4MEI3RTFBMzA5MjhG
+        RURBIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkE4MEYzQjJCOUQ4MTExRTQ4MEI3RTFBMzA5MjhG
+        RURBIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiPiA8eG1w
+        TU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoyQzVGMDQyMzBDMjA2ODExODA4
+        M0QyQTQzQjdFNDY3QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMjgwMTE3NDA3MjA2ODExODA4
+        M0UyRjI5MjkyNEQ3MCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4g
+        PD94cGFja2V0IGVuZD0iciI/Pi6Od6wAAAQHSURBVDhPbVVtT5NnGDVZ6D4Qwm8YkECUBbIXaGAbSEk2
+        bIOjhTLb4jBAHZS+YSaCUA1LFBAorOp0cVumSzeDfmsGCEz4gGwCbk5oozBbtKRAYWVAR6GDs/u6bRc7
+        OMlp7ue6zjnP2/Xc3bcXAAgY5YxWRifjJuMaoyNUK2IUhLQR3AVWLGCcHhwchFqtRkJCAgQCASetqTYw
+        MMAkmGaUMu4dyA5eYWxxOBzIzs5Gek4a6q7WwvrkBu4EfuSkNdWEonSuIS15Qt5dgS1DQ0OIiYmBsdOA
+        nm0bbm/fhHX7Om5sf8NJa6pRz9ip51rykDcikC0K6WyxsbEwWRvR/c8P+Cp4FReDnTAHW9G21czZvtGM
+        C97z6Hh+Ad8uf43G7xq4J3SlhTyQ/Qh2dnaeC4VCaM0aWLeuw7JpxrnNJpwNnEZj4BROB05yfuoxoH2i
+        FVOeSVgedOGa9wr3kJdluCmLApX9/f1IE72Nm5tWmDfaYPq7Hif9Najx62D0a2HwV0O3UoXS+yq4vPTS
+        gUnPIzS5znAPeSmDQUWB3RUVFdBd1uLShgUmfz306xpUrlXg+FrZC66W4egfClhGPycTR/1wHWo9J7iH
+        vJTBcIsCXfHx8eic6sC59c+gX63GsZWPcXRFiZIVBadivhjyIRl86z4yYcI1DunYh9D5NNxjnmoHZVAW
+        BQZoxq74LqPuz1qUzCqQ7xAj3ymGdPEwpN7DyHv4Pr7/leb5BaoHq1DgzEeZrxT1f53CF75LfE4ZNilw
+        lV5/h6cNmtlK1IwaMTY3BvVABd67l4mDD7NQ1CNDcDtIBtx3/sLrYs8HOLJUjBqfAV3LXRGBjxMTE3Fm
+        ohHl9jKMu8epwfGzcxSqbhXuOu6GKsCxO6V453EGcudzULgohX5Zh6bfzyIuLo7a/Ja7S0pKUP5lOTQz
+        lTDda8TS2hI1d2H06SheHz6AtNm3kDX3LqTzBTixZOReymDgL0XZ29uL1NxUNCw0QDYlhahHBNuUjQQR
+        KO6RY//kfrz57A1ku7NwxPMRTMsmpIpS0NfXRxI+Nv8NdlFzEaoXNMibyUPqcAqq+ivhXfWSECPOEcT9
+        9BqSnx6A8Fk6JHMSVC9qIG+RvzzYr4Y/vaLwp6e6poJ6Xg2xS4y0B2nIsGXANmODcliJlEcpyJzNhMQt
+        4RrSksdut9M5aUvjeRzsoDW8ORScL4B+QQeFW4FDTw4h57eDyLWLIHFJoJhTwLCg55qXNodWCvt/IG1B
+        FrpSuoXknGTIzDJUjn0Cg9sArVOL4yNqXqMeaUKbwsWQNzIwDFaUsecxTQ+ZPicah6ioKERHRyMpKYnX
+        qEcapi0M2XjYnoEE1qApVTLeYqTdYCtEWlONevwvIAx2zIh9/wLzHheE+BvHSwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>パスワードの確認：</value>
   </data>
@@ -131,43 +169,73 @@
     <value>パスワード入力：</value>
   </data>
   <data name="buttonPasswordCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 137</value>
+    <value>291, 130</value>
   </data>
   <data name="buttonPasswordCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 23</value>
+    <value>103, 32</value>
   </data>
   <data name="buttonPasswordCancel.Text" xml:space="preserve">
     <value>キャンセル(&amp;C)</value>
   </data>
   <data name="buttonPasswordOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 136</value>
+    <value>190, 130</value>
   </data>
   <data name="buttonPasswordOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 23</value>
+    <value>92, 32</value>
   </data>
   <data name="checkBoxOverwriteForNewDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 100</value>
+    <value>16, 95</value>
   </data>
   <data name="checkBoxOverwriteForNewDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 16</value>
+    <value>193, 20</value>
   </data>
   <data name="checkBoxOverwriteForNewDate.Text" xml:space="preserve">
     <value>新しい日付のときは上書き</value>
   </data>
+  <data name="buttonOverwriteCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 11.25pt</value>
+  </data>
+  <data name="buttonOverwriteCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>304, 128</value>
+  </data>
+  <data name="buttonOverwriteCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 32</value>
+  </data>
   <data name="buttonOverwriteCancel.Text" xml:space="preserve">
     <value>キャンセル(&amp;C)</value>
+  </data>
+  <data name="buttonOverwriteNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 11.25pt</value>
+  </data>
+  <data name="buttonOverwriteNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 128</value>
   </data>
   <data name="buttonOverwriteNo.Text" xml:space="preserve">
     <value>いいえ(&amp;N)</value>
   </data>
+  <data name="buttonOverwriteYes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 11.25pt</value>
+  </data>
+  <data name="buttonOverwriteYes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 128</value>
+  </data>
   <data name="buttonOverwriteYes.Text" xml:space="preserve">
     <value>はい(&amp;Y)</value>
+  </data>
+  <data name="buttonOverwriteAll.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 11.25pt</value>
+  </data>
+  <data name="buttonOverwriteAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 128</value>
+  </data>
+  <data name="buttonOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 32</value>
   </data>
   <data name="buttonOverwriteAll.Text" xml:space="preserve">
     <value>すべて上書き(&amp;A)</value>
   </data>
   <data name="labelMessageText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 69</value>
+    <value>313, 69</value>
   </data>
   <data name="pictureBoxQuestionIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -249,29 +317,32 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="pictureBoxQuestionIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 23</value>
+  </data>
   <data name="buttonAskEncryptOrDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>310, 129</value>
+    <value>294, 129</value>
   </data>
   <data name="buttonAskEncryptOrDecryptCancel.Text" xml:space="preserve">
     <value>キャンセル(&amp;C)</value>
   </data>
   <data name="buttonDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 129</value>
+    <value>179, 129</value>
   </data>
   <data name="buttonDecrypt.Text" xml:space="preserve">
     <value>復号(&amp;D)</value>
   </data>
   <data name="buttonEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 129</value>
+    <value>73, 129</value>
   </data>
   <data name="buttonEncrypt.Text" xml:space="preserve">
     <value>暗号化(&amp;E)</value>
   </data>
   <data name="labelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>90, 23</value>
+    <value>90, 35</value>
   </data>
   <data name="labelAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 69</value>
+    <value>304, 69</value>
   </data>
   <data name="labelAskEncryptOrDecrypt.Text" xml:space="preserve">
     <value>ドラッグ＆ドロップされたファイルまたはフォルダーを暗号化、復号、いずれの方法で処理しますか？</value>
@@ -357,6 +428,6 @@
 </value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 23</value>
+    <value>19, 35</value>
   </data>
 </root>

@@ -282,7 +282,7 @@ namespace AttacheCase
 
       StartProcess();
 
-    }                             
+    }
     #endregion
 
     //======================================================================
@@ -291,6 +291,11 @@ namespace AttacheCase
     #region
     private bool DeleteData(List<string> FileList)
     {
+      if (AppSettings.Instance.fCompleteDelFile < 0 || AppSettings.Instance.fCompleteDelFile > 3)
+      {
+        return(true);
+      }
+
       pictureBoxProgress.Image = pictureBoxDeleteOn.Image;
       labelProgressMessageText.Text = "-";
       progressBar.Value = 0;
@@ -1436,9 +1441,8 @@ namespace AttacheCase
 
       // 内容にかかわらず暗号化か復号かを問い合わせる
       // Ask to encrypt or decrypt regardless of contents.
-      if (AppSettings.Instance.fAskEncDecode == true)
+      if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.fAskEncDecode == true)
       {
-        // Show dialog for confirming to orverwrite
         Form4 frm4 = new Form4("AskEncryptOrDecrypt", "");
         frm4.ShowDialog();
         int ProcessNum = frm4.AskEncryptOrDecrypt;  // 1: Encryption, 2: Decryption, -1: Cancel
