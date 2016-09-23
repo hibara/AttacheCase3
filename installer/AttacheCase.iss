@@ -76,6 +76,8 @@ AppComments={cm:AppComments}
 [Files]
 Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch; Check: InitializeSetup
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
+Source: "bin\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion touch
+Source: "bin\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\ja-JP\AttacheCase.resources.dll"; DestDir: "{app}\ja-JP"; Flags: ignoreversion touch
 ;Source: "bin\readme.txt"; DestDir: "{userappdata}\AttacheCase3"; Flags: ignoreversion touch
 

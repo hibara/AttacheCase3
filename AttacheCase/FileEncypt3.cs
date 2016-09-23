@@ -507,37 +507,47 @@ namespace AttacheCase
                 // Only file is encrypted
                 if (File.Exists(path) == true)
                 {
-                  buffer = new byte[BUFFER_SIZE];
-                  using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+                  try
                   {
-                    len = 0;
-                    while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
+                    buffer = new byte[BUFFER_SIZE];
+                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
                     {
-                      ds.Write(buffer, 0, len);
-                      _TotalSize += len;
-
-                      string MessageText = "";
-                      if (_TotalNumberOfFiles > 1)
+                      len = 0;
+                      while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
                       {
-                        MessageText = path + " ( " + _NumberOfFiles.ToString() + " files/ " + _TotalNumberOfFiles.ToString() + " folders )";
-                      }
-                      else
-                      {
-                        MessageText = path;
-                      }
-                      float percent = ((float)_TotalSize / _TotalFileSize);
-                      MessageList = new ArrayList();
-                      MessageList.Add(ENCRYPTING);
-                      MessageList.Add(MessageText);
-                      worker.ReportProgress((int)(percent * 10000), MessageList);
+                        ds.Write(buffer, 0, len);
+                        _TotalSize += len;
 
-                      if (worker.CancellationPending == true)
-                      {
-                        e.Cancel = true;
-                        return Tuple.Create(false, USER_CANCELED);
-                      }
+                        string MessageText = "";
+                        if (_TotalNumberOfFiles > 1)
+                        {
+                          MessageText = path + " ( " + _NumberOfFiles.ToString() + " files/ " + _TotalNumberOfFiles.ToString() + " folders )";
+                        }
+                        else
+                        {
+                          MessageText = path;
+                        }
+                        float percent = ((float)_TotalSize / _TotalFileSize);
+                        MessageList = new ArrayList();
+                        MessageList.Add(ENCRYPTING);
+                        MessageList.Add(MessageText);
+                        worker.ReportProgress((int)(percent * 10000), MessageList);
 
+                        if (worker.CancellationPending == true)
+                        {
+                          e.Cancel = true;
+                          return Tuple.Create(false, USER_CANCELED);
+                        }
+
+                      }
                     }
+
+                  }
+                  catch (Exception ex)
+                  {
+                    System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+                    e.Result = ERROR_UNEXPECTED;
+                    return Tuple.Create(false, ERROR_UNEXPECTED);
                   }
 
                 } // end if (File.Exists(path) == true);

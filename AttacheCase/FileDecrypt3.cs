@@ -850,6 +850,8 @@ namespace AttacheCase
                         //-----------------------------------
                         if (dic[FileIndex].FilePath.EndsWith("\\") == true)
                         {
+                          string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
+                          DirectoryInfo di = new DirectoryInfo(path);
                           if (TempOverWriteOption == 2)
                           {
                             // Overwrite ( New create )
@@ -857,10 +859,10 @@ namespace AttacheCase
                           else
                           {
                             // File already exists.
-                            if (Directory.Exists(Path.Combine(OutDirPath, dic[FileIndex].FilePath)) == true)
+                            if (Directory.Exists(path) == true)
                             {
                               // Show dialog of comfirming to overwrite. 
-                              dialog(0, Path.Combine(OutDirPath, dic[FileIndex].FilePath));
+                              dialog(0, path);
                               // Cancel
                               if (TempOverWriteOption == -1)
                               {
@@ -877,16 +879,25 @@ namespace AttacheCase
                               { // Yes
                                 if (TempOverWriteForNewDate == true)
                                 { // New file?
-                                  FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
-                                  if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
+                                  if (di.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                   {
                                     FileIndex++;
                                     continue; // old directory
                                   }
                                 }
+
                               }
 
                             } // end if ( Directory.Exists )
+
+                          } // end if (TempOverWriteOption == 2);
+
+                          if (fNo == false)
+                          {
+                            //隠し属性を削除する
+                            di.Attributes &= ~FileAttributes.Hidden;
+                            //読み取り専用を削除
+                            di.Attributes &= ~FileAttributes.ReadOnly;
                           }
 
                           Directory.CreateDirectory(dic[FileIndex].FilePath);
@@ -908,7 +919,8 @@ namespace AttacheCase
                         //-----------------------------------
                         else
                         {
-                          string path = dic[FileIndex].FilePath;
+                          string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
+                          FileInfo fi = new FileInfo(path);
                           if (TempOverWriteOption == 2)
                           {
                             // Overwrite ( New create )
@@ -927,12 +939,11 @@ namespace AttacheCase
                                   path = getFileNameWithSerialNumber(path, SerialNum);
                                   SerialNum++;
                                 }
-
                               }
                               else
                               {
                                 // Show dialog of comfirming to overwrite. 
-                                dialog(1, Path.Combine(OutDirPath, dic[FileIndex].FilePath));
+                                dialog(1, path);
                                 fNo = false;
                                 if (TempOverWriteOption == -1)
                                 {
@@ -945,21 +956,29 @@ namespace AttacheCase
                                   fNo = true;
                                 }
                                 else
-                                {
+                                {// Yes
                                   if (TempOverWriteForNewDate == true)
                                   { // New file?
-                                    FileInfo fi = new FileInfo(Path.Combine(OutDirPath, dic[FileIndex].FilePath));
                                     if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                     {
-                                      fNo = true;
+                                      fNo = true; // old file
                                     }
                                   }
+
                                 }
 
                               }// end if (AppSettings.Instance.fSalvageIntoSameDirectory == true);
 
                             }// end if ( File.Exists );
 
+                          }// end if (TempOverWriteOption == 2);
+
+                          if (fNo == false)
+                          {
+                            //隠し属性を解除する
+                            fi.Attributes &= ~FileAttributes.Hidden;
+                            //読み取り専用を解除する
+                            fi.Attributes &= ~FileAttributes.ReadOnly;
                           }
 
                           // Salvage data mode
@@ -971,7 +990,7 @@ namespace AttacheCase
                           }
 
                           if (fNo == false)
-                          { // ここで、"OpenOrCreate"を使用するとなぜか同じファイルと復号されない。
+                          { // ここで、"OpenOrCreate"を使用するとなぜか同じファイルとして復号されない。
                             // Use the "OpenOrCreate" here, then they are not decrypted to the same file.
                             outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
                           }
@@ -1033,13 +1052,14 @@ namespace AttacheCase
 
                       if (fNo == false)
                       {
-                        // Restore file attribute.
                         FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
-                        fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
                         // タイムスタンプの復元
                         // Restore the timestamp of a file
                         fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
                         fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
+                        // ファイル属性の復元
+                        // Restore file attribute.
+                        fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
 
                         // ハッシュ値のチェック
                         // Check the hash of a file

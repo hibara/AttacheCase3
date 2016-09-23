@@ -3218,8 +3218,10 @@ namespace AttacheCase
       // 3: ZIP
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] > 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
-        return 3;
+        //AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
+        //return 3;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
+        return 0;
       }
       // 0: Others(Encrypt file?)
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] == 0 && _FileType[0] > 0)

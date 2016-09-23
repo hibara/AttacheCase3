@@ -680,6 +680,17 @@ namespace AttacheCase
       notifyIcon1.Text = labelProgressPercentText.Text;
       labelProgressMessageText.Text = (string)MessageList[1];
 
+      if (Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.IsPlatformSupported)
+      {
+        // Task bar progress
+        Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager taskbarInstance;
+        // Task bar progress
+        taskbarInstance = Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance;
+        taskbarInstance.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.Normal);
+        taskbarInstance.SetProgressValue(e.ProgressPercentage, 10000);
+        //taskbarInstance.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
+      }
+
       this.Update();
      
     }
@@ -1807,6 +1818,15 @@ namespace AttacheCase
           pictureBoxExe.Image = pictureBoxExeOff.Image;
           pictureBoxZip.Image = pictureBoxZipOff.Image;
           pictureBoxDec.Image = pictureBoxDecOff.Image;
+        }
+
+        // タスクバーのリセット
+        if (Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.IsPlatformSupported)
+        {
+          // Task bar progress
+          Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager taskbarInstance;
+          taskbarInstance = Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance;
+          taskbarInstance.SetProgressState(Microsoft.WindowsAPICodePack.Taskbar.TaskbarProgressBarState.NoProgress);
         }
 
         // label

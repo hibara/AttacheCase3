@@ -13,6 +13,8 @@
 mkdir bin
 
 copy ..\AttacheCase\bin\Release\AttacheCase.exe bin\AttacheCase.exe
+copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.dll bin\Microsoft.WindowsAPICodePack.dll
+copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Microsoft.WindowsAPICodePack.Shell.dll
 copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 mkdir bin\ja-JP
 copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
@@ -72,7 +74,7 @@ for /F "delims=" %%s in ('..\tools\getver\getver\bin\Release\GetVer.exe bin\Atta
 
 @rem ZIP
 cd bin
-7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe ja-JP\AttacheCase.resources.dll
+7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe Microsoft.WindowsAPICodePack.dll Microsoft.WindowsAPICodePack.Shell.dll ja-JP\AttacheCase.resources.dll
 cd ..\
 
 
