@@ -330,7 +330,6 @@ namespace AttacheCase
 
           Parallel.ForEach(FileList, po, (FilePath, state) =>
           {
-
             if (File.Exists(FilePath) == true)
             {
               FileSystem.DeleteFile(FilePath);
@@ -709,6 +708,12 @@ namespace AttacheCase
         notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
         AppSettings.Instance.FileList = null;
 
+        // Atc file is deleted
+        if (File.Exists(encryption3.AtcFilePath) == true)
+        {
+          FileSystem.DeleteFile(encryption3.AtcFilePath);
+        }
+
         // 暗号化の処理はキャンセルされました。
         // Encryption was canceled.
         labelProgressMessageText.Text = Resources.labelEncryptionCanceled;
@@ -723,6 +728,13 @@ namespace AttacheCase
         progressBar.Value = 0;
         labelProgressMessageText.Text = Resources.labelCaptionError;     // "Error occurred"
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+
+        // Atc file is deleted
+        if (File.Exists(encryption3.AtcFilePath) == true)
+        {
+          FileSystem.DeleteFile(encryption3.AtcFilePath);
+        }
+
         return;
 
       }

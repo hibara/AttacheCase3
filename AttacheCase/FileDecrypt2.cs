@@ -828,14 +828,15 @@ namespace AttacheCase
                         {
                           string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
                           DirectoryInfo di = new DirectoryInfo(path);
-                          if (TempOverWriteOption == 2)
+
+                          // File already exists.
+                          if (Directory.Exists(path) == true)
                           {
-                            // Overwrite ( New create )
-                          }
-                          else
-                          {
-                            // File already exists.
-                            if (Directory.Exists(path) == true)
+                            if (TempOverWriteOption == 2)
+                            {
+                              // Overwrite ( New create )
+                            }
+                            else
                             {
                               // Show dialog of comfirming to overwrite. 
                               dialog(0, path);
@@ -850,6 +851,7 @@ namespace AttacheCase
                               else if (TempOverWriteOption == 0)
                               {
                                 fNo = true;
+                                continue;
                               }
                               else
                               { // Yes
@@ -858,23 +860,24 @@ namespace AttacheCase
                                   if (di.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                   {
                                     fNo = true; // old directory
+                                    continue;
                                   }
                                 }
 
                               }
 
-                            } // end if ( Directory.Exists );
+                              if (fNo == false)
+                              {
+                                //隠し属性を削除する
+                                di.Attributes &= ~FileAttributes.Hidden;
+                                //読み取り専用を削除
+                                di.Attributes &= ~FileAttributes.ReadOnly;
+                              }
 
-                          } // end if (TempOverWriteOption == 2);
+                            } // end if (TempOverWriteOption == 2);
 
-                          if (fNo == false)
-                          {
-                            //隠し属性を削除する
-                            di.Attributes &= ~FileAttributes.Hidden;
-                            //読み取り専用を削除
-                            di.Attributes &= ~FileAttributes.ReadOnly;
-                          }
-
+                          } // end if ( Directory.Exists );
+                        
                           Directory.CreateDirectory(dic[FileIndex].FilePath);
                           _OutputFileList.Add(dic[FileIndex].FilePath);
                           FileSize = 0;
@@ -889,25 +892,26 @@ namespace AttacheCase
                         {
                           string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
                           FileInfo fi = new FileInfo(path);
-                          if (TempOverWriteOption == 2)
-                          {
-                            // Overwrite ( New create )
-                          }
-                          else
-                          {
-                            // File already exists.
-                            if (File.Exists(path) == true)
-                            {
-                              // Salvage Data Mode
-                              if (_fSalvageIntoSameDirectory == true)
-                              {
-                                int SerialNum = 0;
-                                while (File.Exists(path) == true)
-                                {
-                                  path = getFileNameWithSerialNumber(path, SerialNum);
-                                  SerialNum++;
-                                }
 
+                          // File already exists.
+                          if (File.Exists(path) == true)
+                          {
+                            // Salvage Data Mode
+                            if (_fSalvageIntoSameDirectory == true)
+                            {
+                              int SerialNum = 0;
+                              while (File.Exists(path) == true)
+                              {
+                                path = getFileNameWithSerialNumber(path, SerialNum);
+                                SerialNum++;
+                              }
+
+                            }
+                            else
+                            {
+                              if (TempOverWriteOption == 2)
+                              {
+                                // Overwrite ( New create )
                               }
                               else
                               {
@@ -937,19 +941,19 @@ namespace AttacheCase
 
                                 }
 
-                              }// end if (AppSettings.Instance.fSalvageIntoSameDirectory == true);
+                              } // end if (TempOverWriteOption == 2);
 
-                            }// end if ( File.Exists );
+                            } // end if (_fSalvageIntoSameDirectory == true);
 
-                          }// end if (TempOverWriteOption == 2);
+                            if (fNo == false)
+                            {
+                              //隠し属性を解除する
+                              fi.Attributes &= ~FileAttributes.Hidden;
+                              //読み取り専用を解除する
+                              fi.Attributes &= ~FileAttributes.ReadOnly;
+                            }
 
-                          if (fNo == false)
-                          {
-                            //隠し属性を解除する
-                            fi.Attributes &= ~FileAttributes.Hidden;
-                            //読み取り専用を解除する
-                            fi.Attributes &= ~FileAttributes.ReadOnly;
-                          }
+                          } // end if ( File.Exists );
 
                           // Salvage data mode
                           // サルベージ・モード
