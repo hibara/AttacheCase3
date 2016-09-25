@@ -270,7 +270,9 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)tools\inserticons\inserticons.exe $(TargetPath) $(SolutionDir)image\sub_icon\sub_icon00.ico;$(SolutionDir)image\sub_icon\sub_icon01.ico;$(SolutionDir)image\sub_icon\sub_icon02.ico;$(SolutionDir)image\sub_icon\sub_icon03.ico
+    <PostBuildEvent>if "1" == "1" (
+$(SolutionDir)tools\inserticons\inserticons.exe $(TargetPath) $(SolutionDir)image\sub_icon\sub_icon00.ico;$(SolutionDir)image\sub_icon\sub_icon01.ico;$(SolutionDir)image\sub_icon\sub_icon02.ico;$(SolutionDir)image\sub_icon\sub_icon03.ico
+)
 
 if not exist $(ProjectDir)_password.txt exit
 

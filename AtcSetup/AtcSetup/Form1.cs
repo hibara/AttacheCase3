@@ -210,7 +210,7 @@ namespace AtcSetup
 				}
 				else
 				{
-					regkey.SetValue("", MyIconFilePath);	// My Icon
+					regkey.SetValue("", "\"" + MyIconFilePath + "\"");	// My Icon
 				}
 			}
 

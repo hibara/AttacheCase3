@@ -370,7 +370,7 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch (OperationCanceledException e)
+        catch
         {
           // ユーザーキャンセル
           // User cancel
@@ -1137,7 +1137,6 @@ namespace AttacheCase
               textBoxDecryptPassword.SelectAll();
               return;
             }
-            break;
 
           default:
             // ユーザーキャンセル

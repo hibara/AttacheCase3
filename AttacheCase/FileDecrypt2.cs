@@ -57,7 +57,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
-    private const int BUFFER_SIZE = 8; // compatible ver.2 data buffer
+    private const int BUFFER_SIZE = 4096; // compatible ver.2 data buffer
 
     // Header data variables
     private const char DATA_SUB_VERSION = (char)6;  //ver.2.00~ = "5", ver.2.70~ = "6"
@@ -539,7 +539,7 @@ namespace AttacheCase
         }
 
       }//end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
-      catch (Exception ex)
+      catch
       {
         e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED, "");
         return (false);
@@ -797,6 +797,7 @@ namespace AttacheCase
                 byteArray = new byte[BUFFER_SIZE];
                 while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
                 {
+                  int buffer_size = len;
                   while (len > 0)
                   {
                     //----------------------------------------------------------------------
@@ -991,7 +992,7 @@ namespace AttacheCase
                         //まだまだ書き込める
                         if (fNo == false)
                         {
-                          outfs.Write(byteArray, BUFFER_SIZE - len, len);
+                          outfs.Write(byteArray, buffer_size - len, len);
                         }
                         FileSize += len;
                         _TotalSize += len;
@@ -1000,13 +1001,13 @@ namespace AttacheCase
                     }
                     else
                     {
-                      //データの境界を超えて読み込んでいる
-                      int rest = (int)((Int64)dic[FileIndex].FileSize - FileSize);
+                      // ファイルの境界を超えて読み込んでいる
+                      int rest = (int)(dic[FileIndex].FileSize - FileSize);
 
                       if (fNo == false)
                       {
                         //書き込み完了
-                        outfs.Write(byteArray, BUFFER_SIZE - len, rest);
+                        outfs.Write(byteArray, buffer_size - len, rest);
                       }
 
                       _TotalSize += rest;
@@ -1089,7 +1090,7 @@ namespace AttacheCase
         return (true);
 
       }
-      catch(Exception ex)
+      catch
       {
         // Delete temporary file
         if (File.Exists(_TempFilePath) == true)

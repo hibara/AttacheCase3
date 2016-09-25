@@ -38,7 +38,7 @@ copy ..\images\main_icon\main_icon_48x48.png bin\
 @echo -----------------------------------
 
 @rem ..\tools\ResHacker\ResourceHacker.exe -addoverwrite bin\AttacheCase.exe, bin\AttacheCase.exe, ..\AttacheCase\attachecase.res,,,
-@rem..\tools\\inserticons\inserticons.exe bin\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
+@rem ..\tools\\inserticons\inserticons.exe bin\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
 
 
 @echo. 

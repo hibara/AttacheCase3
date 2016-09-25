@@ -1730,10 +1730,6 @@
       // 
       resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
       // 
-      // openFileDialog1
-      // 
-      this.openFileDialog1.FileName = "openFileDialog1";
-      // 
       // Form3
       // 
       resources.ApplyResources(this, "$this");

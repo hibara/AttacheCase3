@@ -109,7 +109,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
-    private const int BUFFER_SIZE = 2048;
+    private const int BUFFER_SIZE = 4096;
 
     // Header data variables
     private const string STRING_TOKEN_NORMAL = "_AttacheCaseData";
@@ -564,7 +564,7 @@ namespace AttacheCase
           }//end using (Rijndael aes = new RijndaelManaged());
 
         }
-        catch (Exception ex)
+        catch
         {
           e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED, "");
           return (false);
@@ -821,6 +821,8 @@ namespace AttacheCase
                     }
                   }
 
+                  int buffer_size = len;
+
                   while (len > 0)
                   {
                     //----------------------------------------------------------------------
@@ -1013,39 +1015,38 @@ namespace AttacheCase
                     //----------------------------------------------------------------------
                     // Write data
                     //----------------------------------------------------------------------
-                    if (FileSize + (len - pos) < (Int64)dic[FileIndex].FileSize)
+                    if (FileSize + len < (Int64)dic[FileIndex].FileSize)
                     {
-                      // まだまだ書き込める
-                      // Still write...
-                      if (outfs != null)
+                      if (outfs != null || fNo == true)
                       {
+                        //まだまだ書き込める
                         if (fNo == false)
                         {
-                          outfs.Write(byteArray, pos, len - pos);
+                          outfs.Write(byteArray, buffer_size - len, len);
                         }
-
-                        FileSize += (len - pos);
-                        _TotalSize += (len - pos);
+                        FileSize += len;
+                        _TotalSize += len;
                         len = 0;
-                        pos = 0;
                       }
                     }
                     else
                     {
-                      // データの境界を超えて読み込んでいる
-                      // Reading data over the border of data
-                      int rest = (int)((Int64)dic[FileIndex].FileSize - FileSize);
+                      // ファイルの境界を超えて読み込んでいる
+                      int rest = (int)(dic[FileIndex].FileSize - FileSize);
 
                       if (fNo == false)
                       {
-                        outfs.Write(byteArray, pos, rest);
+                        //書き込み完了
+                        outfs.Write(byteArray, buffer_size - len, rest);
                       }
 
                       _TotalSize += rest;
-                      pos += rest;
+
+                      len -= rest;
 
                       if (outfs != null)
                       {
+                        //生成したファイルを閉じる
                         outfs.Close();
                         outfs = null;
                       }

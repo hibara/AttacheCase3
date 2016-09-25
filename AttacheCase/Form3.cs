@@ -1834,7 +1834,7 @@ This License constitutes the entire agreement between the parties with respect t
 
 			if (File.Exists(AppSettings.Instance.UserRegIconFilePath) == true)
 			{
-				psi.Arguments = string.Format("-t=0 -icn={0}", AppSettings.Instance.UserRegIconFilePath);
+				psi.Arguments = string.Format("-t=0 -icn=\"{0}\"", AppSettings.Instance.UserRegIconFilePath);
 			}
 			else
 			{
@@ -1990,8 +1990,13 @@ This License constitutes the entire agreement between the parties with respect t
 				fAssociationSettings = true;
 				buttonApply.Enabled = true;
 
-			}
-		}
+        pictureBoxCheckmark00.Visible = false;
+        pictureBoxCheckmark01.Visible = false;
+        pictureBoxCheckmark02.Visible = false;
+        pictureBoxCheckmark03.Visible = false;
+
+      }
+    }
 
 		/// <summary>
 		/// Output the current configuration as INI file
