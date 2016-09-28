@@ -80,6 +80,12 @@ namespace AttacheCase
       set { this._Password = value; }
     }
 
+    private List<string> _FileList;
+    public List<string> FileList
+    {
+      get { return this._FileList; }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -100,6 +106,8 @@ namespace AttacheCase
       byte[] bufferKey = new byte[32];
 
       e.Result = ENCRYPTING;
+
+      _FileList = new List<string>();
 
       try
       {
@@ -206,6 +214,7 @@ namespace AttacheCase
                 if ((int)Item[0] == 1)
                 {
                   _TotalFileSize += Convert.ToInt64(Item[3]);
+                  _FileList.Add((string)Item[1]);
                 }
 
               }
@@ -216,7 +225,6 @@ namespace AttacheCase
               else
               {
                 // Directory
-
                 foreach (ArrayList Item in GetFileList(ParentPath, FilePath))
                 {
                   if ((worker.CancellationPending == true))
@@ -236,6 +244,8 @@ namespace AttacheCase
                   { // files only
                     _TotalFileSize += Convert.ToInt64(Item[3]); // File size
                   }
+
+                  _FileList.Add((string)Item[1]);
 
                 }// end foreach (ArrayList Item in GetFilesList(ParentPath, FilePath));
 

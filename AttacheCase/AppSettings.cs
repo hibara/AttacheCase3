@@ -1487,10 +1487,13 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _FormHeight, "WindowPos", "WindowHeight", "380");
 			ReadIniFile(IniFilePath, ref _InitDirPath, "WindowPos", "InitDirPath", "");
 
-			//-----------------------------------
-			// Store Passwords
-			//-----------------------------------
-			ReadIniFile(IniFilePath, ref _fMyEncryptPasswordKeep, "MyKey", "fMyEncryptPasswordKeep", "");
+      ReadIniFile(IniFilePath, ref _ActiveTreeNode, "WindowPos", "ActiveTreeNode", "0");
+      ReadIniFile(IniFilePath, ref _InitDirPath, "WindowPos", "InitDirPath", "");
+
+      //-----------------------------------
+      // Stored Passwords
+      //-----------------------------------
+      ReadIniFile(IniFilePath, ref _fMyEncryptPasswordKeep, "MyKey", "fMyEncryptPasswordKeep", "");
 			ReadIniFile(IniFilePath, ref ReturnValue, "MyKey", "MyEncryptPasswordString", "");
       if (ReturnValue != "")
       {
@@ -1516,7 +1519,8 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fEndToExit, "Option", "fEndToExit", "0");
 			ReadIniFile(IniFilePath, ref _fOpenFile, "Option", "fOpenFile", "0");
 			ReadIniFile(IniFilePath, ref _fShowDialogWhenExeFile, "Option", "fShowDialogWhenExeFile", "1");
-			ReadIniFile(IniFilePath, ref _fAskEncDecode, "Option", "fAskEncDecode", "0");
+      ReadIniFile(IniFilePath, ref _ShowDialogWhenMultipleFilesNum, "Option", "ShowDialogWhenMultipleFilesNum", "5");
+      ReadIniFile(IniFilePath, ref _fAskEncDecode, "Option", "fAskEncDecode", "0");
 			ReadIniFile(IniFilePath, ref _fNoHidePassword, "Option", "fNoHidePassword", "0");
 			ReadIniFile(IniFilePath, ref _fSaveToExeout, "Option", "fSaveToExeout", "0");
 			ReadIniFile(IniFilePath, ref _fShowExeoutChkBox, "Option", "fShowExeoutChkBox", "1");
@@ -1528,11 +1532,11 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fOpenFolder, "Option", "fOpenFolder", "0");
 			ReadIniFile(IniFilePath, ref _fWindowForeground, "Option", "fWindowForeground", "1");
 			ReadIniFile(IniFilePath, ref _fNoMultipleInstance, "Option", "fNoMultipleInstance", "1");
-			
-			// Save Encrypt
 
-			//Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)
-			ReadIniFile(IniFilePath, ref _EncryptionFileType, "Option", "EncryptionFileType", "0");
+      // Save Encrypt
+
+      //Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)
+      ReadIniFile(IniFilePath, ref _EncryptionFileType, "Option", "EncryptionFileType", "0");
 			ReadIniFile(IniFilePath, ref _SameEncryptionFileTypeAlways, "Option", "SameEncryptionFileTypeAlways", "0");
 			ReadIniFile(IniFilePath, ref _SameEncryptionFileTypeBefore, "Option", "SameEncryptionFileTypeBefore", "0");
 
@@ -1598,7 +1602,7 @@ namespace AttacheCase
 
 			// Input Password limit
 			ReadIniFile(IniFilePath, ref _MissTypeLimitsNum, "Option", "MissTypeLimitsNum", "3");
-			ReadIniFile(IniFilePath, ref _fBroken, "Option", "fBroken", "3");
+			ReadIniFile(IniFilePath, ref _fBroken, "Option", "fBroken", "0");
 			
 			// Salvage
 			ReadIniFile(IniFilePath, ref _fSalvageToCreateParentFolderOneByOne, "Option", "fSalvageToCreateParentFolderOneByOne", "0");
@@ -1652,6 +1656,7 @@ namespace AttacheCase
 			Console.WriteLine(p);
 			WriteIniFile(IniFilePath, p, "MyKey", "MyDecryptPasswordString");
 
+      WriteIniFile(IniFilePath, _fMemPasswordExe, "MyKey", "fMemPasswordExe");
 			WriteIniFile(IniFilePath, _fNotMaskPassword, "MyKey", "fNotMaskPassword");
 
 			//----------------------------------------------------------------------
@@ -1716,7 +1721,7 @@ namespace AttacheCase
       WriteIniFile(IniFilePath, _fZipToSameFldr, "Option", "fZipToSameFldr");
       WriteIniFile(IniFilePath, _ZipToSameFldrPath, "Option", "ZipToSameFldrPath");
       WriteIniFile(IniFilePath, _fZipConfirmOverwrite, "Option", "fZipConfirmOverwrite");
-      WriteIniFile(IniFilePath, _ZipEncryptionAlgorithm, "Option", "fZipConfirmOverwrite");
+      WriteIniFile(IniFilePath, _ZipEncryptionAlgorithm, "Option", "ZipEncryptionAlgorithm");
 
       //-----------------------------------
       // Delete
@@ -1724,7 +1729,8 @@ namespace AttacheCase
 			WriteIniFile(IniFilePath, _fEncryptShowDelChkBox, "Option", "fEncryptShowDelChkBox");
 			WriteIniFile(IniFilePath, _fConfirmToDeleteAfterEncryption, "Option", "fConfirmToDeleteAfterEncryption");
 
-			WriteIniFile(IniFilePath, _fDecryptShowDelChkBox, "Option", "fDecryptShowDelChkBox");
+      WriteIniFile(IniFilePath, _fDelEncFile, "Option", "fDelEncFile");
+      WriteIniFile(IniFilePath, _fDecryptShowDelChkBox, "Option", "fDecryptShowDelChkBox");
 			WriteIniFile(IniFilePath, _fConfirmToDeleteAfterDecryption, "Option", "fConfirmToDeleteAfterDecryption");
 
 			WriteIniFile(IniFilePath, _fCompleteDelFile, "Option", "fCompleteDelFile");
@@ -1822,13 +1828,13 @@ namespace AttacheCase
       {
         value = "";
       }
-      else if (o.GetType() == typeof(string) || o.GetType() == typeof(int))
-			{
-				value = o.ToString();
-			}
       else if (o.GetType() == typeof(bool))
       {
         value = (bool)o == true ? "1" : "0";
+      }
+      else if (o.GetType() == typeof(string) || o.GetType() == typeof(int))
+			{
+				value = o.ToString();
 			}
 
 			WritePrivateProfileString(section, key, value, IniFilePath);

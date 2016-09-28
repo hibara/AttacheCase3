@@ -1531,6 +1531,7 @@
       this.checkBoxBroken.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxBroken.Name = "checkBoxBroken";
       this.checkBoxBroken.UseVisualStyleBackColor = true;
+      this.checkBoxBroken.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // pictureBox6
       // 

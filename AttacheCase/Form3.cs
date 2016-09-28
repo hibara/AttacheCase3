@@ -642,7 +642,7 @@ namespace AttacheCase
 			// Input Password limit
 			//-----------------------------------
 			#region
-			comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum - 1;
+			comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
 
 			#endregion
@@ -1143,7 +1143,7 @@ This License constitutes the entire agreement between the parties with respect t
 
 			//----------------------------------------------------------------------
 			// Input Password limit
-			AppSettings.Instance.MissTypeLimitsNum = comboBoxMissTypeLimitsNum.SelectedIndex + 1;
+			AppSettings.Instance.MissTypeLimitsNum = comboBoxMissTypeLimitsNum.SelectedIndex;
 			AppSettings.Instance.fBroken = checkBoxBroken.Checked;
 			
 			//----------------------------------------------------------------------
@@ -1638,15 +1638,7 @@ This License constitutes the entire agreement between the parties with respect t
 
     private void checkBoxZipConfirmOverwrite_CheckedChanged(object sender, EventArgs e)
     {
-      if (checkBoxZipConfirmOverwrite.Checked == true)
-      {
-        AppSettings.Instance.fZipConfirmOverwrite = true;
-      }
-      else
-      {
-        AppSettings.Instance.fZipConfirmOverwrite = false;
-      }
-
+      buttonApply.Enabled = true;
     }
 
     private void comboBoxZipEncryptAlgo_SelectedIndexChanged(object sender, EventArgs e)
@@ -1663,6 +1655,7 @@ This License constitutes the entire agreement between the parties with respect t
           labelEncryptAlgoDescription.Text = Resources.labelEncryptAlgoDescriptionPkzipWeak;
           break;
       }
+      buttonApply.Enabled = true;
 
     }
 

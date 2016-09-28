@@ -789,13 +789,27 @@ namespace AttacheCase
                   if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
                       AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE )
                   {
-                    DeleteData(encryption3.FileList);
+                    if(encryption3 != null)
+                    {
+                      DeleteData(encryption3.FileList);
+                    }
+                    else if(compression != null)
+                    {
+                      DeleteData(compression.FileList);
+                    }
                   }
                 }
               }
               else
               {
-                DeleteData(encryption3.FileList);
+                if (encryption3 != null)
+                {
+                  DeleteData(encryption3.FileList);
+                }
+                else if (compression != null)
+                {
+                  DeleteData(compression.FileList);
+                }
               }
             }
 
@@ -2737,7 +2751,8 @@ namespace AttacheCase
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
-        if (AppSettings.Instance.fEncryptConfirmOverwrite == true)
+        if ((encryption3 != null && AppSettings.Instance.fEncryptConfirmOverwrite == true) || 
+            compression != null && AppSettings.Instance.fZipConfirmOverwrite == true)
         {
           if (File.Exists(AtcFilePath) == true)
           {
