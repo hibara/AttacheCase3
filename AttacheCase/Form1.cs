@@ -1474,10 +1474,32 @@ namespace AttacheCase
     private void StartProcess()
     {
       int FileType = 0;
+      if (AppSettings.Instance.ProcTypeWithoutAsk > 0)
+      {
+        if (AppSettings.Instance.ProcTypeWithoutAsk == 1) // Encryption
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = true;        // Encrypt
+          textBoxPassword.Focus();            // Text box is focused
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = false;
+          panelProgressState.Visible = false;
 
+        }
+        else if(AppSettings.Instance.ProcTypeWithoutAsk == 2) // Decryption
+        {
+          panelStartPage.Visible = false;
+          panelEncrypt.Visible = false;
+          panelEncryptConfirm.Visible = false;
+          panelDecrypt.Visible = true;        // Decrypt
+          textBoxDecryptPassword.Focus();     // Text box is focused
+          panelProgressState.Visible = false;
+        }
+
+      }
       // 内容にかかわらず暗号化か復号かを問い合わせる
       // Ask to encrypt or decrypt regardless of contents.
-      if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.fAskEncDecode == true)
+      else if (AppSettings.Instance.FileList.Count() > 0 && AppSettings.Instance.fAskEncDecode == true)
       {
         Form4 frm4 = new Form4("AskEncryptOrDecrypt", "");
         frm4.ShowDialog();
@@ -1723,6 +1745,11 @@ namespace AttacheCase
 
             buttonDecryptStart.Focus();
 
+            if ( AppSettings.Instance.fPasswordFileExe == true)
+            {
+              buttonDecryptStart.PerformClick();
+            }
+
           }
           else
           {
@@ -1766,6 +1793,14 @@ namespace AttacheCase
             panelEncryptConfirm.Visible = true;
             panelDecrypt.Visible = false;
             panelProgressState.Visible = false;
+
+            buttonEncryptStart.Focus();
+
+            if (AppSettings.Instance.fPasswordFileExe == true)
+            {
+              buttonEncryptStart.PerformClick();
+            }
+
           }
           else
           {
@@ -2439,23 +2474,6 @@ namespace AttacheCase
       // Valid mark
       pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
       //labelPasswordValidation.Text = Resources.labelCaptionPasswordValid;
-
-      //-----------------------------------
-      // Create one encrypted file from files
-      //-----------------------------------
-      saveFileDialog1.FileName = "";
-      if (AppSettings.Instance.fAllFilePack == true)
-      {
-        saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
-        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        {
-          AppSettings.Instance.InitDirPath = Path.GetDirectoryName(saveFileDialog1.FileName);
-        }
-        else
-        {
-          return;
-        }
-      }
 
       //-----------------------------------
       // Directory to oputput encrypted files

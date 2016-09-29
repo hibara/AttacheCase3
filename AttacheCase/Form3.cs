@@ -635,14 +635,14 @@ namespace AttacheCase
       checkBoxCheckPassFileDecrypt.Checked = AppSettings.Instance.fCheckPassFileDecrypt;
 			textBoxPassFilePathDecrypt.Text = AppSettings.Instance.PassFilePathDecrypt;
 			checkBoxNoErrMsgOnPassFile.Checked = AppSettings.Instance.fNoErrMsgOnPassFile;
-			checkBoxAllowPassFile_CheckedChanged(sender, e);
-			#endregion
+      checkBoxDoByPasswordFile.Checked = AppSettings.Instance.fPasswordFileExe;
+      #endregion
 
-			//-----------------------------------
-			// Input Password limit
-			//-----------------------------------
-			#region
-			comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
+      //-----------------------------------
+      // Input Password limit
+      //-----------------------------------
+      #region
+      comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
 
 			#endregion
@@ -1135,10 +1135,11 @@ This License constitutes the entire agreement between the parties with respect t
 			AppSettings.Instance.fCheckPassFileDecrypt = checkBoxCheckPassFileDecrypt.Checked;
 			AppSettings.Instance.PassFilePathDecrypt = textBoxPassFilePathDecrypt.Text;
 			AppSettings.Instance.fNoErrMsgOnPassFile = checkBoxNoErrMsgOnPassFile.Checked;
+      AppSettings.Instance.fPasswordFileExe = checkBoxDoByPasswordFile.Checked;
 
-			//----------------------------------------------------------------------
-			// Camouflage extension
-			AppSettings.Instance.fAddCamoExt = checkBoxAddCamoExt.Checked;
+      //----------------------------------------------------------------------
+      // Camouflage extension
+      AppSettings.Instance.fAddCamoExt = checkBoxAddCamoExt.Checked;
 			AppSettings.Instance.CamoExt = textBoxCamoExt.Text;
 
 			//----------------------------------------------------------------------
@@ -1489,7 +1490,8 @@ This License constitutes the entire agreement between the parties with respect t
 			string FilePath = "Test.atc";
 			labelEncryptedFileNameFormat.Text = "ex). " +
 				AppSettings.Instance.getSpecifyFileNameFormat(textBoxAutoNameFormatText.Text, FilePath, 1);
-		}
+      buttonApply.Enabled = true;
+    }
 
 		//-----------------------------------
 		// Insert the specific format object
@@ -1506,7 +1508,7 @@ This License constitutes the entire agreement between the parties with respect t
 
 		private void InsertSerialNumberOject(object sender, EventArgs e)
 		{
-			textBoxAutoNameFormatText.SelectedText = "<number:3>";
+			textBoxAutoNameFormatText.SelectedText = "<num:3>";
 		}
 
 		private void InsertFileNameHeaderOject(object sender, EventArgs e)
@@ -2034,54 +2036,6 @@ This License constitutes the entire agreement between the parties with respect t
     // PasswordFile
     //======================================================================
     #region
-    private void checkBoxAllowPassFile_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBoxAllowPassFile.Checked == true)
-			{
-				checkBoxCheckPassFile.Enabled = true;
-				if (checkBoxCheckPassFile.Checked == true)
-				{
-					textBoxPassFilePath.Enabled = true;
-					buttonOpenFileDialogForEncryption.Enabled = true;
-					textBoxPassFilePath.BackColor = SystemColors.Window;
-				}
-				else
-				{
-					textBoxPassFilePath.Enabled = false;
-					buttonOpenFileDialogForEncryption.Enabled = false;
-					textBoxPassFilePath.BackColor = SystemColors.ButtonFace;
-				}
-				
-				checkBoxCheckPassFileDecrypt.Enabled = true;
-				if (checkBoxCheckPassFileDecrypt.Checked == true)
-				{
-					textBoxPassFilePathDecrypt.Enabled = true;
-					buttonOpenFileDialogForDecryption.Enabled = true;
-					textBoxPassFilePathDecrypt.BackColor = SystemColors.Window;
-				}
-				else
-				{
-					textBoxPassFilePathDecrypt.Enabled = false;
-					buttonOpenFileDialogForDecryption.Enabled = false;
-					textBoxPassFilePathDecrypt.BackColor = SystemColors.ButtonFace;
-				}
-			}
-			else
-			{
-				checkBoxCheckPassFile.Enabled = false;
-				textBoxPassFilePath.Enabled = false;
-				buttonOpenFileDialogForEncryption.Enabled = false;
-				textBoxPassFilePath.BackColor = SystemColors.ButtonFace;
-				checkBoxCheckPassFileDecrypt.Enabled = false;
-				textBoxPassFilePathDecrypt.Enabled = false;
-				buttonOpenFileDialogForDecryption.Enabled = false;
-				textBoxPassFilePathDecrypt.BackColor = SystemColors.ButtonFace;
-
-			}
-			buttonApply.Enabled = true;
-
-		}
-
 		private void checkBoxCheckPassFile_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxCheckPassFile.Checked == true)

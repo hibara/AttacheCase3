@@ -432,160 +432,169 @@ namespace AttacheCase
       //----------------------------------------------------------------------
       using (FileStream outfs = new FileStream(OutFilePath, FileMode.OpenOrCreate, FileAccess.Write))
       {
-        byteArray = new byte[4];
-        // Back to current positon of 'encrypted file size'
-        if (_fExecutable == true)
-        {
-          outfs.Seek(ExeOutFileSize + 24, SeekOrigin.Begin);  // self executable file
-        }
-        else
-        {
-          outfs.Seek(24, SeekOrigin.Begin);
-        }
-
-        byteArray = BitConverter.GetBytes(_AtcHeaderSize);
-        outfs.Write(byteArray, 0, 4);
-
-        // Out file stream postion move to end
-        outfs.Seek(0, SeekOrigin.End);
-
-        // The Header of MemoryStream is encrypted
-        using (Rijndael aes = new RijndaelManaged())
-        {
-          aes.BlockSize = 256;              // BlockSize = 16bytes
-          aes.KeySize = 256;                // KeySize = 16bytes
-          aes.Mode = CipherMode.CBC;        // CBC mode
-          aes.Padding = PaddingMode.Zeros;  // Padding mode
-
-          aes.Key = key;
-          aes.IV = iv;
-
-          // Encryption interface.
-          ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-          using (CryptoStream cse = new CryptoStream(outfs, encryptor, CryptoStreamMode.Write))
+        try {
+          byteArray = new byte[4];
+          // Back to current positon of 'encrypted file size'
+          if (_fExecutable == true)
           {
-            Ionic.Zlib.CompressionLevel flv = Ionic.Zlib.CompressionLevel.Default;
-            switch (AppSettings.Instance.CompressRate)
-            {
-              case 0:
-                flv = Ionic.Zlib.CompressionLevel.Level0;
-                break;
-              case 1:
-                flv = Ionic.Zlib.CompressionLevel.Level1;
-                break;
-              case 2:
-                flv = Ionic.Zlib.CompressionLevel.Level2;
-                break;
-              case 3:
-                flv = Ionic.Zlib.CompressionLevel.Level3;
-                break;
-              case 4:
-                flv = Ionic.Zlib.CompressionLevel.Level4;
-                break;
-              case 5:
-                flv = Ionic.Zlib.CompressionLevel.Level5;
-                break;
-              case 6:
-                flv = Ionic.Zlib.CompressionLevel.Level6;
-                break;
-              case 7:
-                flv = Ionic.Zlib.CompressionLevel.Level7;
-                break;
-              case 8:
-                flv = Ionic.Zlib.CompressionLevel.Level8;
-                break;
-              case 9:
-                flv = Ionic.Zlib.CompressionLevel.Level9;
-                break;
-            }
+            outfs.Seek(ExeOutFileSize + 24, SeekOrigin.Begin);  // self executable file
+          }
+          else
+          {
+            outfs.Seek(24, SeekOrigin.Begin);
+          }
 
-            using (Ionic.Zlib.DeflateStream ds = new Ionic.Zlib.DeflateStream(cse, Ionic.Zlib.CompressionMode.Compress, flv))
+          byteArray = BitConverter.GetBytes(_AtcHeaderSize);
+          outfs.Write(byteArray, 0, 4);
+
+          // Out file stream postion move to end
+          outfs.Seek(0, SeekOrigin.End);
+
+          // The Header of MemoryStream is encrypted
+          using (Rijndael aes = new RijndaelManaged())
+          {
+            aes.BlockSize = 256;              // BlockSize = 16bytes
+            aes.KeySize = 256;                // KeySize = 16bytes
+            aes.Mode = CipherMode.CBC;        // CBC mode
+            aes.Padding = PaddingMode.Zeros;  // Padding mode
+
+            aes.Key = key;
+            aes.IV = iv;
+
+            // Encryption interface.
+            ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+            using (CryptoStream cse = new CryptoStream(outfs, encryptor, CryptoStreamMode.Write))
             {
-              int len = 0;
-              foreach (string path in _FileList)
+              Ionic.Zlib.CompressionLevel flv = Ionic.Zlib.CompressionLevel.Default;
+              switch (AppSettings.Instance.CompressRate)
               {
-                // Only file is encrypted
-                if (File.Exists(path) == true)
+                case 0:
+                  flv = Ionic.Zlib.CompressionLevel.Level0;
+                  break;
+                case 1:
+                  flv = Ionic.Zlib.CompressionLevel.Level1;
+                  break;
+                case 2:
+                  flv = Ionic.Zlib.CompressionLevel.Level2;
+                  break;
+                case 3:
+                  flv = Ionic.Zlib.CompressionLevel.Level3;
+                  break;
+                case 4:
+                  flv = Ionic.Zlib.CompressionLevel.Level4;
+                  break;
+                case 5:
+                  flv = Ionic.Zlib.CompressionLevel.Level5;
+                  break;
+                case 6:
+                  flv = Ionic.Zlib.CompressionLevel.Level6;
+                  break;
+                case 7:
+                  flv = Ionic.Zlib.CompressionLevel.Level7;
+                  break;
+                case 8:
+                  flv = Ionic.Zlib.CompressionLevel.Level8;
+                  break;
+                case 9:
+                  flv = Ionic.Zlib.CompressionLevel.Level9;
+                  break;
+              }
+
+              using (Ionic.Zlib.DeflateStream ds = new Ionic.Zlib.DeflateStream(cse, Ionic.Zlib.CompressionMode.Compress, flv))
+              {
+                int len = 0;
+                foreach (string path in _FileList)
                 {
-                  try
+                  // Only file is encrypted
+                  if (File.Exists(path) == true)
                   {
-                    buffer = new byte[BUFFER_SIZE];
-                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    try
                     {
-                      len = 0;
-                      while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
+                      buffer = new byte[BUFFER_SIZE];
+                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
                       {
-                        ds.Write(buffer, 0, len);
-                        _TotalSize += len;
-
-                        string MessageText = "";
-                        if (_TotalNumberOfFiles > 1)
+                        len = 0;
+                        while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
                         {
-                          MessageText = path + " ( " + _NumberOfFiles.ToString() + " files/ " + _TotalNumberOfFiles.ToString() + " folders )";
-                        }
-                        else
-                        {
-                          MessageText = path;
-                        }
-                        float percent = ((float)_TotalSize / _TotalFileSize);
-                        MessageList = new ArrayList();
-                        MessageList.Add(ENCRYPTING);
-                        MessageList.Add(MessageText);
-                        worker.ReportProgress((int)(percent * 10000), MessageList);
+                          ds.Write(buffer, 0, len);
+                          _TotalSize += len;
 
-                        if (worker.CancellationPending == true)
-                        {
-                          e.Cancel = true;
-                          return Tuple.Create(false, USER_CANCELED);
-                        }
+                          string MessageText = "";
+                          if (_TotalNumberOfFiles > 1)
+                          {
+                            MessageText = path + " ( " + _NumberOfFiles.ToString() + " files/ " + _TotalNumberOfFiles.ToString() + " folders )";
+                          }
+                          else
+                          {
+                            MessageText = path;
+                          }
+                          float percent = ((float)_TotalSize / _TotalFileSize);
+                          MessageList = new ArrayList();
+                          MessageList.Add(ENCRYPTING);
+                          MessageList.Add(MessageText);
+                          worker.ReportProgress((int)(percent * 10000), MessageList);
 
+                          if (worker.CancellationPending == true)
+                          {
+                            e.Cancel = true;
+                            return Tuple.Create(false, USER_CANCELED);
+                          }
+
+                        }
                       }
+
+                    }
+                    catch (Exception ex)
+                    {
+                      System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+                      e.Result = ERROR_UNEXPECTED;
+                      return Tuple.Create(false, ERROR_UNEXPECTED);
                     }
 
-                  }
-                  catch (Exception ex)
-                  {
-                    System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
-                    e.Result = ERROR_UNEXPECTED;
-                    return Tuple.Create(false, ERROR_UNEXPECTED);
-                  }
+                  } // end if (File.Exists(path) == true);
 
-                } // end if (File.Exists(path) == true);
+                } // end foreach (string path in _FileList);
 
-              } // end foreach (string path in _FileList);
+                /*
+                for (int i = 0; i < 10; i++)
+                {
+                  Random r = new Random();
+                  byteArray = new byte[BUFFER_SIZE];
+                  r.NextBytes(byteArray);
+                  cse.Write(buffer, 0, BUFFER_SIZE);
+                }
+                */
 
-              /*
-              for (int i = 0; i < 10; i++)
-              {
-                Random r = new Random();
-                byteArray = new byte[BUFFER_SIZE];
-                r.NextBytes(byteArray);
-                cse.Write(buffer, 0, BUFFER_SIZE);
-              }
-              */
+              } // end using ( Ionic.Zlib.DeflateStream ds);
 
-            } // end using ( Ionic.Zlib.DeflateStream ds);
+            } // end using (CryptoStream cse);
 
-          } // end using (CryptoStream cse);
+          } // end using (Rijndael aes = new RijndaelManaged());
 
-        } // end using (Rijndael aes = new RijndaelManaged());
+        }
+        catch (Exception ex)
+        {
+          System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+          e.Result = ERROR_UNEXPECTED;
+          return Tuple.Create(false, ERROR_UNEXPECTED);
+        }
 
       } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
 
       // Set the timestamp of encryption file to original files or directories
       if (_fKeepTimeStamp == true)
-      {
-        DateTime dtCreate = File.GetCreationTime((string)AppSettings.Instance.FileList[0]);
-        DateTime dtUpdate = File.GetLastWriteTime((string)AppSettings.Instance.FileList[0]);
-        DateTime dtAccess = File.GetLastAccessTime((string)AppSettings.Instance.FileList[0]);
-        File.SetCreationTime(OutFilePath, dtCreate);
-        File.SetLastWriteTime(OutFilePath, dtUpdate);
-        File.SetLastAccessTime(OutFilePath, dtAccess);
-      }
+        {
+          DateTime dtCreate = File.GetCreationTime((string)AppSettings.Instance.FileList[0]);
+          DateTime dtUpdate = File.GetLastWriteTime((string)AppSettings.Instance.FileList[0]);
+          DateTime dtAccess = File.GetLastAccessTime((string)AppSettings.Instance.FileList[0]);
+          File.SetCreationTime(OutFilePath, dtCreate);
+          File.SetLastWriteTime(OutFilePath, dtUpdate);
+          File.SetLastAccessTime(OutFilePath, dtAccess);
+        }
 
-      //Encryption succeed.
-      e.Result = ENCRYPT_SUCCEEDED;
-      return Tuple.Create(true, ENCRYPT_SUCCEEDED);
+        //Encryption succeed.
+        e.Result = ENCRYPT_SUCCEEDED;
+        return Tuple.Create(true, ENCRYPT_SUCCEEDED);
 
 
     } // encrypt();

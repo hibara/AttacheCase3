@@ -844,22 +844,28 @@ namespace AttacheCase
       set { this._TempDecryptionPassFilePath = value; }
     }
 
-    private bool _fNoErrMsgOnPassFile;           // パスワードファイルがない場合エラーを出さない
-		//It's not issued an error message when password file doesn't exists
-		public bool fNoErrMsgOnPassFile
-		{
+    private bool _fNoErrMsgOnPassFile;            // パスワードファイルがない場合エラーを出さない
+		public bool fNoErrMsgOnPassFile               // //It's not issued an error message when password file doesn't exists
+    {
 			get { return this._fNoErrMsgOnPassFile; }
 			set { this._fNoErrMsgOnPassFile = value; }
 		}
 
-		#endregion
+    private bool _fPasswordFileExe;               //パスワードファイルで確認なく実行する
+    public bool fPasswordFileExe                  //Encrypt/Decrypt by the password of Password file without confirming.
+    {
+      get { return this._fPasswordFileExe; }
+      set { this._fPasswordFileExe = value; }
+    }
 
-		//----------------------------------------------------------------------
-		// Input Password limit
-		#region
-		//----------------------------------------------------------------------
+    #endregion
 
-		private int _MissTypeLimitsNum;          // パスワードのタイプミス制限回数（ver.2.70～）
+    //----------------------------------------------------------------------
+    // Input Password limit
+    #region
+    //----------------------------------------------------------------------
+
+    private int _MissTypeLimitsNum;          // パスワードのタイプミス制限回数（ver.2.70～）
 		//Set number of times to input password in encrypt files:
 		public int MissTypeLimitsNum
 		{
@@ -1280,10 +1286,11 @@ namespace AttacheCase
 				_PassFilePath = (string)reg.GetValue("PassFilePath", "");
 				_PassFilePathDecrypt = (string)reg.GetValue("PassFilePathDecrypt", "");
 				_fNoErrMsgOnPassFile = ((string)reg.GetValue("fNoErrMsgOnPassFile", "0") == "1") ? true : false;
+        _fPasswordFileExe = ((string)reg.GetValue("fPasswordFileExe", "0") == "1") ? true : false;
 
-				//-----------------------------------
-				// Input Password limit
-				_MissTypeLimitsNum = int.Parse((string)reg.GetValue("MissTypeLimitsNum", "3"));
+        //-----------------------------------
+        // Input Password limit
+        _MissTypeLimitsNum = int.Parse((string)reg.GetValue("MissTypeLimitsNum", "3"));
 				_fBroken = ((string)reg.GetValue("fBroken", "0") == "1") ? true : false;
 				
 				//-----------------------------------
@@ -1443,11 +1450,12 @@ namespace AttacheCase
 
         reg.SetValue("fCheckPassFileDecrypt", _fCheckPassFileDecrypt == true ? "1" : "0");
 				reg.SetValue("PassFilePathDecrypt", _PassFilePathDecrypt);
-				reg.SetValue("fNoErrMsgOnPassFile", _fNoErrMsgOnPassFile == true ? "1" : "0");
+        reg.SetValue("fNoErrMsgOnPassFile", _fNoErrMsgOnPassFile == true ? "1" : "0");
+        reg.SetValue("fPasswordFileExe", _fPasswordFileExe == true ? "1" : "0");
 
-				//-----------------------------------
-				// Input Password limit
-				reg.SetValue("MissTypeLimitsNum", _MissTypeLimitsNum.ToString());
+        //-----------------------------------
+        // Input Password limit
+        reg.SetValue("MissTypeLimitsNum", _MissTypeLimitsNum.ToString());
 				reg.SetValue("fBroken", _fBroken == true ? "1" : "0");
 
 				//-----------------------------------
@@ -1598,10 +1606,11 @@ namespace AttacheCase
 
       ReadIniFile(IniFilePath, ref _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt", "0");
 			ReadIniFile(IniFilePath, ref _PassFilePathDecrypt, "Option", "PassFilePathDecrypt", "");
-			ReadIniFile(IniFilePath, ref _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile", "0");
+      ReadIniFile(IniFilePath, ref _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile", "0");
+      ReadIniFile(IniFilePath, ref _fPasswordFileExe, "Option", "fPasswordFileExe", "0");
 
-			// Input Password limit
-			ReadIniFile(IniFilePath, ref _MissTypeLimitsNum, "Option", "MissTypeLimitsNum", "3");
+      // Input Password limit
+      ReadIniFile(IniFilePath, ref _MissTypeLimitsNum, "Option", "MissTypeLimitsNum", "3");
 			ReadIniFile(IniFilePath, ref _fBroken, "Option", "fBroken", "0");
 			
 			// Salvage
@@ -1754,11 +1763,12 @@ namespace AttacheCase
 
       WriteIniFile(IniFilePath, _fCheckPassFileDecrypt, "Option", "fCheckPassFileDecrypt");
 			WriteIniFile(IniFilePath, _PassFilePathDecrypt, "Option", "PassFilePathDecrypt");
-			WriteIniFile(IniFilePath, _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile");
-
-			//-----------------------------------
-			// Input Password limit
-			WriteIniFile(IniFilePath, _MissTypeLimitsNum, "Option", "MissTypeLimitsNum");
+      WriteIniFile(IniFilePath, _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile");
+      WriteIniFile(IniFilePath, _fPasswordFileExe, "Option", "fPasswordFileExe");
+      
+      //-----------------------------------
+      // Input Password limit
+      WriteIniFile(IniFilePath, _MissTypeLimitsNum, "Option", "MissTypeLimitsNum");
 			WriteIniFile(IniFilePath, _fBroken, "Option", "fBroken");
 
 			//-----------------------------------
@@ -2568,7 +2578,7 @@ namespace AttacheCase
 					case "/en": // 明示的な暗号処理
 						if (value == "1")
 						{
-							_ProcTypeWithoutAsk = 1;
+              _ProcTypeWithoutAsk = 1;                                 
 							i++;
 						}
 						break;
@@ -2576,7 +2586,7 @@ namespace AttacheCase
 					case "/de": // 明示的な復号処理
 						if (value == "2")
 						{
-							_ProcTypeWithoutAsk = 2;
+              _ProcTypeWithoutAsk = 2;
 							i++;
 						}
 						break;
@@ -2767,7 +2777,7 @@ namespace AttacheCase
 			// ファイル名            : <filename> 
 			// 拡張子                : <ext> 
 			// 日付                  : <date:[指定書式]> 
-			// 連番                  : <number:[桁数]> 
+			// 連番                  : <num:[桁数]> 
 			// ランダムな文字列      : <random:[文字数]> 
 			// ファイル名先頭文字列  : <fhead:[文字数]> 
 			// ファイル名末尾文字列  : <fend:[文字数]> 
@@ -2793,7 +2803,7 @@ namespace AttacheCase
 			
 			//-----------------------------------
 			// Serial number
-			r = new Regex(@"<number:([0-9]*)>", RegexOptions.IgnoreCase);
+			r = new Regex(@"<num:([0-9]*)>", RegexOptions.IgnoreCase);
 			m = r.Match(FormatString);
 			if (m.Success == true)
 			{

@@ -161,6 +161,7 @@
       this.buttonAssociateAtcFiles = new System.Windows.Forms.Button();
       this.tabPagePasswordFileOption = new System.Windows.Forms.TabPage();
       this.panelPasswordFileOption = new System.Windows.Forms.Panel();
+      this.checkBoxDoByPasswordFile = new System.Windows.Forms.CheckBox();
       this.buttonOpenFileDialogForDecryption = new System.Windows.Forms.Button();
       this.buttonOpenFileDialogForEncryption = new System.Windows.Forms.Button();
       this.checkBoxNoErrMsgOnPassFile = new System.Windows.Forms.CheckBox();
@@ -1346,6 +1347,7 @@
       // 
       // panelPasswordFileOption
       // 
+      this.panelPasswordFileOption.Controls.Add(this.checkBoxDoByPasswordFile);
       this.panelPasswordFileOption.Controls.Add(this.buttonOpenFileDialogForDecryption);
       this.panelPasswordFileOption.Controls.Add(this.buttonOpenFileDialogForEncryption);
       this.panelPasswordFileOption.Controls.Add(this.checkBoxNoErrMsgOnPassFile);
@@ -1358,6 +1360,14 @@
       this.panelPasswordFileOption.Controls.Add(this.pictureBox5);
       resources.ApplyResources(this.panelPasswordFileOption, "panelPasswordFileOption");
       this.panelPasswordFileOption.Name = "panelPasswordFileOption";
+      // 
+      // checkBoxDoByPasswordFile
+      // 
+      resources.ApplyResources(this.checkBoxDoByPasswordFile, "checkBoxDoByPasswordFile");
+      this.checkBoxDoByPasswordFile.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.checkBoxDoByPasswordFile.Name = "checkBoxDoByPasswordFile";
+      this.checkBoxDoByPasswordFile.UseVisualStyleBackColor = true;
+      this.checkBoxDoByPasswordFile.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // buttonOpenFileDialogForDecryption
       // 
@@ -1422,7 +1432,7 @@
       this.checkBoxAllowPassFile.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxAllowPassFile.Name = "checkBoxAllowPassFile";
       this.checkBoxAllowPassFile.UseVisualStyleBackColor = true;
-      this.checkBoxAllowPassFile.CheckedChanged += new System.EventHandler(this.checkBoxAllowPassFile_CheckedChanged);
+      this.checkBoxAllowPassFile.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // label5
       // 
@@ -2023,5 +2033,6 @@
     private System.Windows.Forms.TextBox textBoxZipToSameFldrPath;
     private System.Windows.Forms.CheckBox checkBoxZipToSameFldr;
     private System.Windows.Forms.Label labelEncryptAlgoDescription;
+    private System.Windows.Forms.CheckBox checkBoxDoByPasswordFile;
   }
 }

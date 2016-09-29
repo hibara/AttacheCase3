@@ -4630,6 +4630,39 @@
   <data name="&gt;&gt;tabPageSystem.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="checkBoxDoByPasswordFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 9pt</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 333</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 28</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Text" xml:space="preserve">
+    <value>Encrypt/Decrypt by the password of Password file without confirming.</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDoByPasswordFile.Name" xml:space="preserve">
+    <value>checkBoxDoByPasswordFile</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDoByPasswordFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDoByPasswordFile.Parent" xml:space="preserve">
+    <value>panelPasswordFileOption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDoByPasswordFile.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="buttonOpenFileDialogForDecryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -4684,7 +4717,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;buttonOpenFileDialogForDecryption.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="buttonOpenFileDialogForEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4737,7 +4770,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;buttonOpenFileDialogForEncryption.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="checkBoxNoErrMsgOnPassFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4749,7 +4782,7 @@
     <value>23, 285</value>
   </data>
   <data name="checkBoxNoErrMsgOnPassFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 32</value>
+    <value>406, 32</value>
   </data>
   <data name="checkBoxNoErrMsgOnPassFile.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4767,7 +4800,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;checkBoxNoErrMsgOnPassFile.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="textBoxPassFilePathDecrypt.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
@@ -4791,7 +4824,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;textBoxPassFilePathDecrypt.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="checkBoxCheckPassFileDecrypt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4821,7 +4854,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;checkBoxCheckPassFileDecrypt.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="textBoxPassFilePath.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
@@ -4845,7 +4878,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;textBoxPassFilePath.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="checkBoxCheckPassFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4875,7 +4908,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;checkBoxCheckPassFile.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="checkBoxAllowPassFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4905,7 +4938,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;checkBoxAllowPassFile.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4935,7 +4968,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4968,7 +5001,7 @@
     <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="panelPasswordFileOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
