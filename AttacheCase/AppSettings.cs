@@ -530,22 +530,6 @@ namespace AttacheCase
 			set { this._fAutoNameSymbols = value; }
 		}
 
-		private bool _fAddCamoExt;            // 暗号化ファイルの拡張子を偽装する
-		// Encrypted files camouflage with extension
-		public bool fAddCamoExt
-		{
-			get { return this._fAddCamoExt; }
-			set { this._fAddCamoExt = value; }
-		}
-
-		private string _CamoExt;              // その拡張子
-		// It's extension string
-		public string CamoExt
-		{
-			get { return this._CamoExt; }
-			set { this._CamoExt = value; }
-		}
-
 		#endregion
 
 		//----------------------------------------------------------------------
@@ -856,6 +840,28 @@ namespace AttacheCase
     {
       get { return this._fPasswordFileExe; }
       set { this._fPasswordFileExe = value; }
+    }
+
+    #endregion
+
+    //----------------------------------------------------------------------
+    // Camouflage Extension
+    #region
+    //----------------------------------------------------------------------
+    private bool _fAddCamoExt;            // 暗号化ファイルの拡張子を偽装する
+                                          // Encrypted files camouflage with extension
+    public bool fAddCamoExt
+    {
+      get { return this._fAddCamoExt; }
+      set { this._fAddCamoExt = value; }
+    }
+
+    private string _CamoExt;              // その拡張子
+                                          // It's extension string
+    public string CamoExt
+    {
+      get { return this._CamoExt; }
+      set { this._CamoExt = value; }
     }
 
     #endregion
@@ -1235,9 +1241,6 @@ namespace AttacheCase
 				_fAutoNameNumbers = ((string)reg.GetValue("fAutoNameNumbers", "1") == "1") ? true : false;
 				_fAutoNameSymbols = ((string)reg.GetValue("fAutoNameSymbols", "0") == "1") ? true : false;
 
-				_fAddCamoExt = ((string)reg.GetValue("fAddCamoExt", "0") == "1") ? true : false;
-				_CamoExt = (string)reg.GetValue("CamoExt", ".jpg");
-
         //-----------------------------------
         // Save Decrypt
         _fDecodeToSameFldr = ((string)reg.GetValue("fDecodeToSameFldr", "0") == "1") ? true : false;
@@ -1287,6 +1290,11 @@ namespace AttacheCase
 				_PassFilePathDecrypt = (string)reg.GetValue("PassFilePathDecrypt", "");
 				_fNoErrMsgOnPassFile = ((string)reg.GetValue("fNoErrMsgOnPassFile", "0") == "1") ? true : false;
         _fPasswordFileExe = ((string)reg.GetValue("fPasswordFileExe", "0") == "1") ? true : false;
+
+        //-----------------------------------
+        //Camouflage Extension 
+        _fAddCamoExt = ((string)reg.GetValue("fAddCamoExt", "0") == "1") ? true : false;
+        _CamoExt = (string)reg.GetValue("CamoExt", ".jpg");
 
         //-----------------------------------
         // Input Password limit
@@ -1400,8 +1408,6 @@ namespace AttacheCase
 				reg.SetValue("fAutoNameUpperCase", _fAutoNameUpperCase == true ? "1" : "0");
 				reg.SetValue("fAutoNameNumbers", _fAutoNameNumbers == true ? "1" : "0");
 				reg.SetValue("fAutoNameSymbols", _fAutoNameSymbols == true ? "1" : "0");
-				reg.SetValue("fAddCamoExt", _fAddCamoExt == true ? "1" : "0");
-				reg.SetValue("CamoExt", _CamoExt);
 
 				//-----------------------------------
 				// Save Decrypt
@@ -1452,6 +1458,11 @@ namespace AttacheCase
 				reg.SetValue("PassFilePathDecrypt", _PassFilePathDecrypt);
         reg.SetValue("fNoErrMsgOnPassFile", _fNoErrMsgOnPassFile == true ? "1" : "0");
         reg.SetValue("fPasswordFileExe", _fPasswordFileExe == true ? "1" : "0");
+
+        //-----------------------------------
+        //Camoufage Extension
+        reg.SetValue("fAddCamoExt", _fAddCamoExt == true ? "1" : "0");
+        reg.SetValue("CamoExt", _CamoExt);
 
         //-----------------------------------
         // Input Password limit
@@ -1563,8 +1574,6 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fAutoNameUpperCase, "Option", "fAutoNameUpperCase", "1");
 			ReadIniFile(IniFilePath, ref _fAutoNameNumbers, "Option", "fAutoNameNumbers", "1");
 			ReadIniFile(IniFilePath, ref _fAutoNameSymbols, "Option", "fAutoNameSymbols", "0");
-			ReadIniFile(IniFilePath, ref _fAddCamoExt, "Option", "fAddCamoExt", "0");
-			ReadIniFile(IniFilePath, ref _CamoExt, "Option", "CamoExt", ".jpg");
 
       // Save Decrypt
       ReadIniFile(IniFilePath, ref _fDecodeToSameFldr, "Option", "fDecodeToSameFldr", "0");
@@ -1608,6 +1617,10 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _PassFilePathDecrypt, "Option", "PassFilePathDecrypt", "");
       ReadIniFile(IniFilePath, ref _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile", "0");
       ReadIniFile(IniFilePath, ref _fPasswordFileExe, "Option", "fPasswordFileExe", "0");
+
+      //Camouflage Extension
+      ReadIniFile(IniFilePath, ref _fAddCamoExt, "Option", "fAddCamoExt", "0");
+      ReadIniFile(IniFilePath, ref _CamoExt, "Option", "CamoExt", ".jpg");
 
       // Input Password limit
       ReadIniFile(IniFilePath, ref _MissTypeLimitsNum, "Option", "MissTypeLimitsNum", "3");
@@ -1713,9 +1726,6 @@ namespace AttacheCase
 			WriteIniFile(IniFilePath, _fAutoNameNumbers, "Option", "fAutoNameNumbers");
 			WriteIniFile(IniFilePath, _fAutoNameSymbols, "Option", "fAutoNameSymbols");
 
-			WriteIniFile(IniFilePath, _fAddCamoExt, "Option", "fAddCamoExt");
-			WriteIniFile(IniFilePath, _CamoExt, "Option", "CamoExt");
-
       //-----------------------------------
       // Save Decrypt
       WriteIniFile(IniFilePath, _fDecodeToSameFldr, "Option", "fDecodeToSameFldr");
@@ -1765,7 +1775,12 @@ namespace AttacheCase
 			WriteIniFile(IniFilePath, _PassFilePathDecrypt, "Option", "PassFilePathDecrypt");
       WriteIniFile(IniFilePath, _fNoErrMsgOnPassFile, "Option", "fNoErrMsgOnPassFile");
       WriteIniFile(IniFilePath, _fPasswordFileExe, "Option", "fPasswordFileExe");
-      
+
+      //-----------------------------------
+      //Camouflage Extension
+      WriteIniFile(IniFilePath, _fAddCamoExt, "Option", "fAddCamoExt");
+      WriteIniFile(IniFilePath, _CamoExt, "Option", "CamoExt");
+
       //-----------------------------------
       // Input Password limit
       WriteIniFile(IniFilePath, _MissTypeLimitsNum, "Option", "MissTypeLimitsNum");

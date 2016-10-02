@@ -1473,11 +1473,13 @@
       this.checkBoxAddCamoExt.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxAddCamoExt.Name = "checkBoxAddCamoExt";
       this.checkBoxAddCamoExt.UseVisualStyleBackColor = true;
+      this.checkBoxAddCamoExt.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // textBoxCamoExt
       // 
       resources.ApplyResources(this.textBoxCamoExt, "textBoxCamoExt");
       this.textBoxCamoExt.Name = "textBoxCamoExt";
+      this.textBoxCamoExt.TextChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // tabPagePasswordInputLimitOption
       // 
