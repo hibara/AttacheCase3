@@ -36,7 +36,7 @@ namespace AttacheCase
 		private const int BCM_FIRST = 0x1600;
 		private const int BCM_SETSHIELD = BCM_FIRST + 0x000C;
 
-    private Panel[] panelObjects = new Panel[15];
+    private Panel[] panelObjects = new Panel[16];
 
 		private bool fAssociationSettings = false;
 		private bool fLoading = false;
@@ -60,12 +60,13 @@ namespace AttacheCase
       panelObjects[6] = this.panelSaveZipOption;
       panelObjects[7] = this.panelDeleteOption;
 			panelObjects[8] = this.panelCompressOption;
-			panelObjects[9] = this.panelSystemOption;
-			panelObjects[10] = this.panelPasswordFileOption;
-			panelObjects[11] = this.panelCamouflageExtOption;
-			panelObjects[12] = this.panelPasswordInputLimitOption;
-			panelObjects[13] = this.panelSalvageDataOption;
-			panelObjects[14] = this.panelLicenseOption;
+      panelObjects[9] = this.panelSystemOption;
+      panelObjects[10] = this.panelSettingImportExportOption;
+      panelObjects[11] = this.panelPasswordFileOption;
+			panelObjects[12] = this.panelCamouflageExtOption;
+			panelObjects[13] = this.panelPasswordInputLimitOption;
+			panelObjects[14] = this.panelSalvageDataOption;
+			panelObjects[15] = this.panelLicenseOption;
 
 			foreach (Panel obj in panelObjects)
 			{
@@ -620,7 +621,18 @@ namespace AttacheCase
 						break;
 				}
 
-			}
+        System.OperatingSystem os = System.Environment.OSVersion;
+        if (os.Version.Major < 6)
+        {
+          checkBoxXPCompatibilityMode.Enabled = true;
+        }
+        else
+        {
+          checkBoxXPCompatibilityMode.Enabled = false;
+        }
+        checkBoxXPCompatibilityMode.Checked = AppSettings.Instance.fXpCompatibilityMode;
+
+      }
 
 			#endregion
 
@@ -876,7 +888,11 @@ This License constitutes the entire agreement between the parties with respect t
 					panelSystemOption.Visible = true;
 					panelSystemOption.Focus();
 					break;
-				case "nodeAdvanced":
+        case "nodeSettingsImportExport":
+          panelSettingImportExportOption.Visible = true;
+          panelSettingImportExportOption.Focus();
+          break;
+        case "nodeAdvanced":
 				case "nodePasswordFile":
 					panelPasswordFileOption.Visible = true;
 					panelPasswordFileOption.Focus();
@@ -1126,9 +1142,11 @@ This License constitutes the entire agreement between the parties with respect t
 				buttonAssociateAtcFiles_Click(sender, e);
 			}
 
-			//-----------------------------------
-			// Password file
-			AppSettings.Instance.fAllowPassFile = checkBoxAllowPassFile.Checked;
+      AppSettings.Instance.fXpCompatibilityMode = checkBoxXPCompatibilityMode.Checked;
+
+      //-----------------------------------
+      // Password file
+      AppSettings.Instance.fAllowPassFile = checkBoxAllowPassFile.Checked;
 			AppSettings.Instance.fCheckPassFile = checkBoxCheckPassFile.Checked;
 			AppSettings.Instance.PassFilePath = textBoxPassFilePath.Text;
 
@@ -1211,54 +1229,37 @@ This License constitutes the entire agreement between the parties with respect t
 		{
 			if (fLoading == false)
 			{
-				// Japanese
-				if (AppSettings.Instance.Language == "ja")
-				{
-					if (comboBoxLanguage.SelectedIndex == 0)
-					{
-						AppSettings.Instance.Language = "";	// 既定値
-					}
-					else if (comboBoxLanguage.SelectedIndex == 2)
-					{
-						AppSettings.Instance.Language = "en";
-					}
-				}
-				// English
-				else if (AppSettings.Instance.Language == "en")
-				{
-					if (comboBoxLanguage.SelectedIndex == 0)
-					{
-						AppSettings.Instance.Language = "";	// Default
-					}
-					else if (comboBoxLanguage.SelectedIndex == 2)
-					{
-						AppSettings.Instance.Language = "ja";
-					}
-				}
-				// Default（既定値）
-				else
-				{
-					if (comboBoxLanguage.SelectedIndex == 1)
-					{
-						AppSettings.Instance.Language = "ja";
-					}
-					else if (comboBoxLanguage.SelectedIndex == 2)
-					{
-						AppSettings.Instance.Language = "en";
-					}
-				}
+        if (comboBoxLanguage.SelectedIndex == 0)
+        {
+          if(Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+          {
+            AppSettings.Instance.Language = "ja";
+          }
+          else
+          {
+            AppSettings.Instance.Language = "en";
+          }
+        }
+        else if (comboBoxLanguage.SelectedIndex == 1)
+        {
+          AppSettings.Instance.Language = "ja";
+        }
+        else if (comboBoxLanguage.SelectedIndex == 2)
+        {
+          AppSettings.Instance.Language = "en";
+        }
 
-				// The message prompt to restart the application
+        // The message prompt to restart the application
 
-				// 問い合わせ
-				// 設定を有効にするには、アタッシェケースを再起動する必要があります。
-				// 再起動しますか？
-				//
-				// Question
-				// To enable this setting, you will need to restart the AttacheCase.
-				// Do you restart AttacheCase now?
-				// 
-				DialogResult ret = MessageBox.Show(Resources.DialogMessageApplicationRestart,
+        // 問い合わせ
+        // 設定を有効にするには、アタッシェケースを再起動する必要があります。
+        // 再起動しますか？
+        //
+        // Question
+        // To enable this setting, you will need to restart the AttacheCase.
+        // Do you restart AttacheCase now?
+        // 
+        DialogResult ret = MessageBox.Show(Resources.DialogMessageApplicationRestart,
 				Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 				if (ret == System.Windows.Forms.DialogResult.Yes)
 				{
@@ -1891,7 +1892,41 @@ This License constitutes the entire agreement between the parties with respect t
 			}
 		}
 
-		private void pictureBoxIcon00_Click(object sender, EventArgs e)
+    private void buttonAddSendToFolder_Click(object sender, EventArgs e)
+    {
+      string FileName = "AttacheCase.lnk";
+      if (AppSettings.Instance.Language == "ja")
+      {
+        FileName = "アタッシェケース.lnk";
+      }
+
+      string shortcutPath = System.IO.Path.Combine(
+          Environment.GetFolderPath(System.Environment.SpecialFolder.SendTo), FileName);
+
+      string targetPath = Application.ExecutablePath;
+
+      Type t = Type.GetTypeFromCLSID(new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8"));
+      dynamic shell = Activator.CreateInstance(t);
+
+      var shortcut = shell.CreateShortcut(shortcutPath);
+
+      shortcut.TargetPath = targetPath;
+      shortcut.IconLocation = Application.ExecutablePath + ",0";
+
+      shortcut.Save();
+
+      System.Runtime.InteropServices.Marshal.FinalReleaseComObject(shortcut);
+      System.Runtime.InteropServices.Marshal.FinalReleaseComObject(shell);
+    }
+
+    private void buttonOpenSendToFolder_Click(object sender, EventArgs e)
+    {
+      System.Diagnostics.Process.Start(
+        "EXPLORER.EXE", Environment.GetFolderPath(System.Environment.SpecialFolder.SendTo));
+    }
+
+
+    private void pictureBoxIcon00_Click(object sender, EventArgs e)
 		{
 			pictureBoxCheckmark00.Visible = true;
 			pictureBoxCheckmark01.Visible = false;
@@ -1999,7 +2034,7 @@ This License constitutes the entire agreement between the parties with respect t
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void buttonOutputCurrentConf_Click(object sender, EventArgs e)
+		private void buttonExportCurrentConf_Click(object sender, EventArgs e)
 		{
 			saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
 			saveFileDialog1.Filter = Resources.SaveDialogFilterIniFilles;
@@ -2011,13 +2046,31 @@ This License constitutes the entire agreement between the parties with respect t
 			}
 		}
 
-		/// <summary>
-		/// Replace the current configuration by this temporary configuration
-		/// 一時的な設定を現在の設定に適用する
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void buttonReplaceCurrentByTemporary_Click(object sender, EventArgs e)
+    /// <summary>
+    /// Import INI file to this current configuration
+    /// INIファイルから現在の設定としてインポートする。
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void buttonImportCurrentConf_Click(object sender, EventArgs e)
+    {
+      openFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
+      openFileDialog1.Filter = Resources.SaveDialogFilterIniFilles;
+      openFileDialog1.FileName = "_AtcCase.ini";
+      if (openFileDialog1.ShowDialog() == DialogResult.OK)
+      {
+        AppSettings.Instance.ReadOptionFromIniFile(saveFileDialog1.FileName);
+      }
+
+    }
+
+    /// <summary>
+    /// Replace the current configuration by this temporary configuration
+    /// 一時的な設定を現在の設定に適用する
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void buttonReplaceCurrentByTemporary_Click(object sender, EventArgs e)
 		{
       fTemporarySettings = false;
       using (Bitmap bitmap = new Bitmap(pictureBoxRegistryIcon.Image))
@@ -2180,8 +2233,11 @@ This License constitutes the entire agreement between the parties with respect t
     }
 
 
-    #endregion
 
+
+
+
+    #endregion
 
   }
 

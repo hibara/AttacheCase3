@@ -418,4 +418,11 @@
   <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
     <value>コマンドラインオプションからのパスワード：</value>
   </data>
+  <data name="DialogMessageNoXpCompatiblityMode" xml:space="preserve">
+    <value>Windows XP互換モードの設定が完了されませんでした。この設定が行われないと、アプリケーションを起動することができません。
+もう一度、初めから設定をやり直してください。</value>
+  </data>
+  <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
+    <value>セットアップツールが見つかりません！</value>
+  </data>
 </root>

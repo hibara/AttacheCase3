@@ -22,6 +22,8 @@ using System.Security.Cryptography;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using Sha2;
 
 namespace AttacheCase
 {
@@ -703,6 +705,7 @@ namespace AttacheCase
     /// </summary>
     /// <param name="dataToCalculate"></param>
     /// <returns></returns>
+    /*
     public static string GetSha256FromFile(string FilePath)
     {
       byte[] bytesArray = null;
@@ -717,6 +720,22 @@ namespace AttacheCase
       StringBuilder result = new StringBuilder();
       result.Capacity = 32;
       foreach (byte b in bytesArray)
+      {
+        result.Append(b.ToString());
+      }
+
+      return (result.ToString());
+    }
+    */
+
+    public static string GetSha256FromFile(string FilePath)
+    {
+
+      ReadOnlyCollection<byte> hash = Sha256.HashFile(File.OpenRead(FilePath));
+
+      StringBuilder result = new StringBuilder();
+      result.Capacity = 32;
+      foreach (byte b in hash)
       {
         result.Append(b.ToString());
       }

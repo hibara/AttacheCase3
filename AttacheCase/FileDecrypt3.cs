@@ -23,6 +23,8 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
+using Sha2;
 
 namespace AttacheCase
 {
@@ -1208,6 +1210,7 @@ namespace AttacheCase
     /// <param name="FilePath"></param>
     /// <returns>string</returns>
     //----------------------------------------------------------------------
+    /*
     private string GetSha256HashFromFile(string FilePath)
     {
       byte[] bytesArray = null;
@@ -1228,6 +1231,21 @@ namespace AttacheCase
 
       return (result.ToString());
 
+    }
+    */
+
+    private string GetSha256HashFromFile(string FilePath)
+    {
+      ReadOnlyCollection<byte> hash = Sha256.HashFile(File.OpenRead(FilePath));
+
+      StringBuilder result = new StringBuilder();
+      result.Capacity = 32;
+      foreach (byte b in hash)
+      {
+        result.Append(b.ToString());
+      }
+
+      return (result.ToString());
     }
 
     /// <summary>

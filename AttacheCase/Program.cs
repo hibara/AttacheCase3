@@ -19,58 +19,116 @@ using System;
 using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
-           
+using System.IO;
+using AttacheCase.Properties;
+
+
 namespace AttacheCase
 {
 
   static class Program
+  {
+    /// <summary>
+    /// This is the main entry point for this application.
+    /// アプリケーションのメイン エントリ ポイントです。
+    /// </summary>
+    [STAThread]
+    static void Main()
     {
-			/// <summary>
-      /// This is the main entry point for this application.
-      /// アプリケーションのメイン エントリ ポイントです。
-      /// </summary>
-      [STAThread]
-      static void Main()
+      //-----------------------------------
+      // Load Options
+      AppSettings.Instance.ReadOptions();
+
+
+      //-----------------------------------
+      // XP compativility mode
+
+      // OSバージョン ( Windows XP? )
+      System.OperatingSystem os = System.Environment.OSVersion;
+      if (os.Version.Major < 6)
       {
-        //-----------------------------------
-        // Load Options
-        AppSettings.Instance.ReadOptions();
-        //-----------------------------------
+        if (AppSettings.Instance.fXpCompatibilityMode == false)
+        {
+          string AtcSetupExePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "AtcSetup.exe");
+          if (File.Exists(AtcSetupExePath) == false)
+          {
+            // 注意
+            // セットアップツールが見つかりません。
+            //
+            // Alert
+            // Setup tool is not found.
+            MessageBox.Show(Resources.DialogMessageSetupToolNotFound + Environment.NewLine + AtcSetupExePath,
+            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return;
+          }
+          System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
+          psi.FileName = AtcSetupExePath;
+          psi.Verb = "runas";
+          psi.Arguments = "-xp=1";
 
-        // Not Allow multiple in&stance of AttcheCase
-        // Create Mutex
-        bool fNewCreate;
-				Mutex mutex = new Mutex(true, "AttacheCase", out fNewCreate);
-				if (AppSettings.Instance.fNoMultipleInstance == true)
-				{
-					if (fNewCreate == false)
-					{
-						return;
-					}
-				}
+          try
+          {
+            System.Diagnostics.Process.Start(psi);
+          }
+          catch (System.ComponentModel.Win32Exception ex)
+          {
+            // 注意
+            // Windows XP互換モードの設定が完了されませんでした。この設定が行われないと、アプリケーションを起動することができません。
+            // もう一度、初めから設定をやり直してください。
+            // 
+            // Alert
+            // Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
+            // Please start again from the beginning.
+            MessageBox.Show(Resources.DialogMessageNoXpCompatiblityMode,
+            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            AppSettings.Instance.fXpCompatibilityMode = false;
+            Application.Exit();
+          }
 
-				// Check culture
-
-				if (AppSettings.Instance.Language == "ja" || Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
-				{
-					Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
-					Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-          AppSettings.Instance.Language = "ja";
         }
-        else
-				{
-					Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
-					AppSettings.Instance.Language = "en";
-				}
 
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new Form1());
-
-				// Release Mutex
-				mutex.ReleaseMutex();
+        AppSettings.Instance.fXpCompatibilityMode = true;
 
       }
-    
+
+      //-----------------------------------
+      // Not Allow multiple in&stance of AttcheCase
+      // Create Mutex
+      bool fNewCreate;
+      Mutex mutex = new Mutex(true, "AttacheCase", out fNewCreate);
+      if (AppSettings.Instance.fNoMultipleInstance == true)
+      {
+        if (fNewCreate == false)
+        {
+          return;
+        }
+      }
+
+      //-----------------------------------
+      // Check culture
+
+      if (AppSettings.Instance.Language == "ja" && Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+      {
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+        Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+        AppSettings.Instance.Language = "ja";
+      }
+      else
+      {
+        Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
+        AppSettings.Instance.Language = "en";
+      }
+
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+      Application.Run(new Form1());
+
+      // Release Mutex
+      mutex.ReleaseMutex();
+
     }
+
+  }
+
 }
+

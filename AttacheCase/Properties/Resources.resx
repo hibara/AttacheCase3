@@ -420,4 +420,11 @@ A note on interoperability: Values of PkzipWeak and None are specified in PKWARE
   <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
     <value>The password of command line option:</value>
   </data>
+  <data name="DialogMessageNoXpCompatiblityMode" xml:space="preserve">
+    <value>Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
+Please start again from the beginning.</value>
+  </data>
+  <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
+    <value>Setup tool is not found!</value>
+  </data>
 </root>

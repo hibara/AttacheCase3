@@ -327,6 +327,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
+        ///Please start again from the beginning. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageNoXpCompatiblityMode {
+            get {
+                return ResourceManager.GetString("DialogMessageNoXpCompatiblityMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   There decrypted file is {0} or more.
         ///But, open all of the files associated with application? に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -352,6 +362,15 @@ namespace AttacheCase.Properties {
         public static string DialogMessagePasswordsNotMatch {
             get {
                 return ResourceManager.GetString("DialogMessagePasswordsNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Setup tool is not found! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageSetupToolNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageSetupToolNotFound", resourceCulture);
             }
         }
         

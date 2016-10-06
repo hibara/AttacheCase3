@@ -193,6 +193,16 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQkAAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
+        ZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNo
+        aWxkQ291bnQBAQEAAAEAAQABCAgIAgAAAAYDAAAAFuioreWumuOBruS/neWtmC/lvqnlhYMGBAAAAAAG
+        BQAAABhub2RlU2V0dGluZ3NJbXBvcnRFeHBvcnQA/////wkEAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="treeView1.Nodes6" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQ0AAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
         ZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNo
         aWxkQ291bnQJY2hpbGRyZW4wCWNoaWxkcmVuMQljaGlsZHJlbjIJY2hpbGRyZW4zAQEBAAABAAEABAQE
@@ -218,7 +228,7 @@
         D25vZGVTYWx2YWdlRGF0YQD/////CQQAAAD/////CQQAAAAAAAAACw==
 </value>
   </data>
-  <data name="treeView1.Nodes6" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="treeView1.Nodes7" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
@@ -831,26 +841,26 @@
   <data name="tabPageSystem.Text" xml:space="preserve">
     <value>システム</value>
   </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 295</value>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 395</value>
   </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 122</value>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 15</value>
   </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>設定のインポートとエクスポート</value>
+  <data name="label14.Text" xml:space="preserve">
+    <value>※この設定はWindows XPだけのものです。</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
+  <data name="checkBoxXPCompatibilityMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 372</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
-    <value>一時的な設定を現在の設定に置き換える</value>
+  <data name="checkBoxXPCompatibilityMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 20</value>
   </data>
-  <data name="buttonOutputCurrentConf.Text" xml:space="preserve">
-    <value>現在の設定をINIファイルに書き出す</value>
+  <data name="checkBoxXPCompatibilityMode.Text" xml:space="preserve">
+    <value>WindowsXP互換モード</value>
   </data>
   <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 155</value>
+    <value>11, 225</value>
   </data>
   <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
     <value>418, 129</value>
@@ -1462,13 +1472,45 @@
     <value>10, 15</value>
   </data>
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 134</value>
+    <value>419, 195</value>
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>関連付け設定：</value>
   </data>
+  <data name="buttonOpenSendToFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
+        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
+        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
+        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
+        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
+        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMEI0REU3QTVC
+        QkQxMUU1OTI0NUNDRUZDNkU5ODJCRCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMEI0REU3OTVC
+        QkQxMUU1OTI0NUNDRUZDNkU5ODJCRCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdF
+        ODQyODQ0ODA1M0U1MTFCRTAyQ0FGNUI3NDJFQ0VBIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
+        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3aac2gAAAZBJREFUOE/NkjFLQlEUx9+g
+        Tn0Bl+B9BRfRxUFaBA2HNhVBbBFqUAIJpKVBxTEXaQrXJkenwEl0EuEhYmiiDqY8RUWFf+cc8lERT2jq
+        wA/O4d7z495zr/L/wm63P4ZCoVk4HNYDgcDI4XC8+P3+ES3dERfECe8zYrvdfsPn873iM4bDIbLZrOT1
+        eh2lUgk2m+3q636OG6JHgHG73djtdtLU7XYRDAaRTqeRz+eRSCRgtVqvfwp6nU4HVAjRaBSr1Qrr9Rq6
+        rkPTNDQaDbTbbZTLZRY8U88loR4E2O/3BpFIBPP5XJjNZlgulwJHrVaD0+lEPB6Hqqp8YlUEm81GmEwm
+        cLlcSKVSv8JXiMViAg2WBbciWCwWQqVSQaFQMGoz+GrU+yaC6XQqZDIZVKtVozYjl8ux4EEE4/FY4IkP
+        BgOjNsPj8bDgTAT9fl+gP2DkZrRaLVgsFhZYWfDebDbl6PwC/PbH4DlR3xPl3K/cs4TQksmkDOcYXq+X
+        BeeUKwp9EIHilCgSvHiMotF3SP5GW/kA9/o7wHuSw8MAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="buttonAddSendToFolder.Text" xml:space="preserve">
+    <value>「送る」フォルダーにショートカットを作成</value>
+  </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 105</value>
+    <value>158, 102</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>244, 16</value>
@@ -1493,6 +1535,36 @@
   </data>
   <data name="buttonAssociateAtcFiles.Text" xml:space="preserve">
     <value>暗号化ファイル（*.atc）をアタッシェケースに関連付ける</value>
+  </data>
+  <data name="tabPageSettingsImportExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 444</value>
+  </data>
+  <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
+    <value>設定の保存/復元</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 173</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
+    <value>一時的な設定を現在の設定に置き換える</value>
+  </data>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 15</value>
+  </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 136</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>設定のインポートとエクスポート</value>
+  </data>
+  <data name="buttonImportCurrentConf.Text" xml:space="preserve">
+    <value>INIファイルから現在の設定として読み込む</value>
+  </data>
+  <data name="buttonExportCurrentConf.Text" xml:space="preserve">
+    <value>現在の設定をINIファイルへ保存</value>
   </data>
   <data name="tabPagePasswordFileOption.Text" xml:space="preserve">
     <value>パスワードファイル</value>

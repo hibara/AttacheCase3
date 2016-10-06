@@ -90,43 +90,106 @@ namespace AtcSetup
 					CommandData.Add(SplitData[0], SplitData[1]);
 				}
 			}
-			
-			// Association, or UnAssociation ?
-			if (CommandData.ContainsKey("-t") == true)
-			{
-				if (CommandData["-t"] == "0")
-				{
-					if (AssociateAtcFileToAttacheCase() == true)
-					{
-						labelInfo.Text = Resources.AssociationComplete;
-						Application.Exit();
-					}
-					else
-					{
-						labelInfo.Text = Resources.UnAssociationFailed;
-					}
-				}
-				else if (CommandData["-t"] == "1")
-				{
-					if (UnAssociateAtcFileToAttacheCase() == true)
-					{
-						labelInfo.Text = Resources.UnAssociationComplete;
-						Application.Exit();
-					}
-					else
-					{
-						labelInfo.Text = Resources.UnAssociationFailed;
-					}
-				}
-				else
-				{	// Other
-					Application.Exit();
-				}
-			}
-			else
-			{
-				// View this form.
-			}
+
+      // Association, or UnAssociation ?
+      if (CommandData.ContainsKey("-t") == true)
+      {
+        if (CommandData["-t"] == "0")
+        {
+          if (AssociateAtcFileToAttacheCase() == true)
+          {
+            labelInfo.Text = Resources.AssociationComplete;
+            Application.Exit();
+          }
+          else
+          {
+            labelInfo.Text = Resources.UnAssociationFailed;
+          }
+        }
+        else if (CommandData["-t"] == "1")
+        {
+          if (UnAssociateAtcFileToAttacheCase() == true)
+          {
+            labelInfo.Text = Resources.UnAssociationComplete;
+            Application.Exit();
+          }
+          else
+          {
+            labelInfo.Text = Resources.UnAssociationFailed;
+          }
+        }
+        else
+        { // Other
+          Application.Exit();
+        }
+      }
+
+      if (CommandData.ContainsKey("-xp") == true)
+      {
+        // OSバージョン ( Windows XP? )
+        System.OperatingSystem os = System.Environment.OSVersion;
+        if (os.Version.Major >= 6)
+        {
+          Application.Exit();
+        }
+
+        //-----------------------------------
+        // Change registry
+        if (CommandData["-xp"] == "1")
+        {
+          using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider", true))
+          {
+            using (RegistryKey src = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft RSA SChannel Cryptographic Provider (Prototype)", true))
+            {
+              if (reg != null && src != null)
+              {
+                // key rename
+                CopyKey(reg, "Microsoft RSA SChannel Cryptographic Provider (Prototype)", "Microsoft RSA SChannel Cryptographic Provider");
+                Microsoft.Win32.Registry.LocalMachine.DeleteSubKeyTree(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft RSA SChannel Cryptographic Provider (Prototype)");
+              }
+            }
+          }
+          using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider Types\Type 024", true))
+          {
+            if (reg != null)
+            {
+              // change value
+              reg.SetValue("name", "Microsoft Enhanced RSA and AES Cryptographic Provider");
+            }
+          }
+
+          Application.Exit();
+
+        }
+        //-----------------------------------
+        // Restore registry
+        else if (CommandData["-xp"] == "0")
+        {
+          using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider", true))
+          {
+            using (RegistryKey src = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft RSA SChannel Cryptographic Provider", true))
+            {
+              if (reg != null && src != null)
+              {
+                CopyKey(reg, "Microsoft RSA SChannel Cryptographic Provider", "Microsoft RSA SChannel Cryptographic Provider (Prototype)");
+                Microsoft.Win32.Registry.LocalMachine.DeleteSubKeyTree(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider\Microsoft RSA SChannel Cryptographic Provider");
+              }
+            }
+          }
+          
+          using (RegistryKey reg = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Cryptography\Defaults\Provider Types\Type 024", true))
+          {
+            if (reg != null)
+            {
+              reg.SetValue("name", "Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)");
+            }
+          }
+
+          Application.Exit();
+
+        }
+
+      }
 
 		}
 
@@ -309,8 +372,63 @@ namespace AtcSetup
 			Application.Exit();
 		}
 
+    /// <summary>
+    /// Renames a subkey of the passed in registry key since 
+    /// the frame work totally forgot to include such a handy feature.
+    /// </summary>
+    /// <param name="regKey">The RegistryKey that contains the subkey 
+    /// you want to rename (must be writeable)</param>
+    /// <param name="subKeyName">The name of the subkey that you want to rename</param>
+    /// <param name="newSubKeyName">The new name of the RegistryKey</param>
+    /// <returns>True if succeeds</returns>
+    public bool RenameSubKey(RegistryKey parentKey, string subKeyName, string newSubKeyName)
+    {
+      CopyKey(parentKey, subKeyName, newSubKeyName);
+      parentKey.DeleteSubKeyTree(subKeyName);
+      return true;
+    }
+
+    /// <summary>
+    /// Copy a registry key.  The parentKey must be writeable.
+    /// </summary>
+    /// <param name="parentKey"></param>
+    /// <param name="keyNameToCopy"></param>
+    /// <param name="newKeyName"></param>
+    /// <returns></returns>
+    public bool CopyKey(RegistryKey parentKey, string keyNameToCopy, string newKeyName)
+    {
+      //Create new key
+      RegistryKey destinationKey = parentKey.CreateSubKey(newKeyName);
+
+      //Open the sourceKey we are copying from
+      RegistryKey sourceKey = parentKey.OpenSubKey(keyNameToCopy);
+
+      RecurseCopyKey(sourceKey, destinationKey);
+
+      return true;
+    }
+
+    private void RecurseCopyKey(RegistryKey sourceKey, RegistryKey destinationKey)
+    {
+      //copy all the values
+      foreach (string valueName in sourceKey.GetValueNames())
+      {
+        object objValue = sourceKey.GetValue(valueName);
+        RegistryValueKind valKind = sourceKey.GetValueKind(valueName);
+        destinationKey.SetValue(valueName, objValue, valKind);
+      }
+
+      //For Each subKey 
+      //Create a new subKey in destinationKey 
+      //Call myself 
+      foreach (string sourceSubKeyName in sourceKey.GetSubKeyNames())
+      {
+        RegistryKey sourceSubKey = sourceKey.OpenSubKey(sourceSubKeyName);
+        RegistryKey destSubKey = destinationKey.CreateSubKey(sourceSubKeyName);
+        RecurseCopyKey(sourceSubKey, destSubKey);
+      }
+    }
 
 
-
-	}
+  }
 }

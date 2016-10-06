@@ -757,21 +757,29 @@ namespace AttacheCase
 		}
 
 		private string _UserRegIconFilePath;       // ユーザー指定のファイルアイコンパス
-		// Specify the my file icon path
+                                               // Specify the my file icon path
 		public string UserRegIconFilePath
 		{
 			get { return this._UserRegIconFilePath; }
 			set { this._UserRegIconFilePath = value; }
 		}
 
-		#endregion
+    private bool _fXpCompatibilityMode;      // WindowsXP互換モード
+                                               // WindowsXP compatibility mode
+    public bool fXpCompatibilityMode
+    {
+      get { return this._fXpCompatibilityMode; }
+      set { this._fXpCompatibilityMode = value; }
+    }
 
-		//----------------------------------------------------------------------
-		// Password file
-		#region
-		//----------------------------------------------------------------------
+    #endregion
 
-		private bool _fAllowPassFile;                  // パスワードファイルのドラッグ＆ドロップを許す
+    //----------------------------------------------------------------------
+    // Password file
+    #region
+    //----------------------------------------------------------------------
+
+    private bool _fAllowPassFile;                  // パスワードファイルのドラッグ＆ドロップを許す
 		//Allow a password file to drag and drop
 		public bool fAllowPassFile
 		{
@@ -1280,10 +1288,11 @@ namespace AttacheCase
 				_fAssociationFile = int.Parse((string)reg.GetValue("fAssociationFile", "1"));
 				_AtcsFileIconIndex = int.Parse((string)reg.GetValue("AtcsFileIconIndex", "1"));
 				_UserRegIconFilePath = (string)reg.GetValue("UserRegIconFilePath", "");
-				
-				//-----------------------------------
-				//Password file 
-				_fAllowPassFile = ((string)reg.GetValue("fAllowPassFile", "0") == "1") ? true : false;
+        _fXpCompatibilityMode = ((string)reg.GetValue("fXpCompatibilityMode", "0") == "1") ? true : false;
+
+        //-----------------------------------
+        //Password file 
+        _fAllowPassFile = ((string)reg.GetValue("fAllowPassFile", "0") == "1") ? true : false;
 				_fCheckPassFile = ((string)reg.GetValue("fCheckPassFile", "0") == "1") ? true : false;
 				_fCheckPassFileDecrypt = ((string)reg.GetValue("fCheckPassFileDecrypt", "0") == "1") ? true : false;
 				_PassFilePath = (string)reg.GetValue("PassFilePath", "");
@@ -1447,10 +1456,11 @@ namespace AttacheCase
 				reg.SetValue("fAssociationFile", _fAssociationFile.ToString());  //int
 				reg.SetValue("AtcsFileIconIndex", _AtcsFileIconIndex.ToString());  //int
 				reg.SetValue("UserRegIconFilePath", _UserRegIconFilePath);
+        reg.SetValue("fXpCompatibilityMode", _fXpCompatibilityMode == true ? "1" : "0");
 
-				//-----------------------------------
-				//Password file
-				reg.SetValue("fAllowPassFile", _fAllowPassFile == true ? "1" : "0");
+        //-----------------------------------
+        //Password file
+        reg.SetValue("fAllowPassFile", _fAllowPassFile == true ? "1" : "0");
 				reg.SetValue("fCheckPassFile", _fCheckPassFile == true ? "1" : "0");
         reg.SetValue("PassFilePath", _PassFilePath);
 
@@ -1607,6 +1617,7 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fAssociationFile, "Option", "fAssociationFile", "1");
 			ReadIniFile(IniFilePath, ref _AtcsFileIconIndex, "Option", "AtcsFileIconIndex", "1");
 			ReadIniFile(IniFilePath, ref _UserRegIconFilePath, "Option", "UserRegIconFilePath", "");
+      ReadIniFile(IniFilePath, ref _fXpCompatibilityMode, "Option", "fXpCompatibilityMode", "1");
 
 			//Password file 
 			ReadIniFile(IniFilePath, ref _fAllowPassFile, "Option", "fAllowPassFile", "0");
@@ -1764,6 +1775,7 @@ namespace AttacheCase
 			// System
 			WriteIniFile(IniFilePath, _fAssociationFile, "Option", "fAssociationFile");	// int
 			WriteIniFile(IniFilePath, _UserRegIconFilePath, "Option", "UserRegIconFilePath");
+      WriteIniFile(IniFilePath, _fXpCompatibilityMode, "Option", "fXpCompatibilityMode");
 
 			//-----------------------------------
 			//Password file
@@ -3342,7 +3354,11 @@ namespace AttacheCase
 
     }
 
-
+    
   }
 
+
+
 }
+
+

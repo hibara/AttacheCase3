@@ -210,6 +210,16 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQkAAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
+        ZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNo
+        aWxkQ291bnQBAQEAAAEAAQABCAgIAgAAAAYDAAAADUltcG9ydC9FeHBvcnQGBAAAAAAGBQAAABhub2Rl
+        U2V0dGluZ3NJbXBvcnRFeHBvcnQA/////wkEAAAA/////wkEAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="treeView1.Nodes6" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQ0AAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
         ZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNo
         aWxkQ291bnQJY2hpbGRyZW4wCWNoaWxkcmVuMQljaGlsZHJlbjIJY2hpbGRyZW4zAQEBAAABAAEABAQE
@@ -235,7 +245,7 @@
         AAs=
 </value>
   </data>
-  <data name="treeView1.Nodes6" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="treeView1.Nodes7" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
@@ -3400,92 +3410,68 @@
   <data name="&gt;&gt;tabPageCompressOption.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="groupBox9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 11.25pt</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 9pt</value>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>37, 405</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 15</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 77</value>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 32</value>
+  <data name="label14.Text" xml:space="preserve">
+    <value>*This option is set for the windowsXP only.</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
-    <value>Replace the current configuration by this temporary configuration</value>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Name" xml:space="preserve">
-    <value>buttonReplaceCurrentByTemporary</value>
-  </data>
-  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonOutputCurrentConf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 30</value>
-  </data>
-  <data name="buttonOutputCurrentConf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>373, 32</value>
-  </data>
-  <data name="buttonOutputCurrentConf.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonOutputCurrentConf.Text" xml:space="preserve">
-    <value>Output the current configuration as INI file</value>
-  </data>
-  <data name="&gt;&gt;buttonOutputCurrentConf.Name" xml:space="preserve">
-    <value>buttonOutputCurrentConf</value>
-  </data>
-  <data name="&gt;&gt;buttonOutputCurrentConf.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonOutputCurrentConf.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;buttonOutputCurrentConf.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="groupBox9.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 295</value>
-  </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>407, 124</value>
-  </data>
-  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Import/Eport setting data:</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
     <value>panelSystemOption</value>
   </data>
-  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 382</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 20</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="checkBoxXPCompatibilityMode.Text" xml:space="preserve">
+    <value>WindowsXP compatibility mode</value>
+  </data>
+  <data name="&gt;&gt;checkBoxXPCompatibilityMode.Name" xml:space="preserve">
+    <value>checkBoxXPCompatibilityMode</value>
+  </data>
+  <data name="&gt;&gt;checkBoxXPCompatibilityMode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxXPCompatibilityMode.Parent" xml:space="preserve">
+    <value>panelSystemOption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxXPCompatibilityMode.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4427,7 +4413,7 @@
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 155</value>
+    <value>15, 217</value>
   </data>
   <data name="groupBox8.Size" type="System.Drawing.Size, System.Drawing">
     <value>407, 134</value>
@@ -4448,10 +4434,84 @@
     <value>panelSystemOption</value>
   </data>
   <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="groupBox7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonOpenSendToFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADtWlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBSaWdodHM9Imh0dHA6Ly9ucy5hZG9i
+        ZS5jb20veGFwLzEuMC9yaWdodHMvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAv
+        MS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNv
+        dXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wUmlnaHRz
+        Ok1hcmtlZD0iRmFsc2UiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBNjc4OTI4MEJE
+        RTNFMTExQTExRUNBNzc4RTdGODQ3RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMEI0REU3QTVC
+        QkQxMUU1OTI0NUNDRUZDNkU5ODJCRCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMEI0REU3OTVC
+        QkQxMUU1OTI0NUNDRUZDNkU5ODJCRCIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1
+        LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdF
+        ODQyODQ0ODA1M0U1MTFCRTAyQ0FGNUI3NDJFQ0VBIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkE2
+        Nzg5MjgwQkRFM0UxMTFBMTFFQ0E3NzhFN0Y4NDdGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpS
+        REY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3aac2gAAAZBJREFUOE/NkjFLQlEUx9+g
+        Tn0Bl+B9BRfRxUFaBA2HNhVBbBFqUAIJpKVBxTEXaQrXJkenwEl0EuEhYmiiDqY8RUWFf+cc8lERT2jq
+        wA/O4d7z495zr/L/wm63P4ZCoVk4HNYDgcDI4XC8+P3+ES3dERfECe8zYrvdfsPn873iM4bDIbLZrOT1
+        eh2lUgk2m+3q636OG6JHgHG73djtdtLU7XYRDAaRTqeRz+eRSCRgtVqvfwp6nU4HVAjRaBSr1Qrr9Rq6
+        rkPTNDQaDbTbbZTLZRY8U88loR4E2O/3BpFIBPP5XJjNZlgulwJHrVaD0+lEPB6Hqqp8YlUEm81GmEwm
+        cLlcSKVSv8JXiMViAg2WBbciWCwWQqVSQaFQMGoz+GrU+yaC6XQqZDIZVKtVozYjl8ux4EEE4/FY4IkP
+        BgOjNsPj8bDgTAT9fl+gP2DkZrRaLVgsFhZYWfDebDbl6PwC/PbH4DlR3xPl3K/cs4TQksmkDOcYXq+X
+        BeeUKwp9EIHilCgSvHiMotF3SP5GW/kA9/o7wHuSw8MAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="buttonOpenSendToFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 144</value>
+  </data>
+  <data name="buttonOpenSendToFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 32</value>
+  </data>
+  <data name="buttonOpenSendToFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;buttonOpenSendToFolder.Name" xml:space="preserve">
+    <value>buttonOpenSendToFolder</value>
+  </data>
+  <data name="&gt;&gt;buttonOpenSendToFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonOpenSendToFolder.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;buttonOpenSendToFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonAddSendToFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 144</value>
+  </data>
+  <data name="buttonAddSendToFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>323, 32</value>
+  </data>
+  <data name="buttonAddSendToFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonAddSendToFolder.Text" xml:space="preserve">
+    <value>Add short cut to "SendTo" folder</value>
+  </data>
+  <data name="&gt;&gt;buttonAddSendToFolder.Name" xml:space="preserve">
+    <value>buttonAddSendToFolder</value>
+  </data>
+  <data name="&gt;&gt;buttonAddSendToFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonAddSendToFolder.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;buttonAddSendToFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label11.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -4463,7 +4523,7 @@
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 108</value>
+    <value>159, 103</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>233, 16</value>
@@ -4484,7 +4544,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="buttonUnAssociateAtcFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4499,7 +4559,7 @@
     <value>17, 66</value>
   </data>
   <data name="buttonUnAssociateAtcFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>374, 32</value>
+    <value>375, 32</value>
   </data>
   <data name="buttonUnAssociateAtcFiles.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -4517,7 +4577,7 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;buttonUnAssociateAtcFiles.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="buttonAssociateAtcFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4550,16 +4610,16 @@
     <value>groupBox7</value>
   </data>
   <data name="&gt;&gt;buttonAssociateAtcFiles.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="groupBox7.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 15</value>
+    <value>15, 15</value>
   </data>
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 134</value>
+    <value>408, 196</value>
   </data>
   <data name="groupBox7.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4577,7 +4637,7 @@
     <value>panelSystemOption</value>
   </data>
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="panelSystemOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -4629,6 +4689,171 @@
   </data>
   <data name="&gt;&gt;tabPageSystem.ZOrder" xml:space="preserve">
     <value>9</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 9pt</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 179</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 36</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
+    <value>Replace the current configuration by this temporary configuration</value>
+  </data>
+  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Name" xml:space="preserve">
+    <value>buttonReplaceCurrentByTemporary</value>
+  </data>
+  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Parent" xml:space="preserve">
+    <value>panelSettingImportExportOption</value>
+  </data>
+  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="groupBox9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="buttonImportCurrentConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonImportCurrentConf.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 83</value>
+  </data>
+  <data name="buttonImportCurrentConf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 32</value>
+  </data>
+  <data name="buttonImportCurrentConf.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonImportCurrentConf.Text" xml:space="preserve">
+    <value>Import INI file to this current configuration</value>
+  </data>
+  <data name="&gt;&gt;buttonImportCurrentConf.Name" xml:space="preserve">
+    <value>buttonImportCurrentConf</value>
+  </data>
+  <data name="&gt;&gt;buttonImportCurrentConf.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonImportCurrentConf.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;buttonImportCurrentConf.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonExportCurrentConf.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonExportCurrentConf.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 30</value>
+  </data>
+  <data name="buttonExportCurrentConf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>373, 32</value>
+  </data>
+  <data name="buttonExportCurrentConf.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="buttonExportCurrentConf.Text" xml:space="preserve">
+    <value>Export this current configuration to INI file</value>
+  </data>
+  <data name="&gt;&gt;buttonExportCurrentConf.Name" xml:space="preserve">
+    <value>buttonExportCurrentConf</value>
+  </data>
+  <data name="&gt;&gt;buttonExportCurrentConf.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonExportCurrentConf.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;buttonExportCurrentConf.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBox9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
+  </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>408, 134</value>
+  </data>
+  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Import/Eport setting data:</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+    <value>panelSettingImportExportOption</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panelSettingImportExportOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelSettingImportExportOption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelSettingImportExportOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 444</value>
+  </data>
+  <data name="panelSettingImportExportOption.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panelSettingImportExportOption.Name" xml:space="preserve">
+    <value>panelSettingImportExportOption</value>
+  </data>
+  <data name="&gt;&gt;panelSettingImportExportOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelSettingImportExportOption.Parent" xml:space="preserve">
+    <value>tabPageSettingsImportExport</value>
+  </data>
+  <data name="&gt;&gt;panelSettingImportExportOption.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageSettingsImportExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageSettingsImportExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 444</value>
+  </data>
+  <data name="tabPageSettingsImportExport.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
+    <value>Import/Export</value>
+  </data>
+  <data name="&gt;&gt;tabPageSettingsImportExport.Name" xml:space="preserve">
+    <value>tabPageSettingsImportExport</value>
+  </data>
+  <data name="&gt;&gt;tabPageSettingsImportExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageSettingsImportExport.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageSettingsImportExport.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="checkBoxDoByPasswordFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -5052,7 +5277,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPagePasswordFileOption.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5190,7 +5415,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPageCamouflageExtOption.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="groupBox10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -5457,7 +5682,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPagePasswordInputLimitOption.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="label13.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -5631,7 +5856,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPageSalvageDataOption.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="richTextBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -5709,7 +5934,7 @@
     <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;tabPageLicense.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

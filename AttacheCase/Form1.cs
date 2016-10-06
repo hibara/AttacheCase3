@@ -103,6 +103,7 @@ namespace AttacheCase
       // Exit button of main window.
       buttonExit.Size = new Size(1, 1);
 
+
     }
 
     /// <summary>
@@ -145,7 +146,7 @@ namespace AttacheCase
 
       //初期位置（スクリーン中央）
       //Default window position ( in screen center )
-      if (AppSettings.Instance.FormLeft < 0)
+      if (AppSettings.Instance.FormLeft < 0 || AppSettings.Instance.FormLeft > SystemInformation.VirtualScreen.Width)
       {
         this.Left = Screen.GetBounds(this).Width / 2 - this.Width / 2;
       }
@@ -154,7 +155,7 @@ namespace AttacheCase
         this.Left = AppSettings.Instance.FormLeft;
       }
 
-      if (AppSettings.Instance.FormTop < 0)
+      if (AppSettings.Instance.FormTop < 0 || AppSettings.Instance.FormTop > SystemInformation.VirtualScreen.Height)
       {
         this.Top = Screen.GetBounds(this).Height / 2 - this.Height / 2;
       }

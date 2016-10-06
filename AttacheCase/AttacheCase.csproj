@@ -142,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.ja-JP.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sha256.cs" />
     <Compile Include="Wipe.cs" />
     <Compile Include="ZipEncrypt.cs" />
     <Compile Include="Zip\ComHelper.cs" />
@@ -267,7 +268,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if "1" == "1" (
