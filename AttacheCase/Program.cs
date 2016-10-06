@@ -39,58 +39,6 @@ namespace AttacheCase
       // Load Options
       AppSettings.Instance.ReadOptions();
 
-
-      //-----------------------------------
-      // XP compativility mode
-
-      // OSバージョン ( Windows XP? )
-      System.OperatingSystem os = System.Environment.OSVersion;
-      if (os.Version.Major < 6)
-      {
-        if (AppSettings.Instance.fXpCompatibilityMode == false)
-        {
-          string AtcSetupExePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "AtcSetup.exe");
-          if (File.Exists(AtcSetupExePath) == false)
-          {
-            // 注意
-            // セットアップツールが見つかりません。
-            //
-            // Alert
-            // Setup tool is not found.
-            MessageBox.Show(Resources.DialogMessageSetupToolNotFound + Environment.NewLine + AtcSetupExePath,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            return;
-          }
-          System.Diagnostics.ProcessStartInfo psi = new System.Diagnostics.ProcessStartInfo();
-          psi.FileName = AtcSetupExePath;
-          psi.Verb = "runas";
-          psi.Arguments = "-xp=1";
-
-          try
-          {
-            System.Diagnostics.Process.Start(psi);
-          }
-          catch (System.ComponentModel.Win32Exception ex)
-          {
-            // 注意
-            // Windows XP互換モードの設定が完了されませんでした。この設定が行われないと、アプリケーションを起動することができません。
-            // もう一度、初めから設定をやり直してください。
-            // 
-            // Alert
-            // Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
-            // Please start again from the beginning.
-            MessageBox.Show(Resources.DialogMessageNoXpCompatiblityMode,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            AppSettings.Instance.fXpCompatibilityMode = false;
-            Application.Exit();
-          }
-
-        }
-
-        AppSettings.Instance.fXpCompatibilityMode = true;
-
-      }
-
       //-----------------------------------
       // Not Allow multiple in&stance of AttcheCase
       // Create Mutex

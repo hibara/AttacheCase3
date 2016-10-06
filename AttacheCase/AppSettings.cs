@@ -764,14 +764,6 @@ namespace AttacheCase
 			set { this._UserRegIconFilePath = value; }
 		}
 
-    private bool _fXpCompatibilityMode;      // WindowsXP互換モード
-                                               // WindowsXP compatibility mode
-    public bool fXpCompatibilityMode
-    {
-      get { return this._fXpCompatibilityMode; }
-      set { this._fXpCompatibilityMode = value; }
-    }
-
     #endregion
 
     //----------------------------------------------------------------------
@@ -1288,7 +1280,6 @@ namespace AttacheCase
 				_fAssociationFile = int.Parse((string)reg.GetValue("fAssociationFile", "1"));
 				_AtcsFileIconIndex = int.Parse((string)reg.GetValue("AtcsFileIconIndex", "1"));
 				_UserRegIconFilePath = (string)reg.GetValue("UserRegIconFilePath", "");
-        _fXpCompatibilityMode = ((string)reg.GetValue("fXpCompatibilityMode", "0") == "1") ? true : false;
 
         //-----------------------------------
         //Password file 
@@ -1456,7 +1447,6 @@ namespace AttacheCase
 				reg.SetValue("fAssociationFile", _fAssociationFile.ToString());  //int
 				reg.SetValue("AtcsFileIconIndex", _AtcsFileIconIndex.ToString());  //int
 				reg.SetValue("UserRegIconFilePath", _UserRegIconFilePath);
-        reg.SetValue("fXpCompatibilityMode", _fXpCompatibilityMode == true ? "1" : "0");
 
         //-----------------------------------
         //Password file
@@ -1617,7 +1607,6 @@ namespace AttacheCase
 			ReadIniFile(IniFilePath, ref _fAssociationFile, "Option", "fAssociationFile", "1");
 			ReadIniFile(IniFilePath, ref _AtcsFileIconIndex, "Option", "AtcsFileIconIndex", "1");
 			ReadIniFile(IniFilePath, ref _UserRegIconFilePath, "Option", "UserRegIconFilePath", "");
-      ReadIniFile(IniFilePath, ref _fXpCompatibilityMode, "Option", "fXpCompatibilityMode", "1");
 
 			//Password file 
 			ReadIniFile(IniFilePath, ref _fAllowPassFile, "Option", "fAllowPassFile", "0");
@@ -1775,7 +1764,6 @@ namespace AttacheCase
 			// System
 			WriteIniFile(IniFilePath, _fAssociationFile, "Option", "fAssociationFile");	// int
 			WriteIniFile(IniFilePath, _UserRegIconFilePath, "Option", "UserRegIconFilePath");
-      WriteIniFile(IniFilePath, _fXpCompatibilityMode, "Option", "fXpCompatibilityMode");
 
 			//-----------------------------------
 			//Password file

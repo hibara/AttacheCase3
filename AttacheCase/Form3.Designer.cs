@@ -136,8 +136,6 @@
       this.checkBoxCompressionOption = new System.Windows.Forms.CheckBox();
       this.tabPageSystem = new System.Windows.Forms.TabPage();
       this.panelSystemOption = new System.Windows.Forms.Panel();
-      this.label14 = new System.Windows.Forms.Label();
-      this.checkBoxXPCompatibilityMode = new System.Windows.Forms.CheckBox();
       this.groupBox8 = new System.Windows.Forms.GroupBox();
       this.pictureBoxCheckmarkMyIcon = new System.Windows.Forms.PictureBox();
       this.pictureBoxCheckmark03 = new System.Windows.Forms.PictureBox();
@@ -161,6 +159,11 @@
       this.buttonUnAssociateAtcFiles = new System.Windows.Forms.Button();
       this.buttonAssociateAtcFiles = new System.Windows.Forms.Button();
       this.tabPageSettingsImportExport = new System.Windows.Forms.TabPage();
+      this.panelSettingImportExportOption = new System.Windows.Forms.Panel();
+      this.buttonReplaceCurrentByTemporary = new System.Windows.Forms.Button();
+      this.groupBox9 = new System.Windows.Forms.GroupBox();
+      this.buttonImportCurrentConf = new System.Windows.Forms.Button();
+      this.buttonExportCurrentConf = new System.Windows.Forms.Button();
       this.tabPagePasswordFileOption = new System.Windows.Forms.TabPage();
       this.panelPasswordFileOption = new System.Windows.Forms.Panel();
       this.checkBoxDoByPasswordFile = new System.Windows.Forms.CheckBox();
@@ -216,11 +219,6 @@
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-      this.panelSettingImportExportOption = new System.Windows.Forms.Panel();
-      this.buttonReplaceCurrentByTemporary = new System.Windows.Forms.Button();
-      this.groupBox9 = new System.Windows.Forms.GroupBox();
-      this.buttonImportCurrentConf = new System.Windows.Forms.Button();
-      this.buttonExportCurrentConf = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
@@ -275,6 +273,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon01)).BeginInit();
       this.groupBox7.SuspendLayout();
       this.tabPageSettingsImportExport.SuspendLayout();
+      this.panelSettingImportExportOption.SuspendLayout();
+      this.groupBox9.SuspendLayout();
       this.tabPagePasswordFileOption.SuspendLayout();
       this.panelPasswordFileOption.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -293,8 +293,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIniFileIcon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistryIcon)).BeginInit();
       this.contextMenuStrip1.SuspendLayout();
-      this.panelSettingImportExportOption.SuspendLayout();
-      this.groupBox9.SuspendLayout();
       this.SuspendLayout();
       // 
       // splitContainer1
@@ -1170,25 +1168,10 @@
       // 
       // panelSystemOption
       // 
-      this.panelSystemOption.Controls.Add(this.label14);
-      this.panelSystemOption.Controls.Add(this.checkBoxXPCompatibilityMode);
       this.panelSystemOption.Controls.Add(this.groupBox8);
       this.panelSystemOption.Controls.Add(this.groupBox7);
       resources.ApplyResources(this.panelSystemOption, "panelSystemOption");
       this.panelSystemOption.Name = "panelSystemOption";
-      // 
-      // label14
-      // 
-      resources.ApplyResources(this.label14, "label14");
-      this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-      this.label14.Name = "label14";
-      // 
-      // checkBoxXPCompatibilityMode
-      // 
-      resources.ApplyResources(this.checkBoxXPCompatibilityMode, "checkBoxXPCompatibilityMode");
-      this.checkBoxXPCompatibilityMode.Name = "checkBoxXPCompatibilityMode";
-      this.checkBoxXPCompatibilityMode.UseVisualStyleBackColor = true;
-      this.checkBoxXPCompatibilityMode.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // groupBox8
       // 
@@ -1360,6 +1343,42 @@
       resources.ApplyResources(this.tabPageSettingsImportExport, "tabPageSettingsImportExport");
       this.tabPageSettingsImportExport.Name = "tabPageSettingsImportExport";
       this.tabPageSettingsImportExport.UseVisualStyleBackColor = true;
+      // 
+      // panelSettingImportExportOption
+      // 
+      this.panelSettingImportExportOption.Controls.Add(this.buttonReplaceCurrentByTemporary);
+      this.panelSettingImportExportOption.Controls.Add(this.groupBox9);
+      resources.ApplyResources(this.panelSettingImportExportOption, "panelSettingImportExportOption");
+      this.panelSettingImportExportOption.Name = "panelSettingImportExportOption";
+      // 
+      // buttonReplaceCurrentByTemporary
+      // 
+      resources.ApplyResources(this.buttonReplaceCurrentByTemporary, "buttonReplaceCurrentByTemporary");
+      this.buttonReplaceCurrentByTemporary.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.buttonReplaceCurrentByTemporary.Name = "buttonReplaceCurrentByTemporary";
+      this.buttonReplaceCurrentByTemporary.UseVisualStyleBackColor = true;
+      // 
+      // groupBox9
+      // 
+      resources.ApplyResources(this.groupBox9, "groupBox9");
+      this.groupBox9.Controls.Add(this.buttonImportCurrentConf);
+      this.groupBox9.Controls.Add(this.buttonExportCurrentConf);
+      this.groupBox9.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.groupBox9.Name = "groupBox9";
+      this.groupBox9.TabStop = false;
+      // 
+      // buttonImportCurrentConf
+      // 
+      resources.ApplyResources(this.buttonImportCurrentConf, "buttonImportCurrentConf");
+      this.buttonImportCurrentConf.Name = "buttonImportCurrentConf";
+      this.buttonImportCurrentConf.UseVisualStyleBackColor = true;
+      // 
+      // buttonExportCurrentConf
+      // 
+      this.buttonExportCurrentConf.ForeColor = System.Drawing.SystemColors.ControlText;
+      resources.ApplyResources(this.buttonExportCurrentConf, "buttonExportCurrentConf");
+      this.buttonExportCurrentConf.Name = "buttonExportCurrentConf";
+      this.buttonExportCurrentConf.UseVisualStyleBackColor = true;
       // 
       // tabPagePasswordFileOption
       // 
@@ -1766,42 +1785,6 @@
       // 
       resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
       // 
-      // panelSettingImportExportOption
-      // 
-      this.panelSettingImportExportOption.Controls.Add(this.buttonReplaceCurrentByTemporary);
-      this.panelSettingImportExportOption.Controls.Add(this.groupBox9);
-      resources.ApplyResources(this.panelSettingImportExportOption, "panelSettingImportExportOption");
-      this.panelSettingImportExportOption.Name = "panelSettingImportExportOption";
-      // 
-      // buttonReplaceCurrentByTemporary
-      // 
-      resources.ApplyResources(this.buttonReplaceCurrentByTemporary, "buttonReplaceCurrentByTemporary");
-      this.buttonReplaceCurrentByTemporary.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.buttonReplaceCurrentByTemporary.Name = "buttonReplaceCurrentByTemporary";
-      this.buttonReplaceCurrentByTemporary.UseVisualStyleBackColor = true;
-      // 
-      // groupBox9
-      // 
-      resources.ApplyResources(this.groupBox9, "groupBox9");
-      this.groupBox9.Controls.Add(this.buttonImportCurrentConf);
-      this.groupBox9.Controls.Add(this.buttonExportCurrentConf);
-      this.groupBox9.ForeColor = System.Drawing.SystemColors.ControlText;
-      this.groupBox9.Name = "groupBox9";
-      this.groupBox9.TabStop = false;
-      // 
-      // buttonImportCurrentConf
-      // 
-      resources.ApplyResources(this.buttonImportCurrentConf, "buttonImportCurrentConf");
-      this.buttonImportCurrentConf.Name = "buttonImportCurrentConf";
-      this.buttonImportCurrentConf.UseVisualStyleBackColor = true;
-      // 
-      // buttonExportCurrentConf
-      // 
-      this.buttonExportCurrentConf.ForeColor = System.Drawing.SystemColors.ControlText;
-      resources.ApplyResources(this.buttonExportCurrentConf, "buttonExportCurrentConf");
-      this.buttonExportCurrentConf.Name = "buttonExportCurrentConf";
-      this.buttonExportCurrentConf.UseVisualStyleBackColor = true;
-      // 
       // Form3
       // 
       resources.ApplyResources(this, "$this");
@@ -1867,7 +1850,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.trackBarCompressRate)).EndInit();
       this.tabPageSystem.ResumeLayout(false);
       this.panelSystemOption.ResumeLayout(false);
-      this.panelSystemOption.PerformLayout();
       this.groupBox8.ResumeLayout(false);
       this.groupBox8.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckmarkMyIcon)).EndInit();
@@ -1883,6 +1865,8 @@
       this.groupBox7.ResumeLayout(false);
       this.groupBox7.PerformLayout();
       this.tabPageSettingsImportExport.ResumeLayout(false);
+      this.panelSettingImportExportOption.ResumeLayout(false);
+      this.groupBox9.ResumeLayout(false);
       this.tabPagePasswordFileOption.ResumeLayout(false);
       this.panelPasswordFileOption.ResumeLayout(false);
       this.panelPasswordFileOption.PerformLayout();
@@ -1906,8 +1890,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIniFileIcon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistryIcon)).EndInit();
       this.contextMenuStrip1.ResumeLayout(false);
-      this.panelSettingImportExportOption.ResumeLayout(false);
-      this.groupBox9.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -2096,10 +2078,8 @@
     private System.Windows.Forms.Label labelEncryptAlgoDescription;
     private System.Windows.Forms.CheckBox checkBoxDoByPasswordFile;
     private System.Windows.Forms.TabPage tabPageSettingsImportExport;
-    private System.Windows.Forms.CheckBox checkBoxXPCompatibilityMode;
     private System.Windows.Forms.Button buttonAddSendToFolder;
     private System.Windows.Forms.Button buttonOpenSendToFolder;
-    private System.Windows.Forms.Label label14;
     private System.Windows.Forms.Panel panelSettingImportExportOption;
     private System.Windows.Forms.Button buttonReplaceCurrentByTemporary;
     private System.Windows.Forms.GroupBox groupBox9;

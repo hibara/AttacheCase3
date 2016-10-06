@@ -621,17 +621,6 @@ namespace AttacheCase
 						break;
 				}
 
-        System.OperatingSystem os = System.Environment.OSVersion;
-        if (os.Version.Major < 6)
-        {
-          checkBoxXPCompatibilityMode.Enabled = true;
-        }
-        else
-        {
-          checkBoxXPCompatibilityMode.Enabled = false;
-        }
-        checkBoxXPCompatibilityMode.Checked = AppSettings.Instance.fXpCompatibilityMode;
-
       }
 
 			#endregion
@@ -797,12 +786,38 @@ If any provision of this License is invalid or unenforceable under applicable la
 No term or provision of this License shall be deemed waived and no breach consented to unless such waiver or consent shall be in writing and signed by the party to be charged with such waiver or consent.
 This License constitutes the entire agreement between the parties with respect to the Work licensed herein. There are no understandings, agreements or representations with respect to the Work not specified herein. The Author shall not be bound by any additional provisions that may appear in any communication from You. This License may not be modified without the mutual written agreement of the Author and You.
 
+-----------------------------------
+Sha256.cs
+
+Copyright (c) 2010 Yuri K. Schlesner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the ""Software""), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
+copies of the Software, and to permit persons to whom the Software is
+ 
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+
+THE SOFTWARE IS PROVIDED ""AS IS"", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
 ";
-			#endregion
+      #endregion
 
 
-			//-----------------------------------
-			buttonApply.Enabled = false;
+      //-----------------------------------
+      buttonApply.Enabled = false;
 
 			fLoading = false;
 
@@ -1141,8 +1156,6 @@ This License constitutes the entire agreement between the parties with respect t
 				// Association setting
 				buttonAssociateAtcFiles_Click(sender, e);
 			}
-
-      AppSettings.Instance.fXpCompatibilityMode = checkBoxXPCompatibilityMode.Checked;
 
       //-----------------------------------
       // Password file
