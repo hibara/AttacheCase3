@@ -2683,6 +2683,15 @@ namespace AttacheCase
         // If this option is selected, you specify a new file name.
 
         saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
+
+        if (AppSettings.Instance.fSaveToSameFldr == true)
+        {
+          if (Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
+          {
+            saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
+          }
+        }
+        
         // Input encrypted file name for putting together
         // 一つにまとめる暗号化ファイル名入力
         saveFileDialog1.Title = Resources.DialogTitleAllPackFiles;
@@ -3040,7 +3049,7 @@ namespace AttacheCase
       // Normal
       //----------------------------------------------------------------------
       else
-      {  //AppSettings.Instance.fNormal;
+      { // AppSettings.Instance.fNormal;
 
         // 何もしない
         // Nothing to do
