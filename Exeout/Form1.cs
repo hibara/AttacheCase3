@@ -20,16 +20,14 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using AttacheCase;
 using System.IO;
-using Exeout.Properties;
 using System.Security.Cryptography;
 using System.Globalization;
 using System.Drawing;
 using System.Collections;
 
-
 namespace Exeout
 {
-	public partial class Form1 : Form
+  public partial class Form1 : Form
 	{
     // Status code
     //private const int ENCRYPT_SUCCEEDED   = 1; // Encrypt is succeeded.
@@ -470,8 +468,8 @@ namespace Exeout
             {
               DialogMessageFileIndexInvalid = "暗号化ファイル内部で、不正なファイルインデックスがありました。";
             }
-            MessageBox.Show(Resources.DialogMessageFileIndexInvalid,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(DialogMessageFileIndexInvalid,
+            DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (CurrentCultureName == "ja")
             {

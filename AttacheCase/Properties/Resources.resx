@@ -427,4 +427,7 @@ Please start again from the beginning.</value>
   <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
     <value>Setup tool is not found!</value>
   </data>
+  <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
+    <value>Self Executable file(*.exe)|*.exe|All files(*.*)|*.*</value>
+  </data>
 </root>

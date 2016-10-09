@@ -65,6 +65,9 @@
     <Compile Include="..\AttacheCase\FileDecrypt3.cs">
       <Link>FileDecrypt3.cs</Link>
     </Compile>
+    <Compile Include="..\AttacheCase\Sha256.cs">
+      <Link>Sha256.cs</Link>
+    </Compile>
     <Compile Include="..\AttacheCase\Zlib\Deflate.cs">
       <Link>Zlib\Deflate.cs</Link>
     </Compile>
@@ -152,12 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main_icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AttacheCase\AttacheCase.csproj">
-      <Project>{2607e11d-81de-4ebf-af9d-6042c4338407}</Project>
-      <Name>AttacheCase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

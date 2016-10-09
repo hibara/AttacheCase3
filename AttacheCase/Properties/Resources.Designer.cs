@@ -969,5 +969,14 @@ namespace AttacheCase.Properties {
                 return ResourceManager.GetString("SaveDialogFilterIniFilles", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Self Executable file(*.exe)|*.exe|All files(*.*)|*.* に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string SaveDialogFilterSelfExeFiles {
+            get {
+                return ResourceManager.GetString("SaveDialogFilterSelfExeFiles", resourceCulture);
+            }
+        }
     }
 }

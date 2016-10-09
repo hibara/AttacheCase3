@@ -84,6 +84,8 @@ namespace AttacheCase
 
     private CancellationTokenSource cts;
 
+    private int FileIndex = 0;
+
     /// <summary>
     /// Constructor
     /// </summary>
@@ -788,13 +790,13 @@ namespace AttacheCase
                 {
                   buttonCancel.Text = Resources.ButtonTextCancel;
                   if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
-                      AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE )
+                      AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE)
                   {
-                    if(encryption3 != null)
+                    if (encryption3 != null)
                     {
                       DeleteData(encryption3.FileList);
                     }
-                    else if(compression != null)
+                    else if (compression != null)
                     {
                       DeleteData(compression.FileList);
                     }
@@ -814,7 +816,17 @@ namespace AttacheCase
               }
             }
 
-            AppSettings.Instance.FileList = null;
+            FileIndex++;
+
+            if (AppSettings.Instance.fFilesOneByOne == true || AppSettings.Instance.fNormal == true)
+            { 
+              // One more encryption
+              if (FileIndex < AppSettings.Instance.FileList.Count)
+              {
+                EncryptionProcess();
+                return;
+              }
+            }
 
             if (AppSettings.Instance.fEndToExit == true)
             {
@@ -2468,10 +2480,41 @@ namespace AttacheCase
         return;
       }
 
-      //===================================
-      // OK → 暗号化の処理へ
-      //===================================
+      // 個別に暗号化する場合は、入力されたパスを展開する処理を入れる。
+      if (AppSettings.Instance.fFilesOneByOne == true)
+      {
+        List<string> TempFileList = new List<string>();
+        foreach (string TheFileList in AppSettings.Instance.FileList)
+        {
+          if (Directory.Exists(TheFileList) == true)
+          {
+            IEnumerable<string> FileLists = GetFileList("*", TheFileList);
+            foreach (string f in FileLists)
+            {
+              TempFileList.Add(f);
+            }
+          }
+          else
+          {
+            TempFileList.Add(TheFileList);
+          }
+        }
 
+        AppSettings.Instance.FileList = TempFileList;
+
+      }
+
+      FileIndex = 0;
+      EncryptionProcess();
+
+    }
+
+    //======================================================================
+    /// <summary>
+    /// 
+    /// </summary>
+    private void EncryptionProcess()
+    {
       // Valid mark
       pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
       //labelPasswordValidation.Text = Resources.labelCaptionPasswordValid;
@@ -2481,18 +2524,17 @@ namespace AttacheCase
       //-----------------------------------
       //string OutDirPath = Path.GetDirectoryName(AppSettings.Instance.FileList[0]);  // default
       string OutDirPath = "";
-      foreach (string path in AppSettings.Instance.FileList)
+      if (AppSettings.Instance.fSaveToSameFldr == true)
       {
-        string FullPath = Path.GetFullPath(path);
+        OutDirPath = AppSettings.Instance.SaveToSameFldrPath;
+      }
+      else
+      {
+        string FullPath = Path.GetFullPath(AppSettings.Instance.FileList[FileIndex]);
         if (Directory.Exists(Path.GetDirectoryName(FullPath)) == true)
         {
           OutDirPath = Path.GetDirectoryName(FullPath);
         }
-      }
-
-      if (AppSettings.Instance.fSaveToSameFldr == true)
-      {
-        OutDirPath = AppSettings.Instance.SaveToSameFldrPath;
       }
 
       if (Directory.Exists(OutDirPath) == false)
@@ -2683,19 +2725,19 @@ namespace AttacheCase
         // If this option is selected, you specify a new file name.
 
         saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
-
-        if (AppSettings.Instance.fSaveToSameFldr == true)
-        {
-          if (Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
-          {
-            saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
-          }
-        }
-        
         // Input encrypted file name for putting together
         // 一つにまとめる暗号化ファイル名入力
         saveFileDialog1.Title = Resources.DialogTitleAllPackFiles;
-        saveFileDialog1.Filter = Resources.SaveDialogFilterAtcFiles;
+
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+        {
+          saveFileDialog1.Filter = Resources.SaveDialogFilterSelfExeFiles;
+        }
+        else
+        {
+          saveFileDialog1.Filter = Resources.SaveDialogFilterAtcFiles;
+        }
+
         if (saveFileDialog1.ShowDialog() == DialogResult.OK)
         {
           AtcFilePath = saveFileDialog1.FileName;
@@ -2868,183 +2910,142 @@ namespace AttacheCase
         // If the folder has been processed, all the files in the subfolders are encrypted one by one. 
         // However, if encrypted files or ZIP files were existed already in it, they are ignored.
 
-        foreach (string TheFileList in AppSettings.Instance.FileList)
+        int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
+
+        // A first file of ArrayList
+        string FilePath = AppSettings.Instance.FileList[FileIndex];
+
+        encryption3 = new FileEncrypt3();
+        compression = new ZipEncrypt(); ;
+
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
-          if (Directory.Exists(TheFileList) == true)
+          encryption3.NumberOfFiles = FileIndex + 1;
+          encryption3.TotalNumberOfFiles = TotalNumberOfFiles;
+        }
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
+        {
+          compression.NumberOfFiles = FileIndex;
+          compression.TotalNumberOfFiles = TotalNumberOfFiles;
+        }
+
+        //-----------------------------------
+        // Save encryption files to same folder.
+        if (AppSettings.Instance.fSaveToSameFldr == false)
+        {
+          OutputDirPath = Path.GetDirectoryName(FilePath);
+        }
+
+        //-----------------------------------
+        // Specify the format of the encryption file name
+        string FileName = Path.GetFileName(FilePath);
+        if (AppSettings.Instance.fAutoName == true)
+        {
+          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
+            AppSettings.Instance.AutoNameFormatText, FileName, FileIndex + 1
+          );
+        }
+
+        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+
+        //-----------------------------------
+        //Create encrypted file including extension
+        if (AppSettings.Instance.fExtInAtcFileName == true)
+        {
+          FileName = Path.GetFileName(AtcFilePath) + Extension;
+        }
+        else
+        {
+          FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
+        }
+
+        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+
+        //Confirm &overwriting when same file name exists.
+        if (AppSettings.Instance.fEncryptConfirmOverwrite == true)
+        {
+          if (File.Exists(AtcFilePath) == true)
           {
-            IEnumerable<string> FileLists = GetFileList("*", TheFileList);
-            foreach (string FilePath in FileLists)
+            // 問い合わせ
+            // 以下のファイルはすでに存在しています。上書きして保存しますか？
+            // [AtcFilePath]
+            //
+            // Question
+            // The following file already exists. Do you overwrite the files to save?
+            // [AtcFilePath]
+            DialogResult ret = MessageBox.Show(Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath,
+            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (ret == DialogResult.No)
             {
-              AppSettings.Instance.FileList.Add(FilePath);
+              panelStartPage.Visible = false;
+              panelEncrypt.Visible = true;
+              panelEncryptConfirm.Visible = false;
+              panelDecrypt.Visible = false;
+              panelProgressState.Visible = false;
+              return;
             }
           }
         }
 
-        int NumberOfFiles = 0;
-        int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
-        AppSettings.Instance.DetectFileType();
-
-        foreach (string FilePath in AppSettings.Instance.FileList)
+        //-----------------------------------
+        // Self executable file
+        //-----------------------------------
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
-          FileEncrypt3 encryption3 = new FileEncrypt3();
-          ZipEncrypt compression = new ZipEncrypt(); ;
+          encryption3.fExecutable = true;
+        }
 
-          if (File.Exists(FilePath) == false)
+        //-----------------------------------
+        //　Set the timestamp of encryption file to original files or directories
+        //-----------------------------------
+        encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
+
+        //-----------------------------------
+        // Encryption start
+        //-----------------------------------
+
+        bkg = new BackgroundWorker();
+
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+        {
+          bkg.DoWork += (s, d) =>
           {
-            continue;
-          }
-
-          NumberOfFiles++;
-
-          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
-              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
-              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+            encryption3.Encrypt(
+              s, d,
+              new string[] { AppSettings.Instance.FileList[FileIndex] },
+              AtcFilePath,
+              EncryptionPassword, EncryptionPasswordBinary,
+              "");
+          };
+        }
+        else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
+        {
+          bkg.DoWork += (s, d) =>
           {
-            encryption3.NumberOfFiles = NumberOfFiles;
-            encryption3.TotalNumberOfFiles = TotalNumberOfFiles;
-          }
-          else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
-          {
-            compression.NumberOfFiles = NumberOfFiles;
-            compression.TotalNumberOfFiles = TotalNumberOfFiles;
-          }
+            compression.Encrypt(
+              null, null,
+              new string[] { AppSettings.Instance.FileList[FileIndex] },
+              AtcFilePath,
+              EncryptionPassword, EncryptionPasswordBinary,
+              "");
+          };
+        }
 
-          //-----------------------------------
-          // Save encryption files to same folder.
-          if (AppSettings.Instance.fSaveToSameFldr == false)
-          {
-            OutputDirPath = Path.GetDirectoryName(FilePath);
-          }
+        bkg.RunWorkerCompleted += backgroundWorker_Encryption_RunWorkerCompleted;
+        bkg.ProgressChanged += backgroundWorker_ProgressChanged;
+        bkg.WorkerReportsProgress = true;
+        bkg.WorkerSupportsCancellation = true;
 
-          //-----------------------------------
-          // Specify the format of the encryption file name
-          string FileName = Path.GetFileName(FilePath);
-          if (AppSettings.Instance.fAutoName == true)
-          {
-            FileName = AppSettings.Instance.getSpecifyFileNameFormat(
-              AppSettings.Instance.AutoNameFormatText, FileName, NumberOfFiles
-            );
-          }
-
-          AtcFilePath = Path.Combine(OutputDirPath, FileName);
-
-          //-----------------------------------
-          //Create encrypted file including extension
-          if (AppSettings.Instance.fExtInAtcFileName == true)
-          {
-            FileName = Path.GetFileName(AtcFilePath) + Extension;
-          }
-          else
-          {
-            FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
-          }
-
-          AtcFilePath = Path.Combine(OutputDirPath, FileName);
-
-          //Confirm &overwriting when same file name exists.
-          if (AppSettings.Instance.fEncryptConfirmOverwrite == true)
-          {
-            if (File.Exists(AtcFilePath) == true)
-            {
-              // 問い合わせ
-              // 以下のファイルはすでに存在しています。上書きして保存しますか？
-              // [AtcFilePath]
-              //
-              // Question
-              // The following file already exists. Do you overwrite the files to save?
-              // [AtcFilePath]
-              DialogResult ret = MessageBox.Show(Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath,
-              Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-              if (ret == DialogResult.No)
-              {
-                panelStartPage.Visible = false;
-                panelEncrypt.Visible = true;
-                panelEncryptConfirm.Visible = false;
-                panelDecrypt.Visible = false;
-                panelProgressState.Visible = false;
-                return;
-              }
-            }
-          }
-
-          //-----------------------------------
-          // Self executable file
-          //-----------------------------------
-          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
-          {
-            encryption3.fExecutable = true;
-          }
-
-          //-----------------------------------
-          //　Set the timestamp of encryption file to original files or directories
-          //-----------------------------------
-          encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
-
-          //-----------------------------------
-          // Encryption start
-          //-----------------------------------
-
-          // refer to: http://stackoverflow.com/questions/1333058/how-to-wait-correctly-until-backgroundworker-completes
-          AutoResetEvent doneEvent = new AutoResetEvent(false);
-          BackgroundWorker bkg = new BackgroundWorker();
-
-          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
-              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
-              AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
-          {
-            bkg.DoWork += (s, d) =>
-            {
-              try
-              {
-                encryption3.Encrypt(
-                  s, d,
-                  new string[] { FilePath },
-                  AtcFilePath,
-                  EncryptionPassword, EncryptionPasswordBinary,
-                  "");
-              }
-              finally
-              {
-                doneEvent.Set();
-              }
-            };
-          }
-          else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
-          {
-            bkg.DoWork += (s, d) =>
-            {
-              try
-              {
-                compression.Encrypt(
-                  null, null,
-                  new string[] { FilePath },
-                  AtcFilePath,
-                  EncryptionPassword, EncryptionPasswordBinary,
-                  "");
-              }
-              finally
-              {
-                doneEvent.Set();
-              }
-            };
-          }
-
-          //bkg.RunWorkerCompleted += backgroundWorker_Encryption_RunWorkerCompleted;
-          bkg.ProgressChanged += backgroundWorker_ProgressChanged;
-          bkg.WorkerReportsProgress = true;
-          bkg.WorkerSupportsCancellation = true;
-
-          bkg.RunWorkerAsync();
-          doneEvent.WaitOne(); // Wait for backgroundworker to finish
-
-        }// end foreach (string FilePath in FileList);
-
-        RunWorkerCompletedEventArgs ev = new RunWorkerCompletedEventArgs(ENCRYPT_SUCCEEDED, null, false);
-        backgroundWorker_Encryption_RunWorkerCompleted(sender, ev);
-
+        bkg.RunWorkerAsync();
+        
 
       }// end else if (AppSettings.Instance.fFilesOneByOne == true);
+      
       //----------------------------------------------------------------------
       // Normal
       //----------------------------------------------------------------------
@@ -3059,7 +3060,6 @@ namespace AttacheCase
         // When a number of files and folders is processed, and each file is generated to encrypt files. 
         // In the case of folders ( including subfolders ) are packed in a folder unit.
 
-        int NumberOfFiles = 0;
         int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
 
         if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
@@ -3067,13 +3067,13 @@ namespace AttacheCase
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3 = new FileEncrypt3();
-          encryption3.NumberOfFiles = NumberOfFiles;
+          encryption3.NumberOfFiles = FileIndex;
           encryption3.TotalNumberOfFiles = TotalNumberOfFiles;
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           compression = new ZipEncrypt();
-          compression.NumberOfFiles = NumberOfFiles;
+          compression.NumberOfFiles = FileIndex;
           compression.TotalNumberOfFiles = TotalNumberOfFiles;
         }
 
@@ -3081,16 +3081,16 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutputDirPath = Path.GetDirectoryName(AppSettings.Instance.FileList[0]);
+          OutputDirPath = Path.GetDirectoryName(AppSettings.Instance.FileList[FileIndex]);
         }
 
         //-----------------------------------
         // Specify the format of the encryption file name
-        string FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
+        string FileName = Path.GetFileName(AppSettings.Instance.FileList[FileIndex]);
         if (AppSettings.Instance.fAutoName == true)
         {
           FileName = AppSettings.Instance.getSpecifyFileNameFormat(
-            AppSettings.Instance.AutoNameFormatText, FileName, NumberOfFiles
+            AppSettings.Instance.AutoNameFormatText, FileName, FileIndex + 1
           );
         }
 
@@ -3166,7 +3166,7 @@ namespace AttacheCase
           bkg.DoWork += (s, d) =>
           encryption3.Encrypt(
             s, d,
-            AppSettings.Instance.FileList.ToArray(),
+            new string[] { AppSettings.Instance.FileList[FileIndex] },
             AtcFilePath,
             EncryptionPassword, EncryptionPasswordBinary,
             "");
@@ -3176,7 +3176,7 @@ namespace AttacheCase
           bkg.DoWork += (s, d) =>
           compression.Encrypt(
             s, d,
-            AppSettings.Instance.FileList.ToArray(),
+            new string[] { AppSettings.Instance.FileList[FileIndex] },
             AtcFilePath,
             EncryptionPassword, EncryptionPasswordBinary,
             "");
@@ -3188,9 +3188,10 @@ namespace AttacheCase
         bkg.WorkerSupportsCancellation = true;
 
         bkg.RunWorkerAsync();
+
       }
 
-    }//private void buttonEncryptStart_Click(object sender, EventArgs e)
+    }// end EncryptionProcess();
 
 
     /// <summary>

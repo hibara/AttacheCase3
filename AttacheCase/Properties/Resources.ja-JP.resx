@@ -425,4 +425,7 @@
   <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
     <value>セットアップツールが見つかりません！</value>
   </data>
+  <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
+    <value>自己実行形式(*.exe)|*.exe|すべてのファイル(*.*)|*.*いｓ</value>
+  </data>
 </root>
