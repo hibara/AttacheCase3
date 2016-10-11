@@ -388,10 +388,11 @@ namespace AttacheCase
           //Save to Desktop folder.
           string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
           string HeaderTextFilePath = Path.Combine(AppDirPath, "encrypt_header.txt");
-          FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write);
-          ms.WriteTo(fsDebug);
-          fsDebug.Close();
-          ms.Position = NowPosition;
+          using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
+          {
+            ms.WriteTo(fsDebug);
+            ms.Position = NowPosition;
+          }
 #endif
           // The Header of MemoryStream is encrypted
           using (Rijndael aes = new RijndaelManaged())
@@ -513,7 +514,7 @@ namespace AttacheCase
                     try
                     {
                       buffer = new byte[BUFFER_SIZE];
-                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                       {
                         len = 0;
                         while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
@@ -538,11 +539,13 @@ namespace AttacheCase
 
                           if (worker.CancellationPending == true)
                           {
+                            fs.Dispose();
                             e.Cancel = true;
                             return Tuple.Create(false, USER_CANCELED);
                           }
 
                         }
+
                       }
 
                     }
@@ -705,45 +708,22 @@ namespace AttacheCase
     /// </summary>
     /// <param name="dataToCalculate"></param>
     /// <returns></returns>
-    /*
     public static string GetSha256FromFile(string FilePath)
     {
-      byte[] bytesArray = null;
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
       {
-        using (SHA256CryptoServiceProvider sha1 = new SHA256CryptoServiceProvider())
+        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
+
+        StringBuilder result = new StringBuilder();
+        result.Capacity = 32;
+        foreach (byte b in hash)
         {
-          bytesArray = sha1.ComputeHash(fs);
+          result.Append(b.ToString());
         }
-      }
 
-      StringBuilder result = new StringBuilder();
-      result.Capacity = 32;
-      foreach (byte b in bytesArray)
-      {
-        result.Append(b.ToString());
+        return (result.ToString());
       }
-
-      return (result.ToString());
     }
-    */
-
-    public static string GetSha256FromFile(string FilePath)
-    {
-
-      ReadOnlyCollection<byte> hash = Sha256.HashFile(File.OpenRead(FilePath));
-
-      StringBuilder result = new StringBuilder();
-      result.Capacity = 32;
-      foreach (byte b in hash)
-      {
-        result.Append(b.ToString());
-      }
-
-      return (result.ToString());
-
-    }
-
 
 
   }// end class FileEncrypt()

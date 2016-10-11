@@ -28,6 +28,8 @@ using Microsoft.VisualBasic.FileIO;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using Sha2;
 
 namespace AttacheCase
 {
@@ -85,6 +87,8 @@ namespace AttacheCase
     private CancellationTokenSource cts;
 
     private int FileIndex = 0;
+    List<string> OutputFileList = new List<string>();
+
 
     /// <summary>
     /// Constructor
@@ -105,7 +109,7 @@ namespace AttacheCase
       // Exit button of main window.
       buttonExit.Size = new Size(1, 1);
 
-
+      
     }
 
     /// <summary>
@@ -305,13 +309,13 @@ namespace AttacheCase
       labelProgressPercentText.Text = "- %";
       this.Update();
 
-      // How to delete a way?
 #if (DEBUG)
       string DesktopPath = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
       string FileListTextPath = Path.Combine(DesktopPath, "file_list_text.txt");
       var FileListText = String.Join("\n", FileList);
       System.IO.File.WriteAllText(FileListTextPath, FileListText, System.Text.Encoding.UTF8);
 #endif
+      // How to delete a way?
       //----------------------------------------------------------------------
       // 通常削除
       // Normal delete
@@ -339,12 +343,13 @@ namespace AttacheCase
             }
             else
             {
-              // File or direcrory does not exists.
-            }
+                // File or direcrory does not exists.
+              }
 
             Interlocked.Increment(ref count);
 
-            ctx.Post(d => {
+            ctx.Post(d =>
+            {
               progressBar.Value = (int)((float)count / FileList.Count) * 10000;
             }, null);
 
@@ -373,10 +378,14 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch
+        catch (Exception e)
         {
           // ユーザーキャンセル
           // User cancel
+
+#if (DEBUG)
+          System.Windows.Forms.MessageBox.Show(e.Message);
+#endif
 
           labelCryptionType.Text = "";
           // ファイルまたはフォルダーの削除をキャンセルしました。
@@ -605,6 +614,21 @@ namespace AttacheCase
     /// <returns></returns>
     private byte[] GetPasswordFileHash3(string FilePath)
     {
+
+      byte[] result = new byte[32];
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
+      {
+        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
+
+        for (int i = 0; i < 32; i++)
+        {
+          result[i] = hash[i];
+        }
+
+        return (result);
+      }
+
+      /*
       byte[] buffer = new byte[255];
       byte[] result = new byte[32];
 
@@ -622,6 +646,7 @@ namespace AttacheCase
       }
       //string text = System.Text.Encoding.ASCII.GetString(result);
       return (result);
+      */
 
     }
 
@@ -773,58 +798,51 @@ namespace AttacheCase
             labelProgressMessageText.Text = Resources.labelCaptionCompleted;  // "Completed"
             notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
 
-            // Delete file or directories
-            if (AppSettings.Instance.fDelOrgFile == true || checkBoxReDeleteOriginalFileAfterEncryption.Checked == true)
-            {
-              if (AppSettings.Instance.fConfirmToDeleteAfterEncryption == true)
-              {
-                // 問い合わせ
-                // 暗号化ファイルの元となったファイル及びフォルダーを削除しますか？
-                //
-                // Question
-                // Are you sure to delete the files and folders that are the source of the encrypted file?
-                DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteOriginalFilesAndFolders,
-                  Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (ret == DialogResult.Yes)
-                {
-                  buttonCancel.Text = Resources.ButtonTextCancel;
-                  if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
-                      AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE)
-                  {
-                    if (encryption3 != null)
-                    {
-                      DeleteData(encryption3.FileList);
-                    }
-                    else if (compression != null)
-                    {
-                      DeleteData(compression.FileList);
-                    }
-                  }
-                }
-              }
-              else
-              {
-                if (encryption3 != null)
-                {
-                  DeleteData(encryption3.FileList);
-                }
-                else if (compression != null)
-                {
-                  DeleteData(compression.FileList);
-                }
-              }
-            }
-
             FileIndex++;
 
-            if (AppSettings.Instance.fFilesOneByOne == true || AppSettings.Instance.fNormal == true)
-            { 
-              // One more encryption
-              if (FileIndex < AppSettings.Instance.FileList.Count)
+            // One more encryption
+            if (FileIndex < AppSettings.Instance.FileList.Count)
+            {
+              EncryptionProcess();   // Encryption again
+              return;
+            }
+            else
+            {
+              // Wait for the BackgroundWorker thread end
+              while (bkg.IsBusy)
               {
-                EncryptionProcess();
-                return;
+                Application.DoEvents();
+              }
+
+              // Delete file or directories
+              if (AppSettings.Instance.fDelOrgFile == true || checkBoxReDeleteOriginalFileAfterEncryption.Checked == true)
+              {
+                if (AppSettings.Instance.fConfirmToDeleteAfterEncryption == true)
+                {
+                  // 問い合わせ
+                  // 暗号化ファイルの元となったファイル及びフォルダーを削除しますか？
+                  //
+                  // Question
+                  // Are you sure to delete the files and folders that are the source of the encrypted file?
+                  DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteOriginalFilesAndFolders,
+                    Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                  if (ret == DialogResult.Yes)
+                  {
+                    buttonCancel.Text = Resources.ButtonTextCancel;
+
+                    if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
+                        AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE)
+                    {
+                      DeleteData(AppSettings.Instance.FileList);
+                    }
+                  }
+
+                }
+                else
+                {
+                  DeleteData(AppSettings.Instance.FileList);
+                }
               }
             }
 
@@ -924,18 +942,24 @@ namespace AttacheCase
             labelProgressMessageText.Text = Resources.labelCaptionCompleted;  // "Completed"
             notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
 
+            if (decryption2 == null)
+            {
+              OutputFileList.AddRange(decryption3.OutputFileList);
+            }
+            else
+            {
+              OutputFileList.AddRange(decryption2.OutputFileList);
+            }
+            
+            if ( FileIndex + 1 < AppSettings.Instance.FileList.Count)
+            {
+              FileIndex++;
+              DecryptionProcess();
+              return;
+            }
+
             if (AppSettings.Instance.fOpenFile == true)
             {
-              List<string> OutputFileList = new List<string>();
-              if (decryption2 == null)
-              {
-                OutputFileList = decryption3.OutputFileList;
-              }
-              else
-              {
-                OutputFileList = decryption2.OutputFileList;
-              }
-
               if (OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum)
               {
                 // 問い合わせ
@@ -1009,16 +1033,6 @@ namespace AttacheCase
             // Delete file or directories
             if (AppSettings.Instance.fDelEncFile == true || checkBoxDeleteAtcFileAfterDecryption.Checked == true)
             {
-              List<string> FilePaths = new List<string>();
-              if (decryption2 == null)
-              {
-                FilePaths.Add(decryption3.AtcFilePath);
-              }
-              else
-              {
-                FilePaths.Add(decryption2.AtcFilePath);
-              }
-
               if (AppSettings.Instance.fConfirmToDeleteAfterDecryption == true)
               {
                 // 問い合わせ
@@ -1031,12 +1045,12 @@ namespace AttacheCase
                 if (ret == DialogResult.Yes)
                 {
                   buttonCancel.Text = Resources.ButtonTextCancel;
-                  DeleteData(FilePaths);
+                  DeleteData(AppSettings.Instance.FileList);
                 }
               }
               else
               {
-                DeleteData(FilePaths);
+                DeleteData(AppSettings.Instance.FileList);
               }
             }
 
@@ -2149,6 +2163,9 @@ namespace AttacheCase
             return;
         }
 
+        // Not mask password character
+        AppSettings.Instance.fNotMaskPassword = checkBoxNotMaskDecryptedPassword.Checked ? true : false;
+
         //Show the check box in main form window
         if (AppSettings.Instance.fDecryptShowDelChkBox == true)
         {
@@ -2723,8 +2740,15 @@ namespace AttacheCase
         // このオプションを選択している場合、新しいファイル名を指定します。
         // The multiple files is gotten one of the encrypted file together. 
         // If this option is selected, you specify a new file name.
+        if (AppSettings.Instance.fSaveToSameFldr == true && Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
+        {
+          saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
+        }
+        else
+        {
+          saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
+        }
 
-        saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
         // Input encrypted file name for putting together
         // 一つにまとめる暗号化ファイル名入力
         saveFileDialog1.Title = Resources.DialogTitleAllPackFiles;
@@ -2888,6 +2912,9 @@ namespace AttacheCase
             EncryptionPassword, EncryptionPasswordBinary,
             Path.GetFileNameWithoutExtension(AtcFilePath));
         }
+
+        FileIndex = AppSettings.Instance.FileList.Count;
+
         bkg.RunWorkerCompleted += backgroundWorker_Encryption_RunWorkerCompleted;
         bkg.ProgressChanged += backgroundWorker_ProgressChanged;
         bkg.WorkerReportsProgress = true;
@@ -3347,10 +3374,21 @@ namespace AttacheCase
     //======================================================================
     private void buttonDecryptStart_Click(object sender, EventArgs e)
     {
+      FileIndex = 0;
+      OutputFileList = new List<string>();
 
-      // Not mask password character
-      AppSettings.Instance.fNotMaskPassword = checkBoxNotMaskDecryptedPassword.Checked ? true : false;
-        
+      DecryptionProcess();
+    }
+
+
+    //======================================================================
+    /// <summary>
+    /// 
+    /// </summary>
+    //======================================================================
+    private void DecryptionProcess()
+    {
+
       //-----------------------------------
       // Directory to oputput decrypted files
       //-----------------------------------
@@ -3426,17 +3464,13 @@ namespace AttacheCase
       // Preparing for devrypting
       // 
       //-----------------------------------
-      int NumberOfFiles = 0;
-      int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
-      foreach (string AtcFilePath in AppSettings.Instance.FileList)
-      {
+      string AtcFilePath = AppSettings.Instance.FileList[FileIndex];
+
         progressBar.Style = ProgressBarStyle.Marquee;
         progressBar.MarqueeAnimationSpeed = 50;
         // 復号するための準備をしています...
         // Getting ready for decryption...
         labelProgressMessageText.Text = Resources.labelGettingReadyForDecryption;
-
-        NumberOfFiles++;
 
         decryption3 = new FileDecrypt3(AtcFilePath);
 
@@ -3541,93 +3575,92 @@ namespace AttacheCase
         bkg.WorkerReportsProgress = true;
         bkg.WorkerSupportsCancellation = true;
 
-        //-----------------------------------
-        // Old version 
-        if (decryption3.DataFileVersion < 130)
+      //-----------------------------------
+      // Old version 
+      if (decryption3.DataFileVersion < 130)
+      {
+        decryption3 = null; // ver.3 is null
+        decryption2 = new FileDecrypt2(AtcFilePath);
+        decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
+        decryption2.NumberOfFiles = FileIndex;
+        decryption2.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
+        decryption2.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
+        decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
+        if (LimitOfInputPassword == -1)
         {
-          decryption3 = null; // ver.3 is null
-          decryption2 = new FileDecrypt2(AtcFilePath);
-          decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
-          decryption2.NumberOfFiles = NumberOfFiles;
-          decryption2.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
-          decryption2.TotalNumberOfFiles = TotalNumberOfFiles;
-          decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
-          if (LimitOfInputPassword == -1)
-          {
-            LimitOfInputPassword = decryption2.MissTypeLimits;
-          }
-          toolStripStatusLabelDataVersion.Text = "Data ver.2";
-          this.Update();
-
-          //======================================================================
-          // Decryption start
-          // 復号開始
-          // http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
-          //======================================================================
-          bkg.DoWork += (s, d) =>
-          {
-            decryption2.Decrypt(
-              s, d,
-              AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
-              DialogMessageForOverWrite);
-          };
-
-          bkg.RunWorkerAsync();
-
+          LimitOfInputPassword = decryption2.MissTypeLimits;
         }
-        //-----------------------------------
-        // Current version
-        else if (decryption3.DataFileVersion < 140)
+        toolStripStatusLabelDataVersion.Text = "Data ver.2";
+        this.Update();
+
+        //======================================================================
+        // Decryption start
+        // 復号開始
+        // http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
+        //======================================================================
+        bkg.DoWork += (s, d) =>
         {
-          decryption2 = null;
-          decryption3.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
-          decryption3.NumberOfFiles = NumberOfFiles;
-          decryption3.TotalNumberOfFiles = TotalNumberOfFiles;
-          decryption3.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
-          decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
-          if (LimitOfInputPassword == -1)
-          {
-            LimitOfInputPassword = decryption3.MissTypeLimits;
-          }
-          toolStripStatusLabelDataVersion.Text = "Data ver.3";
-          this.Update();
+          decryption2.Decrypt(
+            s, d,
+            AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
+            DialogMessageForOverWrite);
+        };
 
-          //======================================================================
-          // Decryption start
-          // 復号開始
-          // http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
-          //======================================================================
-          bkg.DoWork += (s, d) =>
-          {
-            decryption3.Decrypt(
-              s, d,
-              AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
-              DialogMessageForOverWrite);
-          };
+        bkg.RunWorkerAsync();
 
-          bkg.RunWorkerAsync();
-
-        }
-        //-----------------------------------
-        // Higher version 
-        else
+      }
+      //-----------------------------------
+      // Current version
+      else if (decryption3.DataFileVersion < 140)
+      {
+        decryption2 = null;
+        decryption3.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
+        decryption3.NumberOfFiles = FileIndex;
+        decryption3.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
+        decryption3.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
+        decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
+        if (LimitOfInputPassword == -1)
         {
-          // 警告
-          // このファイルはアタッシェケースの上位バージョンで暗号化されています。
-          // 復号できません。処理を中止します。
-          //
-          // Alert
-          // This file has been encrypted with a higher version.
-          // It can not be decrypted. The process is aborted.
-          MessageBox.Show(Resources.DialogMessageHigherVersion + Environment.NewLine + AtcFilePath,
-          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-          return;
-
+          LimitOfInputPassword = decryption3.MissTypeLimits;
         }
+        toolStripStatusLabelDataVersion.Text = "Data ver.3";
+        this.Update();
 
-      }// end foreach (string AtcFilePath in AtcFilePaths);
+        //======================================================================
+        // Decryption start
+        // 復号開始
+        // http://stackoverflow.com/questions/4807152/sending-arguments-to-background-worker
+        //======================================================================
+        bkg.DoWork += (s, d) =>
+        {
+          decryption3.Decrypt(
+            s, d,
+            AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
+            DialogMessageForOverWrite);
+        };
+
+        bkg.RunWorkerAsync();
+
+      }
+      //-----------------------------------
+      // Higher version 
+      else
+      {
+        // 警告
+        // このファイルはアタッシェケースの上位バージョンで暗号化されています。
+        // 復号できません。処理を中止します。
+        //
+        // Alert
+        // This file has been encrypted with a higher version.
+        // It can not be decrypted. The process is aborted.
+        MessageBox.Show(Resources.DialogMessageHigherVersion + Environment.NewLine + AtcFilePath,
+        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        return;
+
+      }
 
     }
+    //======================================================================
 
     // Cancel button click event.                
     private void buttonDecryptCancel_Click(object sender, EventArgs e)
@@ -3653,12 +3686,12 @@ namespace AttacheCase
     }
 
 
-    #endregion
+#endregion
 
     //======================================================================
     // Progress window ( panelProgressState )
     //======================================================================
-    #region
+#region
 
     /// <summary>
     ///  "Back" button

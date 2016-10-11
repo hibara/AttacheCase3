@@ -382,7 +382,7 @@ namespace AttacheCase
         // Plain text header
         byteArray = new byte[2];
         fs.Read(byteArray, 0, 2);
-        _AppVersion = BitConverter.ToInt16(byteArray, 0);                     // AppVersion
+        _AppVersion = BitConverter.ToInt16(byteArray, 0);      // AppVersion
 
         byteArray = new byte[1];
         fs.Read(byteArray, 0, 1);
@@ -1210,42 +1210,21 @@ namespace AttacheCase
     /// <param name="FilePath"></param>
     /// <returns>string</returns>
     //----------------------------------------------------------------------
-    /*
     private string GetSha256HashFromFile(string FilePath)
     {
-      byte[] bytesArray = null;
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
       {
-        using (SHA256CryptoServiceProvider sha1 = new SHA256CryptoServiceProvider())
+        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
+
+        StringBuilder result = new StringBuilder();
+        result.Capacity = 32;
+        foreach (byte b in hash)
         {
-          bytesArray = sha1.ComputeHash(fs);
+          result.Append(b.ToString());
         }
+
+        return (result.ToString());
       }
-
-      StringBuilder result = new StringBuilder();
-      result.Capacity = 32;
-      foreach (byte b in bytesArray)
-      {
-        result.Append(b.ToString());
-      }
-
-      return (result.ToString());
-
-    }
-    */
-
-    private string GetSha256HashFromFile(string FilePath)
-    {
-      ReadOnlyCollection<byte> hash = Sha256.HashFile(File.OpenRead(FilePath));
-
-      StringBuilder result = new StringBuilder();
-      result.Capacity = 32;
-      foreach (byte b in hash)
-      {
-        result.Append(b.ToString());
-      }
-
-      return (result.ToString());
     }
 
     /// <summary>
