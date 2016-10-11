@@ -1960,6 +1960,19 @@ namespace AttacheCase
         toolStripButtonDecryptSelectAtcFiles.Enabled = false;
         toolStripButtonOption.Enabled = false;
 
+        //In the case of ZIP files, it must be more than one character of the password.
+        if (pictureBoxEncryption.Image == pictureBoxZipOn.Image)
+        {
+          if (textBoxPassword.Text == "")
+          {
+            buttonEncryptionPasswordOk.Enabled = false;
+          }
+          else
+          {
+            buttonEncryptionPasswordOk.Enabled = true;
+          }
+        }
+
         // Not mask password character
         // 「*」で隠さずパスワードを確認しながら入力する
         if (AppSettings.Instance.fNoHidePassword == true)
@@ -2239,6 +2252,7 @@ namespace AttacheCase
       pictureBoxEncryption.Image = pictureBoxAtcOn.Image;
       labelEncryption.Text = labelAtc.Text;
       textBoxPassword.Focus();
+      buttonEncryptionPasswordOk.Enabled = true;
     }
 
     private void ToolStripMenuItemExeFile_Click(object sender, EventArgs e)
@@ -2248,6 +2262,7 @@ namespace AttacheCase
       pictureBoxEncryption.Image = pictureBoxExeOn.Image;
       labelEncryption.Text = labelExe.Text;
       textBoxPassword.Focus();
+      buttonEncryptionPasswordOk.Enabled = true;
     }
 
     private void ToolStripMenuItemZipPassword_Click(object sender, EventArgs e)
@@ -2257,6 +2272,17 @@ namespace AttacheCase
       pictureBoxEncryption.Image = pictureBoxZipOn.Image;
       labelEncryption.Text = labelZip.Text;
       textBoxPassword.Focus();
+
+      //In the case of ZIP files, it must be more than one character of the password.
+      if (textBoxPassword.Text == "")
+      {
+        buttonEncryptionPasswordOk.Enabled = false;
+      }
+      else
+      {
+        buttonEncryptionPasswordOk.Enabled = true;
+      }
+
     }
 
     /// <summary>
@@ -2278,7 +2304,20 @@ namespace AttacheCase
       }
       else
       {
-        textBoxRePassword.Enabled = true;
+        // In the case of ZIP files, it must be more than one character of the password.
+        if (pictureBoxEncryption.Image == pictureBoxZipOn.Image)
+        {
+          if (textBoxPassword.Text == "")
+          {
+            buttonEncryptionPasswordOk.Enabled = false;
+          }
+          else
+          {
+            buttonEncryptionPasswordOk.Enabled = true;
+          }
+        }
+
+        textBoxPassword.Enabled = true;
         textBoxRePassword.Enabled = true;
 
         if (textBoxPassword.Text == textBoxRePassword.Text)

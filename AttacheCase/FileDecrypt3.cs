@@ -123,7 +123,6 @@ namespace AttacheCase
     private Int64 _ExeOutSize = 0;
     private Int64 _TotalSize = 0;
     private Int64 _TotalFileSize = 0;
-    private Int64 _StartPos = 0;
 
     //----------------------------------------------------------------------
     // For thie file list after description, open associated with file or folder.
@@ -446,7 +445,7 @@ namespace AttacheCase
       MessageList.Add(Path.GetFileName(FilePath));
       worker.ReportProgress(0, MessageList);
 
-      int len = 0, pos = 0;
+      int len = 0;
       byte[] byteArray;
 
       List<string> FileList = new List<string>();

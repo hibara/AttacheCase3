@@ -73,8 +73,10 @@ AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
 
+#include <idp.iss>
+
 [Files]
-Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch; Check: InitializeSetup
+Source: "bin\AttacheCase.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\AtcSetup.exe"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\Microsoft.WindowsAPICodePack.dll"; DestDir: "{app}"; Flags: ignoreversion touch
 Source: "bin\Microsoft.WindowsAPICodePack.Shell.dll"; DestDir: "{app}"; Flags: ignoreversion touch
@@ -95,8 +97,9 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon};
 Name: association; Description: {cm:AssocFileExtension,*.atc,AttacheCase};
 
 [Run]
-Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks: association; Flags: nowait skipifsilent runascurrentuser
-Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: nowait postinstall skipifsilent
+Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks: association; Flags: postinstall skipifsilent runascurrentuser
+Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: postinstall skipifsilent
+
 
 [UninstallDelete]
 
@@ -111,47 +114,58 @@ Root: HKCU; Subkey: "Software\Hibara\AttacheCase3"; Flags: uninsdeletekey
 
 
 [Code]
-function IsDotNetDetected(version: string; service: cardinal): boolean;
-// Indicates whether the specified version and service pack of the .NET Framework is installed.
 //
-// version -- Specify one of these strings for the required .NET Framework version:
-//    'v1.1.4322'     .NET Framework 1.1
-//    'v2.0.50727'    .NET Framework 2.0
-//    'v3.0'          .NET Framework 3.0
-//    'v3.5'          .NET Framework 3.5
-//    'v4\Client'     .NET Framework 4.0 Client Profile
-//    'v4\Full'       .NET Framework 4.0 Full Installation
+// http://klimov.software/innosetup-install-net-framework-during-setup/
 //
-// service -- Specify any non-negative integer for the required service pack level:
-//    0               No service packs required
-//    1, 2, etc.      Service pack 1, 2, etc. required
+#include "DetectNetVersion.iss"
+ 
+const
+  dotNetVersion = 'v4\Full';
+  servicePack = 0;
+  dotNetWebInstallerURL = 'http://download.microsoft.com/download/1/B/E/1BE39E79-7E39-46A3-96FF-047F95396215/dotNetFx40_Full_setup.exe';
+ 
+var 
+  installRequired : Boolean;
+ 
+procedure InitializeWizard();
+begin
+  if not IsDotNetDetected(dotNetVersion, servicePack) then
+  begin
+    idpAddFile(dotNetWebInstallerURL, ExpandConstant('{tmp}\NetFrameworkInstaller.exe'));    
+    idpDownloadAfter(wpReady);
+    installRequired := true;
+  end
+  else 
+    installRequired := false;
+end;
+
+ 
+procedure InstallFramework;
 var
-  key: string;
-  install, serviceCount: cardinal;
-  success: boolean;
+  StatusText: string;
+  ResultCode: Integer;
 begin
-  key := 'SOFTWARE\Microsoft\NET Framework Setup\NDP\' + version;
-  // .NET 3.0 uses value InstallSuccess in subkey Setup
-  if Pos('v3.0', version) = 1 then begin
-    success := RegQueryDWordValue(HKLM, key + '\Setup', 'InstallSuccess', install);
-  end else begin
-    success := RegQueryDWordValue(HKLM, key, 'Install', install);
+  StatusText := WizardForm.StatusLabel.Caption;
+  WizardForm.StatusLabel.Caption := 'Installing .NET Framework. This might take a few minutes...';
+  WizardForm.ProgressGauge.Style := npbstMarquee;
+  try
+    if not Exec(ExpandConstant('{tmp}\NetFrameworkInstaller.exe'), '/passive /norestart', '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then
+    begin
+      MsgBox('.NET installation failed with code: ' + IntToStr(ResultCode) + '.', mbError, MB_OK);
+    end;
+  finally
+    WizardForm.StatusLabel.Caption := StatusText;
+    WizardForm.ProgressGauge.Style := npbstNormal;
+ 
+    DeleteFile(ExpandConstant('{tmp}\NetFrameworkInstaller.exe'));
   end;
-  // .NET 4.0 uses value Servicing instead of SP
-  if Pos('v4', version) = 1 then begin
-    success := success and RegQueryDWordValue(HKLM, key, 'Servicing', serviceCount);
-  end else begin
-    success := success and RegQueryDWordValue(HKLM, key, 'SP', serviceCount);
-  end;
-  result := success and (install = 1) and (serviceCount >= service);
 end;
-
-function InitializeSetup(): Boolean;
+ 
+ 
+procedure CurStepChanged(CurStep: TSetupStep);
 begin
-  if not IsDotNetDetected('v4\Full', 0) then begin
-    MsgBox('{cm:MsgFailedToInstallDotNetFramework}', mbInformation, MB_OK);
-    result := false;
-  end else
-    result := true;
+  if CurStep = ssPostInstall then 
+  begin
+    if installRequired then InstallFramework;
+  end;
 end;
-

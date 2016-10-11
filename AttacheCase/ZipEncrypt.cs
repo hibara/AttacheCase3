@@ -21,7 +21,8 @@ using Ionic.Zip;
 using System.IO;
 using System.ComponentModel;
 using System.Collections;
-                    
+using System.Text;
+
 namespace AttacheCase
 {
   class ZipEncrypt
@@ -115,6 +116,10 @@ namespace AttacheCase
         {
           using (var zip = new ZipOutputStream(outfs))
           {
+            zip.AlternateEncoding = System.Text.Encoding.GetEncoding("shift_jis");
+            //zip.AlternateEncoding = System.Text.Encoding.UTF8;
+            zip.AlternateEncodingUsage = Ionic.Zip.ZipOption.Always;
+
             // Password
             zip.Password = Password;
 
