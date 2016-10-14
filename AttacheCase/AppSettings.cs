@@ -24,6 +24,15 @@ namespace AttacheCase
     private const int FILE_TYPE_ATC_EXE      = 2;
     private const int FILE_TYPE_PASSWORD_ZIP = 3;
 
+    // Process Type
+    private const int PROCESS_TYPE_ERROR        = -1;
+    private const int PROCESS_TYPE_NONE         = 0;
+    private const int PROCESS_TYPE_ATC          = 1;
+    private const int PROCESS_TYPE_ATC_EXE      = 2;
+    private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
+    private const int PROCESS_TYPE_DECRYPTION   = 4;
+    
+
     //
     // An INI file handling class using C#
     // http://www.codeproject.com/Articles/1966/An-INI-file-handling-class-using-C
@@ -359,38 +368,53 @@ namespace AttacheCase
 		}
 
 		private int _EncryptionFileType = 0;            // 暗号化ファイルの種類
-		//Encryption type ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
+		// Encryption type
 		public int EncryptionFileType
 		{
 			get { return this._EncryptionFileType; }
 			set { this._EncryptionFileType = value; }
 		}
 
-		private int _SameEncryptionFileTypeAlways;      // 常に同じ暗号化ファイルの種類にする
-		//Save same encryption type always. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
-		public int SameEncryptionFileTypeAlways
-		{
-			get { return this._SameEncryptionFileTypeAlways; }
-			set { this._SameEncryptionFileTypeAlways = value; }
+    private bool _fEncryptionSameFileTypeAlways;      // 常に同じ暗号化ファイルの種類にする
+                                                      // Save same encryption type always.
+    public bool fEncryptionSameFileTypeAlways
+    {
+      get { return this._fEncryptionSameFileTypeAlways; }
+      set { this._fEncryptionSameFileTypeAlways = value; }
+    }
+
+    private int _EncryptionSameFileTypeAlways;        // 常に同じ暗号化ファイルの種類
+		                                                  // Same encryption type always.
+		public int EncryptionSameFileTypeAlways
+    {
+			get { return this._EncryptionSameFileTypeAlways; }
+			set { this._EncryptionSameFileTypeAlways = value; }
 		}
 
-		private int _SameEncryptionFileTypeBefore;      // 前に使った暗号化ファイルの種類にする
-		//Save same encryption type that was used to before. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
-		public int SameEncryptionFileTypeBefore
-		{
-			get { return this._SameEncryptionFileTypeBefore; }
-			set { this._SameEncryptionFileTypeBefore = value; }
+		private bool _fEncryptionSameFileTypeBefore;      // 前に使った暗号化ファイルの種類にする
+		// Save same encryption type that was used to before.
+		public bool fEncryptionSameFileTypeBefore
+    {
+			get { return this._fEncryptionSameFileTypeBefore; }
+			set { this._fEncryptionSameFileTypeBefore = value; }
 		}
 
+    private int _EncryptionSameFileTypeBefore;       // 前に使った暗号化ファイルの種類
+                                                      // Same encryption type that was used to before.
+    public int EncryptionSameFileTypeBefore
+    {
+      get { return this._EncryptionSameFileTypeBefore; }
+      set { this._EncryptionSameFileTypeBefore = value; }
+    }
 
-		#endregion
+    #endregion
 
-		//----------------------------------------------------------------------
-		// Save Encrypt
-		#region
-		//----------------------------------------------------------------------
+    //----------------------------------------------------------------------
+    // Save Encrypt
+    #region
+    //----------------------------------------------------------------------
 
-		private bool _fSaveToSameFldr;                 // 暗号化ファイルを常に同じ場所に保存するか
+    private bool _fSaveToSameFldr;                 // 暗号化ファイルを常に同じ場所に保存するか
 		//Save to same folder in &encryption
 		public bool fSaveToSameFldr
 		{
@@ -1221,8 +1245,11 @@ namespace AttacheCase
 				// Save Encrypt
 				//Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)
 				_EncryptionFileType = int.Parse((string)reg.GetValue("EncryptionFileType", "0"));
-				_SameEncryptionFileTypeAlways = int.Parse((string)reg.GetValue("SameEncryptionFileTypeAlways", "0"));
-				_SameEncryptionFileTypeBefore = int.Parse((string)reg.GetValue("SameEncryptionFileTypeBefore", "0"));
+        _fEncryptionSameFileTypeAlways = ((string)reg.GetValue("fEncryptionSameFileTypeAlways", "1") == "1") ? true : false;
+        _EncryptionSameFileTypeAlways = int.Parse((string)reg.GetValue("EncryptionSameFileTypeAlways", "0"));
+
+        _fEncryptionSameFileTypeBefore = ((string)reg.GetValue("fEncryptionSameFileTypeBefore", "1") == "1") ? true : false;
+        _EncryptionSameFileTypeBefore = int.Parse((string)reg.GetValue("EncryptionSameFileTypeBefore", "0"));
 				_fSaveToSameFldr = ((string)reg.GetValue("fSaveToSameFldr", "0") == "1") ? true : false;
 				_SaveToSameFldrPath = (string)reg.GetValue("SaveToSameFldrPath", "");
 
@@ -1391,8 +1418,10 @@ namespace AttacheCase
 				//-----------------------------------
 				// Save Encrypt
 				reg.SetValue("EncryptionFileType", _EncryptionFileType.ToString());
-				reg.SetValue("SameEncryptionFileTypeAlways", _SameEncryptionFileTypeAlways.ToString());
-				reg.SetValue("SameEncryptionFileTypeBefore", _SameEncryptionFileTypeBefore.ToString());
+        reg.SetValue("fEncryptionSameFileTypeAlways", _fEncryptionSameFileTypeAlways == true ? "1" : "0");
+        reg.SetValue("EncryptionSameFileTypeAlways", _EncryptionSameFileTypeAlways.ToString());
+        reg.SetValue("fEncryptionSameFileTypeBefore", _fEncryptionSameFileTypeBefore == true ? "1" : "0");
+        reg.SetValue("EncryptionSameFileTypeBefore", _EncryptionSameFileTypeBefore.ToString());
         reg.SetValue("fSaveToSameFldr", _fSaveToSameFldr == true ? "1" : "0");
 				reg.SetValue("SaveToSameFldrPath", _SaveToSameFldrPath);
 				reg.SetValue("fEncryptConfirmOverwrite", _fEncryptConfirmOverwrite == true ? "1" : "0");
@@ -1556,10 +1585,12 @@ namespace AttacheCase
 
       //Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)
       ReadIniFile(IniFilePath, ref _EncryptionFileType, "Option", "EncryptionFileType", "0");
-			ReadIniFile(IniFilePath, ref _SameEncryptionFileTypeAlways, "Option", "SameEncryptionFileTypeAlways", "0");
-			ReadIniFile(IniFilePath, ref _SameEncryptionFileTypeBefore, "Option", "SameEncryptionFileTypeBefore", "0");
+      ReadIniFile(IniFilePath, ref _fEncryptionSameFileTypeAlways, "Option", "fEncryptionSameFileTypeAlways", "0");
+      ReadIniFile(IniFilePath, ref _EncryptionSameFileTypeAlways, "Option", "EncryptionSameFileTypeAlways", "-1");
+      ReadIniFile(IniFilePath, ref _fEncryptionSameFileTypeBefore, "Option", "fEncryptionSameFileTypeBefore", "0");
+      ReadIniFile(IniFilePath, ref _EncryptionSameFileTypeBefore, "Option", "EncryptionSameFileTypeBefore", "-1");
 
-			ReadIniFile(IniFilePath, ref _fSaveToSameFldr, "Option", "fSaveToSameFldr", "0");
+      ReadIniFile(IniFilePath, ref _fSaveToSameFldr, "Option", "fSaveToSameFldr", "0");
 			ReadIniFile(IniFilePath, ref _SaveToSameFldrPath, "Option", "SaveToSameFldrPath", "");
 			ReadIniFile(IniFilePath, ref _fEncryptConfirmOverwrite, "Option", "fEncryptConfirmOverwrite", "1");
 			ReadIniFile(IniFilePath, ref _fAllFilePack, "Option", "fAllFilePack", "0");
@@ -1706,9 +1737,11 @@ namespace AttacheCase
 			//-----------------------------------
 			// Save Encrypt
 			WriteIniFile(IniFilePath, _EncryptionFileType, "Option", "EncryptionFileType");
-			WriteIniFile(IniFilePath, _SameEncryptionFileTypeAlways, "Option", "SameEncryptionFileTypeAlways");
-			WriteIniFile(IniFilePath, _SameEncryptionFileTypeBefore, "Option", "SameEncryptionFileTypeBefore");
-			WriteIniFile(IniFilePath, _fSaveToSameFldr, "Option", "fSaveToSameFldr");
+      WriteIniFile(IniFilePath, _fEncryptionSameFileTypeAlways, "Option", "fEncryptionSameFileTypeAlways");
+      WriteIniFile(IniFilePath, _EncryptionSameFileTypeAlways, "Option", "EncryptionSameFileTypeAlways");
+      WriteIniFile(IniFilePath, _fEncryptionSameFileTypeBefore, "Option", "fEncryptionSameFileTypeBefore");
+      WriteIniFile(IniFilePath, _EncryptionSameFileTypeBefore, "Option", "EncryptionSameFileTypeBefore");
+      WriteIniFile(IniFilePath, _fSaveToSameFldr, "Option", "fSaveToSameFldr");
 			WriteIniFile(IniFilePath, _SaveToSameFldrPath, "Option", "SaveToSameFldrPath");
 			WriteIniFile(IniFilePath, _fEncryptConfirmOverwrite, "Option", "fEncryptConfirmOverwrite");
 
@@ -2112,7 +2145,7 @@ namespace AttacheCase
 					case "/entype": // 暗号化ファイルの種類
 						if (value == "1")
 						{
-							_EncryptionFileType = 1;
+              _EncryptionFileType = 1;
 							i++;
 						}
 						else if (value == "2")
@@ -2136,23 +2169,27 @@ namespace AttacheCase
 					case "/sametype":	// 常に同じ暗号化ファイルの種類にする
 						if (value == "1")
 						{
-							_SameEncryptionFileTypeAlways = 1;
-							i++;
+              _EncryptionSameFileTypeAlways = 1;
+              _fEncryptionSameFileTypeAlways = true;
+              i++;
 						}
 						else if (value == "2")
 						{
-							_SameEncryptionFileTypeAlways = 2;
-							i++;
+              _EncryptionSameFileTypeAlways = 2;
+              _fEncryptionSameFileTypeAlways = true;
+              i++;
 						}
 						else if (value == "3")
 						{
-							_SameEncryptionFileTypeAlways = 3;
-							i++;
+              _EncryptionSameFileTypeAlways = 3;
+              _fEncryptionSameFileTypeAlways = true;
+              i++;
 						} 
 						else
 						{
-							_SameEncryptionFileTypeAlways = 0;
-							i++;
+              _EncryptionSameFileTypeAlways = 0;
+              _fEncryptionSameFileTypeAlways = false;
+              i++;
 						}
 						break;
 
@@ -2160,23 +2197,27 @@ namespace AttacheCase
 					case "/beforetype":	// 前に使った暗号化ファイルの種類にする
 						if (value == "1")
 						{
-							_SameEncryptionFileTypeBefore = 1;
-							i++;
+              _EncryptionSameFileTypeBefore = 1;
+              _fEncryptionSameFileTypeBefore = true;
+              i++;
 						}
 						else if (value == "2")
 						{
-							_SameEncryptionFileTypeBefore = 2;
-							i++;
+              _EncryptionSameFileTypeBefore = 2;
+              _fEncryptionSameFileTypeBefore = true;
+              i++;
 						}
 						else if (value == "3")
 						{
-							_SameEncryptionFileTypeBefore = 3;
-							i++;
+              _EncryptionSameFileTypeBefore = 3;
+              _fEncryptionSameFileTypeBefore = true;
+              i++;
 						} 
 						else
 						{
-							_SameEncryptionFileTypeBefore = 0;
-							i++;
+              _EncryptionSameFileTypeBefore = 0;
+              _fEncryptionSameFileTypeBefore = false;
+              i++;
 						}
 						break;
 
@@ -2206,9 +2247,14 @@ namespace AttacheCase
 						{
 							_fEncryptConfirmOverwrite = true;
 							_fDecryptConfirmOverwrite = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fEncryptConfirmOverwrite = false;
+              _fDecryptConfirmOverwrite = false;
+            }
+            i++;
+            break;
 						
 					// Create one encrypted file from files
 					case "/allpack": // 複数のファイルを暗号化する際は一つにまとめる
@@ -3065,7 +3111,7 @@ namespace AttacheCase
     /// 投げ込まれたファイルの種類を特定する（ディレクトリ, ATC, EXE[by ATC], ZIP）
     /// </summary>
     /// <remarks>http://stackoverflow.com/a/929418</remarks>
-    /// <returns>Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)</returns>
+    /// <returns> 1: ATC, 2: EXE(ATC), 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)</returns>
     private int CheckFileType(string FilePath)
 		{
 			const string SignatureZip = "50-4B-03-04";
@@ -3217,52 +3263,52 @@ namespace AttacheCase
 		/// <summary>
 		/// 投げ込まれたファイルタイプから処理内容を決定する
 		/// </summary>
-		/// <returns>Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)</returns>
 		public int DetectFileType()
 		{
-      // File type
-      // private const int FILE_TYPE_ERROR = -1;
-      // private const int FILE_TYPE_NONE = 0;
-      // private const int FILE_TYPE_ATC = 1;
-      // private const int FILE_TYPE_ATC_EXE = 2;
-      // private const int FILE_TYPE_PASSWORD_ZIP = 3;
+      // Process Type
+      // private const int PROCESS_TYPE_ERROR        = -1;
+      // private const int PROCESS_TYPE_NONE         = 0;
+      // private const int PROCESS_TYPE_ATC          = 1;
+      // private const int PROCESS_TYPE_ATC_EXE      = 2;
+      // private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
+      // private const int PROCESS_TYPE_DECRYPTION   = 4;
 
       _FileType = new int[4] { 0, 0, 0, 0 };
 
 			foreach (string f in _FileList)
 			{
-				_FileType[CheckFileType(f)]++;
+        // 1: ATC, 2: EXE(ATC), 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)
+        _FileType[CheckFileType(f)]++;
 			}
 
-      // 1: ATC, 2: EXE(ATC)
+      // Process Type
+      // private const int PROCESS_TYPE_ERROR        = -1;
+      // private const int PROCESS_TYPE_NONE         = 0;
+      // private const int PROCESS_TYPE_ATC          = 1;
+      // private const int PROCESS_TYPE_ATC_EXE      = 2;
+      // private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
+      // private const int PROCESS_TYPE_DECRYPTION   = 4;
       if ((_FileType[1] > 0 || _FileType[2] > 0) && _FileType[3] == 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC;
-        return 1;
+        return PROCESS_TYPE_DECRYPTION;
       }
-      // 2: EXE(ATC)
       else if (_FileType[1] == 0 && _FileType[2] > 0 && _FileType[3] == 0 && _FileType[0] == 0)
       {
-        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
-        return 2;
+        return PROCESS_TYPE_DECRYPTION;
       }
-      // 3: ZIP
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] > 0 && _FileType[0] == 0)
       {
         //AppSettings.Instance.EncryptionFileType = FILE_TYPE_PASSWORD_ZIP;
         //return 3;
-        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
-        return 0;
+        return PROCESS_TYPE_PASSWORD_ZIP;
       }
-      // 0: Others(Encrypt file?)
       else if (_FileType[1] == 0 && _FileType[2] == 0 && _FileType[3] == 0 && _FileType[0] > 0)
       {
-        AppSettings.Instance.EncryptionFileType = FILE_TYPE_NONE;
-        return 0;
+        return PROCESS_TYPE_ATC;
       }
       else
       {
-        return -1;
+        return PROCESS_TYPE_ERROR;
       }
 		}
 

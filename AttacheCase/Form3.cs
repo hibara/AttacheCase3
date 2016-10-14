@@ -345,58 +345,39 @@ namespace AttacheCase
 			checkBoxWindowForeground.Checked = AppSettings.Instance.fWindowForeground;
 			checkBoxNoMultipleInstance.Checked = AppSettings.Instance.fNoMultipleInstance;
 
-			#endregion
-
-			//-----------------------------------
-			// Save
-			//-----------------------------------
-			#region
-			int EncryptionFileType = AppSettings.Instance.EncryptionFileType;
-
-			if (AppSettings.Instance.SameEncryptionFileTypeAlways > 0)
-			{
-				EncryptionFileType = AppSettings.Instance.SameEncryptionFileTypeAlways;
-				checkBoxEncryptionSameFileTypeAlways.Checked = true;
-			}
-			else if (AppSettings.Instance.SameEncryptionFileTypeBefore > 0)
-      {
-				checkBoxEncryptionSameFileTypeAlways.Checked = false;
-				EncryptionFileType = AppSettings.Instance.SameEncryptionFileTypeBefore;
-				checkBoxEncryptionSameFileTypeBefore.Checked = true;
-      }
-			else
-			{
-				checkBoxEncryptionSameFileTypeBefore.Checked = false;
-			}
+      #endregion
 
       //-----------------------------------
-      if (EncryptionFileType == 1)
+      // Save
+      //-----------------------------------
+      #region
+
+      // Encryption will be the same file type always.
+      if (AppSettings.Instance.EncryptionSameFileTypeAlways == 1)
       {
         radioButtonEncryptionFileTypeATC.Checked = true;
-        radioButtonEncryptionFileTypeEXE.Checked = false;
-        radioButtonEncryptionFileTypeZIP.Checked = false;
-        radioButtonNotSpecified.Checked = false;
       }
-      else if (EncryptionFileType == 2)
-			{
-				radioButtonEncryptionFileTypeATC.Checked = false;
-				radioButtonEncryptionFileTypeEXE.Checked = true;
-				radioButtonEncryptionFileTypeZIP.Checked = false;
-        radioButtonNotSpecified.Checked = false;
+      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == 2)
+      {
+        radioButtonEncryptionFileTypeEXE.Checked = true;
       }
-      else if (EncryptionFileType == 3)
-			{
-				radioButtonEncryptionFileTypeATC.Checked = false;
-				radioButtonEncryptionFileTypeEXE.Checked = false;
-				radioButtonEncryptionFileTypeZIP.Checked = true;
-        radioButtonNotSpecified.Checked = false;
+      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == 3)
+      {
+        radioButtonEncryptionFileTypeZIP.Checked = true;
       }
       else
-      { //EncryptionFileType == 0
-        radioButtonEncryptionFileTypeATC.Checked = false;
-				radioButtonEncryptionFileTypeEXE.Checked = false;
-				radioButtonEncryptionFileTypeZIP.Checked = false;
+      {
         radioButtonNotSpecified.Checked = true;
+      }
+
+      // Save same encryption type that was used to before.
+      if (AppSettings.Instance.fEncryptionSameFileTypeBefore == true)
+      {
+        checkBoxEncryptionSameFileTypeBefore.Checked = true;
+      }
+      else
+      {
+        checkBoxEncryptionSameFileTypeBefore.Checked = false;
       }
 
       #endregion
@@ -1018,40 +999,24 @@ THE SOFTWARE.
 
       //-----------------------------------
       // Save
-      if (checkBoxEncryptionSameFileTypeAlways.Checked == true)
-      {
-        AppSettings.Instance.SameEncryptionFileTypeAlways = AppSettings.Instance.EncryptionFileType;
-      }
-      else
-      {
-        AppSettings.Instance.SameEncryptionFileTypeAlways = 0;
-      }
-
-      if (checkBoxEncryptionSameFileTypeBefore.Checked == true)
-      {
-        AppSettings.Instance.SameEncryptionFileTypeBefore = AppSettings.Instance.EncryptionFileType;
-      }
-      else
-      {
-        AppSettings.Instance.SameEncryptionFileTypeBefore = 0;
-      }
-
       if (radioButtonEncryptionFileTypeATC.Checked == true)
       {
-        AppSettings.Instance.EncryptionFileType = 1;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = 1;
       }
       else if (radioButtonEncryptionFileTypeEXE.Checked == true)
       {
-        AppSettings.Instance.EncryptionFileType = 2;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = 2;
       }
       else if (radioButtonEncryptionFileTypeZIP.Checked == true)
       {
-        AppSettings.Instance.EncryptionFileType = 3;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = 3;
       }
       else
       {
         AppSettings.Instance.EncryptionFileType = 0;
       }
+
+      AppSettings.Instance.fEncryptionSameFileTypeBefore = checkBoxEncryptionSameFileTypeBefore.Checked;
       
       //-----------------------------------
       // Save Encrypt
@@ -1217,7 +1182,6 @@ THE SOFTWARE.
       }
 
     }
-
 
     //======================================================================
     // General
@@ -1425,21 +1389,9 @@ THE SOFTWARE.
 		// Save
 		//======================================================================
 		#region
-		private void checkBoxEncryptionSameFileTypeAlways_CheckedChanged(object sender, EventArgs e)
-		{
-      if (checkBoxEncryptionSameFileTypeAlways.Checked == true)
-      {
-        checkBoxEncryptionSameFileTypeBefore.Checked = false;
-      }
-      buttonApply.Enabled = true;
-		}
 
 		private void checkBoxEncryptionSameFileTypeBefore_CheckedChanged(object sender, EventArgs e)
 		{
-      if (checkBoxEncryptionSameFileTypeBefore.Checked == true)
-      {
-        checkBoxEncryptionSameFileTypeAlways.Checked = false;
-      }
       buttonApply.Enabled = true;
 		}
 

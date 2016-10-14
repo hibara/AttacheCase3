@@ -19,8 +19,6 @@ using System;
 using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
-using System.IO;
-using AttacheCase.Properties;
 
 
 namespace AttacheCase
@@ -55,18 +53,30 @@ namespace AttacheCase
       //-----------------------------------
       // Check culture
 
-      if (AppSettings.Instance.Language == "ja" && Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+      if (AppSettings.Instance.Language == "")
+      {
+        if (Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+        {
+          AppSettings.Instance.Language = "ja";
+        }
+        else
+        {
+          AppSettings.Instance.Language = "en";
+        }
+      }
+
+      if (AppSettings.Instance.Language == "ja")
       {
         Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
         Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-        AppSettings.Instance.Language = "ja";
+        //AppSettings.Instance.Language = "ja";
       }
       else
       {
         Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
-        AppSettings.Instance.Language = "en";
+        //AppSettings.Instance.Language = "en";
       }
-
+             
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new Form1());

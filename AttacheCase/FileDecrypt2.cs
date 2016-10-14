@@ -71,7 +71,6 @@ namespace AttacheCase
 		private Int64 _ExeOutSize = 0;
     private Int64 _TotalSize = 0;
     private Int64 _TotalFileSize = 0;
-    private Int64 _StartPos = 0;
 
     // "U_" or "Fn_" is number of char
     int prefix;
