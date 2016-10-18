@@ -61,7 +61,7 @@ for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i
 
 )
 
-"C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
+@rem "C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
 
 
 @echo. 

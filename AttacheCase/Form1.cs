@@ -665,7 +665,6 @@ namespace AttacheCase
 
     private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
-
       ArrayList MessageList = (ArrayList)e.UserState;
 
       if (e.ProgressPercentage > 0)

@@ -18,7 +18,7 @@ en.MsgFailedToInstallDotNetFramework=Failed to install .NET Framework 4.0.%nPlea
 jp.MsgFailedToInstallDotNetFramework=.NET Framework 4.0 のインストールに失敗したようです。%nWindowsアップデートなどから .NET Frameworkをインストールして、%nセットアッププログラムを再度起動してください。
 en.mdSampleFile=help.md
 jp.mdSampleFile=help-ja.md
-en.LaunchProgram=Start AttacheCase3 after finishing installation.
+en.LaunchProgram=Launch AttacheCase3 after finishing installation.
 jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
 
 [Setup]AppName={cm:AppName}
@@ -31,7 +31,10 @@ AppendDefaultDirName=yes
 OutputDir=.\archives
 TouchTime=00:00
 ShowLanguageDialog=yes
-UsePreviousLanguage=no;SignTool=MySignTool;SignedUninstaller=yes
+UsePreviousLanguage=no
+
+SignTool=MySignTool
+SignedUninstaller=yes
 
 ;-----------------------------------
 ;インストーラプログラム
@@ -72,6 +75,7 @@ AppSupportURL=https://hibara.org/software/
 AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
+
 
 #include <idp.iss>
 
@@ -126,6 +130,7 @@ const
  
 var 
   installRequired : Boolean;
+  PasswordStr: String;
  
 procedure InitializeWizard();
 begin
@@ -139,7 +144,7 @@ begin
     installRequired := false;
 end;
 
- 
+
 procedure InstallFramework;
 var
   StatusText: string;
@@ -160,7 +165,7 @@ begin
     DeleteFile(ExpandConstant('{tmp}\NetFrameworkInstaller.exe'));
   end;
 end;
- 
+
  
 procedure CurStepChanged(CurStep: TSetupStep);
 begin
@@ -169,3 +174,14 @@ begin
     if installRequired then InstallFramework;
   end;
 end;
+
+
+function PasswordTextFromFile(): String;
+begin
+  if LoadStringFromFile('code_signing\_password.txt', PasswordStr) then
+  begin
+    Result := PasswordStr;
+  end;
+end;
+
+ 

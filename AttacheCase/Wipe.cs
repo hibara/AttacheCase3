@@ -86,9 +86,8 @@ namespace AttacheCase
     /// <param name="sender"></param>
     /// <param name="e"></param>
     /// <param name="FilePaths">Array of file paths</param>
-    /// <param name="DelRandNum">Number of Random data</param>
+    /// <param name="DelRand/*Num">Number of Random data</param>
     /// <param name="DelZeroNum">Number of Zeros </param>
-    /// <param name="callback"></param>
     public int WipeFile(
       object sender, DoWorkEventArgs e,
       List<string> FilePaths, int DelRandNum, int DelZeroNum)
@@ -98,11 +97,30 @@ namespace AttacheCase
         Int64 TotalSectors = 0;
         Int64 TotalFileSectors = 0;
 
+        List<string> FileList = new List<string>();
+
         ArrayList MessageList = new ArrayList();
+
+        foreach(string FilePath in FilePaths)
+        {
+          if (File.Exists(FilePath) == true)
+          {
+            FileList.Add(FilePath);
+          }
+          else if (Directory.Exists(FilePath) == true)
+          {
+            foreach (string f in GetFileList("*", FilePath))
+            {
+              FileList.Add(f);
+            }
+          }
+        }
+
+        FilePaths = FileList;
+
 
         ParallelOptions options = new ParallelOptions();
         options.MaxDegreeOfParallelism = Environment.ProcessorCount;
-
         Parallel.ForEach(FilePaths, options, FilePath =>
         {
           if (File.Exists(FilePath))
@@ -112,114 +130,119 @@ namespace AttacheCase
           }
         });
 
+        /*
+        foreach (string path in FilePaths)
+        {
+          {
+            if (File.Exists(path))
+            {
+              // Calculate the total number of sectors in the file.
+              TotalFileSectors += (Int64)Math.Ceiling(new FileInfo(path).Length / 512.0);
+            }
+          }
+        }
+        */
+
+        TotalFileSectors = TotalFileSectors * (DelRandNum + DelZeroNum);
+
         BackgroundWorker worker = sender as BackgroundWorker;
         worker.WorkerSupportsCancellation = true;
         e.Result = DELETING;
 
-        foreach ( string FilePath in FilePaths)
+        foreach (string FilePath in FilePaths)
         {
-          if (File.Exists(FilePath))
+          if (File.Exists(FilePath) == false)
           {
-            int TotalTimes = DelRandNum + DelZeroNum;
-            int RandNum = DelRandNum;
-            int ZeroNum = DelZeroNum;
+            continue;
+          }
+          int _TotalTimes = DelRandNum + DelZeroNum;
+          int RandNum = DelRandNum;
+          int ZeroNum = DelZeroNum;
 
+          // Set the files attributes to normal in case it's read-only.
+          File.SetAttributes(FilePath, FileAttributes.Normal);
+
+          // Calculate the total number of sectors in the file.
+          double sectors = Math.Ceiling(new FileInfo(FilePath).Length / 512.0);
+
+          // Create a dummy-buffer the size of a sector.
+          byte[] dummyBuffer = new byte[512];
+
+          // Open a FileStream to the file.
+          using (FileStream fs = new FileStream(FilePath, FileMode.Open))
+          {
             while (RandNum > 0 || ZeroNum > 0)
             {
-              // Set the files attributes to normal in case it's read-only.
-              File.SetAttributes(FilePath, FileAttributes.Normal);
 
-              // Calculate the total number of sectors in the file.
-              double sectors = Math.Ceiling(new FileInfo(FilePath).Length / 512.0);
+              _NumOfTimes = _TotalTimes - (RandNum + ZeroNum) + 1;
 
-              // Create a dummy-buffer the size of a sector.
-              byte[] dummyBuffer = new byte[512];
+              // Go to the beginning of the stream
+              fs.Position = 0;
 
-              // Open a FileStream to the file.
-              using (FileStream inputStream = new FileStream(FilePath, FileMode.Open))
+              // Loop all sectors
+              for (int sectorsWritten = 0; sectorsWritten < sectors; sectorsWritten++)
               {
-                for (int NumOfTimes = 1; NumOfTimes < TotalTimes + 1; NumOfTimes++)
+                TotalSectors++;
+
+                if (TotalSectors % 10 == 0)
                 {
-                  // Go to the beginning of the stream
-                  inputStream.Position = 0;
-
-                  // Loop all sectors
-                  for (int sectorsWritten = 0; sectorsWritten < sectors; sectorsWritten++)
+                  string _DeleteType = "";
+                  if(RandNum > 0)
                   {
-                    TotalSectors++;
+                    _DeleteType = "Random";
+                  }
+                  else if (ZeroNum > 0 )
+                  {
+                    _DeleteType = "Zeros";
+                  }
 
-                    if (TotalSectors % 10 == 0)
-                    {
-                      string MessageText =
-                        Path.GetFileName(FilePath) + "(" + NumOfTimes + "/" + TotalTimes + ") - " +
-                        TotalSectors.ToString() + "/" + TotalFileSectors.ToString() + "sectors";
-        
-                      float percent = ((float)TotalSectors / TotalFileSectors);
-                      MessageList = new ArrayList();
-                      MessageList.Add(DELETING);
-                      MessageList.Add(MessageText);
-                      worker.ReportProgress((int)(percent * 10000), MessageList);
-                    }
+                  string MessageText =
+                  String.Format("{0} ({1}: {2}/{3}) - {4}/{5} sectors",
+                    Path.GetFileName(FilePath), // {0}
+                    _DeleteType,                // {1}
+                    _NumOfTimes,                // {2}
+                    _TotalTimes,                // {3}
+                    TotalSectors.ToString(),    // {4}
+                    TotalFileSectors.ToString() // {5}
+                    );
 
-                    //-----------------------------------
-                    // Random number fills
-                    if (RandNum > 0)
-                    {
-                      // Create a cryptographic Random Number Generator.
-                      // This is what I use to create the garbage data.
-                      // Fill the dummy-buffer with random data
-                      RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-                      rng.GetBytes(dummyBuffer);
-                    }
-                    //-----------------------------------
-                    // Zeros fills
-                    else
-                    {
-                      // Zeros fills
-                      Array.Clear(dummyBuffer, 0, dummyBuffer.Length);
-                    }
-                    //-----------------------------------
-                    // Write it to the stream
-                    inputStream.Write(dummyBuffer, 0, dummyBuffer.Length);
+                  float percent = ((float)TotalSectors / TotalFileSectors);
+                  MessageList = new ArrayList();
+                  MessageList.Add(DELETING);
+                  MessageList.Add(MessageText);
+                  worker.ReportProgress((int)(percent * 10000), MessageList);
+                }
 
-                    // Cancel
-                    if (worker.CancellationPending == true)
-                    {
-                      e.Cancel = true;
-                      return(USER_CANCELED);
-                    }
+                //-----------------------------------
+                // Random number fills
+                if (RandNum > 0)
+                {
+                  // Create a cryptographic Random Number Generator.
+                  // This is what I use to create the garbage data.
+                  // Fill the dummy-buffer with random data
+                  RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+                  rng.GetBytes(dummyBuffer);
+                }
+                //-----------------------------------
+                // Zeros fills
+                else
+                {
+                  // Zeros fills
+                  Array.Clear(dummyBuffer, 0, 512);
+                }
+                //-----------------------------------
+                // Write it to the stream
+                fs.Write(dummyBuffer, 0, 512);
 
-                  }// end for (int sectorsWritten = 0; sectorsWritten < sectors; sectorsWritten++);
+                // Cancel
+                if (worker.CancellationPending == true)
+                {
+                  e.Cancel = true;
+                  return (USER_CANCELED);
+                }
 
-                } // end for (int NumOfTimes = 1; NumOfTimes < TotalTimes + 1; NumOfTimes++);
-
-                // Truncate the file to 0 bytes.
-                // This will hide the original file-length if you try to recover the file.
-                inputStream.SetLength(0);
-
-                // Close the stream.
-                //inputStream.Close();
-
-              } // end using (FileStream inputStream = new FileStream(FilePath, FileMode.Open))
-
-
-              // As an extra precaution I change the dates of the file so the
-              // original dates are hidden if you try to recover the file.
-              DateTime dt = new DateTime(2037, 1, 1, 0, 0, 0);
-              File.SetCreationTime(FilePath, dt);
-              File.SetLastAccessTime(FilePath, dt);
-              File.SetLastWriteTime(FilePath, dt);
-
-              File.SetCreationTimeUtc(FilePath, dt);
-              File.SetLastAccessTimeUtc(FilePath, dt);
-              File.SetLastWriteTimeUtc(FilePath, dt);
-
-              // Finally, delete the file
-              File.Delete(FilePath);
-
-
-              //WipeDone();
-
+              }// end for (int sectorsWritten = 0; sectorsWritten < sectors; sectorsWritten++);
+             
               if (RandNum > 0)
               {
                 RandNum--;
@@ -229,12 +252,39 @@ namespace AttacheCase
                 ZeroNum--;
               }
 
+              // Truncate the file to 0 bytes.
+              // This will hide the original file-length if you try to recover the file.
+              if (RandNum == 0 && ZeroNum == 0)
+              {
+                fs.SetLength(0);
+                break;
+              }
+
+              // Close the stream.
+              //inputStream.Close();
+
             } // end while (RandNum > 0 || ZeroNum > 0);
 
-          } // end if (File.Exists(filename));
+          } // end using (FileStream inputStream = new FileStream(FilePath, FileMode.Open))
 
-        } // end foreach;
-           
+          //WipeDone();
+
+          // As an extra precaution I change the dates of the file so the
+          // original dates are hidden if you try to recover the file.
+          DateTime dt = new DateTime(2037, 1, 1, 0, 0, 0);
+          File.SetCreationTime(FilePath, dt);
+          File.SetLastAccessTime(FilePath, dt);
+          File.SetLastWriteTime(FilePath, dt);
+
+          File.SetCreationTimeUtc(FilePath, dt);
+          File.SetLastAccessTimeUtc(FilePath, dt);
+          File.SetLastWriteTimeUtc(FilePath, dt);
+
+          // Finally, delete the file
+          File.Delete(FilePath);
+
+        } // end foreach (string FilePath in FilePaths);
+
 
       }
       catch (Exception ex)
@@ -260,95 +310,36 @@ namespace AttacheCase
 
     }
 
-
-    # region Events
-    public event PassInfoEventHandler PassInfoEvent;
-    private void UpdatePassInfo(int currentPass, int totalPasses)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>http://stackoverflow.com/questions/2106877/is-there-a-faster-way-than-this-to-find-all-the-files-in-a-directory-and-all-sub</remarks>
+    /// <param name="fileSearchPattern"></param>
+    /// <param name="rootFolderPath"></param>
+    /// <returns></returns>
+    public static IEnumerable<string> GetFileList(string fileSearchPattern, string rootFolderPath)
     {
-        PassInfoEvent(new PassInfoEventArgs(currentPass, totalPasses));
-    }
-
-    public event SectorInfoEventHandler SectorInfoEvent;
-    private void UpdateSectorInfo(int currentSector, int totalSectors)
-    {
-        SectorInfoEvent(new SectorInfoEventArgs(currentSector, totalSectors));
-    }
-
-    public event WipeDoneEventHandler WipeDoneEvent;
-    private void WipeDone()
-    {
-        WipeDoneEvent(new WipeDoneEventArgs());
-    }
-
-    public event WipeErrorEventHandler WipeErrorEvent;
-    private void WipeError(Exception e)
-    {
-        WipeErrorEvent(new WipeErrorEventArgs(e));
-    }
-    # endregion
-  }
-
-  # region Events
-  # region PassInfo
-  public delegate void PassInfoEventHandler(PassInfoEventArgs e); 
-  public class PassInfoEventArgs : EventArgs
-  {
-      private readonly int cPass;
-      private readonly int tPass;
-
-      public PassInfoEventArgs(int currentPass, int totalPasses)
+      Queue<string> pending = new Queue<string>();
+      pending.Enqueue(rootFolderPath);
+      string[] tmp;
+      while (pending.Count > 0)
       {
-          cPass = currentPass;
-          tPass = totalPasses;
+        rootFolderPath = pending.Dequeue();
+        yield return rootFolderPath;
+        tmp = Directory.GetFiles(rootFolderPath, fileSearchPattern);
+        for (int i = 0; i < tmp.Length; i++)
+        {
+          yield return tmp[i];
+        }
+        tmp = Directory.GetDirectories(rootFolderPath);
+        for (int i = 0; i < tmp.Length; i++)
+        {
+          pending.Enqueue(tmp[i]);
+        }
       }
+    }
 
-      /// <summary> Get the current pass </summary>
-      public int CurrentPass { get { return cPass; } }
-      /// <summary> Get the total number of passes to be run </summary> 
-      public int TotalPasses { get { return tPass; } }
   }
-  # endregion
 
-  # region SectorInfo        
-  public delegate void SectorInfoEventHandler(SectorInfoEventArgs e);
-  public class SectorInfoEventArgs : EventArgs
-  {
-      private readonly int cSector;
-      private readonly int tSectors;
-
-      public SectorInfoEventArgs(int currentSector, int totalSectors)
-      {
-          cSector = currentSector;
-          tSectors = totalSectors;
-      }
-
-      /// <summary> Get the current sector </summary> 
-      public int CurrentSector { get { return cSector; } }
-      /// <summary> Get the total number of sectors to be run </summary> 
-      public int TotalSectors { get { return tSectors; } }
-  }
-  # endregion
-
-  # region WipeDone        
-  public delegate void WipeDoneEventHandler(WipeDoneEventArgs e);
-  public class WipeDoneEventArgs : EventArgs
-  {
-  }
-  # endregion
-
-  # region WipeError
-  public delegate void WipeErrorEventHandler(WipeErrorEventArgs e);
-  public class WipeErrorEventArgs : EventArgs
-  {
-      private readonly Exception e;
-
-      public WipeErrorEventArgs(Exception error)
-      {
-          e = error;
-      }
-
-      public Exception WipeError{get{ return e;}}
-  }
-  # endregion
-  # endregion
 }
+ 
