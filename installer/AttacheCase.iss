@@ -101,8 +101,8 @@ Name: desktopicon; Description: {cm:CreateDesktopIcon};
 Name: association; Description: {cm:AssocFileExtension,*.atc,AttacheCase};
 
 [Run]
-Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks: association; Flags: postinstall skipifsilent runascurrentuser
-Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: postinstall skipifsilent
+Filename: "{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks: association; Flags: postinstall runascurrentuser skipifsilent shellexec
+Filename: "{app}\AttacheCase.exe"; Description: {cm:LaunchProgram}; Flags: postinstall skipifsilent shellexec
 
 
 [UninstallDelete]
