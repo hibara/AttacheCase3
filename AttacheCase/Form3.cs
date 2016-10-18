@@ -1087,12 +1087,16 @@ THE SOFTWARE.
 			AppSettings.Instance.DelRandNum = (int)numericUpDownDelRandNum.Value;
 			AppSettings.Instance.DelZeroNum = (int)numericUpDownDelZeroNum.Value;
 
-			//-----------------------------------
-			// System
-			//buttonAssociateAtcFiles
-			//buttonUnAssociateAtcFiles
-			
-			if (File.Exists(AppSettings.Instance.UserRegIconFilePath) == false)
+      //-----------------------------------
+      // Compression
+      AppSettings.Instance.CompressRate = trackBarCompressRate.Value;
+
+      //-----------------------------------
+      // System
+      //buttonAssociateAtcFiles
+      //buttonUnAssociateAtcFiles
+
+      if (File.Exists(AppSettings.Instance.UserRegIconFilePath) == false)
 			{
 				AppSettings.Instance.UserRegIconFilePath = "";
 				AppSettings.Instance.AtcsFileIconIndex = -1;
@@ -1711,11 +1715,16 @@ THE SOFTWARE.
 			if (checkBoxCompressionOption.Checked == true)
 			{
 				labelCompressionRateOption.Text = trackBarCompressRate.Value.ToString();
-			}
+        trackBarCompressRate.Enabled = true;
+        trackBarCompressRate.Value = 6;
+
+      }
 			else
 			{
 				trackBarCompressRate.Value = 0;
-			}
+        trackBarCompressRate.Enabled = false;
+
+      }
       buttonApply.Enabled = true;
     }
 
