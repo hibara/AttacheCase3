@@ -467,27 +467,30 @@ namespace AttacheCase
 			checkBoxDecryptShowDeleteChkBox.Checked = AppSettings.Instance.fDecryptShowDelChkBox;
 			checkBoxConfirmToDeleteAfterDecryption.Checked = AppSettings.Instance.fConfirmToDeleteAfterDecryption;
 
-      //[0: Normal Delete, 1: Send to Trash, 2: Complete erase ]         
-      if (AppSettings.Instance.fCompleteDelFile == 1)
-      { // Send to trash
+      //[0: Not delete, 1: Normal Delete, 2: Send to Trash, 3: Complete erase ]         
+      if (AppSettings.Instance.fCompleteDelFile == 2)
+      {
+        // Send to trash
         radioNormalDelete.Checked = false;
         radioButtonSendToTrash.Checked = true;
         radioButtonCompleteErase.Checked = false;
       }
-      else if (AppSettings.Instance.fCompleteDelFile == 2)
-      { // Complete erase
+      else if(AppSettings.Instance.fCompleteDelFile == 3)
+      {
+        // Complete erase
         radioNormalDelete.Checked = false;
         radioButtonSendToTrash.Checked = false;
         radioButtonCompleteErase.Checked = true;
       }
       else
-      { // Normal Delete
+      {
+        // Normal Delete
         radioNormalDelete.Checked = true;
         radioButtonSendToTrash.Checked = false;
         radioButtonCompleteErase.Checked = false;
       }
 
-      if(radioButtonCompleteErase.Checked == true)
+      if (radioButtonCompleteErase.Checked == true)
       {
         groupBoxCompleteDelete.Enabled = true;
       }
@@ -1071,20 +1074,24 @@ THE SOFTWARE.
 			AppSettings.Instance.fDelEncFile = checkBoxDelEncFile.Checked;
 			AppSettings.Instance.fDecryptShowDelChkBox = checkBoxDecryptShowDeleteChkBox.Checked;
 			AppSettings.Instance.fConfirmToDeleteAfterDecryption = checkBoxConfirmToDeleteAfterDecryption.Checked;
-      //[0: Normal Delete, 1: Send to Trash, 2: Complete erase ]
-      if (radioButtonSendToTrash.Checked == true)
-			{
-				AppSettings.Instance.fCompleteDelFile = 1;
-			}
-			else if (radioButtonCompleteErase.Checked == true)
+      //[0: Not delete, 1: Normal Delete, 2: Send to Trash, 3: Complete erase ]
+      if (radioNormalDelete.Checked == true)
+      {
+        AppSettings.Instance.fCompleteDelFile = 1;
+      }
+      else if (radioButtonSendToTrash.Checked == true)
 			{
 				AppSettings.Instance.fCompleteDelFile = 2;
 			}
-			else
+			else if (radioButtonCompleteErase.Checked == true)
 			{
-				AppSettings.Instance.fCompleteDelFile = 0;  // Normal delete
+				AppSettings.Instance.fCompleteDelFile = 3;
 			}
-			AppSettings.Instance.DelRandNum = (int)numericUpDownDelRandNum.Value;
+      else
+      {
+        AppSettings.Instance.fCompleteDelFile = 0;  // Not delete
+      }
+      AppSettings.Instance.DelRandNum = (int)numericUpDownDelRandNum.Value;
 			AppSettings.Instance.DelZeroNum = (int)numericUpDownDelZeroNum.Value;
 
       //-----------------------------------

@@ -525,7 +525,7 @@ namespace AttacheCase
                           string MessageText = "";
                           if (_TotalNumberOfFiles > 1)
                           {
-                            MessageText = path + " ( " + _NumberOfFiles.ToString() + " files/ " + _TotalNumberOfFiles.ToString() + " folders )";
+                            MessageText = path + " ( " + _NumberOfFiles.ToString() + " / " + _TotalNumberOfFiles.ToString() + " files )";
                           }
                           else
                           {
@@ -588,17 +588,17 @@ namespace AttacheCase
 
       // Set the timestamp of encryption file to original files or directories
       if (_fKeepTimeStamp == true)
-        {
-          DateTime dtCreate = File.GetCreationTime((string)AppSettings.Instance.FileList[0]);
-          DateTime dtUpdate = File.GetLastWriteTime((string)AppSettings.Instance.FileList[0]);
-          DateTime dtAccess = File.GetLastAccessTime((string)AppSettings.Instance.FileList[0]);
-          File.SetCreationTime(OutFilePath, dtCreate);
-          File.SetLastWriteTime(OutFilePath, dtUpdate);
-          File.SetLastAccessTime(OutFilePath, dtAccess);
-        }
+      {
+        DateTime dtCreate = File.GetCreationTime((string)AppSettings.Instance.FileList[0]);
+        DateTime dtUpdate = File.GetLastWriteTime((string)AppSettings.Instance.FileList[0]);
+        DateTime dtAccess = File.GetLastAccessTime((string)AppSettings.Instance.FileList[0]);
+        File.SetCreationTime(OutFilePath, dtCreate);
+        File.SetLastWriteTime(OutFilePath, dtUpdate);
+        File.SetLastAccessTime(OutFilePath, dtAccess);
+      }
 
-        //Encryption succeed.
-        e.Result = ENCRYPT_SUCCEEDED;
+      //Encryption succeed.
+      e.Result = ENCRYPT_SUCCEEDED;
         return Tuple.Create(true, ENCRYPT_SUCCEEDED);
 
 

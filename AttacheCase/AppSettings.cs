@@ -706,7 +706,7 @@ namespace AttacheCase
 			get { return this._fCompleteDelFile; }
 			set
 			{
-				if ((this._fCompleteDelFile = value) < 0 || (this._fCompleteDelFile = value) > 2)
+				if ((this._fCompleteDelFile = value) < 0 || (this._fCompleteDelFile = value) > 3)
 				{
 					this._fCompleteDelFile = 2;
 				}
@@ -1623,11 +1623,11 @@ namespace AttacheCase
       // Delete
       ReadIniFile(IniFilePath, ref _fDelOrgFile, "Option", "fDelOrgFile", "0");
 			ReadIniFile(IniFilePath, ref _fEncryptShowDelChkBox, "Option", "fEncryptShowDelChkBox", "0");
-			ReadIniFile(IniFilePath, ref _fConfirmToDeleteAfterEncryption, "Option", "fConfirmToDeleteAfterEncryption", "0");
+			ReadIniFile(IniFilePath, ref _fConfirmToDeleteAfterEncryption, "Option", "fConfirmToDeleteAfterEncryption", "1");
 			ReadIniFile(IniFilePath, ref _fDelEncFile, "Option", "fDelEncFile", "0");
 			ReadIniFile(IniFilePath, ref _fDecryptShowDelChkBox, "Option", "fDecryptShowDelChkBox", "0");
 			ReadIniFile(IniFilePath, ref _fConfirmToDeleteAfterDecryption, "Option", "fConfirmToDeleteAfterDecryption", "1");
-			ReadIniFile(IniFilePath, ref _fCompleteDelFile, "Option", "fCompleteDelFile", "2");
+			ReadIniFile(IniFilePath, ref _fCompleteDelFile, "Option", "fCompleteDelFile", "1");
 			ReadIniFile(IniFilePath, ref _DelRandNum, "Option", "DelRandNum", "0");
 			ReadIniFile(IniFilePath, ref _DelZeroNum, "Option", "DelZeroNum", "1");
 
@@ -2438,29 +2438,37 @@ namespace AttacheCase
           //-----------------------------------					
           #region
           // Delete original files or directories after encryption
-          case "/del": // 元ファイルの完全削除を行うか(0:削除しない, 1:通常，2:ごみ箱，3:完全削除）
+          case "/del": // 元ファイルの完全削除を行うか
             if (int.TryParse(value, out ResultNum))
 						{
-              if (ResultNum > -1 && ResultNum < 4)
+              if (ResultNum > 0 && ResultNum < 4)
               {
                 _fDelOrgFile = true;
-                _fCompleteDelFile = ResultNum - 1;  // -1: 削除しない, 0: 通常削除, 1: ごみ箱, 2: 完全削除
+                _fCompleteDelFile = ResultNum;  // 0: 削除しない, 1: 通常削除, 2: ごみ箱, 3: 完全削除
                 i++;
               }
-						}
+              else
+              {
+                _fDelOrgFile = false;
+              }
+            }
 						break;
 
 					// Delete encrypted file after decryption
-					case "/delenc": // 暗号化ファイルの完全削除を行うか(0:削除しない, 1:通常，2:ごみ箱，3:完全削除）
-						if (int.TryParse(value, out ResultNum))
+					case "/delenc": // 暗号化ファイルの完全削除を行うか
+            if (int.TryParse(value, out ResultNum))
 						{
-							if ( ResultNum > -1 && ResultNum < 4)
+							if ( ResultNum > 0 && ResultNum < 4)
               {
 								_fDelEncFile = true;
-								_fCompleteDelFile = ResultNum -1;  // -1: 削除しない, 0: 通常削除, 1: ごみ箱, 2: 完全削除
+								_fCompleteDelFile = ResultNum;  // 0: Not de;ete 1: Normal delete, 2: Go to trash, 3: Completely delete
                 i++;
 							}
-						}
+              else
+              {
+                _fDelEncFile = false;
+              }
+            }
 						break;
 
 					// Show the check box in main form window

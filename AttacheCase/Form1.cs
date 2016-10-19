@@ -306,7 +306,7 @@ namespace AttacheCase
     #region
     private bool DeleteData(List<string> FileList)
     {
-      if (AppSettings.Instance.fCompleteDelFile < 0 || AppSettings.Instance.fCompleteDelFile > 3)
+      if (AppSettings.Instance.fCompleteDelFile < 1 || AppSettings.Instance.fCompleteDelFile > 3)
       {
         return(true);
       }
@@ -328,7 +328,7 @@ namespace AttacheCase
       // 通常削除
       // Normal delete
       //----------------------------------------------------------------------
-      if (AppSettings.Instance.fCompleteDelFile == 0)
+      if (AppSettings.Instance.fCompleteDelFile == 1)
       {
         labelCryptionType.Text = Resources.labelProcessNameDelete;  // Deleting...
 
@@ -351,8 +351,8 @@ namespace AttacheCase
             }
             else
             {
-                // File or direcrory does not exists.
-              }
+              // File or direcrory does not exists.
+            }
 
             Interlocked.Increment(ref count);
 
@@ -415,36 +415,83 @@ namespace AttacheCase
       // ゴミ箱への移動
       // Send to the trash
       //----------------------------------------------------------------------
-      else if (AppSettings.Instance.fCompleteDelFile == 1)
+      else if (AppSettings.Instance.fCompleteDelFile == 2)
       {
         labelCryptionType.Text = Resources.labelProcessNameMoveToTrash;  // Move to Trash...
         labelProgress.Text = Resources.labelMoveToTrash;
 
-        if (File.Exists(FileList[0]) == true)
+        cts = new CancellationTokenSource();
+        ParallelOptions po = new ParallelOptions();
+        po.CancellationToken = cts.Token;
+
+        try
         {
-          FileSystem.DeleteFile(FileList[0], UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+          SynchronizationContext ctx = SynchronizationContext.Current;
+          int count = 0;
+
+          Parallel.ForEach(FileList, po, (FilePath, state) =>
+          {
+            if (File.Exists(FilePath) == true)
+            {
+              FileSystem.DeleteFile(FilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin);
+            }
+            else if (Directory.Exists(FilePath))
+            {
+              FileSystem.DeleteDirectory(
+                FilePath, UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin, UICancelOption.ThrowException);
+            }
+
+            Interlocked.Increment(ref count);
+
+            ctx.Post(d =>
+            {
+              progressBar.Value = (int)((float)count / FileList.Count) * 10000;
+            }, null);
+
+            po.CancellationToken.ThrowIfCancellationRequested();
+
+          });
+
+          labelCryptionType.Text = "";
+          // ファイル、またはフォルダーのゴミ箱への移動が完了しました。
+          // Move files or folders to the trash was completed.
+          labelProgressMessageText.Text = Resources.labelMoveToTrashCompleted;
+          progressBar.Value = progressBar.Maximum;
+          buttonCancel.Text = Resources.ButtonTextOK;
+          labelProgressPercentText.Text = "100%";
+          Application.DoEvents();
+
         }
-        else if (Directory.Exists(FileList[0]))
+        catch (Exception e)
         {
-          FileSystem.DeleteDirectory(
-            FileList[0], UIOption.OnlyErrorDialogs, RecycleOption.SendToRecycleBin, UICancelOption.ThrowException);
+          // ユーザーキャンセル
+          // User cancel
+
+#if (DEBUG)
+          System.Windows.Forms.MessageBox.Show(e.Message);
+#endif
+
+          labelCryptionType.Text = "";
+          // ファイルまたはフォルダーの削除をキャンセルしました。
+          // Deleting files or folders has been canceled.
+          labelProgressMessageText.Text = Resources.labelNormalDeleteCanceled;
+          progressBar.Value = 0;
+          labelProgressPercentText.Text = "- %";
+          return (false);
+        }
+        finally
+        {
+          cts.Dispose();
         }
 
-        labelCryptionType.Text = "";
-        // ファイル、またはフォルダーのゴミ箱への移動が完了しました。
-        // Move files or folders to the trash was completed.
-        labelProgressMessageText.Text = Resources.labelMoveToTrashCompleted;
-        progressBar.Value = progressBar.Maximum;
-        buttonCancel.Text = Resources.ButtonTextOK;
-        labelProgressPercentText.Text = "100%";
-        Application.DoEvents();
+        return (true);
 
       }
       //----------------------------------------------------------------------
       // 完全削除
       // Complete deleting
       //----------------------------------------------------------------------
-      else if (AppSettings.Instance.fCompleteDelFile == 2)
+      else if (AppSettings.Instance.fCompleteDelFile == 3)
       {
         bkg = new BackgroundWorker();
 
@@ -837,12 +884,7 @@ namespace AttacheCase
                   if (ret == DialogResult.Yes)
                   {
                     buttonCancel.Text = Resources.ButtonTextCancel;
-
-                    if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ERROR ||
-                        AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE)
-                    {
-                      DeleteData(AppSettings.Instance.FileList);
-                    }
+                    DeleteData(AppSettings.Instance.FileList);
                   }
 
                 }
@@ -851,6 +893,7 @@ namespace AttacheCase
                   DeleteData(AppSettings.Instance.FileList);
                 }
               }
+
             }
 
             if (AppSettings.Instance.fEndToExit == true)
@@ -2894,14 +2937,14 @@ namespace AttacheCase
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3 = new FileEncrypt3();
-          encryption3.NumberOfFiles = 0;
-          encryption3.TotalNumberOfFiles = 0;
+          encryption3.NumberOfFiles = NumberOfFiles;
+          encryption3.TotalNumberOfFiles = NumberOfFiles;
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           compression = new ZipEncrypt();
-          compression.NumberOfFiles = 0;
-          compression.TotalNumberOfFiles = 0;
+          compression.NumberOfFiles = NumberOfFiles;
+          compression.TotalNumberOfFiles = NumberOfFiles;
         }
 
         //-----------------------------------
@@ -2994,6 +3037,11 @@ namespace AttacheCase
         encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
 
         //-----------------------------------
+        // View the Cancel button
+        //-----------------------------------
+        buttonCancel.Text = Resources.ButtonTextCancel;
+
+        //-----------------------------------
         // Encryption start
         //-----------------------------------
 
@@ -3064,7 +3112,7 @@ namespace AttacheCase
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
-          compression.NumberOfFiles = FileIndex;
+          compression.NumberOfFiles = FileIndex + 1;
           compression.TotalNumberOfFiles = TotalNumberOfFiles;
         }
 
@@ -3141,6 +3189,11 @@ namespace AttacheCase
         encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
 
         //-----------------------------------
+        // View the Cancel button
+        //-----------------------------------
+        buttonCancel.Text = Resources.ButtonTextCancel;
+
+        //-----------------------------------
         // Encryption start
         //-----------------------------------
 
@@ -3204,13 +3257,13 @@ namespace AttacheCase
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3 = new FileEncrypt3();
-          encryption3.NumberOfFiles = FileIndex;
+          encryption3.NumberOfFiles = FileIndex + 1;
           encryption3.TotalNumberOfFiles = TotalNumberOfFiles;
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           compression = new ZipEncrypt();
-          compression.NumberOfFiles = FileIndex;
+          compression.NumberOfFiles = FileIndex + 1;
           compression.TotalNumberOfFiles = TotalNumberOfFiles;
         }
 
@@ -3288,6 +3341,11 @@ namespace AttacheCase
         {
           encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
         }
+
+        //-----------------------------------
+        // View the Cancel button
+        //-----------------------------------
+        buttonCancel.Text = Resources.ButtonTextCancel;
 
         //----------------------------------------------------------------------
         // Encrypt
@@ -3702,6 +3760,11 @@ namespace AttacheCase
         }
         toolStripStatusLabelDataVersion.Text = "Data ver.2";
         this.Update();
+
+        //-----------------------------------
+        // View the Cancel button
+        //-----------------------------------
+        buttonCancel.Text = Resources.ButtonTextCancel;
 
         //======================================================================
         // Decryption start
