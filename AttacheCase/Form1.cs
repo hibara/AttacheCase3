@@ -3626,6 +3626,8 @@ namespace AttacheCase
 
       labelCryptionType.Text = Resources.labelProcessNameDecrypt;
 
+      buttonCancel.Text = Resources.ButtonTextCancel;
+
       this.Update();
 
       //-----------------------------------
@@ -3760,11 +3762,6 @@ namespace AttacheCase
         }
         toolStripStatusLabelDataVersion.Text = "Data ver.2";
         this.Update();
-
-        //-----------------------------------
-        // View the Cancel button
-        //-----------------------------------
-        buttonCancel.Text = Resources.ButtonTextCancel;
 
         //======================================================================
         // Decryption start
