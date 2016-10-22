@@ -596,6 +596,11 @@ namespace AttacheCase
         File.SetLastWriteTime(OutFilePath, dtUpdate);
         File.SetLastAccessTime(OutFilePath, dtAccess);
       }
+      else
+      {
+        DateTime dtUpdate = DateTime.Now;
+        File.SetLastWriteTime(OutFilePath, dtUpdate);
+      }
 
       //Encryption succeed.
       e.Result = ENCRYPT_SUCCEEDED;
