@@ -139,6 +139,12 @@ namespace AttacheCase
       _AtcFilePath = OutFilePath;
 
       BackgroundWorker worker = sender as BackgroundWorker;
+
+      // The timestamp of original file
+      DateTime dtCreate = File.GetCreationTime(FilePaths[0]);
+      DateTime dtUpdate = File.GetLastWriteTime(FilePaths[0]);
+      DateTime dtAccess = File.GetLastAccessTime(FilePaths[0]);
+
       // Create Header data.
       ArrayList MessageList = new ArrayList();
       MessageList.Add(READY_FOR_ENCRYPT);
@@ -589,22 +595,19 @@ namespace AttacheCase
       // Set the timestamp of encryption file to original files or directories
       if (_fKeepTimeStamp == true)
       {
-        DateTime dtCreate = File.GetCreationTime((string)AppSettings.Instance.FileList[0]);
-        DateTime dtUpdate = File.GetLastWriteTime((string)AppSettings.Instance.FileList[0]);
-        DateTime dtAccess = File.GetLastAccessTime((string)AppSettings.Instance.FileList[0]);
         File.SetCreationTime(OutFilePath, dtCreate);
         File.SetLastWriteTime(OutFilePath, dtUpdate);
         File.SetLastAccessTime(OutFilePath, dtAccess);
       }
       else
       {
-        DateTime dtUpdate = DateTime.Now;
+        dtUpdate = DateTime.Now;
         File.SetLastWriteTime(OutFilePath, dtUpdate);
       }
 
       //Encryption succeed.
       e.Result = ENCRYPT_SUCCEEDED;
-        return Tuple.Create(true, ENCRYPT_SUCCEEDED);
+      return Tuple.Create(true, ENCRYPT_SUCCEEDED);
 
 
     } // encrypt();

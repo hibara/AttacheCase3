@@ -1994,7 +1994,6 @@ namespace AttacheCase
                      // 暗号化、復号の両方にパスワードを入れる
             _EncryptPasswordStringFromCommandLine = value;
             _DecryptPasswordStringFromCommandLine = value;
-            i++;
 						break;
 
 					// Exit AttacheCase after process.
@@ -2002,34 +2001,42 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fEndToExit = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fEndToExit = false;
+            }
+            break;
 
 					// Open decrypted files by associated application
 					case "/opf": // 復号したファイルを関連付けされたソフトで開く
 						if (value == "1")
 						{
 							_fOpenFile = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fOpenFile = false;
+            }
+            break;
 						
 					// Show dialog when containing the executable file.
 					case "/exe": // 復号したファイルに実行ファイルが含まれるとき警告ダイアログを出す
 						if (value == "1")
 						{
 							_fShowDialogWhenExeFile = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fShowDialogWhenExeFile = false;
+            }
+            break;
 
 					// Show dialog when more than multiple files.
 					case "/decnum":	// 復号したファイルが複数個あるとき警告ダイアログを出す
 						if (int.TryParse(value, out ResultNum) == true)
 						{
 							_ShowDialogWhenMultipleFilesNum = ResultNum;
-							i++;
 						}
 						break;
 
@@ -2038,36 +2045,48 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fAskEncDecode = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fAskEncDecode = false;
+            }
+            break;
 
 					// Confirm inputting password without masking
 					case "/nohide": //「*」で隠さずパスワードを確認しながら入力する
 						if (value == "1")
 						{
 							_fNoHidePassword = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fNoHidePassword = false;
+            }
+            break;
 
 					// Always output to Executable file
 					case "/exeout": // 常に自己実行形式で出力する
 						if (value == "1")
 						{
 							_fSaveToExeout = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fSaveToExeout = false;
+            }
+            break;
 
 					// Always display chekbox of this option
 					case "/chkexeout": // メインフォームにチェックボックスを表示する
 						if (value == "1")
 						{
 							_fShowExeoutChkBox = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fShowExeoutChkBox = false;
+            }
+            break;
 
 					#endregion
 
@@ -2080,9 +2099,12 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fMemPasswordExe = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fMemPasswordExe = false;
+            }
+            break;
 
 					#endregion
 
@@ -2095,45 +2117,60 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fMainWindowMinimize = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fMainWindowMinimize = false;
+            }
+            break;
 
 					// Minimizing a window without appearing in the taskbar
 					case "/tskb": // タスクバーに表示しない
 						if (value == "1")
 						{
 							_fTaskBarHide = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fTaskBarHide = false;
+            }
+            break;
 
 					// Display in the task tray
 					case "/tsktr": // タスクトレイにアイコンを表示する
 						if (value == "1")
 						{
 							_fTaskTrayIcon = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fTaskTrayIcon = false;
+            }
+            break;
 
 					// Bring AttcheCase window in front of Desktop
 					case "/front": // デスクトップで最前面にウィンドウを表示する
 						if (value == "1")
 						{
 							_fWindowForeground = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fWindowForeground = false;
+            }
+            break;
 
 					// Not Allow multiple in&stance of AttcheCase
 					case "/nomulti": // 複数起動しない 
 						if (value == "1")
 						{
 							_fNoMultipleInstance = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fNoMultipleInstance = false;
+            }
+            break;
 
 					#endregion
 
@@ -2146,22 +2183,18 @@ namespace AttacheCase
 						if (value == "1")
 						{
               _EncryptionFileType = 1;
-							i++;
 						}
 						else if (value == "2")
 						{
 							_EncryptionFileType = 2;
-							i++;
 						}
 						else if (value == "3")
 						{
 							_EncryptionFileType = 3;
-							i++;
 						} 
 						else
 						{
 							_EncryptionFileType = 0;
-							i++;
 						}
 						break;
 
@@ -2171,25 +2204,21 @@ namespace AttacheCase
 						{
               _EncryptionSameFileTypeAlways = 1;
               _fEncryptionSameFileTypeAlways = true;
-              i++;
 						}
 						else if (value == "2")
 						{
               _EncryptionSameFileTypeAlways = 2;
               _fEncryptionSameFileTypeAlways = true;
-              i++;
 						}
 						else if (value == "3")
 						{
               _EncryptionSameFileTypeAlways = 3;
               _fEncryptionSameFileTypeAlways = true;
-              i++;
 						} 
 						else
 						{
               _EncryptionSameFileTypeAlways = 0;
               _fEncryptionSameFileTypeAlways = false;
-              i++;
 						}
 						break;
 
@@ -2199,25 +2228,21 @@ namespace AttacheCase
 						{
               _EncryptionSameFileTypeBefore = 1;
               _fEncryptionSameFileTypeBefore = true;
-              i++;
 						}
 						else if (value == "2")
 						{
               _EncryptionSameFileTypeBefore = 2;
               _fEncryptionSameFileTypeBefore = true;
-              i++;
 						}
 						else if (value == "3")
 						{
               _EncryptionSameFileTypeBefore = 3;
               _fEncryptionSameFileTypeBefore = true;
-              i++;
 						} 
 						else
 						{
               _EncryptionSameFileTypeBefore = 0;
               _fEncryptionSameFileTypeBefore = false;
-              i++;
 						}
 						break;
 
@@ -2237,7 +2262,6 @@ namespace AttacheCase
               }
 							_SaveToSameFldrPath = value;
 							_fSaveToSameFldr = true;
-							i++;
 						}
 						break;
 
@@ -2253,7 +2277,6 @@ namespace AttacheCase
               _fEncryptConfirmOverwrite = false;
               _fDecryptConfirmOverwrite = false;
             }
-            i++;
             break;
 						
 					// Create one encrypted file from files
@@ -2261,35 +2284,47 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fAllFilePack = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fAllFilePack = false;
+            }
+            break;
 
 					// Encrypt or decrypt files in directory one by one
 					case "/oneby": // フォルダ内のファイルは個別に暗号化する
 						if (value == "1")
 						{
 							_fFilesOneByOne = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fFilesOneByOne = false;
+            }
+            break;
 
 					// Set the timestamp of encryption file to original files or directories
 					case "/orgdt": // 暗号化ファイルのタイムスタンプを元ファイルに合わせる
 						if (value == "1")
 						{
 							_fKeepTimeStamp = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fKeepTimeStamp = false;
+            }
+            break;
 						
 					// Create encrypted file &including extension
 					case "/withext": // 暗号化ファイル名に拡張子を含める
 						if(value == "1"){
 							_fExtInAtcFileName = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fExtInAtcFileName = false;
+            }
+            break;
 
 					// Specify the format of the encryption file name
 					case "/autoname": // 自動で暗号化ファイル名を付加する
@@ -2314,7 +2349,6 @@ namespace AttacheCase
 						{
 							_fAutoName = true;
 							_AutoNameFormatText = value;
-							i++;
 						}
 						break;
 
@@ -2341,7 +2375,6 @@ namespace AttacheCase
 						{
 							_fAddCamoExt = true;
 							_CamoExt = value;
-							i++;
 						}
 
 						break;
@@ -2362,7 +2395,6 @@ namespace AttacheCase
               }
               _DecodeToSameFldrPath = value;
               _fDecodeToSameFldr = true;
-              i++;
             }
             break;
 
@@ -2375,18 +2407,24 @@ namespace AttacheCase
 						if ( value == "1")
 						{
 							_fNoParentFldr = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fNoParentFldr = false;
+            }
+            break;
 
 					// Set the timestamp to decrypted files or directories
 					case "/now": // 復号したファイルのタイムスタンプを生成日時にする
 						if ( value == "1")
 						{
 							_fSameTimeStamp = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fSameTimeStamp = false;
+            }
+            break;
 
           #endregion
 
@@ -2404,7 +2442,6 @@ namespace AttacheCase
               }
               _ZipToSameFldrPath = value;
               _fZipToSameFldr = true;
-              i++;
             }
             break;
 
@@ -2417,17 +2454,14 @@ namespace AttacheCase
             if (value == "1")
             {
               _ZipEncryptionAlgorithm = 1;
-              i++;
             }
             else if (value == "2")
             {
               _ZipEncryptionAlgorithm = 2;
-              i++;
             }
             else
             {
               _ZipEncryptionAlgorithm = 0;
-              i++;
             }
             break;
 
@@ -2445,7 +2479,6 @@ namespace AttacheCase
               {
                 _fDelOrgFile = true;
                 _fCompleteDelFile = ResultNum;  // 0: 削除しない, 1: 通常削除, 2: ごみ箱, 3: 完全削除
-                i++;
               }
               else
               {
@@ -2462,7 +2495,6 @@ namespace AttacheCase
               {
 								_fDelEncFile = true;
 								_fCompleteDelFile = ResultNum;  // 0: Not de;ete 1: Normal delete, 2: Go to trash, 3: Completely delete
-                i++;
 							}
               else
               {
@@ -2477,9 +2509,13 @@ namespace AttacheCase
 						{
 							_fEncryptShowDelChkBox = true;
 							_fDecryptShowDelChkBox = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fEncryptShowDelChkBox = false;
+              _fDecryptShowDelChkBox = false;
+            }
+            break;
 
 					// Show confirmation dialog to delete file or directories
 					case "/comfdel":	//削除確認メッセージを表示するか
@@ -2487,9 +2523,13 @@ namespace AttacheCase
 						{
 							_fConfirmToDeleteAfterEncryption = true;
 							_fConfirmToDeleteAfterDecryption = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fConfirmToDeleteAfterEncryption = false;
+              _fConfirmToDeleteAfterDecryption = false;
+            }
+            break;
 
 					//Advanced Delete Option [0: Normal Delete, 1: Complete erase, 2: Send to Trash ]
 					case "/delrand": // 乱数を何回書き込み消去するか
@@ -2498,7 +2538,6 @@ namespace AttacheCase
 							if ( 0 < ResultNum && ResultNum < 100)
 							{
 								_DelRandNum = ResultNum;
-								i++;
 							}
 						}
 						break;
@@ -2509,7 +2548,6 @@ namespace AttacheCase
 							if ( 0 < ResultNum && ResultNum < 100)
 							{
 								_DelZeroNum = ResultNum;
-								i++;
 							}
 						}
 						break;
@@ -2527,7 +2565,6 @@ namespace AttacheCase
 							if ( -1 < ResultNum || ResultNum < 10)
 							{
 								_CompressRate = ResultNum;
-								i++;
 							}
 
 						}
@@ -2544,9 +2581,12 @@ namespace AttacheCase
 						if ( value == "1" )
 						{
 							_fAllowPassFile = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fAllowPassFile = false;
+            }
+            break;
 
 					// Password file path for encryption
 					case "/pfile": // 暗号化時のパスワードファイルパス
@@ -2558,7 +2598,6 @@ namespace AttacheCase
               }
               _PassFilePath = value;
               _fAllowPassFile = true;
-              i++;
             }
             break;
 
@@ -2572,7 +2611,6 @@ namespace AttacheCase
               }
               _PassFilePathDecrypt = value;
               _fAllowPassFile = true;
-              i++;
             }
             break;
 
@@ -2581,9 +2619,12 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fNoErrMsgOnPassFile = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fNoErrMsgOnPassFile = false;
+            }
+            break;
 
 					#endregion
 
@@ -2593,13 +2634,11 @@ namespace AttacheCase
 					#region
 					// Set number of times to input password in encrypt files
 					case "/typelimit": // パスワードのタイプミス制限回数
-
 						if (int.TryParse(value, out ResultNum) == true)
 						{
 							if ( 0 <= ResultNum || ResultNum <= 10)
 							{
 								_MissTypeLimitsNum = ResultNum;
-								i++;
 							}
 						}
 						break;
@@ -2609,9 +2648,12 @@ namespace AttacheCase
 						if ( value == "1" )
 						{
 							_fBroken = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fBroken = false;
+            }
+            break;
 
 					#endregion
 
@@ -2625,18 +2667,24 @@ namespace AttacheCase
 						if (value == "1")
 						{
 							_fSalvageToCreateParentFolderOneByOne = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fSalvageToCreateParentFolderOneByOne = false;
+            }
+            break;
 
 					// Decrypt all files into the directory of the same hierarchy.
 					case "/slvgsame": // すべてのファイルを同じ階層のディレクトリーに復号する
 						if (value == "")
 						{
 							_fSalvageIntoSameDirectory = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fSalvageIntoSameDirectory = false;
+            }
+            break;
 
 					#endregion
 
@@ -2648,25 +2696,26 @@ namespace AttacheCase
 						if (value == "1")
 						{
               _ProcTypeWithoutAsk = 1;                                 
-							i++;
 						}
-						break;
+            break;
 
 					case "/de": // 明示的な復号処理
 						if (value == "2")
 						{
               _ProcTypeWithoutAsk = 2;
-							i++;
 						}
-						break;
+            break;
 
 					case "/4gbok": // 4GB超えを容認
 						if (value == "1")
 						{
 							_fOver4GBok = true;
-							i++;
 						}
-						break;
+            else if (value == "0")
+            {
+              _fOver4GBok = false;
+            }
+            break;
 
 					case "/list": // リストファイルからのパスの読み込み
             string dir = Path.GetDirectoryName(value);
@@ -2692,6 +2741,8 @@ namespace AttacheCase
 						}
 						break;
 
+            i++;
+
 					#endregion
 
 				}// end switch;
@@ -2702,13 +2753,14 @@ namespace AttacheCase
 
 		}
 
-		//----------------------------------------------------------------------
-		/// <summary>
-		/// パラメータ以外（ドラッグ＆ドロップなど）からファイルを追加する
-		/// </summary>
-		/// <param name="FilePath"></param>
-		//----------------------------------------------------------------------
-		public void AddArgsFile(string FilePath)
+    //----------------------------------------------------------------------
+    /// <summary>
+    /// Add more files or directories.
+    /// パラメータ以外（ドラッグ＆ドロップなど）からファイルを追加する
+    /// </summary>
+    /// <param name="FilePath"></param>
+    //----------------------------------------------------------------------
+    public void AddArgsFile(string FilePath)
 		{
 			if (File.Exists(FilePath) == true)
 			{
