@@ -20,7 +20,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
 
-
 namespace AttacheCase
 {
 
@@ -76,7 +75,16 @@ namespace AttacheCase
         Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
         //AppSettings.Instance.Language = "en";
       }
-             
+
+      //-----------------------------------
+      // Application executable file path & version
+      AppSettings.Instance.ApplicationPath = Application.ExecutablePath;
+
+      System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+      System.Version ver = asm.GetName().Version;
+      AppSettings.Instance.AppVersion = int.Parse(ver.ToString().Replace(".", ""));
+
+      //-----------------------------------       
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new Form1());
