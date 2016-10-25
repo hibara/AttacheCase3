@@ -15,7 +15,7 @@ Because at the time of encryption takes compression to the data, the size will b
 
 Decryption (uncompress) also you could drag-and-drop in, or double-click only to enter a password, you can easily restore to the original file and folder.
 
-![3-step](./img/readme/3-step.png)
+![3-step](./image/readme/3-step.png)
 
 Because at the time of encryption takes compression to the data, the size will be compact.
 
@@ -25,7 +25,7 @@ Decryption also you can drag and drop files or folders in, and then double-click
 
 In addition, so you can output the encrypted file as executable files, can pass the encrypted file to someone who doesn't have the AttachéCase, that be decrypted.
 
-![self-executable](./img/readme/exe-out.png)
+![self-executable](./image/readme/exe-out.png)
 
 ## Encryption algorithm is the world standard
 
@@ -33,19 +33,19 @@ The encryption algorithm, adopted by the United States government Institute of S
 
 Block length in AES has become a 128-bit fixed, but adopted the specifications of the Rijndael in AttachéCase, key, and block length have become a 256-bit both.
 
-![CBC mode](./img/readme/cbc-mode.png)
+![CBC mode](./image/readme/cbc-mode.png)
 
 Random number generates an initialization vector (IV), and then encrypted in CBC mode, has been designed to prevent to parsed by anyone.
 
 ## RFC2898 key derivation
 
-![RFC2898 key derivation](./img/readme/rfc2898-derive-bytes.png)
+![RFC2898 key derivation](./image/readme/rfc2898-derive-bytes.png)
 
 In the [RFC2898](https://tools.ietf.org/html/rfc2898), based on the "PKCS # 5 Password-Based Cryptography Specification Version 2.0 (password-based encryption specification)", Random salt (just that salt) is mixed and repeated 1,000 times on password-based key derivation. And outputs a derived key, an initialization vector (IV) in the order. In encryption, it would use both the IV and the key.
 
 ## Responding to the password-protected ZIP output
 
-![Password-protected ZIP file icon](./img/readme/password_zip_icon.png)
+![Password-protected ZIP file icon](./image/readme/password_zip_icon.png)
 
 Also, the generation function of password-protect ZIP has been added. However, on the specification of a password-protected ZIP, Anyone can open the contents, can see the file name (of course, take out, a password is required).
 
@@ -62,7 +62,7 @@ https://hibara.org/software/attachecase/
 
 ## Open source （ license ）
 
-![GPLv3](./img/readme/gplv3-127x51.png)
+![GPLv3](./image/readme/gplv3-127x51.png)
 
 AttachéCase#3 is applied the GPLv3 license.
 
