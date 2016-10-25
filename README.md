@@ -1,7 +1,10 @@
 # AttachéCase#3
-File encryption software for Windows XP/Vista/7/8/10   
+File encryption software for Windows XP/Vista/7/8/10.   
+
+![main icon & main form](./image/readme/main-icon-and-main-form.png)
+
 １． Support from Microsoft have been terminated, but the application can execute even on Windows XP.   
-２． To run this application that requires .NET Framework 4.0 Full, but installer download the .NET Framework 4.0 full automatically if it doesn't exist in your PC.
+２． To run this application that requires [.NET Framework 4.0 Full](https://www.microsoft.com/en-US/download/details.aspx?id=17718), but installer download the .NET Framework 4.0 full automatically if it doesn't exist in your PC.
 
 ## Summary
 AttachéCase#3 is focusing on using daily, simplicity and simple operability of appearance, is a powerful file / folder encryption software that uses a cryptographic algorithm of the world standard ( AES - Advanced Encryption Standard ).
