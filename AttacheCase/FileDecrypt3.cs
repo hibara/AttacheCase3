@@ -959,6 +959,8 @@ namespace AttacheCase
                                 else if (TempOverWriteOption == 0)
                                 {
                                   fNo = true;
+                                  FileIndex++;
+                                  continue;
                                 }
                                 else
                                 {// Yes
@@ -967,6 +969,8 @@ namespace AttacheCase
                                     if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
                                     {
                                       fNo = true; // old file
+                                      FileIndex++;
+                                      continue;
                                     }
                                   }
 

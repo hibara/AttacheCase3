@@ -2117,6 +2117,7 @@ namespace AttacheCase
             if (value == "1")
             {
               _fMainWindowMinimize = true;
+              _fWindowForeground = false;  // not coexist
             }
             else if (value == "0")
             {
@@ -2153,6 +2154,7 @@ namespace AttacheCase
             if (value == "1")
             {
               _fWindowForeground = true;
+              _fMainWindowMinimize = false; // not coexist
             }
             else if (value == "0")
             {

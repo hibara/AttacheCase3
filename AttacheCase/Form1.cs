@@ -1547,11 +1547,21 @@ namespace AttacheCase
     //======================================================================
     // 各ウィンドウページが表示されたときに発生するイベント
     //======================================================================
-#region
+    #region
+
     private void StartProcess()
     {
       int ProcessType = 0;
 
+      // self-executable file
+      if (AppSettings.Instance.fSaveToExeout == true)
+      {
+        ProcessType = PROCESS_TYPE_ATC_EXE;
+        AppSettings.Instance.EncryptionFileType = FILE_TYPE_ATC_EXE;
+      }
+
+      // 明示的な暗号処理、または復号処理
+      // Explicit encryption or decryption?
       if (AppSettings.Instance.ProcTypeWithoutAsk > 0)
       {
         if (AppSettings.Instance.ProcTypeWithoutAsk == 1) // Encryption
@@ -2339,12 +2349,12 @@ namespace AttacheCase
 
       }
     }
-#endregion
+    #endregion
 
     //======================================================================
     // Encrypt window ( panelEncrypt )
     //======================================================================
-#region Encrypt Window
+    #region Encrypt Window
     /// <summary>
     /// 
     /// 暗号化ウィンドウでのポップアップメニューから各ファイルタイプの選択
