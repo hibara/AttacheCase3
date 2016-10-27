@@ -165,6 +165,9 @@
   <data name="labelPasswordValid.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 142</value>
   </data>
@@ -233,6 +236,9 @@
         qEcapi0M2XjYnoEE1qApVTLeYqTdYCtEWlONevwvIAx2zIh9/wLzHheE+BvHSwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="pictureBoxPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
     <value>19, 137</value>
   </data>
@@ -266,6 +272,9 @@
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 67</value>
   </data>
@@ -295,6 +304,9 @@
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 13</value>
@@ -389,6 +401,9 @@
   <data name="buttonPasswordCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonPasswordCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonPasswordCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>303, 125</value>
   </data>
@@ -418,6 +433,9 @@
   </data>
   <data name="buttonPasswordOK.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonPasswordOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonPasswordOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>202, 125</value>
@@ -497,41 +515,143 @@
   <data name="&gt;&gt;tabPageInputPassword.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="splitButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
+  <data name="splitButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 95</value>
+  <data name="splitButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 128</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 20</value>
+  <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 17</value>
+  </metadata>
+  <data name="ToolStripMenuItemSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="ToolStripMenuItemSkip.Text" xml:space="preserve">
+    <value>SKip</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Text" xml:space="preserve">
-    <value>Overwrite for the new date</value>
+  <data name="ToolStripMenuItemSkipAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
-  <data name="&gt;&gt;checkBoxOverwriteForNewDate.Name" xml:space="preserve">
-    <value>checkBoxOverwriteForNewDate</value>
+  <data name="ToolStripMenuItemSkipAll.Text" xml:space="preserve">
+    <value>Skip All</value>
   </data>
-  <data name="&gt;&gt;checkBoxOverwriteForNewDate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
   </data>
-  <data name="&gt;&gt;checkBoxOverwriteForNewDate.Parent" xml:space="preserve">
+  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
+    <value>contextMenuStrip2</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 32</value>
+  </data>
+  <data name="splitButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="splitButton2.Text" xml:space="preserve">
+    <value>splitButton2</value>
+  </data>
+  <data name="splitButton2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Name" xml:space="preserve">
+    <value>splitButton2</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Type" xml:space="preserve">
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Parent" xml:space="preserve">
     <value>panelOverwriteConfirm</value>
   </data>
-  <data name="&gt;&gt;checkBoxOverwriteForNewDate.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;splitButton2.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="splitButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="splitButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="splitButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 128</value>
+  </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="ToolStripMenuItemOverwrite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="ToolStripMenuItemOverwrite.Text" xml:space="preserve">
+    <value>Overwrite</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Text" xml:space="preserve">
+    <value>Overwrite All</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 6</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Text" xml:space="preserve">
+    <value>Keep Newer</value>
+  </data>
+  <data name="ToolStripMenuItemkeepNewerAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="ToolStripMenuItemkeepNewerAll.Text" xml:space="preserve">
+    <value>Keep Newer All</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 98</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 32</value>
+  </data>
+  <data name="splitButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="splitButton1.Text" xml:space="preserve">
+    <value>splitButton1</value>
+  </data>
+  <data name="splitButton1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.Name" xml:space="preserve">
+    <value>splitButton1</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="buttonOverwriteCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="buttonOverwriteCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonOverwriteCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonOverwriteCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>310, 128</value>
@@ -555,103 +675,16 @@
     <value>panelOverwriteConfirm</value>
   </data>
   <data name="&gt;&gt;buttonOverwriteCancel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonOverwriteNo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonOverwriteNo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonOverwriteNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>221, 128</value>
-  </data>
-  <data name="buttonOverwriteNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 32</value>
-  </data>
-  <data name="buttonOverwriteNo.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="buttonOverwriteNo.Text" xml:space="preserve">
-    <value>&amp;No</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteNo.Name" xml:space="preserve">
-    <value>buttonOverwriteNo</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteNo.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteNo.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="buttonOverwriteYes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonOverwriteYes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonOverwriteYes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>129, 128</value>
-  </data>
-  <data name="buttonOverwriteYes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 32</value>
-  </data>
-  <data name="buttonOverwriteYes.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="buttonOverwriteYes.Text" xml:space="preserve">
-    <value>&amp;Yes</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteYes.Name" xml:space="preserve">
-    <value>buttonOverwriteYes</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteYes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteYes.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteYes.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="buttonOverwriteAll.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonOverwriteAll.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonOverwriteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 128</value>
-  </data>
-  <data name="buttonOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 32</value>
-  </data>
-  <data name="buttonOverwriteAll.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="buttonOverwriteAll.Text" xml:space="preserve">
-    <value>Overwrite &amp;All</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteAll.Name" xml:space="preserve">
-    <value>buttonOverwriteAll</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteAll.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteAll.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="labelMessageText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 9.75pt</value>
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelMessageText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelMessageText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 23</value>
+    <value>74, 40</value>
   </data>
   <data name="labelMessageText.Size" type="System.Drawing.Size, System.Drawing">
     <value>328, 69</value>
@@ -672,7 +705,7 @@
     <value>panelOverwriteConfirm</value>
   </data>
   <data name="&gt;&gt;labelMessageText.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="pictureBoxQuestionIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -754,8 +787,11 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <data name="pictureBoxQuestionIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxQuestionIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 23</value>
+    <value>15, 40</value>
   </data>
   <data name="pictureBoxQuestionIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -773,7 +809,7 @@
     <value>panelOverwriteConfirm</value>
   </data>
   <data name="&gt;&gt;pictureBoxQuestionIcon.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="panelOverwriteConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -835,6 +871,9 @@
   <data name="buttonAskEncryptOrDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonAskEncryptOrDecryptCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonAskEncryptOrDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>296, 126</value>
   </data>
@@ -864,6 +903,9 @@
   </data>
   <data name="buttonDecrypt.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonDecrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonDecrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>190, 126</value>
@@ -895,6 +937,9 @@
   <data name="buttonEncrypt.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonEncrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonEncrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>84, 126</value>
   </data>
@@ -921,6 +966,9 @@
   </data>
   <data name="labelAskEncryptOrDecrypt.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelAskEncryptOrDecrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>86, 40</value>
@@ -1025,6 +1073,9 @@
         jbdF7stjeKys8af/q4EVHjr+60RkI3xK4qMen1evEe/K5LyZyG1xRO7rJI/9K+Ohh/4H5NL/vU2pzhoA
         AAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 40</value>
@@ -1144,7 +1195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panelOuter.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1155,6 +1206,9 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>424, 202</value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>440, 240</value>
   </data>
@@ -1163,6 +1217,48 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Form4</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwrite.Name" xml:space="preserve">
+    <value>ToolStripMenuItemOverwrite</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwrite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Name" xml:space="preserve">
+    <value>ToolStripMenuItemOverwriteAll</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Name" xml:space="preserve">
+    <value>ToolStripMenuItemKeepNewer</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemkeepNewerAll.Name" xml:space="preserve">
+    <value>ToolStripMenuItemkeepNewerAll</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemkeepNewerAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkip.Name" xml:space="preserve">
+    <value>ToolStripMenuItemSkip</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Name" xml:space="preserve">
+    <value>ToolStripMenuItemSkipAll</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form4</value>

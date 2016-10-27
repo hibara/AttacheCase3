@@ -575,12 +575,12 @@ namespace AttacheCase
       if (decryption2 == null)
       {
         decryption3.TempOverWriteOption = frm4.OverWriteOption;
-        decryption3.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
+        //decryption3.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
       }
       else
       {
         decryption2.TempOverWriteOption = frm4.OverWriteOption;
-        decryption2.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
+        //decryption2.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
       }
 
       frm4.Dispose();
@@ -4352,6 +4352,13 @@ namespace AttacheCase
       p.X += pictureBoxHamburgerMenu.Width;
       this.contextMenuStrip3.Show(p);
 
+    }
+
+    private void buttonTest_Click(object sender, EventArgs e)
+    {
+      Form frm4 = new Form4("ComfirmToOverwriteFile", "デザインテスト表示です。");
+      frm4.ShowDialog();
+      frm4.Dispose();
     }
 
   }// end public partial class Form1 : Form;
