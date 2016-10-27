@@ -43,11 +43,25 @@ namespace AttacheCase
 
     private bool fTemporarySettings = false;
 
+    // File type
+    private const int FILE_TYPE_ERROR        = -1;
+    private const int FILE_TYPE_NONE         = 0;
+    private const int FILE_TYPE_ATC          = 1;
+    private const int FILE_TYPE_ATC_EXE      = 2;
+    private const int FILE_TYPE_PASSWORD_ZIP = 3;
 
-		/// <summary>
-		/// Form3 Constructor
-		/// </summarey>
-		public Form3()
+    // Process Type
+    private const int PROCESS_TYPE_ERROR        = -1;
+    private const int PROCESS_TYPE_NONE         = 0;
+    private const int PROCESS_TYPE_ATC          = 1;
+    private const int PROCESS_TYPE_ATC_EXE      = 2;
+    private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
+    private const int PROCESS_TYPE_DECRYPTION   = 4;
+
+    /// <summary>
+    /// Form3 Constructor
+    /// </summarey>
+    public Form3()
 		{
 			InitializeComponent();
 
@@ -353,15 +367,15 @@ namespace AttacheCase
       #region
 
       // Encryption will be the same file type always.
-      if (AppSettings.Instance.EncryptionSameFileTypeAlways == 1)
+      if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC)
       {
         radioButtonEncryptionFileTypeATC.Checked = true;
       }
-      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == 2)
+      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC_EXE)
       {
         radioButtonEncryptionFileTypeEXE.Checked = true;
       }
-      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == 3)
+      else if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_PASSWORD_ZIP)
       {
         radioButtonEncryptionFileTypeZIP.Checked = true;
       }
@@ -1002,21 +1016,23 @@ THE SOFTWARE.
 
       //-----------------------------------
       // Save
+      AppSettings.Instance.fSaveToExeout = false;
       if (radioButtonEncryptionFileTypeATC.Checked == true)
       {
-        AppSettings.Instance.EncryptionSameFileTypeAlways = 1;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = FILE_TYPE_ATC;
       }
       else if (radioButtonEncryptionFileTypeEXE.Checked == true)
       {
-        AppSettings.Instance.EncryptionSameFileTypeAlways = 2;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = FILE_TYPE_ATC_EXE;
+        AppSettings.Instance.fSaveToExeout = true;
       }
       else if (radioButtonEncryptionFileTypeZIP.Checked == true)
       {
-        AppSettings.Instance.EncryptionSameFileTypeAlways = 3;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = FILE_TYPE_PASSWORD_ZIP;
       }
       else
       {
-        AppSettings.Instance.EncryptionFileType = 0;
+        AppSettings.Instance.EncryptionSameFileTypeAlways = FILE_TYPE_NONE;
       }
 
       AppSettings.Instance.fEncryptionSameFileTypeBefore = checkBoxEncryptionSameFileTypeBefore.Checked;

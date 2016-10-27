@@ -2947,13 +2947,13 @@ namespace AttacheCase
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
           encryption3 = new FileEncrypt3();
-          encryption3.NumberOfFiles = NumberOfFiles;
+          encryption3.NumberOfFiles = NumberOfFiles + 1;
           encryption3.TotalNumberOfFiles = NumberOfFiles;
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
           compression = new ZipEncrypt();
-          compression.NumberOfFiles = NumberOfFiles;
+          compression.NumberOfFiles = NumberOfFiles + 1;
           compression.TotalNumberOfFiles = NumberOfFiles;
         }
 
@@ -3762,7 +3762,7 @@ namespace AttacheCase
         decryption3 = null; // ver.3 is null
         decryption2 = new FileDecrypt2(AtcFilePath);
         decryption2.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
-        decryption2.NumberOfFiles = FileIndex;
+        decryption2.NumberOfFiles = FileIndex + 1;
         decryption2.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
         decryption2.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
         decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
@@ -3795,7 +3795,7 @@ namespace AttacheCase
       {
         decryption2 = null;
         decryption3.fNoParentFolder = AppSettings.Instance.fNoParentFldr;
-        decryption3.NumberOfFiles = FileIndex;
+        decryption3.NumberOfFiles = FileIndex + 1;
         decryption3.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
         decryption3.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
         decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
