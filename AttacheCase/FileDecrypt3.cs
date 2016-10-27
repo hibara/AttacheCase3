@@ -1215,7 +1215,7 @@ namespace AttacheCase
     //----------------------------------------------------------------------
     private string GetSha256HashFromFile(string FilePath)
     {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
       {
         ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
 

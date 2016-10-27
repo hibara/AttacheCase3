@@ -520,7 +520,7 @@ namespace AttacheCase
                     try
                     {
                       buffer = new byte[BUFFER_SIZE];
-                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
                       {
                         len = 0;
                         while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
@@ -718,7 +718,7 @@ namespace AttacheCase
     /// <returns></returns>
     public static string GetSha256FromFile(string FilePath)
     {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
       {
         ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
 
