@@ -183,56 +183,74 @@
   <data name="buttonPasswordOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 32</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 95</value>
+  <data name="splitButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 128</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 20</value>
+  <data name="ToolStripMenuItemSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
   </data>
-  <data name="checkBoxOverwriteForNewDate.Text" xml:space="preserve">
-    <value>新しい日付のときは上書き</value>
+  <data name="ToolStripMenuItemSkip.Text" xml:space="preserve">
+    <value>スキップ</value>
+  </data>
+  <data name="ToolStripMenuItemSkipAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="ToolStripMenuItemSkipAll.Text" xml:space="preserve">
+    <value>すべてスキップ</value>
+  </data>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 48</value>
+  </data>
+  <data name="splitButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 32</value>
+  </data>
+  <data name="splitButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 128</value>
+  </data>
+  <data name="ToolStripMenuItemOverwrite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="ToolStripMenuItemOverwrite.Text" xml:space="preserve">
+    <value>上書き</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Text" xml:space="preserve">
+    <value>すべて上書き</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 6</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Text" xml:space="preserve">
+    <value>新しい方を残す</value>
+  </data>
+  <data name="ToolStripMenuItemkeepNewerAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="ToolStripMenuItemkeepNewerAll.Text" xml:space="preserve">
+    <value>すべて新しい方を残す</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 98</value>
+  </data>
+  <data name="splitButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 32</value>
   </data>
   <data name="buttonOverwriteCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 11.25pt</value>
   </data>
   <data name="buttonOverwriteCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>304, 128</value>
+    <value>300, 128</value>
   </data>
   <data name="buttonOverwriteCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 32</value>
   </data>
   <data name="buttonOverwriteCancel.Text" xml:space="preserve">
     <value>キャンセル(&amp;C)</value>
-  </data>
-  <data name="buttonOverwriteNo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 11.25pt</value>
-  </data>
-  <data name="buttonOverwriteNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>215, 128</value>
-  </data>
-  <data name="buttonOverwriteNo.Text" xml:space="preserve">
-    <value>いいえ(&amp;N)</value>
-  </data>
-  <data name="buttonOverwriteYes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 11.25pt</value>
-  </data>
-  <data name="buttonOverwriteYes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 128</value>
-  </data>
-  <data name="buttonOverwriteYes.Text" xml:space="preserve">
-    <value>はい(&amp;Y)</value>
-  </data>
-  <data name="buttonOverwriteAll.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 11.25pt</value>
-  </data>
-  <data name="buttonOverwriteAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 128</value>
-  </data>
-  <data name="buttonOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 32</value>
-  </data>
-  <data name="buttonOverwriteAll.Text" xml:space="preserve">
-    <value>すべて上書き(&amp;A)</value>
   </data>
   <data name="labelMessageText.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 69</value>

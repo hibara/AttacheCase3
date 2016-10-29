@@ -57,6 +57,18 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
+    // Overwrite Option
+    //private const int USER_CANCELED = -1;
+    private const int OVERWRITE      = 1;
+    private const int OVERWRITE_ALL  = 2;
+    private const int KEEP_NEWER     = 3;
+    private const int KEEP_NEWER_ALL = 4;
+    // ---
+    // Skip Option
+    private const int SKIP           = 5;
+    private const int SKIP_ALL       = 6;
+
+
     private const int BUFFER_SIZE = 4096; // compatible ver.2 data buffer
 
     // Header data variables
@@ -782,8 +794,8 @@ namespace AttacheCase
                 Int64 FileSize = 0;
                 int FileIndex = 0;
 
-                bool fNo = false;
-
+                bool fSkip = false;
+                
                 if (_fNoParentFolder == true)
                 {
                   if (dic[0].FilePath.EndsWith("\\") == true)
@@ -832,52 +844,69 @@ namespace AttacheCase
                           // File already exists.
                           if (Directory.Exists(path) == true)
                           {
-                            if (TempOverWriteOption == 2)
+                            // Temporary option for overwriting
+                            // private const int USER_CANCELED  = -1;
+                            // private const int OVERWRITE      = 1;
+                            // private const int OVERWRITE_ALL  = 2;
+                            // private const int KEEP_NEWER     = 3;
+                            // private const int KEEP_NEWER_ALL = 4;
+                            // private const int SKIP           = 5;
+                            // private const int SKIP_ALL       = 6;
+
+                            if (_TempOverWriteOption == OVERWRITE_ALL)
                             {
                               // Overwrite ( New create )
+                            }
+                            else if (_TempOverWriteOption == SKIP_ALL)
+                            {
+                              fSkip = true;
+                            }
+                            else if (_TempOverWriteOption == KEEP_NEWER_ALL)
+                            {
+                              if (di.LastWriteTime > dic[FileIndex].LastWriteDateTime)
+                              {
+                                fSkip = true; // old directory
+                              }
                             }
                             else
                             {
                               // Show dialog of comfirming to overwrite. 
                               dialog(0, path);
-                              fNo = false;
+
                               // Cancel
-                              if (TempOverWriteOption == -1)
+                              if (_TempOverWriteOption == USER_CANCELED)
                               {
                                 e.Result = new FileDecryptReturnVal(USER_CANCELED);
                                 return (false);
                               }
-                              // No
-                              else if (TempOverWriteOption == 0)
+                              else if (_TempOverWriteOption == OVERWRITE || _TempOverWriteOption == OVERWRITE_ALL)
                               {
-                                fNo = true;
-                                continue;
+                                // Overwrite ( New create )
                               }
-                              else
-                              { // Yes
-                                if (TempOverWriteForNewDate == true)
-                                { // New file?
-                                  if (di.LastWriteTime > dic[FileIndex].LastWriteDateTime)
-                                  {
-                                    fNo = true; // old directory
-                                    continue;
-                                  }
+                              // Skip, or Skip All
+                              else if (_TempOverWriteOption == SKIP || _TempOverWriteOption == SKIP_ALL)
+                              {
+                                fSkip = true;
+                              }
+                              else if (_TempOverWriteOption == KEEP_NEWER || _TempOverWriteOption == KEEP_NEWER_ALL)
+                              { // New file?
+                                if (di.LastWriteTime > dic[FileIndex].LastWriteDateTime)
+                                {
+                                  fSkip = true;
                                 }
-
                               }
+                            }
 
-                              if (fNo == false)
-                              {
-                                //隠し属性を削除する
-                                di.Attributes &= ~FileAttributes.Hidden;
-                                //読み取り専用を削除
-                                di.Attributes &= ~FileAttributes.ReadOnly;
-                              }
+                            if (fSkip == false)
+                            {
+                              //隠し属性を削除する
+                              di.Attributes &= ~FileAttributes.Hidden;
+                              //読み取り専用を削除
+                              di.Attributes &= ~FileAttributes.ReadOnly;
+                            }
 
-                            } // end if (TempOverWriteOption == 2);
+                          } // end if (TempOverWriteOption == OVERWRITE_ALL);
 
-                          } // end if ( Directory.Exists );
-                        
                           Directory.CreateDirectory(dic[FileIndex].FilePath);
                           _OutputFileList.Add(dic[FileIndex].FilePath);
                           FileSize = 0;
@@ -909,48 +938,66 @@ namespace AttacheCase
                             }
                             else
                             {
-                              if (TempOverWriteOption == 2)
+                              // Temporary option for overwriting
+                              // private const int USER_CANCELED  = -1;
+                              // private const int OVERWRITE      = 1;
+                              // private const int OVERWRITE_ALL  = 2;
+                              // private const int KEEP_NEWER     = 3;
+                              // private const int KEEP_NEWER_ALL = 4;
+                              // private const int SKIP           = 5;
+                              // private const int SKIP_ALL       = 6;
+                              if (_TempOverWriteOption == OVERWRITE_ALL)
                               {
                                 // Overwrite ( New create )
+                              }
+                              else if (_TempOverWriteOption == SKIP_ALL)
+                              {
+                                fSkip = true;
+                              }
+                              else if (_TempOverWriteOption == KEEP_NEWER_ALL)
+                              {
+                                if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
+                                {
+                                  fSkip = true;
+                                }
                               }
                               else
                               {
                                 // Show dialog of comfirming to overwrite. 
-                                dialog(1, path);
-                                fNo = false;
+                                dialog(0, path);
 
-                                if (TempOverWriteOption == -1)
+                                // Cancel
+                                if (_TempOverWriteOption == USER_CANCELED)
                                 {
                                   e.Result = new FileDecryptReturnVal(USER_CANCELED);
                                   return (false);
                                 }
-                                // No
-                                else if (TempOverWriteOption == 0)
+                                else if (_TempOverWriteOption == OVERWRITE || _TempOverWriteOption == OVERWRITE_ALL)
                                 {
-                                  fNo = true;
+                                  // Overwrite ( New create )
                                 }
-                                else
+                                // Skip, or Skip All
+                                else if (_TempOverWriteOption == SKIP || _TempOverWriteOption == SKIP_ALL)
                                 {
-                                  if (TempOverWriteForNewDate == true)
-                                  { // New file?
-                                    if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
-                                    {
-                                      fNo = true; // old file
-                                    }
+                                  fSkip = true;
+                                }
+                                else if (_TempOverWriteOption == KEEP_NEWER || _TempOverWriteOption == KEEP_NEWER_ALL)
+                                { // New file?
+                                  if (fi.LastWriteTime > dic[FileIndex].LastWriteDateTime)
+                                  {
+                                    fSkip = true; // old directory
                                   }
-
                                 }
+                              }
 
-                              } // end if (TempOverWriteOption == 2);
+                              //隠し属性を削除する
+                              //fi.Attributes &= ~FileAttributes.Hidden;
+                              //読み取り専用を削除
+                              //fi.Attributes &= ~FileAttributes.ReadOnly;
 
-                            } // end if (_fSalvageIntoSameDirectory == true);
+                              //すべての属性を解除
+                              File.SetAttributes(path, FileAttributes.Normal);
 
-                            if (fNo == false)
-                            {
-                              //隠し属性を解除する
-                              fi.Attributes &= ~FileAttributes.Hidden;
-                              //読み取り専用を解除する
-                              fi.Attributes &= ~FileAttributes.ReadOnly;
                             }
 
                           } // end if ( File.Exists );
@@ -963,7 +1010,7 @@ namespace AttacheCase
                             Directory.CreateDirectory(Path.GetDirectoryName(path));
                           }
 
-                          if (fNo == false)
+                          if (fSkip == false)
                           { // ここで、"OpenOrCreate"を使用するとなぜか同じファイルと復号されない。
                             // Use the "OpenOrCreate" here, then they are not decrypted to the same file.
                             outfs = new FileStream(path, FileMode.Create, FileAccess.Write);
@@ -986,10 +1033,10 @@ namespace AttacheCase
                     //----------------------------------------------------------------------
                     if (FileSize + len < (Int64)dic[FileIndex].FileSize)
                     {
-                      if (outfs != null || fNo == true)
+                      if (outfs != null || fSkip == true)
                       {
                         //まだまだ書き込める
-                        if (fNo == false)
+                        if (fSkip == false)
                         {
                           outfs.Write(byteArray, buffer_size - len, len);
                         }
@@ -1003,7 +1050,7 @@ namespace AttacheCase
                       // ファイルの境界を超えて読み込んでいる
                       int rest = (int)(dic[FileIndex].FileSize - FileSize);
 
-                      if (fNo == false)
+                      if (fSkip == false)
                       {
                         //書き込み完了
                         outfs.Write(byteArray, buffer_size - len, rest);
@@ -1020,7 +1067,7 @@ namespace AttacheCase
                         outfs = null;
                       }
 
-                      if (fNo == false)
+                      if (fSkip == false)
                       {
                         FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
                         // タイムスタンプなどの復元
@@ -1033,7 +1080,7 @@ namespace AttacheCase
                       FileSize = 0;
                       FileIndex++;
 
-                      fNo = false;
+                      fSkip = false;
 
                     }
 

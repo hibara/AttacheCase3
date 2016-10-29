@@ -117,86 +117,497 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="checkBoxNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 40</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="checkBoxNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+  <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordValid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Name" xml:space="preserve">
+    <value>splitButton2</value>
+  </data>
+  <data name="labelPasswordValid.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>panelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="&gt;&gt;labelMessageText.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="labelMessageText.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="splitButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="panelInputPassword.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="panelOverwriteConfirm.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>424, 202</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 35</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Type" xml:space="preserve">
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="panelInputPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;panelOverwriteConfirm.Parent" xml:space="preserve">
+    <value>tabPageOverwriteConfirm</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tabPageInputPassword.Text" xml:space="preserve">
+    <value>InputPassword</value>
+  </data>
+  <data name="&gt;&gt;labelAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pictureBoxPasswordValid.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="buttonAskEncryptOrDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 126</value>
+  </data>
+  <data name="&gt;&gt;tabPageInputPassword.Name" xml:space="preserve">
+    <value>tabPageInputPassword</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Name" xml:space="preserve">
+    <value>ToolStripMenuItemSkipAll</value>
+  </data>
+  <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 87</value>
+  </data>
+  <data name="&gt;&gt;panelOverwriteConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="panelOverwriteConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Name" xml:space="preserve">
+    <value>buttonAskEncryptOrDecryptCancel</value>
+  </data>
+  <data name="pictureBoxQuestionIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;buttonOverwriteCancel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelMessageText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>74, 40</value>
+  </data>
+  <data name="&gt;&gt;buttonPasswordOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonDecrypt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="tabPageInputPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="buttonAskEncryptOrDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonEncrypt.Text" xml:space="preserve">
+    <value>&amp;Encrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonEncrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripMenuItemOverwriteAll.Text" xml:space="preserve">
+    <value>Overwrite All</value>
+  </data>
+  <data name="pictureBoxPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonOverwriteCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="tabPageInputPassword.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="buttonDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="&gt;&gt;labelAskEncryptOrDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="labelMessageText.Text" xml:space="preserve">
+    <value>labelMessageText</value>
+  </data>
+  <data name="&gt;&gt;buttonOverwriteCancel.Name" xml:space="preserve">
+    <value>buttonOverwriteCancel</value>
+  </data>
+  <data name="textBoxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Form4</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="splitButton1.Text" xml:space="preserve">
+    <value>splitButton1</value>
+  </data>
+  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="panelAskEncryptOrDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Name" xml:space="preserve">
+    <value>panelOuter</value>
+  </data>
+  <data name="tabPageOverwriteConfirm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>panelOuter</value>
+  </data>
+  <data name="&gt;&gt;tabPageInputPassword.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="textBoxRePassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverwriteConfirm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pictureBoxQuestionIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEncrypt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelInputPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;buttonPasswordCancel.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="splitButton2.Text" xml:space="preserve">
+    <value>splitButton2</value>
+  </data>
+  <data name="&gt;&gt;panelInputPassword.Name" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="labelMessageText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 69</value>
+  </data>
+  <data name="tabPageOverwriteConfirm.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxQuestionIcon.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Name" xml:space="preserve">
+    <value>ToolStripMenuItemOverwriteAll</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxQuestionIcon.Name" xml:space="preserve">
+    <value>pictureBoxQuestionIcon</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 17</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordValid.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="buttonOverwriteCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>310, 128</value>
+  </data>
+  <data name="&gt;&gt;buttonDecrypt.Parent" xml:space="preserve">
+    <value>panelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverwriteConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabPageAskEncryptOrDecrypt.Text" xml:space="preserve">
+    <value>AskEncryptOrDecrypt</value>
+  </data>
+  <data name="labelPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>43, 142</value>
+  </data>
+  <data name="labelMessageText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="&gt;&gt;buttonPasswordOK.Name" xml:space="preserve">
+    <value>buttonPasswordOK</value>
+  </data>
+  <data name="buttonPasswordCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 32</value>
+  </data>
+  <data name="buttonPasswordOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>202, 125</value>
+  </data>
+  <data name="&gt;&gt;buttonOverwriteCancel.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="buttonOverwriteCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>424, 202</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 67</value>
+  </data>
+  <data name="pictureBoxPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 137</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxNotMaskEncryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPageAskEncryptOrDecrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;panelOverwriteConfirm.Name" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="ToolStripMenuItemSkip.Text" xml:space="preserve">
+    <value>SKip</value>
+  </data>
+  <data name="&gt;&gt;buttonEncrypt.Name" xml:space="preserve">
+    <value>buttonEncrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageInputPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelInputPassword.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelInputPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 170</value>
+  </data>
+  <data name="buttonOverwriteCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ToolStripMenuItemSkipAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="ToolStripMenuItemKeepNewer.Text" xml:space="preserve">
+    <value>Keep Newer</value>
+  </data>
+  <data name="splitButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 32</value>
+  </data>
+  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Parent" xml:space="preserve">
+    <value>panelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelPasswordValid.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="checkBoxNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="&gt;&gt;buttonPasswordCancel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 6</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="&gt;&gt;buttonEncrypt.Parent" xml:space="preserve">
+    <value>panelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="buttonPasswordOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="labelPasswordValid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 12</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>440, 240</value>
+  </data>
+  <data name="buttonEncrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 19</value>
+  </data>
+  <data name="splitButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 128</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textBoxRePassword.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonOverwriteCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="tabPageAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonOverwriteCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 32</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordValid.Name" xml:space="preserve">
+    <value>pictureBoxPasswordValid</value>
+  </data>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 98</value>
+  </data>
+  <data name="&gt;&gt;labelAskEncryptOrDecrypt.Name" xml:space="preserve">
+    <value>labelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;buttonOverwriteCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="buttonEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 126</value>
+  </data>
+  <data name="labelAskEncryptOrDecrypt.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="checkBoxNotMaskEncryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 12</value>
+  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Name" xml:space="preserve">
+    <value>ToolStripMenuItemKeepNewer</value>
   </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
   </data>
-  <data name="checkBoxNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="buttonAskEncryptOrDecryptCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
   </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Text" xml:space="preserve">
-    <value>Not mask password character</value>
+  <data name="buttonPasswordCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
   </data>
-  <data name="checkBoxNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Input password:</value>
   </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskEncryptedPassword</value>
+  <data name="buttonPasswordCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelInputPassword.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="labelPasswordValid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="ToolStripMenuItemkeepNewerAll.Text" xml:space="preserve">
+    <value>Keep Newer All</value>
   </data>
-  <data name="labelPasswordValid.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="tabPageOverwriteConfirm.Text" xml:space="preserve">
+    <value>OverwriteConfirm</value>
   </data>
-  <data name="labelPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;labelMessageText.Name" xml:space="preserve">
+    <value>labelMessageText</value>
   </data>
-  <data name="labelPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>43, 142</value>
-  </data>
-  <data name="labelPasswordValid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 12</value>
-  </data>
-  <data name="labelPasswordValid.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
   </data>
   <data name="labelPasswordValid.Text" xml:space="preserve">
     <value>Password is valid.</value>
-  </data>
-  <data name="labelPasswordValid.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;labelPasswordValid.Name" xml:space="preserve">
-    <value>labelPasswordValid</value>
-  </data>
-  <data name="&gt;&gt;labelPasswordValid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelPasswordValid.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;labelPasswordValid.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBoxPasswordValid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
   </data>
   <data name="pictureBoxPasswordValid.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -236,476 +647,152 @@
         qEcapi0M2XjYnoEE1qApVTLeYqTdYCtEWlONevwvIAx2zIh9/wLzHheE+BvHSwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBoxPasswordValid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxPasswordValid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 137</value>
-  </data>
-  <data name="pictureBoxPasswordValid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="pictureBoxPasswordValid.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="pictureBoxPasswordValid.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="pictureBoxPasswordValid.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxPasswordValid.Name" xml:space="preserve">
-    <value>pictureBoxPasswordValid</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxPasswordValid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxPasswordValid.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxPasswordValid.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 67</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 17</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Input again to comfirm:</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 13</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 19</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Input password:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="textBoxRePassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="textBoxRePassword.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="textBoxRePassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 87</value>
-  </data>
-  <data name="textBoxRePassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>●</value>
-  </data>
-  <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 23</value>
-  </data>
-  <data name="textBoxRePassword.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
-    <value>textBoxRePassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="textBoxPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="textBoxPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 35</value>
-  </data>
-  <data name="textBoxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>●</value>
-  </data>
-  <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>377, 23</value>
-  </data>
-  <data name="textBoxPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
-    <value>textBoxPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="buttonEncrypt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="buttonPasswordCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="buttonPasswordCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonPasswordCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonPasswordCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>303, 125</value>
-  </data>
-  <data name="buttonPasswordCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 32</value>
-  </data>
-  <data name="buttonPasswordCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonPasswordCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordCancel.Name" xml:space="preserve">
-    <value>buttonPasswordCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordCancel.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordCancel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="buttonPasswordOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonPasswordOK.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonPasswordOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonPasswordOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 125</value>
-  </data>
-  <data name="buttonPasswordOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 32</value>
-  </data>
-  <data name="buttonPasswordOK.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonPasswordOK.Text" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordOK.Name" xml:space="preserve">
-    <value>buttonPasswordOK</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordOK.Parent" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;buttonPasswordOK.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="panelInputPassword.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelInputPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelInputPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 170</value>
-  </data>
-  <data name="panelInputPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="panelInputPassword.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelInputPassword.Name" xml:space="preserve">
-    <value>panelInputPassword</value>
-  </data>
-  <data name="&gt;&gt;panelInputPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelInputPassword.Parent" xml:space="preserve">
-    <value>tabPageInputPassword</value>
-  </data>
-  <data name="&gt;&gt;panelInputPassword.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageInputPassword.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPageAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="tabPageInputPassword.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;labelMessageText.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="tabPageInputPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 176</value>
+  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
   </data>
   <data name="tabPageInputPassword.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="tabPageInputPassword.Text" xml:space="preserve">
-    <value>InputPassword</value>
+  <data name="pictureBoxPasswordValid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
   </data>
-  <data name="&gt;&gt;tabPageInputPassword.Name" xml:space="preserve">
-    <value>tabPageInputPassword</value>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageInputPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelPasswordValid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageInputPassword.Parent" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;tabPageInputPassword.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="splitButton2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="splitButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>167, 128</value>
+  <data name="&gt;&gt;labelPasswordValid.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>182, 17</value>
-  </metadata>
-  <data name="ToolStripMenuItemSkip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+  <data name="checkBoxNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="ToolStripMenuItemSkip.Text" xml:space="preserve">
-    <value>SKip</value>
+  <data name="labelAskEncryptOrDecrypt.Text" xml:space="preserve">
+    <value>Which is encryption and decryption of drag and drop files/folders?</value>
   </data>
-  <data name="ToolStripMenuItemSkipAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+  <data name="buttonPasswordOK.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Input again to comfirm:</value>
+  </data>
+  <data name="labelAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 69</value>
+  </data>
+  <data name="buttonDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 126</value>
+  </data>
+  <data name="textBoxRePassword.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkip.Name" xml:space="preserve">
+    <value>ToolStripMenuItemSkip</value>
+  </data>
+  <data name="buttonDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Name" xml:space="preserve">
+    <value>tabPageAskEncryptOrDecrypt</value>
+  </data>
+  <data name="buttonPasswordCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 125</value>
+  </data>
+  <data name="&gt;&gt;buttonEncrypt.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panelAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="ToolStripMenuItemSkipAll.Text" xml:space="preserve">
     <value>Skip All</value>
   </data>
-  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
-    <value>contextMenuStrip2</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="splitButton2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="splitButton1.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 32</value>
   </data>
-  <data name="splitButton2.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="textBoxPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
-  <data name="splitButton2.Text" xml:space="preserve">
-    <value>splitButton2</value>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="splitButton2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
   </data>
-  <data name="&gt;&gt;splitButton2.Name" xml:space="preserve">
-    <value>splitButton2</value>
+  <data name="&gt;&gt;buttonPasswordOK.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
   </data>
-  <data name="&gt;&gt;splitButton2.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;splitButton2.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;splitButton2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="splitButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="splitButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 128</value>
-  </data>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="ToolStripMenuItemOverwrite.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="ToolStripMenuItemOverwrite.Text" xml:space="preserve">
-    <value>Overwrite</value>
-  </data>
-  <data name="ToolStripMenuItemOverwriteAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="ToolStripMenuItemOverwriteAll.Text" xml:space="preserve">
-    <value>Overwrite All</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
-  </data>
-  <data name="ToolStripMenuItemKeepNewer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="ToolStripMenuItemKeepNewer.Text" xml:space="preserve">
-    <value>Keep Newer</value>
+  <data name="tabPageOverwriteConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 176</value>
   </data>
   <data name="ToolStripMenuItemkeepNewerAll.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
   </data>
-  <data name="ToolStripMenuItemkeepNewerAll.Text" xml:space="preserve">
-    <value>Keep Newer All</value>
+  <data name="textBoxRePassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
-  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 98</value>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
-    <value>contextMenuStrip1</value>
-  </data>
-  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="splitButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 32</value>
-  </data>
-  <data name="splitButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="splitButton1.Text" xml:space="preserve">
-    <value>splitButton1</value>
-  </data>
-  <data name="splitButton1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;splitButton1.Name" xml:space="preserve">
-    <value>splitButton1</value>
-  </data>
-  <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.1.1.3, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;splitButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonOverwriteCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="buttonDecrypt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="buttonOverwriteCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
+  <data name="splitButton2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="buttonOverwriteCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="labelPasswordValid.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="buttonOverwriteCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>310, 128</value>
+  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
+    <value>textBoxPassword</value>
   </data>
-  <data name="buttonOverwriteCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 32</value>
+  <data name="&gt;&gt;pictureBoxQuestionIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonOverwriteCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 13</value>
   </data>
-  <data name="buttonOverwriteCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
+  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonOverwriteCancel.Name" xml:space="preserve">
-    <value>buttonOverwriteCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteCancel.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonOverwriteCancel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;tabPageInputPassword.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelMessageText.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
-  <data name="labelMessageText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelMessageText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 40</value>
+  <data name="tabPageAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 176</value>
   </data>
-  <data name="labelMessageText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 69</value>
+  <data name="&gt;&gt;panelInputPassword.Parent" xml:space="preserve">
+    <value>tabPageInputPassword</value>
   </data>
-  <data name="labelMessageText.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="labelMessageText.Text" xml:space="preserve">
-    <value>labelMessageText</value>
-  </data>
-  <data name="&gt;&gt;labelMessageText.Name" xml:space="preserve">
-    <value>labelMessageText</value>
-  </data>
-  <data name="&gt;&gt;labelMessageText.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelMessageText.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;labelMessageText.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="buttonPasswordCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="pictureBoxQuestionIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -787,212 +874,260 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBoxQuestionIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;ToolStripMenuItemkeepNewerAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBoxQuestionIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 40</value>
+  <data name="&gt;&gt;buttonPasswordCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBoxQuestionIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBoxQuestionIcon.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxQuestionIcon.Name" xml:space="preserve">
-    <value>pictureBoxQuestionIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxQuestionIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxQuestionIcon.Parent" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxQuestionIcon.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelOverwriteConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelOverwriteConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelOverwriteConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 170</value>
+  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Parent" xml:space="preserve">
+    <value>tabPageAskEncryptOrDecrypt</value>
   </data>
   <data name="panelOverwriteConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="panelOverwriteConfirm.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelOverwriteConfirm.Name" xml:space="preserve">
-    <value>panelOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelOverwriteConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelOverwriteConfirm.Parent" xml:space="preserve">
-    <value>tabPageOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelOverwriteConfirm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageOverwriteConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageOverwriteConfirm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageOverwriteConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 176</value>
-  </data>
-  <data name="tabPageOverwriteConfirm.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabPageOverwriteConfirm.Text" xml:space="preserve">
-    <value>OverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverwriteConfirm.Name" xml:space="preserve">
-    <value>tabPageOverwriteConfirm</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverwriteConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageOverwriteConfirm.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Parent" xml:space="preserve">
     <value>tabControl1</value>
   </data>
-  <data name="&gt;&gt;tabPageOverwriteConfirm.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonAskEncryptOrDecryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 126</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="buttonAskEncryptOrDecryptCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Name" xml:space="preserve">
-    <value>buttonAskEncryptOrDecryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.Parent" xml:space="preserve">
-    <value>panelAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonDecrypt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonDecrypt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
   </data>
   <data name="buttonDecrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>190, 126</value>
+  <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>424, 202</value>
   </data>
-  <data name="buttonDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+  <data name="splitButton2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="buttonDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
   </data>
-  <data name="buttonDecrypt.Text" xml:space="preserve">
-    <value>&amp;Decrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecrypt.Name" xml:space="preserve">
-    <value>buttonDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDecrypt.Parent" xml:space="preserve">
-    <value>panelAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecrypt.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonEncrypt.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonEncrypt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonEncrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 126</value>
+  <data name="buttonPasswordOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 32</value>
   </data>
   <data name="buttonEncrypt.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 32</value>
   </data>
-  <data name="buttonEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+  <data name="buttonPasswordOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
-  <data name="buttonEncrypt.Text" xml:space="preserve">
-    <value>&amp;Encrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncrypt.Name" xml:space="preserve">
-    <value>buttonEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncrypt.Parent" xml:space="preserve">
-    <value>panelAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncrypt.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="labelAskEncryptOrDecrypt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="labelAskEncryptOrDecrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonPasswordOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="labelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 40</value>
+  <data name="textBoxPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="labelAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 69</value>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="labelAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="buttonAskEncryptOrDecryptCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
   </data>
-  <data name="labelAskEncryptOrDecrypt.Text" xml:space="preserve">
-    <value>Which is encryption and decryption of drag and drop files/folders?</value>
+  <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>166, 12</value>
   </data>
-  <data name="&gt;&gt;labelAskEncryptOrDecrypt.Name" xml:space="preserve">
-    <value>labelAskEncryptOrDecrypt</value>
+  <data name="buttonAskEncryptOrDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
   </data>
-  <data name="&gt;&gt;labelAskEncryptOrDecrypt.Type" xml:space="preserve">
+  <data name="&gt;&gt;pictureBoxPasswordValid.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverwriteConfirm.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="pictureBoxQuestionIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="ToolStripMenuItemSkip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="buttonOverwriteCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemOverwrite.Name" xml:space="preserve">
+    <value>ToolStripMenuItemOverwrite</value>
+  </data>
+  <data name="ToolStripMenuItemOverwrite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="panelOverwriteConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 170</value>
+  </data>
+  <data name="splitButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>167, 128</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 23</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form4</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.Parent" xml:space="preserve">
+    <value>panelOverwriteConfirm</value>
+  </data>
+  <data name="tabPageOverwriteConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="ToolStripMenuItemOverwrite.Text" xml:space="preserve">
+    <value>Overwrite</value>
+  </data>
+  <data name="&gt;&gt;buttonDecrypt.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonDecrypt.Name" xml:space="preserve">
+    <value>buttonDecrypt</value>
+  </data>
+  <data name="panelOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="buttonAskEncryptOrDecryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="textBoxPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelPasswordValid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="&gt;&gt;ToolStripMenuItemSkip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pictureBoxPasswordValid.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="&gt;&gt;buttonPasswordOK.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonPasswordOK.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
+    <value>contextMenuStrip2</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="buttonPasswordCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="splitButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="panelOverwriteConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonPasswordCancel.Name" xml:space="preserve">
+    <value>buttonPasswordCancel</value>
+  </data>
+  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;labelMessageText.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonEncrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="panelAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;tabPageOverwriteConfirm.Name" xml:space="preserve">
+    <value>tabPageOverwriteConfirm</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Name" xml:space="preserve">
+    <value>panelAskEncryptOrDecrypt</value>
+  </data>
+  <data name="panelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="pictureBoxQuestionIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 40</value>
+  </data>
+  <data name="panelOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 23</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordValid.Parent" xml:space="preserve">
+    <value>panelInputPassword</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;labelAskEncryptOrDecrypt.Parent" xml:space="preserve">
     <value>panelAskEncryptOrDecrypt</value>
   </data>
-  <data name="&gt;&gt;labelAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
+    <value>textBoxRePassword</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxQuestionIcon.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonAskEncryptOrDecryptCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonDecrypt.Text" xml:space="preserve">
+    <value>&amp;Decrypt</value>
+  </data>
+  <data name="&gt;&gt;panelInputPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 170</value>
+  </data>
+  <data name="&gt;&gt;buttonAskEncryptOrDecryptCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;panelOverwriteConfirm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;splitButton2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBoxRePassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordValid.Name" xml:space="preserve">
+    <value>labelPasswordValid</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1074,196 +1209,58 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 40</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>panelAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelAskEncryptOrDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 170</value>
-  </data>
-  <data name="panelAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Name" xml:space="preserve">
-    <value>panelAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelAskEncryptOrDecrypt.Parent" xml:space="preserve">
-    <value>tabPageAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panelAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabPageAskEncryptOrDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="tabPageAskEncryptOrDecrypt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabPageAskEncryptOrDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 176</value>
-  </data>
-  <data name="tabPageAskEncryptOrDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabPageAskEncryptOrDecrypt.Text" xml:space="preserve">
-    <value>AskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Name" xml:space="preserve">
-    <value>tabPageAskEncryptOrDecrypt</value>
-  </data>
-  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.Parent" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabPageAskEncryptOrDecrypt.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>424, 202</value>
-  </data>
-  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
-    <value>panelOuter</value>
-  </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panelOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>424, 202</value>
-  </data>
-  <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Name" xml:space="preserve">
-    <value>panelOuter</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelOuter.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>424, 202</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>440, 240</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Form4</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItemOverwrite.Name" xml:space="preserve">
-    <value>ToolStripMenuItemOverwrite</value>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItemOverwrite.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Name" xml:space="preserve">
-    <value>ToolStripMenuItemOverwriteAll</value>
+  <data name="splitButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemOverwriteAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pictureBoxPasswordValid.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
-    <value>toolStripMenuItem1</value>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 48</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelAskEncryptOrDecrypt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Name" xml:space="preserve">
-    <value>ToolStripMenuItemKeepNewer</value>
+  <data name="&gt;&gt;splitButton1.Name" xml:space="preserve">
+    <value>splitButton1</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemKeepNewer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPageInputPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>416, 176</value>
+  </data>
+  <data name="splitButton1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;panelOuter.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 40</value>
+  </data>
+  <data name="pictureBoxPasswordValid.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Text" xml:space="preserve">
+    <value>Not mask password character</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItemkeepNewerAll.Name" xml:space="preserve">
     <value>ToolStripMenuItemkeepNewerAll</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemkeepNewerAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItemSkip.Name" xml:space="preserve">
-    <value>ToolStripMenuItemSkip</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItemSkip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Name" xml:space="preserve">
-    <value>ToolStripMenuItemSkipAll</value>
-  </data>
-  <data name="&gt;&gt;ToolStripMenuItemSkipAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form4</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 17</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

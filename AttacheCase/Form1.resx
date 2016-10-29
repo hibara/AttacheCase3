@@ -623,33 +623,6 @@
   <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="buttonTest.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonTest.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 300</value>
-  </data>
-  <data name="buttonTest.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 32</value>
-  </data>
-  <data name="buttonTest.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="buttonTest.Text" xml:space="preserve">
-    <value>buttonTest</value>
-  </data>
-  <data name="&gt;&gt;buttonTest.Name" xml:space="preserve">
-    <value>buttonTest</value>
-  </data>
-  <data name="&gt;&gt;buttonTest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonTest.Parent" xml:space="preserve">
-    <value>panelStartPage</value>
-  </data>
-  <data name="&gt;&gt;buttonTest.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="pictureBoxBackButtonOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -720,7 +693,7 @@
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxBackButtonOff.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="pictureBoxBackButtonOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -792,7 +765,7 @@
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxBackButtonOn.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="pictureBoxHamburgerMenu.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -842,7 +815,7 @@
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxHamburgerMenu.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="buttonExit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
@@ -872,7 +845,7 @@
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="labelDec.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1338,7 +1311,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="pictureBoxDeleteOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1403,7 +1376,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxDeleteOn.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="pictureBoxDecOff.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -1475,7 +1448,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxDecOff.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="pictureBoxDecOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1542,7 +1515,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxDecOn.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="pictureBoxZipOff.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -1619,7 +1592,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxZipOff.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="pictureBoxZipOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1696,7 +1669,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxZipOn.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="pictureBoxExeOff.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -1773,7 +1746,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxExeOff.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="pictureBoxExeOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1852,7 +1825,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxExeOn.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="pictureBoxAtcOff.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>None</value>
@@ -1942,7 +1915,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxAtcOff.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="pictureBoxAtcOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2030,7 +2003,7 @@ ATC</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;pictureBoxAtcOn.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="labelDragAndDrop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -2067,7 +2040,7 @@ in this area for encryption or decryption.</value>
     <value>panelStartPage</value>
   </data>
   <data name="&gt;&gt;labelDragAndDrop.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="panelStartPage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

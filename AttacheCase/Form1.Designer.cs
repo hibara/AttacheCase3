@@ -161,7 +161,6 @@
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-      this.buttonTest = new System.Windows.Forms.Button();
       this.statusStrip1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
@@ -419,7 +418,6 @@
       // 
       this.panelStartPage.BackColor = System.Drawing.Color.White;
       this.panelStartPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.panelStartPage.Controls.Add(this.buttonTest);
       this.panelStartPage.Controls.Add(this.pictureBoxBackButtonOff);
       this.panelStartPage.Controls.Add(this.pictureBoxBackButtonOn);
       this.panelStartPage.Controls.Add(this.pictureBoxHamburgerMenu);
@@ -1163,13 +1161,6 @@
       this.saveFileDialog1.DefaultExt = "atc";
       resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
       // 
-      // buttonTest
-      // 
-      resources.ApplyResources(this.buttonTest, "buttonTest");
-      this.buttonTest.Name = "buttonTest";
-      this.buttonTest.UseVisualStyleBackColor = true;
-      this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
-      // 
       // Form1
       // 
       this.AllowDrop = true;
@@ -1387,7 +1378,6 @@
     private System.Windows.Forms.PictureBox pictureBoxProgressStateBackButton;
     internal System.Windows.Forms.PictureBox pictureBoxBackButtonOff;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDataVersion;
-    private System.Windows.Forms.Button buttonTest;
   }
 }
 

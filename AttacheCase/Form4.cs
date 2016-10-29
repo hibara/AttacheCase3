@@ -34,7 +34,7 @@ namespace AttacheCase
     // Skip Option
     private const int SKIP           = 5;
     private const int SKIP_ALL       = 6;
-    //private const int SKIP_IDENTICAL = 7;
+
 
     private int OverwriteButtonTextNum = OVERWRITE;
     private int SkipButtonTextNum = SKIP;
@@ -54,13 +54,6 @@ namespace AttacheCase
 		public int OverWriteOption
 		{
 			get { return _OverWriteOption; }
-		}
-
-		// File or Directory path to overwrite.
-		private string _OverWriteFilePath;
-		public string OverWriteFilePath
-		{
-			set { _OverWriteFilePath = value; }
 		}
 
 		// Ask to encrypt or decrypt regardless of file content.
@@ -108,7 +101,9 @@ namespace AttacheCase
 			//-----------------------------------
 			// 上書き確認ダイアログ
 			// Dialog of confirming to overwrite 
-			else if (_FormType == "ComfirmToOverwriteFile" || _FormType == "ComfirmToOverwriteDir")
+			else if (_FormType == "ComfirmToOverwriteFile" || 
+        _FormType == "ComfirmToOverwriteDir" || 
+        _FormType == "ComfirmToOverwriteAtc")
 			{
 				panelOverwriteConfirm.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
@@ -117,16 +112,24 @@ namespace AttacheCase
         splitButton1.Text = ToolStripMenuItemOverwrite.Text;  // Overwrite ( Default )
         splitButton2.Text = ToolStripMenuItemSkip.Text;       // Skip ( Default )
 
+        if (_FormType == "ComfirmToOverwriteAtc")
+        {
+          ToolStripMenuItemKeepNewer.Enabled = false;
+          ToolStripMenuItemkeepNewerAll.Enabled = false;
+        }
+
       }
-			//-----------------------------------
-			//暗号化、復号の選択ダイアログ
-			else if (_FormType == "AskEncryptOrDecrypt")
+      //-----------------------------------
+      // 暗号化、復号の選択ダイアログ
+      // Dialog to select encryption or decryption
+      else if (_FormType == "AskEncryptOrDecrypt")
 			{
         panelAskEncryptOrDecrypt.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
 			}
 			//-----------------------------------
-			//無指定？
+			// 無指定？
+      // None?
 			else
 			{
 				return;
@@ -294,9 +297,20 @@ namespace AttacheCase
     //======================================================================
     #region
 
-    // Temporary option for overwrite ( 0: none, 1: Yes, 2: Overwrite all )
+    // Temporary option for overwrite
     // private int _OverWriteOption
+    // Overwrite Option
 
+    // private const int USER_CANCELED  = -1;
+    // private const int OVERWRITE      = 1;
+    // private const int OVERWRITE_ALL  = 2;
+    // private const int KEEP_NEWER     = 3;
+    // private const int KEEP_NEWER_ALL = 4;
+    // ---
+    // Skip Option
+    // private const int SKIP           = 5;
+    // private const int SKIP_ALL       = 6;
+    
     private void ToolStripMenuItemOverwrite_Click(object sender, EventArgs e)
     {
       OverwriteButtonTextNum = OVERWRITE;
@@ -353,8 +367,7 @@ namespace AttacheCase
 			_OverWriteOption = -1;
 			this.Close();
 		}
-
-
+    
     #endregion
 
     //======================================================================
