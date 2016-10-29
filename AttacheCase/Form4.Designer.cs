@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
       this.panelOuter = new System.Windows.Forms.Panel();
       this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -44,11 +45,16 @@
       this.buttonPasswordOK = new System.Windows.Forms.Button();
       this.tabPageOverwriteConfirm = new System.Windows.Forms.TabPage();
       this.panelOverwriteConfirm = new System.Windows.Forms.Panel();
-      this.checkBoxOverwriteForNewDate = new System.Windows.Forms.CheckBox();
+      this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ToolStripMenuItemSkip = new System.Windows.Forms.ToolStripMenuItem();
+      this.ToolStripMenuItemSkipAll = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ToolStripMenuItemOverwrite = new System.Windows.Forms.ToolStripMenuItem();
+      this.ToolStripMenuItemOverwriteAll = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ToolStripMenuItemKeepNewer = new System.Windows.Forms.ToolStripMenuItem();
+      this.ToolStripMenuItemkeepNewerAll = new System.Windows.Forms.ToolStripMenuItem();
       this.buttonOverwriteCancel = new System.Windows.Forms.Button();
-      this.buttonOverwriteNo = new System.Windows.Forms.Button();
-      this.buttonOverwriteYes = new System.Windows.Forms.Button();
-      this.buttonOverwriteAll = new System.Windows.Forms.Button();
       this.labelMessageText = new System.Windows.Forms.Label();
       this.pictureBoxQuestionIcon = new System.Windows.Forms.PictureBox();
       this.tabPageAskEncryptOrDecrypt = new System.Windows.Forms.TabPage();
@@ -58,6 +64,8 @@
       this.buttonEncrypt = new System.Windows.Forms.Button();
       this.labelAskEncryptOrDecrypt = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.splitButton2 = new AttacheCase.SplitButton();
+      this.splitButton1 = new AttacheCase.SplitButton();
       this.panelOuter.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageInputPassword.SuspendLayout();
@@ -65,6 +73,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordValid)).BeginInit();
       this.tabPageOverwriteConfirm.SuspendLayout();
       this.panelOverwriteConfirm.SuspendLayout();
+      this.contextMenuStrip2.SuspendLayout();
+      this.contextMenuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQuestionIcon)).BeginInit();
       this.tabPageAskEncryptOrDecrypt.SuspendLayout();
       this.panelAskEncryptOrDecrypt.SuspendLayout();
@@ -73,28 +83,29 @@
       // 
       // panelOuter
       // 
-      this.panelOuter.Controls.Add(this.tabControl1);
       resources.ApplyResources(this.panelOuter, "panelOuter");
+      this.panelOuter.Controls.Add(this.tabControl1);
       this.panelOuter.Name = "panelOuter";
       // 
       // tabControl1
       // 
+      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Controls.Add(this.tabPageInputPassword);
       this.tabControl1.Controls.Add(this.tabPageOverwriteConfirm);
       this.tabControl1.Controls.Add(this.tabPageAskEncryptOrDecrypt);
-      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       // 
       // tabPageInputPassword
       // 
-      this.tabPageInputPassword.Controls.Add(this.panelInputPassword);
       resources.ApplyResources(this.tabPageInputPassword, "tabPageInputPassword");
+      this.tabPageInputPassword.Controls.Add(this.panelInputPassword);
       this.tabPageInputPassword.Name = "tabPageInputPassword";
       this.tabPageInputPassword.UseVisualStyleBackColor = true;
       // 
       // panelInputPassword
       // 
+      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
       this.panelInputPassword.Controls.Add(this.labelPasswordValid);
       this.panelInputPassword.Controls.Add(this.pictureBoxPasswordValid);
@@ -104,7 +115,6 @@
       this.panelInputPassword.Controls.Add(this.textBoxPassword);
       this.panelInputPassword.Controls.Add(this.buttonPasswordCancel);
       this.panelInputPassword.Controls.Add(this.buttonPasswordOK);
-      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Name = "panelInputPassword";
       // 
       // checkBoxNotMaskEncryptedPassword
@@ -167,28 +177,80 @@
       // 
       // tabPageOverwriteConfirm
       // 
-      this.tabPageOverwriteConfirm.Controls.Add(this.panelOverwriteConfirm);
       resources.ApplyResources(this.tabPageOverwriteConfirm, "tabPageOverwriteConfirm");
+      this.tabPageOverwriteConfirm.Controls.Add(this.panelOverwriteConfirm);
       this.tabPageOverwriteConfirm.Name = "tabPageOverwriteConfirm";
       this.tabPageOverwriteConfirm.UseVisualStyleBackColor = true;
       // 
       // panelOverwriteConfirm
       // 
-      this.panelOverwriteConfirm.Controls.Add(this.checkBoxOverwriteForNewDate);
+      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
+      this.panelOverwriteConfirm.Controls.Add(this.splitButton2);
+      this.panelOverwriteConfirm.Controls.Add(this.splitButton1);
       this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteCancel);
-      this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteNo);
-      this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteYes);
-      this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteAll);
       this.panelOverwriteConfirm.Controls.Add(this.labelMessageText);
       this.panelOverwriteConfirm.Controls.Add(this.pictureBoxQuestionIcon);
-      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Name = "panelOverwriteConfirm";
       // 
-      // checkBoxOverwriteForNewDate
+      // contextMenuStrip2
       // 
-      resources.ApplyResources(this.checkBoxOverwriteForNewDate, "checkBoxOverwriteForNewDate");
-      this.checkBoxOverwriteForNewDate.Name = "checkBoxOverwriteForNewDate";
-      this.checkBoxOverwriteForNewDate.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
+      this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemSkip,
+            this.ToolStripMenuItemSkipAll});
+      this.contextMenuStrip2.Name = "contextMenuStrip2";
+      // 
+      // ToolStripMenuItemSkip
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemSkip, "ToolStripMenuItemSkip");
+      this.ToolStripMenuItemSkip.Name = "ToolStripMenuItemSkip";
+      this.ToolStripMenuItemSkip.Click += new System.EventHandler(this.ToolStripMenuItemSkip_Click);
+      // 
+      // ToolStripMenuItemSkipAll
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemSkipAll, "ToolStripMenuItemSkipAll");
+      this.ToolStripMenuItemSkipAll.Name = "ToolStripMenuItemSkipAll";
+      this.ToolStripMenuItemSkipAll.Click += new System.EventHandler(this.ToolStripMenuItemSkipAll_Click);
+      // 
+      // contextMenuStrip1
+      // 
+      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItemOverwrite,
+            this.ToolStripMenuItemOverwriteAll,
+            this.toolStripMenuItem1,
+            this.ToolStripMenuItemKeepNewer,
+            this.ToolStripMenuItemkeepNewerAll});
+      this.contextMenuStrip1.Name = "contextMenuStrip1";
+      // 
+      // ToolStripMenuItemOverwrite
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemOverwrite, "ToolStripMenuItemOverwrite");
+      this.ToolStripMenuItemOverwrite.Name = "ToolStripMenuItemOverwrite";
+      this.ToolStripMenuItemOverwrite.Click += new System.EventHandler(this.ToolStripMenuItemOverwrite_Click);
+      // 
+      // ToolStripMenuItemOverwriteAll
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemOverwriteAll, "ToolStripMenuItemOverwriteAll");
+      this.ToolStripMenuItemOverwriteAll.Name = "ToolStripMenuItemOverwriteAll";
+      this.ToolStripMenuItemOverwriteAll.Click += new System.EventHandler(this.ToolStripMenuItemOverwriteAll_Click);
+      // 
+      // toolStripMenuItem1
+      // 
+      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+      this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+      // 
+      // ToolStripMenuItemKeepNewer
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemKeepNewer, "ToolStripMenuItemKeepNewer");
+      this.ToolStripMenuItemKeepNewer.Name = "ToolStripMenuItemKeepNewer";
+      this.ToolStripMenuItemKeepNewer.Click += new System.EventHandler(this.ToolStripMenuItemKeepNewer_Click);
+      // 
+      // ToolStripMenuItemkeepNewerAll
+      // 
+      resources.ApplyResources(this.ToolStripMenuItemkeepNewerAll, "ToolStripMenuItemkeepNewerAll");
+      this.ToolStripMenuItemkeepNewerAll.Name = "ToolStripMenuItemkeepNewerAll";
+      this.ToolStripMenuItemkeepNewerAll.Click += new System.EventHandler(this.ToolStripMenuItemkeepNewerAll_Click);
       // 
       // buttonOverwriteCancel
       // 
@@ -196,27 +258,6 @@
       this.buttonOverwriteCancel.Name = "buttonOverwriteCancel";
       this.buttonOverwriteCancel.UseVisualStyleBackColor = true;
       this.buttonOverwriteCancel.Click += new System.EventHandler(this.buttonOverwriteCancel_Click);
-      // 
-      // buttonOverwriteNo
-      // 
-      resources.ApplyResources(this.buttonOverwriteNo, "buttonOverwriteNo");
-      this.buttonOverwriteNo.Name = "buttonOverwriteNo";
-      this.buttonOverwriteNo.UseVisualStyleBackColor = true;
-      this.buttonOverwriteNo.Click += new System.EventHandler(this.buttonOverwriteNo_Click);
-      // 
-      // buttonOverwriteYes
-      // 
-      resources.ApplyResources(this.buttonOverwriteYes, "buttonOverwriteYes");
-      this.buttonOverwriteYes.Name = "buttonOverwriteYes";
-      this.buttonOverwriteYes.UseVisualStyleBackColor = true;
-      this.buttonOverwriteYes.Click += new System.EventHandler(this.buttonOverwriteYes_Click);
-      // 
-      // buttonOverwriteAll
-      // 
-      resources.ApplyResources(this.buttonOverwriteAll, "buttonOverwriteAll");
-      this.buttonOverwriteAll.Name = "buttonOverwriteAll";
-      this.buttonOverwriteAll.UseVisualStyleBackColor = true;
-      this.buttonOverwriteAll.Click += new System.EventHandler(this.buttonOverwriteAll_Click);
       // 
       // labelMessageText
       // 
@@ -231,19 +272,19 @@
       // 
       // tabPageAskEncryptOrDecrypt
       // 
-      this.tabPageAskEncryptOrDecrypt.Controls.Add(this.panelAskEncryptOrDecrypt);
       resources.ApplyResources(this.tabPageAskEncryptOrDecrypt, "tabPageAskEncryptOrDecrypt");
+      this.tabPageAskEncryptOrDecrypt.Controls.Add(this.panelAskEncryptOrDecrypt);
       this.tabPageAskEncryptOrDecrypt.Name = "tabPageAskEncryptOrDecrypt";
       this.tabPageAskEncryptOrDecrypt.UseVisualStyleBackColor = true;
       // 
       // panelAskEncryptOrDecrypt
       // 
+      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonAskEncryptOrDecryptCancel);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonEncrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.labelAskEncryptOrDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.pictureBox1);
-      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Name = "panelAskEncryptOrDecrypt";
       // 
       // buttonAskEncryptOrDecryptCancel
@@ -278,6 +319,22 @@
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.TabStop = false;
       // 
+      // splitButton2
+      // 
+      resources.ApplyResources(this.splitButton2, "splitButton2");
+      this.splitButton2.Menu = this.contextMenuStrip2;
+      this.splitButton2.Name = "splitButton2";
+      this.splitButton2.UseVisualStyleBackColor = true;
+      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
+      // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip1;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
+      // 
       // Form4
       // 
       resources.ApplyResources(this, "$this");
@@ -301,7 +358,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordValid)).EndInit();
       this.tabPageOverwriteConfirm.ResumeLayout(false);
       this.panelOverwriteConfirm.ResumeLayout(false);
-      this.panelOverwriteConfirm.PerformLayout();
+      this.contextMenuStrip2.ResumeLayout(false);
+      this.contextMenuStrip1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQuestionIcon)).EndInit();
       this.tabPageAskEncryptOrDecrypt.ResumeLayout(false);
       this.panelAskEncryptOrDecrypt.ResumeLayout(false);
@@ -326,11 +384,7 @@
 		private System.Windows.Forms.PictureBox pictureBoxPasswordValid;
 		private System.Windows.Forms.TabPage tabPageOverwriteConfirm;
 		private System.Windows.Forms.Panel panelOverwriteConfirm;
-		private System.Windows.Forms.CheckBox checkBoxOverwriteForNewDate;
 		private System.Windows.Forms.Button buttonOverwriteCancel;
-		private System.Windows.Forms.Button buttonOverwriteNo;
-		private System.Windows.Forms.Button buttonOverwriteYes;
-		private System.Windows.Forms.Button buttonOverwriteAll;
 		private System.Windows.Forms.Label labelMessageText;
 		private System.Windows.Forms.PictureBox pictureBoxQuestionIcon;
 		private System.Windows.Forms.TabPage tabPageAskEncryptOrDecrypt;
@@ -341,6 +395,16 @@
 		private System.Windows.Forms.Label labelAskEncryptOrDecrypt;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
-
-	}
+    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOverwriteAll;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemKeepNewer;
+    private SplitButton splitButton1;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOverwrite;
+    private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemkeepNewerAll;
+    private SplitButton splitButton2;
+    private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkip;
+    private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkipAll;
+  }
 }

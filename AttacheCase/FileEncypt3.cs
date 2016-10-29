@@ -49,6 +49,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
 
+
     private byte[] buffer;
     private const int BUFFER_SIZE = 4096;
 

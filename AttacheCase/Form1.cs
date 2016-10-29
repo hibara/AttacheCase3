@@ -70,6 +70,19 @@ namespace AttacheCase
     private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
     private const int PROCESS_TYPE_DECRYPTION   = 4;
 
+    // Overwrite Option
+    //private const int USER_CANCELED = -1;
+    private const int OVERWRITE      = 1;
+    private const int OVERWRITE_ALL  = 2;
+    private const int KEEP_NEWER     = 3;
+    private const int KEEP_NEWER_ALL = 4;
+    // Skip Option
+    private const int SKIP           = 5;
+    private const int SKIP_ALL       = 6;
+
+    private int TempOverWriteOption = -1;
+
+
     // The position of mouse down in main form.
     // マウスボタンがダウンされた位置
     private Point MouseDownPoint;
@@ -520,8 +533,8 @@ namespace AttacheCase
 
     //----------------------------------------------------------------------
     /// <summary>
-    /// 上書きの確認をするダイアログ表示とユーザー応答内容の受け渡し
-    /// Show dialog for confirming to overwrite, and passing user command. 
+    /// 【Decryption】上書きの確認ダイアログ表示とユーザー応答内容の受け渡し
+    ///  Show dialog for confirming to overwrite, and passing user command. 
     /// </summary>
     System.Threading.ManualResetEvent _busy = new System.Threading.ManualResetEvent(false);
     private void DialogMessageForOverWrite(int FileType, string FilePath)
@@ -531,22 +544,33 @@ namespace AttacheCase
         // Not confirm
         if (AppSettings.Instance.fDecryptConfirmOverwrite == false)
         {
-          decryption3.TempOverWriteOption = 2;
+          TempOverWriteOption = OVERWRITE_ALL;
           return;
         }
-        if (decryption3.TempOverWriteOption == 2)
-        {  // Overwrite all
+
+        if (TempOverWriteOption == OVERWRITE_ALL)
+        {
           return;
         }
+        else if(TempOverWriteOption == SKIP_ALL)
+        {
+          return;
+        }
+
       }
       else
       {
         if (AppSettings.Instance.fDecryptConfirmOverwrite == false)
         {
-          decryption2.TempOverWriteOption = 2;
+          TempOverWriteOption = OVERWRITE_ALL;
           return;
         }
-        if (decryption2.TempOverWriteOption == 2)
+
+        if (TempOverWriteOption == OVERWRITE_ALL)
+        {
+          return;
+        }
+        else if (TempOverWriteOption == SKIP_ALL)
         {
           return;
         }
@@ -572,16 +596,7 @@ namespace AttacheCase
 
       frm4.ShowDialog();
 
-      if (decryption2 == null)
-      {
-        decryption3.TempOverWriteOption = frm4.OverWriteOption;
-        decryption3.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
-      }
-      else
-      {
-        decryption2.TempOverWriteOption = frm4.OverWriteOption;
-        decryption2.TempOverWriteForNewDate = frm4.OverWriteForNewDate;
-      }
+      TempOverWriteOption = frm4.OverWriteOption;
 
       frm4.Dispose();
 
@@ -723,6 +738,7 @@ namespace AttacheCase
       else
       {
         progressBar.Style = ProgressBarStyle.Marquee;
+        progressBar.MarqueeAnimationSpeed = 50;
         progressBar.Value = 0;
       }
       /*
@@ -983,6 +999,7 @@ namespace AttacheCase
         bool fCancel = false;
         switch (result.ReturnCode)
         {
+          //-----------------------------------
           case DECRYPT_SUCCEEDED:
 
             labelProgressPercentText.Text = "100%";
@@ -1001,113 +1018,14 @@ namespace AttacheCase
               OutputFileList.AddRange(decryption2.OutputFileList);
             }
             
-            if ( FileIndex + 1 < AppSettings.Instance.FileList.Count)
+            if ( FileIndex < AppSettings.Instance.FileList.Count)
             {
               FileIndex++;
               DecryptionProcess();
               return;
             }
 
-            if (AppSettings.Instance.fOpenFile == true)
-            {
-              if (OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum)
-              {
-                // 問い合わせ
-                // 復号したファイルが○個以上あります。
-                // それでもすべてのファイルを関連付けられたアプリケーションで開きますか？
-                //
-                // Question
-                // There decrypted file is * or more.
-                // But, open all of the files associated with application?
-                DialogResult ret = MessageBox.Show(string.Format(Resources.DialogMessageOpenMultipleFiles, AppSettings.Instance.ShowDialogWhenMultipleFilesNum),
-                Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (ret == DialogResult.No)
-                {
-                  return;
-                }
-              }
-
-              foreach (string path in OutputFileList)
-              {
-                if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat")
-                {
-                  if (AppSettings.Instance.fShowDialogWhenExeFile == true)
-                  {
-                    // 問い合わせ
-                    // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
-                    //
-                    // Question
-                    // It contains the executable files in the decrypted file.
-                    // Do you run the following file?
-                    DialogResult ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
-                    Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (ret == DialogResult.No)
-                    {
-                      continue;
-                    }
-                    else
-                    { // Executable
-                      System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-                    }
-                  }
-                }
-                else if (File.Exists(path) == true)
-                {
-                  System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-                }
-                else if (Directory.Exists(path) == true)
-                {
-                  // Open the folder by Explorer
-                  System.Diagnostics.Process.Start("EXPLORER.EXE", path);
-                }
-
-              }// end foreach;
-
-              // Set the timestamp of files or directories to decryption time.
-              if (AppSettings.Instance.fSameTimeStamp == true)
-              {
-                OutputFileList.ForEach(delegate (String FilePath)
-                {
-                  DateTime dtNow = DateTime.Now;
-                  File.SetCreationTime(FilePath, dtNow);
-                  File.SetLastWriteTime(FilePath, dtNow);
-                  File.SetLastAccessTime(FilePath, dtNow);
-                });
-              }
-
-            }// end if (AppSettings.Instance.fOpenFile == true);
-
-
-            // Delete file or directories
-            if (AppSettings.Instance.fDelEncFile == true || checkBoxDeleteAtcFileAfterDecryption.Checked == true)
-            {
-              if (AppSettings.Instance.fConfirmToDeleteAfterDecryption == true)
-              {
-                // 問い合わせ
-                // 復号の元になった暗号化ファイルを削除しますか？
-                //
-                // Question
-                // Are you sure to delete the encypted file(s) that are the source of the decryption?
-                DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteEncryptedFiles,
-                  Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (ret == DialogResult.Yes)
-                {
-                  buttonCancel.Text = Resources.ButtonTextCancel;
-                  DeleteData(AppSettings.Instance.FileList);
-                }
-              }
-              else
-              {
-                DeleteData(AppSettings.Instance.FileList);
-              }
-            }
-
-            if (AppSettings.Instance.fEndToExit == true)
-            {
-              Application.Exit();
-            }
+            DecryptionEndProcess();
 
             return;
 
@@ -1552,6 +1470,7 @@ namespace AttacheCase
     private void StartProcess()
     {
       int ProcessType = 0;
+      TempOverWriteOption = -1;
 
       // self-executable file
       if (AppSettings.Instance.fSaveToExeout == true)
@@ -2695,10 +2614,29 @@ namespace AttacheCase
     /// </summary>
     private void EncryptionProcess()
     {
-      // Valid mark
-      pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
-      //labelPasswordValidation.Text = Resources.labelCaptionPasswordValid;
+      //-----------------------------------
+      // Display progress window
+      //-----------------------------------
+      panelStartPage.Visible = false;
+      panelEncrypt.Visible = false;
+      panelEncryptConfirm.Visible = false;
+      panelDecrypt.Visible = false;
+      panelProgressState.Visible = true;
+      labelCryptionType.Text = Resources.labelProcessNameEncrypt;
 
+      if (FileIndex > AppSettings.Instance.FileList.Count - 1)
+      {
+        labelProgressPercentText.Text = "100%";
+        progressBar.Style = ProgressBarStyle.Continuous;
+        progressBar.Value = progressBar.Maximum;
+        labelCryptionType.Text = "";
+        labelProgressMessageText.Text = Resources.labelCaptionCompleted;  // "Completed"
+        notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
+
+        buttonCancel.Text = Resources.ButtonTextOK;
+        return;
+      }
+      
       //-----------------------------------
       // Directory to oputput encrypted files
       //-----------------------------------
@@ -2833,16 +2771,8 @@ namespace AttacheCase
       AppSettings.Instance.EncryptionSameFileTypeBefore = AppSettings.Instance.EncryptionFileType;
 
       //-----------------------------------
-      // Display progress window
+      // Get directory path to output
       //-----------------------------------
-      panelStartPage.Visible = false;
-      panelEncrypt.Visible = false;
-      panelEncryptConfirm.Visible = false;
-      panelDecrypt.Visible = false;
-      panelProgressState.Visible = true;
-
-      labelCryptionType.Text = Resources.labelProcessNameEncrypt;
-
       string OutputDirPath = "";
 
       if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE || AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC)
@@ -2905,10 +2835,12 @@ namespace AttacheCase
         // If this option is selected, you specify a new file name.
         if (AppSettings.Instance.fSaveToSameFldr == true && Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
         {
+          saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
           saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
         }
         else
         {
+          saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
           saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
         }
 
@@ -3013,24 +2945,55 @@ namespace AttacheCase
         {
           if (File.Exists(AtcFilePath) == true)
           {
-            // 問い合わせ
-            // 以下のファイルはすでに存在しています。上書きして保存しますか？
-            //
-            // Question
-            // The following file already exists. Do you overwrite the files to save?
-            DialogResult ret = MessageBox.Show(Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath,
-            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Show dialog for confirming to orverwrite
 
-            if (ret == DialogResult.No)
+            if (TempOverWriteOption == SKIP_ALL) 
             {
-              panelStartPage.Visible = false;
-              panelEncrypt.Visible = true;
-              panelEncryptConfirm.Visible = false;
-              panelDecrypt.Visible = false;
-              panelProgressState.Visible = false;
+              FileIndex++;
+              EncryptionProcess();
               return;
             }
+            else if (TempOverWriteOption == OVERWRITE_ALL)
+            {
+              // Overwrite ( Create )
+            }
+            else
+            {
+              // 問い合わせ
+              // 以下のファイルはすでに存在しています。上書きして保存しますか？
+              //
+              // Question
+              // The following file already exists. Do you overwrite the files to save?
+              using (Form4 frm4 = new Form4("ComfirmToOverwriteAtc",
+                Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath))
+              {
+                frm4.ShowDialog();
+
+                if (frm4.OverWriteOption == USER_CANCELED)
+                {
+                  panelStartPage.Visible = false;
+                  panelEncrypt.Visible = true;
+                  panelEncryptConfirm.Visible = false;
+                  panelDecrypt.Visible = false;
+                  panelProgressState.Visible = false;
+                  return;
+                }
+                else
+                {
+                  TempOverWriteOption = frm4.OverWriteOption;
+                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  {
+                    FileIndex++;
+                    EncryptionProcess();
+                    return;
+                  }
+                }
+              }
+
+            }
+
           }
+
         }
 
         //-----------------------------------
@@ -3158,31 +3121,62 @@ namespace AttacheCase
 
         AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
+        //-----------------------------------
         //Confirm &overwriting when same file name exists.
-        if (AppSettings.Instance.fEncryptConfirmOverwrite == true)
+        if ((encryption3 != null && AppSettings.Instance.fEncryptConfirmOverwrite == true) ||
+            compression != null && AppSettings.Instance.fZipConfirmOverwrite == true)
         {
           if (File.Exists(AtcFilePath) == true)
           {
-            // 問い合わせ
-            // 以下のファイルはすでに存在しています。上書きして保存しますか？
-            // [AtcFilePath]
-            //
-            // Question
-            // The following file already exists. Do you overwrite the files to save?
-            // [AtcFilePath]
-            DialogResult ret = MessageBox.Show(Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath,
-            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Show dialog for confirming to orverwrite
 
-            if (ret == DialogResult.No)
+            if (TempOverWriteOption == SKIP_ALL)
             {
-              panelStartPage.Visible = false;
-              panelEncrypt.Visible = true;
-              panelEncryptConfirm.Visible = false;
-              panelDecrypt.Visible = false;
-              panelProgressState.Visible = false;
+              FileIndex++;
+              EncryptionProcess();
               return;
             }
+            else if (TempOverWriteOption == OVERWRITE_ALL)
+            {
+              // Overwrite ( Create )
+            }
+            else
+            {
+              // 問い合わせ
+              // 以下のファイルはすでに存在しています。上書きして保存しますか？
+              //
+              // Question
+              // The following file already exists. Do you overwrite the files to save?
+              using (Form4 frm4 = new Form4("ComfirmToOverwriteAtc",
+                Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath))
+              {
+                frm4.ShowDialog();
+
+                if (frm4.OverWriteOption == USER_CANCELED)
+                {
+                  panelStartPage.Visible = false;
+                  panelEncrypt.Visible = true;
+                  panelEncryptConfirm.Visible = false;
+                  panelDecrypt.Visible = false;
+                  panelProgressState.Visible = false;
+                  return;
+                }
+                else
+                {
+                  TempOverWriteOption = frm4.OverWriteOption;
+                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  {
+                    FileIndex++;
+                    EncryptionProcess();
+                    return;
+                  }
+                }
+              }
+
+            }
+
           }
+
         }
 
         //-----------------------------------
@@ -3310,30 +3304,63 @@ namespace AttacheCase
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
-        if (AppSettings.Instance.fEncryptConfirmOverwrite == true)
-        {
-          if (File.Exists(AtcFilePath) == true)
-          {
-            // 問い合わせ
-            // 以下のファイルはすでに存在しています。上書きして保存しますか？
-            //
-            // Question
-            // The following file already exists. Do you overwrite the files to save?
-            DialogResult ret = MessageBox.Show(Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath,
-            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            if (ret == DialogResult.No)
+        if ((encryption3 != null && AppSettings.Instance.fEncryptConfirmOverwrite == true) ||
+            compression != null && AppSettings.Instance.fZipConfirmOverwrite == true)
+        {
+
+          if (File.Exists(AtcFilePath) == true)
             {
-              panelStartPage.Visible = false;
-              panelEncrypt.Visible = true;
-              panelEncryptConfirm.Visible = false;
-              panelDecrypt.Visible = false;
-              panelProgressState.Visible = false;
+            // Show dialog for confirming to orverwrite
+
+            if (TempOverWriteOption == SKIP_ALL)
+            {
+              FileIndex++;
+              EncryptionProcess();
               return;
             }
-          }
-        }
+            else if (TempOverWriteOption == OVERWRITE_ALL)
+            {
+              // Overwrite ( Create )
+            }
+            else
+            {
+              // 問い合わせ
+              // 以下のファイルはすでに存在しています。上書きして保存しますか？
+              //
+              // Question
+              // The following file already exists. Do you overwrite the files to save?
+              using (Form4 frm4 = new Form4("ComfirmToOverwriteAtc",
+                Resources.labelComfirmToOverwriteFile + Environment.NewLine + AtcFilePath))
+              {
+                frm4.ShowDialog();
 
+                if (frm4.OverWriteOption == USER_CANCELED)
+                {
+                  panelStartPage.Visible = false;
+                  panelEncrypt.Visible = true;
+                  panelEncryptConfirm.Visible = false;
+                  panelDecrypt.Visible = false;
+                  panelProgressState.Visible = false;
+                  return;
+                }
+                else
+                {
+                  TempOverWriteOption = frm4.OverWriteOption;
+                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  {
+                    FileIndex++;
+                    EncryptionProcess();
+                    return;
+                  }
+                }
+              }
+
+            }
+              
+          }
+
+        }
         //----------------------------------------------------------------------
         // Self executable file
         //----------------------------------------------------------------------
@@ -3561,11 +3588,41 @@ namespace AttacheCase
 
     //======================================================================
     /// <summary>
-    /// 
+    /// DecryptionProcess
     /// </summary>
     //======================================================================
     private void DecryptionProcess()
     {
+      //-----------------------------------
+      // Display progress window
+      //-----------------------------------
+      panelStartPage.Visible = false;
+      panelEncrypt.Visible = false;
+      panelEncryptConfirm.Visible = false;
+      panelDecrypt.Visible = false;
+      panelProgressState.Visible = true;
+
+      labelProgress.Text = labelDecryption.Text;
+      pictureBoxProgress.Image = pictureBoxDecOn.Image;
+      labelCryptionType.Text = Resources.labelProcessNameDecrypt;
+      buttonCancel.Text = Resources.ButtonTextCancel;
+
+      this.Update();
+
+      if (FileIndex > AppSettings.Instance.FileList.Count - 1)
+      {
+        labelProgressPercentText.Text = "100%";
+        progressBar.Style = ProgressBarStyle.Continuous;
+        progressBar.Value = progressBar.Maximum;
+        labelCryptionType.Text = "";
+        labelProgressMessageText.Text = Resources.labelCaptionCompleted;  // "Completed"
+        notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
+        buttonCancel.Text = Resources.ButtonTextOK;
+
+        DecryptionEndProcess();
+
+        return;
+      }
 
       //-----------------------------------
       // Directory to oputput decrypted files
@@ -3623,137 +3680,119 @@ namespace AttacheCase
       }
         
       //-----------------------------------
-      // Display progress window
-      //-----------------------------------
-      panelStartPage.Visible = false;
-      panelEncrypt.Visible = false;
-      panelEncryptConfirm.Visible = false;
-      panelDecrypt.Visible = false;
-      panelProgressState.Visible = true;
-
-      labelProgress.Text = labelDecryption.Text;
-      pictureBoxProgress.Image = pictureBoxDecOn.Image;
-
-      labelCryptionType.Text = Resources.labelProcessNameDecrypt;
-
-      buttonCancel.Text = Resources.ButtonTextCancel;
-
-      this.Update();
-
-      //-----------------------------------
-      // Preparing for devrypting
+      // Preparing for decrypting
       // 
       //-----------------------------------
       string AtcFilePath = AppSettings.Instance.FileList[FileIndex];
 
-        progressBar.Style = ProgressBarStyle.Marquee;
-        progressBar.MarqueeAnimationSpeed = 50;
-        // 復号するための準備をしています...
-        // Getting ready for decryption...
-        labelProgressMessageText.Text = Resources.labelGettingReadyForDecryption;
+      progressBar.Style = ProgressBarStyle.Marquee;
+      progressBar.MarqueeAnimationSpeed = 50;
+      // 復号するための準備をしています...
+      // Getting ready for decryption...
+      labelProgressMessageText.Text = Resources.labelGettingReadyForDecryption;
 
-        decryption3 = new FileDecrypt3(AtcFilePath);
+      decryption3 = new FileDecrypt3(AtcFilePath);
 
-        if (decryption3.TokenStr == "_AttacheCaseData")
+      if (decryption3.TokenStr == "_AttacheCaseData")
+      {
+        // Encryption data ( O.K. )
+      }
+      else if (decryption3.TokenStr == "_Atc_Broken_Data")
+      {
+        // エラー
+        // この暗号化ファイルは破壊されています。処理を中止します。
+        //
+        // Alert
+        // This encrypted file is broken. The process is aborted.
+        MessageBox.Show(Resources.DialogMessageAtcFileBroken + Environment.NewLine + AtcFilePath,
+        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        return;
+      }
+      else
+      {
+        // エラー
+        // 暗号化ファイルではありません。処理を中止します。
+        //
+        // Alert
+        // The file is not encrypted file. The process is aborted.
+        MessageBox.Show(Resources.DialogMessageNotAtcFile + Environment.NewLine + AtcFilePath,
+        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        return;
+      }
+
+      //-----------------------------------
+      // Password file
+      //-----------------------------------
+
+      // ※パスワードファイルは、記憶パスワードよりも優先される。
+      // * This password files is priority than memorized encryption password.
+
+      byte[] DecryptionPasswordBinary = null;
+      if (AppSettings.Instance.fAllowPassFile == true)
+      {
+        // Check specified password file for Decryption
+        if (AppSettings.Instance.fCheckPassFileDecrypt == true)
         {
-          // Encryption data ( O.K. )
-        }
-        else if (decryption3.TokenStr == "_Atc_Broken_Data")
-        {
-          // エラー
-          // この暗号化ファイルは破壊されています。処理を中止します。
-          //
-          // Alert
-          // This encrypted file is broken. The process is aborted.
-          MessageBox.Show(Resources.DialogMessageAtcFileBroken + Environment.NewLine + AtcFilePath,
-          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-          return;
-        }
-        else
-        {
-          // エラー
-          // 暗号化ファイルではありません。処理を中止します。
-          //
-          // Alert
-          // The file is not encrypted file. The process is aborted.
-          MessageBox.Show(Resources.DialogMessageNotAtcFile + Environment.NewLine + AtcFilePath,
-          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-          return;
-        }
-
-        //-----------------------------------
-        // Password file
-        //-----------------------------------
-
-        // ※パスワードファイルは、記憶パスワードよりも優先される。
-        // * This password files is priority than memorized encryption password.
-
-        byte[] DecryptionPasswordBinary = null;
-        if (AppSettings.Instance.fAllowPassFile == true)
-        {
-          // Check specified password file for Decryption
-          if (AppSettings.Instance.fCheckPassFileDecrypt == true)
-          {
-            if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
-            {
-              if (decryption3.DataFileVersion < 130)
-              {
-                DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.PassFilePathDecrypt);
-              }
-              else
-              {
-                DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePathDecrypt);
-              }
-            }
-            else
-            {
-              if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
-              {
-                // エラー
-                // 復号時の指定されたパスワードファイルが見つかりません。
-                //
-                // Error
-                // The specified password file is not found in decryption.
-                DialogResult ret = MessageBox.Show(
-                  Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
-                  Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-              }
-              return;
-            }
-          }
-
-          // Drag & Drop Password file
-          if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
+          if (File.Exists(AppSettings.Instance.PassFilePathDecrypt) == true)
           {
             if (decryption3.DataFileVersion < 130)
             {
-              DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.TempDecryptionPassFilePath);
-              DecryptionPassword = "";
+              DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.PassFilePathDecrypt);
             }
             else
             {
-              DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
-              DecryptionPassword = "";
+              DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePathDecrypt);
             }
           }
-
-          // コマンドラインからのパスワードがさらに優先される
-          // The password from command line option that is still more priority.
-          if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != null ||
-              AppSettings.Instance.DecryptPasswordStringFromCommandLine != null)
+          else
           {
-            DecryptionPassword = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
-            DecryptionPasswordBinary = null;
+            if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
+            {
+              // エラー
+              // 復号時の指定されたパスワードファイルが見つかりません。
+              //
+              // Error
+              // The specified password file is not found in decryption.
+              DialogResult ret = MessageBox.Show(
+                Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
+                Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            return;
           }
-
         }
 
-        // BackgroundWorker event handler
-        bkg = new BackgroundWorker();
-        bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
-        bkg.ProgressChanged += backgroundWorker_ProgressChanged;
-        bkg.WorkerReportsProgress = true;
-        bkg.WorkerSupportsCancellation = true;
+        // Drag & Drop Password file
+        if (File.Exists(AppSettings.Instance.TempDecryptionPassFilePath) == true)
+        {
+          if (decryption3.DataFileVersion < 130)
+          {
+            DecryptionPasswordBinary = GetPasswordFileHash2(AppSettings.Instance.TempDecryptionPassFilePath);
+            DecryptionPassword = "";
+          }
+          else
+          {
+            DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+            DecryptionPassword = "";
+          }
+        }
+
+        // コマンドラインからのパスワードがさらに優先される
+        // The password from command line option that is still more priority.
+        if (AppSettings.Instance.DecryptPasswordStringFromCommandLine != null ||
+            AppSettings.Instance.DecryptPasswordStringFromCommandLine != null)
+        {
+          DecryptionPassword = AppSettings.Instance.DecryptPasswordStringFromCommandLine;
+          DecryptionPasswordBinary = null;
+        }
+
+      }
+
+      // BackgroundWorker event handler
+      bkg = new BackgroundWorker();
+      bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
+      bkg.ProgressChanged += backgroundWorker_ProgressChanged;
+      bkg.WorkerReportsProgress = true;
+      bkg.WorkerSupportsCancellation = true;
 
       //-----------------------------------
       // Old version 
@@ -3765,7 +3804,7 @@ namespace AttacheCase
         decryption2.NumberOfFiles = FileIndex + 1;
         decryption2.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
         decryption2.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
-        decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
+        decryption2.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? OVERWRITE_ALL : 0);
         if (LimitOfInputPassword == -1)
         {
           LimitOfInputPassword = decryption2.MissTypeLimits;
@@ -3798,7 +3837,7 @@ namespace AttacheCase
         decryption3.NumberOfFiles = FileIndex + 1;
         decryption3.TotalNumberOfFiles = AppSettings.Instance.FileList.Count;
         decryption3.fSameTimeStamp = AppSettings.Instance.fSameTimeStamp;
-        decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? 2 : 0);
+        decryption3.TempOverWriteOption = (AppSettings.Instance.fDecryptConfirmOverwrite == false ? OVERWRITE_ALL : 0);
         if (LimitOfInputPassword == -1)
         {
           LimitOfInputPassword = decryption3.MissTypeLimits;
@@ -3841,7 +3880,119 @@ namespace AttacheCase
 
     }
     //======================================================================
+    /// <summary>
+    /// DecryptionEndProcess
+    /// </summary>
+    private void DecryptionEndProcess()
+    {
+      if (AppSettings.Instance.fOpenFile == true)
+      {
+        if (OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum)
+        {
+          // 問い合わせ
+          // 復号したファイルが○個以上あります。
+          // それでもすべてのファイルを関連付けられたアプリケーションで開きますか？
+          //
+          // Question
+          // There decrypted file is * or more.
+          // But, open all of the files associated with application?
+          DialogResult ret = MessageBox.Show(string.Format(Resources.DialogMessageOpenMultipleFiles, AppSettings.Instance.ShowDialogWhenMultipleFilesNum),
+          Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+          if (ret == DialogResult.No)
+          {
+            // Not Open
+          }
+          else
+          {
+            foreach (string path in OutputFileList)
+            {
+              if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat" || Path.GetExtension(path).ToLower() == ".cmd")
+              {
+                if (AppSettings.Instance.fShowDialogWhenExeFile == true)
+                {
+                  // 問い合わせ
+                  // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
+                  //
+                  // Question
+                  // It contains the executable files in the decrypted file.
+                  // Do you run the following file?
+                  ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
+                  Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                  if (ret == DialogResult.No)
+                  {
+                    continue;
+                  }
+                  else
+                  { // Executable
+                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
+                  }
+                }
+              }
+              else if (File.Exists(path) == true)
+              {
+                System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
+              }
+              else if (Directory.Exists(path) == true)
+              {
+                // Open the folder by Explorer
+                System.Diagnostics.Process.Start("EXPLORER.EXE", path);
+              }
+
+            }// end foreach;
+
+          }
+
+        }
+
+        // Set the timestamp of files or directories to decryption time.
+        if (AppSettings.Instance.fSameTimeStamp == true)
+        {
+          OutputFileList.ForEach(delegate (String FilePath)
+          {
+            DateTime dtNow = DateTime.Now;
+            File.SetCreationTime(FilePath, dtNow);
+            File.SetLastWriteTime(FilePath, dtNow);
+            File.SetLastAccessTime(FilePath, dtNow);
+          });
+        }
+
+      }// end if (AppSettings.Instance.fOpenFile == true);
+
+
+      // Delete file or directories
+      if (AppSettings.Instance.fDelEncFile == true || checkBoxDeleteAtcFileAfterDecryption.Checked == true)
+      {
+        if (AppSettings.Instance.fConfirmToDeleteAfterDecryption == true)
+        {
+          // 問い合わせ
+          // 復号の元になった暗号化ファイルを削除しますか？
+          //
+          // Question
+          // Are you sure to delete the encypted file(s) that are the source of the decryption?
+          DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteEncryptedFiles,
+            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+          if (ret == DialogResult.Yes)
+          {
+            buttonCancel.Text = Resources.ButtonTextCancel;
+            DeleteData(AppSettings.Instance.FileList);
+          }
+        }
+        else
+        {
+          DeleteData(AppSettings.Instance.FileList);
+        }
+      }
+
+      if (AppSettings.Instance.fEndToExit == true)
+      {
+        Application.Exit();
+      }
+
+    }
+
+    //----------------------------------------------------------------------
     // Cancel button click event.                
     private void buttonDecryptCancel_Click(object sender, EventArgs e)
     {
@@ -4353,6 +4504,8 @@ namespace AttacheCase
       this.contextMenuStrip3.Show(p);
 
     }
+
+   
 
   }// end public partial class Form1 : Form;
 

@@ -24,8 +24,22 @@ namespace AttacheCase
 {
   public partial class Form4 : Form
 	{
+    // Overwrite Option
+    private const int USER_CANCELED  = -1;
+    private const int OVERWRITE      = 1;
+    private const int OVERWRITE_ALL  = 2;
+    private const int KEEP_NEWER     = 3;
+    private const int KEEP_NEWER_ALL = 4;
+    // ---
+    // Skip Option
+    private const int SKIP           = 5;
+    private const int SKIP_ALL       = 6;
 
-		private bool fLoading = false;
+
+    private int OverwriteButtonTextNum = OVERWRITE;
+    private int SkipButtonTextNum = SKIP;
+
+    private bool fLoading = false;
 
 		// Show dialog type ( string )
 		private string _FormType;
@@ -42,20 +56,6 @@ namespace AttacheCase
 			get { return _OverWriteOption; }
 		}
 
-		// Overwrite option for new date file or folder only.
-		private bool _OverWriteForNewDate;
-		public bool OverWriteForNewDate
-		{
-			get { return _OverWriteForNewDate; }
-		}
-
-		// File or Directory path to overwrite.
-		private string _OverWriteFilePath;
-		public string OverWriteFilePath
-		{
-			set { _OverWriteFilePath = value; }
-		}
-
 		// Ask to encrypt or decrypt regardless of file content.
 		private int _AskEncryptOrDecrypt;
 		public int AskEncryptOrDecrypt
@@ -63,7 +63,6 @@ namespace AttacheCase
 			get { return _AskEncryptOrDecrypt; }
 		}
 		
-
 		public Form4(string InputType, string MessageText)
 		{
 
@@ -102,21 +101,35 @@ namespace AttacheCase
 			//-----------------------------------
 			// 上書き確認ダイアログ
 			// Dialog of confirming to overwrite 
-			else if (_FormType == "ComfirmToOverwriteFile" || _FormType == "ComfirmToOverwriteDir")
+			else if (_FormType == "ComfirmToOverwriteFile" || 
+        _FormType == "ComfirmToOverwriteDir" || 
+        _FormType == "ComfirmToOverwriteAtc")
 			{
 				panelOverwriteConfirm.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
 				labelMessageText.Text = MessageText;
-			}
-			//-----------------------------------
-			//暗号化、復号の選択ダイアログ
-			else if (_FormType == "AskEncryptOrDecrypt")
+
+        splitButton1.Text = ToolStripMenuItemOverwrite.Text;  // Overwrite ( Default )
+        splitButton2.Text = ToolStripMenuItemSkip.Text;       // Skip ( Default )
+
+        if (_FormType == "ComfirmToOverwriteAtc")
+        {
+          ToolStripMenuItemKeepNewer.Enabled = false;
+          ToolStripMenuItemkeepNewerAll.Enabled = false;
+        }
+
+      }
+      //-----------------------------------
+      // 暗号化、復号の選択ダイアログ
+      // Dialog to select encryption or decryption
+      else if (_FormType == "AskEncryptOrDecrypt")
 			{
         panelAskEncryptOrDecrypt.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
 			}
 			//-----------------------------------
-			//無指定？
+			// 無指定？
+      // None?
 			else
 			{
 				return;
@@ -139,7 +152,7 @@ namespace AttacheCase
 			// Confirm to overwrite window 
 			else if (panelOverwriteConfirm.Visible == true)
 			{
-				buttonOverwriteNo.Focus();
+				splitButton1.Focus();
 			}
 
 			fLoading = false;
@@ -275,64 +288,94 @@ namespace AttacheCase
 			this.Close();
 		}
 
-		#endregion
+    #endregion
 
 
-		//======================================================================
-		// 上書き確認ダイアログ
-		// Dialog of confirming to overwrite 
-		//======================================================================
-		#region
+    //======================================================================
+    // 上書き確認ダイアログ
+    // Dialog of confirming to overwrite 
+    //======================================================================
+    #region
 
-		// Temporary option for overwrite ( 0: none, 1: Yes, 2: Overwrite all )
-		// private int _OverWriteOption
-		private void buttonOverwriteAll_Click(object sender, EventArgs e)
-		{
-			_OverWriteOption = 2;
-			this.Close();
+    // Temporary option for overwrite
+    // private int _OverWriteOption
+    // Overwrite Option
 
-		}
-		private void checkBoxOverwriteForNewDate_CheckedChanged(object sender, EventArgs e)
-		{
-			if (fLoading == true)
-			{
-				return;
-			}
+    // private const int USER_CANCELED  = -1;
+    // private const int OVERWRITE      = 1;
+    // private const int OVERWRITE_ALL  = 2;
+    // private const int KEEP_NEWER     = 3;
+    // private const int KEEP_NEWER_ALL = 4;
+    // ---
+    // Skip Option
+    // private const int SKIP           = 5;
+    // private const int SKIP_ALL       = 6;
+    
+    private void ToolStripMenuItemOverwrite_Click(object sender, EventArgs e)
+    {
+      OverwriteButtonTextNum = OVERWRITE;
+      splitButton1.Text = ToolStripMenuItemOverwrite.Text;
+    }
 
-			// Overwrite for new file date only.
-			_OverWriteForNewDate = true;
-			this.Close();
+    private void ToolStripMenuItemOverwriteAll_Click(object sender, EventArgs e)
+    {
+      OverwriteButtonTextNum = OVERWRITE_ALL;
+      splitButton1.Text = ToolStripMenuItemOverwriteAll.Text;
+    }
 
-		}
+    private void ToolStripMenuItemKeepNewer_Click(object sender, EventArgs e)
+    {
+      OverwriteButtonTextNum = KEEP_NEWER;
+      splitButton1.Text = ToolStripMenuItemKeepNewer.Text;
+    }
 
-		private void buttonOverwriteYes_Click(object sender, EventArgs e)
-		{
-			_OverWriteOption = 1;
-			this.Close();
+    private void ToolStripMenuItemkeepNewerAll_Click(object sender, EventArgs e)
+    {
+      OverwriteButtonTextNum = KEEP_NEWER_ALL;
+      splitButton1.Text = ToolStripMenuItemkeepNewerAll.Text;
+    }
 
-		}
+    // ---
 
-		private void buttonOverwriteNo_Click(object sender, EventArgs e)
-		{
-			_OverWriteOption = 0;
-			this.Close();
+    private void ToolStripMenuItemSkip_Click(object sender, EventArgs e)
+    {
+      SkipButtonTextNum = SKIP;
+      splitButton2.Text = ToolStripMenuItemSkip.Text;
+    }
 
-		}
+    private void ToolStripMenuItemSkipAll_Click(object sender, EventArgs e)
+    {
+      SkipButtonTextNum = SKIP_ALL;
+      splitButton2.Text = ToolStripMenuItemSkipAll.Text;
+    }
 
-		private void buttonOverwriteCancel_Click(object sender, EventArgs e)
+
+    private void splitButton1_Click(object sender, EventArgs e)
+    {
+      _OverWriteOption = OverwriteButtonTextNum;
+      this.Close();
+    }
+
+    private void splitButton2_Click(object sender, EventArgs e)
+    {
+      _OverWriteOption = SkipButtonTextNum;
+      this.Close();
+    }
+
+    private void buttonOverwriteCancel_Click(object sender, EventArgs e)
 		{
 			_OverWriteOption = -1;
 			this.Close();
 		}
+    
+    #endregion
 
-		#endregion
-
-		//======================================================================
-		// 暗号化か復号処理かを問い合わせる
-		// Ask to encrypt or decrypt regardless of file content 
-		//======================================================================
-		#region
-		private void buttonEncrypt_Click(object sender, EventArgs e)
+    //======================================================================
+    // 暗号化か復号処理かを問い合わせる
+    // Ask to encrypt or decrypt regardless of file content 
+    //======================================================================
+    #region
+    private void buttonEncrypt_Click(object sender, EventArgs e)
 		{
 			_AskEncryptOrDecrypt = 1;
 			this.Close();
@@ -350,9 +393,11 @@ namespace AttacheCase
 			this.Close();
 		}
 
-		#endregion
 
 
-	}
+
+    #endregion
+
+  }
 
 }
