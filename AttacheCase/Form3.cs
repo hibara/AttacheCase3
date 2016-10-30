@@ -865,7 +865,7 @@ THE SOFTWARE.
 
 			switch (e.Node.Name)
 			{
-				case "nodePassword":
+				case "nodePasswords":
 					panelPasswordsOption.Visible = true;
 					panelPasswordsOption.Focus();
 					break;

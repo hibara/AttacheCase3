@@ -1029,9 +1029,13 @@ namespace AttacheCase
                               if (fSkip == false)
                               {
                                 //隠し属性を削除する
-                                fi.Attributes &= ~FileAttributes.Hidden;
+                                //fi.Attributes &= ~FileAttributes.Hidden;
                                 //読み取り専用を削除
-                                fi.Attributes &= ~FileAttributes.ReadOnly;
+                                //fi.Attributes &= ~FileAttributes.ReadOnly;
+
+                                //すべての属性を解除
+                                File.SetAttributes(path, FileAttributes.Normal);
+
                               }
 
                             }

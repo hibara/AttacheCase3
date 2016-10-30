@@ -600,6 +600,19 @@ namespace AttacheCase
 
       frm4.Dispose();
 
+      if (TempOverWriteOption == -1)
+      {
+        if (bkg != null && bkg.IsBusy == true)
+        {
+          bkg.CancelAsync();
+        }
+
+        if (cts != null)
+        {
+          cts.Cancel();
+        }
+      }
+
       _busy.Reset();
 
     }
@@ -686,7 +699,7 @@ namespace AttacheCase
     {
 
       byte[] result = new byte[32];
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
       {
         ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
 
@@ -1472,6 +1485,17 @@ namespace AttacheCase
       int ProcessType = 0;
       TempOverWriteOption = -1;
 
+      labelPassword.Text = Resources.labelPassword;
+      labelInputPasswordAgain.Text = Resources.labelInputPasswordAgainToConfirm;
+
+      textBoxPassword.Enabled = true;
+      textBoxPassword.BackColor = SystemColors.Window;
+      textBoxPassword.Text = "";
+      textBoxRePassword.Enabled = true;
+      textBoxRePassword.BackColor = SystemColors.Window;
+      textBoxRePassword.Text = "";
+      AppSettings.Instance.MyEncryptPasswordBinary = null;
+
       // self-executable file
       if (AppSettings.Instance.fSaveToExeout == true)
       {
@@ -1735,7 +1759,7 @@ namespace AttacheCase
 
           // 確認せず即座に実行
           // Run immediately without confirming
-          if (AppSettings.Instance.fMemPasswordExe == true)
+          if (AppSettings.Instance.fMyEncryptPasswordKeep == true && AppSettings.Instance.fMemPasswordExe == true)
           {
             buttonEncryptStart.PerformClick();
           }
@@ -1753,7 +1777,7 @@ namespace AttacheCase
 
           // 確認せず即座に実行
           // Run immediately without confirming
-          if (AppSettings.Instance.fMemPasswordExe == true)
+          if (AppSettings.Instance.fMyDecryptPasswordKeep && AppSettings.Instance.fMemPasswordExe == true)
           {
             buttonDecryptStart.PerformClick();
           }
@@ -2972,10 +2996,31 @@ namespace AttacheCase
                 if (frm4.OverWriteOption == USER_CANCELED)
                 {
                   panelStartPage.Visible = false;
-                  panelEncrypt.Visible = true;
+                  panelEncrypt.Visible = false;
                   panelEncryptConfirm.Visible = false;
                   panelDecrypt.Visible = false;
-                  panelProgressState.Visible = false;
+                  panelProgressState.Visible = true;
+
+                  // Canceled
+                  labelProgressPercentText.Text = "- %";
+                  progressBar.Value = 0;
+                  labelCryptionType.Text = "";
+                  notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
+                  AppSettings.Instance.FileList = null;
+
+                  buttonCancel.Text = Resources.ButtonTextOK;
+
+                  // Atc file is deleted
+                  if (File.Exists(encryption3.AtcFilePath) == true)
+                  {
+                    FileSystem.DeleteFile(encryption3.AtcFilePath);
+                  }
+
+                  FileIndex = -1;
+
+                  // 暗号化の処理はキャンセルされました。
+                  // Encryption was canceled.
+                  labelProgressMessageText.Text = Resources.labelEncryptionCanceled;
                   return;
                 }
                 else
@@ -3155,10 +3200,31 @@ namespace AttacheCase
                 if (frm4.OverWriteOption == USER_CANCELED)
                 {
                   panelStartPage.Visible = false;
-                  panelEncrypt.Visible = true;
+                  panelEncrypt.Visible = false;
                   panelEncryptConfirm.Visible = false;
                   panelDecrypt.Visible = false;
-                  panelProgressState.Visible = false;
+                  panelProgressState.Visible = true;
+
+                  // Canceled
+                  labelProgressPercentText.Text = "- %";
+                  progressBar.Value = 0;
+                  labelCryptionType.Text = "";
+                  notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
+                  AppSettings.Instance.FileList = null;
+
+                  buttonCancel.Text = Resources.ButtonTextOK;
+
+                  // Atc file is deleted
+                  if (File.Exists(encryption3.AtcFilePath) == true)
+                  {
+                    FileSystem.DeleteFile(encryption3.AtcFilePath);
+                  }
+
+                  FileIndex = -1;
+
+                  // 暗号化の処理はキャンセルされました。
+                  // Encryption was canceled.
+                  labelProgressMessageText.Text = Resources.labelEncryptionCanceled;
                   return;
                 }
                 else
@@ -3338,10 +3404,31 @@ namespace AttacheCase
                 if (frm4.OverWriteOption == USER_CANCELED)
                 {
                   panelStartPage.Visible = false;
-                  panelEncrypt.Visible = true;
+                  panelEncrypt.Visible = false;
                   panelEncryptConfirm.Visible = false;
                   panelDecrypt.Visible = false;
-                  panelProgressState.Visible = false;
+                  panelProgressState.Visible = true;
+
+                  // Canceled
+                  labelProgressPercentText.Text = "- %";
+                  progressBar.Value = 0;
+                  labelCryptionType.Text = "";
+                  notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
+                  AppSettings.Instance.FileList = null;
+
+                  buttonCancel.Text = Resources.ButtonTextOK;
+
+                  // Atc file is deleted
+                  if (File.Exists(encryption3.AtcFilePath) == true)
+                  {
+                    FileSystem.DeleteFile(encryption3.AtcFilePath);
+                  }
+
+                  FileIndex = -1;
+
+                  // 暗号化の処理はキャンセルされました。
+                  // Encryption was canceled.
+                  labelProgressMessageText.Text = Resources.labelEncryptionCanceled;
                   return;
                 }
                 else

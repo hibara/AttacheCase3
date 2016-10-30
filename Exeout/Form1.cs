@@ -24,6 +24,8 @@ using System.Security.Cryptography;
 using System.Globalization;
 using System.Drawing;
 using System.Collections;
+using System.Collections.ObjectModel;
+using Sha2;
 
 namespace Exeout
 {
@@ -110,12 +112,54 @@ namespace Exeout
 			}
 		}
 
-		/// <summary>
-		/// Decryption start.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void buttonDecrypt_Click(object sender, EventArgs e)
+    private void buttonExit_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+    {
+      // Show dialog for confirming to orverwrite
+      Form2 frm2 = new Form2();
+      frm2.ShowDialog();
+      frm2.Dispose();
+    }
+
+    private void textBox1_DragDrop(object sender, DragEventArgs e)
+    {
+      string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+
+      if (File.Exists(files[0]) == true)
+      {
+        TempDecryptionPassFilePath = files[0];
+        buttonDecrypt.PerformClick(); // Decryption start.
+      }
+    }
+
+    private void textBox1_DragEnter(object sender, DragEventArgs e)
+    {
+      if (e.Data.GetDataPresent(DataFormats.FileDrop))
+      {
+        e.Effect = DragDropEffects.Copy;
+        textBox1.BackColor = Color.Honeydew;
+      }
+      else
+      {
+        e.Effect = DragDropEffects.None;
+      }
+    }
+
+    private void textBox1_DragLeave(object sender, EventArgs e)
+    {
+      textBox1.BackColor = SystemColors.Window;
+    }
+
+    /// <summary>
+    /// Decryption start.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void buttonDecrypt_Click(object sender, EventArgs e)
 		{
       buttonDecrypt.Enabled = false;
 			checkBoxNotMaskPassword.Visible = false;
@@ -142,7 +186,7 @@ namespace Exeout
 			byte[] DecryptionPasswordBinary = null;
 			if (File.Exists(TempDecryptionPassFilePath) == true)
 			{
-				DecryptionPasswordBinary = GetPasswordHash(TempDecryptionPassFilePath);
+				DecryptionPasswordBinary = GetPasswordFileHash3(TempDecryptionPassFilePath);
 			}
 		
 			//-----------------------------------
@@ -599,63 +643,59 @@ namespace Exeout
 			bkg.ReportProgress((int)(percent * 10000), MessageText);
 		}
 
-		//----------------------------------------------------------------------
-		/// <summary>
-		/// パスワードファイルとして、ファイルからSHA-1ハッシュを取得して文字列にする
-		/// </summary>
-		/// <param name="FilePath"></param>
-		/// <returns></returns>
-		//----------------------------------------------------------------------
-		private byte[] GetPasswordHash(string FilePath)
-		{
-			byte[] buffer = new byte[255];
-			byte[] result = new byte[32];
-			//byte[] header = new byte[12];
+    /// <summary>
+    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得してバイト列にする
+    /// Get a string of the SHA-256 hash from a file such as the password file
+    /// </summary>
+    /// <param name="FilePath"></param>
+    /// <returns></returns>
+    private byte[] GetPasswordFileHash3(string FilePath)
+    {
 
-			using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
-			{
-				//SHA1CryptoServiceProviderオブジェクト
-				using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
-				{
-					byte[] array_bytes = sha1.ComputeHash(fs);
-					for (int i = 0; i < 20; i++)
-					{
-						result[i] = array_bytes[i];
-					}
-				}
+      byte[] result = new byte[32];
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      {
+        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
 
-				fs.Seek(0, SeekOrigin.Begin);
-				while (fs.Read(buffer, 0, 255) > 0)
-				{
-					// 最後の255バイトを取得しようとしたデータから残り12bytesのパスワードを埋める
-					// Fill the rest data with trying to get the last 255 bytes.
-				}
+        for (int i = 0; i < 32; i++)
+        {
+          result[i] = hash[i];
+        }
 
-				for (int i = 0; i < 12; i++)
-				{
-					result[20 + i] = buffer[i];
-				}
+        return (result);
+      }
 
-			}
+      /*
+      byte[] buffer = new byte[255];
+      byte[] result = new byte[32];
 
-			//string text = System.Text.Encoding.UTF8.GetString(result);
-			string text = System.Text.Encoding.GetEncoding("shift_jis").GetString(result);
-			//string text = BitConverter.ToString(result);
-			//Console.WriteLine("SHA-1:" + text);
+      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      {
+        //SHA1CryptoServiceProviderオブジェクト
+        using (SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider())
+        {
+          byte[] array_bytes = sha256.ComputeHash(fs);
+          for (int i = 0; i < 32; i++)
+          {
+            result[i] = array_bytes[i];
+          }
+        }
+      }
+      //string text = System.Text.Encoding.ASCII.GetString(result);
+      return (result);
+      */
 
-			return (result);
+    }
 
-		}
-
-		//----------------------------------------------------------------------
-		/// <summary>
-		/// ファイルを破壊して、当該内部トークンを「破壊」ステータスに書き換える
-		/// Break a specified file, and rewrite the token of broken status
-		/// </summary>
-		/// <param name="FilePath"></param>
-		/// <returns></returns>
-		//----------------------------------------------------------------------
-		public bool BreakTheFile(string FilePath)
+    //----------------------------------------------------------------------
+    /// <summary>
+    /// ファイルを破壊して、当該内部トークンを「破壊」ステータスに書き換える
+    /// Break a specified file, and rewrite the token of broken status
+    /// </summary>
+    /// <param name="FilePath"></param>
+    /// <returns></returns>
+    //----------------------------------------------------------------------
+    public bool BreakTheFile(string FilePath)
 		{
 			using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
 			{
@@ -699,47 +739,6 @@ namespace Exeout
 		}
 		
 
-		private void buttonExit_Click(object sender, EventArgs e)
-		{
-			Application.Exit();
-		}
-
-		private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-		{
-			// Show dialog for confirming to orverwrite
-			Form2 frm2 = new Form2();
-			frm2.ShowDialog();
-			frm2.Dispose();
-		}
-
-    private void textBox1_DragDrop(object sender, DragEventArgs e)
-    {
-      string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
-
-      if (File.Exists(files[0]) == true)
-      {
-        TempDecryptionPassFilePath = files[0];
-        buttonDecrypt.PerformClick(); // Decryption start.
-      }
-    }
-
-    private void textBox1_DragEnter(object sender, DragEventArgs e)
-    {
-      if (e.Data.GetDataPresent(DataFormats.FileDrop))
-      {
-        e.Effect = DragDropEffects.Copy;
-        textBox1.BackColor = Color.Honeydew;
-      }
-      else
-      {
-        e.Effect = DragDropEffects.None;
-      }
-    }
-
-    private void textBox1_DragLeave(object sender, EventArgs e)
-    {
-      textBox1.BackColor = SystemColors.Window;
-    }
 
   }
 

@@ -353,7 +353,7 @@ namespace AttacheCase
     #region
     //----------------------------------------------------------------------
     private int _TempOverWriteOption;
-    // Temporary option for overwriting ( 0: none, 1: Yes, 2:Overwrite all, 3: Overwrite for new date file )
+    // Temporary option for overwriting
     public int TempOverWriteOption
     {
       get { return this._TempOverWriteOption; }
@@ -367,8 +367,8 @@ namespace AttacheCase
       set { this._OverWriteForNewDate = value; }
     }
 
-    private int _EncryptionFileType = 0;            // 暗号化ファイルの種類
-    // Encryption type
+    private int _EncryptionFileType = 0;              // 暗号化ファイルの種類
+                                                      // Encryption type
     public int EncryptionFileType
     {
       get { return this._EncryptionFileType; }
