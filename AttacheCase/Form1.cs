@@ -405,7 +405,7 @@ namespace AttacheCase
           // User cancel
 
 #if (DEBUG)
-          System.Windows.Forms.MessageBox.Show(e.Message);
+          System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);
 #endif
 
           labelCryptionType.Text = "";
@@ -481,7 +481,7 @@ namespace AttacheCase
           // User cancel
 
 #if (DEBUG)
-          System.Windows.Forms.MessageBox.Show(e.Message);
+          System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);
 #endif
 
           labelCryptionType.Text = "";
@@ -600,7 +600,7 @@ namespace AttacheCase
 
       frm4.Dispose();
 
-      if (TempOverWriteOption == -1)
+      if (TempOverWriteOption == USER_CANCELED || TempOverWriteOption == SKIP_ALL)
       {
         if (bkg != null && bkg.IsBusy == true)
         {
@@ -712,6 +712,8 @@ namespace AttacheCase
       }
 
       /*
+      // This SHA1CryptoServiceProvider object is not used on Windows XP.
+      //
       byte[] buffer = new byte[255];
       byte[] result = new byte[32];
 
@@ -815,6 +817,7 @@ namespace AttacheCase
         // Canceled
         labelProgressPercentText.Text = "- %";
         progressBar.Value = 0;
+        progressBar.Style = ProgressBarStyle.Continuous;
         labelCryptionType.Text = "";
         notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
         AppSettings.Instance.FileList = null;
@@ -907,7 +910,7 @@ namespace AttacheCase
                   //
                   // Question
                   // Are you sure to delete the files and folders that are the source of the encrypted file?
-                  DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteOriginalFilesAndFolders,
+                  DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDeleteOriginalFilesAndFolders,
                     Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                   if (ret == DialogResult.Yes)
@@ -939,7 +942,7 @@ namespace AttacheCase
             //
             // Alert
             // No free space on the disk. The process is aborted.
-            MessageBox.Show(Resources.DialogMessageNoDiskSpace,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -963,16 +966,33 @@ namespace AttacheCase
 
       if (e.Cancelled)
       {
-        // Canceled
-        labelProgressPercentText.Text = "- %";
-        progressBar.Value = 0;
-        labelCryptionType.Text = "";
-        notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
-        AppSettings.Instance.FileList = null;
+        if (TempOverWriteOption == USER_CANCELED)
+        {
+          // Canceled
+          labelProgressPercentText.Text = "- %";
+          progressBar.Value = 0;
+          progressBar.Style = ProgressBarStyle.Continuous;
+          labelCryptionType.Text = "";
+          notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
+          AppSettings.Instance.FileList = null;
+          // 復号処理はキャンセルされました。
+          // Decryption was canceled.
+          labelProgressMessageText.Text = Resources.labelDecyptionCanceled;
+        }
+        else if(TempOverWriteOption == SKIP_ALL)
+        {
+          labelProgressPercentText.Text = "100 %";
+          progressBar.Value = progressBar.Maximum;
+          progressBar.Style = ProgressBarStyle.Continuous;
+          labelCryptionType.Text = "";
+          notifyIcon1.Text = "- % " + Resources.labelCaptionAllSkipped;
+          AppSettings.Instance.FileList = null;
+          // スキップされました。
+          // skipped.
+          labelProgressMessageText.Text = Resources.labelCaptionAllSkipped;
 
-        // 復号処理はキャンセルされました。
-        // Decryption was canceled.
-        labelProgressMessageText.Text = Resources.labelDecyptionCanceled;
+        }
+
         return;
 
       }
@@ -1049,7 +1069,7 @@ namespace AttacheCase
             //
             // Error
             // An unexpected error has occurred. And stops processing.
-            MessageBox.Show(Resources.DialogMessageUnexpectedError,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1060,7 +1080,7 @@ namespace AttacheCase
             //
             // Error
             // The file is not encrypted file. The process is aborted.
-            MessageBox.Show(Resources.DialogMessageNotAtcFile + Environment.NewLine + result.FilePath,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile + Environment.NewLine + result.FilePath,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1071,7 +1091,7 @@ namespace AttacheCase
             //
             // Error
             // Encrypted file ( atc ) is broken. The process is aborted.
-            MessageBox.Show(Resources.DialogMessageAtcFileBroken + Environment.NewLine + result.FilePath,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken + Environment.NewLine + result.FilePath,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1082,7 +1102,7 @@ namespace AttacheCase
             //
             // Alert
             // No free space on the disk. The process is aborted.
-            MessageBox.Show(Resources.DialogMessageNoDiskSpace,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1106,7 +1126,7 @@ namespace AttacheCase
             // Error
             // The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.
             // The process is aborted.
-            MessageBox.Show(Resources.DialogMessageNotSameHash + Environment.NewLine + result.FilePath,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotSameHash + Environment.NewLine + result.FilePath,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1119,7 +1139,7 @@ namespace AttacheCase
             // Error
             // Password is invalid, or the encrypted file might have been broken.
             // Decryption is aborted.
-            MessageBox.Show(Resources.DialogMessageDecryptionError,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDecryptionError,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (LimitOfInputPassword > 1)
@@ -1195,6 +1215,7 @@ namespace AttacheCase
         // Canceled
         labelProgressPercentText.Text = "- %";
         progressBar.Value = 0;
+        progressBar.Style = ProgressBarStyle.Continuous;
         labelCryptionType.Text = "";
         notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
         AppSettings.Instance.FileList = null;
@@ -1238,7 +1259,7 @@ namespace AttacheCase
             //
             // Alert
             // An unexpected error has occurred. And stops processing.
-            MessageBox.Show(Resources.DialogMessageUnexpectedError,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1249,7 +1270,7 @@ namespace AttacheCase
             //
             // Alert
             // No free space on the disk. The process is aborted.
-            MessageBox.Show(Resources.DialogMessageNoDiskSpace,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -1268,12 +1289,12 @@ namespace AttacheCase
 
     }
 
-#endregion
+    #endregion
 
     //======================================================================
     // メニューアイテム
     //======================================================================
-#region
+    #region
 
     private void ToolStripMenuItemFile_DropDownOpened(object sender, EventArgs e)
     {
@@ -1661,9 +1682,9 @@ namespace AttacheCase
           else if (ProcessType == FILE_TYPE_PASSWORD_ZIP)
           {
             panelStartPage.Visible = false;
-            panelEncrypt.Visible = true;         // Encrypt
-            panelEncryptConfirm.Visible = false;
-            panelDecrypt.Visible = false;
+            panelEncrypt.Visible = false;         
+            panelEncryptConfirm.Visible = false;   
+            panelDecrypt.Visible = true;            // Decrypt
             panelProgressState.Visible = false;
 
             pictureBoxEncryption.Image = pictureBoxZipOn.Image;
@@ -1831,7 +1852,9 @@ namespace AttacheCase
               // Alert
               // Password is not found that specified in setting panel.
               // [FilePath]
-              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
+              DialogResult ret = MessageBox.Show(
+                new Form { TopMost = true },
+                Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
               Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return;
@@ -1882,7 +1905,9 @@ namespace AttacheCase
               // Alert
               // Password is not found that specified in setting panel.
               // [FilePath]
-              DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
+              DialogResult ret = MessageBox.Show(
+                new Form { TopMost = true },
+                Resources.DialogMessagePasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
               Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             return;
@@ -2228,13 +2253,33 @@ namespace AttacheCase
           case PROCESS_TYPE_DECRYPTION:
             break;
 
-          default:  // Unexpected
-            //注意
-            //想定外のファイルです。復号することができません。
+          case PROCESS_TYPE_PASSWORD_ZIP:
+            // 注意
+            // 現状、パスワード付きZIPファイルの復号には対応していません。
             //
-            //Alert
-            //Unexpected decrypted files.It stopped the process.
-            DialogResult ret = MessageBox.Show(Resources.DialogMessageUnexpectedDecryptedFiles,
+            // Alert
+            // Now does not correspond to the decryption of password-protected ZIP file.
+            DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotZipDecrypted,
+            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            //スタートウィンドウ表示
+            panelStartPage.Visible = true;
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = false;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+
+            panelStartPage_VisibleChanged(sender, e);
+
+            return;
+
+          default:  // Unexpected
+            // 注意
+            // 想定外のファイルです。復号することができません。
+            //
+            // Alert
+            // Unexpected decrypted files. It stopped the process.
+            ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedDecryptedFiles,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return;
         }
@@ -2437,7 +2482,7 @@ namespace AttacheCase
         //
         // Alert
         // Not use the folder to the password file.
-        DialogResult ret = MessageBox.Show(Resources.DialogMessageNotDirectoryInPasswordFile,
+        DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotDirectoryInPasswordFile,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
       }
       
@@ -2591,7 +2636,7 @@ namespace AttacheCase
         // Alert
         // Two Passwords do not match, it is invalid.
         // Input them again.
-        DialogResult ret = MessageBox.Show(Resources.DialogMessagePasswordsNotMatch,
+        DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessagePasswordsNotMatch,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         if (ret == DialogResult.OK)
@@ -2686,7 +2731,7 @@ namespace AttacheCase
         //
         // Alert
         // The folder to save is not found! Process is aborted.
-        DialogResult ret = MessageBox.Show(Resources.DialogMessageDirectoryNotFount + Environment.NewLine + OutDirPath,
+        DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDirectoryNotFount + Environment.NewLine + OutDirPath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         return;
       }
@@ -2747,6 +2792,7 @@ namespace AttacheCase
               // Error
               // The specified password file is not found in encryption.
               DialogResult ret = MessageBox.Show(
+                new Form { TopMost = true },
                 Resources.DialogMessageEncryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePath,
                 Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -2973,7 +3019,7 @@ namespace AttacheCase
 
             if (TempOverWriteOption == SKIP_ALL) 
             {
-              FileIndex++;
+              FileIndex = AppSettings.Instance.FileList.Count;
               EncryptionProcess();
               return;
             }
@@ -3026,7 +3072,7 @@ namespace AttacheCase
                 else
                 {
                   TempOverWriteOption = frm4.OverWriteOption;
-                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  if (frm4.OverWriteOption == SKIP)
                   {
                     FileIndex++;
                     EncryptionProcess();
@@ -3177,7 +3223,7 @@ namespace AttacheCase
 
             if (TempOverWriteOption == SKIP_ALL)
             {
-              FileIndex++;
+              FileIndex = AppSettings.Instance.FileList.Count;
               EncryptionProcess();
               return;
             }
@@ -3230,7 +3276,7 @@ namespace AttacheCase
                 else
                 {
                   TempOverWriteOption = frm4.OverWriteOption;
-                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  if (frm4.OverWriteOption == SKIP)
                   {
                     FileIndex++;
                     EncryptionProcess();
@@ -3434,7 +3480,7 @@ namespace AttacheCase
                 else
                 {
                   TempOverWriteOption = frm4.OverWriteOption;
-                  if (frm4.OverWriteOption == SKIP || frm4.OverWriteOption == SKIP_ALL)
+                  if (frm4.OverWriteOption == SKIP)
                   {
                     FileIndex++;
                     EncryptionProcess();
@@ -3607,7 +3653,7 @@ namespace AttacheCase
         //
         // Alert
         // Not use the folder to the password file.
-        DialogResult ret = MessageBox.Show(Resources.DialogMessageNotDirectoryInPasswordFile,
+        DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotDirectoryInPasswordFile,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
       }
     }
@@ -3796,7 +3842,7 @@ namespace AttacheCase
         //
         // Alert
         // This encrypted file is broken. The process is aborted.
-        MessageBox.Show(Resources.DialogMessageAtcFileBroken + Environment.NewLine + AtcFilePath,
+        MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         labelProgressPercentText.Text = "- %";
@@ -3816,7 +3862,7 @@ namespace AttacheCase
         //
         // Alert
         // The file is not encrypted file. The process is aborted.
-        MessageBox.Show(Resources.DialogMessageNotAtcFile + Environment.NewLine + AtcFilePath,
+        MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         labelProgressPercentText.Text = "- %";
@@ -3863,6 +3909,7 @@ namespace AttacheCase
               // Error
               // The specified password file is not found in decryption. The process is aborted.
               DialogResult ret = MessageBox.Show(
+                new Form { TopMost = true },
                 Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
                 Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -3989,7 +4036,7 @@ namespace AttacheCase
         // Alert
         // This file has been encrypted with a higher version.
         // It can not be decrypted. The process is aborted.
-        MessageBox.Show(Resources.DialogMessageHigherVersion + Environment.NewLine + AtcFilePath,
+        MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageHigherVersion + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         labelProgressPercentText.Text = "- %";
@@ -4023,7 +4070,10 @@ namespace AttacheCase
           // Question
           // There decrypted file is * or more.
           // But, open all of the files associated with application?
-          DialogResult ret = MessageBox.Show(string.Format(Resources.DialogMessageOpenMultipleFiles, AppSettings.Instance.ShowDialogWhenMultipleFilesNum),
+          DialogResult ret = 
+            MessageBox.Show(new Form { TopMost = true }, 
+              string.Format(Resources.DialogMessageOpenMultipleFiles, 
+              AppSettings.Instance.ShowDialogWhenMultipleFilesNum),
           Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
           if (ret == DialogResult.Yes)
@@ -4054,7 +4104,7 @@ namespace AttacheCase
                 // Question
                 // It contains the executable files in the decrypted file.
                 // Do you run the following file?
-                DialogResult ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
+                DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageExecutableFile + Environment.NewLine + path,
                 Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
 
                 if (ret == DialogResult.No)
@@ -4105,7 +4155,7 @@ namespace AttacheCase
           //
           // Question
           // Are you sure to delete the encypted file(s) that are the source of the decryption?
-          DialogResult ret = MessageBox.Show(Resources.DialogMessageDeleteEncryptedFiles,
+          DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDeleteEncryptedFiles,
             Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
           if (ret == DialogResult.Yes)
           {
@@ -4292,7 +4342,7 @@ namespace AttacheCase
               //
               // Alert
               // Because it exceeded the limit number of inputting password, the encrypted file has been broken.
-              DialogResult ret = MessageBox.Show(Resources.DialogMessageBroken,
+              DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageBroken,
                 Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
@@ -4305,7 +4355,7 @@ namespace AttacheCase
               //
               // Alert
               // The encrypted file has already been destroyed.
-              DialogResult ret = MessageBox.Show(Resources.DialogMessageBrokenAlready,
+              DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageBrokenAlready,
                 Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
               return (true);
@@ -4319,7 +4369,7 @@ namespace AttacheCase
               //
               // Alert
               // The broken token could not found. The file may not be an encrypted file.
-              DialogResult ret = MessageBox.Show(Resources.DialogMessageBrokenDestroyNotFount,
+              DialogResult ret = MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageBrokenDestroyNotFount,
                 Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
               return (false);
@@ -4338,7 +4388,7 @@ namespace AttacheCase
       catch(Exception e)
       {
 #if(DEBUG)
-        System.Windows.Forms.MessageBox.Show(e.Message);
+        System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);
 #endif
         return (false);
       }

@@ -442,4 +442,10 @@ Please start again from the beginning.</value>
   <data name="labelCaptionAborted" xml:space="preserve">
     <value>Aborted.</value>
   </data>
+  <data name="DialogMessageNotZipDecrypted" xml:space="preserve">
+    <value>Now does not correspond to the decryption of password-protected ZIP file.</value>
+  </data>
+  <data name="labelCaptionAllSkipped" xml:space="preserve">
+    <value>Skipped.</value>
+  </data>
 </root>

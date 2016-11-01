@@ -911,7 +911,13 @@ namespace AttacheCase
                                 // Overwrite ( New create )
                               }
                               // Skip, or Skip All
-                              else if (_TempOverWriteOption == SKIP || _TempOverWriteOption == SKIP_ALL)
+                              else if (_TempOverWriteOption == SKIP_ALL)
+                              {
+                                fSkip = true;
+                                e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
+                                return (true);
+                              }
+                              else if (_TempOverWriteOption == SKIP)
                               {
                                 fSkip = true;
                               }

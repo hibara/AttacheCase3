@@ -354,6 +354,15 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Now does not correspond to the decryption of password-protected ZIP file. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageNotZipDecrypted {
+            get {
+                return ResourceManager.GetString("DialogMessageNotZipDecrypted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
         ///Please start again from the beginning. に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -551,6 +560,15 @@ namespace AttacheCase.Properties {
         public static string labelCaptionAborted {
             get {
                 return ResourceManager.GetString("labelCaptionAborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Skipped. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelCaptionAllSkipped {
+            get {
+                return ResourceManager.GetString("labelCaptionAllSkipped", resourceCulture);
             }
         }
         

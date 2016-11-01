@@ -315,24 +315,28 @@ namespace AttacheCase
     {
       OverwriteButtonTextNum = OVERWRITE;
       splitButton1.Text = ToolStripMenuItemOverwrite.Text;
+      splitButton1.PerformClick();
     }
 
     private void ToolStripMenuItemOverwriteAll_Click(object sender, EventArgs e)
     {
       OverwriteButtonTextNum = OVERWRITE_ALL;
       splitButton1.Text = ToolStripMenuItemOverwriteAll.Text;
+      splitButton1.PerformClick();
     }
 
     private void ToolStripMenuItemKeepNewer_Click(object sender, EventArgs e)
     {
       OverwriteButtonTextNum = KEEP_NEWER;
       splitButton1.Text = ToolStripMenuItemKeepNewer.Text;
+      splitButton1.PerformClick();
     }
 
     private void ToolStripMenuItemkeepNewerAll_Click(object sender, EventArgs e)
     {
       OverwriteButtonTextNum = KEEP_NEWER_ALL;
       splitButton1.Text = ToolStripMenuItemkeepNewerAll.Text;
+      splitButton1.PerformClick();
     }
 
     // ---
@@ -341,15 +345,17 @@ namespace AttacheCase
     {
       SkipButtonTextNum = SKIP;
       splitButton2.Text = ToolStripMenuItemSkip.Text;
+      splitButton2.PerformClick();
     }
 
     private void ToolStripMenuItemSkipAll_Click(object sender, EventArgs e)
     {
       SkipButtonTextNum = SKIP_ALL;
       splitButton2.Text = ToolStripMenuItemSkipAll.Text;
+      splitButton2.PerformClick();
     }
 
-
+    //-----------------------------------
     private void splitButton1_Click(object sender, EventArgs e)
     {
       _OverWriteOption = OverwriteButtonTextNum;

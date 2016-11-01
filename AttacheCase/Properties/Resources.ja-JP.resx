@@ -440,4 +440,10 @@
   <data name="labelCaptionAborted" xml:space="preserve">
     <value>中止されました。</value>
   </data>
+  <data name="DialogMessageNotZipDecrypted" xml:space="preserve">
+    <value>現状、パスワード付きZIPファイルの復号には対応していません。</value>
+  </data>
+  <data name="labelCaptionAllSkipped" xml:space="preserve">
+    <value>スキップされました。</value>
+  </data>
 </root>

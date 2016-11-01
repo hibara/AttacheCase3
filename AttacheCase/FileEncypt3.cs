@@ -239,8 +239,13 @@ namespace AttacheCase
           // 複数のファイルを暗号化する場合
           foreach (string FilePath in FilePaths)
           {
-            ParentPath = Path.GetDirectoryName(FilePath) + "\\";
+            ParentPath = Path.GetDirectoryName(FilePath);
 
+            if(ParentPath.EndsWith("\\") == false)  // In case of 'C:\\' root direcroy.
+            {
+              ParentPath = ParentPath + "\\";
+            }
+            
             if ((worker.CancellationPending == true))
             {
               e.Cancel = true;
