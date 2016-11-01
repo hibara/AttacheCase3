@@ -3780,11 +3780,16 @@ namespace AttacheCase
 
       decryption3 = new FileDecrypt3(AtcFilePath);
 
-      if (decryption3.TokenStr == "_AttacheCaseData")
+      if (decryption3.DataFileVersion < 130)
+      {
+        decryption2 = new FileDecrypt2(AtcFilePath);
+      }
+
+      if (decryption3.TokenStr == "_AttacheCaseData" || (decryption2 != null && decryption2.TokenStr == "_AttacheCaseData"))
       {
         // Encryption data ( O.K. )
       }
-      else if (decryption3.TokenStr == "_Atc_Broken_Data")
+      else if (decryption3.TokenStr == "_Atc_Broken_Data" || (decryption2 != null && decryption2.TokenStr == "_Atc_Broken_Data"))
       {
         // エラー
         // この暗号化ファイルは破壊されています。処理を中止します。
@@ -3793,7 +3798,16 @@ namespace AttacheCase
         // This encrypted file is broken. The process is aborted.
         MessageBox.Show(Resources.DialogMessageAtcFileBroken + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        labelProgressPercentText.Text = "- %";
+        labelProgressMessageText.Text = Resources.labelCaptionAborted;
+        progressBar.Value = 0;
+        progressBar.Style = ProgressBarStyle.Continuous;
+        buttonCancel.Text = Resources.ButtonTextOK;
+        notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+
         return;
+
       }
       else
       {
@@ -3804,7 +3818,15 @@ namespace AttacheCase
         // The file is not encrypted file. The process is aborted.
         MessageBox.Show(Resources.DialogMessageNotAtcFile + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        labelProgressPercentText.Text = "- %";
+        labelProgressMessageText.Text = Resources.labelCaptionAborted;
+        progressBar.Value = 0;
+        progressBar.Style = ProgressBarStyle.Continuous;
+        buttonCancel.Text = Resources.ButtonTextOK;
+        notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         return;
+
       }
 
       //-----------------------------------
@@ -3836,15 +3858,23 @@ namespace AttacheCase
             if (AppSettings.Instance.fNoErrMsgOnPassFile == false)
             {
               // エラー
-              // 復号時の指定されたパスワードファイルが見つかりません。
+              // 復号時の指定されたパスワードファイルが見つかりません。処理を中止します。
               //
               // Error
-              // The specified password file is not found in decryption.
+              // The specified password file is not found in decryption. The process is aborted.
               DialogResult ret = MessageBox.Show(
                 Resources.DialogMessageDecryptionPasswordFileNotFound + Environment.NewLine + AppSettings.Instance.PassFilePathDecrypt,
                 Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+              labelProgressPercentText.Text = "- %";
+              labelProgressMessageText.Text = Resources.labelCaptionAborted;
+              progressBar.Value = 0;
+              progressBar.Style = ProgressBarStyle.Continuous;
+              buttonCancel.Text = Resources.ButtonTextOK;
+              notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+
+              return;
             }
-            return;
           }
         }
 
@@ -3961,6 +3991,14 @@ namespace AttacheCase
         // It can not be decrypted. The process is aborted.
         MessageBox.Show(Resources.DialogMessageHigherVersion + Environment.NewLine + AtcFilePath,
         Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+        labelProgressPercentText.Text = "- %";
+        labelProgressMessageText.Text = Resources.labelCaptionAborted;
+        progressBar.Value = 0;
+        progressBar.Style = ProgressBarStyle.Continuous;
+        buttonCancel.Text = Resources.ButtonTextOK;
+        notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+
         return;
 
       }
@@ -3972,6 +4010,8 @@ namespace AttacheCase
     /// </summary>
     private void DecryptionEndProcess()
     {
+      bool fOpen = false;
+
       if (AppSettings.Instance.fOpenFile == true)
       {
         if (OutputFileList.Count() > AppSettings.Instance.ShowDialogWhenMultipleFilesNum)
@@ -3986,68 +4026,75 @@ namespace AttacheCase
           DialogResult ret = MessageBox.Show(string.Format(Resources.DialogMessageOpenMultipleFiles, AppSettings.Instance.ShowDialogWhenMultipleFilesNum),
           Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-          if (ret == DialogResult.No)
+          if (ret == DialogResult.Yes)
           {
-            // Not Open
+            fOpen = true;
           }
           else
           {
-            foreach (string path in OutputFileList)
-            {
-              if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat" || Path.GetExtension(path).ToLower() == ".cmd")
-              {
-                if (AppSettings.Instance.fShowDialogWhenExeFile == true)
-                {
-                  // 問い合わせ
-                  // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
-                  //
-                  // Question
-                  // It contains the executable files in the decrypted file.
-                  // Do you run the following file?
-                  ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
-                  Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            fOpen = false;
+          }
+        }
+        else
+        {
+          fOpen = true;
+        }
 
-                  if (ret == DialogResult.No)
-                  {
-                    continue;
-                  }
-                  else
-                  { // Executable
-                    System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-                  }
+        if (fOpen == true)
+        {
+          foreach (string path in OutputFileList)
+          {
+            if (Path.GetExtension(path).ToLower() == ".exe" || Path.GetExtension(path).ToLower() == ".bat" || Path.GetExtension(path).ToLower() == ".cmd")
+            {
+              if (AppSettings.Instance.fShowDialogWhenExeFile == true)
+              {
+                // 問い合わせ
+                // 復号したファイルに実行ファイルが含まれています。以下のファイルを実行しますか？
+                //
+                // Question
+                // It contains the executable files in the decrypted file.
+                // Do you run the following file?
+                DialogResult ret = MessageBox.Show(Resources.DialogMessageExecutableFile + Environment.NewLine + path,
+                Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (ret == DialogResult.No)
+                {
+                  continue;
+                }
+                else
+                { // Executable
+                  System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
                 }
               }
-              else if (File.Exists(path) == true)
-              {
-                System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
-              }
-              else if (Directory.Exists(path) == true)
-              {
-                // Open the folder by Explorer
-                System.Diagnostics.Process.Start("EXPLORER.EXE", path);
-              }
+            }
+            else if (File.Exists(path) == true)
+            {
+              System.Diagnostics.Process p = System.Diagnostics.Process.Start(path);
+            }
+            else if (Directory.Exists(path) == true)
+            {
+              // Open the folder by Explorer
+              System.Diagnostics.Process.Start("EXPLORER.EXE", path);
+            }
 
-            }// end foreach;
+          }// end foreach;
 
-          }
+        }// end if (fOpen == true);
 
-        }
-
-        // Set the timestamp of files or directories to decryption time.
-        if (AppSettings.Instance.fSameTimeStamp == true)
+      }
+       
+      // Set the timestamp of files or directories to decryption time.
+      if (AppSettings.Instance.fSameTimeStamp == true)
+      {
+        OutputFileList.ForEach(delegate (String FilePath)
         {
-          OutputFileList.ForEach(delegate (String FilePath)
-          {
-            DateTime dtNow = DateTime.Now;
-            File.SetCreationTime(FilePath, dtNow);
-            File.SetLastWriteTime(FilePath, dtNow);
-            File.SetLastAccessTime(FilePath, dtNow);
-          });
-        }
-
-      }// end if (AppSettings.Instance.fOpenFile == true);
-
-
+          DateTime dtNow = DateTime.Now;
+          File.SetCreationTime(FilePath, dtNow);
+          File.SetLastWriteTime(FilePath, dtNow);
+          File.SetLastAccessTime(FilePath, dtNow);
+        });
+      }
+        
       // Delete file or directories
       if (AppSettings.Instance.fDelEncFile == true || checkBoxDeleteAtcFileAfterDecryption.Checked == true)
       {
@@ -4216,45 +4263,85 @@ namespace AttacheCase
     //======================================================================
     public bool BreakTheFile(string FilePath)
     {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
+      try
       {
-        byte[] byteArray = new byte[16];
-        if (fs.Read(byteArray, 4, 16) == 16)
+        using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
         {
-          string TokenStr = System.Text.Encoding.ASCII.GetString(byteArray);
-          if (TokenStr == "_AttacheCaseData")
+          byte[] byteArray = new byte[16];
+          fs.Seek(4, SeekOrigin.Begin);
+          if (fs.Read(byteArray, 0, 16) == 16)
           {
-            // Rewriting Token
-            fs.Seek(4, SeekOrigin.Begin);
-            byteArray = System.Text.Encoding.ASCII.GetBytes("_Atc_Broken_Data");
-            fs.Write(byteArray, 0, 16);
+            string TokenStr = System.Text.Encoding.ASCII.GetString(byteArray);
+            if (TokenStr == "_AttacheCaseData")
+            {
+              // Rewriting Token
+              fs.Seek(4, SeekOrigin.Begin);
+              byteArray = System.Text.Encoding.ASCII.GetBytes("_Atc_Broken_Data");
+              fs.Write(byteArray, 0, 16);
 
-            // Break IV of the file
-            byteArray = new byte[32];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetNonZeroBytes(byteArray);
+              // Break IV of the file
+              byteArray = new byte[32];
+              RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+              rng.GetNonZeroBytes(byteArray);
 
-            fs.Seek(32, SeekOrigin.Begin);
-            fs.Write(byteArray, 0, 32);
-          }
-          else if (TokenStr == "_Atc_Broken_Data")
-          {
-            // broken already
-            return (true);
+              fs.Seek(32, SeekOrigin.Begin);
+              fs.Write(byteArray, 0, 32);
+
+              // 警告
+              // パスワード入力制限を超えたため、暗号化ファイルは破壊されました。
+              //
+              // Alert
+              // Because it exceeded the limit number of inputting password, the encrypted file has been broken.
+              DialogResult ret = MessageBox.Show(Resources.DialogMessageBroken,
+                Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+            else if (TokenStr == "_Atc_Broken_Data")
+            {
+              // broken already
+
+              // 警告
+              // この暗号化ファイルはすでに破壊されています。
+              //
+              // Alert
+              // The encrypted file has already been destroyed.
+              DialogResult ret = MessageBox.Show(Resources.DialogMessageBrokenAlready,
+                Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+              return (true);
+
+            }
+            else
+            {  // Token is not found.
+
+              // 警告
+              // 破壊トークンを見つけられませんでした。暗号化ファイルではない可能性があります。
+              //
+              // Alert
+              // The broken token could not found. The file may not be an encrypted file.
+              DialogResult ret = MessageBox.Show(Resources.DialogMessageBrokenDestroyNotFount,
+                Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+              return (false);
+            }
           }
           else
-          {  // Token is not found.
+          {
             return (false);
           }
-        }
-        else
-        {
-          return (false);
-        }
 
-      }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
+        }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
-      return (true);
+        return (true);
+
+      }
+      catch(Exception e)
+      {
+#if(DEBUG)
+        System.Windows.Forms.MessageBox.Show(e.Message);
+#endif
+        return (false);
+      }
     }
 
     //======================================================================

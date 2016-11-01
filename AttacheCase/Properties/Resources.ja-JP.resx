@@ -243,7 +243,7 @@
     <value>すべてのファイル(*.*)|*.*</value>
   </data>
   <data name="DialogMessageDecryptionPasswordFileNotFound" xml:space="preserve">
-    <value>復号時の指定されたパスワードファイルが見つかりません。</value>
+    <value>復号時の指定されたパスワードファイルが見つかりません。処理を中止します。</value>
   </data>
   <data name="DialogMessageEncryptionPasswordFileNotFound" xml:space="preserve">
     <value>暗号化時の指定されたパスワードファイルが見つかりません。</value>
@@ -427,5 +427,17 @@
   </data>
   <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
     <value>自己実行形式(*.exe)|*.exe|すべてのファイル(*.*)|*.*いｓ</value>
+  </data>
+  <data name="DialogMessageBroken" xml:space="preserve">
+    <value>パスワード入力制限を超えたため、暗号化ファイルは破壊されました。</value>
+  </data>
+  <data name="DialogMessageBrokenAlready" xml:space="preserve">
+    <value>この暗号化ファイルはすでに破壊されています。</value>
+  </data>
+  <data name="DialogMessageBrokenDestroyNotFount" xml:space="preserve">
+    <value>破壊トークンを見つけられませんでした。暗号化ファイルではない可能性があります。</value>
+  </data>
+  <data name="labelCaptionAborted" xml:space="preserve">
+    <value>中止されました。</value>
   </data>
 </root>

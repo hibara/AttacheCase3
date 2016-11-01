@@ -127,7 +127,7 @@
     <value>&amp;Cancel</value>
   </data>
   <data name="labelCaptionError" xml:space="preserve">
-    <value>Error occurred</value>
+    <value>Error occurred.</value>
   </data>
   <data name="DialogMessageNotAtcFile" xml:space="preserve">
     <value>The file is not encrypted file. The process is aborted.</value>
@@ -139,7 +139,7 @@
     <value>Files or folders that move to trash is not found.</value>
   </data>
   <data name="labelCaptionCompleted" xml:space="preserve">
-    <value>Completed</value>
+    <value>Completed.</value>
   </data>
   <data name="labelCompleteDeleteFileCanceled" xml:space="preserve">
     <value>Complete deleting files or folder has been canceled.</value>
@@ -161,7 +161,7 @@ Do you restart AttacheCase now?</value>
     <value>The following directory already exists. Do you overwrite the directory to save?</value>
   </data>
   <data name="DialogMessageDecryptionPasswordFileNotFound" xml:space="preserve">
-    <value>The specified password file is not found in decryption.</value>
+    <value>The specified password file is not found in decryption. The process is aborted.</value>
   </data>
   <data name="labelNormalDeleteCompleted" xml:space="preserve">
     <value>The specified files or folders has been deleted.</value>
@@ -285,7 +285,7 @@ But, open all of the files associated with application?</value>
 Input them again.</value>
   </data>
   <data name="labelCaptionCanceled" xml:space="preserve">
-    <value>Canceled</value>
+    <value>Canceled.</value>
   </data>
   <data name="DialogMessageExecutableFile" xml:space="preserve">
     <value>It contains the executable files in the decrypted file.
@@ -429,5 +429,17 @@ Please start again from the beginning.</value>
   </data>
   <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
     <value>Self Executable file(*.exe)|*.exe|All files(*.*)|*.*</value>
+  </data>
+  <data name="DialogMessageBroken" xml:space="preserve">
+    <value>Because it exceeded the limit number of inputting password, the encrypted file has been broken.</value>
+  </data>
+  <data name="DialogMessageBrokenAlready" xml:space="preserve">
+    <value>The encrypted file has already been destroyed.</value>
+  </data>
+  <data name="DialogMessageBrokenDestroyNotFount" xml:space="preserve">
+    <value>The broken token could not found. The file may not be an encrypted file.</value>
+  </data>
+  <data name="labelCaptionAborted" xml:space="preserve">
+    <value>Aborted.</value>
   </data>
 </root>

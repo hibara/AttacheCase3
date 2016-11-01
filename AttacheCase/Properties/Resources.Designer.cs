@@ -125,6 +125,33 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Because it exceeded the limit number of inputting password, the encrypted file has been broken. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageBroken {
+            get {
+                return ResourceManager.GetString("DialogMessageBroken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The encrypted file has already been destroyed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageBrokenAlready {
+            get {
+                return ResourceManager.GetString("DialogMessageBrokenAlready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The broken token could not found. The file may not be an encrypted file. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageBrokenDestroyNotFount {
+            get {
+                return ResourceManager.GetString("DialogMessageBrokenDestroyNotFount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Password is invalid, or the encrypted file might have been broken. Decryption is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageDecryptionError {
@@ -134,7 +161,7 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   The specified password file is not found in decryption. に類似しているローカライズされた文字列を検索します。
+        ///   The specified password file is not found in decryption. The process is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageDecryptionPasswordFileNotFound {
             get {
@@ -519,7 +546,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   Canceled に類似しているローカライズされた文字列を検索します。
+        ///   Aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelCaptionAborted {
+            get {
+                return ResourceManager.GetString("labelCaptionAborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Canceled. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labelCaptionCanceled {
             get {
@@ -528,7 +564,7 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   Completed に類似しているローカライズされた文字列を検索します。
+        ///   Completed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labelCaptionCompleted {
             get {
@@ -537,7 +573,7 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   Error occurred に類似しているローカライズされた文字列を検索します。
+        ///   Error occurred. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labelCaptionError {
             get {

@@ -1229,7 +1229,7 @@ namespace AttacheCase
         _ShowDialogWhenMultipleFilesNum = int.Parse((string)reg.GetValue("ShowDialogWhenMultipleFilesNum", "5"));
         _fAskEncDecode = ((string)reg.GetValue("fAskEncDecode", "0") == "1") ? true : false;
         _fNoHidePassword = ((string)reg.GetValue("fNoHidePassword", "0") == "1") ? true : false;
-        _fSaveToExeout = ((string)reg.GetValue("fSaveToExeout", "1") == "1") ? true : false;
+        _fSaveToExeout = ((string)reg.GetValue("fSaveToExeout", "0") == "1") ? true : false;
         _fShowExeoutChkBox = ((string)reg.GetValue("fShowExeoutChkBox", "1") == "1") ? true : false;
 
         //-----------------------------------
@@ -3178,7 +3178,8 @@ namespace AttacheCase
     {
       const string SignatureZip = "50-4B-03-04";
       const string SignatureAtc = "_AttacheCaseData";
-
+      const string SignatureAtcBroken = "_Atc_Broken_Data";
+            
       //-----------------------------------
       // ディレクトリー
       // Directory
@@ -3229,7 +3230,7 @@ namespace AttacheCase
         byte[] bufferSignature = new byte[16];
         fs.Read(bufferSignature, 0, 16);
         string SignatureText = Encoding.ASCII.GetString(bufferSignature);
-        if (SignatureText == SignatureAtc)
+        if (SignatureText == SignatureAtc || SignatureText == SignatureAtcBroken)
         {
           return (1);
         }
