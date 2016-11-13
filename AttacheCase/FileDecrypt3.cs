@@ -615,11 +615,32 @@ namespace AttacheCase
         {
           if (FileNum == 0)
           {
-            ParentFolder = FilePathSplits[1];
+            if(FilePathSplits.Length > 2)  // ルートディレクトリ（ex. 0:G:\Test.txt）
+            {
+              ParentFolder = FilePathSplits[2];
+            }
+            else
+            {
+              ParentFolder = FilePathSplits[1];
+            }
           }
           else
           {
-            FilePathSplits[1] = FilePathSplits[1].Replace(ParentFolder, "");
+            if (FilePathSplits.Length > 2)  // ルートディレクトリ
+            {
+              FilePathSplits[2] = FilePathSplits[2].Replace(ParentFolder, "");
+            }
+            else
+            {
+              FilePathSplits[1] = FilePathSplits[1].Replace(ParentFolder, "");
+            }
+          }
+        }
+        else
+        {
+          if ( FilePathSplits.Length > 2)  // ルートディレクトリ
+          {
+            ParentFolder = FilePathSplits[2];
           }
         }
 
@@ -632,7 +653,14 @@ namespace AttacheCase
         }
         else
         {
-          OutFilePath = Path.Combine(OutDirPath, FilePathSplits[1]);
+          if(FilePathSplits.Length > 2)
+          {
+            OutFilePath = Path.Combine(OutDirPath, FilePathSplits[2]);
+          }
+          else
+          {
+            OutFilePath = Path.Combine(OutDirPath, FilePathSplits[1]);
+          }
         }
         fd.FilePath = OutFilePath;
 
