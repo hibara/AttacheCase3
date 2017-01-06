@@ -850,17 +850,15 @@ namespace AttacheCase
                 {
                   if (_AppVersion < 3013)
                   {
-                    if ( (len = cse.Read(byteArray, 0, BUFFER_SIZE)) == 0 ){
-                      break;
-                    }
+                    len = cse.Read(byteArray, 0, BUFFER_SIZE);
                   }
                   else
                   {
-                    if ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) == 0)
-                    {
-                      break;
-                    }
+                    len = ds.Read(byteArray, 0, BUFFER_SIZE);
                   }
+
+                  // 末尾の0バイトファイル、またはフォルダ生成対策
+                  if (len == 0) len = 1;
 
                   int buffer_size = len;
 
@@ -1109,7 +1107,8 @@ namespace AttacheCase
                     {
                       if (outfs != null || fSkip == true)
                       {
-                        //まだまだ書き込める
+                        // まだまだ書き込める
+                        // can write more
                         if (fSkip == false)
                         {
                           outfs.Write(byteArray, buffer_size - len, len);
@@ -1122,11 +1121,13 @@ namespace AttacheCase
                     else
                     {
                       // ファイルの境界を超えて読み込んでいる
+                      // Reading beyond file boundaries
                       int rest = (int)(dic[FileIndex].FileSize - FileSize);
 
                       if (fSkip == false)
                       {
-                        //書き込み完了
+                        // 書き込み完了
+                        // Write completed
                         outfs.Write(byteArray, buffer_size - len, rest);
                       }
 
@@ -1136,13 +1137,15 @@ namespace AttacheCase
 
                       if (outfs != null)
                       {
-                        //生成したファイルを閉じる
+                        // 生成したファイルを閉じる
+                        // File close
                         outfs.Close();
                         outfs = null;
                       }
 
                       //----------------------------------------------------------------------
                       // ファイル属性の復元
+                      // Restore file attributes
 
                       if (fSkip == false)
                       {
