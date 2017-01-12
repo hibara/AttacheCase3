@@ -446,4 +446,7 @@
   <data name="labelCaptionAllSkipped" xml:space="preserve">
     <value>スキップされました。</value>
   </data>
+  <data name="DialogMessageInvalidFilePath" xml:space="preserve">
+    <value>ファイル、またはフォルダーパスが不正です。処理を中止します。</value>
+  </data>
 </root>

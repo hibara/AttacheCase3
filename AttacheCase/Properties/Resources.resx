@@ -448,4 +448,7 @@ Please start again from the beginning.</value>
   <data name="labelCaptionAllSkipped" xml:space="preserve">
     <value>Skipped.</value>
   </data>
+  <data name="DialogMessageInvalidFilePath" xml:space="preserve">
+    <value>The path of files or folders are invalid. The process is aborted.</value>
+  </data>
 </root>

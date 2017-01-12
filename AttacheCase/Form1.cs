@@ -54,6 +54,7 @@ namespace AttacheCase
     private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
+    private const int INVALID_FILE_PATH        = -107;
 
     // File Type
     private const int FILE_TYPE_ERROR        = -1;
@@ -129,7 +130,6 @@ namespace AttacheCase
       // メインウィンドウの終了ボタン
       // Exit button of main window.
       buttonExit.Size = new Size(1, 1);
-
       
     }
 
@@ -871,6 +871,8 @@ namespace AttacheCase
         private const int NO_DISK_SPACE            = -103;
         private const int FILE_INDEX_NOT_FOUND     = -104;
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
+        private const int NOT_CORRECT_HASH_VALUE   = -106;
+        private const int INVALID_FILE_PATH        = -107;
         */
 
         switch ((int)e.Result)
@@ -1026,6 +1028,7 @@ namespace AttacheCase
         private const int FILE_INDEX_NOT_FOUND     = -104;
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
+        private const int INVALID_FILE_PATH        = -107;
         */
 
         FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
@@ -1131,6 +1134,17 @@ namespace AttacheCase
             break;
 
           //-----------------------------------
+          case INVALID_FILE_PATH:
+            // エラー
+            // ファイル、またはフォルダーパスが不正です。処理を中止します。
+            //
+            // Error
+            // The path of files or folders are invalid. The process is aborted.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
           case PASSWORD_TOKEN_NOT_FOUND:
             // エラー
             // パスワードがちがうか、ファイルが破損している可能性があります。
@@ -1179,6 +1193,7 @@ namespace AttacheCase
               textBoxDecryptPassword.SelectAll();
               return;
             }
+            break;
 
           default:
             // ユーザーキャンセル
@@ -3775,7 +3790,7 @@ namespace AttacheCase
       // Decryption password
       //-----------------------------------
       string DecryptionPassword = "";
-      if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
+      if (AppSettings.Instance.fMyDecryptPasswordKeep == true && LimitOfInputPassword == -1)
       {
         DecryptionPassword = AppSettings.Instance.MyDecryptPasswordString;
       }
@@ -3783,7 +3798,7 @@ namespace AttacheCase
       {
         DecryptionPassword = textBoxDecryptPassword.Text;
       }
-        
+      
       //-----------------------------------
       // Always minimize when running
       //-----------------------------------

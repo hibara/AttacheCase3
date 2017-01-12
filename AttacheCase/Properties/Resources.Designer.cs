@@ -307,6 +307,15 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   The path of files or folders are invalid. The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageInvalidFilePath {
+            get {
+                return ResourceManager.GetString("DialogMessageInvalidFilePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   No free space on the disk. The process is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageNoDiskSpace {

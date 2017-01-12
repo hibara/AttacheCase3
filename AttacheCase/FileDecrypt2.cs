@@ -56,6 +56,7 @@ namespace AttacheCase
     private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
+    private const int INVALID_FILE_PATH        = -107;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -512,8 +513,8 @@ namespace AttacheCase
                 {
                   e.Result = new FileDecryptReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
                   return (false);
-
                 }
+
                 ms.Position = 0;
                 var sr = new StreamReader(ms, Encoding.UTF8);
                 string line;
@@ -521,8 +522,18 @@ namespace AttacheCase
                 { //ver. 2.8.0～
                   if (Regex.IsMatch(line, @"^U_"))
                   {
-                    FileList.Add(line);
-                    prefix = 2;
+                    // ディレクトリ・トラバーサル対策
+                    // Directory traversal countermeasures
+                    if (line.IndexOf(@"..\") >= 0)
+                    {
+                      e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+                      return(false);
+                    }
+                    else
+                    {
+                      FileList.Add(line);
+                      prefix = 2;
+                    }
                   }
                 }
 
@@ -535,8 +546,18 @@ namespace AttacheCase
                   {
                     if (Regex.IsMatch(line, @"^Fn_"))
                     {
-                      FileList.Add(line);
-                      prefix = 3;
+                      // ディレクトリ・トラバーサル対策
+                      // Directory traversal countermeasures
+                      if (line.IndexOf(@"..\") >= 0)
+                      {
+                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+                        return (false);
+                      }
+                      else
+                      {
+                        FileList.Add(line);
+                        prefix = 3;
+                      }
                     }
                   }
                 }

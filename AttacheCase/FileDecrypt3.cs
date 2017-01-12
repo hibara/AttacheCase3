@@ -110,6 +110,7 @@ namespace AttacheCase
     private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
+    private const int INVALID_FILE_PATH        = -107;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -590,6 +591,8 @@ namespace AttacheCase
       //----------------------------------------------------------------------
       _TotalFileSize = 0;
       string ParentFolder = "";
+      bool fDirectoryTraversal = false;
+      string InvalidFilePath = "";
       FileList.ForEach(delegate (string OutputLine)
       {
         int LastWriteDate, CreateDate;
@@ -601,6 +604,8 @@ namespace AttacheCase
         string[] OutputFileData = OutputLine.Split('\t');
 
         //-----------------------------------
+        // File number
+        //
         int FileNum;
         // e.g.)
         // 0:sample.txt[\t]49657[\t]32[\t]736194[\t]39585.875[\t]736194[\t]30186.782[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
@@ -610,7 +615,17 @@ namespace AttacheCase
           FileNum = -1;
         }
         //-----------------------------------
-        // File path
+        // ディレクトリ・トラバーサル対策
+        // Directory traversal countermeasures
+        if (OutputFileData[0].IndexOf(@"..\") >= 0)
+        {
+          fDirectoryTraversal = true;
+          InvalidFilePath = OutputFileData[0];
+        }
+
+        //-----------------------------------
+        // Parent folder is not created.
+        //
         if (_fNoParentFolder == true)
         {
           if (FileNum == 0)
@@ -628,26 +643,24 @@ namespace AttacheCase
           {
             if (FilePathSplits.Length > 2)  // ルートディレクトリ
             {
-              FilePathSplits[2] = FilePathSplits[2].Replace(ParentFolder, "");
+              StringBuilder sb = new StringBuilder(FilePathSplits[2]);
+              len = ParentFolder.Length;
+              FilePathSplits[2] = sb.Replace(ParentFolder, "", 0, len).ToString();
             }
             else
             {
-              FilePathSplits[1] = FilePathSplits[1].Replace(ParentFolder, "");
+              StringBuilder sb = new StringBuilder(FilePathSplits[1]);
+              len = ParentFolder.Length;
+              FilePathSplits[1] = sb.Replace(ParentFolder, "", 0, len).ToString();
             }
-          }
-        }
-        else
-        {
-          if ( FilePathSplits.Length > 2)  // ルートディレクトリ
-          {
-            ParentFolder = FilePathSplits[2];
           }
         }
 
         //-----------------------------------
-        // Salvage mode
+        // File path
+        //
         string OutFilePath = "";
-        if (_fSalvageIntoSameDirectory == true)
+        if (_fSalvageIntoSameDirectory == true) // Salvage mode?
         {
           OutFilePath = Path.Combine(OutDirPath, Path.GetFileName(FilePathSplits[1]));
         }
@@ -743,6 +756,14 @@ namespace AttacheCase
         dic.Add(FileNum, fd);
 
       });
+
+      // Directory traversal countermeasures
+      if (fDirectoryTraversal == true)
+      {
+        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, InvalidFilePath);
+        return(false);
+      }
+
 
       //----------------------------------------------------------------------
       // Check the disk space
