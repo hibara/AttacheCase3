@@ -45,9 +45,11 @@
       this.buttonPasswordOK = new System.Windows.Forms.Button();
       this.tabPageOverwriteConfirm = new System.Windows.Forms.TabPage();
       this.panelOverwriteConfirm = new System.Windows.Forms.Panel();
+      this.splitButton2 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemSkip = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemSkipAll = new System.Windows.Forms.ToolStripMenuItem();
+      this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemOverwrite = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemOverwriteAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +66,6 @@
       this.buttonEncrypt = new System.Windows.Forms.Button();
       this.labelAskEncryptOrDecrypt = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.splitButton2 = new AttacheCase.SplitButton();
-      this.splitButton1 = new AttacheCase.SplitButton();
       this.panelOuter.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageInputPassword.SuspendLayout();
@@ -192,6 +192,14 @@
       this.panelOverwriteConfirm.Controls.Add(this.pictureBoxQuestionIcon);
       this.panelOverwriteConfirm.Name = "panelOverwriteConfirm";
       // 
+      // splitButton2
+      // 
+      resources.ApplyResources(this.splitButton2, "splitButton2");
+      this.splitButton2.Menu = this.contextMenuStrip2;
+      this.splitButton2.Name = "splitButton2";
+      this.splitButton2.UseVisualStyleBackColor = true;
+      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
+      // 
       // contextMenuStrip2
       // 
       resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
@@ -211,6 +219,14 @@
       resources.ApplyResources(this.ToolStripMenuItemSkipAll, "ToolStripMenuItemSkipAll");
       this.ToolStripMenuItemSkipAll.Name = "ToolStripMenuItemSkipAll";
       this.ToolStripMenuItemSkipAll.Click += new System.EventHandler(this.ToolStripMenuItemSkipAll_Click);
+      // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip1;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // contextMenuStrip1
       // 
@@ -318,22 +334,6 @@
       resources.ApplyResources(this.pictureBox1, "pictureBox1");
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.TabStop = false;
-      // 
-      // splitButton2
-      // 
-      resources.ApplyResources(this.splitButton2, "splitButton2");
-      this.splitButton2.Menu = this.contextMenuStrip2;
-      this.splitButton2.Name = "splitButton2";
-      this.splitButton2.UseVisualStyleBackColor = true;
-      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
-      // 
-      // splitButton1
-      // 
-      resources.ApplyResources(this.splitButton1, "splitButton1");
-      this.splitButton1.Menu = this.contextMenuStrip1;
-      this.splitButton1.Name = "splitButton1";
-      this.splitButton1.UseVisualStyleBackColor = true;
-      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // Form4
       // 

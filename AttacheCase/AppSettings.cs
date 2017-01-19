@@ -1058,6 +1058,11 @@ namespace AttacheCase
     public void ReadOptions()
     {
       //----------------------------------------------------------------------
+      // アタッシェケースのすべての設定をレジストリから読み込む
+      // Load ALL settings of AttacheCase from registry
+      this.ReadOptionsFromRegistry();
+
+      //----------------------------------------------------------------------
       // アタッシェケース本体のある場所に設定用INIファイルがあるか？
       // Is there INI file in the location where AttacheCase Application exists?
       string FilePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "_AtcCase.ini");
@@ -1065,35 +1070,29 @@ namespace AttacheCase
       {
         _IniFilePath = FilePath;
         ReadOptionFromIniFile(_IniFilePath);
-        return;
       }
 
       //----------------------------------------------------------------------
       // 起動時のコマンドライン引数に渡されたファイルパスに、設定用INIファイルがあるか？ 
       // Is there INI file in the file path of startup command line arguments?
       string[] cmds = Environment.GetCommandLineArgs();
-      foreach (string cmd in cmds)
+      for(int i = 0; i < cmds.Length; i++)
       {
         // File list processed
-        if (cmd.IndexOf("/") == -1)
+        if (i > 0 && cmds[i].IndexOf("/") != 0)
         {
-          if (File.Exists(cmd) == true)
+          if (File.Exists(cmds[i]) == true || Directory.Exists(cmds[i]) == true)
           {
-            FilePath = Path.Combine(Path.GetDirectoryName(cmd), "_AtcCase.ini");
+            FilePath = Path.Combine(Path.GetDirectoryName(cmds[i]), "_AtcCase.ini");
             if (File.Exists(FilePath) == true)
             {
               _IniFilePath = FilePath;
               ReadOptionFromIniFile(_IniFilePath);
-              return;
+              break;
             }
           }
         }
       }
-
-      //----------------------------------------------------------------------
-      // アタッシェケースのすべての設定をレジストリから読み込む
-      // Load ALL settings of AttacheCase from registry
-      this.ReadOptionsFromRegistry();
 
       //----------------------------------------------------------------------
       // 起動時のコマンドラインオプションから設定を読み込む（上書き）
@@ -1196,7 +1195,7 @@ namespace AttacheCase
         }
         else
         {
-          MyEncryptPasswordString = DecryptMyPassword(_MyEncryptPasswordBinary);
+          _MyEncryptPasswordString = DecryptMyPassword(_MyEncryptPasswordBinary);
           _MyEncryptPasswordBinary = null;
         }
 
@@ -1546,7 +1545,7 @@ namespace AttacheCase
       if (ReturnValue != "")
       {
         _MyEncryptPasswordBinary = HexStringToByteArray(ReturnValue.ToString());
-        MyEncryptPasswordString = DecryptMyPassword(_MyEncryptPasswordBinary);
+        _MyEncryptPasswordString = DecryptMyPassword(_MyEncryptPasswordBinary);
       }
 
       ReadIniFile(IniFilePath, ref _fMyDecryptPasswordKeep, "MyKey", "fMyDecryptPasswordKeep", "");
@@ -1554,7 +1553,7 @@ namespace AttacheCase
       if(ReturnValue != "")
       {
         _MyDecryptPasswordBinary = HexStringToByteArray(ReturnValue.ToString());
-        MyDecryptPasswordString = DecryptMyPassword(_MyDecryptPasswordBinary);
+        _MyDecryptPasswordString = DecryptMyPassword(_MyDecryptPasswordBinary);
       }
       ReadIniFile(IniFilePath, ref _fMemPasswordExe, "MyKey", "fMemPasswordExe", "0");
       ReadIniFile(IniFilePath, ref _fNotMaskPassword, "MyKey", "fNotMaskPassword", "0");
@@ -1699,13 +1698,13 @@ namespace AttacheCase
 
       byte[] bytes = new byte[32];
       bytes = EncryptMyPassword(_MyEncryptPasswordString);
-      string p = BytesToHexString(bytes);
+      string p = ByteArrayToHexString(bytes);
       Console.WriteLine(p);
       WriteIniFile(IniFilePath, p, "MyKey", "MyEncryptPasswordString");
 
       bytes = new byte[32];
       bytes = EncryptMyPassword(_MyDecryptPasswordString);
-      p = BytesToHexString(bytes);
+      p = ByteArrayToHexString(bytes);
       Console.WriteLine(p);
       WriteIniFile(IniFilePath, p, "MyKey", "MyDecryptPasswordString");
 
@@ -2330,28 +2329,8 @@ namespace AttacheCase
 
           // Specify the format of the encryption file name
           case "/autoname": // 自動で暗号化ファイル名を付加する
-
-            if ( IsValidFileName(value) == false)
-            {
-              // 注意
-              // 
-              // Windowsのファイル名には以下の文字が使えません！
-              // 
-              // \\ / : , * ? \" < > |
-              //
-              // Alert
-              // The following characters cannot be used for the file name of Windows.
-              // 
-              // \\ / : , * ? \" < > |
-              MessageBox.Show(Resources.DialogMessageNotUseWindowsFileName,
-              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-              return(-1);
-            }
-            else
-            {
-              _fAutoName = true;
-              _AutoNameFormatText = value;
-            }
+            _fAutoName = true;
+            _AutoNameFormatText = value;
             break;
 
           // Encrypted files camouflage with extension
@@ -2869,16 +2848,23 @@ namespace AttacheCase
 
         aes.Key = deriveBytes.GetBytes(256 / 8);
         aes.IV = deriveBytes.GetBytes(256 / 8);
-              
-        ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-        using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+
+        try
         {
-          using (StreamReader sr = new StreamReader(cs))
+          ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+          using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
           {
-            // Read the decrypted bytes from the decrypting stream
-            // and place them in a string.
-            return(sr.ReadToEnd());
+            using (StreamReader sr = new StreamReader(cs))
+            {
+              // Read the decrypted bytes from the decrypting stream
+              // and place them in a string.
+              return (sr.ReadToEnd());
+            }
           }
+        }
+        catch(Exception e)
+        {
+          return ("");
         }
 
       }
@@ -2902,8 +2888,6 @@ namespace AttacheCase
       // 日付                  : <date:[指定書式]> 
       // 連番                  : <num:[桁数]> 
       // ランダムな文字列      : <random:[文字数]> 
-      // ファイル名先頭文字列  : <fhead:[文字数]> 
-      // ファイル名末尾文字列  : <fend:[文字数]> 
       #region
       //-----------------------------------
       // File Name
@@ -2915,33 +2899,35 @@ namespace AttacheCase
 
       //-----------------------------------
       // Date time
-      Regex r = new Regex(@"<date:(.*)>", RegexOptions.IgnoreCase);
+      Regex r = new Regex(@"<date:(.*?)>", RegexOptions.IgnoreCase);
       Match m = r.Match(FormatString);
-      if (m.Success == true)
+      while (m.Success)
       {
         DateTime dt = DateTime.Now;
         string DateTimeString = dt.ToString(m.Groups[1].Value);
-        FormatString = Regex.Replace(FormatString, @"<date:(.*)>", DateTimeString);
+        FormatString = Regex.Replace(FormatString, m.Value, DateTimeString);
+        m = m.NextMatch();
       }
       
       //-----------------------------------
       // Serial number
-      r = new Regex(@"<num:([0-9]*)>", RegexOptions.IgnoreCase);
+      r = new Regex(@"<num:([0-9]*?)>", RegexOptions.IgnoreCase);
       m = r.Match(FormatString);
-      if (m.Success == true)
+      while (m.Success)
       {
         int FigNum = 0;
         if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
         {
-          FormatString = Regex.Replace(FormatString, @"<num:([0-9]*)>", SerialNum.ToString(new string('0', FigNum)));
+          FormatString = Regex.Replace(FormatString, m.Value, SerialNum.ToString(new string('0', FigNum)));
         }
+        m = m.NextMatch();
       }
-    
+
       //-----------------------------------
       // Random string 
-      r = new Regex(@"<random:([0-9]*)>", RegexOptions.IgnoreCase);
+      r = new Regex(@"<random:([0-9]*?)>", RegexOptions.IgnoreCase);
       m = r.Match(FormatString);
-      if (m.Success == true)
+      while (m.Success)
       {
         int FigNum = 0;
         if (int.TryParse(m.Groups[1].Value, out FigNum) == false)
@@ -2990,44 +2976,10 @@ namespace AttacheCase
           stringChars[i] = Chars[random.Next(Chars.Length)];
         }
 
-        FormatString = Regex.Replace(FormatString, @"<random:([0-9]*)>", new string(stringChars));
+        FormatString = Regex.Replace(FormatString, m.Value, new string(stringChars));
 
-      }
+        m = m.NextMatch();
 
-      //-----------------------------------
-      // ファイル先頭
-      r = new Regex(@"<fhead:[0-9]*>", RegexOptions.IgnoreCase);
-      m = r.Match(FormatString);
-      if (m.Success == true)
-      {
-        int FigNum = 0;
-        if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
-        {
-          string FileName = Path.GetFileName(FilePath);
-          if ( FigNum <= FileName.Length){
-            string HeaderString = FileName.Substring(0, FigNum);
-            FormatString = Regex.Replace(FormatString, @"<fhead:[0-9]*>", HeaderString);
-          }
-        }
-      }
-
-      //-----------------------------------
-      // ファイル末尾
-      //-----------------------------------
-      r = new Regex(@"<fend:[0-9]*>", RegexOptions.IgnoreCase);
-      m = r.Match(FormatString);
-      if (m.Success == true)
-      {
-        int FigNum = 0;
-        if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
-        {
-          string FileName = Path.GetFileName(FilePath);
-          if (FigNum <= FileName.Length)
-          {
-            string HeaderString = FileName.Substring(FileName.Length - FigNum);
-            FormatString = Regex.Replace(FormatString, @"<fend:[0-9]*>", HeaderString);
-          }
-        }
       }
 
       //-----------------------------------

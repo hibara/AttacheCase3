@@ -205,8 +205,16 @@ namespace AttacheCase
 			//-----------------------------------
 			// 読み込み先の表示
 
-			// INI file
-			if (File.Exists(AppSettings.Instance.IniFilePath) == true)
+  		// Registry
+      using (Bitmap bitmap = new Bitmap(pictureBoxRegistryIcon.Image))
+      {
+        bitmap.SetResolution(24, 24);
+        this.Icon = Icon.FromHandle(bitmap.GetHicon());
+        this.Text = Resources.DialogTitleSettings + " - " + Resources.DialogTitleRegistry;
+      }
+
+      // INI file
+      if (File.Exists(AppSettings.Instance.IniFilePath) == true)
 			{
 				// Bitmap to Icon
 				using (Bitmap bitmap = new Bitmap(pictureBoxIniFileIcon.Image))
@@ -219,8 +227,9 @@ namespace AttacheCase
         buttonReplaceCurrentByTemporary.Enabled = true;
 
       }
+      
       // Command line 
-      else if (AppSettings.Instance.CommandLineArgsNum > 0)
+      if (AppSettings.Instance.CommandLineArgsNum > 0)
 			{
 				using (Bitmap bitmap = new Bitmap(pictureBoxCommandLineIcon.Image))
 				{
@@ -232,17 +241,7 @@ namespace AttacheCase
         buttonReplaceCurrentByTemporary.Enabled = true;
 
       }
-			// Registry
-			else
-			{
-				using (Bitmap bitmap = new Bitmap(pictureBoxRegistryIcon.Image))
-				{
-					bitmap.SetResolution(24, 24);
-					this.Icon = Icon.FromHandle(bitmap.GetHicon());
-					this.Text = Resources.DialogTitleSettings + " - " + Resources.DialogTitleRegistry;
-				}
-			}
-			
+
 			//-----------------------------------
 			// 盾アイコンの取得とボタン上での表示
 			//-----------------------------------
@@ -1471,8 +1470,25 @@ THE SOFTWARE.
 			}
 		}
 
+    private void checkBoxAutoName_Click(object sender, EventArgs e)
+    {
+      if (checkBoxAutoName.Checked == true)
+      {
+        textBoxAutoNameFormatText.Enabled = true;
+        textBoxAutoNameFormatText.BackColor = SystemColors.Window;
+        buttonInsertFormat.Enabled = true;
+        labelEncryptedFileNameFormat.Enabled = true;
+      }
+      else
+      {
+        textBoxAutoNameFormatText.Enabled = false;
+        textBoxAutoNameFormatText.BackColor = SystemColors.ButtonFace;
+        buttonInsertFormat.Enabled = false;
+        labelEncryptedFileNameFormat.Enabled = false;
+      }
+    }
 
-		private void buttonInsertFormat_Click(object sender, EventArgs e)
+    private void buttonInsertFormat_Click(object sender, EventArgs e)
 		{
 			Point btnClientCurPos = buttonInsertFormat.PointToClient(Cursor.Position);
 			contextMenuStrip1.Show(Cursor.Position);
@@ -1486,10 +1502,33 @@ THE SOFTWARE.
       buttonApply.Enabled = true;
     }
 
-		//-----------------------------------
-		// Insert the specific format object
-		//-----------------------------------
-		private void InsertRandomStringOject(object sender, EventArgs e)
+    private void textBoxAutoNameFormatText_Leave(object sender, EventArgs e)
+    {
+      if (textBoxAutoNameFormatText.Text == "")
+      {
+        checkBoxAutoName.Checked = false;
+      }
+    }
+
+    //-----------------------------------
+    // Insert the specific format object
+    //-----------------------------------
+    private void InsertFileNameOject(object sender, EventArgs e)
+    {
+      textBoxAutoNameFormatText.SelectedText = @"<filename>";
+    }
+
+    private void InsertExtensionOject(object sender, EventArgs e)
+    {
+      textBoxAutoNameFormatText.SelectedText = @"<ext>";
+    }
+
+    private void InsertDateTimeOject(object sender, EventArgs e)
+    {
+      textBoxAutoNameFormatText.SelectedText = @"<date:yyyy_mm_dd-hh_mm_ss>";
+    }
+
+    private void InsertRandomStringOject(object sender, EventArgs e)
 		{
 			Regex r = new Regex(@"<random:[0-9]+>", RegexOptions.IgnoreCase);
 			Match m = r.Match(textBoxAutoNameFormatText.Text);
@@ -1502,16 +1541,6 @@ THE SOFTWARE.
 		private void InsertSerialNumberOject(object sender, EventArgs e)
 		{
 			textBoxAutoNameFormatText.SelectedText = "<num:3>";
-		}
-
-		private void InsertFileNameHeaderOject(object sender, EventArgs e)
-		{
-			textBoxAutoNameFormatText.SelectedText = "<fhead:3>";
-		}
-
-		private void InsertFileNameEndOject(object sender, EventArgs e)
-		{
-			textBoxAutoNameFormatText.SelectedText = "<fend:3>";
 		}
 		
 		private void checkBoxAddCamoExt_CheckedChanged(object sender, EventArgs e)
@@ -2228,10 +2257,6 @@ THE SOFTWARE.
       textBoxPassFilePathDecrypt.BackColor = SystemColors.Window;
 
     }
-
-
-
-
 
 
     #endregion

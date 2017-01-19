@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelPasswordFile" xml:space="preserve">
+    <value>The password file:</value>
+  </data>
+  <data name="labelInputPasswordAgainToConfirm" xml:space="preserve">
+    <value>Input password again to confirm:</value>
+  </data>
   <data name="DialogTitleQuestion" xml:space="preserve">
     <value>Question</value>
   </data>
@@ -132,8 +138,20 @@
   <data name="DialogMessageNotAtcFile" xml:space="preserve">
     <value>The file is not encrypted file. The process is aborted.</value>
   </data>
+  <data name="DialogMessageNoDiskSpace" xml:space="preserve">
+    <value>No free space on the disk. The process is aborted.</value>
+  </data>
   <data name="AttacheCase" xml:space="preserve">
     <value>AttacheCase</value>
+  </data>
+  <data name="labelGettingReadyForDecryption" xml:space="preserve">
+    <value>Getting ready for decryption...</value>
+  </data>
+  <data name="DialogMessageInvalidFilePath" xml:space="preserve">
+    <value>The path of files or folders are invalid. The process is aborted.</value>
+  </data>
+  <data name="labelNormalDelete" xml:space="preserve">
+    <value>Normal Deleting</value>
   </data>
   <data name="DialogMessageFilesNotFoundMoveToTrash" xml:space="preserve">
     <value>Files or folders that move to trash is not found.</value>
@@ -141,8 +159,15 @@
   <data name="labelCaptionCompleted" xml:space="preserve">
     <value>Completed.</value>
   </data>
+  <data name="DialogMessageNoXpCompatiblityMode" xml:space="preserve">
+    <value>Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
+Please start again from the beginning.</value>
+  </data>
   <data name="labelCompleteDeleteFileCanceled" xml:space="preserve">
     <value>Complete deleting files or folder has been canceled.</value>
+  </data>
+  <data name="labelMoveToTrashCanceled" xml:space="preserve">
+    <value>Move files or folders to the trash has been canceled.</value>
   </data>
   <data name="DialogMessageFileUnAssociationSuccessful" xml:space="preserve">
     <value>File disassociation was successful.</value>
@@ -154,17 +179,20 @@ Do you restart AttacheCase now?</value>
   <data name="SaveDialogFilterAtcFiles" xml:space="preserve">
     <value>ATC files (*.atc)|*.atc|All files (*.*)|*.*</value>
   </data>
-  <data name="DialogTitleSelectPasswordFile" xml:space="preserve">
-    <value>Select Password file</value>
+  <data name="labelDeleteError" xml:space="preserve">
+    <value>An error occurred when deleting files or folders.</value>
   </data>
-  <data name="labelComfirmToOverwriteDir" xml:space="preserve">
-    <value>The following directory already exists. Do you overwrite the directory to save?</value>
+  <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
+    <value>The password of command line option:</value>
+  </data>
+  <data name="DialogMessageFileAssociationToolNotFound" xml:space="preserve">
+    <value>File association tool is not found.</value>
+  </data>
+  <data name="DialogMessagefTemporarySettings" xml:space="preserve">
+    <value>Because you are using the temporary settings from the command line option, it will not be able to reflect the change of main setting.</value>
   </data>
   <data name="DialogMessageDecryptionPasswordFileNotFound" xml:space="preserve">
     <value>The specified password file is not found in decryption. The process is aborted.</value>
-  </data>
-  <data name="labelNormalDeleteCompleted" xml:space="preserve">
-    <value>The specified files or folders has been deleted.</value>
   </data>
   <data name="DialogTitleAllPackFiles" xml:space="preserve">
     <value>Input encrypted file name for putting together</value>
@@ -172,13 +200,31 @@ Do you restart AttacheCase now?</value>
   <data name="DialogTitleSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="DialogMessageNotDirectoryInPasswordFile" xml:space="preserve">
+    <value>Not use the folder to the password file.</value>
+  </data>
+  <data name="labelProcessNameDeleteCompletely" xml:space="preserve">
+    <value>Deleting Completely...</value>
+  </data>
+  <data name="labelPasswordMemorized" xml:space="preserve">
+    <value>The memorized password:</value>
+  </data>
   <data name="labelCaptionPasswordInvalid" xml:space="preserve">
     <value>Password does not match, it is invalid.</value>
+  </data>
+  <data name="labelCaptionAborted" xml:space="preserve">
+    <value>Aborted.</value>
+  </data>
+  <data name="linkLabelLatestVersion" xml:space="preserve">
+    <value>Your version is latest.</value>
   </data>
   <data name="DialogMessageNotUseWindowsFileName" xml:space="preserve">
     <value>The following characters cannot be used for the file name of Windows.
 
 \\ / : , * ? \" &lt; &gt; |</value>
+  </data>
+  <data name="labelGettingReadyForEncryption" xml:space="preserve">
+    <value>Getting ready for encryption...</value>
   </data>
   <data name="ButtonTextOK" xml:space="preserve">
     <value>&amp;OK</value>
@@ -186,11 +232,23 @@ Do you restart AttacheCase now?</value>
   <data name="labelCompleteDeletingCompleted" xml:space="preserve">
     <value>Files or folders complete deleting is completed normally.</value>
   </data>
+  <data name="labelProcessGettingRedyForEncryption" xml:space="preserve">
+    <value>Getting ready for encryption...</value>
+  </data>
+  <data name="DialogMessagePasswordFileNotFound" xml:space="preserve">
+    <value>Password is not found that specified in setting panel.</value>
+  </data>
+  <data name="folderBrowserDialogSaveToZipFile" xml:space="preserve">
+    <value>Select the folder to save the zip file with password always.</value>
+  </data>
   <data name="DialogMessageFileIndexInvalid" xml:space="preserve">
     <value>Internal file index is invalid in encrypted file.</value>
   </data>
   <data name="labelProcessNameEncrypt" xml:space="preserve">
     <value>Encypting...</value>
+  </data>
+  <data name="labelProcessNameMoveToTrash" xml:space="preserve">
+    <value>Move to Trash...</value>
   </data>
   <data name="labelCompressMaximum" xml:space="preserve">
     <value>&lt;Maximum&gt;</value>
@@ -204,6 +262,15 @@ Do you restart AttacheCase now?</value>
   <data name="OpenDialogFilterAllFiles" xml:space="preserve">
     <value>All files(*.*)|*.*</value>
   </data>
+  <data name="DialogMessageNotSameHash" xml:space="preserve">
+    <value>The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.The process is aborted.</value>
+  </data>
+  <data name="labelCompleteDeleteError" xml:space="preserve">
+    <value>Error occured during complete deleting files or folders.</value>
+  </data>
+  <data name="labelNormalDeleteCanceled" xml:space="preserve">
+    <value>Deleting files or folders has been canceled.</value>
+  </data>
   <data name="DialogMessageDragAndDropMixedFiles" xml:space="preserve">
     <value>There are files or folders that be encrypted or decrypted, and they are mixed, they does not exists. So, AttacheCase can not determine which should encrypt or decrypt either. It stopped the process.</value>
   </data>
@@ -213,8 +280,11 @@ Do you restart AttacheCase now?</value>
   <data name="DialogTitleEncryptSelectFolder" xml:space="preserve">
     <value>Select folder to encrypt</value>
   </data>
-  <data name="DialogMessageFileAssociationToolNotFound" xml:space="preserve">
-    <value>File association tool is not found.</value>
+  <data name="labelPassword" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="DialogMessageUnexpectedError" xml:space="preserve">
+    <value>An unexpected error has occurred. And stops processing.</value>
   </data>
   <data name="DialogTitleInfomation" xml:space="preserve">
     <value>Infomation</value>
@@ -222,17 +292,41 @@ Do you restart AttacheCase now?</value>
   <data name="ButtonTextBack" xml:space="preserve">
     <value>&amp;Back</value>
   </data>
-  <data name="labelCompleteDeleteError" xml:space="preserve">
-    <value>Error occured during complete deleting files or folders.</value>
+  <data name="labelEncryptAlgoDescriptionAES" xml:space="preserve">
+    <value>Values of WinZipAes128 and WinZipAes256 are not part of the Zip specification, but rather imply the use of a vendor-specific extension from WinZip. If you want to produce interoperable Zip archives, do not use these values. For example, if you produce a zip archive using WinZipAes256, you will be able to open it in Windows Explorer on Windows XP and Vista, but you will not be able to extract entries; trying this will lead to an "unspecified error". For this reason, some people have said that a zip archive that uses WinZip's AES encryption is not actually a zip archive at all. A zip archive produced this way will be readable with the WinZip tool (Version 11 and beyond).</value>
+  </data>
+  <data name="labelEncryptAlgoDescriptionPkzipWeak" xml:space="preserve">
+    <value>PkzipWeak implies the use of Zip 2.0 encryption, which is known to be weak and subvertible. 
+
+A note on interoperability: Values of PkzipWeak and None are specified in PKWARE's zip specification, and are considered to be "standard". Zip archives produced using these options will be interoperable with many other zip tools and libraries, including Windows Explorer.</value>
+  </data>
+  <data name="DialogMessageHigherVersion" xml:space="preserve">
+    <value>This file has been encrypted with a higher version.
+It can not be decrypted. The process is aborted.</value>
   </data>
   <data name="labelProcessNameDelete" xml:space="preserve">
     <value>Deleting...</value>
   </data>
+  <data name="labelProcessDeleteCompletely" xml:space="preserve">
+    <value>Delete completely is completed successfully.</value>
+  </data>
   <data name="DialogMessageDirectoryNotFount" xml:space="preserve">
     <value>The folder to save is not found! Process is aborted.</value>
   </data>
+  <data name="DialogMessageDeleteEncryptedFiles" xml:space="preserve">
+    <value>Are you sure to delete the encypted file(s) that are the source of the decryption?</value>
+  </data>
+  <data name="labellabelCompletelyDelete" xml:space="preserve">
+    <value>Delete Completely</value>
+  </data>
+  <data name="DialogMessageBroken" xml:space="preserve">
+    <value>Because it exceeded the limit number of inputting password, the encrypted file has been broken.</value>
+  </data>
   <data name="OpenDialogFilterIconFiles" xml:space="preserve">
     <value>Icon files(*.ico)|*.ico|All files(*.*)|*.*</value>
+  </data>
+  <data name="labelEncryptionCanceled" xml:space="preserve">
+    <value>Encryption was canceled.</value>
   </data>
   <data name="DialogMessageUnexpectedDecryptedFiles" xml:space="preserve">
     <value>Unexpected decrypted files. It stopped the process.</value>
@@ -240,21 +334,42 @@ Do you restart AttacheCase now?</value>
   <data name="DialogTitleRegistry" xml:space="preserve">
     <value>Registry</value>
   </data>
-  <data name="labelNormalDeleteCanceled" xml:space="preserve">
-    <value>Deleting files or folders has been canceled.</value>
+  <data name="DialogMessageBothRandomAndZeroNotZero" xml:space="preserve">
+    <value>Both Random setting and Zero setting are not able to set to zero.</value>
   </data>
   <data name="DialogMessageOpenMultipleFiles" xml:space="preserve">
     <value>There decrypted file is {0} or more.
 But, open all of the files associated with application?</value>
   </data>
+  <data name="linkLabelCheckForUpdatesFailed" xml:space="preserve">
+    <value>Getting updates information is failed.</value>
+  </data>
+  <data name="labelCaptionAllSkipped" xml:space="preserve">
+    <value>Skipped.</value>
+  </data>
+  <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
+    <value>Setup tool is not found!</value>
+  </data>
+  <data name="DialogMessageDeleteOriginalFilesAndFolders" xml:space="preserve">
+    <value>Are you sure to delete the files and folders that are the source of the encrypted file?</value>
+  </data>
+  <data name="labelMoveToTrash" xml:space="preserve">
+    <value>Move to Trash</value>
+  </data>
   <data name="SaveDialogFilterIniFilles" xml:space="preserve">
     <value>INI files (*.ini)|*.ini|All files (*.*)|*.*</value>
+  </data>
+  <data name="labelComfirmToOverwriteDir" xml:space="preserve">
+    <value>The following directory already exists. Do you overwrite the directory to save?</value>
   </data>
   <data name="labelProcessNameDecrypt" xml:space="preserve">
     <value>Decrypting...</value>
   </data>
   <data name="DialogMessageFilesNotFoundDelete" xml:space="preserve">
     <value>Deleting files or folders are not found.</value>
+  </data>
+  <data name="linkLabelCheckingForUpdates" xml:space="preserve">
+    <value>Checking for update...</value>
   </data>
   <data name="DialogMessageDecryptionError" xml:space="preserve">
     <value>Password is invalid, or the encrypted file might have been broken. Decryption is aborted.</value>
@@ -271,8 +386,8 @@ But, open all of the files associated with application?</value>
   <data name="DialogTitleCommandLine" xml:space="preserve">
     <value>Command Line</value>
   </data>
-  <data name="labelMoveToTrashCanceled" xml:space="preserve">
-    <value>Move files or folders to the trash has been canceled.</value>
+  <data name="DialogTitleSelectPasswordFile" xml:space="preserve">
+    <value>Select Password file</value>
   </data>
   <data name="labelCompressNone" xml:space="preserve">
     <value>&lt;None&gt;</value>
@@ -280,9 +395,14 @@ But, open all of the files associated with application?</value>
   <data name="labelCompressDefault" xml:space="preserve">
     <value>&lt;Default&gt;</value>
   </data>
-  <data name="DialogMessagePasswordsNotMatch" xml:space="preserve">
-    <value>Two Passwords do not match, it is invalid.
-Input them again.</value>
+  <data name="DialogMessageBrokenAlready" xml:space="preserve">
+    <value>The encrypted file has already been destroyed.</value>
+  </data>
+  <data name="linkLabelLatestVersionReleased" xml:space="preserve">
+    <value>The latest version is released!</value>
+  </data>
+  <data name="DialogMessageFileAssociationSuccessful" xml:space="preserve">
+    <value>File association was successful</value>
   </data>
   <data name="labelCaptionCanceled" xml:space="preserve">
     <value>Canceled.</value>
@@ -291,14 +411,30 @@ Input them again.</value>
     <value>It contains the executable files in the decrypted file.
 Do you run the following file?</value>
   </data>
+  <data name="DialogMessagePasswordsNotMatch" xml:space="preserve">
+    <value>Two Passwords do not match, it is invalid.
+Input them again.</value>
+  </data>
   <data name="DialogMessageEncryptionPasswordFileNotFound" xml:space="preserve">
     <value>The specified password file is not found in encryption.</value>
+  </data>
+  <data name="labelCompletelyDeleteCompleted" xml:space="preserve">
+    <value>The specified files or folders has been deleted Completely.</value>
   </data>
   <data name="DialogTitleError" xml:space="preserve">
     <value>Error</value>
   </data>
-  <data name="DialogMessageNoDiskSpace" xml:space="preserve">
-    <value>No free space on the disk. The process is aborted.</value>
+  <data name="labelPasswordFileIsEnteredAlready" xml:space="preserve">
+    <value>Password file is entered already:</value>
+  </data>
+  <data name="labelNormalDeleteCompleted" xml:space="preserve">
+    <value>The specified files or folders has been deleted.</value>
+  </data>
+  <data name="DialogMessageBrokenDestroyNotFount" xml:space="preserve">
+    <value>The broken token could not found. The file may not be an encrypted file.</value>
+  </data>
+  <data name="DialogMessageNotZipDecrypted" xml:space="preserve">
+    <value>Now does not correspond to the decryption of password-protected ZIP file.</value>
   </data>
   <data name="DialogMessageFileAssociationToolNotLaunched" xml:space="preserve">
     <value>File association tool can be not launched.</value>
@@ -306,149 +442,17 @@ Do you run the following file?</value>
   <data name="labelCaptionPasswordValid" xml:space="preserve">
     <value>Password matches, it is valid.</value>
   </data>
+  <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
+    <value>Self Executable file(*.exe)|*.exe|All files(*.*)|*.*</value>
+  </data>
   <data name="DialogMessageAtcFileBroken" xml:space="preserve">
     <value>This encrypted file is broken. The process is aborted.</value>
-  </data>
-  <data name="DialogMessageFileAssociationSuccessful" xml:space="preserve">
-    <value>File association was successful</value>
-  </data>
-  <data name="labelGettingReadyForDecryption" xml:space="preserve">
-    <value>Getting ready for decryption...</value>
-  </data>
-  <data name="labelGettingReadyForEncryption" xml:space="preserve">
-    <value>Getting ready for encryption...</value>
-  </data>
-  <data name="DialogMessagefTemporarySettings" xml:space="preserve">
-    <value>Because you are using the temporary settings from the command line option, it will not be able to reflect the change of main setting.</value>
-  </data>
-  <data name="DialogMessageNotDirectoryInPasswordFile" xml:space="preserve">
-    <value>Not use the folder to the password file.</value>
-  </data>
-  <data name="DialogMessagePasswordFileNotFound" xml:space="preserve">
-    <value>Password is not found that specified in setting panel.</value>
-  </data>
-  <data name="DialogMessageDeleteOriginalFilesAndFolders" xml:space="preserve">
-    <value>Are you sure to delete the files and folders that are the source of the encrypted file?</value>
-  </data>
-  <data name="DialogMessageDeleteEncryptedFiles" xml:space="preserve">
-    <value>Are you sure to delete the encypted file(s) that are the source of the decryption?</value>
-  </data>
-  <data name="labelCompletelyDeleteCompleted" xml:space="preserve">
-    <value>The specified files or folders has been deleted Completely.</value>
-  </data>
-  <data name="labellabelCompletelyDelete" xml:space="preserve">
-    <value>Delete Completely</value>
-  </data>
-  <data name="labelMoveToTrash" xml:space="preserve">
-    <value>Move to Trash</value>
-  </data>
-  <data name="labelNormalDelete" xml:space="preserve">
-    <value>Normal Deleting</value>
-  </data>
-  <data name="labelProcessNameDeleteCompletely" xml:space="preserve">
-    <value>Deleting Completely...</value>
-  </data>
-  <data name="labelProcessNameMoveToTrash" xml:space="preserve">
-    <value>Move to Trash...</value>
-  </data>
-  <data name="DialogMessageBothRandomAndZeroNotZero" xml:space="preserve">
-    <value>Both Random setting and Zero setting are not able to set to zero.</value>
-  </data>
-  <data name="labelDeleteError" xml:space="preserve">
-    <value>An error occurred when deleting files or folders.</value>
-  </data>
-  <data name="labelProcessDeleteCompletely" xml:space="preserve">
-    <value>Delete completely is completed successfully.</value>
-  </data>
-  <data name="DialogMessageUnexpectedError" xml:space="preserve">
-    <value>An unexpected error has occurred. And stops processing.</value>
   </data>
   <data name="labelDecyptionCanceled" xml:space="preserve">
     <value>Decryption was canceled.</value>
   </data>
-  <data name="labelEncryptionCanceled" xml:space="preserve">
-    <value>Encryption was canceled.</value>
-  </data>
-  <data name="labelProcessGettingRedyForEncryption" xml:space="preserve">
-    <value>Getting ready for encryption...</value>
-  </data>
-  <data name="DialogMessageHigherVersion" xml:space="preserve">
-    <value>This file has been encrypted with a higher version.
-It can not be decrypted. The process is aborted.</value>
-  </data>
-  <data name="DialogMessageNotSameHash" xml:space="preserve">
-    <value>The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.The process is aborted.</value>
-  </data>
-  <data name="folderBrowserDialogSaveToZipFile" xml:space="preserve">
-    <value>Select the folder to save the zip file with password always.</value>
-  </data>
-  <data name="labelEncryptAlgoDescriptionAES" xml:space="preserve">
-    <value>Values of WinZipAes128 and WinZipAes256 are not part of the Zip specification, but rather imply the use of a vendor-specific extension from WinZip. If you want to produce interoperable Zip archives, do not use these values. For example, if you produce a zip archive using WinZipAes256, you will be able to open it in Windows Explorer on Windows XP and Vista, but you will not be able to extract entries; trying this will lead to an "unspecified error". For this reason, some people have said that a zip archive that uses WinZip's AES encryption is not actually a zip archive at all. A zip archive produced this way will be readable with the WinZip tool (Version 11 and beyond).</value>
-  </data>
-  <data name="labelEncryptAlgoDescriptionPkzipWeak" xml:space="preserve">
-    <value>PkzipWeak implies the use of Zip 2.0 encryption, which is known to be weak and subvertible. 
-
-A note on interoperability: Values of PkzipWeak and None are specified in PKWARE's zip specification, and are considered to be "standard". Zip archives produced using these options will be interoperable with many other zip tools and libraries, including Windows Explorer.</value>
-  </data>
-  <data name="linkLabelCheckForUpdatesFailed" xml:space="preserve">
-    <value>Getting updates information is failed.</value>
-  </data>
-  <data name="linkLabelCheckingForUpdates" xml:space="preserve">
-    <value>Checking for update...</value>
-  </data>
-  <data name="linkLabelLatestVersion" xml:space="preserve">
-    <value>Your version is latest.</value>
-  </data>
-  <data name="linkLabelLatestVersionReleased" xml:space="preserve">
-    <value>The latest version is released!</value>
-  </data>
-  <data name="labelInputPasswordAgainToConfirm" xml:space="preserve">
-    <value>Input password again to confirm:</value>
-  </data>
-  <data name="labelPasswordFileIsEnteredAlready" xml:space="preserve">
-    <value>Password file is entered already:</value>
-  </data>
-  <data name="labelPassword" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="labelPasswordFile" xml:space="preserve">
-    <value>The password file:</value>
-  </data>
-  <data name="labelPasswordMemorized" xml:space="preserve">
-    <value>The memorized password:</value>
-  </data>
-  <data name="labelPasswordOfCommandLineOption" xml:space="preserve">
-    <value>The password of command line option:</value>
-  </data>
-  <data name="DialogMessageNoXpCompatiblityMode" xml:space="preserve">
-    <value>Setting of Windows XP compatibility mode could not be completed. If Setting is not completed, the application can not be started.
-Please start again from the beginning.</value>
-  </data>
-  <data name="DialogMessageSetupToolNotFound" xml:space="preserve">
-    <value>Setup tool is not found!</value>
-  </data>
-  <data name="SaveDialogFilterSelfExeFiles" xml:space="preserve">
-    <value>Self Executable file(*.exe)|*.exe|All files(*.*)|*.*</value>
-  </data>
-  <data name="DialogMessageBroken" xml:space="preserve">
-    <value>Because it exceeded the limit number of inputting password, the encrypted file has been broken.</value>
-  </data>
-  <data name="DialogMessageBrokenAlready" xml:space="preserve">
-    <value>The encrypted file has already been destroyed.</value>
-  </data>
-  <data name="DialogMessageBrokenDestroyNotFount" xml:space="preserve">
-    <value>The broken token could not found. The file may not be an encrypted file.</value>
-  </data>
-  <data name="labelCaptionAborted" xml:space="preserve">
-    <value>Aborted.</value>
-  </data>
-  <data name="DialogMessageNotZipDecrypted" xml:space="preserve">
-    <value>Now does not correspond to the decryption of password-protected ZIP file.</value>
-  </data>
-  <data name="labelCaptionAllSkipped" xml:space="preserve">
-    <value>Skipped.</value>
-  </data>
-  <data name="DialogMessageInvalidFilePath" xml:space="preserve">
-    <value>The path of files or folders are invalid. The process is aborted.</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

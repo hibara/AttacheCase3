@@ -161,12 +161,6 @@ namespace AttacheCase
 
       this.Text = Resources.AttacheCase;
 
-      // Bring AttcheCase window in front of Desktop
-      if (AppSettings.Instance.fWindowForeground == true)
-      {
-        this.TopMost = true;
-      }
-
       // Ajust invalid window form position
       this.Width = AppSettings.Instance.FormWidth;
       this.Height = AppSettings.Instance.FormHeight;
@@ -190,15 +184,21 @@ namespace AttacheCase
       {
         this.Top = AppSettings.Instance.FormTop;
       }
+      
+      // Bring AttcheCase window in front of Desktop
+      if (AppSettings.Instance.fWindowForeground == true)
+      {
+        this.TopMost = true;
+      }
 
       // Not mask password character
       checkBoxNotMaskEncryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
       checkBoxNotMaskDecryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
-
-      StartProcess();
       
+      StartProcess();
 
     }
+
     /// <summary>
     /// Form shown event
     /// </summary>
@@ -207,7 +207,7 @@ namespace AttacheCase
     private void Form1_Shown(object sender, EventArgs e)
     {
     }
-    
+
     /// <summary>
     /// Form closed event
     /// </summary>
@@ -2918,43 +2918,60 @@ namespace AttacheCase
         // このオプションを選択している場合、新しいファイル名を指定します。
         // The multiple files is gotten one of the encrypted file together. 
         // If this option is selected, you specify a new file name.
-        if (AppSettings.Instance.fSaveToSameFldr == true && Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
+        if (AppSettings.Instance.fAutoName == true)
         {
-          saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
-          saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
+          if (AppSettings.Instance.fSaveToSameFldr == true && Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
+          {
+            AtcFilePath = Path.Combine(AppSettings.Instance.SaveToSameFldrPath,
+                            Path.GetFileNameWithoutExtension(AppSettings.Instance.FileList[0])) + Extension;
+          }
+          else
+          {
+            AtcFilePath = Path.Combine(Path.GetDirectoryName(AppSettings.Instance.FileList[0]),
+                            Path.GetFileNameWithoutExtension(AppSettings.Instance.FileList[0])) + Extension;
+          }
         }
         else
         {
-          saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
-          saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
-        }
+          if (AppSettings.Instance.fSaveToSameFldr == true && Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
+          {
+            saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
+            saveFileDialog1.InitialDirectory = AppSettings.Instance.SaveToSameFldrPath;
+          }
+          else
+          {
+            saveFileDialog1.FileName = Path.GetFileName(AppSettings.Instance.FileList[0]);
+            saveFileDialog1.InitialDirectory = AppSettings.Instance.InitDirPath;
+          }
 
-        // Input encrypted file name for putting together
-        // 一つにまとめる暗号化ファイル名入力
-        saveFileDialog1.Title = Resources.DialogTitleAllPackFiles;
+          // Input encrypted file name for putting together
+          // 一つにまとめる暗号化ファイル名入力
+          saveFileDialog1.Title = Resources.DialogTitleAllPackFiles;
 
-        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
-        {
-          saveFileDialog1.Filter = Resources.SaveDialogFilterSelfExeFiles;
-        }
-        else
-        {
-          saveFileDialog1.Filter = Resources.SaveDialogFilterAtcFiles;
-        }
+          if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+          {
+            saveFileDialog1.Filter = Resources.SaveDialogFilterSelfExeFiles;
+          }
+          else
+          {
+            saveFileDialog1.Filter = Resources.SaveDialogFilterAtcFiles;
+          }
 
-        if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        {
-          AtcFilePath = saveFileDialog1.FileName;
-          AppSettings.Instance.InitDirPath = Path.GetDirectoryName(saveFileDialog1.FileName);
-        }
-        else
-        { //キャンセル(Cancel)
-          panelStartPage.Visible = false;
-          panelEncrypt.Visible = false;
-          panelEncryptConfirm.Visible = true;
-          panelDecrypt.Visible = false;
-          panelProgressState.Visible = false;
-          return;
+          if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+          {
+            AtcFilePath = saveFileDialog1.FileName;
+            AppSettings.Instance.InitDirPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+          }
+          else
+          { //キャンセル(Cancel)
+            panelStartPage.Visible = false;
+            panelEncrypt.Visible = false;
+            panelEncryptConfirm.Visible = true;
+            panelDecrypt.Visible = false;
+            panelProgressState.Visible = false;
+            return;
+          }
+
         }
 
         int NumberOfFiles = 0;
@@ -4254,14 +4271,14 @@ namespace AttacheCase
         if (bkg != null && bkg.IsBusy == true)
         {
           bkg.CancelAsync();
-          buttonCancel.Text = Resources.ButtonTextOK;
         }
 
         if (cts != null)
         {
           cts.Cancel();
-          buttonCancel.Text = Resources.ButtonTextOK;
         }
+
+        buttonCancel.Text = Resources.ButtonTextOK;
 
       }
 

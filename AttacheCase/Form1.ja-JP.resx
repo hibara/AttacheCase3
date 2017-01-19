@@ -2003,9 +2003,6 @@ ATC</value>
   <data name="labelCryptionType.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
-    <value>キャンセル(&amp;C)</value>
-  </data>
   <data name="buttonCancel.ToolTip" xml:space="preserve">
     <value />
   </data>

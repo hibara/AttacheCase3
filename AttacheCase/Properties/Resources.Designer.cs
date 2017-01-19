@@ -97,6 +97,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        public static System.Drawing.Bitmap calendar {
+            get {
+                object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   To enable this setting, you will need to restart the AttacheCase.
         ///Do you restart AttacheCase now? に類似しているローカライズされた文字列を検索します。
         /// </summary>
