@@ -3017,18 +3017,8 @@ namespace AttacheCase
         }
 
         //-----------------------------------
-        // Specify the format of the encryption file name
-        string FileName = Path.GetFileName(AtcFilePath);
-        if (AppSettings.Instance.fAutoName == true)
-        {
-          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
-            AppSettings.Instance.AutoNameFormatText, FileName, NumberOfFiles
-          );
-        }
-
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
-
         //Create encrypted file including extension
+        string FileName = Path.GetFileName(AtcFilePath);
         if (AppSettings.Instance.fExtInAtcFileName == true)
         {
           FileName = Path.GetFileName(AtcFilePath) + Extension;
@@ -3037,7 +3027,16 @@ namespace AttacheCase
         {
           FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
         }
+        AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
+        //-----------------------------------
+        // Specify the format of the encryption file name
+        if (AppSettings.Instance.fAutoName == true)
+        {
+          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
+            AppSettings.Instance.AutoNameFormatText, AtcFilePath
+          );
+        }
         AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
         //-----------------------------------
@@ -3220,28 +3219,26 @@ namespace AttacheCase
         }
 
         //-----------------------------------
-        // Specify the format of the encryption file name
-        string FileName = Path.GetFileName(FilePath);
-        if (AppSettings.Instance.fAutoName == true)
-        {
-          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
-            AppSettings.Instance.AutoNameFormatText, FileName, FileIndex + 1
-          );
-        }
-
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
-
-        //-----------------------------------
         //Create encrypted file including extension
+        string FileName = Path.GetFileName(FilePath);
         if (AppSettings.Instance.fExtInAtcFileName == true)
         {
-          FileName = Path.GetFileName(AtcFilePath) + Extension;
+          FileName = Path.GetFileName(FilePath) + Extension;
         }
         else
         {
-          FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
+          FileName = Path.GetFileNameWithoutExtension(FilePath) + Extension;
         }
+        AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
+        //-----------------------------------
+        // Specify the format of the encryption file name
+        if (AppSettings.Instance.fAutoName == true)
+        {
+          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
+            AppSettings.Instance.AutoNameFormatText, AtcFilePath
+          );
+        }
         AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
         //-----------------------------------
@@ -3400,6 +3397,8 @@ namespace AttacheCase
 
         int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
 
+        string FilePath = AppSettings.Instance.FileList[FileIndex];
+
         if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
@@ -3419,31 +3418,30 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutputDirPath = Path.GetDirectoryName(AppSettings.Instance.FileList[FileIndex]);
+          OutputDirPath = Path.GetDirectoryName(FilePath);
         }
-
+  
         //-----------------------------------
-        // Specify the format of the encryption file name
-        string FileName = Path.GetFileName(AppSettings.Instance.FileList[FileIndex]);
-        if (AppSettings.Instance.fAutoName == true)
-        {
-          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
-            AppSettings.Instance.AutoNameFormatText, FileName, FileIndex + 1
-          );
-        }
-
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
-
         //Create encrypted file including extension
+        string FileName = Path.GetFileName(FilePath);
         if (AppSettings.Instance.fExtInAtcFileName == true)
         {
-          FileName = Path.GetFileName(AtcFilePath) + Extension;
+          FileName = Path.GetFileName(FilePath) + Extension;
         }
         else
         {
-          FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
+          FileName = Path.GetFileNameWithoutExtension(FilePath) + Extension;
         }
+        AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
+        //-----------------------------------
+        // Specify the format of the encryption file name
+        if (AppSettings.Instance.fAutoName == true)
+        {
+          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
+            AppSettings.Instance.AutoNameFormatText, AtcFilePath
+          );
+        }
         AtcFilePath = Path.Combine(OutputDirPath, FileName);
 
         //-----------------------------------

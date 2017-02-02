@@ -2880,8 +2880,8 @@ namespace AttacheCase
     /// <param name="FilePath"></param>
     /// <param name="fInit"></param>
     /// <returns></returns>
-    /// //----------------------------------------------------------------------
-    public string getSpecifyFileNameFormat(string FormatString, string FilePath, int SerialNum)
+    //----------------------------------------------------------------------
+    public string getSpecifyFileNameFormat(string FormatString, string FilePath)
     {
       // ファイル名            : <filename> 
       // 拡張子                : <ext> 
@@ -2889,119 +2889,137 @@ namespace AttacheCase
       // 連番                  : <num:[桁数]> 
       // ランダムな文字列      : <random:[文字数]> 
       #region
-      //-----------------------------------
-      // File Name
-      FormatString = Regex.Replace(FormatString, @"<filename>", Path.GetFileNameWithoutExtension(FilePath));
-      
-      //-----------------------------------
-      // Extension
-      FormatString = Regex.Replace(FormatString, @"<ext>", Path.GetExtension(FilePath));
 
-      //-----------------------------------
-      // Date time
-      Regex r = new Regex(@"<date:(.*?)>", RegexOptions.IgnoreCase);
-      Match m = r.Match(FormatString);
-      while (m.Success)
+      int SerialNum = 1;
+      string ReturnString = "";
+      while (true)
       {
-        DateTime dt = DateTime.Now;
-        string DateTimeString = dt.ToString(m.Groups[1].Value);
-        FormatString = Regex.Replace(FormatString, m.Value, DateTimeString);
-        m = m.NextMatch();
-      }
-      
-      //-----------------------------------
-      // Serial number
-      r = new Regex(@"<num:([0-9]*?)>", RegexOptions.IgnoreCase);
-      m = r.Match(FormatString);
-      while (m.Success)
-      {
-        int FigNum = 0;
-        if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
-        {
-          FormatString = Regex.Replace(FormatString, m.Value, SerialNum.ToString(new string('0', FigNum)));
-        }
-        m = m.NextMatch();
-      }
+        ReturnString = FormatString;
 
-      //-----------------------------------
-      // Random string 
-      r = new Regex(@"<random:([0-9]*?)>", RegexOptions.IgnoreCase);
-      m = r.Match(FormatString);
-      while (m.Success)
-      {
-        int FigNum = 0;
-        if (int.TryParse(m.Groups[1].Value, out FigNum) == false)
+        //-----------------------------------
+        // File Name
+        ReturnString = Regex.Replace(ReturnString, @"<filename>", Path.GetFileNameWithoutExtension(FilePath));
+
+        //-----------------------------------
+        // Extension
+        ReturnString = Regex.Replace(ReturnString, @"<ext>", Path.GetExtension(FilePath));
+
+        //-----------------------------------
+        // Date time
+        Regex r = new Regex(@"<date:(.*?)>", RegexOptions.IgnoreCase);
+        Match m = r.Match(ReturnString);
+        while (m.Success)
         {
-          FigNum = 8;
+          DateTime dt = DateTime.Now;
+          string DateTimeString = dt.ToString(m.Groups[1].Value);
+          ReturnString = Regex.Replace(ReturnString, m.Value, DateTimeString);
+          m = m.NextMatch();
         }
 
-        string CharAlphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        string CharAlphabetLower = "abcdefghijklmnopqrstuvwxyz";
-        string CharNumbers = "0123456789";
-        string CharSymbols = "=-+!_#$%&()[]{}~^`'@";
-        string Chars = "";
-
-        if ( _fAutoNameAlphabets == true )
+        //-----------------------------------
+        // Serial number
+        r = new Regex(@"<num:([0-9]*?)>", RegexOptions.IgnoreCase);
+        m = r.Match(ReturnString);
+        while (m.Success)
         {
-          if ( _fAutoNameUpperCase == true )
+          int FigNum = 0;
+          if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
           {
-            Chars += CharAlphabetUpper;
+            ReturnString = Regex.Replace(ReturnString, m.Value, SerialNum.ToString(new string('0', FigNum)));
           }
-          if ( _fAutoNameLowerCase == true )
+          m = m.NextMatch();
+        }
+
+        //-----------------------------------
+        // Random string 
+        r = new Regex(@"<random:([0-9]*?)>", RegexOptions.IgnoreCase);
+        m = r.Match(ReturnString);
+        while (m.Success)
+        {
+          int FigNum = 0;
+          if (int.TryParse(m.Groups[1].Value, out FigNum) == false)
           {
-            Chars += CharAlphabetLower;
+            FigNum = 8;
           }
+
+          string CharAlphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          string CharAlphabetLower = "abcdefghijklmnopqrstuvwxyz";
+          string CharNumbers = "0123456789";
+          string CharSymbols = "=-+!_#$%&()[]{}~^`'@";
+          string Chars = "";
+
+          if (_fAutoNameAlphabets == true)
+          {
+            if (_fAutoNameUpperCase == true)
+            {
+              Chars += CharAlphabetUpper;
+            }
+            if (_fAutoNameLowerCase == true)
+            {
+              Chars += CharAlphabetLower;
+            }
+          }
+
+          if (_fAutoNameNumbers == true)
+          {
+            Chars += CharNumbers;
+          }
+
+          if (_fAutoNameSymbols == true)
+          {
+            Chars += CharSymbols;
+          }
+
+          if (Chars == "")
+          {
+            Chars = CharAlphabetUpper;
+          }
+
+          char[] stringChars = new char[FigNum];
+          Random random = new Random();
+
+          for (int i = 0; i < stringChars.Length; i++)
+          {
+            stringChars[i] = Chars[random.Next(Chars.Length)];
+          }
+
+          ReturnString = Regex.Replace(ReturnString, m.Value, new string(stringChars));
+
+          m = m.NextMatch();
+
         }
 
-        if ( _fAutoNameNumbers == true )
+        //-----------------------------------
+        // Windowsでの禁止文字列を使っていないか
+        //-----------------------------------
+        if (IsValidFileName(ReturnString) == false)
         {
-          Chars += CharNumbers;
+          // 注意
+          // 
+          // Windowsのファイル名には以下の文字が使えません！
+          // 
+          // \\ / : , * ? \" < > |
+          //
+          // Alert
+          // The following characters cannot be used for the file name of Windows.
+          // 
+          // \\ / : , * ? \" < > |
+          MessageBox.Show(Resources.DialogMessageNotUseWindowsFileName,
+          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        if ( _fAutoNameSymbols == true )
+        if(File.Exists(Path.Combine(Path.GetDirectoryName(FilePath), ReturnString)) == false)
         {
-          Chars += CharSymbols;
+          break;
         }
-
-        if ( Chars == "")
+        else
         {
-          Chars = CharAlphabetUpper;
+          SerialNum++;
         }
 
-        char[] stringChars = new char[FigNum];
-        Random random = new Random();
-
-        for (int i = 0; i < stringChars.Length; i++)
-        {
-          stringChars[i] = Chars[random.Next(Chars.Length)];
-        }
-
-        FormatString = Regex.Replace(FormatString, m.Value, new string(stringChars));
-
-        m = m.NextMatch();
-
-      }
-
-      //-----------------------------------
-      // Windowsでの禁止文字列を使っていないか
-      //-----------------------------------
-      if (IsValidFileName(FormatString) == false)
-      {
-        // 注意
-        // 
-        // Windowsのファイル名には以下の文字が使えません！
-        // 
-        // \\ / : , * ? \" < > |
-        //
-        // Alert
-        // The following characters cannot be used for the file name of Windows.
-        // 
-        // \\ / : , * ? \" < > |
-        MessageBox.Show(Resources.DialogMessageNotUseWindowsFileName,
-        Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
       }
       
-      return(FormatString);
+      return(ReturnString);
 
       #endregion
     }

@@ -1496,9 +1496,9 @@ THE SOFTWARE.
 
 		private void textBoxAutoNameFormatText_TextChanged(object sender, EventArgs e)
 		{
-			string FilePath = "Test.atc";
+			string FilePath = @"C:\Test.atc";
 			labelEncryptedFileNameFormat.Text = "ex). " +
-				AppSettings.Instance.getSpecifyFileNameFormat(textBoxAutoNameFormatText.Text, FilePath, 1);
+				AppSettings.Instance.getSpecifyFileNameFormat(textBoxAutoNameFormatText.Text, FilePath);
       buttonApply.Enabled = true;
     }
 
