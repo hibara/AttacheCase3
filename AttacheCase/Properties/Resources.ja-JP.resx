@@ -449,4 +449,8 @@
   <data name="DialogMessageInvalidFilePath" xml:space="preserve">
     <value>ファイル、またはフォルダーパスが不正です。処理を中止します。</value>
   </data>
+  <data name="DialogMessageAccessDeny" xml:space="preserve">
+    <value>ファイルへのアクセスが拒否されました。
+ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。</value>
+  </data>
 </root>

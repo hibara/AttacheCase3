@@ -57,6 +57,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS         = -108;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -1157,13 +1158,21 @@ namespace AttacheCase
         return (true);
 
       }
-      catch
+      catch (UnauthorizedAccessException)
+      {
+        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
+        e.Result = new FileDecryptReturnVal(OS_DENIES_ACCESS);
+        return (false);
+
+      }
+      catch (Exception ex)
       {
         // Delete temporary file
         if (File.Exists(_TempFilePath) == true)
         {
           File.Delete(_TempFilePath);
         }
+        System.Windows.Forms.MessageBox.Show(ex.Message);
         e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED, "");
         return (false);
       }

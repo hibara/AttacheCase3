@@ -44,6 +44,10 @@ namespace AttacheCase
 
       linkLabelCheckForUpdates.Left = pictureBoxApplicationIcon.Left;
 
+#if (MS_STORE)
+      linkLabelCheckForUpdates.Visible = false;
+#endif
+
     }
 
     private void Form2_FormClosing(object sender, FormClosingEventArgs e)

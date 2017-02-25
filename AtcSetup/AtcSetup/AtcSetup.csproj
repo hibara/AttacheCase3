@@ -139,16 +139,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist $(ProjectDir)_password.txt goto end
-
-set /p PASS=&lt;$(ProjectDir)_password.txt
-
-"C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f $(ProjectDir)OS201608304212.pfx /p %25PASS%25 /t http://timestamp.globalsign.com/?signature=sha2 $(TargetPath)
-
-:end
-
-copy "$(TargetPath)" "$(SolutionDir)AttacheCase\bin\Debug\"
-copy "$(TargetPath)" "$(SolutionDir)AttacheCase\bin\Release\"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

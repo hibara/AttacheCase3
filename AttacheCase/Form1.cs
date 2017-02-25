@@ -55,6 +55,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS　       = -108;
 
     // File Type
     private const int FILE_TYPE_ERROR        = -1;
@@ -151,6 +152,7 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void Form1_Load(object sender, EventArgs e)
     {
+        
       // View start window
       panelEncrypt.Visible = false;
       panelEncryptConfirm.Visible = false;
@@ -748,7 +750,7 @@ namespace AttacheCase
       {
         progressBar.Style = ProgressBarStyle.Continuous;
         progressBar.Value = e.ProgressPercentage;
-        labelProgressPercentText.Text = ((float)e.ProgressPercentage / 100).ToString("F") + "%";
+        labelProgressPercentText.Text = ((float)e.ProgressPercentage / 100).ToString("F2") + "%";
       }
       else
       {
@@ -873,6 +875,7 @@ namespace AttacheCase
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
+        private const int OS_DENIES_ACCESS　       = -108;
         */
 
         switch ((int)e.Result)
@@ -1029,6 +1032,7 @@ namespace AttacheCase
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
+        private const int OS_DENIES_ACCESS　       = -108;
         */
 
         FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
@@ -1064,6 +1068,20 @@ namespace AttacheCase
             DecryptionEndProcess();
 
             return;
+
+          //-----------------------------------
+          case OS_DENIES_ACCESS:
+            // エラー
+            // ファイルへのアクセスが拒否されました。
+            // ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。
+            //
+            // Error
+            // Access to the file has been denied.
+            // Move to a place (eg Desktop) where you can read and write files and try again.
+            // 
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
 
           //-----------------------------------
           case ERROR_UNEXPECTED:
@@ -1193,8 +1211,7 @@ namespace AttacheCase
               textBoxDecryptPassword.SelectAll();
               return;
             }
-            break;
-
+            
           default:
             // ユーザーキャンセル
             fCancel = true;
@@ -3881,7 +3898,6 @@ namespace AttacheCase
         progressBar.Style = ProgressBarStyle.Continuous;
         buttonCancel.Text = Resources.ButtonTextOK;
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
-
         return;
 
       }
@@ -3949,7 +3965,6 @@ namespace AttacheCase
               progressBar.Style = ProgressBarStyle.Continuous;
               buttonCancel.Text = Resources.ButtonTextOK;
               notifyIcon1.Text = "- % " + Resources.labelCaptionError;
-
               return;
             }
           }
@@ -3983,10 +3998,6 @@ namespace AttacheCase
 
       // BackgroundWorker event handler
       bkg = new BackgroundWorker();
-      bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
-      bkg.ProgressChanged += backgroundWorker_ProgressChanged;
-      bkg.WorkerReportsProgress = true;
-      bkg.WorkerSupportsCancellation = true;
 
       //-----------------------------------
       // Old version 
@@ -4018,6 +4029,11 @@ namespace AttacheCase
             AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
             DialogMessageForOverWrite);
         };
+
+        bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
+        bkg.ProgressChanged += backgroundWorker_ProgressChanged;
+        bkg.WorkerReportsProgress = true;
+        bkg.WorkerSupportsCancellation = true;
 
         bkg.RunWorkerAsync();
 
@@ -4051,6 +4067,11 @@ namespace AttacheCase
             AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
             DialogMessageForOverWrite);
         };
+
+        bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
+        bkg.ProgressChanged += backgroundWorker_ProgressChanged;
+        bkg.WorkerReportsProgress = true;
+        bkg.WorkerSupportsCancellation = true;
 
         bkg.RunWorkerAsync();
 
@@ -4246,6 +4267,7 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void buttonCancel_Click(object sender, EventArgs e)
     {
+
       if (buttonCancel.Text == Resources.ButtonTextOK)
       {
         //スタートウィンドウ表示

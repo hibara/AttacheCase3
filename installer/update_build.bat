@@ -7,6 +7,54 @@
 
 @echo 
 @echo -----------------------------------
+@echo Rebuild ExeOut.exe
+@echo -----------------------------------
+
+SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
+
+msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants="AESCRYPTO" /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
+
+..\tools\ExeToHex\ExeToHex\bin\Release\ExeToHex.exe ..\ExeOut\bin\Release\Exeout.exe ..\AttacheCase\ExeOut3.cs
+
+
+@echo 
+@echo -----------------------------------
+@echo Rebuild AtcSetup.exe
+@echo -----------------------------------
+
+@rem Code signing
+if exist "code_signing\_password.txt" (
+set /p PASS=<code_signing\_password.txt
+
+if exist "%ProgramFiles%Microsoft SDKs\Windows\v7.1A\Bin" (
+SET PATH="%ProgramFiles%Microsoft SDKs\Windows\v7.1A\Bin";%PATH%
+) else (
+SET PATH="%ProgramFiles(x86)%Windows Kits\8.0\bin\x86";%PATH%
+)
+)
+
+msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants=MS_STORE /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
+
+@rem Code signing
+signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
+
+
+@echo 
+@echo -----------------------------------
+@echo Rebuild AttacheCase.exe
+@echo -----------------------------------
+
+msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants="AESCRYPTO" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
+
+@rem Insert icons
+..\tools\inserticons\inserticons.exe ..\AttacheCase3\AttacheCase\bin\Release\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
+
+@rem Code signing
+signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
+
+
+@echo 
+@echo -----------------------------------
 @echo Delete old files
 @echo -----------------------------------
 
@@ -25,7 +73,6 @@ copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Micro
 copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 mkdir bin\ja-JP
 copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
-copy ..\readme.txt bin\readme.txt
 copy ..\images\main_icon\main_icon_48x48.png bin\
 
 @echo 
@@ -33,20 +80,9 @@ copy ..\images\main_icon\main_icon_48x48.png bin\
 @echo Timestamp zero clear
 @echo -----------------------------------
 
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\readme.txt
 ..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\AttacheCase.exe
 ..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\ja-JP\AttacheCase.resources.dll
 ..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\AtcSetup.exe
-
-
-@echo 
-@echo -----------------------------------
-@echo Add resource by ResourceHacker
-@echo -----------------------------------
-
-@rem ..\tools\ResHacker\ResourceHacker.exe -addoverwrite bin\AttacheCase.exe, bin\AttacheCase.exe, ..\AttacheCase\attachecase.res,,,
-@rem ..\tools\\inserticons\inserticons.exe bin\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
-
 
 @echo. 
 @echo. -----------------------------------
@@ -61,14 +97,19 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
 
 echo %ERRORLEVEL%
 
-@rem Code signing
+
+@echo. 
+@echo. -----------------------------------
+@echo. Code signing to Installer
+@echo. -----------------------------------
+
 if exist "code_signing\_password.txt" (
 
 for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i 
 
-)
+signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
 
-@rem "C:\Program Files\Microsoft SDKs\Windows\v7.1A\Bin\signtool.exe" sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
+)
 
 
 @echo. 

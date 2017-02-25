@@ -107,6 +107,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Access to the file has been denied.
+        ///Move to a place (eg Desktop) where you can read and write files and try again. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageAccessDeny {
+            get {
+                return ResourceManager.GetString("DialogMessageAccessDeny", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   To enable this setting, you will need to restart the AttacheCase.
         ///Do you restart AttacheCase now? に類似しているローカライズされた文字列を検索します。
         /// </summary>

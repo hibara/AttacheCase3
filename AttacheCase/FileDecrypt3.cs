@@ -111,6 +111,7 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS         = -108;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -425,7 +426,7 @@ namespace AttacheCase
 
       } // end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
-    } // end public FileDecrypt2(string FilePath);
+    } // end public FileDecrypt3(string FilePath);
          
     /// <summary>
     /// Destructor
@@ -447,8 +448,8 @@ namespace AttacheCase
       object sender, DoWorkEventArgs e,
       string FilePath, string OutDirPath, string Password, byte[] PasswordBinary, Action<int, string> dialog)
     {
+
       BackgroundWorker worker = sender as BackgroundWorker;
-      worker.WorkerSupportsCancellation = true;
 
       //-----------------------------------
       // Header data is starting.
@@ -799,7 +800,7 @@ namespace AttacheCase
             break;
         }
       }
-                                                                    
+
       //-----------------------------------
       // Decrypt file main data.
       //-----------------------------------
@@ -867,7 +868,7 @@ namespace AttacheCase
                 byteArray = new byte[BUFFER_SIZE];
 
                 //while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
-                while(true)
+                while (true)
                 {
                   if (_AppVersion < 3013)
                   {
@@ -977,7 +978,7 @@ namespace AttacheCase
                               }
                             }
 
-                            if ( fSkip == false)
+                            if (fSkip == false)
                             {
                               //隠し属性を削除する
                               di.Attributes &= ~FileAttributes.Hidden;
@@ -1103,7 +1104,7 @@ namespace AttacheCase
                             Directory.CreateDirectory(Path.GetDirectoryName(path));
                           }
 
-                          if ( fSkip == true)
+                          if (fSkip == true)
                           {
                             // Not create file
                           }
@@ -1243,23 +1244,24 @@ namespace AttacheCase
 
         }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
+        e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
+        return (true);
+
+      }
+      catch (UnauthorizedAccessException)
+      {
+        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
+        e.Result = new FileDecryptReturnVal(OS_DENIES_ACCESS);
+        return (false);
+
       }
       catch (Exception ex)
       {
-#if (DEBUG)
-        System.Windows.Forms.MessageBox.Show("Exception!");
-#endif
-
         System.Windows.Forms.MessageBox.Show(ex.Message);
-
         e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED);
         return (false);
 
-
       }
-
-      e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
-      return (true);
 
     }// end Decrypt2();
 

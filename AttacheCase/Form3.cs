@@ -202,10 +202,16 @@ namespace AttacheCase
 		{
 			fLoading = true;
 
-			//-----------------------------------
-			// 読み込み先の表示
+#if (MS_STORE)
+      if (treeView1.Nodes.ContainsKey("nodeSystem"))
+      {
+        treeView1.Nodes.Remove(treeView1.Nodes["nodeSystem"]);
+      }
+#endif
+      //-----------------------------------
+      // 読み込み先の表示
 
-  		// Registry
+      // Registry
       using (Bitmap bitmap = new Bitmap(pictureBoxRegistryIcon.Image))
       {
         bitmap.SetResolution(24, 24);
@@ -270,7 +276,7 @@ namespace AttacheCase
 			//-----------------------------------
 			// Localization
 			//-----------------------------------
-			#region
+#region
 			string lang = "";
 			if (AppSettings.Instance.Language == "ja")
 			{
@@ -292,12 +298,12 @@ namespace AttacheCase
 				}
 			}
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// General
 			//-----------------------------------
-			#region
+#region
 			checkBoxEndToExit.Checked = AppSettings.Instance.fEndToExit;
 			checkBoxOpenFile.Checked = AppSettings.Instance.fOpenFile;
 
@@ -328,12 +334,12 @@ namespace AttacheCase
 			TreeNode treeNode = treeView1.Nodes[AppSettings.Instance.TabSelectedIndex];
 			treeView1.SelectedNode = treeNode;
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// Password
 			//-----------------------------------
-			#region
+#region
 			checkBoxMyEncodePasswordKeep.Checked = AppSettings.Instance.fMyEncryptPasswordKeep;
 			if (AppSettings.Instance.MyEncryptPasswordString != null)
 			{
@@ -346,24 +352,24 @@ namespace AttacheCase
 			}
 			checkBoxDobyMemorizedPassword.Checked = AppSettings.Instance.fMemPasswordExe;
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// Window
 			//-----------------------------------
-			#region
+#region
 			checkBoxMainWindowMinimize.Checked = AppSettings.Instance.fMainWindowMinimize;
 			checkBoxTaskBarHide.Checked = AppSettings.Instance.fTaskBarHide;
 			checkBoxTaskTrayIcon.Checked = AppSettings.Instance.fTaskTrayIcon;
 			checkBoxWindowForeground.Checked = AppSettings.Instance.fWindowForeground;
 			checkBoxNoMultipleInstance.Checked = AppSettings.Instance.fNoMultipleInstance;
 
-      #endregion
+#endregion
 
       //-----------------------------------
       // Save
       //-----------------------------------
-      #region
+#region
 
       // Encryption will be the same file type always.
       if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC)
@@ -393,12 +399,12 @@ namespace AttacheCase
         checkBoxEncryptionSameFileTypeBefore.Checked = false;
       }
 
-      #endregion
+#endregion
 
       //-----------------------------------
       // Save Encrypt
       //-----------------------------------
-      #region
+#region
       checkBoxSaveToSameFldr.Checked = AppSettings.Instance.fSaveToSameFldr;
 			if (checkBoxSaveToSameFldr.Checked == true)
 			{
@@ -432,12 +438,12 @@ namespace AttacheCase
 			checkBoxAddCamoExt.Checked = AppSettings.Instance.fAddCamoExt;
 			textBoxCamoExt.Text = AppSettings.Instance.CamoExt;
 
-			#endregion
+#endregion
 			
 			//-----------------------------------
 			// Save Decrypt
 			//-----------------------------------
-			#region
+#region
 			checkBoxDecodeToSameFldr.Checked = AppSettings.Instance.fDecodeToSameFldr;
       if (checkBoxDecodeToSameFldr.Checked == true)
       {
@@ -456,23 +462,23 @@ namespace AttacheCase
 			checkBoxfNoParentFldr.Checked = AppSettings.Instance.fNoParentFldr;
 			checkBoxSameTimeStamp.Checked = AppSettings.Instance.fSameTimeStamp;
 
-      #endregion
+#endregion
 
       //-----------------------------------
       // Save ZIP
       //-----------------------------------
-      #region
+#region
       checkBoxZipToSameFldr.Checked = AppSettings.Instance.fZipToSameFldr;
       textBoxZipToSameFldrPath.Text = AppSettings.Instance.ZipToSameFldrPath;
       checkBoxZipConfirmOverwrite.Checked = AppSettings.Instance.fZipConfirmOverwrite;
       comboBoxZipEncryptAlgo.SelectedIndex = AppSettings.Instance.ZipEncryptionAlgorithm;
 
-      #endregion
+#endregion
 
       //-----------------------------------
       // Delete
       //-----------------------------------
-      #region
+#region
       checkBoxDelOrgFile.Checked = AppSettings.Instance.fDelOrgFile;
 			checkBoxEncryptShowDeleteChkBox.Checked = AppSettings.Instance.fEncryptShowDelChkBox;
 			checkBoxConfirmToDeleteAfterEncryption.Checked = AppSettings.Instance.fConfirmToDeleteAfterEncryption;
@@ -521,12 +527,12 @@ namespace AttacheCase
 			radioButtonCompleteErase_CheckedChanged(sender, e);
 			checkBoxDelOrgFile_CheckedChanged(sender, e);
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// Compress
 			//-----------------------------------
-			#region
+#region
 			if (AppSettings.Instance.CompressRate > 0)
 			{
 				checkBoxCompressionOption.Checked = true;
@@ -542,12 +548,12 @@ namespace AttacheCase
 
 			trackBarCompressRate_ValueChanged(sender, e);
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// System
 			//-----------------------------------
-			#region
+#region
 			buttonAssociateAtcFiles.Enabled = true;
 			buttonUnAssociateAtcFiles.Enabled = false;
 
@@ -620,12 +626,12 @@ namespace AttacheCase
 
       }
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// Password file
 			//-----------------------------------
-			#region
+#region
 			checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
 			checkBoxCheckPassFile.Checked = AppSettings.Instance.fCheckPassFile;
 			textBoxPassFilePath.Text = AppSettings.Instance.PassFilePath;
@@ -634,21 +640,21 @@ namespace AttacheCase
 			textBoxPassFilePathDecrypt.Text = AppSettings.Instance.PassFilePathDecrypt;
 			checkBoxNoErrMsgOnPassFile.Checked = AppSettings.Instance.fNoErrMsgOnPassFile;
       checkBoxDoByPasswordFile.Checked = AppSettings.Instance.fPasswordFileExe;
-      #endregion
+#endregion
 
       //-----------------------------------
       // Input Password limit
       //-----------------------------------
-      #region
+#region
       comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
 
-			#endregion
+#endregion
 
 			//-----------------------------------
 			// License
 			//-----------------------------------
-			#region zlib license
+#region zlib license
 			richTextBox1.Text =
 @"zlib
 http://www.zlib.net/
@@ -810,7 +816,7 @@ THE SOFTWARE.
 
 
 ";
-      #endregion
+#endregion
 
 
       //-----------------------------------
@@ -1212,7 +1218,7 @@ THE SOFTWARE.
     //======================================================================
     // General
     //======================================================================
-    #region
+#region
 
     private void checkBoxShowDialogWhenMultipleFiles_CheckedChanged(object sender, EventArgs e)
     {
@@ -1274,12 +1280,12 @@ THE SOFTWARE.
 			} //end if (comboBoxLanguage.Items.Count > 0);
 
 		}
-		#endregion
+#endregion
 
 		//======================================================================
 		// Passwords
 		//======================================================================
-		#region
+#region
 		private void checkBoxMyEncodePasswordKeep_CheckedChanged(object sender, EventArgs e)
 		{
 			if (fLoading == true)
@@ -1390,12 +1396,12 @@ THE SOFTWARE.
 		}
 
 
-		#endregion
+#endregion
 
 		//======================================================================
 		// Window
 		//======================================================================
-		#region
+#region
 		private void checkBoxTaskBarHide_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxTaskBarHide.Checked == true)
@@ -1409,24 +1415,24 @@ THE SOFTWARE.
 			buttonApply.Enabled = true;
 		}
 
-		#endregion
+#endregion
 
 		//======================================================================
 		// Save
 		//======================================================================
-		#region
+#region
 
 		private void checkBoxEncryptionSameFileTypeBefore_CheckedChanged(object sender, EventArgs e)
 		{
       buttonApply.Enabled = true;
 		}
 
-		#endregion
+#endregion
 
 		//======================================================================
 		// SaveEncrypt
 		//======================================================================
-		#region
+#region
 		private void checkBoxSaveToSameFldr_CheckedChanged(object sender, EventArgs e)
 		{
 			if (fLoading == true)
@@ -1558,12 +1564,12 @@ THE SOFTWARE.
 			buttonApply.Enabled = true;
 		}
 
-		#endregion
+#endregion
 
 		//======================================================================
 		// SaveDecrypt
 		//======================================================================
-		#region
+#region
 		private void checkBoxDecodeToSameFldr_CheckedChanged(object sender, EventArgs e)
 		{
 			if (fLoading == true)
@@ -1608,12 +1614,12 @@ THE SOFTWARE.
 			buttonApply.Enabled = true;
 		}
 
-    #endregion
+#endregion
 
     //======================================================================
     // Save Password ZIP        
     //======================================================================
-    #region
+#region
 
     private void checkBoxZipToSameFldr_CheckedChanged(object sender, EventArgs e)
     {
@@ -1684,12 +1690,12 @@ THE SOFTWARE.
     }
 
 
-    #endregion
+#endregion
 
     //======================================================================
     // Delete
     //======================================================================
-    #region
+#region
 
     /// <summary>
     /// Delete &original files or directories after encryption
@@ -1756,12 +1762,12 @@ THE SOFTWARE.
 			buttonApply.Enabled = true;
 		}
 
-		#endregion
+#endregion
 		
 		//======================================================================
 		// Compress
 		//======================================================================
-		#region
+#region
 		private void checkBoxCompressionOption_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxCompressionOption.Checked == true)
@@ -1812,12 +1818,12 @@ THE SOFTWARE.
 		
 		}
 
-		#endregion
+#endregion
 
 		//======================================================================
 		// System
 		//======================================================================
-		#region
+#region
 		private void buttonAssociateAtcFiles_Click(object sender, EventArgs e)
 		{			
 			string AtcSetupExePath = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "AtcSetup.exe");
@@ -2109,12 +2115,12 @@ THE SOFTWARE.
 
     }
 
-    #endregion
+#endregion
 
     //======================================================================
     // PasswordFile
     //======================================================================
-    #region
+#region
 		private void checkBoxCheckPassFile_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxCheckPassFile.Checked == true)
@@ -2259,7 +2265,7 @@ THE SOFTWARE.
     }
 
 
-    #endregion
+#endregion
 
   }
 
