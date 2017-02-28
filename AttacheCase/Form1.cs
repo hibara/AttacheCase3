@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016  Mitsuhiro Hibara
+// Copyright (C) 2017  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -744,13 +744,16 @@ namespace AttacheCase
 
     private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
+
       ArrayList MessageList = (ArrayList)e.UserState;
 
       if (e.ProgressPercentage > 0)
       {
         progressBar.Style = ProgressBarStyle.Continuous;
         progressBar.Value = e.ProgressPercentage;
+
         labelProgressPercentText.Text = ((float)e.ProgressPercentage / 100).ToString("F2") + "%";
+
       }
       else
       {
@@ -758,6 +761,7 @@ namespace AttacheCase
         progressBar.MarqueeAnimationSpeed = 50;
         progressBar.Value = 0;
       }
+
       /*
       private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded.
       private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded.
@@ -806,7 +810,7 @@ namespace AttacheCase
       }
 
       this.Update();
-     
+
     }
 
     private void backgroundWorker_Encryption_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -971,20 +975,7 @@ namespace AttacheCase
 
       if (e.Cancelled)
       {
-        if (TempOverWriteOption == USER_CANCELED)
-        {
-          // Canceled
-          labelProgressPercentText.Text = "- %";
-          progressBar.Value = 0;
-          progressBar.Style = ProgressBarStyle.Continuous;
-          labelCryptionType.Text = "";
-          notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
-          AppSettings.Instance.FileList = null;
-          // 復号処理はキャンセルされました。
-          // Decryption was canceled.
-          labelProgressMessageText.Text = Resources.labelDecyptionCanceled;
-        }
-        else if(TempOverWriteOption == SKIP_ALL)
+        if(TempOverWriteOption == SKIP_ALL)
         {
           labelProgressPercentText.Text = "100 %";
           progressBar.Value = progressBar.Maximum;
@@ -997,7 +988,20 @@ namespace AttacheCase
           labelProgressMessageText.Text = Resources.labelCaptionAllSkipped;
 
         }
-
+        else
+        {
+          // Canceled
+          labelProgressPercentText.Text = "- %";
+          progressBar.Value = 0;
+          progressBar.Style = ProgressBarStyle.Continuous;
+          labelCryptionType.Text = "";
+          notifyIcon1.Text = "- % " + Resources.labelCaptionCanceled;
+          AppSettings.Instance.FileList = null;
+          // 復号処理はキャンセルされました。
+          // Decryption was canceled.
+          labelProgressMessageText.Text = Resources.labelDecyptionCanceled;
+        }
+        this.Update();
         return;
 
       }
@@ -1009,6 +1013,7 @@ namespace AttacheCase
         progressBar.Value = 0;
         labelProgressMessageText.Text = Resources.labelCaptionError;     // "Error occurred"
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+        this.Update();
         return;
       }
       else
@@ -1067,6 +1072,7 @@ namespace AttacheCase
 
             DecryptionEndProcess();
 
+            this.Update();
             return;
 
           //-----------------------------------
@@ -1255,6 +1261,7 @@ namespace AttacheCase
         // ファイル、またはフォルダーの完全削除がキャンセルされました。
         // Complete deleting files or folder has been canceled.
         labelProgressMessageText.Text = Resources.labelCompleteDeleteFileCanceled;
+        this.Update();
         return;
 
       }
@@ -1266,6 +1273,7 @@ namespace AttacheCase
         progressBar.Value = 0;
         labelProgressMessageText.Text = Resources.labelCaptionError;     // "Error occurred"
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
+        this.Update();
         return;
 
       }
@@ -1282,6 +1290,7 @@ namespace AttacheCase
             labelProgressMessageText.Text = Resources.labelCompleteDeletingCompleted;
             labelProgressPercentText.Text = "100%";
             progressBar.Value = progressBar.Maximum;  // 100%
+            this.Update();
             return;
 
           //-----------------------------------
@@ -1293,6 +1302,7 @@ namespace AttacheCase
             // An unexpected error has occurred. And stops processing.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            this.Update();
             break;
 
           //-----------------------------------
@@ -1304,6 +1314,7 @@ namespace AttacheCase
             // No free space on the disk. The process is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            this.Update();
             break;
 
           default:

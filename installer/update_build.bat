@@ -12,7 +12,7 @@
 
 SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
 
-msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants="AESCRYPTO" /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
+msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
 
 ..\tools\ExeToHex\ExeToHex\bin\Release\ExeToHex.exe ..\ExeOut\bin\Release\Exeout.exe ..\AttacheCase\ExeOut3.cs
 
@@ -22,21 +22,8 @@ msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants="AESCRYPTO" /t:ReBuild
 @echo Rebuild AtcSetup.exe
 @echo -----------------------------------
 
-@rem Code signing
-if exist "code_signing\_password.txt" (
-set /p PASS=<code_signing\_password.txt
 
-if exist "%ProgramFiles%Microsoft SDKs\Windows\v7.1A\Bin" (
-SET PATH="%ProgramFiles%Microsoft SDKs\Windows\v7.1A\Bin";%PATH%
-) else (
-SET PATH="%ProgramFiles(x86)%Windows Kits\8.0\bin\x86";%PATH%
-)
-)
-
-msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants=MS_STORE /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
-
-@rem Code signing
-signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
+msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
 
 
 @echo 
@@ -44,13 +31,10 @@ signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t 
 @echo Rebuild AttacheCase.exe
 @echo -----------------------------------
 
-msbuild.exe /p:DefineConstants=RELEASE /p:DefineConstants="AESCRYPTO" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
+msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
 
 @rem Insert icons
-..\tools\inserticons\inserticons.exe ..\AttacheCase3\AttacheCase\bin\Release\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
-
-@rem Code signing
-signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
+..\tools\inserticons\inserticons.exe ..\AttacheCase\bin\Release\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
 
 
 @echo 
@@ -73,16 +57,23 @@ copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Micro
 copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 mkdir bin\ja-JP
 copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
-copy ..\images\main_icon\main_icon_48x48.png bin\
+
 
 @echo 
 @echo -----------------------------------
-@echo Timestamp zero clear
+@echo Code signing to each exe file
 @echo -----------------------------------
 
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\AttacheCase.exe
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\ja-JP\AttacheCase.resources.dll
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe bin\AtcSetup.exe
+if exist "code_signing\_password.txt" (
+set /p PASS=<code_signing\_password.txt
+)
+
+SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
+SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
+
+signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
+signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
+
 
 @echo. 
 @echo. -----------------------------------
@@ -133,16 +124,6 @@ cd ..\
 
 ..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.exe
 ..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.zip
-
-@echo. 
-@echo. -----------------------------------
-@echo. Timestamp ( only time ) zero clear
-@echo. -----------------------------------
-
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.exe
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.zip
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.md5
-..\tools\setTimeZero\setTimeZero\bin\Release\setTimeZero.exe /w Archives\*.sha1
 
 
 @echo. 

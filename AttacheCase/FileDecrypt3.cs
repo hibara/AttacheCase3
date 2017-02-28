@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016  Mitsuhiro Hibara
+// Copyright (C) 2017  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -1218,8 +1218,14 @@ namespace AttacheCase
                     MessageList.Add(DECRYPTING);
                     MessageList.Add(MessageText);
                     float percent = ((float)_TotalSize / _TotalFileSize);
-                    worker.ReportProgress((int)(percent * 10000), MessageList);
+                    
+                    System.Random r = new System.Random();
+                    if(r.Next(0, 20) == 4)
+                    {
+                      worker.ReportProgress((int)(percent * 10000), MessageList);
 
+                    }
+                    
                     // User cancel
                     if (worker.CancellationPending == true)
                     {
@@ -1263,7 +1269,7 @@ namespace AttacheCase
 
       }
 
-    }// end Decrypt2();
+    }// end Decrypt();
 
     //======================================================================
     /// <summary>
