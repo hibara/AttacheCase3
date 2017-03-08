@@ -27,6 +27,57 @@ using Sha2;
 
 namespace AttacheCase
 {
+  class FileEncryptReturnVal
+  {
+    public FileEncryptReturnVal(int ReturnCode, string FilePath, Int64 TotalFileSize, Int64 AvailableFreeSpace)
+    {
+      this._ReturnCode = ReturnCode;
+      this._FilePath = FilePath;
+      this._TotalFileSize = TotalFileSize;
+      this._AvailableFreeSpace = AvailableFreeSpace;
+    }
+    public FileEncryptReturnVal(int ReturnCode, string FilePath)
+    {
+      this._ReturnCode = ReturnCode;
+      this._FilePath = FilePath;
+    }
+    public FileEncryptReturnVal(int ReturnCode, int FileIndex)
+    {
+      this._ReturnCode = ReturnCode;
+      this._FileIndex = FileIndex;
+    }
+    public FileEncryptReturnVal(int ReturnCode)
+    {
+      this._ReturnCode = ReturnCode;
+    }
+
+    private int _ReturnCode = -1;
+    public int ReturnCode
+    {
+      get { return this._ReturnCode; }
+    }
+    private int _FileIndex = -1;
+    public int FileIndex
+    {
+      get { return this._FileIndex; }
+    }
+    private string _FilePath = "";
+    public string FilePath
+    {
+      get { return this._FilePath; }
+    }
+    private Int64 _TotalFileSize = -1;
+    public Int64 TotalFileSize
+    {
+      get { return this._TotalFileSize; }
+    }
+    private Int64 _AvailableFreeSpace = -1;
+    public Int64 AvailableFreeSpace
+    {
+      get { return this._AvailableFreeSpace; }
+    }
+  }
+
   public partial class FileEncrypt3
   {
     // Status code
@@ -48,7 +99,8 @@ namespace AttacheCase
     private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
-
+    private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS         = -108;
 
     private byte[] buffer;
     private const int BUFFER_SIZE = 4096;
@@ -130,7 +182,7 @@ namespace AttacheCase
     /// <param name="OutFilePath">Output encryption file name</param>
     /// <param name="Password">Encription password string</param>
     /// <returns>Encryption success(true) or failed(false)</returns>
-		public Tuple<bool, int> Encrypt(
+		public bool Encrypt(
       object sender, DoWorkEventArgs e,
       string[] FilePaths, string OutFilePath,
       string Password, byte[] PasswordBinary,
@@ -172,282 +224,284 @@ namespace AttacheCase
       byte[] key = deriveBytes.GetBytes(32);
       byte[] iv = deriveBytes.GetBytes(32);
 
-      using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write))
+      try
       {
-        // 自己実行形式ファイル（Self-executable file）
-        if (_fExecutable == true)
+
+        using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write))
         {
-          ExeOutFileSize = rawData.Length;
-          outfs.Write(rawData, 0, (int)ExeOutFileSize);
-        }
-
-        _StartPos = outfs.Seek(0, SeekOrigin.End);
-
-        // Application version
-        Version ver = ApplicationInfo.Version;
-        short vernum = Int16.Parse(ver.ToString().Replace(".", ""));
-        byteArray = BitConverter.GetBytes(vernum);
-        outfs.Write(byteArray, 0, 2);
-        // Input password limit
-        byteArray = BitConverter.GetBytes(_MissTypeLimits);
-        outfs.Write(byteArray, 0, 1);
-        // Exceed the password input limit, destroy the file?
-        byteArray = BitConverter.GetBytes(fBrocken);
-        outfs.Write(byteArray, 0, 1);
-        // Token that this is the AttacheCase file
-        byteArray = Encoding.ASCII.GetBytes(STRING_TOKEN_NORMAL);
-        outfs.Write(byteArray, 0, 16);
-        // File sub version
-        byteArray = BitConverter.GetBytes(DATA_FILE_VERSION);
-        outfs.Write(byteArray, 0, 4);
-        // The size of encrypted Atc header size ( reserved ) 
-        byteArray = BitConverter.GetBytes((int)0);
-        outfs.Write(byteArray, 0, 4);
-        // Salt
-        outfs.Write(salt, 0, 8);
- 
-        // Cipher text header.
-        using (MemoryStream ms = new MemoryStream())
-        {
-          byteArray = Encoding.ASCII.GetBytes(AtC_ENCRYPTED_TOKEN + "\n");
-          ms.Write(byteArray, 0, byteArray.Length);
-
-          int FileNumber = 0;
-          string ParentPath;
-          ArrayList FileInfoList = new ArrayList();
-
-          //----------------------------------------------------------------------
-          // Put together files in one ( Save as the name ).
-          // 複数ファイルを一つにまとめる（ファイルに名前をつけて保存）
-          if (NewArchiveName != "")
+          // 自己実行形式ファイル（Self-executable file）
+          if (_fExecutable == true)
           {
-            // Now time
-            DateTime dtNow = new DateTime();
-            FileInfoList.Add("0:" +                              // File number
-                             NewArchiveName + "\\\t" +           // File name
-                             "0" + "\t" +                        // File size 
-                             "16" + "\t" +                       // File attribute
-                             dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Last write date
-                             dtNow.TimeOfDay.TotalSeconds + "\t" + // Last write time
-                             dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Creation date
-                             dtNow.TimeOfDay.TotalSeconds);       // Creation time             
-            FileNumber++;
+            ExeOutFileSize = rawData.Length;
+            outfs.Write(rawData, 0, (int)ExeOutFileSize);
           }
 
-          //----------------------------------------------------------------------
-          // When encrypt multiple files
-          // 複数のファイルを暗号化する場合
-          foreach (string FilePath in FilePaths)
+          _StartPos = outfs.Seek(0, SeekOrigin.End);
+
+          // Application version
+          Version ver = ApplicationInfo.Version;
+          short vernum = Int16.Parse(ver.ToString().Replace(".", ""));
+          byteArray = BitConverter.GetBytes(vernum);
+          outfs.Write(byteArray, 0, 2);
+          // Input password limit
+          byteArray = BitConverter.GetBytes(_MissTypeLimits);
+          outfs.Write(byteArray, 0, 1);
+          // Exceed the password input limit, destroy the file?
+          byteArray = BitConverter.GetBytes(fBrocken);
+          outfs.Write(byteArray, 0, 1);
+          // Token that this is the AttacheCase file
+          byteArray = Encoding.ASCII.GetBytes(STRING_TOKEN_NORMAL);
+          outfs.Write(byteArray, 0, 16);
+          // File sub version
+          byteArray = BitConverter.GetBytes(DATA_FILE_VERSION);
+          outfs.Write(byteArray, 0, 4);
+          // The size of encrypted Atc header size ( reserved ) 
+          byteArray = BitConverter.GetBytes((int)0);
+          outfs.Write(byteArray, 0, 4);
+          // Salt
+          outfs.Write(salt, 0, 8);
+
+          // Cipher text header.
+          using (MemoryStream ms = new MemoryStream())
           {
-            ParentPath = Path.GetDirectoryName(FilePath);
+            byteArray = Encoding.ASCII.GetBytes(AtC_ENCRYPTED_TOKEN + "\n");
+            ms.Write(byteArray, 0, byteArray.Length);
 
-            if(ParentPath.EndsWith("\\") == false)  // In case of 'C:\\' root direcroy.
+            int FileNumber = 0;
+            string ParentPath;
+            ArrayList FileInfoList = new ArrayList();
+
+            //----------------------------------------------------------------------
+            // Put together files in one ( Save as the name ).
+            // 複数ファイルを一つにまとめる（ファイルに名前をつけて保存）
+            if (NewArchiveName != "")
             {
-              ParentPath = ParentPath + "\\";
-            }
-            
-            if ((worker.CancellationPending == true))
-            {
-              e.Cancel = true;
-              return Tuple.Create(false, USER_CANCELED);
+              // Now time
+              DateTime dtNow = new DateTime();
+              FileInfoList.Add("0:" +                              // File number
+                               NewArchiveName + "\\\t" +           // File name
+                               "0" + "\t" +                        // File size 
+                               "16" + "\t" +                       // File attribute
+                               dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Last write date
+                               dtNow.TimeOfDay.TotalSeconds + "\t" + // Last write time
+                               dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Creation date
+                               dtNow.TimeOfDay.TotalSeconds);       // Creation time             
+              FileNumber++;
             }
 
             //----------------------------------------------------------------------
-            // 暗号化リストを生成（ファイル）
-            // Create file to encrypt list ( File )
-            //----------------------------------------------------------------------
-            if (File.Exists(FilePath) == true)
+            // When encrypt multiple files
+            // 複数のファイルを暗号化する場合
+            foreach (string FilePath in FilePaths)
             {
-              ArrayList Item = GetFileInfo(ParentPath, FilePath);
-              FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
-                                //Item[1] + "\t" +           // Absolute file path
-                                Item[2] + "\t" +             // Relative file path
-                                Item[3].ToString() + "\t" +  // File size 
-                                Item[4].ToString() + "\t" +  // File attribute
-                                Item[5].ToString() + "\t" +  // Last write date
-                                Item[6].ToString() + "\t" +  // Last write time
-                                Item[7].ToString() + "\t" +  // Creation date
-                                Item[8].ToString() + "\t" +  // Creation time             
-                                Item[9].ToString());         // SHA-256 Hash string      
+              ParentPath = Path.GetDirectoryName(FilePath);
 
-              // files only
-              if (Convert.ToInt32(Item[0]) == 1)
+              if (ParentPath.EndsWith("\\") == false)  // In case of 'C:\\' root direcroy.
               {
-                // Files list for encryption
-                _FileList.Add(Item[1].ToString());  // Absolute file path
-                                                    // Total file size
-                _TotalFileSize += Convert.ToInt64(Item[3]);
+                ParentPath = ParentPath + "\\";
               }
 
-              FileNumber++;
-
-            }
-            //----------------------------------------------------------------------
-            // 暗号化リストを生成（ディレクトリ）
-            // Create file to encrypt list ( Directory )
-            //----------------------------------------------------------------------
-            else
-            {
-              // Directory
-              _FileList.Add(FilePath);  // Absolute file path
-
-              foreach (ArrayList Item in GetFileList(ParentPath, FilePath))
+              if ((worker.CancellationPending == true))
               {
-                if ((worker.CancellationPending == true))
-                {
-                  e.Cancel = true;
-                  return Tuple.Create(false, USER_CANCELED);
-                }
+                e.Cancel = true;
+                return (false);
+              }
 
-                if (NewArchiveName != "")
-                {
-                  Item[2] = NewArchiveName + "\\" + Item[2];
-                }
+              //----------------------------------------------------------------------
+              // 暗号化リストを生成（ファイル）
+              // Create file to encrypt list ( File )
+              //----------------------------------------------------------------------
+              if (File.Exists(FilePath) == true)
+              {
+                ArrayList Item = GetFileInfo(ParentPath, FilePath);
+                FileInfoList.Add(FileNumber.ToString() + ":" + // File number
+                                                               //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
+                                                               //Item[1] + "\t" +           // Absolute file path
+                                  Item[2] + "\t" +             // Relative file path
+                                  Item[3].ToString() + "\t" +  // File size 
+                                  Item[4].ToString() + "\t" +  // File attribute
+                                  Item[5].ToString() + "\t" +  // Last write date
+                                  Item[6].ToString() + "\t" +  // Last write time
+                                  Item[7].ToString() + "\t" +  // Creation date
+                                  Item[8].ToString() + "\t" +  // Creation time             
+                                  Item[9].ToString());         // SHA-256 Hash string      
 
-                if ((int)Item[0] == 0)
-                { // Directory
-                  FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                    Item[2] + "\t" +             // Relative file path
-                                    Item[3].ToString() + "\t" +  // File size 
-                                    Item[4].ToString() + "\t" +  // File attribute
-                                    Item[5].ToString() + "\t" +  // Last write date
-                                    Item[6].ToString() + "\t" +  // Last write time
-                                    Item[7].ToString() + "\t" +  // Creation date
-                                    Item[8].ToString());         // Creation time
-                }
-                else
-                { // File
-                  FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                    Item[2] + "\t" +             // Relative file path
-                                    Item[3].ToString() + "\t" +  // File size 
-                                    Item[4].ToString() + "\t" +  // File attribute
-                                    Item[5].ToString() + "\t" +  // Last write date
-                                    Item[6].ToString() + "\t" +  // Last write time
-                                    Item[7].ToString() + "\t" +  // Creation date
-                                    Item[8].ToString() + "\t" +  // Creation time             
-                                    Item[9].ToString());         // SHA-256 hash             
-                }
-
+                // files only
                 if (Convert.ToInt32(Item[0]) == 1)
-                { // files only
+                {
                   // Files list for encryption
                   _FileList.Add(Item[1].ToString());  // Absolute file path
                                                       // Total file size
                   _TotalFileSize += Convert.ToInt64(Item[3]);
                 }
-                else
-                { // Directory
-                  _FileList.Add(Item[1].ToString());	// Absolute file path
-                }
 
                 FileNumber++;
 
-              }// end foreach (ArrayList Item in GetFilesList(ParentPath, FilePath));
-
-            }// if (File.Exists(FilePath) == true);
-
-          }// end foreach (string FilePath in FilePaths);
-
-          //----------------------------------------------------------------------
-          // Check the disk space
-          //----------------------------------------------------------------------
-          string RootDriveLetter = Path.GetPathRoot(OutFilePath).Substring(0, 1);
-
-          if (RootDriveLetter == "\\")
-          {
-            // Network
-          }
-          else
-          {
-            DriveInfo drive = new DriveInfo(RootDriveLetter);
-
-            DriveType driveType = drive.DriveType;
-            switch (driveType)
-            {
-              case DriveType.CDRom:
-              case DriveType.NoRootDirectory:
-              case DriveType.Unknown:
-                break;
-              case DriveType.Fixed:     // Local Drive
-              case DriveType.Network:   // Mapped Drive
-              case DriveType.Ram:       // Ram Drive
-              case DriveType.Removable: // Usually a USB Drive
-
-                // The drive is not available, or not enough free space.
-                if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
-                {
-                  e.Result = NO_DISK_SPACE;
-                  // not available free space
-                  return Tuple.Create(false, NO_DISK_SPACE);
-                }
-                break;
-            }
-          }
-
-          //----------------------------------------------------------------------
-          // Create header data
-
-          string[] FileInfoText = (string[])FileInfoList.ToArray(typeof(string));
-
-          byteArray = Encoding.UTF8.GetBytes(string.Join("\n", FileInfoText));
-          ms.Write(byteArray, 0, byteArray.Length);
-
-#if (DEBUG)
-          //Output text file of header contents for debug.
-          Int64 NowPosition = ms.Position;
-          ms.Position = 0;
-          //Save to Desktop folder.
-          string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
-          string HeaderTextFilePath = Path.Combine(AppDirPath, "encrypt_header.txt");
-          using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
-          {
-            ms.WriteTo(fsDebug);
-            ms.Position = NowPosition;
-          }
-#endif
-          // The Header of MemoryStream is encrypted
-          using (Rijndael aes = new RijndaelManaged())
-          {
-            aes.BlockSize = 256;              // BlockSize = 16bytes
-            aes.KeySize = 256;                // KeySize = 16bytes
-            aes.Mode = CipherMode.CBC;        // CBC mode
-            //aes.Padding = PaddingMode.Zeros;  // Padding mode is "None".
-
-            aes.Key = key;
-            aes.IV = iv;
-
-            ms.Position = 0;
-            //Encryption interface.
-            ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-            using (CryptoStream cse = new CryptoStream(outfs, encryptor, CryptoStreamMode.Write))
-            {
+              }
               //----------------------------------------------------------------------
-              // ヘッダーの暗号化
+              // 暗号化リストを生成（ディレクトリ）
+              // Create file to encrypt list ( Directory )
               //----------------------------------------------------------------------
-              int len = 0;
-              _AtcHeaderSize = 0;		// exclude IV of header
-              buffer = new byte[BUFFER_SIZE];
-              while ((len = ms.Read(buffer, 0, BUFFER_SIZE)) > 0)
+              else
               {
-                cse.Write(buffer, 0, len);
-                _AtcHeaderSize += len;
+                // Directory
+                _FileList.Add(FilePath);  // Absolute file path
+
+                foreach (ArrayList Item in GetFileList(ParentPath, FilePath))
+                {
+                  if ((worker.CancellationPending == true))
+                  {
+                    e.Cancel = true;
+                    return (false);
+                  }
+
+                  if (NewArchiveName != "")
+                  {
+                    Item[2] = NewArchiveName + "\\" + Item[2];
+                  }
+
+                  if ((int)Item[0] == 0)
+                  { // Directory
+                    FileInfoList.Add(FileNumber.ToString() + ":" + // File number
+                                      Item[2] + "\t" +             // Relative file path
+                                      Item[3].ToString() + "\t" +  // File size 
+                                      Item[4].ToString() + "\t" +  // File attribute
+                                      Item[5].ToString() + "\t" +  // Last write date
+                                      Item[6].ToString() + "\t" +  // Last write time
+                                      Item[7].ToString() + "\t" +  // Creation date
+                                      Item[8].ToString());         // Creation time
+                  }
+                  else
+                  { // File
+                    FileInfoList.Add(FileNumber.ToString() + ":" + // File number
+                                      Item[2] + "\t" +             // Relative file path
+                                      Item[3].ToString() + "\t" +  // File size 
+                                      Item[4].ToString() + "\t" +  // File attribute
+                                      Item[5].ToString() + "\t" +  // Last write date
+                                      Item[6].ToString() + "\t" +  // Last write time
+                                      Item[7].ToString() + "\t" +  // Creation date
+                                      Item[8].ToString() + "\t" +  // Creation time             
+                                      Item[9].ToString());         // SHA-256 hash             
+                  }
+
+                  if (Convert.ToInt32(Item[0]) == 1)
+                  { // files only
+                    // Files list for encryption
+                    _FileList.Add(Item[1].ToString());  // Absolute file path
+                                                        // Total file size
+                    _TotalFileSize += Convert.ToInt64(Item[3]);
+                  }
+                  else
+                  { // Directory
+                    _FileList.Add(Item[1].ToString());  // Absolute file path
+                  }
+
+                  FileNumber++;
+
+                }// end foreach (ArrayList Item in GetFilesList(ParentPath, FilePath));
+
+              }// if (File.Exists(FilePath) == true);
+
+            }// end foreach (string FilePath in FilePaths);
+
+            //----------------------------------------------------------------------
+            // Check the disk space
+            //----------------------------------------------------------------------
+            string RootDriveLetter = Path.GetPathRoot(OutFilePath).Substring(0, 1);
+
+            if (RootDriveLetter == "\\")
+            {
+              // Network
+            }
+            else
+            {
+              DriveInfo drive = new DriveInfo(RootDriveLetter);
+
+              DriveType driveType = drive.DriveType;
+              switch (driveType)
+              {
+                case DriveType.CDRom:
+                case DriveType.NoRootDirectory:
+                case DriveType.Unknown:
+                  break;
+                case DriveType.Fixed:     // Local Drive
+                case DriveType.Network:   // Mapped Drive
+                case DriveType.Ram:       // Ram Drive
+                case DriveType.Removable: // Usually a USB Drive
+
+                  // The drive is not available, or not enough free space.
+                  if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
+                  {
+                    // not available free space
+                    e.Result = new FileEncryptReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
+                    return (false);
+                  }
+                  break;
               }
             }
 
-          }// end using (Rijndael aes = new RijndaelManaged());
+            //----------------------------------------------------------------------
+            // Create header data
 
-        }// end  using (MemoryStream ms = new MemoryStream());
+            string[] FileInfoText = (string[])FileInfoList.ToArray(typeof(string));
 
-      }// end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
+            byteArray = Encoding.UTF8.GetBytes(string.Join("\n", FileInfoText));
+            ms.Write(byteArray, 0, byteArray.Length);
+
+#if (DEBUG)
+            //Output text file of header contents for debug.
+            Int64 NowPosition = ms.Position;
+            ms.Position = 0;
+            //Save to Desktop folder.
+            string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
+            string HeaderTextFilePath = Path.Combine(AppDirPath, "encrypt_header.txt");
+            using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
+            {
+              ms.WriteTo(fsDebug);
+              ms.Position = NowPosition;
+            }
+#endif
+            // The Header of MemoryStream is encrypted
+            using (Rijndael aes = new RijndaelManaged())
+            {
+              aes.BlockSize = 256;              // BlockSize = 16bytes
+              aes.KeySize = 256;                // KeySize = 16bytes
+              aes.Mode = CipherMode.CBC;        // CBC mode
+                                                //aes.Padding = PaddingMode.Zeros;  // Padding mode is "None".
+
+              aes.Key = key;
+              aes.IV = iv;
+
+              ms.Position = 0;
+              //Encryption interface.
+              ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+              using (CryptoStream cse = new CryptoStream(outfs, encryptor, CryptoStreamMode.Write))
+              {
+                //----------------------------------------------------------------------
+                // ヘッダーの暗号化
+                //----------------------------------------------------------------------
+                int len = 0;
+                _AtcHeaderSize = 0;   // exclude IV of header
+                buffer = new byte[BUFFER_SIZE];
+                while ((len = ms.Read(buffer, 0, BUFFER_SIZE)) > 0)
+                {
+                  cse.Write(buffer, 0, len);
+                  _AtcHeaderSize += len;
+                }
+              }
+
+            }// end using (Rijndael aes = new RijndaelManaged());
+
+          }// end  using (MemoryStream ms = new MemoryStream());
+
+        }// end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
 
 
-      //----------------------------------------------------------------------
-      // 本体データの暗号化
-      //----------------------------------------------------------------------
-      using (FileStream outfs = new FileStream(OutFilePath, FileMode.OpenOrCreate, FileAccess.Write))
-      {
-        try {
+        //----------------------------------------------------------------------
+        // 本体データの暗号化
+        //----------------------------------------------------------------------
+        using (FileStream outfs = new FileStream(OutFilePath, FileMode.OpenOrCreate, FileAccess.Write))
+        {
           byteArray = new byte[4];
           // Back to current positon of 'encrypted file size'
           if (_fExecutable == true)
@@ -553,7 +607,7 @@ namespace AttacheCase
                           {
                             fs.Dispose();
                             e.Cancel = true;
-                            return Tuple.Create(false, USER_CANCELED);
+                            return (false);
                           }
 
                         }
@@ -564,8 +618,8 @@ namespace AttacheCase
                     catch (Exception ex)
                     {
                       System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
-                      e.Result = ERROR_UNEXPECTED;
-                      return Tuple.Create(false, ERROR_UNEXPECTED);
+                      e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
+                      return (false);
                     }
 
                   } // end if (File.Exists(path) == true);
@@ -588,32 +642,40 @@ namespace AttacheCase
 
           } // end using (Rijndael aes = new RijndaelManaged());
 
-        }
-        catch (Exception ex)
+        } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
+
+        // Set the timestamp of encryption file to original files or directories
+        if (_fKeepTimeStamp == true)
         {
-          System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
-          e.Result = ERROR_UNEXPECTED;
-          return Tuple.Create(false, ERROR_UNEXPECTED);
+          File.SetCreationTime(OutFilePath, dtCreate);
+          File.SetLastWriteTime(OutFilePath, dtUpdate);
+          File.SetLastAccessTime(OutFilePath, dtAccess);
+        }
+        else
+        {
+          dtUpdate = DateTime.Now;
+          File.SetLastWriteTime(OutFilePath, dtUpdate);
         }
 
-      } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
+        //Encryption succeed.
+        e.Result = new FileEncryptReturnVal(ENCRYPT_SUCCEEDED);
+        return (true);
 
-      // Set the timestamp of encryption file to original files or directories
-      if (_fKeepTimeStamp == true)
-      {
-        File.SetCreationTime(OutFilePath, dtCreate);
-        File.SetLastWriteTime(OutFilePath, dtUpdate);
-        File.SetLastAccessTime(OutFilePath, dtAccess);
       }
-      else
+      catch (UnauthorizedAccessException)
       {
-        dtUpdate = DateTime.Now;
-        File.SetLastWriteTime(OutFilePath, dtUpdate);
-      }
+        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
+        e.Result = new FileEncryptReturnVal(OS_DENIES_ACCESS);
+        return (false);
 
-      //Encryption succeed.
-      e.Result = ENCRYPT_SUCCEEDED;
-      return Tuple.Create(true, ENCRYPT_SUCCEEDED);
+      }
+      catch (Exception ex)
+      {
+        System.Windows.Forms.MessageBox.Show(ex.Message);
+        e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
+        return (false);
+
+      }
 
 
     } // encrypt();

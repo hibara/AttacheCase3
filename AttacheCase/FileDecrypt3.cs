@@ -1223,7 +1223,6 @@ namespace AttacheCase
                     if(r.Next(0, 20) == 4)
                     {
                       worker.ReportProgress((int)(percent * 10000), MessageList);
-
                     }
                     
                     // User cancel

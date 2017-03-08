@@ -12,13 +12,14 @@ namespace AttacheCase
   public class Wipe
   {
     // Status code
-    private const int ENCRYPT_SUCCEEDED  = 1; // Encrypt is succeeded.
-    private const int DECRYPT_SUCCEEDED  = 2; // Decrypt is succeeded.
-    private const int DELETE_SUCCEEDED   = 3; // Delete is succeeded.
-    private const int READY_FOR_PROCESES = 4; // Getting ready for encryption or decryption.
-    private const int ENCRYPTING         = 5; // Ecrypting.
-    private const int DECRYPTING         = 6; // Decrypting.
-    private const int DELETING           = 7; // Deleting.
+    private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded.
+    private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded.
+    private const int DELETE_SUCCEEDED  = 3; // Delete is succeeded.
+    private const int READY_FOR_ENCRYPT = 4; // Getting ready for encryption or decryption.
+    private const int READY_FOR_DECRYPT = 5; // Getting ready for encryption or decryption.
+    private const int ENCRYPTING        = 6; // Ecrypting.
+    private const int DECRYPTING        = 7; // Decrypting.
+    private const int DELETING          = 8; // Deleting.
 
     // Error code
     private const int USER_CANCELED            = -1;   // User cancel.
@@ -205,12 +206,16 @@ namespace AttacheCase
                     TotalSectors.ToString(),    // {4}
                     TotalFileSectors.ToString() // {5}
                     );
-
+                  
                   float percent = ((float)TotalSectors / TotalFileSectors);
                   MessageList = new ArrayList();
                   MessageList.Add(DELETING);
                   MessageList.Add(MessageText);
-                  worker.ReportProgress((int)(percent * 10000), MessageList);
+                  System.Random r = new System.Random();
+                  if (r.Next(0, 20) == 4)
+                  {
+                    worker.ReportProgress((int)(percent * 10000), MessageList);
+                  }
                 }
 
                 //-----------------------------------

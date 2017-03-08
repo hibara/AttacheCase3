@@ -3187,7 +3187,7 @@ namespace AttacheCase
             index += bytesRead;
           }
           string actualSignature = BitConverter.ToString(signature);
-          if (actualSignature == SignatureZip)
+          if (actualSignature == SignatureZip && Path.GetExtension(FilePath).ToLower() == ".zip")
           {
             return (3);  // Zip file
           }

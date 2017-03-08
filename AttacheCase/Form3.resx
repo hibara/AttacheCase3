@@ -1811,7 +1811,7 @@
     <value>10</value>
   </data>
   <data name="checkBoxKeepTimeStamp.Text" xml:space="preserve">
-    <value>Set the timestamp of encryption file to original files or directories</value>
+    <value>Set the timestamp to original files or directories</value>
   </data>
   <data name="&gt;&gt;checkBoxKeepTimeStamp.Name" xml:space="preserve">
     <value>checkBoxKeepTimeStamp</value>
@@ -4472,7 +4472,7 @@
     <value>1</value>
   </data>
   <data name="buttonUnAssociateAtcFiles.Text" xml:space="preserve">
-    <value>Unassociate encrypted file[*.atc] &amp;with AttacheCase</value>
+    <value>Disassociate encrypted file[*.atc] &amp;with AttacheCase</value>
   </data>
   <data name="&gt;&gt;buttonUnAssociateAtcFiles.Name" xml:space="preserve">
     <value>buttonUnAssociateAtcFiles</value>
@@ -5331,7 +5331,7 @@
     <value>True</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 36</value>
+    <value>223, 36</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 16</value>

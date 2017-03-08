@@ -46,6 +46,8 @@ namespace AttacheCase
     private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
+    private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS         = -108;
 
     // ZIP password encryption algorithm
     private const int ENCRYPTION_ALGORITHM_PKZIPWEAK = 0;
@@ -98,7 +100,7 @@ namespace AttacheCase
     /// <param name="PasswordBinary"></param>
     /// <param name="NewArchiveName"></param>
     /// <returns></returns>
-    public Tuple<bool, int> Encrypt( object sender, DoWorkEventArgs e,
+    public bool Encrypt( object sender, DoWorkEventArgs e,
       string[] FilePaths, string OutFilePath, string Password, byte[] PasswordBinary, string NewArchiveName)
     {
 
@@ -110,8 +112,46 @@ namespace AttacheCase
 
       _FileList = new List<string>();
 
+      //----------------------------------------------------------------------
+      // Check the disk space
+      //----------------------------------------------------------------------
+      string RootDriveLetter = Path.GetPathRoot(Path.GetDirectoryName(OutFilePath)).Substring(0, 1);
+
+      if (RootDriveLetter == "\\")
+      {
+        // Network
+      }
+      else
+      {
+        DriveInfo drive = new DriveInfo(RootDriveLetter);
+
+        DriveType driveType = drive.DriveType;
+        switch (driveType)
+        {
+          case DriveType.CDRom:
+          case DriveType.NoRootDirectory:
+          case DriveType.Unknown:
+            break;
+          case DriveType.Fixed:     // Local Drive
+          case DriveType.Network:   // Mapped Drive
+          case DriveType.Ram:       // Ram Drive
+          case DriveType.Removable: // Usually a USB Drive
+
+            // The drive is not available, or not enough free space.
+            if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
+            {
+              e.Result = new FileEncryptReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
+              return (false);
+            }
+            break;
+        }
+      }
+
       try
       {
+        //----------------------------------------------------------------------
+        // Start to create zip file
+        //----------------------------------------------------------------------
         using (FileStream outfs = File.Open(OutFilePath, FileMode.Create, FileAccess.ReadWrite))
         {
           using (var zip = new ZipOutputStream(outfs))
@@ -199,7 +239,7 @@ namespace AttacheCase
               if ((worker.CancellationPending == true))
               {
                 e.Cancel = true;
-                return Tuple.Create(false, USER_CANCELED);
+                return (false);
               }
 
               //----------------------------------------------------------------------
@@ -235,7 +275,7 @@ namespace AttacheCase
                   if ((worker.CancellationPending == true))
                   {
                     e.Cancel = true;
-                    return Tuple.Create(false, USER_CANCELED);
+                    return (false);
                   }
 
                   if (NewArchiveName != "")
@@ -307,7 +347,7 @@ namespace AttacheCase
                 if (worker.CancellationPending == true)
                 {
                   e.Cancel = true;
-                  return Tuple.Create(false, USER_CANCELED);
+                  return (false);
                 }
 
               }
@@ -339,12 +379,16 @@ namespace AttacheCase
                     MessageList = new ArrayList();
                     MessageList.Add(ENCRYPTING);
                     MessageList.Add(MessageText);
-                    worker.ReportProgress((int)(percent * 10000), MessageList);
+                    System.Random r = new System.Random();
+                    if (r.Next(0, 20) == 4)
+                    {
+                      worker.ReportProgress((int)(percent * 10000), MessageList);
+                    }
 
                     if (worker.CancellationPending == true)
                     {
                       e.Cancel = true;
-                      return Tuple.Create(false, USER_CANCELED);
+                      return (false);
                     }
 
                   }// end while ((len = fs.Read(buffer, 0, buffer.Length)) > 0);
@@ -359,18 +403,23 @@ namespace AttacheCase
 
         }// end using (FileStream outfs = File.Open(OutFilePath, FileMode.Create, FileAccess.ReadWrite));
 
+        //Encryption succeed.
+        e.Result = new FileEncryptReturnVal(ENCRYPT_SUCCEEDED);
+        return (true);
 
+      }
+      catch (UnauthorizedAccessException)
+      {
+        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
+        e.Result = new FileEncryptReturnVal(OS_DENIES_ACCESS);
+        return (false);
       }
       catch (Exception ex)
       {
         System.Windows.Forms.MessageBox.Show(ex.Message);
-        e.Result = ERROR_UNEXPECTED;
-        return Tuple.Create(true, ERROR_UNEXPECTED);
+        e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
+        return (false);
       }
-
-      //Encryption succeed.
-      e.Result = ENCRYPT_SUCCEEDED;
-      return Tuple.Create(true, ENCRYPT_SUCCEEDED);
 
     }
 

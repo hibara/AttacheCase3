@@ -881,9 +881,10 @@ namespace AttacheCase
         private const int INVALID_FILE_PATH        = -107;
         private const int OS_DENIES_ACCESS　       = -108;
         */
-
-        switch ((int)e.Result)
+        FileEncryptReturnVal result = (FileEncryptReturnVal)e.Result;
+        switch (result.ReturnCode)
         {
+          //-----------------------------------
           case ENCRYPT_SUCCEEDED:
 
             labelProgressPercentText.Text = "100%";
@@ -945,6 +946,20 @@ namespace AttacheCase
             return;
 
           //-----------------------------------
+          case OS_DENIES_ACCESS:
+            // エラー
+            // ファイルへのアクセスが拒否されました。
+            // ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。
+            //
+            // Error
+            // Access to the file has been denied.
+            // Move to a place (eg Desktop) where you can read and write files and try again.
+            // 
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
           case NO_DISK_SPACE:
             // エラー
             // ドライブに空き容量がありません。処理を中止します。
@@ -955,14 +970,27 @@ namespace AttacheCase
             Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
-
+          //-----------------------------------
+          case ERROR_UNEXPECTED:
+          default:
+            // エラー
+            // 予期せぬエラーが発生しました。処理を中止します。
+            //
+            // Error
+            // An unexpected error has occurred. And stops processing.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+            
         }// end switch();
 
         labelProgressPercentText.Text = "- %";
+        progressBar.Style = ProgressBarStyle.Continuous;
         progressBar.Value = 0;
-        labelCryptionType.Text = "";
+        labelCryptionType.Text = Resources.labelCaptionError;
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         AppSettings.Instance.FileList = null;
+        this.Update();
 
       }
 
@@ -1686,7 +1714,8 @@ namespace AttacheCase
         {
           //----------------------------------------------------------------------
           // Encryption
-          if (ProcessType == PROCESS_TYPE_NONE || ProcessType == PROCESS_TYPE_ATC || ProcessType == PROCESS_TYPE_ATC_EXE)
+          if (ProcessType == PROCESS_TYPE_NONE || ProcessType == PROCESS_TYPE_ATC || 
+            ProcessType == PROCESS_TYPE_ATC_EXE || ProcessType == PROCESS_TYPE_PASSWORD_ZIP)
           {
             panelStartPage.Visible = false;
             panelEncrypt.Visible = true;         // Encrypt
@@ -4791,8 +4820,6 @@ namespace AttacheCase
       this.contextMenuStrip3.Show(p);
 
     }
-
-   
 
   }// end public partial class Form1 : Form;
 

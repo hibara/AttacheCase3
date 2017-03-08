@@ -386,7 +386,9 @@ namespace AttacheCase
     /// <param name="FilePath">File path or directory path is encrypted</param>
     /// <param name="OutFileDir">The directory of outputing encryption file.</param>
     /// <param name="Password">Encription password string</param>
-    /// <returns>Tuple : Encryption success(true) or failed(false), int ErrorCode</returns>
+    /// <param name="PasswordBinary">Encription password binary</param>
+    /// <param name="dialog">int MessageCode, string Message text</param>
+    /// <returns>Encryption success(true) or failed(false)</returns>
     public bool Decrypt(
 			object sender, DoWorkEventArgs e,
 			string FilePath, string OutDirPath, string Password, byte[] PasswordBinary, Action<int,string> dialog)
