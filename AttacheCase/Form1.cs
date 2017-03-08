@@ -2915,8 +2915,6 @@ namespace AttacheCase
       //-----------------------------------
       // Get directory path to output
       //-----------------------------------
-      string OutputDirPath = "";
-
       if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE || AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC)
       {
         pictureBoxProgress.Image = pictureBoxAtcOn.Image;
@@ -2927,7 +2925,7 @@ namespace AttacheCase
         {
           if (Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
           {
-            OutputDirPath = AppSettings.Instance.SaveToSameFldrPath;
+            OutDirPath = AppSettings.Instance.SaveToSameFldrPath;
           }
         }
 
@@ -2942,7 +2940,7 @@ namespace AttacheCase
         {
           if (Directory.Exists(AppSettings.Instance.SaveToSameFldrPath) == true)
           {
-            OutputDirPath = AppSettings.Instance.SaveToSameFldrPath;
+            OutDirPath = AppSettings.Instance.SaveToSameFldrPath;
           }
         }
       }
@@ -2956,7 +2954,7 @@ namespace AttacheCase
         {
           if (Directory.Exists(AppSettings.Instance.ZipToSameFldrPath) == true)
           {
-            OutputDirPath = AppSettings.Instance.ZipToSameFldrPath;
+            OutDirPath = AppSettings.Instance.ZipToSameFldrPath;
           }
         }
       }
@@ -3070,7 +3068,7 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutputDirPath = Path.GetDirectoryName(AtcFilePath);
+          OutDirPath = Path.GetDirectoryName(AtcFilePath);
         }
 
         //-----------------------------------
@@ -3084,7 +3082,7 @@ namespace AttacheCase
         {
           FileName = Path.GetFileNameWithoutExtension(AtcFilePath) + Extension;
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         // Specify the format of the encryption file name
@@ -3094,7 +3092,7 @@ namespace AttacheCase
             AppSettings.Instance.AutoNameFormatText, AtcFilePath
           );
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
@@ -3272,7 +3270,7 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutputDirPath = Path.GetDirectoryName(FilePath);
+          OutDirPath = Path.GetDirectoryName(FilePath);
         }
 
         //-----------------------------------
@@ -3286,7 +3284,7 @@ namespace AttacheCase
         {
           FileName = Path.GetFileNameWithoutExtension(FilePath) + Extension;
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         // Specify the format of the encryption file name
@@ -3296,7 +3294,7 @@ namespace AttacheCase
             AppSettings.Instance.AutoNameFormatText, AtcFilePath
           );
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
@@ -3475,7 +3473,7 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutputDirPath = Path.GetDirectoryName(FilePath);
+          OutDirPath = Path.GetDirectoryName(FilePath);
         }
   
         //-----------------------------------
@@ -3489,7 +3487,7 @@ namespace AttacheCase
         {
           FileName = Path.GetFileNameWithoutExtension(FilePath) + Extension;
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         // Specify the format of the encryption file name
@@ -3499,7 +3497,7 @@ namespace AttacheCase
             AppSettings.Instance.AutoNameFormatText, AtcFilePath
           );
         }
-        AtcFilePath = Path.Combine(OutputDirPath, FileName);
+        AtcFilePath = Path.Combine(OutDirPath, FileName);
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
