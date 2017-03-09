@@ -1531,7 +1531,7 @@ THE SOFTWARE.
 
     private void InsertDateTimeOject(object sender, EventArgs e)
     {
-      textBoxAutoNameFormatText.SelectedText = @"<date:yyyy_mm_dd-hh_mm_ss>";
+      textBoxAutoNameFormatText.SelectedText = @"<date:yyyy_MM_dd-hh_mm_ss>";
     }
 
     private void InsertRandomStringOject(object sender, EventArgs e)
