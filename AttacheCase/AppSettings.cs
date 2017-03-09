@@ -1259,7 +1259,7 @@ namespace AttacheCase
         _fKeepTimeStamp = ((string)reg.GetValue("fKeepTimeStamp", "0") == "1") ? true : false;
         _fExtInAtcFileName = ((string)reg.GetValue("fExtInAtcFileName", "0") == "1") ? true : false;
         _fAutoName = ((string)reg.GetValue("fAutoName", "0") == "1") ? true : false;
-        _AutoNameFormatText = (string)reg.GetValue("AutoNameFormatText", "<filename>_<date:yyyy_mm_dd><ext>");
+        _AutoNameFormatText = (string)reg.GetValue("AutoNameFormatText", "<filename>_<date:yyyy_MM_dd><ext>");
 
         _fAutoNameAlphabets = ((string)reg.GetValue("fAutoNameAlphabets", "1") == "1") ? true : false;
         _fAutoNameLowerCase = ((string)reg.GetValue("fAutoNameLowerCase", "1") == "1") ? true : false;
@@ -1598,7 +1598,7 @@ namespace AttacheCase
       ReadIniFile(IniFilePath, ref _fKeepTimeStamp, "Option", "fKeepTimeStamp", "0");
       ReadIniFile(IniFilePath, ref _fExtInAtcFileName, "Option", "fExtInAtcFileName", "0");
       ReadIniFile(IniFilePath, ref _fAutoName, "Option", "fAutoName", "0");
-      ReadIniFile(IniFilePath, ref _AutoNameFormatText, "Option", "AutoNameFormatText", "<filename>_<date:yyyy_mm_dd><ext>");
+      ReadIniFile(IniFilePath, ref _AutoNameFormatText, "Option", "AutoNameFormatText", "<filename>_<date:yyyy_MM_dd><ext>");
       ReadIniFile(IniFilePath, ref _fAutoNameAlphabets, "Option", "fAutoNameAlphabets", "1");
       ReadIniFile(IniFilePath, ref _fAutoNameLowerCase, "Option", "fAutoNameLowerCase", "1");
       ReadIniFile(IniFilePath, ref _fAutoNameUpperCase, "Option", "fAutoNameUpperCase", "1");
