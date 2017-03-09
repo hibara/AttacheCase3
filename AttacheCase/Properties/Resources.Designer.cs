@@ -61,7 +61,7 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   AttacheCase に類似しているローカライズされた文字列を検索します。
+        ///   AttachéCase#3 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string AttacheCase {
             get {

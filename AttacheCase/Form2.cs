@@ -35,9 +35,9 @@ namespace AttacheCase
 
     private void Form2_Load(object sender, EventArgs e)
     {
-			//labelAppName.Text = Application.ProductName;
-			labelVersion.Text = "Version." + ApplicationInfo.Version;
-			labelCopyright.Text = ApplicationInfo.CopyrightHolder;
+      //labelAppName.Text = Application.ProductName;
+      labelVersion.Text = "Version." + ApplicationInfo.Version;
+      labelCopyright.Text = ApplicationInfo.CopyrightHolder;
 
       //labelBeta.Left = labelVersion.Left + labelVersion.Width;
       //labelBeta.Top = labelVersion.Top;
@@ -83,7 +83,8 @@ namespace AttacheCase
       pictureBoxProgressCircle.Visible = true;
       linkLabelCheckForUpdates.Left = pictureBoxProgressCircle.Left + pictureBoxProgressCircle.Width;
       // "Checking for update..."
-      linkLabelCheckForUpdates.Text = Resources.linkLabelCheckingForUpdates; 
+      linkLabelCheckForUpdates.Text = Resources.linkLabelCheckingForUpdates;
+      linkLabelCheckForUpdates.Update();
 
       try
       {

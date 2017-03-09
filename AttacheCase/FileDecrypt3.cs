@@ -696,11 +696,11 @@ namespace AttacheCase
         }
 
         /*
-					* TTimeStamp = record
-					*  Time: Integer;      { Number of milliseconds since midnight }
-					*  Date: Integer;      { One plus number of days since 1/1/0001 }
-					* end;
-				*/
+		 * TTimeStamp = record
+		 *  Time: Integer;      { Number of milliseconds since midnight }
+		 *  Date: Integer;      { One plus number of days since 1/1/0001 }
+		 * end;
+		*/
         //-----------------------------------
         // Last update timestamp
         if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
