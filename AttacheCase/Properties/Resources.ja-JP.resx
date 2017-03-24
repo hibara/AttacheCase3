@@ -453,4 +453,7 @@
     <value>ファイルへのアクセスが拒否されました。
 ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>アタッシェケース#3</value>
+  </data>
 </root>

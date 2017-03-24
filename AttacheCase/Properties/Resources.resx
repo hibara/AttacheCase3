@@ -459,4 +459,7 @@ Input them again.</value>
     <value>Access to the file has been denied.
 Move to a place (eg Desktop) where you can read and write files and try again.</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>AttachéCase#3</value>
+  </data>
 </root>

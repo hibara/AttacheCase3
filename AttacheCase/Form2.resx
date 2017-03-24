@@ -131,10 +131,6 @@
   <data name="pictureBoxCheckMark.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>AutoSize</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="linkLabelCheckForUpdates.Location" type="System.Drawing.Point, System.Drawing">
-    <value>47, 140</value>
-  </data>
   <data name="&gt;&gt;labelAppName.Name" xml:space="preserve">
     <value>labelAppName</value>
   </data>
@@ -144,11 +140,9 @@
   <data name="linkLabel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="linkLabelCheckForUpdates.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>452, 175</value>
   </data>
   <data name="&gt;&gt;labelVersion.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -186,23 +180,17 @@
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 16</value>
   </data>
+  <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 99</value>
+  </data>
   <data name="buttonOK.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form2</value>
   </data>
   <data name="labelCopyright.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="&gt;&gt;labelCopyright.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExclamationMark.Name" xml:space="preserve">
-    <value>pictureBoxExclamationMark</value>
-  </data>
-  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 74</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
@@ -212,9 +200,6 @@
   </data>
   <data name="&gt;&gt;linkLabelCheckForUpdates.Name" xml:space="preserve">
     <value>linkLabelCheckForUpdates</value>
-  </data>
-  <data name="pictureBoxExclamationMark.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 109</value>
   </data>
   <data name="&gt;&gt;buttonOK.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -317,14 +302,17 @@
         qNn/AOfcwAbyMRS0AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;pictureBoxProgressCircle.Name" xml:space="preserve">
-    <value>pictureBoxProgressCircle</value>
+  <data name="&gt;&gt;pictureBoxExclamationMark.Name" xml:space="preserve">
+    <value>pictureBoxExclamationMark</value>
   </data>
   <data name="pictureBoxCheckMark.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
+  </data>
+  <data name="&gt;&gt;linkLabel1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="buttonOK.Location" type="System.Drawing.Point, System.Drawing">
     <value>357, 134</value>
@@ -335,8 +323,14 @@
   <data name="&gt;&gt;linkLabelCheckForUpdates.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="buttonOK.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="pictureBoxProgressCircle.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxProgressCircle.Name" xml:space="preserve">
+    <value>pictureBoxProgressCircle</value>
   </data>
   <data name="buttonOK.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -372,6 +366,9 @@
         gg==
 </value>
   </data>
+  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
+    <value>labelCopyright</value>
+  </data>
   <data name="labelVersion.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -384,11 +381,8 @@
   <data name="&gt;&gt;pictureBoxProgressCircle.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelAppName.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxExclamationMark.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="pictureBoxExclamationMark.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 109</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -435,23 +429,23 @@
   <data name="&gt;&gt;pictureBoxCheckMark.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="linkLabelCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
-    <value>201, 16</value>
+  <data name="&gt;&gt;pictureBoxExclamationMark.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="labelVersion.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;buttonOK.Name" xml:space="preserve">
-    <value>buttonOK</value>
+  <data name="&gt;&gt;linkLabelCheckForUpdates.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pictureBoxApplicationIcon.Location" type="System.Drawing.Point, System.Drawing">
     <value>25, 25</value>
   </data>
-  <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 99</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form2</value>
   </data>
-  <data name="buttonOK.Text" xml:space="preserve">
-    <value>&amp;OK</value>
+  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
+    <value>104, 74</value>
   </data>
   <data name="&gt;&gt;pictureBoxExclamationMark.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -462,17 +456,23 @@
   <data name="labelCopyright.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="linkLabelCheckForUpdates.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="linkLabel1.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="labelCopyright.Text" xml:space="preserve">
     <value>labelCopyright</value>
   </data>
+  <data name="linkLabel1.Text" xml:space="preserve">
+    <value>https://hibara.org</value>
+  </data>
   <data name="labelAppName.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
-  <data name="&gt;&gt;linkLabel1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="linkLabelCheckForUpdates.Location" type="System.Drawing.Point, System.Drawing">
+    <value>47, 140</value>
   </data>
   <data name="&gt;&gt;pictureBoxExclamationMark.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -495,8 +495,8 @@
   <data name="&gt;&gt;pictureBoxApplicationIcon.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="linkLabel1.Text" xml:space="preserve">
-    <value>https://hibara.org</value>
+  <data name="&gt;&gt;buttonOK.Name" xml:space="preserve">
+    <value>buttonOK</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>About</value>
@@ -509,23 +509,23 @@
         RxmRAJzp+3p/gRITEgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBoxProgressCircle.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;labelAppName.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="pictureBoxCheckMark.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="linkLabelCheckForUpdates.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="linkLabelCheckForUpdates.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 16</value>
   </data>
   <data name="pictureBoxExclamationMark.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;linkLabelCheckForUpdates.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>452, 175</value>
   </data>
-  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
-    <value>labelCopyright</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonOK.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -547,8 +547,5 @@
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ja-JP</value>
   </metadata>
 </root>

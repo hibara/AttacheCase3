@@ -63,6 +63,15 @@ namespace AttacheCase.Properties {
         /// <summary>
         ///   AttachéCase#3 に類似しているローカライズされた文字列を検索します。
         /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AttachéCase#3 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
         public static string AttacheCase {
             get {
                 return ResourceManager.GetString("AttacheCase", resourceCulture);
