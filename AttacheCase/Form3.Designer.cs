@@ -1565,8 +1565,7 @@
             resources.GetString("comboBoxMissTypeLimitsNum.Items6"),
             resources.GetString("comboBoxMissTypeLimitsNum.Items7"),
             resources.GetString("comboBoxMissTypeLimitsNum.Items8"),
-            resources.GetString("comboBoxMissTypeLimitsNum.Items9"),
-            resources.GetString("comboBoxMissTypeLimitsNum.Items10")});
+            resources.GetString("comboBoxMissTypeLimitsNum.Items9")});
       this.comboBoxMissTypeLimitsNum.Name = "comboBoxMissTypeLimitsNum";
       this.comboBoxMissTypeLimitsNum.SelectedIndexChanged += new System.EventHandler(this.options_ComponentChanged);
       // 

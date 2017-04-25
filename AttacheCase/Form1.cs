@@ -3267,6 +3267,24 @@ namespace AttacheCase
         }
 
         //-----------------------------------
+        //Set number of times to input password in encrypt files
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+        {
+          char input_limit;
+          if (0 < AppSettings.Instance.MissTypeLimitsNum && AppSettings.Instance.MissTypeLimitsNum < 11)
+          {
+            input_limit = (char)AppSettings.Instance.MissTypeLimitsNum;
+          }
+          else
+          {
+            input_limit = (char)3;
+          }
+          encryption3.MissTypeLimits = input_limit;
+        }
+
+        //-----------------------------------
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
@@ -3467,6 +3485,24 @@ namespace AttacheCase
           compression = new ZipEncrypt();
           compression.NumberOfFiles = FileIndex + 1;
           compression.TotalNumberOfFiles = TotalNumberOfFiles;
+        }
+
+        //-----------------------------------
+        //Set number of times to input password in encrypt files
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+        {
+          char input_limit;
+          if (0 < AppSettings.Instance.MissTypeLimitsNum && AppSettings.Instance.MissTypeLimitsNum < 11)
+          {
+            input_limit = (char)AppSettings.Instance.MissTypeLimitsNum;
+          }
+          else
+          {
+            input_limit = (char)3;
+          }
+          encryption3.MissTypeLimits = input_limit;
         }
 
         //-----------------------------------

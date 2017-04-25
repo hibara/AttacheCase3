@@ -12,7 +12,7 @@
 
 SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
 
-msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
+msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /p:PostBuildEvent= /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
 
 ..\tools\ExeToHex\ExeToHex\bin\Release\ExeToHex.exe ..\ExeOut\bin\Release\Exeout.exe ..\AttacheCase\ExeOut3.cs
 
@@ -141,6 +141,8 @@ cd ..\
 @echo **********************************************************************
 @echo 
 
+
+type update.log
 
 pause
 

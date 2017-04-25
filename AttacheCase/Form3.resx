@@ -5358,36 +5358,33 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="comboBoxMissTypeLimitsNum.Items" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="comboBoxMissTypeLimitsNum.Items1" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items2" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items1" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items3" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items2" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items4" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items3" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items5" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items4" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items6" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items5" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items7" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items6" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items8" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items7" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items9" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items8" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items10" xml:space="preserve">
+  <data name="comboBoxMissTypeLimitsNum.Items9" xml:space="preserve">
     <value>10</value>
   </data>
   <data name="comboBoxMissTypeLimitsNum.Location" type="System.Drawing.Point, System.Drawing">
