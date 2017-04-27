@@ -413,6 +413,8 @@ namespace AttacheCase
       List<string> FileList = new List<string>();
 			Dictionary<int, FileListData> dic = new Dictionary<int, FileListData>();
 
+      bool fPasswordValid = false;
+
       if (_TokenStr.Trim() == "_AttacheCaseData")
       {
         // Atc data
@@ -432,117 +434,118 @@ namespace AttacheCase
 
       try
       {
-        for (int i = 0; i < 2; i++)
+        //----------------------------------------------------------------------
+        // Check password
+        //----------------------------------------------------------------------
+        using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
         {
-          //----------------------------------------------------------------------
-          // Check password
-          //----------------------------------------------------------------------
-          using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+          if (fs.Length < 32)
           {
-            if (fs.Length < 32)
-            {
-              e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
-              // not AttacheCase data
-              return (false);
-            }
-
-            {
-              if (_ExeOutSize > 0)
-              {
-                //自己実行可能形式
-                fs.Seek(_ExeOutSize + 32, SeekOrigin.Begin);
-              }
-              else
-              {
-                fs.Seek(32, SeekOrigin.Begin);
-              }
-
-              // The Header of MemoryStream is encrypted
-              using (Rijndael aes = new RijndaelManaged())
-              {
-                aes.BlockSize = 256;             // BlockSize = 32 bytes
-                aes.KeySize = 256;               // KeySize = 32 bytes
-                aes.Mode = CipherMode.CBC;       // CBC mode
-                aes.Padding = PaddingMode.Zeros; // Padding mode is "ZEROS".
-
-                // Password
-                if (PasswordBinary != null)
-                { // Binary
-                  bufferPassword = PasswordBinary;
-                }
-                else
-                { // Text
-                  if (i == 0)
-                  {
-                    bufferPassword = Encoding.UTF8.GetBytes(Password);
-                  }
-                  else
-                  {
-                    bufferPassword = Encoding.GetEncoding(932).GetBytes(Password);  // Shift-JIS
-                  }
-                }
-
-                // Password is 256 bit, so truncated up to 32 bytes or fill up the data size. 
-                for (int c = 0; c < bufferKey.Length; c++)
-                {
-                  if (c < bufferPassword.Length)
-                  {
-                    // Cut down to 32 bytes characters.
-                    bufferKey[c] = bufferPassword[c];
-                  }
-                  else
-                  {
-                    bufferKey[c] = 0; // Zero filled
-                  }
-                }
-                aes.Key = bufferKey;
-
-                // Initilization Vector
-                byte[] iv = new byte[32];
-                fs.Read(iv, 0, 32);
-                aes.IV = iv;
-
-                // Decryption interface.
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-                using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read))
-                {
-                  using (MemoryStream ms = new MemoryStream())
-                  {
-                    byteArray = new byte[_AtcHeaderSize];
-                    len = cse.Read(byteArray, 0, _AtcHeaderSize);
-                    ms.Write(byteArray, 0, _AtcHeaderSize);
-#if (DEBUG)
-                    string TempDecryptHeaderFilePath = Path.Combine(Path.GetDirectoryName(FilePath), "decrypt_header.txt");
-                    using (StreamWriter sw = new StreamWriter(TempDecryptHeaderFilePath, false, Encoding.UTF8))
-                    {
-                      sw.WriteLine(System.Text.Encoding.UTF8.GetString(byteArray));
-                    }
-#endif
-                    // Check Password Token
-                    if (Encoding.UTF8.GetString(byteArray).IndexOf("Passcode:AttacheCase") > -1)
-                    {
-                      // Decryption is succeeded.
-                      break;
-                    }
-                    else
-                    {
-                      if (i > 0)
-                      {
-                        e.Result = new FileDecryptReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
-                        return (false);
-                      }
-                    }
-
-                  }
-                }
-              }
-            }
+            e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
+            // not AttacheCase data
+            return (false);
           }
 
-          //----------------------------------------------------------------------
-          // Decrypt
-          //----------------------------------------------------------------------
-          using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+          for (int i = 0; i < 2; i++)
+          {
+            if (_ExeOutSize > 0)
+            {
+              //自己実行可能形式
+              fs.Seek(_ExeOutSize + 32, SeekOrigin.Begin);
+            }
+            else
+            {
+              fs.Seek(32, SeekOrigin.Begin);
+            }
+
+            // The Header of MemoryStream is encrypted
+            using (Rijndael aes = new RijndaelManaged())
+            {
+              aes.BlockSize = 256;             // BlockSize = 32 bytes
+              aes.KeySize = 256;               // KeySize = 32 bytes
+              aes.Mode = CipherMode.CBC;       // CBC mode
+              aes.Padding = PaddingMode.Zeros; // Padding mode is "ZEROS".
+
+              // Password
+              if (PasswordBinary != null)
+              { // Binary
+                bufferPassword = PasswordBinary;
+              }
+              else
+              { // Text
+                if (i == 0)
+                {
+                  bufferPassword = Encoding.UTF8.GetBytes(Password);
+                }
+                else
+                {
+                  bufferPassword = Encoding.GetEncoding(932).GetBytes(Password);  // Shift-JIS
+                }
+              }
+
+              // Password is 256 bit, so truncated up to 32 bytes or fill up the data size. 
+              for (int c = 0; c < bufferKey.Length; c++)
+              {
+                if (c < bufferPassword.Length)
+                {
+                  // Cut down to 32 bytes characters.
+                  bufferKey[c] = bufferPassword[c];
+                }
+                else
+                {
+                  bufferKey[c] = 0; // Zero filled
+                }
+              }
+              aes.Key = bufferKey;
+
+              // Initilization Vector
+              byte[] iv = new byte[32];
+              fs.Read(iv, 0, 32);
+              aes.IV = iv;
+
+              // Decryption interface.
+              ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+              using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read))
+              {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                  byteArray = new byte[_AtcHeaderSize];
+                  len = cse.Read(byteArray, 0, _AtcHeaderSize);
+                  ms.Write(byteArray, 0, _AtcHeaderSize);
+#if (DEBUG)
+                  string TempDecryptHeaderFilePath = Path.Combine(Path.GetDirectoryName(FilePath), "decrypt_header.txt");
+                  using (StreamWriter sw = new StreamWriter(TempDecryptHeaderFilePath, false, Encoding.UTF8))
+                  {
+                    sw.WriteLine(System.Text.Encoding.UTF8.GetString(byteArray));
+                  }
+#endif
+                  // Check Password Token
+                  if (Encoding.UTF8.GetString(byteArray).IndexOf("Passcode:AttacheCase") > -1)
+                  {
+                    // Decryption is succeeded.
+                    fPasswordValid = true;
+                    break;
+                  }
+                }
+              }
+
+            }// end using (Rijndael aes = new RijndaelManaged());
+
+          }// end for (int i = 0; i < 2; i++);
+
+        }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read));        
+
+        if ( fPasswordValid == false)
+        {
+          e.Result = new FileDecryptReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
+          return (false);
+
+        }
+        
+        //----------------------------------------------------------------------
+        // Decrypt
+        //----------------------------------------------------------------------
+        using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
           {
             if (_ExeOutSize > 0)
             {
@@ -575,6 +578,11 @@ namespace AttacheCase
                 using (MemoryStream ms = new MemoryStream())
                 {
                   ms.Position = 0;
+
+                  byteArray = new byte[_AtcHeaderSize];
+                  len = cse.Read(byteArray, 0, _AtcHeaderSize);
+                  ms.Write(byteArray, 0, _AtcHeaderSize);
+
                   var sr = new StreamReader(ms, Encoding.UTF8);
                   string line;
                   while ((line = sr.ReadLine()) != null)
@@ -628,8 +636,7 @@ namespace AttacheCase
             }//end using (Rijndael aes = new RijndaelManaged());
 
           }
-        }
-
+        
       }//end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
       catch
       {
