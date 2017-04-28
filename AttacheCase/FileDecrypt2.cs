@@ -437,17 +437,17 @@ namespace AttacheCase
         //----------------------------------------------------------------------
         // Check password
         //----------------------------------------------------------------------
-        using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        for (int i = 0; i < 2; i++)
         {
-          if (fs.Length < 32)
+          using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
           {
-            e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
-            // not AttacheCase data
-            return (false);
-          }
+            if (fs.Length < 32)
+            {
+              e.Result = new FileDecryptReturnVal(NOT_ATC_DATA, FilePath);
+              // not AttacheCase data
+              return (false);
+            }
 
-          for (int i = 0; i < 2; i++)
-          {
             if (_ExeOutSize > 0)
             {
               //自己実行可能形式
@@ -531,63 +531,87 @@ namespace AttacheCase
 
             }// end using (Rijndael aes = new RijndaelManaged());
 
-          }// end for (int i = 0; i < 2; i++);
+          }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read));        
 
-        }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read));        
+        }// end for (int i = 0; i < 2; i++);
 
-        if ( fPasswordValid == false)
+        if (fPasswordValid == false)
         {
           e.Result = new FileDecryptReturnVal(PASSWORD_TOKEN_NOT_FOUND, FilePath);
           return (false);
 
         }
-        
+
         //----------------------------------------------------------------------
         // Decrypt
         //----------------------------------------------------------------------
         using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
+        {
+          if (_ExeOutSize > 0)
           {
-            if (_ExeOutSize > 0)
-            {
-              //自己実行可能形式
-              fs.Seek(_ExeOutSize + 32, SeekOrigin.Begin);
-            }
-            else
-            {
-              fs.Seek(32, SeekOrigin.Begin);
-            }
+            //自己実行可能形式
+            fs.Seek(_ExeOutSize + 32, SeekOrigin.Begin);
+          }
+          else
+          {
+            fs.Seek(32, SeekOrigin.Begin);
+          }
 
-            // The Header of MemoryStream is encrypted
-            using (Rijndael aes = new RijndaelManaged())
+          // The Header of MemoryStream is encrypted
+          using (Rijndael aes = new RijndaelManaged())
+          {
+            aes.BlockSize = 256;             // BlockSize = 32 bytes
+            aes.KeySize = 256;               // KeySize = 32 bytes
+            aes.Mode = CipherMode.CBC;       // CBC mode
+            aes.Padding = PaddingMode.Zeros; // Padding mode is "ZEROS".
+            aes.Key = bufferKey;
+
+            // Initilization Vector
+            byte[] iv = new byte[32];
+            fs.Read(iv, 0, 32);
+            aes.IV = iv;
+
+            // Decryption interface.
+            ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+            using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read))
             {
-              aes.BlockSize = 256;             // BlockSize = 32 bytes
-              aes.KeySize = 256;               // KeySize = 32 bytes
-              aes.Mode = CipherMode.CBC;       // CBC mode
-              aes.Padding = PaddingMode.Zeros; // Padding mode is "ZEROS".
-              aes.Key = bufferKey;
-
-              // Initilization Vector
-              byte[] iv = new byte[32];
-              fs.Read(iv, 0, 32);
-              aes.IV = iv;
-
-              // Decryption interface.
-              ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-              using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read))
+              using (MemoryStream ms = new MemoryStream())
               {
-                using (MemoryStream ms = new MemoryStream())
+                ms.Position = 0;
+
+                byteArray = new byte[_AtcHeaderSize];
+                len = cse.Read(byteArray, 0, _AtcHeaderSize);
+                ms.Write(byteArray, 0, _AtcHeaderSize);
+
+                var sr = new StreamReader(ms, Encoding.UTF8);
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                { //ver. 2.8.0～
+                  if (Regex.IsMatch(line, @"^U_"))
+                  {
+                    // ディレクトリ・トラバーサル対策
+                    // Directory traversal countermeasures
+                    if (line.IndexOf(@"..\") >= 0)
+                    {
+                      e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+                      return (false);
+                    }
+                    else
+                    {
+                      FileList.Add(line);
+                      prefix = 2;
+                    }
+                  }
+                }
+
+                // Old version ( Shift-JIS )
+                if (FileList.Count == 0)
                 {
                   ms.Position = 0;
-
-                  byteArray = new byte[_AtcHeaderSize];
-                  len = cse.Read(byteArray, 0, _AtcHeaderSize);
-                  ms.Write(byteArray, 0, _AtcHeaderSize);
-
-                  var sr = new StreamReader(ms, Encoding.UTF8);
-                  string line;
+                  sr = new StreamReader(ms, Encoding.GetEncoding("shift_jis"));
                   while ((line = sr.ReadLine()) != null)
-                  { //ver. 2.8.0～
-                    if (Regex.IsMatch(line, @"^U_"))
+                  {
+                    if (Regex.IsMatch(line, @"^Fn_"))
                     {
                       // ディレクトリ・トラバーサル対策
                       // Directory traversal countermeasures
@@ -599,45 +623,21 @@ namespace AttacheCase
                       else
                       {
                         FileList.Add(line);
-                        prefix = 2;
+                        prefix = 3;
                       }
                     }
                   }
+                }
 
-                  // Old version ( Shift-JIS )
-                  if (FileList.Count == 0)
-                  {
-                    ms.Position = 0;
-                    sr = new StreamReader(ms, Encoding.GetEncoding("shift_jis"));
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                      if (Regex.IsMatch(line, @"^Fn_"))
-                      {
-                        // ディレクトリ・トラバーサル対策
-                        // Directory traversal countermeasures
-                        if (line.IndexOf(@"..\") >= 0)
-                        {
-                          e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
-                          return (false);
-                        }
-                        else
-                        {
-                          FileList.Add(line);
-                          prefix = 3;
-                        }
-                      }
-                    }
-                  }
+              }//end using (MemoryStream ms = new MemoryStream())
 
-                }//end using (MemoryStream ms = new MemoryStream())
+            }//end using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read));
 
-              }//end using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read));
+          }//end using (Rijndael aes = new RijndaelManaged());
 
-            }//end using (Rijndael aes = new RijndaelManaged());
+        }//end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
-          }
-        
-      }//end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
+      }
       catch
       {
         e.Result = new FileDecryptReturnVal(ERROR_UNEXPECTED, "");
