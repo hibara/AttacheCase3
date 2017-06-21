@@ -89,6 +89,9 @@ namespace AttacheCase
       public DateTime LastWriteDateTime;
       public DateTime CreationDateTime;
       public string Hash;
+      // ver.3.2.3.0 ~
+      public DateTime LastWriteDateTimeUtc;
+      public DateTime CreationDateTimeUtc;
     }
 
     // Status code
@@ -600,6 +603,8 @@ namespace AttacheCase
         double LastWriteTime, CreateTime;
         DateTime LastWriteDateTime = DateTime.Parse("0001/01/01");
         DateTime CreationDateTime = DateTime.Parse("0001/01/01");
+        DateTime LastWriteDateTimeUtc;
+        DateTime CreationDateTimeUtc;
 
         FileListData fd = new FileListData();
         string[] OutputFileData = OutputLine.Split('\t');
@@ -695,28 +700,37 @@ namespace AttacheCase
           fd.FileAttribute = -1;
         }
 
-        /*
-		 * TTimeStamp = record
-		 *  Time: Integer;      { Number of milliseconds since midnight }
-		 *  Date: Integer;      { One plus number of days since 1/1/0001 }
-		 * end;
-		*/
         //-----------------------------------
-        // Last update timestamp
-        if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
-        {
-          LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate); // Add days
-        }
-        else
-        {
-          LastWriteDateTime = DateTime.Now;
-        }
+        /*
+		     * TTimeStamp = record
+		     *  Time: Integer;      { Number of seconds since midnight }
+		     *  Date: Integer;      { One plus number of days since 1/1/0001 }
+		     * end;
+		    */
+        //-----------------------------------
 
-        if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
+        // Last update timestamp
+        try
         {
-          LastWriteDateTime = LastWriteDateTime.AddSeconds(LastWriteTime);  // Add seconds
+          if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
+          {
+            LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate); // Add days
+          }
+          else
+          {
+            LastWriteDateTime = DateTime.Now;
+          }
+
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
+          {
+            LastWriteDateTime = LastWriteDateTime.AddSeconds(LastWriteTime);  // Add seconds
+          }
+          else
+          {
+            LastWriteDateTime = DateTime.Now;
+          }
         }
-        else
+        catch
         {
           LastWriteDateTime = DateTime.Now;
         }
@@ -725,21 +739,27 @@ namespace AttacheCase
 
         //-----------------------------------
         // Create datetime
-        if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[5], out CreateDate) == true)
+        try
         {
-          CreationDateTime = CreationDateTime.AddDays(CreateDate);
-        }
-        else
-        {
-          CreationDateTime = DateTime.Now;
-        }
+          if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[5], out CreateDate) == true)
+          {
+            CreationDateTime = CreationDateTime.AddDays(CreateDate);
+          }
+          else
+          {
+            CreationDateTime = DateTime.Now;
+          }
 
-        if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[6], out CreateTime) == true)
-        {
-          CreationDateTime = CreationDateTime.AddSeconds(CreateTime);
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[6], out CreateTime) == true)
+          {
+            CreationDateTime = CreationDateTime.AddSeconds(CreateTime);
+          }
+          else
+          {
+            CreationDateTime = DateTime.Now;
+          }
         }
-        else
-        {
+        catch{
           CreationDateTime = DateTime.Now;
         }
 
@@ -750,6 +770,28 @@ namespace AttacheCase
         if (OutputFileData.Length > 7)
         {
           fd.Hash = OutputFileData[7];
+        }
+
+        //-----------------------------------
+        // File datetime ( UTC )
+        // ver.3.2.3.0 ~
+        if (OutputFileData.Length > 8)
+        {
+          if (_fSameTimeStamp == false)
+          {
+            // Last update datetime(UTC)
+            DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
+            TimeZoneInfo tzi = TimeZoneInfo.Local;
+            LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
+            // Create datetime(UTC)
+            DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
+            CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
+          }
+          else
+          {
+            LastWriteDateTime = DateTime.UtcNow;
+            CreationDateTime = DateTime.UtcNow;
+          }
         }
 
         //-----------------------------------
@@ -1172,10 +1214,12 @@ namespace AttacheCase
                       if (fSkip == false)
                       {
                         FileInfo fi = new FileInfo(dic[FileIndex].FilePath);
+                        
                         // タイムスタンプの復元
                         // Restore the timestamp of a file
                         fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
                         fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
+                        
                         // ファイル属性の復元
                         // Restore file attribute.
                         fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;

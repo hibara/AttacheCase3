@@ -226,7 +226,6 @@ namespace AttacheCase
 
       try
       {
-
         using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write))
         {
           // 自己実行形式ファイル（Self-executable file）
@@ -276,16 +275,23 @@ namespace AttacheCase
             // 複数ファイルを一つにまとめる（ファイルに名前をつけて保存）
             if (NewArchiveName != "")
             {
+
+              NewArchiveName = NewArchiveName + "\\";
+
               // Now time
               DateTime dtNow = new DateTime();
               FileInfoList.Add("0:" +                              // File number
-                               NewArchiveName + "\\\t" +           // File name
+                               NewArchiveName + "\t" +             // File name
                                "0" + "\t" +                        // File size 
                                "16" + "\t" +                       // File attribute
                                dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Last write date
                                dtNow.TimeOfDay.TotalSeconds + "\t" + // Last write time
                                dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Creation date
-                               dtNow.TimeOfDay.TotalSeconds);       // Creation time             
+                               dtNow.TimeOfDay.TotalSeconds + "\t" + // Creation time
+                               "" + "\t" + 
+                               // ver.3.2.3.0 ~
+                               DateTime.UtcNow.ToString() + "\t" +
+                               DateTime.UtcNow.ToString());
               FileNumber++;
             }
 
@@ -317,14 +323,17 @@ namespace AttacheCase
                 FileInfoList.Add(FileNumber.ToString() + ":" + // File number
                                                                //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
                                                                //Item[1] + "\t" +           // Absolute file path
-                                  Item[2] + "\t" +             // Relative file path
+                                  NewArchiveName + Item[2] + "\t" +             // Relative file path
                                   Item[3].ToString() + "\t" +  // File size 
                                   Item[4].ToString() + "\t" +  // File attribute
                                   Item[5].ToString() + "\t" +  // Last write date
                                   Item[6].ToString() + "\t" +  // Last write time
                                   Item[7].ToString() + "\t" +  // Creation date
                                   Item[8].ToString() + "\t" +  // Creation time             
-                                  Item[9].ToString());         // SHA-256 Hash string      
+                                  Item[9].ToString() + "\t" +  // SHA-256 Hash string
+                                  // ver.3.2.3.0 ~      
+                                  Item[10].ToString() + "\t" + // Last write date time(UTC)      
+                                  Item[11].ToString());        // Creation date time(UTC)       
 
                 // files only
                 if (Convert.ToInt32(Item[0]) == 1)
@@ -363,25 +372,32 @@ namespace AttacheCase
                   if ((int)Item[0] == 0)
                   { // Directory
                     FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                      Item[2] + "\t" +             // Relative file path
+                                      NewArchiveName + Item[2] + "\t" +             // Relative file path
                                       Item[3].ToString() + "\t" +  // File size 
                                       Item[4].ToString() + "\t" +  // File attribute
                                       Item[5].ToString() + "\t" +  // Last write date
                                       Item[6].ToString() + "\t" +  // Last write time
                                       Item[7].ToString() + "\t" +  // Creation date
-                                      Item[8].ToString());         // Creation time
+                                      Item[8].ToString() + "\t" +  // Creation time
+                                      "" + "\t" +
+                                      // ver.3.2.3.0 ～
+                                      Item[10].ToString() + "\t" +  // Last write date time(UTC)
+                                      Item[11].ToString());        // Creation date date time(UTC)
                   }
                   else
                   { // File
                     FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                      Item[2] + "\t" +             // Relative file path
+                                      NewArchiveName + Item[2] + "\t" +             // Relative file path
                                       Item[3].ToString() + "\t" +  // File size 
                                       Item[4].ToString() + "\t" +  // File attribute
                                       Item[5].ToString() + "\t" +  // Last write date
                                       Item[6].ToString() + "\t" +  // Last write time
                                       Item[7].ToString() + "\t" +  // Creation date
                                       Item[8].ToString() + "\t" +  // Creation time             
-                                      Item[9].ToString());         // SHA-256 hash             
+                                      Item[9].ToString() + "\t" +  // SHA-256 hash
+                                      // ver.3.2.3.0 ～
+                                      Item[10].ToString() + "\t" + // Last write date time(UTC)
+                                      Item[11].ToString());        // Creation date date time(UTC)
                   }
 
                   if (Convert.ToInt32(Item[0]) == 1)
@@ -728,7 +744,8 @@ namespace AttacheCase
     private static ArrayList GetDirectoryInfo(string ParentPath, string DirPath)
     {
       ArrayList List = new ArrayList();
-      DirectoryInfo di = new DirectoryInfo(ParentPath + Path.GetFileName(DirPath));
+      //DirectoryInfo di = new DirectoryInfo(ParentPath + Path.GetFileName(DirPath));
+      DirectoryInfo di = new DirectoryInfo(DirPath);
       List.Add(0);                                      // Directory flag
       List.Add(DirPath);                                // Absolute file path
       List.Add(DirPath.Replace(ParentPath, "") + "\\"); // (string)Remove parent directory path.
@@ -736,7 +753,7 @@ namespace AttacheCase
       List.Add((int)di.Attributes);                     // (int)File attribute
       /*
         * TTimeStamp = record
-        *  Time: Integer;      { Number of milliseconds since midnight }
+        *  Time: Integer;      { Number of seconds since midnight }
         *  Date: Integer;      { One plus number of days since 1/1/0001 }
         * end;
       */
@@ -744,6 +761,10 @@ namespace AttacheCase
       List.Add(di.LastWriteTime.TimeOfDay.TotalSeconds);
       List.Add((Int32)(di.CreationTime.Date.Subtract(new DateTime(1, 1, 1))).TotalDays);
       List.Add(di.CreationTime.TimeOfDay.TotalSeconds);
+      List.Add("");
+      // ver.3.2.3.0～
+      List.Add(di.LastWriteTimeUtc);
+      List.Add(di.CreationTimeUtc);
       return (List);
     }
 
@@ -766,7 +787,7 @@ namespace AttacheCase
       List.Add((int)fi.Attributes);               // (int)File attribute
       /*
         * TTimeStamp = record
-        *  Time: Integer;      { Number of milliseconds since midnight }
+        *  Time: Integer;      { Number of seconds since midnight }
         *  Date: Integer;      { One plus number of days since 1/1/0001 }
         * end;
       */
@@ -775,6 +796,9 @@ namespace AttacheCase
       List.Add((Int32)(fi.CreationTime.Date.Subtract(new DateTime(1, 1, 1))).TotalDays);
       List.Add(fi.CreationTime.TimeOfDay.TotalSeconds);
       List.Add((string)GetSha256FromFile(AbsoluteFilePath));
+      // ver.3.2.3.0～
+      List.Add(fi.LastWriteTimeUtc);
+      List.Add(fi.CreationTimeUtc);
       return (List);
     }
 

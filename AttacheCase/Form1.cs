@@ -3184,7 +3184,12 @@ namespace AttacheCase
         //-----------------------------------
         //　Set the timestamp of encryption file to original files or directories
         //-----------------------------------
-        encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
+        if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
+            AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
+        {
+          encryption3.fKeepTimeStamp = AppSettings.Instance.fKeepTimeStamp;
+        }
 
         //-----------------------------------
         // View the Cancel button
