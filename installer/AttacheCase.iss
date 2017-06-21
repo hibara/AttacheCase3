@@ -31,10 +31,8 @@ AppendDefaultDirName=yes
 OutputDir=.\archives
 TouchTime=00:00
 ShowLanguageDialog=yes
-UsePreviousLanguage=no
-
+UsePreviousLanguage=noSignedUninstaller=yes
 SignTool=MySignTool
-SignedUninstaller=yes
 
 ;-----------------------------------
 ;インストーラプログラム
@@ -172,15 +170,6 @@ begin
   if CurStep = ssPostInstall then 
   begin
     if installRequired then InstallFramework;
-  end;
-end;
-
-
-function PasswordTextFromFile(): String;
-begin
-  if LoadStringFromFile('code_signing\_password.txt', PasswordStr) then
-  begin
-    Result := PasswordStr;
   end;
 end;
 

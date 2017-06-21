@@ -225,8 +225,6 @@ namespace AttacheCase
             if (NewArchiveName != "")
             {
               ParentPath = NewArchiveName + "\\";
-              zip.PutNextEntry(ParentPath);
-
             }
 
             //----------------------------------------------------------------------

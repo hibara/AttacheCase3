@@ -64,15 +64,21 @@ copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\Attach
 @echo Code signing to each exe file
 @echo -----------------------------------
 
-if exist "code_signing\_password.txt" (
-set /p PASS=<code_signing\_password.txt
-)
-
+SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin";%PATH%
 SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
 SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
 
-signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
-signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
+
+@rem if exist "code_signing\_password.txt" (
+
+@rem for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i 
+@rem )
+
+@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
+@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
+
+signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
+signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe
 
 
 @echo. 
@@ -94,13 +100,14 @@ echo %ERRORLEVEL%
 @echo. Code signing to Installer
 @echo. -----------------------------------
 
-if exist "code_signing\_password.txt" (
+@rem if exist "code_signing\_password.txt" (
 
-for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i 
+@rem for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i
+@rem )
 
-signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
+@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
 
-)
+signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 Archives\atc*.exe
 
 
 @echo. 
