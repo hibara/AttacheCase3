@@ -112,6 +112,7 @@ namespace AttacheCase
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;

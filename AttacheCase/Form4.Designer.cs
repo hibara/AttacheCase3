@@ -45,11 +45,9 @@
       this.buttonPasswordOK = new System.Windows.Forms.Button();
       this.tabPageOverwriteConfirm = new System.Windows.Forms.TabPage();
       this.panelOverwriteConfirm = new System.Windows.Forms.Panel();
-      this.splitButton2 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemSkip = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemSkipAll = new System.Windows.Forms.ToolStripMenuItem();
-      this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemOverwrite = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemOverwriteAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +64,14 @@
       this.buttonEncrypt = new System.Windows.Forms.Button();
       this.labelAskEncryptOrDecrypt = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.tabPageInvalidChar = new System.Windows.Forms.TabPage();
+      this.panelInvalidChar = new System.Windows.Forms.Panel();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.labelInvalidChar = new System.Windows.Forms.Label();
+      this.buttonInvalidCharCancel = new System.Windows.Forms.Button();
+      this.buttonInvalidCharYes = new System.Windows.Forms.Button();
+      this.splitButton2 = new AttacheCase.SplitButton();
+      this.splitButton1 = new AttacheCase.SplitButton();
       this.panelOuter.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageInputPassword.SuspendLayout();
@@ -79,33 +85,36 @@
       this.tabPageAskEncryptOrDecrypt.SuspendLayout();
       this.panelAskEncryptOrDecrypt.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      this.tabPageInvalidChar.SuspendLayout();
+      this.panelInvalidChar.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       this.SuspendLayout();
       // 
       // panelOuter
       // 
-      resources.ApplyResources(this.panelOuter, "panelOuter");
       this.panelOuter.Controls.Add(this.tabControl1);
+      resources.ApplyResources(this.panelOuter, "panelOuter");
       this.panelOuter.Name = "panelOuter";
       // 
       // tabControl1
       // 
-      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Controls.Add(this.tabPageInputPassword);
       this.tabControl1.Controls.Add(this.tabPageOverwriteConfirm);
       this.tabControl1.Controls.Add(this.tabPageAskEncryptOrDecrypt);
+      this.tabControl1.Controls.Add(this.tabPageInvalidChar);
+      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       // 
       // tabPageInputPassword
       // 
-      resources.ApplyResources(this.tabPageInputPassword, "tabPageInputPassword");
       this.tabPageInputPassword.Controls.Add(this.panelInputPassword);
+      resources.ApplyResources(this.tabPageInputPassword, "tabPageInputPassword");
       this.tabPageInputPassword.Name = "tabPageInputPassword";
       this.tabPageInputPassword.UseVisualStyleBackColor = true;
       // 
       // panelInputPassword
       // 
-      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
       this.panelInputPassword.Controls.Add(this.labelPasswordValid);
       this.panelInputPassword.Controls.Add(this.pictureBoxPasswordValid);
@@ -115,6 +124,7 @@
       this.panelInputPassword.Controls.Add(this.textBoxPassword);
       this.panelInputPassword.Controls.Add(this.buttonPasswordCancel);
       this.panelInputPassword.Controls.Add(this.buttonPasswordOK);
+      resources.ApplyResources(this.panelInputPassword, "panelInputPassword");
       this.panelInputPassword.Name = "panelInputPassword";
       // 
       // checkBoxNotMaskEncryptedPassword
@@ -177,60 +187,43 @@
       // 
       // tabPageOverwriteConfirm
       // 
-      resources.ApplyResources(this.tabPageOverwriteConfirm, "tabPageOverwriteConfirm");
       this.tabPageOverwriteConfirm.Controls.Add(this.panelOverwriteConfirm);
+      resources.ApplyResources(this.tabPageOverwriteConfirm, "tabPageOverwriteConfirm");
       this.tabPageOverwriteConfirm.Name = "tabPageOverwriteConfirm";
       this.tabPageOverwriteConfirm.UseVisualStyleBackColor = true;
       // 
       // panelOverwriteConfirm
       // 
-      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Controls.Add(this.splitButton2);
       this.panelOverwriteConfirm.Controls.Add(this.splitButton1);
       this.panelOverwriteConfirm.Controls.Add(this.buttonOverwriteCancel);
       this.panelOverwriteConfirm.Controls.Add(this.labelMessageText);
       this.panelOverwriteConfirm.Controls.Add(this.pictureBoxQuestionIcon);
+      resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Name = "panelOverwriteConfirm";
-      // 
-      // splitButton2
-      // 
-      resources.ApplyResources(this.splitButton2, "splitButton2");
-      this.splitButton2.Menu = this.contextMenuStrip2;
-      this.splitButton2.Name = "splitButton2";
-      this.splitButton2.UseVisualStyleBackColor = true;
-      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
       // 
       // contextMenuStrip2
       // 
-      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSkip,
             this.ToolStripMenuItemSkipAll});
       this.contextMenuStrip2.Name = "contextMenuStrip2";
+      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       // 
       // ToolStripMenuItemSkip
       // 
-      resources.ApplyResources(this.ToolStripMenuItemSkip, "ToolStripMenuItemSkip");
       this.ToolStripMenuItemSkip.Name = "ToolStripMenuItemSkip";
+      resources.ApplyResources(this.ToolStripMenuItemSkip, "ToolStripMenuItemSkip");
       this.ToolStripMenuItemSkip.Click += new System.EventHandler(this.ToolStripMenuItemSkip_Click);
       // 
       // ToolStripMenuItemSkipAll
       // 
-      resources.ApplyResources(this.ToolStripMenuItemSkipAll, "ToolStripMenuItemSkipAll");
       this.ToolStripMenuItemSkipAll.Name = "ToolStripMenuItemSkipAll";
+      resources.ApplyResources(this.ToolStripMenuItemSkipAll, "ToolStripMenuItemSkipAll");
       this.ToolStripMenuItemSkipAll.Click += new System.EventHandler(this.ToolStripMenuItemSkipAll_Click);
-      // 
-      // splitButton1
-      // 
-      resources.ApplyResources(this.splitButton1, "splitButton1");
-      this.splitButton1.Menu = this.contextMenuStrip1;
-      this.splitButton1.Name = "splitButton1";
-      this.splitButton1.UseVisualStyleBackColor = true;
-      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // contextMenuStrip1
       // 
-      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemOverwrite,
             this.ToolStripMenuItemOverwriteAll,
@@ -238,34 +231,35 @@
             this.ToolStripMenuItemKeepNewer,
             this.ToolStripMenuItemkeepNewerAll});
       this.contextMenuStrip1.Name = "contextMenuStrip1";
+      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       // 
       // ToolStripMenuItemOverwrite
       // 
-      resources.ApplyResources(this.ToolStripMenuItemOverwrite, "ToolStripMenuItemOverwrite");
       this.ToolStripMenuItemOverwrite.Name = "ToolStripMenuItemOverwrite";
+      resources.ApplyResources(this.ToolStripMenuItemOverwrite, "ToolStripMenuItemOverwrite");
       this.ToolStripMenuItemOverwrite.Click += new System.EventHandler(this.ToolStripMenuItemOverwrite_Click);
       // 
       // ToolStripMenuItemOverwriteAll
       // 
-      resources.ApplyResources(this.ToolStripMenuItemOverwriteAll, "ToolStripMenuItemOverwriteAll");
       this.ToolStripMenuItemOverwriteAll.Name = "ToolStripMenuItemOverwriteAll";
+      resources.ApplyResources(this.ToolStripMenuItemOverwriteAll, "ToolStripMenuItemOverwriteAll");
       this.ToolStripMenuItemOverwriteAll.Click += new System.EventHandler(this.ToolStripMenuItemOverwriteAll_Click);
       // 
       // toolStripMenuItem1
       // 
-      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       // 
       // ToolStripMenuItemKeepNewer
       // 
-      resources.ApplyResources(this.ToolStripMenuItemKeepNewer, "ToolStripMenuItemKeepNewer");
       this.ToolStripMenuItemKeepNewer.Name = "ToolStripMenuItemKeepNewer";
+      resources.ApplyResources(this.ToolStripMenuItemKeepNewer, "ToolStripMenuItemKeepNewer");
       this.ToolStripMenuItemKeepNewer.Click += new System.EventHandler(this.ToolStripMenuItemKeepNewer_Click);
       // 
       // ToolStripMenuItemkeepNewerAll
       // 
-      resources.ApplyResources(this.ToolStripMenuItemkeepNewerAll, "ToolStripMenuItemkeepNewerAll");
       this.ToolStripMenuItemkeepNewerAll.Name = "ToolStripMenuItemkeepNewerAll";
+      resources.ApplyResources(this.ToolStripMenuItemkeepNewerAll, "ToolStripMenuItemkeepNewerAll");
       this.ToolStripMenuItemkeepNewerAll.Click += new System.EventHandler(this.ToolStripMenuItemkeepNewerAll_Click);
       // 
       // buttonOverwriteCancel
@@ -288,19 +282,19 @@
       // 
       // tabPageAskEncryptOrDecrypt
       // 
-      resources.ApplyResources(this.tabPageAskEncryptOrDecrypt, "tabPageAskEncryptOrDecrypt");
       this.tabPageAskEncryptOrDecrypt.Controls.Add(this.panelAskEncryptOrDecrypt);
+      resources.ApplyResources(this.tabPageAskEncryptOrDecrypt, "tabPageAskEncryptOrDecrypt");
       this.tabPageAskEncryptOrDecrypt.Name = "tabPageAskEncryptOrDecrypt";
       this.tabPageAskEncryptOrDecrypt.UseVisualStyleBackColor = true;
       // 
       // panelAskEncryptOrDecrypt
       // 
-      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonAskEncryptOrDecryptCancel);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.buttonEncrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.labelAskEncryptOrDecrypt);
       this.panelAskEncryptOrDecrypt.Controls.Add(this.pictureBox1);
+      resources.ApplyResources(this.panelAskEncryptOrDecrypt, "panelAskEncryptOrDecrypt");
       this.panelAskEncryptOrDecrypt.Name = "panelAskEncryptOrDecrypt";
       // 
       // buttonAskEncryptOrDecryptCancel
@@ -335,6 +329,63 @@
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.TabStop = false;
       // 
+      // tabPageInvalidChar
+      // 
+      this.tabPageInvalidChar.Controls.Add(this.panelInvalidChar);
+      resources.ApplyResources(this.tabPageInvalidChar, "tabPageInvalidChar");
+      this.tabPageInvalidChar.Name = "tabPageInvalidChar";
+      this.tabPageInvalidChar.UseVisualStyleBackColor = true;
+      // 
+      // panelInvalidChar
+      // 
+      this.panelInvalidChar.Controls.Add(this.buttonInvalidCharYes);
+      this.panelInvalidChar.Controls.Add(this.buttonInvalidCharCancel);
+      this.panelInvalidChar.Controls.Add(this.labelInvalidChar);
+      this.panelInvalidChar.Controls.Add(this.pictureBox2);
+      resources.ApplyResources(this.panelInvalidChar, "panelInvalidChar");
+      this.panelInvalidChar.Name = "panelInvalidChar";
+      // 
+      // pictureBox2
+      // 
+      resources.ApplyResources(this.pictureBox2, "pictureBox2");
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.TabStop = false;
+      // 
+      // labelInvalidChar
+      // 
+      resources.ApplyResources(this.labelInvalidChar, "labelInvalidChar");
+      this.labelInvalidChar.Name = "labelInvalidChar";
+      // 
+      // buttonInvalidCharCancel
+      // 
+      resources.ApplyResources(this.buttonInvalidCharCancel, "buttonInvalidCharCancel");
+      this.buttonInvalidCharCancel.Name = "buttonInvalidCharCancel";
+      this.buttonInvalidCharCancel.UseVisualStyleBackColor = true;
+      this.buttonInvalidCharCancel.Click += new System.EventHandler(this.buttonInvalidCharCancel_Click);
+      // 
+      // buttonInvalidCharYes
+      // 
+      resources.ApplyResources(this.buttonInvalidCharYes, "buttonInvalidCharYes");
+      this.buttonInvalidCharYes.Name = "buttonInvalidCharYes";
+      this.buttonInvalidCharYes.UseVisualStyleBackColor = true;
+      this.buttonInvalidCharYes.Click += new System.EventHandler(this.buttonInvalidCharYes_Click);
+      // 
+      // splitButton2
+      // 
+      resources.ApplyResources(this.splitButton2, "splitButton2");
+      this.splitButton2.Menu = this.contextMenuStrip2;
+      this.splitButton2.Name = "splitButton2";
+      this.splitButton2.UseVisualStyleBackColor = true;
+      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
+      // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip1;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
+      // 
       // Form4
       // 
       resources.ApplyResources(this, "$this");
@@ -364,6 +415,9 @@
       this.tabPageAskEncryptOrDecrypt.ResumeLayout(false);
       this.panelAskEncryptOrDecrypt.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      this.tabPageInvalidChar.ResumeLayout(false);
+      this.panelInvalidChar.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       this.ResumeLayout(false);
 
 		}
@@ -406,5 +460,11 @@
     private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkip;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkipAll;
+    private System.Windows.Forms.TabPage tabPageInvalidChar;
+    private System.Windows.Forms.Panel panelInvalidChar;
+    private System.Windows.Forms.Button buttonInvalidCharYes;
+    private System.Windows.Forms.Button buttonInvalidCharCancel;
+    private System.Windows.Forms.Label labelInvalidChar;
+    private System.Windows.Forms.PictureBox pictureBox2;
   }
 }

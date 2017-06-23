@@ -55,7 +55,8 @@ namespace AttacheCase
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
-    private const int OS_DENIES_ACCESS　       = -108;
+    private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
 
     // File Type
     private const int FILE_TYPE_ERROR        = -1;
@@ -142,7 +143,7 @@ namespace AttacheCase
     }
 
     //======================================================================
-    // フォームイベント
+    // フォームイベント ( Form events )
     //======================================================================
     #region
     /// <summary>
@@ -316,7 +317,7 @@ namespace AttacheCase
     #endregion
 
     //======================================================================
-    // 削除処理
+    // 削除処理 ( Delete files ) 
     //======================================================================
     #region
     private bool DeleteData(List<string> FileList)
@@ -533,7 +534,7 @@ namespace AttacheCase
 
     #endregion
 
-    //----------------------------------------------------------------------
+    //======================================================================
     /// <summary>
     /// 【Decryption】上書きの確認ダイアログ表示とユーザー応答内容の受け渡し
     ///  Show dialog for confirming to overwrite, and passing user command. 
@@ -603,6 +604,45 @@ namespace AttacheCase
       frm4.Dispose();
 
       if (TempOverWriteOption == USER_CANCELED || TempOverWriteOption == SKIP_ALL)
+      {
+        if (bkg != null && bkg.IsBusy == true)
+        {
+          bkg.CancelAsync();
+        }
+
+        if (cts != null)
+        {
+          cts.Cancel();
+        }
+      }
+
+      _busy.Reset();
+
+    }
+
+    //======================================================================
+    // 【Decryption】不正なパスエラー表示と、ユーザー応答内容の受け渡し
+    //  Invalid path error indication and return of user response contents.
+    //======================================================================
+    private void DialogMessageInvalidChar(string FilePath)
+    {
+      if (!bkg.IsBusy)
+      {
+        bkg.RunWorkerAsync();
+        // Unblock the worker 
+        _busy.Set();
+      }
+
+      // Show dialog for confirming to orverwrite
+      Form4 frm4;
+      frm4 = new Form4("InvalidChar", Resources.labelInvalidChar + Environment.NewLine + FilePath);
+      frm4.ShowDialog();
+
+      int TempInvalidCharOption = frm4.InvalidCharOption;
+
+      frm4.Dispose();
+
+      if (TempInvalidCharOption == USER_CANCELED)
       {
         if (bkg != null && bkg.IsBusy == true)
         {
@@ -1066,6 +1106,7 @@ namespace AttacheCase
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
         private const int OS_DENIES_ACCESS　       = -108;
+        private const int DATA_NOT_FOUND           = -109;
         */
 
         FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
@@ -1193,6 +1234,19 @@ namespace AttacheCase
             // Error
             // The path of files or folders are invalid. The process is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case DATA_NOT_FOUND:
+            // エラー
+            // 暗号化するデータが見つかりません。ファイルは壊れています。
+            // 復号できませんでした。
+            //
+            // Error
+            // Encrypted data not found. The file is broken.
+            // Decryption failed.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDataNotFound,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -4101,7 +4155,7 @@ namespace AttacheCase
           decryption2.Decrypt(
             s, d,
             AtcFilePath, OutDirPath, DecryptionPassword, DecryptionPasswordBinary,
-            DialogMessageForOverWrite);
+            DialogMessageForOverWrite, DialogMessageInvalidChar);
         };
 
         bkg.RunWorkerCompleted += backgroundWorker_Decryption_RunWorkerCompleted;
@@ -4522,7 +4576,7 @@ namespace AttacheCase
 
     //======================================================================
     /// <summary>
-    /// 文字コードを判別する
+    /// 文字コードを判別する(Detect Encoding)
     /// </summary>
     /// <remarks>
     /// 参考：http://dobon.net/vb/dotnet/string/detectcode.html

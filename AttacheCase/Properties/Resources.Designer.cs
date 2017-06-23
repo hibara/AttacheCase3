@@ -181,6 +181,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Encrypted data not found. The file is broken.
+        ///Decryption failed. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageDataNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageDataNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Password is invalid, or the encrypted file might have been broken. Decryption is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageDecryptionError {
@@ -807,6 +817,15 @@ namespace AttacheCase.Properties {
         public static string labelInputPasswordAgainToConfirm {
             get {
                 return ResourceManager.GetString("labelInputPasswordAgainToConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Invalid character string in path. Do you replace it and decrypt it? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelInvalidChar {
+            get {
+                return ResourceManager.GetString("labelInvalidChar", resourceCulture);
             }
         }
         
