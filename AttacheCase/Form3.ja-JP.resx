@@ -1721,6 +1721,15 @@
   <data name="tabPagePasswordInputLimitOption.Text" xml:space="preserve">
     <value>パスワード入力制限</value>
   </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>※「ファイルのハッシュ値が異なります」のエラーメッセージが出て処理が停まってしまう場合に有効です。ただし、エラー以降のファイルが正しく復号されるかは保証されません。</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 20</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Text" xml:space="preserve">
+    <value>ファイルのハッシュ値チェックを無視する</value>
+  </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>400, 66</value>
   </data>

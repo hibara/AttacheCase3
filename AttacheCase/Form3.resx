@@ -5588,6 +5588,69 @@
   <data name="&gt;&gt;tabPagePasswordInputLimitOption.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="label14.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 312</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 86</value>
+  </data>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>* Use this when an error message "The file is not the same hash value..." appears and processing stops. However, it is not guaranteed that the file after the error will be decrypted correctly.</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>panelSalvageDataOption</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 278</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 20</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="checkBoxSalvageIgnoreHashCheck.Text" xml:space="preserve">
+    <value>Ignore file hash value check.</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSalvageIgnoreHashCheck.Name" xml:space="preserve">
+    <value>checkBoxSalvageIgnoreHashCheck</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSalvageIgnoreHashCheck.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSalvageIgnoreHashCheck.Parent" xml:space="preserve">
+    <value>panelSalvageDataOption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxSalvageIgnoreHashCheck.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label13.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -5616,7 +5679,7 @@
     <value>panelSalvageDataOption</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="checkBoxSalvageIntoSameDirectory.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5646,7 +5709,7 @@
     <value>panelSalvageDataOption</value>
   </data>
   <data name="&gt;&gt;checkBoxSalvageIntoSameDirectory.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label12.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -5676,7 +5739,7 @@
     <value>panelSalvageDataOption</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="checkBoxSalvageToCreateParentFolderOneByOne.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -5709,7 +5772,7 @@
     <value>panelSalvageDataOption</value>
   </data>
   <data name="&gt;&gt;checkBoxSalvageToCreateParentFolderOneByOne.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="panelSalvageDataOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

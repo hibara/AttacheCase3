@@ -276,7 +276,7 @@ namespace AttacheCase
 			//-----------------------------------
 			// Localization
 			//-----------------------------------
-#region
+      #region
 			string lang = "";
 			if (AppSettings.Instance.Language == "ja")
 			{
@@ -298,12 +298,12 @@ namespace AttacheCase
 				}
 			}
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// General
 			//-----------------------------------
-#region
+      #region
 			checkBoxEndToExit.Checked = AppSettings.Instance.fEndToExit;
 			checkBoxOpenFile.Checked = AppSettings.Instance.fOpenFile;
 
@@ -334,12 +334,12 @@ namespace AttacheCase
 			TreeNode treeNode = treeView1.Nodes[AppSettings.Instance.TabSelectedIndex];
 			treeView1.SelectedNode = treeNode;
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// Password
 			//-----------------------------------
-#region
+      #region
 			checkBoxMyEncodePasswordKeep.Checked = AppSettings.Instance.fMyEncryptPasswordKeep;
 			if (AppSettings.Instance.MyEncryptPasswordString != null)
 			{
@@ -352,24 +352,24 @@ namespace AttacheCase
 			}
 			checkBoxDobyMemorizedPassword.Checked = AppSettings.Instance.fMemPasswordExe;
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// Window
 			//-----------------------------------
-#region
+      #region
 			checkBoxMainWindowMinimize.Checked = AppSettings.Instance.fMainWindowMinimize;
 			checkBoxTaskBarHide.Checked = AppSettings.Instance.fTaskBarHide;
 			checkBoxTaskTrayIcon.Checked = AppSettings.Instance.fTaskTrayIcon;
 			checkBoxWindowForeground.Checked = AppSettings.Instance.fWindowForeground;
 			checkBoxNoMultipleInstance.Checked = AppSettings.Instance.fNoMultipleInstance;
 
-#endregion
+      #endregion
 
       //-----------------------------------
       // Save
       //-----------------------------------
-#region
+      #region
 
       // Encryption will be the same file type always.
       if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC)
@@ -399,12 +399,12 @@ namespace AttacheCase
         checkBoxEncryptionSameFileTypeBefore.Checked = false;
       }
 
-#endregion
+      #endregion
 
       //-----------------------------------
       // Save Encrypt
       //-----------------------------------
-#region
+      #region
       checkBoxSaveToSameFldr.Checked = AppSettings.Instance.fSaveToSameFldr;
 			if (checkBoxSaveToSameFldr.Checked == true)
 			{
@@ -438,12 +438,12 @@ namespace AttacheCase
 			checkBoxAddCamoExt.Checked = AppSettings.Instance.fAddCamoExt;
 			textBoxCamoExt.Text = AppSettings.Instance.CamoExt;
 
-#endregion
+      #endregion
 			
 			//-----------------------------------
 			// Save Decrypt
 			//-----------------------------------
-#region
+      #region
 			checkBoxDecodeToSameFldr.Checked = AppSettings.Instance.fDecodeToSameFldr;
       if (checkBoxDecodeToSameFldr.Checked == true)
       {
@@ -462,23 +462,23 @@ namespace AttacheCase
 			checkBoxfNoParentFldr.Checked = AppSettings.Instance.fNoParentFldr;
 			checkBoxSameTimeStamp.Checked = AppSettings.Instance.fSameTimeStamp;
 
-#endregion
+      #endregion
 
       //-----------------------------------
       // Save ZIP
       //-----------------------------------
-#region
+      #region
       checkBoxZipToSameFldr.Checked = AppSettings.Instance.fZipToSameFldr;
       textBoxZipToSameFldrPath.Text = AppSettings.Instance.ZipToSameFldrPath;
       checkBoxZipConfirmOverwrite.Checked = AppSettings.Instance.fZipConfirmOverwrite;
       comboBoxZipEncryptAlgo.SelectedIndex = AppSettings.Instance.ZipEncryptionAlgorithm;
 
-#endregion
+      #endregion
 
       //-----------------------------------
       // Delete
       //-----------------------------------
-#region
+      #region
       checkBoxDelOrgFile.Checked = AppSettings.Instance.fDelOrgFile;
 			checkBoxEncryptShowDeleteChkBox.Checked = AppSettings.Instance.fEncryptShowDelChkBox;
 			checkBoxConfirmToDeleteAfterEncryption.Checked = AppSettings.Instance.fConfirmToDeleteAfterEncryption;
@@ -527,12 +527,12 @@ namespace AttacheCase
 			radioButtonCompleteErase_CheckedChanged(sender, e);
 			checkBoxDelOrgFile_CheckedChanged(sender, e);
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// Compress
 			//-----------------------------------
-#region
+      #region
 			if (AppSettings.Instance.CompressRate > 0)
 			{
 				checkBoxCompressionOption.Checked = true;
@@ -548,12 +548,12 @@ namespace AttacheCase
 
 			trackBarCompressRate_ValueChanged(sender, e);
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// System
 			//-----------------------------------
-#region
+      #region
 			buttonAssociateAtcFiles.Enabled = true;
 			buttonUnAssociateAtcFiles.Enabled = false;
 
@@ -626,12 +626,12 @@ namespace AttacheCase
 
       }
 
-#endregion
+      #endregion
 
 			//-----------------------------------
 			// Password file
 			//-----------------------------------
-#region
+      #region
 			checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
 			checkBoxCheckPassFile.Checked = AppSettings.Instance.fCheckPassFile;
 			textBoxPassFilePath.Text = AppSettings.Instance.PassFilePath;
@@ -640,22 +640,32 @@ namespace AttacheCase
 			textBoxPassFilePathDecrypt.Text = AppSettings.Instance.PassFilePathDecrypt;
 			checkBoxNoErrMsgOnPassFile.Checked = AppSettings.Instance.fNoErrMsgOnPassFile;
       checkBoxDoByPasswordFile.Checked = AppSettings.Instance.fPasswordFileExe;
-#endregion
+      #endregion
 
       //-----------------------------------
       // Input Password limit
       //-----------------------------------
-#region
+      #region
       comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
 
-#endregion
+      #endregion
 
-			//-----------------------------------
-			// License
-			//-----------------------------------
-#region zlib license
-			richTextBox1.Text =
+      //-----------------------------------
+      // Salvage data
+      //-----------------------------------
+      #region
+      checkBoxSalvageIntoSameDirectory.Checked = AppSettings.Instance.fSalvageIntoSameDirectory;
+      checkBoxSalvageToCreateParentFolderOneByOne.Checked = AppSettings.Instance.fSalvageToCreateParentFolderOneByOne;
+      checkBoxSalvageIgnoreHashCheck.Checked = AppSettings.Instance.fSalvageIgnoreHashCheck;
+
+      #endregion
+
+      //-----------------------------------
+      // License
+      //-----------------------------------
+      #region zlib license
+      richTextBox1.Text =
 @"zlib
 http://www.zlib.net/
 
@@ -1164,6 +1174,12 @@ THE SOFTWARE.
 			AppSettings.Instance.PassFilePathDecrypt = textBoxPassFilePathDecrypt.Text;
 			AppSettings.Instance.fNoErrMsgOnPassFile = checkBoxNoErrMsgOnPassFile.Checked;
       AppSettings.Instance.fPasswordFileExe = checkBoxDoByPasswordFile.Checked;
+
+      //-----------------------------------
+      // Salvage data
+      AppSettings.Instance.fSalvageIntoSameDirectory = checkBoxSalvageIntoSameDirectory.Checked;
+      AppSettings.Instance.fSalvageToCreateParentFolderOneByOne = checkBoxSalvageToCreateParentFolderOneByOne.Checked;
+      AppSettings.Instance.fSalvageIgnoreHashCheck = checkBoxSalvageIgnoreHashCheck.Checked;
 
       //----------------------------------------------------------------------
       // Camouflage extension

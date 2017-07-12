@@ -191,6 +191,8 @@
       this.pictureBox6 = new System.Windows.Forms.PictureBox();
       this.tabPageSalvageDataOption = new System.Windows.Forms.TabPage();
       this.panelSalvageDataOption = new System.Windows.Forms.Panel();
+      this.label14 = new System.Windows.Forms.Label();
+      this.checkBoxSalvageIgnoreHashCheck = new System.Windows.Forms.CheckBox();
       this.label13 = new System.Windows.Forms.Label();
       this.checkBoxSalvageIntoSameDirectory = new System.Windows.Forms.CheckBox();
       this.label12 = new System.Windows.Forms.Label();
@@ -1598,12 +1600,27 @@
       // 
       // panelSalvageDataOption
       // 
+      this.panelSalvageDataOption.Controls.Add(this.label14);
+      this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageIgnoreHashCheck);
       this.panelSalvageDataOption.Controls.Add(this.label13);
       this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageIntoSameDirectory);
       this.panelSalvageDataOption.Controls.Add(this.label12);
       this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageToCreateParentFolderOneByOne);
       resources.ApplyResources(this.panelSalvageDataOption, "panelSalvageDataOption");
       this.panelSalvageDataOption.Name = "panelSalvageDataOption";
+      // 
+      // label14
+      // 
+      resources.ApplyResources(this.label14, "label14");
+      this.label14.ForeColor = System.Drawing.Color.Green;
+      this.label14.Name = "label14";
+      // 
+      // checkBoxSalvageIgnoreHashCheck
+      // 
+      resources.ApplyResources(this.checkBoxSalvageIgnoreHashCheck, "checkBoxSalvageIgnoreHashCheck");
+      this.checkBoxSalvageIgnoreHashCheck.Name = "checkBoxSalvageIgnoreHashCheck";
+      this.checkBoxSalvageIgnoreHashCheck.UseVisualStyleBackColor = true;
+      this.checkBoxSalvageIgnoreHashCheck.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // label13
       // 
@@ -1617,6 +1634,7 @@
       this.checkBoxSalvageIntoSameDirectory.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxSalvageIntoSameDirectory.Name = "checkBoxSalvageIntoSameDirectory";
       this.checkBoxSalvageIntoSameDirectory.UseVisualStyleBackColor = true;
+      this.checkBoxSalvageIntoSameDirectory.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // label12
       // 
@@ -1630,6 +1648,7 @@
       this.checkBoxSalvageToCreateParentFolderOneByOne.ForeColor = System.Drawing.SystemColors.ControlText;
       this.checkBoxSalvageToCreateParentFolderOneByOne.Name = "checkBoxSalvageToCreateParentFolderOneByOne";
       this.checkBoxSalvageToCreateParentFolderOneByOne.UseVisualStyleBackColor = true;
+      this.checkBoxSalvageToCreateParentFolderOneByOne.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // tabPageLicense
       // 
@@ -2096,5 +2115,7 @@
     private System.Windows.Forms.ToolStripMenuItem extensionToolStripMenuItem;
     private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem dateToolStripMenuItem;
+    private System.Windows.Forms.CheckBox checkBoxSalvageIgnoreHashCheck;
+    private System.Windows.Forms.Label label14;
   }
 }

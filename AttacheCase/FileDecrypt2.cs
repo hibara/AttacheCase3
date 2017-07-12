@@ -1329,7 +1329,7 @@ namespace AttacheCase
         dialogInvalidChar(toCleanPath);
       }
       
-      return toCleanPath;
+      return ResuletPath;
 
     }
 

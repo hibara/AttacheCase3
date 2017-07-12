@@ -59,6 +59,7 @@ namespace Exeout
 		public Form1()
 		{
 			InitializeComponent();
+
 			this.Text = Path.GetFileName(Application.ExecutablePath);
 
       //MessageBox.Show(CultureInfo.CurrentCulture.Name);

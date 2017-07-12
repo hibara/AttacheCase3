@@ -697,11 +697,11 @@ namespace AttacheCase
         }
 
         /*
-		 * TTimeStamp = record
-		 *  Time: Integer;      { Number of milliseconds since midnight }
-		 *  Date: Integer;      { One plus number of days since 1/1/0001 }
-		 * end;
-		*/
+		     * TTimeStamp = record
+		     *  Time: Integer;      { Number of milliseconds since midnight }
+		     *  Date: Integer;      { One plus number of days since 1/1/0001 }
+		     * end;
+		    */
         //-----------------------------------
         // Last update timestamp
         if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
@@ -1186,8 +1186,11 @@ namespace AttacheCase
                         string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
                         if (hash != dic[FileIndex].Hash.ToString())
                         {
-                          e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
-                          return (false);
+                          if (AppSettings.Instance.fSalvageIgnoreHashCheck == false)
+                          {
+                            e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
+                            return (false);
+                          }
                         }
                       }
 
