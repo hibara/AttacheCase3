@@ -456,4 +456,11 @@
   <data name="AppName" xml:space="preserve">
     <value>アタッシェケース#3</value>
   </data>
+  <data name="DialogMessageDataNotFound" xml:space="preserve">
+    <value>暗号化するデータが見つかりません。ファイルは壊れています。
+復号できませんでした。</value>
+  </data>
+  <data name="labelInvalidChar" xml:space="preserve">
+    <value>パスに不正な文字列があります。置換して復号しますか？</value>
+  </data>
 </root>

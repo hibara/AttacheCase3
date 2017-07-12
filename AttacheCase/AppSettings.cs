@@ -938,6 +938,14 @@ namespace AttacheCase
       set { this._fSalvageIntoSameDirectory = value; }
     }
 
+    private bool _fSalvageIgnoreHashCheck;
+    // Ignore file hash value check.
+    public bool fSalvageIgnoreHashCheck
+    {
+      get { return this._fSalvageIgnoreHashCheck; }
+      set { this._fSalvageIgnoreHashCheck = value; }
+    }
+
     #endregion
 
     //----------------------------------------------------------------------

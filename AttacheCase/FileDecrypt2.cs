@@ -58,6 +58,7 @@ namespace AttacheCase
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -391,7 +392,8 @@ namespace AttacheCase
     /// <returns>Encryption success(true) or failed(false)</returns>
     public bool Decrypt(
 			object sender, DoWorkEventArgs e,
-			string FilePath, string OutDirPath, string Password, byte[] PasswordBinary, Action<int,string> dialog)
+			string FilePath, string OutDirPath, string Password, byte[] PasswordBinary, 
+      Action<int,string> dialogOverWrite, Action<string> dialogInvalidChar)
 		{
 			BackgroundWorker worker = sender as BackgroundWorker;
 			worker.WorkerSupportsCancellation = true;
@@ -513,11 +515,20 @@ namespace AttacheCase
                   len = cse.Read(byteArray, 0, _AtcHeaderSize);
                   ms.Write(byteArray, 0, _AtcHeaderSize);
 #if (DEBUG)
-                  string TempDecryptHeaderFilePath = Path.Combine(Path.GetDirectoryName(FilePath), "decrypt_header.txt");
+                  // UTF-8
+                  string TempDecryptHeaderFilePath = Path.Combine(Path.GetDirectoryName(FilePath), "decrypt_header_utf8.txt");
                   using (StreamWriter sw = new StreamWriter(TempDecryptHeaderFilePath, false, Encoding.UTF8))
                   {
                     sw.WriteLine(System.Text.Encoding.UTF8.GetString(byteArray));
                   }
+
+                  // Shift-JIS
+                  TempDecryptHeaderFilePath = Path.Combine(Path.GetDirectoryName(FilePath), "decrypt_header_932.txt");
+                  using (StreamWriter sw = new StreamWriter(TempDecryptHeaderFilePath, false, Encoding.GetEncoding(932)))
+                  {
+                    sw.WriteLine(System.Text.Encoding.GetEncoding(932).GetString(byteArray));
+                  }
+
 #endif
                   // Check Password Token
                   if (Encoding.UTF8.GetString(byteArray).IndexOf("Passcode:AttacheCase") > -1)
@@ -583,6 +594,7 @@ namespace AttacheCase
                 len = cse.Read(byteArray, 0, _AtcHeaderSize);
                 ms.Write(byteArray, 0, _AtcHeaderSize);
 
+                ms.Position = 0;
                 var sr = new StreamReader(ms, Encoding.UTF8);
                 string line;
                 while ((line = sr.ReadLine()) != null)
@@ -683,6 +695,9 @@ namespace AttacheCase
 					}
 				}
 
+        ParentFolder = cleanPath(ParentFolder, dialogInvalidChar);
+        FilePathSplits[1] = cleanPath(FilePathSplits[1], dialogInvalidChar);
+        
 				//-----------------------------------
 				// Salvage mode
 				string OutFilePath = "";
@@ -713,54 +728,68 @@ namespace AttacheCase
 					fd.FileAttribute = -1;
 				}
 
-				/*
+        /*
 					* TTimeStamp = record
 					*  Time: Integer;      { Number of milliseconds since midnight }
 					*  Date: Integer;      { One plus number of days since 1/1/0001 }
 					* end;
 				*/
-				//-----------------------------------
-				// Last update timestamp
-				if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[3], out LastWriteDate) == true)
-				{
-					LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate - 1);	// Add days
-				}
-				else
-				{
-					LastWriteDateTime = DateTime.Now;
-				}
+        //-----------------------------------
+        // Last update timestamp
+        try
+        {
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[3], out LastWriteDate) == true)
+          {
+            LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate - 1); // Add days
+          }
+          else
+          {
+            LastWriteDateTime = DateTime.Now;
+          }
 
-				if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
-				{
-					LastWriteDateTime = LastWriteDateTime.AddMilliseconds(LastWriteTime).AddHours(9);
-				}
-				else
-				{
-					LastWriteDateTime = DateTime.Now;
-				}
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
+          {
+            LastWriteDateTime = LastWriteDateTime.AddMilliseconds(LastWriteTime).AddHours(9);
+          }
+          else
+          {
+            LastWriteDateTime = DateTime.Now;
+          }
+        }
+        catch
+        {
+          LastWriteDateTime = DateTime.Now;
+        }
 
-				fd.LastWriteDateTime = LastWriteDateTime;
+        fd.LastWriteDateTime = LastWriteDateTime;
 
-				//-----------------------------------
-				// Create datetime
-				if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[5], out CreateDate) == true)
-				{
-					CreationDateTime = CreationDateTime.AddDays(CreateDate - 1);
-				}
-				else
-				{
-					CreationDateTime = DateTime.Now;
-				}
-				if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[6], out CreateTime) == true)
-				{
-					CreationDateTime = CreationDateTime.AddMilliseconds(CreateTime).AddHours(9);
-				}
-				else
-				{
-					CreationDateTime = DateTime.Now;
-				}
+        //-----------------------------------
+        // Create datetime
+        try
+        {
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[5], out CreateDate) == true)
+          {
+            CreationDateTime = CreationDateTime.AddDays(CreateDate - 1);
+          }
+          else
+          {
+            CreationDateTime = DateTime.Now;
+          }
+          if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[6], out CreateTime) == true)
+          {
+            CreationDateTime = CreationDateTime.AddMilliseconds(CreateTime).AddHours(9);
+          }
+          else
+          {
+            CreationDateTime = DateTime.Now;
+          }
+        }
+        catch
+        {
+          CreationDateTime = DateTime.Now;
+        }
 
-				fd.CreationDateTime = CreationDateTime;
+        fd.CreationDateTime = CreationDateTime;
 
         //-----------------------------------
 				// Insert to 'Key-Value' type array data.
@@ -900,12 +929,14 @@ namespace AttacheCase
                 }
 
                 //----------------------------------------------------------------------
+                bool fDataFound = false;
                 byteArray = new byte[BUFFER_SIZE];
                 while ((len = ds.Read(byteArray, 0, BUFFER_SIZE)) > 0)
                 {
                   int buffer_size = len;
                   while (len > 0)
                   {
+                    fDataFound = true;
                     //----------------------------------------------------------------------
                     // If there is no file or folder under writing, make it
                     //----------------------------------------------------------------------
@@ -934,6 +965,7 @@ namespace AttacheCase
                         if (dic[FileIndex].FilePath.EndsWith("\\") == true)
                         {
                           string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
+                          //path = cleanPath(path, dialogInvalidChar);
                           DirectoryInfo di = new DirectoryInfo(path);
 
                           // File already exists.
@@ -966,7 +998,7 @@ namespace AttacheCase
                             else
                             {
                               // Show dialog of comfirming to overwrite. 
-                              dialog(0, path);
+                              dialogOverWrite(0, path);
 
                               // Cancel
                               if (_TempOverWriteOption == USER_CANCELED)
@@ -1015,6 +1047,7 @@ namespace AttacheCase
                         else
                         {
                           string path = Path.Combine(OutDirPath, dic[FileIndex].FilePath);
+                          //path = cleanPath(path, dialogInvalidChar);
                           FileInfo fi = new FileInfo(path);
 
                           // File already exists.
@@ -1059,7 +1092,7 @@ namespace AttacheCase
                               else
                               {
                                 // Show dialog of comfirming to overwrite. 
-                                dialog(0, path);
+                                dialogOverWrite(0, path);
 
                                 // Cancel
                                 if (_TempOverWriteOption == USER_CANCELED)
@@ -1223,6 +1256,13 @@ namespace AttacheCase
                   outfs.Close();
                 }
 
+                // Data is not read at all.
+                if (fDataFound == false)
+                {
+                  e.Result = new FileDecryptReturnVal(DATA_NOT_FOUND);
+                  return (false);
+                }
+
               }// end using (DeflateStream ds = new DeflateStream(cse, CompressionMode.Decompress));
 
             }// end using (CryptoStream cse = new CryptoStream(fs, decryptor, CryptoStreamMode.Read));
@@ -1265,6 +1305,34 @@ namespace AttacheCase
 
 
     }// end Decrypt2();
+
+
+    //======================================================================
+    // パスに無効な文字列がある場合は、指定された文字列に置き換えられます。
+    // When there is an invalid character string in the path, it replaces with the specified character string. 
+    //======================================================================
+    private string cleanPath(string toCleanPath, Action<string>dialogInvalidChar)
+    {
+      string[] pathParts = toCleanPath.Split(new char[] { '\\' });
+      for ( int i = 0; i < pathParts.Length; i++)
+      {
+        foreach (char badChar in Path.GetInvalidFileNameChars())
+        {
+          pathParts[i] = pathParts[i].Replace(badChar.ToString(), "="); // Replace string.
+        }
+      }
+
+      string ResuletPath = String.Join(@"\", pathParts);
+
+      if (ResuletPath != toCleanPath)
+      {
+        dialogInvalidChar(toCleanPath);
+      }
+      
+      return ResuletPath;
+
+    }
+
 
     //======================================================================
     /// <summary>

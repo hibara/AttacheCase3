@@ -462,4 +462,11 @@ Move to a place (eg Desktop) where you can read and write files and try again.</
   <data name="AppName" xml:space="preserve">
     <value>AttachéCase#3</value>
   </data>
+  <data name="DialogMessageDataNotFound" xml:space="preserve">
+    <value>Encrypted data not found. The file is broken.
+Decryption failed.</value>
+  </data>
+  <data name="labelInvalidChar" xml:space="preserve">
+    <value>Invalid character string in path. Do you replace it and decrypt it?</value>
+  </data>
 </root>

@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016  Mitsuhiro Hibara
+// Copyright (C) 2017  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -19,27 +19,58 @@ using System;
 using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
+using System.Runtime.InteropServices;
+
+
+using System.Diagnostics;
+using System.IO;
+using System.Security.Principal;
+using Microsoft.Win32;
+
 
 namespace Exeout
 {
-	static class Program
+
+  static class Program
 	{
-		/// <summary>
-		/// アプリケーションのメイン エントリ ポイントです。
-		/// </summary>
-		[STAThread]
+    //[DllImport("kernel32", CharSet = CharSet.Unicode, SetLastError = true)]
+    //internal static extern IntPtr LoadLibrary(string lpFileName);
+
+    //[DllImport("kernel32.dll", SetLastError = true)]
+    //static extern bool SetSearchPathMode(uint Flags);
+
+    //[DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+    //[return: MarshalAs(UnmanagedType.Bool)]
+    //public static extern bool SetDllDirectory(string lpPathName);
+
+    /// <summary>
+    /// アプリケーションのメイン エントリ ポイントです。
+    /// </summary>
+    [STAThread]
 		static void Main()
 		{
-			CultureInfo ci = Thread.CurrentThread.CurrentUICulture;
+
+
+      //SetDllDirectory("");
+      //MessageBox.Show("SetDllDirectory!");
+
+      //IntPtr handle = LoadLibrary("");
+
+      //SetSearchPathMode(0x00000001 | 0x00008000);
+      //IntPtr handle = LoadLibrary("schannel.dll");
+
+
+
+      CultureInfo ci = Thread.CurrentThread.CurrentUICulture;
 			//Console.WriteLine(ci.Name);  // ja-JP
 			if (ci.Name == "ja-JP")
 			{
 				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", false);
 			}
 
-			Application.EnableVisualStyles();
+      Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+      Application.Run(new Form1());
 
 		}
 	}

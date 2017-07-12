@@ -115,6 +115,7 @@ namespace AttacheCase
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
@@ -704,6 +705,7 @@ namespace AttacheCase
         /*
 		     * TTimeStamp = record
 		     *  Time: Integer;      { Number of seconds since midnight }
+		     *  Time: Integer;      { Number of milliseconds since midnight }
 		     *  Date: Integer;      { One plus number of days since 1/1/0001 }
 		     * end;
 		    */
@@ -1229,8 +1231,11 @@ namespace AttacheCase
                         string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
                         if (hash != dic[FileIndex].Hash.ToString())
                         {
-                          e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
-                          return (false);
+                          if (AppSettings.Instance.fSalvageIgnoreHashCheck == false)
+                          {
+                            e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
+                            return (false);
+                          }
                         }
                       }
 

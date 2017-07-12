@@ -35,7 +35,6 @@ namespace AttacheCase
     private const int SKIP           = 5;
     private const int SKIP_ALL       = 6;
 
-
     private int OverwriteButtonTextNum = OVERWRITE;
     private int SkipButtonTextNum = SKIP;
 
@@ -62,20 +61,34 @@ namespace AttacheCase
 		{
 			get { return _AskEncryptOrDecrypt; }
 		}
-		
-		public Form4(string InputType, string MessageText)
-		{
 
+    // When there is an illegal path character string, it asks whether to substitute.
+    private int _InvalidCharOption;
+    public int InvalidCharOption
+    {
+      get { return _InvalidCharOption; }
+    }
+
+    //-----------------------------------
+
+    public Form4(string InputType, string MessageText)
+		{
 			InitializeComponent();
 
 			fLoading = true;
 
 			tabControl1.Visible = false;
-			panelInputPassword.Parent = panelOuter;
-			panelOverwriteConfirm.Parent = panelOuter;
-			panelAskEncryptOrDecrypt.Parent = panelOuter;
+      panelInputPassword.Parent = panelOuter;
+      panelOverwriteConfirm.Parent = panelOuter;
+      panelAskEncryptOrDecrypt.Parent = panelOuter;
+      panelInvalidChar.Parent = panelOuter;
 
-			_FormType = InputType;
+      panelInputPassword.Visible = false;
+      panelOverwriteConfirm.Visible = false;
+      panelAskEncryptOrDecrypt.Visible = false;
+      panelInvalidChar.Visible = false;
+
+      _FormType = InputType;
 
 			//-----------------------------------
 			// パスワード入力ウィンドウ
@@ -127,11 +140,20 @@ namespace AttacheCase
         panelAskEncryptOrDecrypt.Visible = true;
 				this.Text = Resources.DialogTitleQuestion;
 			}
-			//-----------------------------------
-			// 無指定？
+      //-----------------------------------
+      // 
+      else if (_FormType == "InvalidChar")
+      {
+        panelInvalidChar.Visible = true;
+        this.Text = Resources.DialogTitleError;
+        labelInvalidChar.Text = MessageText;
+
+      }
+      //-----------------------------------
+      // 無指定？
       // None?
-			else
-			{
+      else
+      {
 				return;
 			}
 
@@ -399,11 +421,27 @@ namespace AttacheCase
 			this.Close();
 		}
 
-
-
-
     #endregion
 
+    //======================================================================
+    // 不正なパスの文字列があるとき、置換するか問い合わせる
+    // When there is an illegal path character string, it asks whether to substitute.
+    //======================================================================
+    #region
+
+    private void buttonInvalidCharYes_Click(object sender, EventArgs e)
+    {
+      _InvalidCharOption = 1;
+      this.Close();
+    }
+
+    private void buttonInvalidCharCancel_Click(object sender, EventArgs e)
+    {
+      _InvalidCharOption = -1;
+      this.Close();
+    }
+
+    #endregion
   }
 
 }
