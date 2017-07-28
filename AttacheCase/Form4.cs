@@ -392,7 +392,7 @@ namespace AttacheCase
 
     private void buttonOverwriteCancel_Click(object sender, EventArgs e)
 		{
-			_OverWriteOption = -1;
+			_OverWriteOption = USER_CANCELED;
 			this.Close();
 		}
     

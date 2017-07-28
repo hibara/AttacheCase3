@@ -542,6 +542,8 @@ namespace AttacheCase
     System.Threading.ManualResetEvent _busy = new System.Threading.ManualResetEvent(false);
     private void DialogMessageForOverWrite(int FileType, string FilePath)
     {
+      TempOverWriteOption = USER_CANCELED;
+
       if (decryption2 == null)
       {
         // Not confirm
@@ -600,7 +602,15 @@ namespace AttacheCase
       frm4.ShowDialog();
 
       TempOverWriteOption = frm4.OverWriteOption;
-
+      if (decryption2 == null)
+      {
+        decryption3.TempOverWriteOption = TempOverWriteOption;
+      }
+      else
+      {
+        decryption2.TempOverWriteOption = TempOverWriteOption;
+      }
+      
       frm4.Dispose();
 
       if (TempOverWriteOption == USER_CANCELED || TempOverWriteOption == SKIP_ALL)
@@ -4185,6 +4195,7 @@ namespace AttacheCase
         {
           LimitOfInputPassword = decryption3.MissTypeLimits;
         }
+        decryption3.fSalvageIgnoreHashCheck = AppSettings.Instance.fSalvageIgnoreHashCheck;
         toolStripStatusLabelDataVersion.Text = "Data ver.3";
         this.Update();
 

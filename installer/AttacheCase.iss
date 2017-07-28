@@ -39,7 +39,7 @@ SignTool=MySignTool
 ;-----------------------------------
 VersionInfoVersion={#MyAppVer}
 ;VersionInfoDescription={cm:SetUpProgramDescription}
-AppCopyright=Copyright(C) 2016 M.Hibara, All rights reserved.
+AppCopyright=Copyright(C) 2017 M.Hibara, All rights reserved.
 ;SetupIconFile=icon\main_icon.ico
 ;ウィザードページに表示されるグラフィック（*.bmp: 164 x 314）
 ;Graphic in wizard page.

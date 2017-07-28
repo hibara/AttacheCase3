@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------- 
+//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
 // Copyright (C) 2017  Mitsuhiro Hibara
 // 
@@ -233,6 +233,14 @@ namespace AttacheCase
     public bool fExecutableType
     {
       get { return this._fExecutableType; }
+    }
+
+    // ファイルのハッシュ値チェックを無視する
+    private bool _fSalvageIgnoreHashCheck = false;
+    public bool fSalvageIgnoreHashCheck
+    {
+      get { return this._fSalvageIgnoreHashCheck; }
+      set { this._fSalvageIgnoreHashCheck = value; }
     }
 
     //----------------------------------------------------------------------
@@ -1228,15 +1236,16 @@ namespace AttacheCase
 
                         // ハッシュ値のチェック
                         // Check the hash of a file
-                        string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
-                        if (hash != dic[FileIndex].Hash.ToString())
+                        if (_fSalvageIgnoreHashCheck == false)
                         {
-                          if (AppSettings.Instance.fSalvageIgnoreHashCheck == false)
+                          string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
+                          if (hash != dic[FileIndex].Hash.ToString())
                           {
                             e.Result = new FileDecryptReturnVal(NOT_CORRECT_HASH_VALUE, dic[FileIndex].FilePath);
                             return (false);
                           }
                         }
+
                       }
 
                       FileSize = 0;
