@@ -21,8 +21,10 @@ jp.mdSampleFile=help-ja.md
 en.LaunchProgram=Launch AttacheCase3 after finishing installation.
 jp.LaunchProgram=インストール完了後に、アタッシェケース#3 を起動します。
 
-[Setup]AppName={cm:AppName}
-AppVersion={#MyAppVer}AppVerName={cm:AppName} ver.{#MyAppVer}
+[Setup]
+AppName={cm:AppName}
+AppVersion={#MyAppVer}
+AppVerName={cm:AppName} ver.{#MyAppVer}
 DefaultGroupName={cm:AppName}
 OutputBaseFilename=atcs{#MyAppVerNum}
 DefaultDirName={pf}\AttacheCase3
@@ -31,7 +33,8 @@ AppendDefaultDirName=yes
 OutputDir=.\archives
 TouchTime=00:00
 ShowLanguageDialog=yes
-UsePreviousLanguage=noSignedUninstaller=yes
+UsePreviousLanguage=no
+SignedUninstaller=yes
 SignTool=MySignTool
 
 ;-----------------------------------
@@ -39,7 +42,7 @@ SignTool=MySignTool
 ;-----------------------------------
 VersionInfoVersion={#MyAppVer}
 ;VersionInfoDescription={cm:SetUpProgramDescription}
-AppCopyright=Copyright(C) 2017 M.Hibara, All rights reserved.
+AppCopyright=Copyright(C) 2018 M.Hibara, All rights reserved.
 ;SetupIconFile=icon\main_icon.ico
 ;ウィザードページに表示されるグラフィック（*.bmp: 164 x 314）
 ;Graphic in wizard page.
@@ -68,7 +71,8 @@ AppPublisherURL=https://hibara.org
 AppContact=m@hibara.org
 ;サポートサイトURL
 AppSupportURL=https://hibara.org/software/
-;ReadMeファイルパス;AppReadmeFile="{app}\AttacheCase3\readme.txt"
+;ReadMeファイルパス
+;AppReadmeFile="{app}\AttacheCase3\readme.txt"
 ;製品更新先のURL
 AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明

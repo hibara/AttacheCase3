@@ -1,6 +1,6 @@
 //---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2017  Mitsuhiro Hibara
+// Copyright (C) 2018  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -632,7 +632,7 @@ namespace AttacheCase
         //-----------------------------------
         // ディレクトリ・トラバーサル対策
         // Directory traversal countermeasures
-        if (OutputFileData[0].IndexOf(@"..\") >= 0)
+        if (Regex.IsMatch(OutputFileData[0], @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
         {
           fDirectoryTraversal = true;
           InvalidFilePath = OutputFileData[0];
@@ -645,7 +645,7 @@ namespace AttacheCase
         {
           if (FileNum == 0)
           {
-            if(FilePathSplits.Length > 2)  // ルートディレクトリ（ex. 0:G:\Test.txt）
+            if(FilePathSplits.Length > 2)  // root directory（ex. 0:G:\Test.txt）
             {
               ParentFolder = FilePathSplits[2];
             }
@@ -656,7 +656,7 @@ namespace AttacheCase
           }
           else
           {
-            if (FilePathSplits.Length > 2)  // ルートディレクトリ
+            if (FilePathSplits.Length > 2)  // root directory
             {
               StringBuilder sb = new StringBuilder(FilePathSplits[2]);
               len = ParentFolder.Length;

@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016  Mitsuhiro Hibara
+// Copyright (C) 2018  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -314,7 +314,7 @@ namespace AttacheCase
         numericUpDownLaunchFiles.Value = AppSettings.Instance.ShowDialogWhenMultipleFilesNum;
       }
       checkBoxAskEncDecode.Checked = AppSettings.Instance.fAskEncDecode;
-			checkBoxNoHidePassword.Checked = AppSettings.Instance.fNoHidePassword;
+			checkBoxNoHidePassword.Checked = AppSettings.Instance.fNotMaskPassword;
 			if (lang == "ja")
 			{
 				comboBoxLanguage.Items.Add("既定値");
@@ -999,7 +999,7 @@ THE SOFTWARE.
       AppSettings.Instance.ShowDialogWhenMultipleFilesNum = Decimal.ToInt32(numericUpDownLaunchFiles.Value);
                                                            
       AppSettings.Instance.fAskEncDecode = checkBoxAskEncDecode.Checked;
-			AppSettings.Instance.fNoHidePassword = checkBoxNoHidePassword.Checked;
+			AppSettings.Instance.fNotMaskPassword = checkBoxNoHidePassword.Checked;
 			AppSettings.Instance.TabSelectedIndex = tabControl1.SelectedIndex;
 
 			// Language

@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2017  Mitsuhiro Hibara
+// Copyright (C) 2018  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -603,9 +603,9 @@ namespace AttacheCase
                   {
                     // ディレクトリ・トラバーサル対策
                     // Directory traversal countermeasures
-                    if (line.IndexOf(@"..\") >= 0)
+                    if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
                     {
-                      e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
                       return (false);
                     }
                     else
@@ -627,7 +627,7 @@ namespace AttacheCase
                     {
                       // ディレクトリ・トラバーサル対策
                       // Directory traversal countermeasures
-                      if (line.IndexOf(@"..\") >= 0)
+                      if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
                       {
                         e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
                         return (false);

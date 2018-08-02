@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2017  Mitsuhiro Hibara
+// Copyright (C) 2018  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -2184,7 +2184,7 @@ namespace AttacheCase
 
         // Not mask password character
         // 「*」で隠さずパスワードを確認しながら入力する
-        if (AppSettings.Instance.fNoHidePassword == true)
+        if (AppSettings.Instance.fNotMaskPassword == true)
         {
           checkBoxNotMaskEncryptedPassword.Checked = true;
         }
@@ -2677,12 +2677,14 @@ namespace AttacheCase
         textBoxPassword.UseSystemPasswordChar = false;
         textBoxRePassword.PasswordChar = (char)0;
         textBoxRePassword.UseSystemPasswordChar = false;
+        AppSettings.Instance.fNotMaskPassword = true;
       }
       else
       {
         checkBoxReNotMaskEncryptedPassword.Checked = false;
         textBoxPassword.UseSystemPasswordChar = true;
         textBoxRePassword.UseSystemPasswordChar = true;
+        AppSettings.Instance.fNotMaskPassword = false;
       }
     }
 
@@ -2695,12 +2697,14 @@ namespace AttacheCase
         textBoxPassword.UseSystemPasswordChar = false;
         textBoxRePassword.PasswordChar = (char)0;
         textBoxRePassword.UseSystemPasswordChar = false;
+        AppSettings.Instance.fNotMaskPassword = true;
       }
       else
       {
         checkBoxNotMaskEncryptedPassword.Checked = false;
         textBoxPassword.UseSystemPasswordChar = true;
         textBoxRePassword.UseSystemPasswordChar = true;
+        AppSettings.Instance.fNotMaskPassword = false;
       }
 
     }
@@ -3757,7 +3761,6 @@ namespace AttacheCase
     {
       textBoxPassword.Text = "";
       textBoxRePassword.Text = "";
-      checkBoxNotMaskEncryptedPassword.Checked = false;
       AppSettings.Instance.TempEncryptionPassFilePath = "";
       //
       //スタートウィンドウへ戻る

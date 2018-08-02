@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016  Mitsuhiro Hibara
+// Copyright (C) 2018  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -20,13 +20,12 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Net;
 using AttacheCase.Properties;
+using System.IO;
 
 namespace AttacheCase
 {
   public partial class Form2 : Form
   {
-
-    WebClient client;
 
     public Form2()
     {
@@ -39,23 +38,12 @@ namespace AttacheCase
       labelVersion.Text = "Version." + ApplicationInfo.Version;
       labelCopyright.Text = ApplicationInfo.CopyrightHolder;
 
-      //labelBeta.Left = labelVersion.Left + labelVersion.Width;
-      //labelBeta.Top = labelVersion.Top;
-
       linkLabelCheckForUpdates.Left = pictureBoxApplicationIcon.Left;
 
 #if (MS_STORE)
       linkLabelCheckForUpdates.Visible = false;
 #endif
 
-    }
-
-    private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-    {
-      if (client != null)
-      {
-        client.CancelAsync();
-      }
     }
 
     private void buttonOK_Click(object sender, EventArgs e)
@@ -84,22 +72,19 @@ namespace AttacheCase
       linkLabelCheckForUpdates.Left = pictureBoxProgressCircle.Left + pictureBoxProgressCircle.Width;
       // "Checking for update..."
       linkLabelCheckForUpdates.Text = Resources.linkLabelCheckingForUpdates;
-      linkLabelCheckForUpdates.Update();
+      this.Refresh();
 
       try
       {
-        using (client = new WebClient())
-        {
-          // Check the update in server.
-          client.DownloadStringCompleted += (s, ev) =>
-          {
-            if (ev.Cancelled)
-            {
-              client.Dispose();
-              return;
-            }
 
-            int current = int.Parse(ev.Result);
+        using (WebClient webClient = new WebClient())
+        {
+          var stream = webClient.OpenRead(new Uri("http://hibara.org/software/attachecase/current/"));
+
+          using (StreamReader sr = new StreamReader(stream))
+          {
+            var content = sr.ReadToEnd();
+            int current = int.Parse(content);
             if (current > AppSettings.Instance.AppVersion)
             {
               pictureBoxProgressCircle.Image = pictureBoxExclamationMark.Image;
@@ -114,13 +99,11 @@ namespace AttacheCase
               linkLabelCheckForUpdates.Enabled = false;
             }
 
-          };
-
-          Uri url = new Uri("https://hibara.org/software/attachecase/current/");
-          client.DownloadStringAsync(url);
+          }
         }
+        
       }
-      catch (Exception exp)
+      catch
       {
         // "Getting updates information is failed."
         linkLabelCheckForUpdates.Text = Resources.linkLabelCheckForUpdatesFailed;
@@ -129,68 +112,67 @@ namespace AttacheCase
       }
 
     }
-
+    
   }
-
-
+  
   /// <summary>
   /// アセンブリ情報を取得する
   /// Get assembly infomations
   /// http://stackoverflow.com/questions/909555/how-can-i-get-the-assembly-file-version
   /// </summary>
   static public class ApplicationInfo
-	{
-		public static Version Version { get { return Assembly.GetCallingAssembly().GetName().Version; } }
+  {
+    public static Version Version { get { return Assembly.GetCallingAssembly().GetName().Version; } }
+	  public static string Title
+	  {
+		  get
+		  {
+			  object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+			  if (attributes.Length > 0)
+			  {
+				  AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+				  if (titleAttribute.Title.Length > 0) return titleAttribute.Title;
+			  }
+			  return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+		  }
+	  }
 
-		public static string Title
-		{
-			get
-			{
-				object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
-				if (attributes.Length > 0)
-				{
-					AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
-					if (titleAttribute.Title.Length > 0) return titleAttribute.Title;
-				}
-				return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
-			}
-		}
+	  public static string ProductName
+	  {
+		  get
+		  {
+			  object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+			  return attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
+		  }
+	  }
 
-		public static string ProductName
-		{
-			get
-			{
-				object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
-				return attributes.Length == 0 ? "" : ((AssemblyProductAttribute)attributes[0]).Product;
-			}
-		}
+	  public static string Description
+	  {
+		  get
+		  {
+			  object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+			  return attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
+		  }
+	  }
 
-		public static string Description
-		{
-			get
-			{
-				object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-				return attributes.Length == 0 ? "" : ((AssemblyDescriptionAttribute)attributes[0]).Description;
-			}
-		}
+	  public static string CopyrightHolder
+	  {
+		  get
+		  {
+			  object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+			  return attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+		  }
+	  }
 
-		public static string CopyrightHolder
-		{
-			get
-			{
-				object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-				return attributes.Length == 0 ? "" : ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
-			}
-		}
+	  public static string CompanyName
+	  {
+		  get
+		  {
+			  object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+			  return attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
+		  }
+	  }
 
-		public static string CompanyName
-		{
-			get
-			{
-				object[] attributes = Assembly.GetCallingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-				return attributes.Length == 0 ? "" : ((AssemblyCompanyAttribute)attributes[0]).Company;
-			}
-		}
+  }
 
-	}
 }

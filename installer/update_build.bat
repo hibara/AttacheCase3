@@ -1,6 +1,7 @@
 @echo. ======================================================================
 @echo. Batch process file that create installer to package.
 @echo. 
+@echo. * Required "ILMerge"
 @echo. * Required "Inno Setup 5" later
 @echo. * Required "7Zip"
 @echo. ======================================================================
@@ -21,7 +22,6 @@ msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platfor
 @echo -----------------------------------
 @echo Rebuild AtcSetup.exe
 @echo -----------------------------------
-
 
 msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
 
@@ -68,15 +68,6 @@ SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin";%PATH%
 SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
 SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
 
-
-@rem if exist "code_signing\_password.txt" (
-
-@rem for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i 
-@rem )
-
-@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AttacheCase.exe
-@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 bin\AtcSetup.exe
-
 signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
 signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe
 
@@ -100,13 +91,6 @@ echo %ERRORLEVEL%
 @echo. Code signing to Installer
 @echo. -----------------------------------
 
-@rem if exist "code_signing\_password.txt" (
-
-@rem for /f "tokens=*" %%i in (code_signing\_password.txt) do Set PASS=%%i
-@rem )
-
-@rem signtool.exe sign /v /fd sha256 /f code_signing\OS201608304212.pfx /p %PASS% /t http://timestamp.globalsign.com/?signature=sha2 Archives\atc*.exe
-
 signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 Archives\atc*.exe
 
 
@@ -116,7 +100,9 @@ signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.global
 @echo. -----------------------------------
 
 @rem Get version number
-for /F "delims=" %%s in ('..\tools\getver\getver\bin\Release\GetVer.exe bin\AttacheCase.exe') do @set NUM=%%s
+for /F "delims=" %%s in ('..\tools\GetVer\GetVer\bin\Release\GetVer.exe bin\AttacheCase.exe') do @set NUM=%%s
+
+echo "ver.%NUM%"
 
 @rem ZIP
 cd bin
@@ -135,7 +121,7 @@ cd ..\
 
 @echo. 
 @echo. -----------------------------------
-@echo. Delete temporary directrory
+@echo. Delete orary directrory
 @echo. -----------------------------------
 
 @rem rd /s /q "bin"
