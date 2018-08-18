@@ -629,24 +629,18 @@ namespace AttacheCase
         {
           FileNum = -1;
         }
-        //-----------------------------------
-        // ディレクトリ・トラバーサル対策
-        // Directory traversal countermeasures
-        if (Regex.IsMatch(OutputFileData[0], @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
-        {
-          fDirectoryTraversal = true;
-          InvalidFilePath = OutputFileData[0];
-        }
 
         //-----------------------------------
         // Parent folder is not created.
         //
         if (_fNoParentFolder == true)
         {
+          // root directory
           if (FileNum == 0)
           {
-            if(FilePathSplits.Length > 2)  // root directory（ex. 0:G:\Test.txt）
+            if(FilePathSplits.Length > 2)
             {
+              // ex. 0:G:\Test.txt
               ParentFolder = FilePathSplits[2];
             }
             else
@@ -654,9 +648,10 @@ namespace AttacheCase
               ParentFolder = FilePathSplits[1];
             }
           }
+          // not root directroy ( files )
           else
           {
-            if (FilePathSplits.Length > 2)  // root directory
+            if (FilePathSplits.Length > 2)
             {
               StringBuilder sb = new StringBuilder(FilePathSplits[2]);
               len = ParentFolder.Length;
@@ -690,8 +685,34 @@ namespace AttacheCase
             OutFilePath = Path.Combine(OutDirPath, FilePathSplits[1]);
           }
         }
-        fd.FilePath = OutFilePath;
 
+        //-----------------------------------
+        // ディレクトリ・トラバーサル対策
+        // Directory traversal countermeasures
+        try
+        {
+          // ファイルパスを正規化
+          // Canonicalize file path.
+          OutFilePath = Path.GetFullPath(OutFilePath);
+        }
+        catch
+        {
+          fDirectoryTraversal = true;
+          InvalidFilePath = OutFilePath;
+        }
+
+        // 正規化したパスが保存先と一致するか
+        // Whether the canonicalized path matches the save destination
+        if (OutFilePath.StartsWith(OutDirPath))
+        {
+          fd.FilePath = OutFilePath;
+        }
+        else
+        {
+          fDirectoryTraversal = true;
+          InvalidFilePath = OutFilePath;
+        }
+        
         //-----------------------------------
         // File size
         if (Int64.TryParse(OutputFileData[1], out fd.FileSize) == false)
@@ -901,6 +922,7 @@ namespace AttacheCase
                   public DateTime CreationDateTime;
                   public string Sha256String;
                 }
+                Dictionary<int, FileListData> dic = new Dictionary<int, FileListData>();
                 */
                 FileStream outfs = null;
                 Int64 FileSize = 0;

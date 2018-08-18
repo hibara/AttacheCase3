@@ -141,7 +141,8 @@ namespace AttacheCase
 				this.Text = Resources.DialogTitleQuestion;
 			}
       //-----------------------------------
-      // 
+      // パスに不正な文字列が含まれるときのエラーダイアログ
+      // Error dialog when incorrect path string
       else if (_FormType == "InvalidChar")
       {
         panelInvalidChar.Visible = true;

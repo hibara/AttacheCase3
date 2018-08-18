@@ -603,16 +603,16 @@ namespace AttacheCase
                   {
                     // ディレクトリ・トラバーサル対策
                     // Directory traversal countermeasures
-                    if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
-                    {
-                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
-                      return (false);
-                    }
-                    else
-                    {
+//                    if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
+//                    {
+//                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+//                      return (false);
+//                    }
+//                    else
+//                    {
                       FileList.Add(line);
                       prefix = 2;
-                    }
+//                    }
                   }
                 }
 
@@ -627,16 +627,16 @@ namespace AttacheCase
                     {
                       // ディレクトリ・トラバーサル対策
                       // Directory traversal countermeasures
-                      if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
-                      {
-                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
-                        return (false);
-                      }
-                      else
-                      {
+//                      if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
+//                      {
+//                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
+//                        return (false);
+//                      }
+//                      else
+//                      {
                         FileList.Add(line);
                         prefix = 3;
-                      }
+//                      }
                     }
                   }
                 }
@@ -661,7 +661,7 @@ namespace AttacheCase
       //----------------------------------------------------------------------
       _TotalFileSize = 0;
 			string ParentFolder = "";
-			FileList.ForEach(delegate(string OutputLine)
+      foreach (var OutputLine in FileList)
 			{
         Double LastWriteDate, LastWriteTime;
         Double CreateDate, CreateTime;
@@ -685,31 +685,57 @@ namespace AttacheCase
 				// File path
 				if (_fNoParentFolder == true)
 				{
+          // root directory
 					if (FileNum == 0)
 					{
-						ParentFolder = FilePathSplits[1];
-					}
-					else
+            ParentFolder = cleanPath(FilePathSplits[1], dialogInvalidChar);
+          }
+          // Other files or directries
+          else
 					{
 						FilePathSplits[1] = FilePathSplits[1].Replace(ParentFolder, "");
-					}
-				}
+            FilePathSplits[1] = cleanPath(FilePathSplits[1], dialogInvalidChar);
+          }
+        }
 
-        ParentFolder = cleanPath(ParentFolder, dialogInvalidChar);
-        FilePathSplits[1] = cleanPath(FilePathSplits[1], dialogInvalidChar);
-        
-				//-----------------------------------
-				// Salvage mode
 				string OutFilePath = "";
-				if (_fSalvageIntoSameDirectory == true)
-				{
-					OutFilePath = Path.Combine(OutDirPath, Path.GetFileName(FilePathSplits[1]));
+				if (_fSalvageIntoSameDirectory == true) // Salvage mode
+        {
+          OutFilePath = Path.Combine(OutDirPath, Path.GetFileName(FilePathSplits[1]));
 				}
 				else
 				{
 					OutFilePath = Path.Combine(OutDirPath, FilePathSplits[1]);
 				}
-				fd.FilePath = OutFilePath;
+
+        //-----------------------------------
+        // ディレクトリ・トラバーサル対策
+        // Directory traversal countermeasures
+        try
+        {
+          // ファイルパスを正規化
+          // Canonicalize file path.
+          OutFilePath = Path.GetFullPath(OutFilePath);
+        }
+        catch
+        {
+          e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, OutFilePath);
+          return (false);
+        }
+
+        // 正規化したパスが保存先と一致するか
+        // Whether the canonicalized path matches the save destination
+        if (OutFilePath.StartsWith(OutDirPath))
+        {
+          fd.FilePath = OutFilePath;
+        }
+        else
+        {
+          e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, OutFilePath);
+          return (false);
+        }
+        
+        fd.FilePath = OutFilePath;
 
 				//-----------------------------------
 				// File size
@@ -795,7 +821,7 @@ namespace AttacheCase
 				// Insert to 'Key-Value' type array data.
 				dic.Add(FileNum, fd);
 
-			});
+      } // end foreach (var OutputLine in FileList);
 
       try
       {

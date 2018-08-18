@@ -32,6 +32,9 @@ namespace AttacheCase
     [STAThread]
     static void Main()
     {
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+
       //-----------------------------------
       // Load Options
       AppSettings.Instance.ReadOptions();
@@ -85,8 +88,6 @@ namespace AttacheCase
       AppSettings.Instance.AppVersion = int.Parse(ver.ToString().Replace(".", ""));
 
       //-----------------------------------       
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new Form1());
 
       // Release Mutex

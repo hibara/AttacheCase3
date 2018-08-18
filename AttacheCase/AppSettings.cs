@@ -1065,10 +1065,19 @@ namespace AttacheCase
     //----------------------------------------------------------------------
     public void ReadOptions()
     {
-      //----------------------------------------------------------------------
-      // アタッシェケースのすべての設定をレジストリから読み込む
-      // Load ALL settings of AttacheCase from registry
-      this.ReadOptionsFromRegistry();
+
+      //using (Form4 frm4 = new Form4("ComfirmToOverwriteAtc", "test!"))
+      //{
+      //  frm4.ShowDialog();
+      //}
+
+      //MessageBox.Show("test");
+
+
+        //----------------------------------------------------------------------
+        // アタッシェケースのすべての設定をレジストリから読み込む
+        // Load ALL settings of AttacheCase from registry
+        this.ReadOptionsFromRegistry();
 
       //----------------------------------------------------------------------
       // アタッシェケース本体のある場所に設定用INIファイルがあるか？

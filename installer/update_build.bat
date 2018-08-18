@@ -1,7 +1,6 @@
 @echo. ======================================================================
 @echo. Batch process file that create installer to package.
 @echo. 
-@echo. * Required "ILMerge"
 @echo. * Required "Inno Setup 5" later
 @echo. * Required "7Zip"
 @echo. ======================================================================
