@@ -791,6 +791,30 @@ namespace AttacheCase
     #endregion
 
     //----------------------------------------------------------------------
+    // Import / Export
+    #region
+
+    // 常に、設定ファイル「_AtcCase.ini」を読み込む
+    // Always read the setting file "_AtcCase.ini"
+    private bool _fAlwaysReadIniFile;
+    public bool fAlwaysReadIniFile
+    {
+      get { return this._fAlwaysReadIniFile; }
+      set { this._fAlwaysReadIniFile = value; }
+    }
+
+    // 毎回、確認のためのダイアログ ボックスを表示する
+    // Show a dialog box to confirm always.
+    private bool _fShowDialogToConfirmToReadIniFile;
+    public bool fShowDialogToConfirmToReadIniFile
+    {
+      get { return this._fShowDialogToConfirmToReadIniFile; }
+      set { this._fShowDialogToConfirmToReadIniFile = value; }
+    }
+
+    #endregion
+
+    //----------------------------------------------------------------------
     // Password file
     #region
     //----------------------------------------------------------------------
@@ -1065,19 +1089,10 @@ namespace AttacheCase
     //----------------------------------------------------------------------
     public void ReadOptions()
     {
-
-      //using (Form4 frm4 = new Form4("ComfirmToOverwriteAtc", "test!"))
-      //{
-      //  frm4.ShowDialog();
-      //}
-
-      //MessageBox.Show("test");
-
-
-        //----------------------------------------------------------------------
-        // アタッシェケースのすべての設定をレジストリから読み込む
-        // Load ALL settings of AttacheCase from registry
-        this.ReadOptionsFromRegistry();
+      //----------------------------------------------------------------------
+      // アタッシェケースのすべての設定をレジストリから読み込む
+      // Load ALL settings of AttacheCase from registry
+      this.ReadOptionsFromRegistry();
 
       //----------------------------------------------------------------------
       // アタッシェケース本体のある場所に設定用INIファイルがあるか？
@@ -1325,6 +1340,11 @@ namespace AttacheCase
         _UserRegIconFilePath = (string)reg.GetValue("UserRegIconFilePath", "");
 
         //-----------------------------------
+        // Import / Export
+        _fAlwaysReadIniFile = ((string)reg.GetValue("fAlwaysReadIniFile", "0") == "1") ? true : false;
+        _fShowDialogToConfirmToReadIniFile = ((string)reg.GetValue("fShowDialogToConfirmToReadIniFile", "1") == "1") ? true : false;
+        
+        //-----------------------------------
         //Password file 
         _fAllowPassFile = ((string)reg.GetValue("fAllowPassFile", "0") == "1") ? true : false;
         _fCheckPassFile = ((string)reg.GetValue("fCheckPassFile", "0") == "1") ? true : false;
@@ -1493,6 +1513,11 @@ namespace AttacheCase
         reg.SetValue("AtcsFileIconIndex", _AtcsFileIconIndex.ToString());  //int
         reg.SetValue("UserRegIconFilePath", _UserRegIconFilePath);
 
+        //----------------------------------------------------------------------
+        // Import / Export
+        reg.SetValue("fAlwaysReadIniFile", _fAlwaysReadIniFile == true ? "1" : "0");
+        reg.SetValue("fShowDialogToConfirmToReadIniFile", _fShowDialogToConfirmToReadIniFile == true ? "1" : "0");
+
         //-----------------------------------
         //Password file
         reg.SetValue("fAllowPassFile", _fAllowPassFile == true ? "1" : "0");
@@ -1532,9 +1557,33 @@ namespace AttacheCase
     /// </summary>
     /// <param name="IniFilePath">Specified INI file</param>
     //----------------------------------------------------------------------
-    public void ReadOptionFromIniFile(string IniFilePath)
+    public void ReadOptionFromIniFile(string FilePath)
     {
+      
       string ReturnValue = "";
+
+      //----------------------------------------------------------------------
+      // Whether to read the found setting file (_AtcCase.ini)?
+      if ( _fShowDialogToConfirmToReadIniFile == true)
+      {
+
+        Form4 frm4;
+        frm4 = new Form4("ConfirmToReadIniFile", FilePath);
+        frm4.ShowDialog();
+
+        bool _fReadIniFile = frm4.fReadIniFile;
+
+        if (_fReadIniFile == true)
+        {
+          frm4.Dispose();
+        }
+        else
+        {
+          _IniFilePath = "";
+          frm4.Dispose();
+          return;
+        }
+      }
 
       //-----------------------------------
       // Application infomation
@@ -1691,7 +1740,6 @@ namespace AttacheCase
     //----------------------------------------------------------------------
     public void WriteOptionToIniFile(string IniFilePath)
     {
-
       //-----------------------------------
       // Open the registry key (AppInfo).
       WriteIniFile(IniFilePath, _ApplicationPath, "AppInfo", "AppPath");
@@ -3159,7 +3207,7 @@ namespace AttacheCase
     /// Detect file type to drag and drop ( Directory, ATC, EXE[by ATC], ZIP ).
     /// 投げ込まれたファイルの種類を特定する（ディレクトリ, ATC, EXE[by ATC], ZIP）
     /// </summary>
-    /// <remarks>http://stackoverflow.com/a/929418</remarks>
+    /// <remarks>https://stackoverflow.com/a/929418</remarks>
     /// <returns> 1: ATC, 2: EXE(ATC), 2: EXE(ATC), 3: ZIP, 0: Others(Encrypt file?)</returns>
     private int CheckFileType(string FilePath)
     {
@@ -3224,7 +3272,7 @@ namespace AttacheCase
         //-----------------------------------
         // EXE(ATC)ファイルの判別
         // Detect Exe(atc) file
-        // http://stackoverflow.com/questions/2863683/how-to-find-if-a-file-is-an-exe
+        // https://stackoverflow.com/questions/2863683/how-to-find-if-a-file-is-an-exe
         //-----------------------------------
         byte[] twoBytes = new byte[2];
         fs.Seek(0, SeekOrigin.Begin);

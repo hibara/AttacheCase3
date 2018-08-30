@@ -321,9 +321,10 @@ namespace AttacheCase
               {
                 ArrayList Item = GetFileInfo(ParentPath, FilePath);
                 FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                                               //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
-                                                               //Item[1] + "\t" +           // Absolute file path
-                                  NewArchiveName + Item[2] + "\t" +             // Relative file path
+                                  //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
+                                  //Item[1] + "\t" +           // Absolute file path
+                                  NewArchiveName +
+                                  Item[2] + "\t" +             // Relative file path
                                   Item[3].ToString() + "\t" +  // File size 
                                   Item[4].ToString() + "\t" +  // File attribute
                                   Item[5].ToString() + "\t" +  // Last write date
@@ -469,8 +470,8 @@ namespace AttacheCase
             Int64 NowPosition = ms.Position;
             ms.Position = 0;
             //Save to Desktop folder.
-            string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
-            string HeaderTextFilePath = Path.Combine(AppDirPath, "encrypt_header.txt");
+            string OutDirPath = Path.GetDirectoryName(_AtcFilePath);
+            string HeaderTextFilePath = Path.Combine(OutDirPath, "encrypt_header.txt");
             using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
             {
               ms.WriteTo(fsDebug);

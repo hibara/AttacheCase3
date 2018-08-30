@@ -69,94 +69,106 @@ namespace AttacheCase
       get { return _InvalidCharOption; }
     }
 
+    // Whether to read the found setting file "_AtcCase.ini"?
+    private bool _fReadIniFile;
+    public bool fReadIniFile
+    {
+      get { return _fReadIniFile; }
+    }
+    
     //-----------------------------------
 
     public Form4(string InputType, string MessageText)
 		{
 			InitializeComponent();
-
+      
 			fLoading = true;
 
 			tabControl1.Visible = false;
-      panelInputPassword.Parent = panelOuter;
-      panelOverwriteConfirm.Parent = panelOuter;
-      panelAskEncryptOrDecrypt.Parent = panelOuter;
-      panelInvalidChar.Parent = panelOuter;
 
-      panelInputPassword.Visible = false;
-      panelOverwriteConfirm.Visible = false;
-      panelAskEncryptOrDecrypt.Visible = false;
-      panelInvalidChar.Visible = false;
+      panelInputPassword.Parent        = panelOuter;
+      panelOverwriteConfirm.Parent     = panelOuter;
+      panelAskEncryptOrDecrypt.Parent  = panelOuter;
+      panelInvalidChar.Parent          = panelOuter;
+      panelConfirmToReadIniFile.Parent = panelOuter;
+
+      panelInputPassword.Visible        = false;
+      panelOverwriteConfirm.Visible     = false;
+      panelAskEncryptOrDecrypt.Visible  = false;
+      panelInvalidChar.Visible          = false;
+      panelConfirmToReadIniFile.Visible = false;
 
       _FormType = InputType;
 
-			//-----------------------------------
-			// パスワード入力ウィンドウ
-			// Input password window 
-			if (_FormType == "EncryptPassword" || _FormType == "DecryptPassword")
-			{
-				panelInputPassword.Visible = true;
-				this.Text = Resources.DialogTitleQuestion;
-				checkBoxNotMaskEncryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword;
-
-				if (_FormType == "EncryptPassword")
-				{
-					textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-					textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
-				}
-				else if (_FormType == "DecryptPassword")
-				{
-					textBoxPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
-					textBoxRePassword.Text = AppSettings.Instance.MyDecryptPasswordString;
-				}
-				
-			}
-			//-----------------------------------
-			// 上書き確認ダイアログ
-			// Dialog of confirming to overwrite 
-			else if (_FormType == "ComfirmToOverwriteFile" || 
-        _FormType == "ComfirmToOverwriteDir" || 
-        _FormType == "ComfirmToOverwriteAtc")
-			{
-				panelOverwriteConfirm.Visible = true;
-				this.Text = Resources.DialogTitleQuestion;
-				labelMessageText.Text = MessageText;
-
-        splitButton1.Text = ToolStripMenuItemOverwrite.Text;  // Overwrite ( Default )
-        splitButton2.Text = ToolStripMenuItemSkip.Text;       // Skip ( Default )
-
-        if (_FormType == "ComfirmToOverwriteAtc")
-        {
-          ToolStripMenuItemKeepNewer.Enabled = false;
-          ToolStripMenuItemkeepNewerAll.Enabled = false;
-        }
-
-      }
-      //-----------------------------------
-      // 暗号化、復号の選択ダイアログ
-      // Dialog to select encryption or decryption
-      else if (_FormType == "AskEncryptOrDecrypt")
-			{
-        panelAskEncryptOrDecrypt.Visible = true;
-				this.Text = Resources.DialogTitleQuestion;
-			}
-      //-----------------------------------
-      // パスに不正な文字列が含まれるときのエラーダイアログ
-      // Error dialog when incorrect path string
-      else if (_FormType == "InvalidChar")
+      switch (_FormType)
       {
-        panelInvalidChar.Visible = true;
-        this.Text = Resources.DialogTitleError;
-        labelInvalidChar.Text = MessageText;
+        // パスワード入力ウィンドウ
+        // Input password window 
+        case "EncryptPassword":
+        case "DecryptPassword":
+          panelInputPassword.Visible = true;
+          this.Text = Resources.DialogTitleQuestion;
+          checkBoxNotMaskEncryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword;
 
+          if (_FormType == "EncryptPassword")
+          {
+            textBoxPassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+            textBoxRePassword.Text = AppSettings.Instance.MyEncryptPasswordString;
+          }
+          else if (_FormType == "DecryptPassword")
+          {
+            textBoxPassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+            textBoxRePassword.Text = AppSettings.Instance.MyDecryptPasswordString;
+          }
+          break;
+
+        // 上書き確認ダイアログ
+        // Dialog of confirming to overwrite 
+        case "ComfirmToOverwriteFile":
+        case "ComfirmToOverwriteDir":
+        case "ComfirmToOverwriteAtc":
+          panelOverwriteConfirm.Visible = true;
+          this.Text = Resources.DialogTitleQuestion;
+          labelMessageText.Text = MessageText;
+
+          splitButton1.Text = ToolStripMenuItemOverwrite.Text;  // Overwrite ( Default )
+          splitButton2.Text = ToolStripMenuItemSkip.Text;       // Skip ( Default )
+
+          if (_FormType == "ComfirmToOverwriteAtc")
+          {
+            ToolStripMenuItemKeepNewer.Enabled = false;
+            ToolStripMenuItemkeepNewerAll.Enabled = false;
+          }
+          break;
+
+        // 暗号化、復号の選択ダイアログ
+        // Dialog to select encryption or decryption
+        case "AskEncryptOrDecrypt":
+          panelAskEncryptOrDecrypt.Visible = true;
+          this.Text = Resources.DialogTitleQuestion;
+          break;
+
+        // パスに不正な文字列が含まれるときのエラーダイアログ
+        // Error dialog when incorrect path string
+        case "InvalidChar":
+          panelInvalidChar.Visible = true;
+          this.Text = Resources.DialogTitleError;
+          labelInvalidChar.Text = MessageText;
+          break;
+
+        // 見つかった動作設定ファイル（_AtcCase.ini）を読み込むか確認
+        // Confirm whether to load the found setting file "_AtcCase.ini"
+        case "ConfirmToReadIniFile":
+          panelConfirmToReadIniFile.Visible = true;
+          this.Text = Resources.DialogTitleQuestion;
+          labelIniFilePath.Text = MessageText;
+          break;
+          
+        // 無指定？
+        // None?
+        default:
+          return;
       }
-      //-----------------------------------
-      // 無指定？
-      // None?
-      else
-      {
-				return;
-			}
 
 		}
 
@@ -177,27 +189,24 @@ namespace AttacheCase
 			{
 				splitButton1.Focus();
 			}
+      //-----------------------------------
+      // 見つかった動作設定ファイル（_AtcCase.ini）を読み込むか確認
+      // Confirm whether to load the found setting file "_AtcCase.ini"
+      else if (panelConfirmToReadIniFile.Visible == true)
+      {
+        if ( AppSettings.Instance.fAlwaysReadIniFile == true)
+        {
+          buttonConfirmToReadIniFileYes.Focus();
+        }
+        else
+        {
+          buttonConfirmToReadIniFileNo.Focus();
+        }
+      }
 
+      //-----------------------------------
 			fLoading = false;
 
-		}
-
-		private void checkBoxNotMaskEncryptedPassword_CheckedChanged(object sender, EventArgs e)
-		{
-			if (checkBoxNotMaskEncryptedPassword.Checked == true)
-			{
-				textBoxPassword.PasswordChar = (char)0;
-				textBoxRePassword.PasswordChar = (char)0;
-				textBoxPassword.UseSystemPasswordChar = false;
-				textBoxRePassword.UseSystemPasswordChar = false;
-			}
-			else
-			{
-				textBoxPassword.UseSystemPasswordChar = true;
-				textBoxRePassword.UseSystemPasswordChar = true;
-				textBoxPassword.PasswordChar = '*';
-				textBoxRePassword.PasswordChar = '*';
-			}
 		}
 		
 		//======================================================================
@@ -311,6 +320,24 @@ namespace AttacheCase
 			this.Close();
 		}
 
+    private void checkBoxNotMaskEncryptedPassword_CheckedChanged(object sender, EventArgs e)
+    {
+      if (checkBoxNotMaskEncryptedPassword.Checked == true)
+      {
+        textBoxPassword.PasswordChar = (char)0;
+        textBoxRePassword.PasswordChar = (char)0;
+        textBoxPassword.UseSystemPasswordChar = false;
+        textBoxRePassword.UseSystemPasswordChar = false;
+      }
+      else
+      {
+        textBoxPassword.UseSystemPasswordChar = true;
+        textBoxRePassword.UseSystemPasswordChar = true;
+        textBoxPassword.PasswordChar = '*';
+        textBoxRePassword.PasswordChar = '*';
+      }
+    }
+
     #endregion
 
 
@@ -333,7 +360,7 @@ namespace AttacheCase
     // Skip Option
     // private const int SKIP           = 5;
     // private const int SKIP_ALL       = 6;
-    
+
     private void ToolStripMenuItemOverwrite_Click(object sender, EventArgs e)
     {
       OverwriteButtonTextNum = OVERWRITE;
@@ -443,6 +470,37 @@ namespace AttacheCase
     }
 
     #endregion
+
+    //======================================================================
+    // 見つかった動作設定ファイル（_AtcCase.ini）を読み込むか確認
+    // Confirm whether to load the found setting file "_AtcCase.ini"
+    //======================================================================
+    #region
+
+    private void buttonConfirmToReadIniFileYes_Click(object sender, EventArgs e)
+    {
+      if (checkBoxConfirmToReadIniFile.Checked == true)
+      {
+        AppSettings.Instance.fShowDialogToConfirmToReadIniFile = false;
+      }
+      AppSettings.Instance.fAlwaysReadIniFile = true;
+      _fReadIniFile = true;
+      this.Close();
+    }
+
+    private void buttonConfirmToReadIniFileNo_Click(object sender, EventArgs e)
+    {
+      if (checkBoxConfirmToReadIniFile.Checked == true)
+      {
+        AppSettings.Instance.fShowDialogToConfirmToReadIniFile = false;
+      }
+      AppSettings.Instance.fAlwaysReadIniFile = false;
+      _fReadIniFile = false;
+      this.Close();
+    }
+
+    #endregion
+
   }
 
 }

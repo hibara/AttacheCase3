@@ -471,7 +471,7 @@
     <value>479, 170</value>
   </data>
   <data name="panelInputPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="panelInputPassword.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -564,7 +564,7 @@
     <value>splitButton2</value>
   </data>
   <data name="&gt;&gt;splitButton2.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.2.2.6, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitButton2.Parent" xml:space="preserve">
     <value>panelOverwriteConfirm</value>
@@ -636,7 +636,7 @@
     <value>splitButton1</value>
   </data>
   <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.2.2.6, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
     <value>panelOverwriteConfirm</value>
@@ -1376,6 +1376,320 @@
   <data name="&gt;&gt;tabPageInvalidChar.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="checkBoxConfirmToReadIniFile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxConfirmToReadIniFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxConfirmToReadIniFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 137</value>
+  </data>
+  <data name="checkBoxConfirmToReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 16</value>
+  </data>
+  <data name="checkBoxConfirmToReadIniFile.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="checkBoxConfirmToReadIniFile.Text" xml:space="preserve">
+    <value>Do not display this dialog box again.</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConfirmToReadIniFile.Name" xml:space="preserve">
+    <value>checkBoxConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConfirmToReadIniFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConfirmToReadIniFile.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;checkBoxConfirmToReadIniFile.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 68</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>377, 12</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="labelConfirmToReadIniFileAlert.Text" xml:space="preserve">
+    <value>* If you do not  know that file, it is possible that there is a security risk.</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFileAlert.Name" xml:space="preserve">
+    <value>labelConfirmToReadIniFileAlert</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFileAlert.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFileAlert.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFileAlert.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelIniFilePath.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelIniFilePath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 90</value>
+  </data>
+  <data name="labelIniFilePath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 33</value>
+  </data>
+  <data name="labelIniFilePath.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="labelIniFilePath.Text" xml:space="preserve">
+    <value>labelIniFilePath</value>
+  </data>
+  <data name="&gt;&gt;labelIniFilePath.Name" xml:space="preserve">
+    <value>labelIniFilePath</value>
+  </data>
+  <data name="&gt;&gt;labelIniFilePath.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelIniFilePath.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;labelIniFilePath.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>259, 126</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileYes.Text" xml:space="preserve">
+    <value>&amp;Yes</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileYes.Name" xml:space="preserve">
+    <value>buttonConfirmToReadIniFileYes</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileYes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileYes.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileYes.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>365, 126</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="buttonConfirmToReadIniFileNo.Text" xml:space="preserve">
+    <value>&amp;No</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileNo.Name" xml:space="preserve">
+    <value>buttonConfirmToReadIniFileNo</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileNo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileNo.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;buttonConfirmToReadIniFileNo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 20</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>387, 48</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="labelConfirmToReadIniFile.Text" xml:space="preserve">
+    <value>The setting file "_AtcCase.ini" was found in the following location. Are you sure you want to read it?</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFile.Name" xml:space="preserve">
+    <value>labelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFile.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;labelConfirmToReadIniFile.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADaGlUWHRYTUw6Y29tLmFkb2Jl
+        LnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQi
+        Pz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENv
+        cmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJE
+        RiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8
+        cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv
+        bS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlw
+        ZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1w
+        TU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjAyODAxMTc0MDcyMDY4MTE4MjJBODM5QzE4NEFF
+        OUY1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkRGODY0NEQyNEZEMDExRTc4QjA0ODE0NTA1OTNE
+        NzZCIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkRGODY0NEQxNEZEMDExRTc4QjA0ODE0NTA1OTNE
+        NzZCIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgKE1hY2ludG9zaCkiPiA8eG1w
+        TU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMjgwMTE3NDA3MjA2ODExODA4
+        M0QxQzZERTFBODNDNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMjgwMTE3NDA3MjA2ODExODIy
+        QTgzOUMxODRBRTlGNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4g
+        PD94cGFja2V0IGVuZD0iciI/PktGPhUAAAgdSURBVGhD1ZjLch3VFYY3VeEJAu/ALRQw5AkIhDwABcVl
+        GDCX5CkYMEi4eMBbMAgopBIKgqsMhJvBsmxjwMZgy5KOLVnSkc5l5/vXXqt7d6tlbHBVSoPfa61/3f59
+        OL37iJRzOtAYJA8SBsmbhoX0kGEod5OQ8rwN5g5xZqu4k6/8uXIO+U39QvoNOA4WzY86768xOLPizHeu
+        zgntYiXC98I9fOV3rIb1OEQfyu+yQ1hIz1u/5vriJvb6epblKr/hQdQGOsHNAoJ/C1byEloF+XBDtb8W
+        acY/goLwG8yKtRx+1MzlKxc2eLeI/Wv+d8qzXT6wHQ6AL67e0cyq4bM6cewhHuptRDaFbvv+9QKhd4DJ
+        /CwHmBXMz9kBJuBO1QzOrTQIqom6a9W3xDSlKTYQXGMjH37EvVpE/n1+BOHTlKmxA8hmOHJvq6Y/o+bM
+        d4Tft+ELJYhhP4P96mwxQODvQZ5dQrQLl2WRccqBh01E1d+Jaz2VHzv69Wk6SWkCgjA4V/OTsOKcFxdA
+        mK7NxflnLnySMrz5soJyqgG3qifmGML3+ba/4uX3e1TTCDVhTvbRDByC9yDqeV2Z03UXrAMAelufXFyr
+        6ole4Xp2CFZXxfbP7i7WIX/Xk+Y7mrz4yLlFkF2bs8UiFC6Ta4RHLKsaalfVYzN8jvY1+53rWGAavC5q
+        0447+6GT36lQ8Yj5m67K3S0XW4H+TH3LUePX6qvE3dl1/HPw+rSDI5GykTBOceSiIeLwAULuBJPJd0Ws
+        AcEB6lrf86pVD7irnhmI2YbYX2tw2AHG4xKMA8SBPh+NdR4Rb88/RNi4xTbY2Eh5NEp5bTXlK3z3t7dL
+        jj6z6qH3Hc2OmbGvjqkttsrVsEIWGuTfCBDwMMi7F4qwgIR/8EHKb76Z8uHDKb/1VsqXuEbrmt2LdgDh
+        EeLB+YbtAa5C4pMp4t124kDwwAYCFt8KFqeflk9XgLdP//z5lA8dSvz0KnjwwZRPnerWyJ/+1w5g16pm
+        G7Sr2lcjdtdc2nJna6ubaHhZ5YD8iFlq1+aYT5u6DF8OwkP6Hd/xp59uD3D//Sl/dczryFsdUK9fqy/E
+        bJvfR2irdETOhAubbq8HLNS1uTr5ugja2nTIB99+u/cAxzhA5GvsHrcDrGkmcWfP5iZW6PEBabai/aBm
+        FXU4Ypa9Oucq3OJBJTaQa3Bm4ABffkku6tSjAws84JrFzNc6u8Lv7Q+YNpCuXgUK3Dax++It52DRXWAy
+        /gYhV4sg6gs8PnOGAzzVHuC++8oBVKN89MmqZ4d6zQR3hwbtFyLuc+bDWWLDC7j6SnFYz0VeYMk7s/+U
+        xboqzUqIfI+/4XBP9Q7whQ4QddFTYVau1QX8RoftxQ8rruEdpVhFASXquOJZ8AjI29wycCZGNhDxaR3g
+        yd4BviAn4VW9wbktZmo2+APxHg1NjI6aT+ty1rFAVqT8Phhs1+bkk5TpyXAN6DOOXvN1ZT7ZO8Dnn5ec
+        1Xp9Y93XbHac0K7QIkuu9WVdo+KOSOHKlb2cwNAXdOVt8ELSm3X9iiMEBeBOnRw+QNSrnz3dfnzN9mv1
+        RbgEl6i1/WH7vgneAxVVMQN1ba6NuQqJh+GihJMDB/iMvwU69ftg/JUdYARu6+vo4haz6fJlJ7CXwzrE
+        yzLstfm/WMDvGmoyNWbJlVi+x8otDR2AN7b1BfpzgmOHdrHzdWkRyHVgvGvtJPgNU2wVM+huMNlEFHy7
+        jLdo39dvINnTPAPPPNMe4IEHykNs/b2+DufxJv3aCe6BT/BFm+sTTCOxJa4FhixMuTbxrw8I+P77lF9+
+        uT3AY4+lfJw37mA9MOECvcFpp3bjd/TEYQJpbc1BEL4Ssgywa3MDQcQGcnkkH2sI3/Pyz/2Q8iuvtAd4
+        4omUT5woeeuVrXptplDlN87aAYRHQw85g3z6zCZ+r6dVEVgR5gMadW2e2PnYFwl8P8mbX9vGJy977tzw
+        AfbUBpzrY+cjO8CStNBXhAekFyQGDYKmF+dcaaMfyzJb7tYOcg3o57T+FogDPPccz8Xp4VpDzO5hxN8Z
+        0oCWPxPbh2vWUQ6wktKKEyvu03AbGG3x+ofP1GR4880Sm1/Z8IWL/LGil9nRoykfOZLyIt//H/kgrC76
+        HMHFjmaP56RBWsDtxKaRfKM5XXKyBsWvz7jKVpfbQTeC84g9zk/tD/l98/775SX2A89FXcPevMKLq+aG
+        IA3SgqY3iBM9Ha12AAMJWQrvAZMNvrO2AGiZ/iSsbfBaIogPqxfZs8+2XyH9RaZfo9arurrXuWb2QG4d
+        LdIkbXCNXvnp0rKLB8uAooUJf8/iZ3IG+RaHFV9xgch9zaf/+OPtAe69N+WPeCCjb19Evq7D11xpQtu7
+        xKaTnCEti3CSgkdBHvH7XM3whvBjWPgWVzYwdICjHKCusTkg5nRmifdc1EqTtIE/wjWamwOQ0LW5NObB
+        uxiNAg9k4/dBrlPrWFpK+U+9r5DexNHTr2/4OjdQt12u1ZPSSpyoSQkBcYCXdGWt8LBJlEECHRrYcD7Q
+        OM9FLKsH9hg/yvS/Vt57L+VP+R10lpdhf6b1Omf98iN2NLXwK7xf/Fr9Czk/wAUTfzsYXeW2aBp+Dbi/
+        h+KOoF8IaZRWaSZO6QL/ELyhq2r5p1IEZ9DisB1R7l8I64h8x69m1Hx/Xl0Tc4VOL1Ya/Vo9TN7E27Wp
+        79dlrqtB8J2+pl/bOh/oc/2+Pmpefq/On4Up+J0O8A8g4iDin4n/XDeAWwa4/xN+KpZj5AONQfIgYZA8
+        OMjpfzTO+/tE6gVtAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 20</value>
+  </data>
+  <data name="pictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Name" xml:space="preserve">
+    <value>pictureBox3</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.Parent" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;pictureBox3.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="panelConfirmToReadIniFile.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelConfirmToReadIniFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelConfirmToReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>479, 170</value>
+  </data>
+  <data name="panelConfirmToReadIniFile.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelConfirmToReadIniFile.Name" xml:space="preserve">
+    <value>panelConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;panelConfirmToReadIniFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelConfirmToReadIniFile.Parent" xml:space="preserve">
+    <value>tabPageConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;panelConfirmToReadIniFile.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageConfirmToReadIniFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageConfirmToReadIniFile.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageConfirmToReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>485, 176</value>
+  </data>
+  <data name="tabPageConfirmToReadIniFile.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPageConfirmToReadIniFile.Text" xml:space="preserve">
+    <value>ConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;tabPageConfirmToReadIniFile.Name" xml:space="preserve">
+    <value>tabPageConfirmToReadIniFile</value>
+  </data>
+  <data name="&gt;&gt;tabPageConfirmToReadIniFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageConfirmToReadIniFile.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageConfirmToReadIniFile.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="tabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1432,9 +1746,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>493, 202</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>440, 240</value>

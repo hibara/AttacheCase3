@@ -552,8 +552,8 @@ namespace AttacheCase
                 ms.Write(byteArray, 0, _AtcHeaderSize);
 #if (DEBUG)
                 //string AppDirPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
-                string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-                string TempFilePath = Path.Combine(DesktopPath, "decrypt_header.txt");
+                //string DesktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                string TempFilePath = Path.Combine(OutDirPath, "decrypt_header.txt");
                 using (StreamWriter sw = new StreamWriter(TempFilePath, false, Encoding.UTF8))
                 {
                   sw.Write(Encoding.UTF8.GetString(byteArray));
@@ -689,6 +689,15 @@ namespace AttacheCase
         //-----------------------------------
         // ディレクトリ・トラバーサル対策
         // Directory traversal countermeasures
+
+        // 余計な ":" が含まれている
+        // Extra ":" is included
+        if (FilePathSplits.Length > 2)
+        {
+          fDirectoryTraversal = true;
+          InvalidFilePath = OutFilePath;
+        }
+
         try
         {
           // ファイルパスを正規化
@@ -703,7 +712,7 @@ namespace AttacheCase
 
         // 正規化したパスが保存先と一致するか
         // Whether the canonicalized path matches the save destination
-        if (OutFilePath.StartsWith(OutDirPath))
+        if (fDirectoryTraversal == false && OutFilePath.StartsWith(OutDirPath))
         {
           fd.FilePath = OutFilePath;
         }
@@ -903,7 +912,7 @@ namespace AttacheCase
             aes.Padding = PaddingMode.Zeros; // Padding mode
             aes.Key = key;
             aes.IV = iv;
-#if (DEBUG)
+#if DEBUG
             //System.Windows.Forms.MessageBox.Show("dic.Count: " + dic.Count);
 #endif
             //Decryption interface.

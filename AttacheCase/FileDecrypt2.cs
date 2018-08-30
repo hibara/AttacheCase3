@@ -601,18 +601,8 @@ namespace AttacheCase
                 { //ver. 2.8.0～
                   if (Regex.IsMatch(line, @"^U_"))
                   {
-                    // ディレクトリ・トラバーサル対策
-                    // Directory traversal countermeasures
-//                    if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
-//                    {
-//                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
-//                      return (false);
-//                    }
-//                    else
-//                    {
-                      FileList.Add(line);
-                      prefix = 2;
-//                    }
+                    FileList.Add(line);
+                    prefix = 2;
                   }
                 }
 
@@ -625,18 +615,8 @@ namespace AttacheCase
                   {
                     if (Regex.IsMatch(line, @"^Fn_"))
                     {
-                      // ディレクトリ・トラバーサル対策
-                      // Directory traversal countermeasures
-//                      if (Regex.IsMatch(line, @"^\d+:[a-zA-Z]:|\.\.\s*[\\/]|^\d+:\\\\"))
-//                      {
-//                        e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, line.Split('\t')[0]);
-//                        return (false);
-//                      }
-//                      else
-//                      {
-                        FileList.Add(line);
-                        prefix = 3;
-//                      }
+                      FileList.Add(line);
+                      prefix = 3;
                     }
                   }
                 }
@@ -711,6 +691,15 @@ namespace AttacheCase
         //-----------------------------------
         // ディレクトリ・トラバーサル対策
         // Directory traversal countermeasures
+
+        // 余計な ":" が含まれている
+        // Extra ":" is included
+        if (FilePathSplits.Length > 1)
+        {
+          e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, OutFilePath);
+          return (false);
+        }
+
         try
         {
           // ファイルパスを正規化

@@ -45,9 +45,11 @@
       this.buttonPasswordOK = new System.Windows.Forms.Button();
       this.tabPageOverwriteConfirm = new System.Windows.Forms.TabPage();
       this.panelOverwriteConfirm = new System.Windows.Forms.Panel();
+      this.splitButton2 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemSkip = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemSkipAll = new System.Windows.Forms.ToolStripMenuItem();
+      this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolStripMenuItemOverwrite = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemOverwriteAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,12 +68,19 @@
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.tabPageInvalidChar = new System.Windows.Forms.TabPage();
       this.panelInvalidChar = new System.Windows.Forms.Panel();
-      this.pictureBox2 = new System.Windows.Forms.PictureBox();
-      this.labelInvalidChar = new System.Windows.Forms.Label();
-      this.buttonInvalidCharCancel = new System.Windows.Forms.Button();
       this.buttonInvalidCharYes = new System.Windows.Forms.Button();
-      this.splitButton2 = new AttacheCase.SplitButton();
-      this.splitButton1 = new AttacheCase.SplitButton();
+      this.buttonInvalidCharCancel = new System.Windows.Forms.Button();
+      this.labelInvalidChar = new System.Windows.Forms.Label();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.tabPageConfirmToReadIniFile = new System.Windows.Forms.TabPage();
+      this.panelConfirmToReadIniFile = new System.Windows.Forms.Panel();
+      this.checkBoxConfirmToReadIniFile = new System.Windows.Forms.CheckBox();
+      this.labelConfirmToReadIniFileAlert = new System.Windows.Forms.Label();
+      this.labelIniFilePath = new System.Windows.Forms.Label();
+      this.buttonConfirmToReadIniFileYes = new System.Windows.Forms.Button();
+      this.buttonConfirmToReadIniFileNo = new System.Windows.Forms.Button();
+      this.labelConfirmToReadIniFile = new System.Windows.Forms.Label();
+      this.pictureBox3 = new System.Windows.Forms.PictureBox();
       this.panelOuter.SuspendLayout();
       this.tabControl1.SuspendLayout();
       this.tabPageInputPassword.SuspendLayout();
@@ -88,6 +97,9 @@
       this.tabPageInvalidChar.SuspendLayout();
       this.panelInvalidChar.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      this.tabPageConfirmToReadIniFile.SuspendLayout();
+      this.panelConfirmToReadIniFile.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
       this.SuspendLayout();
       // 
       // panelOuter
@@ -102,6 +114,7 @@
       this.tabControl1.Controls.Add(this.tabPageOverwriteConfirm);
       this.tabControl1.Controls.Add(this.tabPageAskEncryptOrDecrypt);
       this.tabControl1.Controls.Add(this.tabPageInvalidChar);
+      this.tabControl1.Controls.Add(this.tabPageConfirmToReadIniFile);
       resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
@@ -132,7 +145,6 @@
       resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
       this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
       this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
-      this.checkBoxNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskEncryptedPassword_CheckedChanged);
       // 
       // labelPasswordValid
       // 
@@ -161,14 +173,12 @@
       this.textBoxRePassword.BackColor = System.Drawing.SystemColors.ButtonFace;
       this.textBoxRePassword.Name = "textBoxRePassword";
       this.textBoxRePassword.UseSystemPasswordChar = true;
-      this.textBoxRePassword.TextChanged += new System.EventHandler(this.textBoxRePassword_TextChanged);
       // 
       // textBoxPassword
       // 
       resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
       this.textBoxPassword.Name = "textBoxPassword";
       this.textBoxPassword.UseSystemPasswordChar = true;
-      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
       // 
       // buttonPasswordCancel
       // 
@@ -176,14 +186,12 @@
       this.buttonPasswordCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.buttonPasswordCancel.Name = "buttonPasswordCancel";
       this.buttonPasswordCancel.UseVisualStyleBackColor = true;
-      this.buttonPasswordCancel.Click += new System.EventHandler(this.buttonPasswordCancel_Click);
       // 
       // buttonPasswordOK
       // 
       resources.ApplyResources(this.buttonPasswordOK, "buttonPasswordOK");
       this.buttonPasswordOK.Name = "buttonPasswordOK";
       this.buttonPasswordOK.UseVisualStyleBackColor = true;
-      this.buttonPasswordOK.Click += new System.EventHandler(this.buttonPasswordOK_Click);
       // 
       // tabPageOverwriteConfirm
       // 
@@ -201,6 +209,14 @@
       this.panelOverwriteConfirm.Controls.Add(this.pictureBoxQuestionIcon);
       resources.ApplyResources(this.panelOverwriteConfirm, "panelOverwriteConfirm");
       this.panelOverwriteConfirm.Name = "panelOverwriteConfirm";
+      // 
+      // splitButton2
+      // 
+      resources.ApplyResources(this.splitButton2, "splitButton2");
+      this.splitButton2.Menu = this.contextMenuStrip2;
+      this.splitButton2.Name = "splitButton2";
+      this.splitButton2.UseVisualStyleBackColor = true;
+      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
       // 
       // contextMenuStrip2
       // 
@@ -221,6 +237,14 @@
       this.ToolStripMenuItemSkipAll.Name = "ToolStripMenuItemSkipAll";
       resources.ApplyResources(this.ToolStripMenuItemSkipAll, "ToolStripMenuItemSkipAll");
       this.ToolStripMenuItemSkipAll.Click += new System.EventHandler(this.ToolStripMenuItemSkipAll_Click);
+      // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip1;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // contextMenuStrip1
       // 
@@ -345,16 +369,12 @@
       resources.ApplyResources(this.panelInvalidChar, "panelInvalidChar");
       this.panelInvalidChar.Name = "panelInvalidChar";
       // 
-      // pictureBox2
+      // buttonInvalidCharYes
       // 
-      resources.ApplyResources(this.pictureBox2, "pictureBox2");
-      this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.TabStop = false;
-      // 
-      // labelInvalidChar
-      // 
-      resources.ApplyResources(this.labelInvalidChar, "labelInvalidChar");
-      this.labelInvalidChar.Name = "labelInvalidChar";
+      resources.ApplyResources(this.buttonInvalidCharYes, "buttonInvalidCharYes");
+      this.buttonInvalidCharYes.Name = "buttonInvalidCharYes";
+      this.buttonInvalidCharYes.UseVisualStyleBackColor = true;
+      this.buttonInvalidCharYes.Click += new System.EventHandler(this.buttonInvalidCharYes_Click);
       // 
       // buttonInvalidCharCancel
       // 
@@ -363,34 +383,82 @@
       this.buttonInvalidCharCancel.UseVisualStyleBackColor = true;
       this.buttonInvalidCharCancel.Click += new System.EventHandler(this.buttonInvalidCharCancel_Click);
       // 
-      // buttonInvalidCharYes
+      // labelInvalidChar
       // 
-      resources.ApplyResources(this.buttonInvalidCharYes, "buttonInvalidCharYes");
-      this.buttonInvalidCharYes.Name = "buttonInvalidCharYes";
-      this.buttonInvalidCharYes.UseVisualStyleBackColor = true;
-      this.buttonInvalidCharYes.Click += new System.EventHandler(this.buttonInvalidCharYes_Click);
+      resources.ApplyResources(this.labelInvalidChar, "labelInvalidChar");
+      this.labelInvalidChar.Name = "labelInvalidChar";
       // 
-      // splitButton2
+      // pictureBox2
       // 
-      resources.ApplyResources(this.splitButton2, "splitButton2");
-      this.splitButton2.Menu = this.contextMenuStrip2;
-      this.splitButton2.Name = "splitButton2";
-      this.splitButton2.UseVisualStyleBackColor = true;
-      this.splitButton2.Click += new System.EventHandler(this.splitButton2_Click);
+      resources.ApplyResources(this.pictureBox2, "pictureBox2");
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.TabStop = false;
       // 
-      // splitButton1
+      // tabPageConfirmToReadIniFile
       // 
-      resources.ApplyResources(this.splitButton1, "splitButton1");
-      this.splitButton1.Menu = this.contextMenuStrip1;
-      this.splitButton1.Name = "splitButton1";
-      this.splitButton1.UseVisualStyleBackColor = true;
-      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
+      this.tabPageConfirmToReadIniFile.Controls.Add(this.panelConfirmToReadIniFile);
+      resources.ApplyResources(this.tabPageConfirmToReadIniFile, "tabPageConfirmToReadIniFile");
+      this.tabPageConfirmToReadIniFile.Name = "tabPageConfirmToReadIniFile";
+      this.tabPageConfirmToReadIniFile.UseVisualStyleBackColor = true;
+      // 
+      // panelConfirmToReadIniFile
+      // 
+      this.panelConfirmToReadIniFile.Controls.Add(this.checkBoxConfirmToReadIniFile);
+      this.panelConfirmToReadIniFile.Controls.Add(this.labelConfirmToReadIniFileAlert);
+      this.panelConfirmToReadIniFile.Controls.Add(this.labelIniFilePath);
+      this.panelConfirmToReadIniFile.Controls.Add(this.buttonConfirmToReadIniFileYes);
+      this.panelConfirmToReadIniFile.Controls.Add(this.buttonConfirmToReadIniFileNo);
+      this.panelConfirmToReadIniFile.Controls.Add(this.labelConfirmToReadIniFile);
+      this.panelConfirmToReadIniFile.Controls.Add(this.pictureBox3);
+      resources.ApplyResources(this.panelConfirmToReadIniFile, "panelConfirmToReadIniFile");
+      this.panelConfirmToReadIniFile.Name = "panelConfirmToReadIniFile";
+      // 
+      // checkBoxConfirmToReadIniFile
+      // 
+      resources.ApplyResources(this.checkBoxConfirmToReadIniFile, "checkBoxConfirmToReadIniFile");
+      this.checkBoxConfirmToReadIniFile.Name = "checkBoxConfirmToReadIniFile";
+      this.checkBoxConfirmToReadIniFile.UseVisualStyleBackColor = true;
+      // 
+      // labelConfirmToReadIniFileAlert
+      // 
+      resources.ApplyResources(this.labelConfirmToReadIniFileAlert, "labelConfirmToReadIniFileAlert");
+      this.labelConfirmToReadIniFileAlert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+      this.labelConfirmToReadIniFileAlert.Name = "labelConfirmToReadIniFileAlert";
+      // 
+      // labelIniFilePath
+      // 
+      resources.ApplyResources(this.labelIniFilePath, "labelIniFilePath");
+      this.labelIniFilePath.Name = "labelIniFilePath";
+      // 
+      // buttonConfirmToReadIniFileYes
+      // 
+      resources.ApplyResources(this.buttonConfirmToReadIniFileYes, "buttonConfirmToReadIniFileYes");
+      this.buttonConfirmToReadIniFileYes.Name = "buttonConfirmToReadIniFileYes";
+      this.buttonConfirmToReadIniFileYes.UseVisualStyleBackColor = true;
+      this.buttonConfirmToReadIniFileYes.Click += new System.EventHandler(this.buttonConfirmToReadIniFileYes_Click);
+      // 
+      // buttonConfirmToReadIniFileNo
+      // 
+      resources.ApplyResources(this.buttonConfirmToReadIniFileNo, "buttonConfirmToReadIniFileNo");
+      this.buttonConfirmToReadIniFileNo.Name = "buttonConfirmToReadIniFileNo";
+      this.buttonConfirmToReadIniFileNo.UseVisualStyleBackColor = true;
+      this.buttonConfirmToReadIniFileNo.Click += new System.EventHandler(this.buttonConfirmToReadIniFileNo_Click);
+      // 
+      // labelConfirmToReadIniFile
+      // 
+      resources.ApplyResources(this.labelConfirmToReadIniFile, "labelConfirmToReadIniFile");
+      this.labelConfirmToReadIniFile.Name = "labelConfirmToReadIniFile";
+      // 
+      // pictureBox3
+      // 
+      resources.ApplyResources(this.pictureBox3, "pictureBox3");
+      this.pictureBox3.Name = "pictureBox3";
+      this.pictureBox3.TabStop = false;
       // 
       // Form4
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.CancelButton = this.buttonPasswordCancel;
       this.Controls.Add(this.panelOuter);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.KeyPreview = true;
@@ -418,6 +486,10 @@
       this.tabPageInvalidChar.ResumeLayout(false);
       this.panelInvalidChar.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+      this.tabPageConfirmToReadIniFile.ResumeLayout(false);
+      this.panelConfirmToReadIniFile.ResumeLayout(false);
+      this.panelConfirmToReadIniFile.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
       this.ResumeLayout(false);
 
 		}
@@ -425,46 +497,55 @@
 		#endregion
 
 		private System.Windows.Forms.Panel panelOuter;
-		private System.Windows.Forms.TabControl tabControl1;
-		private System.Windows.Forms.TabPage tabPageInputPassword;
-		private System.Windows.Forms.Panel panelInputPassword;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBoxRePassword;
-		private System.Windows.Forms.TextBox textBoxPassword;
-		private System.Windows.Forms.Button buttonPasswordCancel;
-		private System.Windows.Forms.Button buttonPasswordOK;
-		private System.Windows.Forms.Label labelPasswordValid;
-		private System.Windows.Forms.PictureBox pictureBoxPasswordValid;
-		private System.Windows.Forms.TabPage tabPageOverwriteConfirm;
-		private System.Windows.Forms.Panel panelOverwriteConfirm;
-		private System.Windows.Forms.Button buttonOverwriteCancel;
-		private System.Windows.Forms.Label labelMessageText;
-		private System.Windows.Forms.PictureBox pictureBoxQuestionIcon;
-		private System.Windows.Forms.TabPage tabPageAskEncryptOrDecrypt;
-		private System.Windows.Forms.Panel panelAskEncryptOrDecrypt;
-		private System.Windows.Forms.Button buttonAskEncryptOrDecryptCancel;
-		private System.Windows.Forms.Button buttonDecrypt;
-		private System.Windows.Forms.Button buttonEncrypt;
-		private System.Windows.Forms.Label labelAskEncryptOrDecrypt;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
     private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOverwriteAll;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemKeepNewer;
-    private SplitButton splitButton1;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemOverwrite;
     private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemkeepNewerAll;
-    private SplitButton splitButton2;
     private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkip;
     private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSkipAll;
+    private System.Windows.Forms.TabControl tabControl1;
+    private System.Windows.Forms.TabPage tabPageInputPassword;
+    private System.Windows.Forms.TabPage tabPageOverwriteConfirm;
+    private System.Windows.Forms.TabPage tabPageAskEncryptOrDecrypt;
     private System.Windows.Forms.TabPage tabPageInvalidChar;
     private System.Windows.Forms.Panel panelInvalidChar;
     private System.Windows.Forms.Button buttonInvalidCharYes;
     private System.Windows.Forms.Button buttonInvalidCharCancel;
     private System.Windows.Forms.Label labelInvalidChar;
     private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.TabPage tabPageConfirmToReadIniFile;
+    private System.Windows.Forms.Panel panelConfirmToReadIniFile;
+    private System.Windows.Forms.CheckBox checkBoxConfirmToReadIniFile;
+    private System.Windows.Forms.Label labelConfirmToReadIniFileAlert;
+    private System.Windows.Forms.Label labelIniFilePath;
+    private System.Windows.Forms.Button buttonConfirmToReadIniFileYes;
+    private System.Windows.Forms.Button buttonConfirmToReadIniFileNo;
+    private System.Windows.Forms.Label labelConfirmToReadIniFile;
+    private System.Windows.Forms.PictureBox pictureBox3;
+    private System.Windows.Forms.Panel panelInputPassword;
+    private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
+    private System.Windows.Forms.Label labelPasswordValid;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordValid;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.TextBox textBoxRePassword;
+    private System.Windows.Forms.TextBox textBoxPassword;
+    private System.Windows.Forms.Button buttonPasswordCancel;
+    private System.Windows.Forms.Button buttonPasswordOK;
+    private System.Windows.Forms.Panel panelOverwriteConfirm;
+    private SplitButton splitButton2;
+    private SplitButton splitButton1;
+    private System.Windows.Forms.Button buttonOverwriteCancel;
+    private System.Windows.Forms.Label labelMessageText;
+    private System.Windows.Forms.Panel panelAskEncryptOrDecrypt;
+    private System.Windows.Forms.Button buttonAskEncryptOrDecryptCancel;
+    private System.Windows.Forms.Button buttonDecrypt;
+    private System.Windows.Forms.Button buttonEncrypt;
+    private System.Windows.Forms.Label labelAskEncryptOrDecrypt;
+    private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.PictureBox pictureBoxQuestionIcon;
   }
 }

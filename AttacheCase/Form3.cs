@@ -628,11 +628,33 @@ namespace AttacheCase
 
       #endregion
 
-			//-----------------------------------
-			// Password file
-			//-----------------------------------
+      //-----------------------------------
+      // Import / Export
       #region
-			checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
+      if (AppSettings.Instance.fAlwaysReadIniFile == true)
+      {
+        checkBoxAlwaysReadIniFile.Checked = true;
+      }
+      else
+      {
+        checkBoxAlwaysReadIniFile.Checked = false;
+      }
+
+      if (AppSettings.Instance.fShowDialogToConfirmToReadIniFile == true)
+      {
+        checkBoxShowDialogToConfirmToReadIniFileAlways.Checked = true;
+      }
+      else
+      {
+        checkBoxShowDialogToConfirmToReadIniFileAlways.Checked = false;
+      }
+      #endregion
+
+      //-----------------------------------
+      // Password file
+      //-----------------------------------
+      #region
+      checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
 			checkBoxCheckPassFile.Checked = AppSettings.Instance.fCheckPassFile;
 			textBoxPassFilePath.Text = AppSettings.Instance.PassFilePath;
 
@@ -827,8 +849,7 @@ THE SOFTWARE.
 
 ";
 #endregion
-
-
+      
       //-----------------------------------
       buttonApply.Enabled = false;
 
@@ -1164,6 +1185,11 @@ THE SOFTWARE.
 				buttonAssociateAtcFiles_Click(sender, e);
 			}
 
+      //-----------------------------------
+      // Import / Export
+      AppSettings.Instance.fAlwaysReadIniFile = checkBoxAlwaysReadIniFile.Checked;
+      AppSettings.Instance.fShowDialogToConfirmToReadIniFile = checkBoxAlwaysReadIniFile.Checked; 
+      
       //-----------------------------------
       // Password file
       AppSettings.Instance.fAllowPassFile = checkBoxAllowPassFile.Checked;
@@ -2131,7 +2157,7 @@ THE SOFTWARE.
 
     }
 
-#endregion
+    #endregion
 
     //======================================================================
     // PasswordFile

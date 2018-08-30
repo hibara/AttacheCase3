@@ -1509,11 +1509,29 @@
   <data name="tabPageSystem.Text" xml:space="preserve">
     <value>システム</value>
   </data>
+  <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 16</value>
+  </data>
+  <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.Text" xml:space="preserve">
+    <value>毎回、確認のためのダイアログ ボックスを表示する</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 12</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>※ONにするとセキュリティリスクがあります。</value>
+  </data>
+  <data name="checkBoxAlwaysReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 16</value>
+  </data>
+  <data name="checkBoxAlwaysReadIniFile.Text" xml:space="preserve">
+    <value>常に、設定ファイル「_AtcCase.ini」を読み込む</value>
+  </data>
   <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="buttonReplaceCurrentByTemporary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 173</value>
+    <value>27, 284</value>
   </data>
   <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
     <value>一時的な設定を現在の設定に置き換える</value>
@@ -1525,7 +1543,7 @@
     <value>現在の設定をINIファイルへ保存</value>
   </data>
   <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 15</value>
+    <value>10, 126</value>
   </data>
   <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
     <value>420, 136</value>

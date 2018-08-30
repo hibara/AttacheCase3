@@ -247,10 +247,10 @@ namespace AttacheCase
 						{
 							ArrayList Item = GetFileInfo(ParentPath, FilePath);
 							FileInfoList.Add("Fn_" + FileNumber.ToString() + ":" + // File number
-								                //Item[0] + "\t" +                      // TypeFlag ( Directory: 0, file: 1 ) 
-								                //Item[1] + "\t" +                      // Absolute file path
-																Item[2] + "\t" +                      // Relative file path
-																Item[3].ToString() + "\t" +           // File size 
+                                //Item[0] + "\t" +                      // TypeFlag ( Directory: 0, file: 1 ) 
+                                //Item[1] + "\t" +                      // Absolute file path
+                                Item[2] + "\t" +                      // Relative file path
+                                Item[3].ToString() + "\t" +           // File size 
 																Item[4].ToString() + "\t" +           // File attribute
 																Item[5].ToString() + "\t" +           // Last write date
 																Item[6].ToString() + "\t" +           // Last write time
@@ -372,7 +372,7 @@ namespace AttacheCase
           ms.Write(byteArray, 0, byteArray.Length);
 					Console.WriteLine(FileInfoText);
 
-#if (DEBUG)
+#if DEBUG
           //Output text file of header contents for debug.
           Int64 NowPosition = ms.Position;
           ms.Position = 0;
