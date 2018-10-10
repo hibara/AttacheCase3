@@ -42,57 +42,76 @@ namespace AttacheCase
       //-----------------------------------
       // Not Allow multiple in&stance of AttcheCase
       // Create Mutex
-      bool fNewCreate;
-      Mutex mutex = new Mutex(true, "AttacheCase", out fNewCreate);
-      if (AppSettings.Instance.fNoMultipleInstance == true)
+      Mutex mutex = new Mutex(false, "AttacheCase");
+
+      bool mutexHandle = false;
+      try
       {
-        if (fNewCreate == false)
+        try
         {
-          return;
+          mutexHandle = mutex.WaitOne(0, false);
         }
-      }
-
-      //-----------------------------------
-      // Check culture
-
-      if (AppSettings.Instance.Language == "")
-      {
-        if (Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+        catch (AbandonedMutexException)
         {
-          AppSettings.Instance.Language = "ja";
+          mutexHandle = true;
+        }
+
+        if (mutexHandle == false)
+        {
+          if (AppSettings.Instance.fNoMultipleInstance == true)
+          {
+            return;
+          }
+        }
+
+        //-----------------------------------
+        // Check culture
+
+        if (AppSettings.Instance.Language == "")
+        {
+          if (Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
+          {
+            AppSettings.Instance.Language = "ja";
+          }
+          else
+          {
+            AppSettings.Instance.Language = "en";
+          }
+        }
+
+        if (AppSettings.Instance.Language == "ja")
+        {
+          Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+          Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+          //AppSettings.Instance.Language = "ja";
         }
         else
         {
-          AppSettings.Instance.Language = "en";
+          Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
+          //AppSettings.Instance.Language = "en";
         }
-      }
 
-      if (AppSettings.Instance.Language == "ja")
+        //-----------------------------------
+        // Application executable file path & version
+        AppSettings.Instance.ApplicationPath = Application.ExecutablePath;
+
+        System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+        System.Version ver = asm.GetName().Version;
+        AppSettings.Instance.AppVersion = int.Parse(ver.ToString().Replace(".", ""));
+
+        //-----------------------------------       
+        Application.Run(new Form1());
+
+      }
+      finally
       {
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-        //AppSettings.Instance.Language = "ja";
+        if (mutexHandle)
+        {
+          // Release Mutex
+          mutex.ReleaseMutex();
+        }
+        mutex.Close();
       }
-      else
-      {
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
-        //AppSettings.Instance.Language = "en";
-      }
-
-      //-----------------------------------
-      // Application executable file path & version
-      AppSettings.Instance.ApplicationPath = Application.ExecutablePath;
-
-      System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
-      System.Version ver = asm.GetName().Version;
-      AppSettings.Instance.AppVersion = int.Parse(ver.ToString().Replace(".", ""));
-
-      //-----------------------------------       
-      Application.Run(new Form1());
-
-      // Release Mutex
-      mutex.ReleaseMutex();
-
     }
 
   }

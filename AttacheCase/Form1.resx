@@ -552,6 +552,315 @@
   <data name="&gt;&gt;tabPageStartPage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="pictureBoxEncryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        sP01JwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 3</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptBackButton.Name" xml:space="preserve">
+    <value>pictureBoxEncryptBackButton</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptBackButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptBackButton.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptBackButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 295</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="buttonEncryptionPasswordOk.Text" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionPasswordOk.Name" xml:space="preserve">
+    <value>buttonEncryptionPasswordOk</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionPasswordOk.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionPasswordOk.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionPasswordOk.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelEncryption.Name" xml:space="preserve">
+    <value>labelEncryption</value>
+  </data>
+  <data name="&gt;&gt;labelEncryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelEncryption.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;labelEncryption.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryption.Name" xml:space="preserve">
+    <value>pictureBoxEncryption</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryption.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 214</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 20</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Text" xml:space="preserve">
+    <value>&amp;Delete original files or directories after encryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
+    <value>checkBoxDeleteOriginalFileAfterEncryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 188</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Text" xml:space="preserve">
+    <value>Not &amp;mask password character</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxNotMaskEncryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonEncryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonEncryptCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonEncryptCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 295</value>
+  </data>
+  <data name="buttonEncryptCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonEncryptCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonEncryptCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptCancel.Name" xml:space="preserve">
+    <value>buttonEncryptCancel</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptCancel.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptCancel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="labelPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="labelPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 140</value>
+  </data>
+  <data name="labelPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="labelPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelPassword.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="&gt;&gt;labelPassword.Name" xml:space="preserve">
+    <value>labelPassword</value>
+  </data>
+  <data name="&gt;&gt;labelPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPassword.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;labelPassword.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="textBoxPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="textBoxPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 160</value>
+  </data>
+  <data name="textBoxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>398, 23</value>
+  </data>
+  <data name="textBoxPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
+    <value>textBoxPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelEncrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEncrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelEncrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>530, 356</value>
+  </data>
+  <data name="panelEncrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;panelEncrypt.Name" xml:space="preserve">
     <value>panelEncrypt</value>
   </data>
@@ -571,7 +880,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 365</value>
+    <value>536, 362</value>
   </data>
   <data name="tabPageEncrypt.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -590,6 +899,473 @@
   </data>
   <data name="&gt;&gt;tabPageEncrypt.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        sP01JwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 3</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBoxEncryptConfirmBackButton.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Name" xml:space="preserve">
+    <value>pictureBoxEncryptConfirmBackButton</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJoSURBVEhLpdRfSFNhGAbw90LEQeiNYZgIQjdeBHrn
+        RTC8FK/ExD8wmJfeCKbDofgPFPEiwSsRhaVkIQNFEBRDXQiz3Jw1GjXzookkVMaUMVzN3p7vnJ11dvq2
+        tnzhx+D7nvO8F2ccmgpM3QgzZyR9yKAIHsJMgjPx+wjKZaV6NPluMp1ymIM4cAZueCArF2jCPyFjhShw
+        DuYg/68Fo29GjUaA/5MLTCkLBn2DelbgXIwcjhjPnCkL7F675i7EgLPVf9DPJ5ET9nz18PDhsP7OklzQ
+        9bpLswCci+3P2+hQZzY4q78LgfI+qMPdIdyGOHC2pt9Pq82Y48tjWaYNV0Ttu+2CFThbPfs9HPkZUdsx
+        4gVLcou4Imp1tQqPgbNheWnho4sjtRnj/eaV5iCAa6KGrQZhETgbK6EVtRlz/euaO191SnMQRoSobrNO
+        WAPWjL0dY/93P/cd9CXPhCHfkNqcmI3TjZR7gzgiRLXrtYIDWGjcbuTLH5dqAyZ4EeQB3wA37zSnnF/F
+        r7hpp0l5Jo1TxIhq1moEG7Bg89iUh41jPJs/nlfyGWwhRlS1WiXcB9bUv6jnvS97apNkwrEwm9fNyXwa
+        NkSJKpcrNW5gvV5vL59fnautuhFfUWPWIAp3ECWqcFZozMBG1avVvPxpWW3GnEXPlBJZVmccUfVTUbpU
+        qucAlmlxtXAoEuLu/W7pvc4HKEouKH5WrJcPu8AyZUtlXPK8RHqXcA73tHJlQeHTQiMTOIFz9BFSypUF
+        BQsF6VghBPwPURiHW8ZyZUHek7xMTNAGTvBCDBgCsAl2UP4t6RA5bkZW+gfTb8cKTmU3SLIHAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 160</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxCheckPasswordValidation.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Name" xml:space="preserve">
+    <value>pictureBoxCheckPasswordValidation</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelEncryptionConfirm.Name" xml:space="preserve">
+    <value>labelEncryptionConfirm</value>
+  </data>
+  <data name="&gt;&gt;labelEncryptionConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelEncryptionConfirm.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;labelEncryptionConfirm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Name" xml:space="preserve">
+    <value>pictureBoxEncryptionConfirm</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEncryptionConfirm.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 295</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="buttonEncryptionConfirmCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Name" xml:space="preserve">
+    <value>buttonEncryptionConfirmCancel</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptionConfirmCancel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonEncryptStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonEncryptStart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonEncryptStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonEncryptStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 295</value>
+  </data>
+  <data name="buttonEncryptStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonEncryptStart.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="buttonEncryptStart.Text" xml:space="preserve">
+    <value>&amp;Encrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptStart.Name" xml:space="preserve">
+    <value>buttonEncryptStart</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptStart.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;buttonEncryptStart.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pictureBoxInValidIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="pictureBoxInValidIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIuSURBVEhLpdUxS+tQFAfwgIOLUxZFwcWggxQENzc3
+        R7dOQkEHhWoHRYQuDsJbHIIRsQqCDypRtOIkCILfQdwUnfQzCJX/+5/cm9zb5ubV5zv4g+Sce89J2yR6
+        qNf/D/BX7k2dfCpTSA1NjiXnu5raPGxtFQnoN6GHJgWu5sLDxoZLlT4J3yRrq+4BtVq3kPBDYX7Ayoqt
+        SsisrprjImtr3bmOT+JhaSlVok9CYn0d+PgATk7UucvNDfD2pq7e5KVHyQxYWEi1CInlZeD9nXUdR0cq
+        b7u60kXG6yuwuGjXW8zqAeWyGKI2IfPwkOzN4uDA1C4udFLH5aWpKdJriBUOmJ8XFULO/b1qkMbeHnB2
+        pk90nJ/n9ykVVjlgbk5EBKe7O9XIFc2me48ScQUHzM6KmFDo9lY1tOP01L3WiLmKA2ZmREwodHysmqbx
+        9QXs7LjXGvx4MmB6WkQEp8ND1bQ7ZMj2tnuP8ourOGByUlQIOfv7qlkajQZwfa1PdNTr+X0K71sZEARi
+        hNqETChPvRURfzPJT0x0PgMSm5tmnyK9RljhgNHRVIuQGB8Hnp7UZgkZltZS9rPw8gKMjdl160EbHExN
+        UZuQkCt9fAR2d9W5S8wb5fkZKPHNYPLSY8oM8H1bjZAZHjbHReTKO3N8ManmasDAQLeQ8EOO13V/v0uV
+        2oRvkrUF/3D6+ooEFBN6kDW8dfLNhce/XnwqU0QNTY4lxy/d3TjlavhvHE0NeH8AMh+njexgbpQAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBoxInValidIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxInValidIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 292</value>
+  </data>
+  <data name="pictureBoxInValidIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxInValidIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxInValidIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="pictureBoxInValidIcon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxInValidIcon.Name" xml:space="preserve">
+    <value>pictureBoxInValidIcon</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxInValidIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxInValidIcon.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxInValidIcon.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBoxValidIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="pictureBoxValidIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJoSURBVEhLpdRfSFNhGAbw90LEQeiNYZgIQjdeBHrn
+        RTC8FK/ExD8wmJfeCKbDofgPFPEiwSsRhaVkIQNFEBRDXQiz3Jw1GjXzookkVMaUMVzN3p7vnJ11dvq2
+        tnzhx+D7nvO8F2ccmgpM3QgzZyR9yKAIHsJMgjPx+wjKZaV6NPluMp1ymIM4cAZueCArF2jCPyFjhShw
+        DuYg/68Fo29GjUaA/5MLTCkLBn2DelbgXIwcjhjPnCkL7F675i7EgLPVf9DPJ5ET9nz18PDhsP7OklzQ
+        9bpLswCci+3P2+hQZzY4q78LgfI+qMPdIdyGOHC2pt9Pq82Y48tjWaYNV0Ttu+2CFThbPfs9HPkZUdsx
+        4gVLcou4Imp1tQqPgbNheWnho4sjtRnj/eaV5iCAa6KGrQZhETgbK6EVtRlz/euaO191SnMQRoSobrNO
+        WAPWjL0dY/93P/cd9CXPhCHfkNqcmI3TjZR7gzgiRLXrtYIDWGjcbuTLH5dqAyZ4EeQB3wA37zSnnF/F
+        r7hpp0l5Jo1TxIhq1moEG7Bg89iUh41jPJs/nlfyGWwhRlS1WiXcB9bUv6jnvS97apNkwrEwm9fNyXwa
+        NkSJKpcrNW5gvV5vL59fnautuhFfUWPWIAp3ECWqcFZozMBG1avVvPxpWW3GnEXPlBJZVmccUfVTUbpU
+        qucAlmlxtXAoEuLu/W7pvc4HKEouKH5WrJcPu8AyZUtlXPK8RHqXcA73tHJlQeHTQiMTOIFz9BFSypUF
+        BQsF6VghBPwPURiHW8ZyZUHek7xMTNAGTvBCDBgCsAl2UP4t6RA5bkZW+gfTb8cKTmU3SLIHAAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="pictureBoxValidIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxValidIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 292</value>
+  </data>
+  <data name="pictureBoxValidIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxValidIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxValidIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="pictureBoxValidIcon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxValidIcon.Name" xml:space="preserve">
+    <value>pictureBoxValidIcon</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxValidIcon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxValidIcon.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxValidIcon.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 214</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>361, 20</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Text" xml:space="preserve">
+    <value>&amp;Delete original files or directories after encryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
+    <value>checkBoxReDeleteOriginalFileAfterEncryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 188</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.Text" xml:space="preserve">
+    <value>Not &amp;mask password character</value>
+  </data>
+  <data name="checkBoxReNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxReNotMaskEncryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="labelInputPasswordAgain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="labelInputPasswordAgain.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelInputPasswordAgain.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelInputPasswordAgain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelInputPasswordAgain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 140</value>
+  </data>
+  <data name="labelInputPasswordAgain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 16</value>
+  </data>
+  <data name="labelInputPasswordAgain.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="labelInputPasswordAgain.Text" xml:space="preserve">
+    <value>Input password again to confirm:</value>
+  </data>
+  <data name="&gt;&gt;labelInputPasswordAgain.Name" xml:space="preserve">
+    <value>labelInputPasswordAgain</value>
+  </data>
+  <data name="&gt;&gt;labelInputPasswordAgain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelInputPasswordAgain.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;labelInputPasswordAgain.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="textBoxRePassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="textBoxRePassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 160</value>
+  </data>
+  <data name="textBoxRePassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>●</value>
+  </data>
+  <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>395, 23</value>
+  </data>
+  <data name="textBoxRePassword.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
+    <value>textBoxRePassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
+    <value>panelEncryptConfirm</value>
+  </data>
+  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="panelEncryptConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>530, 356</value>
+  </data>
+  <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;panelEncryptConfirm.Name" xml:space="preserve">
     <value>panelEncryptConfirm</value>
@@ -629,377 +1405,6 @@
   </data>
   <data name="&gt;&gt;tabPageEncryptConfirm.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        sP01JwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBoxDecryptBackButton.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Name" xml:space="preserve">
-    <value>pictureBoxDecryptBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryptBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pictureBoxDecryption.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="pictureBoxDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 146</value>
-  </data>
-  <data name="pictureBoxDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBoxDecryption.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Name" xml:space="preserve">
-    <value>pictureBoxDecryption</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxDecryption.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="labelDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 198</value>
-  </data>
-  <data name="labelDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
-  </data>
-  <data name="labelDecryption.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="labelDecryption.Text" xml:space="preserve">
-    <value>Decryption</value>
-  </data>
-  <data name="labelDecryption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Name" xml:space="preserve">
-    <value>labelDecryption</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;labelDecryption.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 214</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 20</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="checkBoxDeleteAtcFileAfterDecryption.Text" xml:space="preserve">
-    <value>Delete &amp;encrypted file after decryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Name" xml:space="preserve">
-    <value>checkBoxDeleteAtcFileAfterDecryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 188</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.Text" xml:space="preserve">
-    <value>Not mask password character</value>
-  </data>
-  <data name="checkBoxNotMaskDecryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskDecryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="buttonDecryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>407, 295</value>
-  </data>
-  <data name="buttonDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonDecryptCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="buttonDecryptCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Name" xml:space="preserve">
-    <value>buttonDecryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptCancel.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="buttonDecryptStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonDecryptStart.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonDecryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 295</value>
-  </data>
-  <data name="buttonDecryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonDecryptStart.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="buttonDecryptStart.Text" xml:space="preserve">
-    <value>&amp;Decrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Name" xml:space="preserve">
-    <value>buttonDecryptStart</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonDecryptStart.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="labelDecryptionPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="labelDecryptionPassword.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelDecryptionPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="labelDecryptionPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 140</value>
-  </data>
-  <data name="labelDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 16</value>
-  </data>
-  <data name="labelDecryptionPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="labelDecryptionPassword.Text" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="&gt;&gt;labelDecryptionPassword.Name" xml:space="preserve">
-    <value>labelDecryptionPassword</value>
-  </data>
-  <data name="&gt;&gt;labelDecryptionPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelDecryptionPassword.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;labelDecryptionPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="textBoxDecryptPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="textBoxDecryptPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="textBoxDecryptPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 159</value>
-  </data>
-  <data name="textBoxDecryptPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 23</value>
-  </data>
-  <data name="textBoxDecryptPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Name" xml:space="preserve">
-    <value>textBoxDecryptPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.Parent" xml:space="preserve">
-    <value>panelDecrypt</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecryptPassword.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panelDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 356</value>
-  </data>
-  <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;panelDecrypt.Name" xml:space="preserve">
     <value>panelDecrypt</value>
@@ -1059,7 +1464,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 365</value>
+    <value>536, 362</value>
   </data>
   <data name="tabPageProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2611,261 +3016,6 @@ in this area for encryption or decryption.</value>
   <data name="&gt;&gt;labelDragAndDrop.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Name" xml:space="preserve">
-    <value>buttonEncryptionPasswordOk</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Name" xml:space="preserve">
-    <value>buttonEncryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Name" xml:space="preserve">
-    <value>labelPassword</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
-    <value>textBoxPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="panelEncrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelEncrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 359</value>
-  </data>
-  <data name="panelEncrypt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.Name" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.Parent" xml:space="preserve">
-    <value>tabPageEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panelEncrypt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pictureBoxEncryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="pictureBoxEncryptBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        sP01JwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBoxEncryptBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
-  </data>
-  <data name="pictureBoxEncryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBoxEncryptBackButton.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 298</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="buttonEncryptionPasswordOk.Text" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Name" xml:space="preserve">
-    <value>buttonEncryptionPasswordOk</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionPasswordOk.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.Name" xml:space="preserve">
-    <value>labelEncryption</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;labelEncryption.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Name" xml:space="preserve">
-    <value>pictureBoxEncryption</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.Parent" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryption.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 359</value>
-  </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
-  </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="labelEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
@@ -2873,7 +3023,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="labelEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 200</value>
+    <value>3, 199</value>
   </data>
   <data name="labelEncryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 24</value>
@@ -2907,7 +3057,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 147</value>
+    <value>21, 146</value>
   </data>
   <data name="pictureBoxEncryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -2926,473 +3076,6 @@ ATC</value>
   </data>
   <data name="&gt;&gt;pictureBoxEncryption.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 215</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>361, 20</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="checkBoxDeleteOriginalFileAfterEncryption.Text" xml:space="preserve">
-    <value>&amp;Delete original files or directories after encryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 189</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.Text" xml:space="preserve">
-    <value>Not &amp;mask password character</value>
-  </data>
-  <data name="checkBoxNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="buttonEncryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="buttonEncryptCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonEncryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>407, 298</value>
-  </data>
-  <data name="buttonEncryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonEncryptCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="buttonEncryptCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Name" xml:space="preserve">
-    <value>buttonEncryptCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="labelPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="labelPassword.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="labelPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 141</value>
-  </data>
-  <data name="labelPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 16</value>
-  </data>
-  <data name="labelPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="labelPassword.Text" xml:space="preserve">
-    <value>Password:</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Name" xml:space="preserve">
-    <value>labelPassword</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;labelPassword.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="textBoxPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="textBoxPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 161</value>
-  </data>
-  <data name="textBoxPassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>*</value>
-  </data>
-  <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>398, 23</value>
-  </data>
-  <data name="textBoxPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
-    <value>textBoxPassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
-    <value>panelEncrypt</value>
-  </data>
-  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptConfirmBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Name" xml:space="preserve">
-    <value>pictureBoxCheckPasswordValidation</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Name" xml:space="preserve">
-    <value>buttonEncryptionConfirmCancel</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Name" xml:space="preserve">
-    <value>buttonEncryptStart</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxInValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxReDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxReNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Name" xml:space="preserve">
-    <value>labelInputPasswordAgain</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
-    <value>textBoxRePassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="panelEncryptConfirm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panelEncryptConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 356</value>
-  </data>
-  <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Name" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.Parent" xml:space="preserve">
-    <value>tabPageEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panelEncryptConfirm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        sP01JwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
-  </data>
-  <data name="pictureBoxEncryptConfirmBackButton.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Name" xml:space="preserve">
-    <value>pictureBoxEncryptConfirmBackButton</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptConfirmBackButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJoSURBVEhLpdRfSFNhGAbw90LEQeiNYZgIQjdeBHrn
-        RTC8FK/ExD8wmJfeCKbDofgPFPEiwSsRhaVkIQNFEBRDXQiz3Jw1GjXzookkVMaUMVzN3p7vnJ11dvq2
-        tnzhx+D7nvO8F2ccmgpM3QgzZyR9yKAIHsJMgjPx+wjKZaV6NPluMp1ymIM4cAZueCArF2jCPyFjhShw
-        DuYg/68Fo29GjUaA/5MLTCkLBn2DelbgXIwcjhjPnCkL7F675i7EgLPVf9DPJ5ET9nz18PDhsP7OklzQ
-        9bpLswCci+3P2+hQZzY4q78LgfI+qMPdIdyGOHC2pt9Pq82Y48tjWaYNV0Ttu+2CFThbPfs9HPkZUdsx
-        4gVLcou4Imp1tQqPgbNheWnho4sjtRnj/eaV5iCAa6KGrQZhETgbK6EVtRlz/euaO191SnMQRoSobrNO
-        WAPWjL0dY/93P/cd9CXPhCHfkNqcmI3TjZR7gzgiRLXrtYIDWGjcbuTLH5dqAyZ4EeQB3wA37zSnnF/F
-        r7hpp0l5Jo1TxIhq1moEG7Bg89iUh41jPJs/nlfyGWwhRlS1WiXcB9bUv6jnvS97apNkwrEwm9fNyXwa
-        NkSJKpcrNW5gvV5vL59fnautuhFfUWPWIAp3ECWqcFZozMBG1avVvPxpWW3GnEXPlBJZVmccUfVTUbpU
-        qucAlmlxtXAoEuLu/W7pvc4HKEouKH5WrJcPu8AyZUtlXPK8RHqXcA73tHJlQeHTQiMTOIFz9BFSypUF
-        BQsF6VghBPwPURiHW8ZyZUHek7xMTNAGTvBCDBgCsAl2UP4t6RA5bkZW+gfTb8cKTmU3SLIHAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 160</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="pictureBoxCheckPasswordValidation.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Name" xml:space="preserve">
-    <value>pictureBoxCheckPasswordValidation</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckPasswordValidation.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Name" xml:space="preserve">
-    <value>labelEncryptionConfirm</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;labelEncryptionConfirm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Name" xml:space="preserve">
-    <value>pictureBoxEncryptionConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxEncryptionConfirm.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="&gt;&gt;panel3.Name" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="labelEncryptionConfirm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -3455,311 +3138,508 @@ ATC</value>
   <data name="&gt;&gt;pictureBoxEncryptionConfirm.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Name" xml:space="preserve">
+    <value>pictureBoxDecryptBackButton</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>407, 295</value>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonEncryptionConfirmCancel.Text" xml:space="preserve">
-    <value>&amp;Cancel</value>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Name" xml:space="preserve">
-    <value>buttonEncryptionConfirmCancel</value>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Name" xml:space="preserve">
+    <value>checkBoxDeleteAtcFileAfterDecryption</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptionConfirmCancel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxNotMaskDecryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="buttonEncryptStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="&gt;&gt;buttonDecryptCancel.Name" xml:space="preserve">
+    <value>buttonDecryptCancel</value>
   </data>
-  <data name="buttonEncryptStart.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="buttonEncryptStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="buttonEncryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>292, 295</value>
-  </data>
-  <data name="buttonEncryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
-  </data>
-  <data name="buttonEncryptStart.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="buttonEncryptStart.Text" xml:space="preserve">
-    <value>&amp;Encrypt</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Name" xml:space="preserve">
-    <value>buttonEncryptStart</value>
-  </data>
-  <data name="&gt;&gt;buttonEncryptStart.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonDecryptCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptStart.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
+  <data name="&gt;&gt;buttonDecryptCancel.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="&gt;&gt;buttonEncryptStart.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonDecryptCancel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="pictureBoxInValidIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;buttonDecryptStart.Name" xml:space="preserve">
+    <value>buttonDecryptStart</value>
   </data>
-  <data name="pictureBoxInValidIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAIuSURBVEhLpdUxS+tQFAfwgIOLUxZFwcWggxQENzc3
-        R7dOQkEHhWoHRYQuDsJbHIIRsQqCDypRtOIkCILfQdwUnfQzCJX/+5/cm9zb5ubV5zv4g+Sce89J2yR6
-        qNf/D/BX7k2dfCpTSA1NjiXnu5raPGxtFQnoN6GHJgWu5sLDxoZLlT4J3yRrq+4BtVq3kPBDYX7Ayoqt
-        SsisrprjImtr3bmOT+JhaSlVok9CYn0d+PgATk7UucvNDfD2pq7e5KVHyQxYWEi1CInlZeD9nXUdR0cq
-        b7u60kXG6yuwuGjXW8zqAeWyGKI2IfPwkOzN4uDA1C4udFLH5aWpKdJriBUOmJ8XFULO/b1qkMbeHnB2
-        pk90nJ/n9ykVVjlgbk5EBKe7O9XIFc2me48ScQUHzM6KmFDo9lY1tOP01L3WiLmKA2ZmREwodHysmqbx
-        9QXs7LjXGvx4MmB6WkQEp8ND1bQ7ZMj2tnuP8ourOGByUlQIOfv7qlkajQZwfa1PdNTr+X0K71sZEARi
-        hNqETChPvRURfzPJT0x0PgMSm5tmnyK9RljhgNHRVIuQGB8Hnp7UZgkZltZS9rPw8gKMjdl160EbHExN
-        UZuQkCt9fAR2d9W5S8wb5fkZKPHNYPLSY8oM8H1bjZAZHjbHReTKO3N8ManmasDAQLeQ8EOO13V/v0uV
-        2oRvkrUF/3D6+ooEFBN6kDW8dfLNhce/XnwqU0QNTY4lxy/d3TjlavhvHE0NeH8AMh+njexgbpQAAAAA
-        SUVORK5CYII=
-</value>
+  <data name="&gt;&gt;buttonDecryptStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBoxInValidIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;buttonDecryptStart.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="pictureBoxInValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 292</value>
-  </data>
-  <data name="pictureBoxInValidIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
-  </data>
-  <data name="pictureBoxInValidIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="pictureBoxInValidIcon.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="pictureBoxInValidIcon.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxInValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxInValidIcon.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;buttonDecryptStart.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="pictureBoxValidIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+  <data name="&gt;&gt;labelDecryptionPassword.Name" xml:space="preserve">
+    <value>labelDecryptionPassword</value>
   </data>
-  <data name="pictureBoxValidIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJoSURBVEhLpdRfSFNhGAbw90LEQeiNYZgIQjdeBHrn
-        RTC8FK/ExD8wmJfeCKbDofgPFPEiwSsRhaVkIQNFEBRDXQiz3Jw1GjXzookkVMaUMVzN3p7vnJ11dvq2
-        tnzhx+D7nvO8F2ccmgpM3QgzZyR9yKAIHsJMgjPx+wjKZaV6NPluMp1ymIM4cAZueCArF2jCPyFjhShw
-        DuYg/68Fo29GjUaA/5MLTCkLBn2DelbgXIwcjhjPnCkL7F675i7EgLPVf9DPJ5ET9nz18PDhsP7OklzQ
-        9bpLswCci+3P2+hQZzY4q78LgfI+qMPdIdyGOHC2pt9Pq82Y48tjWaYNV0Ttu+2CFThbPfs9HPkZUdsx
-        4gVLcou4Imp1tQqPgbNheWnho4sjtRnj/eaV5iCAa6KGrQZhETgbK6EVtRlz/euaO191SnMQRoSobrNO
-        WAPWjL0dY/93P/cd9CXPhCHfkNqcmI3TjZR7gzgiRLXrtYIDWGjcbuTLH5dqAyZ4EeQB3wA37zSnnF/F
-        r7hpp0l5Jo1TxIhq1moEG7Bg89iUh41jPJs/nlfyGWwhRlS1WiXcB9bUv6jnvS97apNkwrEwm9fNyXwa
-        NkSJKpcrNW5gvV5vL59fnautuhFfUWPWIAp3ECWqcFZozMBG1avVvPxpWW3GnEXPlBJZVmccUfVTUbpU
-        qucAlmlxtXAoEuLu/W7pvc4HKEouKH5WrJcPu8AyZUtlXPK8RHqXcA73tHJlQeHTQiMTOIFz9BFSypUF
-        BQsF6VghBPwPURiHW8ZyZUHek7xMTNAGTvBCDBgCsAl2UP4t6RA5bkZW+gfTb8cKTmU3SLIHAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="pictureBoxValidIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBoxValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 292</value>
-  </data>
-  <data name="pictureBoxValidIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
-  </data>
-  <data name="pictureBoxValidIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
-  <data name="pictureBoxValidIcon.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
-  </data>
-  <data name="pictureBoxValidIcon.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Name" xml:space="preserve">
-    <value>pictureBoxValidIcon</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxValidIcon.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 214</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>361, 20</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
-  </data>
-  <data name="checkBoxReDeleteOriginalFileAfterEncryption.Text" xml:space="preserve">
-    <value>&amp;Delete original files or directories after encryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
-    <value>checkBoxReDeleteOriginalFileAfterEncryption</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 188</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 20</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.Text" xml:space="preserve">
-    <value>Not &amp;mask password character</value>
-  </data>
-  <data name="checkBoxReNotMaskEncryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Name" xml:space="preserve">
-    <value>checkBoxReNotMaskEncryptedPassword</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
-  </data>
-  <data name="&gt;&gt;checkBoxReNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="labelInputPasswordAgain.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="labelInputPasswordAgain.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelInputPasswordAgain.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="labelInputPasswordAgain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelInputPasswordAgain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 140</value>
-  </data>
-  <data name="labelInputPasswordAgain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 16</value>
-  </data>
-  <data name="labelInputPasswordAgain.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="labelInputPasswordAgain.Text" xml:space="preserve">
-    <value>Input password again to confirm:</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Name" xml:space="preserve">
-    <value>labelInputPasswordAgain</value>
-  </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelDecryptionPassword.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
+  <data name="&gt;&gt;labelDecryptionPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="&gt;&gt;labelInputPasswordAgain.ZOrder" xml:space="preserve">
-    <value>9</value>
+  <data name="&gt;&gt;labelDecryptionPassword.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="textBoxRePassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="&gt;&gt;textBoxDecryptPassword.Name" xml:space="preserve">
+    <value>textBoxDecryptPassword</value>
   </data>
-  <data name="textBoxRePassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 160</value>
-  </data>
-  <data name="textBoxRePassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
-    <value>●</value>
-  </data>
-  <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>395, 23</value>
-  </data>
-  <data name="textBoxRePassword.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Name" xml:space="preserve">
-    <value>textBoxRePassword</value>
-  </data>
-  <data name="&gt;&gt;textBoxRePassword.Type" xml:space="preserve">
+  <data name="&gt;&gt;textBoxDecryptPassword.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;textBoxRePassword.Parent" xml:space="preserve">
-    <value>panelEncryptConfirm</value>
+  <data name="&gt;&gt;textBoxDecryptPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
   </data>
-  <data name="&gt;&gt;textBoxRePassword.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;textBoxDecryptPassword.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelDecrypt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>530, 356</value>
+  </data>
+  <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelDecrypt.Name" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;panelDecrypt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelDecrypt.Parent" xml:space="preserve">
+    <value>tabPageDecrypt</value>
+  </data>
+  <data name="&gt;&gt;panelDecrypt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        sP01JwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 3</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBoxDecryptBackButton.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Name" xml:space="preserve">
+    <value>pictureBoxDecryptBackButton</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryptBackButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Name" xml:space="preserve">
+    <value>pictureBoxDecryption</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Name" xml:space="preserve">
+    <value>labelDecryption</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 356</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;panel4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="pictureBoxDecryption.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="pictureBoxDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxDecryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 146</value>
+  </data>
+  <data name="pictureBoxDecryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 48</value>
+  </data>
+  <data name="pictureBoxDecryption.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Name" xml:space="preserve">
+    <value>pictureBoxDecryption</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxDecryption.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelDecryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 198</value>
+  </data>
+  <data name="labelDecryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 24</value>
+  </data>
+  <data name="labelDecryption.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="labelDecryption.Text" xml:space="preserve">
+    <value>Decryption</value>
+  </data>
+  <data name="labelDecryption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Name" xml:space="preserve">
+    <value>labelDecryption</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;labelDecryption.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 214</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 20</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="checkBoxDeleteAtcFileAfterDecryption.Text" xml:space="preserve">
+    <value>Delete &amp;encrypted file after decryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Name" xml:space="preserve">
+    <value>checkBoxDeleteAtcFileAfterDecryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAtcFileAfterDecryption.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 188</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.Text" xml:space="preserve">
+    <value>Not mask password character</value>
+  </data>
+  <data name="checkBoxNotMaskDecryptedPassword.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxNotMaskDecryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskDecryptedPassword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonDecryptCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>407, 295</value>
+  </data>
+  <data name="buttonDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonDecryptCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="buttonDecryptCancel.Text" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptCancel.Name" xml:space="preserve">
+    <value>buttonDecryptCancel</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptCancel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptCancel.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptCancel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="buttonDecryptStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="buttonDecryptStart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="buttonDecryptStart.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 295</value>
+  </data>
+  <data name="buttonDecryptStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="buttonDecryptStart.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="buttonDecryptStart.Text" xml:space="preserve">
+    <value>&amp;Decrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptStart.Name" xml:space="preserve">
+    <value>buttonDecryptStart</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptStart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptStart.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;buttonDecryptStart.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="labelDecryptionPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="labelDecryptionPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelDecryptionPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelDecryptionPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>113, 140</value>
+  </data>
+  <data name="labelDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 16</value>
+  </data>
+  <data name="labelDecryptionPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="labelDecryptionPassword.Text" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="&gt;&gt;labelDecryptionPassword.Name" xml:space="preserve">
+    <value>labelDecryptionPassword</value>
+  </data>
+  <data name="&gt;&gt;labelDecryptionPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDecryptionPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;labelDecryptionPassword.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="textBoxDecryptPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="textBoxDecryptPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="textBoxDecryptPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>110, 159</value>
+  </data>
+  <data name="textBoxDecryptPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>402, 23</value>
+  </data>
+  <data name="textBoxDecryptPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;textBoxDecryptPassword.Name" xml:space="preserve">
+    <value>textBoxDecryptPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxDecryptPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxDecryptPassword.Parent" xml:space="preserve">
+    <value>panelDecrypt</value>
+  </data>
+  <data name="&gt;&gt;textBoxDecryptPassword.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;pictureBoxProgressStateBackButton.Name" xml:space="preserve">
     <value>pictureBoxProgressStateBackButton</value>
@@ -3852,7 +3732,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 359</value>
+    <value>530, 356</value>
   </data>
   <data name="panelProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3957,7 +3837,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 359</value>
+    <value>90, 356</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3981,7 +3861,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 200</value>
+    <value>3, 199</value>
   </data>
   <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 24</value>
@@ -4015,7 +3895,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 147</value>
+    <value>21, 146</value>
   </data>
   <data name="pictureBoxProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -4045,7 +3925,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="labelCryptionType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 109</value>
+    <value>107, 108</value>
   </data>
   <data name="labelCryptionType.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 16</value>
@@ -4075,7 +3955,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>407, 298</value>
+    <value>407, 295</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 32</value>
@@ -4105,7 +3985,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="labelProgressPercentText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 194</value>
+    <value>110, 193</value>
   </data>
   <data name="labelProgressPercentText.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 20</value>
@@ -4141,7 +4021,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="labelProgressMessageText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 134</value>
+    <value>107, 133</value>
   </data>
   <data name="labelProgressMessageText.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 16</value>
@@ -4168,7 +4048,7 @@ ATC</value>
     <value>Left, Right</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 161</value>
+    <value>110, 160</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 24</value>

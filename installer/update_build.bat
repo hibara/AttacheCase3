@@ -51,11 +51,11 @@ del /Q Archives\
 mkdir bin
 
 copy ..\AttacheCase\bin\Release\AttacheCase.exe bin\AttacheCase.exe
-copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.dll bin\Microsoft.WindowsAPICodePack.dll
-copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Microsoft.WindowsAPICodePack.Shell.dll
+@rem copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.dll bin\Microsoft.WindowsAPICodePack.dll
+@rem copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Microsoft.WindowsAPICodePack.Shell.dll
 copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
-mkdir bin\ja-JP
-copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
+@rem mkdir bin\ja-JP
+@rem copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
 
 
 @echo 
@@ -105,7 +105,8 @@ echo "ver.%NUM%"
 
 @rem ZIP
 cd bin
-7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe Microsoft.WindowsAPICodePack.dll Microsoft.WindowsAPICodePack.Shell.dll ja-JP\AttacheCase.resources.dll
+@rem 7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe Microsoft.WindowsAPICodePack.dll Microsoft.WindowsAPICodePack.Shell.dll ja-JP\AttacheCase.resources.dll
+7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe
 cd ..\
 
 

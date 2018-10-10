@@ -463,4 +463,7 @@
   <data name="labelInvalidChar" xml:space="preserve">
     <value>パスに不正な文字列があります。置換して復号しますか？</value>
   </data>
+  <data name="labelPasswordInputNewPassword" xml:space="preserve">
+    <value>記憶パスワードを破棄して新しいパスワードを入力する：</value>
+  </data>
 </root>

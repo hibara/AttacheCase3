@@ -2927,7 +2927,7 @@ namespace AttacheCase
             }
           }
         }
-        catch(Exception e)
+        catch
         {
           return ("");
         }

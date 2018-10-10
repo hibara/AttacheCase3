@@ -920,6 +920,15 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Discard memorized password and input new password: に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string labelPasswordInputNewPassword {
+            get {
+                return ResourceManager.GetString("labelPasswordInputNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   The memorized password: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string labelPasswordMemorized {

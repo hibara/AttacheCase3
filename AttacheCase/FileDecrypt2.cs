@@ -694,7 +694,7 @@ namespace AttacheCase
 
         // 余計な ":" が含まれている
         // Extra ":" is included
-        if (FilePathSplits.Length > 1)
+        if (FilePathSplits.Length > 2)
         {
           e.Result = new FileDecryptReturnVal(INVALID_FILE_PATH, OutFilePath);
           return (false);

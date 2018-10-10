@@ -402,7 +402,7 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch (Exception e)
+        catch
         {
           // ユーザーキャンセル
           // User cancel
@@ -478,7 +478,7 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch (Exception e)
+        catch
         {
           // ユーザーキャンセル
           // User cancel
@@ -1243,7 +1243,7 @@ namespace AttacheCase
             //
             // Error
             // The path of files or folders are invalid. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath,
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath + Environment.NewLine + result.FilePath,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
@@ -2529,15 +2529,8 @@ namespace AttacheCase
 
     }
 
-    /// <summary>
-    /// パスワードファイルパス
-    /// The path of Password file 
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private void textBoxPassword_TextChanged(object sender, EventArgs e)
     {
-
       if (AppSettings.Instance.MyEncryptPasswordBinary != null)
       {
         textBoxPassword.Enabled = false;
@@ -2546,37 +2539,52 @@ namespace AttacheCase
         textBoxRePassword.BackColor = SystemColors.ButtonFace;
         return;
       }
-      else
+
+      // In the case of ZIP files, it must be more than one character of the password.
+      if (pictureBoxEncryption.Image == pictureBoxZipOn.Image)
       {
-        // In the case of ZIP files, it must be more than one character of the password.
-        if (pictureBoxEncryption.Image == pictureBoxZipOn.Image)
+        if (textBoxPassword.Text == "")
         {
-          if (textBoxPassword.Text == "")
-          {
-            buttonEncryptionPasswordOk.Enabled = false;
-          }
-          else
-          {
-            buttonEncryptionPasswordOk.Enabled = true;
-          }
+          buttonEncryptionPasswordOk.Enabled = false;
         }
         else
         {
           buttonEncryptionPasswordOk.Enabled = true;
         }
+      }
+      else
+      {
+        buttonEncryptionPasswordOk.Enabled = true;
+      }
 
-        textBoxPassword.Enabled = true;
-        textBoxRePassword.Enabled = true;
-
-        if (textBoxPassword.Text == textBoxRePassword.Text)
+      // Processing while a memorized password is input.
+      if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
+      {
+        if (textBoxPassword.Text != AppSettings.Instance.MyEncryptPasswordString)
         {
-          pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
-          textBoxRePassword.BackColor = Color.Honeydew;
+          // "記憶パスワードを破棄して新しいパスワードを入力する："
+          // "Discard memorized password and input new password:"
+          labelPassword.Text = Resources.labelPasswordInputNewPassword;
         }
         else
         {
-          textBoxRePassword.BackColor = Color.PapayaWhip;
+          // "記憶パスワード："
+          // "The memorized password:"
+          labelPassword.Text = Resources.labelPasswordMemorized;
         }
+      }
+
+      textBoxPassword.Enabled = true;
+      textBoxRePassword.Enabled = true;
+
+      if (textBoxPassword.Text == textBoxRePassword.Text)
+      {
+        pictureBoxCheckPasswordValidation.Image = pictureBoxValidIcon.Image;
+        textBoxRePassword.BackColor = Color.Honeydew;
+      }
+      else
+      {
+        textBoxRePassword.BackColor = Color.PapayaWhip;
       }
 
     }
@@ -2690,7 +2698,7 @@ namespace AttacheCase
 
     private void checkBoxReNotMaskEncryptedPassword_CheckedChanged(object sender, EventArgs e)
     {
-      if (checkBoxNotMaskEncryptedPassword.Checked == true)
+      if (checkBoxReNotMaskEncryptedPassword.Checked == true)
       {
         checkBoxNotMaskEncryptedPassword.Checked = true;
         textBoxPassword.PasswordChar = (char)0;
@@ -2753,8 +2761,8 @@ namespace AttacheCase
 
     //======================================================================
     /// <summary>
-    /// 
     /// 「panelEncrypt」- 暗号化「実行」のボタンが押されたイベント
+    ///  Encryption "Execute" button pressed event
     /// </summary>
     //======================================================================
     private void buttonEncryptStart_Click(object sender, EventArgs e)
@@ -2819,7 +2827,8 @@ namespace AttacheCase
 
     //======================================================================
     /// <summary>
-    /// 
+    /// 暗号化までの前処理
+    /// Preprocessing up to encryption
     /// </summary>
     private void EncryptionProcess()
     {
@@ -2896,16 +2905,7 @@ namespace AttacheCase
       //-----------------------------------
       // Encryption password
       //-----------------------------------
-      string EncryptionPassword = "";
-
-      if (AppSettings.Instance.fMyEncryptPasswordKeep == true)
-      {
-        EncryptionPassword = AppSettings.Instance.MyEncryptPasswordString;
-      }
-      else
-      {
-        EncryptionPassword = textBoxRePassword.Text;
-      }
+      string EncryptionPassword = textBoxRePassword.Text;
 
       //-----------------------------------
       // Password file
@@ -3869,11 +3869,6 @@ namespace AttacheCase
       textBoxDecryptPassword.BackColor = SystemColors.Window;
     }
 
-    private void textBoxDecryptPassword_DragOver(object sender, DragEventArgs e)
-    {
-
-    }
-
     private void textBoxDecryptPassword_TextChanged(object sender, EventArgs e)
     {
       if (AppSettings.Instance.MyEncryptPasswordBinary != null)
@@ -3883,18 +3878,27 @@ namespace AttacheCase
         // すでにパスワードファイルが入力済みです：
         // Password file is entered already:
         labelDecryptionPassword.Text = Resources.labelPasswordFileIsEnteredAlready;
+        return;
       }
-      else
+      
+      textBoxDecryptPassword.Enabled = true;
+      textBoxDecryptPassword.BackColor = SystemColors.Window;
+
+      // パスワード：
+      // Password:
+      labelDecryptionPassword.Text = Resources.labelPassword;
+
+      if (AppSettings.Instance.fMyDecryptPasswordKeep == true)
       {
-        textBoxDecryptPassword.Enabled = true;
-        textBoxDecryptPassword.BackColor = SystemColors.Window;
-        // パスワード：
-        // Password:
-        labelDecryptionPassword.Text = Resources.labelPassword;
+        if (textBoxDecryptPassword.Text != AppSettings.Instance.MyDecryptPasswordString)
+        {
+          // "記憶パスワードを破棄して新しいパスワードを入力する："
+          // "Discard memorized password and input new password:"
+          labelDecryptionPassword.Text = Resources.labelPasswordInputNewPassword;
+        }
       }
 
     }
-
 
     //======================================================================
     /// <summary>
@@ -3967,15 +3971,7 @@ namespace AttacheCase
       //-----------------------------------
       // Decryption password
       //-----------------------------------
-      string DecryptionPassword = "";
-      if (AppSettings.Instance.fMyDecryptPasswordKeep == true && LimitOfInputPassword == -1)
-      {
-        DecryptionPassword = AppSettings.Instance.MyDecryptPasswordString;
-      }
-      else
-      {
-        DecryptionPassword = textBoxDecryptPassword.Text;
-      }
+      string DecryptionPassword = textBoxDecryptPassword.Text;
       
       //-----------------------------------
       // Always minimize when running
@@ -4584,7 +4580,7 @@ namespace AttacheCase
         return (true);
 
       }
-      catch(Exception e)
+      catch
       {
 #if(DEBUG)
         System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);

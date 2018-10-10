@@ -181,14 +181,30 @@ namespace AttacheCase
 			{
 				textBoxPassword.Focus();
 				textBoxPassword.SelectAll();
-			}
+        this.CancelButton = buttonPasswordCancel;
+      }
 			//-----------------------------------
 			// 上書きウィンドウ
 			// Confirm to overwrite window 
 			else if (panelOverwriteConfirm.Visible == true)
 			{
 				splitButton1.Focus();
-			}
+        this.CancelButton = buttonOverwriteCancel;
+      }
+      //-----------------------------------
+      // 暗号化・復号処理選択ウィンドウ
+      // Encryption / Decryption processing selection window
+      else if (panelAskEncryptOrDecrypt.Visible == true)
+      {
+        this.CancelButton = buttonAskEncryptOrDecryptCancel;
+      }
+      //-----------------------------------
+      // パスに不正な文字列がある場合の警告ウィンドウ
+      // Warning window when there is an invalid character string in the path
+      else if(panelInvalidChar.Visible == true)
+      {
+        this.CancelButton = buttonInvalidCharCancel;
+      }
       //-----------------------------------
       // 見つかった動作設定ファイル（_AtcCase.ini）を読み込むか確認
       // Confirm whether to load the found setting file "_AtcCase.ini"
@@ -202,6 +218,7 @@ namespace AttacheCase
         {
           buttonConfirmToReadIniFileNo.Focus();
         }
+        this.CancelButton = buttonConfirmToReadIniFileNo;
       }
 
       //-----------------------------------

@@ -335,9 +335,6 @@
   <data name="textBoxRePassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
-  <data name="textBoxRePassword.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="textBoxRePassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
@@ -564,7 +561,7 @@
     <value>splitButton2</value>
   </data>
   <data name="&gt;&gt;splitButton2.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitButton2.Parent" xml:space="preserve">
     <value>panelOverwriteConfirm</value>
@@ -636,7 +633,7 @@
     <value>splitButton1</value>
   </data>
   <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
     <value>panelOverwriteConfirm</value>

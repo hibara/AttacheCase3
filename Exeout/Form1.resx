@@ -205,7 +205,7 @@
     <value>17, 17</value>
   </metadata>
   <data name="toolStripStatusLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 17</value>
+    <value>172, 17</value>
   </data>
   <data name="toolStripStatusLabel1.Font" type="System.Drawing.Font, System.Drawing">
     <value>メイリオ, 8.25pt</value>
@@ -214,7 +214,7 @@
     <value>272, 17</value>
   </data>
   <data name="toolStripStatusLabel1.Text" xml:space="preserve">
-    <value>Copyright(C) 2016 M.Hibara, All rights reserved.</value>
+    <value>Copyright(C) 2018 M.Hibara, All rights reserved.</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 187</value>

@@ -170,7 +170,7 @@
       // textBoxRePassword
       // 
       resources.ApplyResources(this.textBoxRePassword, "textBoxRePassword");
-      this.textBoxRePassword.BackColor = System.Drawing.SystemColors.ButtonFace;
+      this.textBoxRePassword.BackColor = System.Drawing.SystemColors.Window;
       this.textBoxRePassword.Name = "textBoxRePassword";
       this.textBoxRePassword.UseSystemPasswordChar = true;
       // 
@@ -192,6 +192,7 @@
       resources.ApplyResources(this.buttonPasswordOK, "buttonPasswordOK");
       this.buttonPasswordOK.Name = "buttonPasswordOK";
       this.buttonPasswordOK.UseVisualStyleBackColor = true;
+      this.buttonPasswordOK.Click += new System.EventHandler(this.buttonPasswordOK_Click);
       // 
       // tabPageOverwriteConfirm
       // 

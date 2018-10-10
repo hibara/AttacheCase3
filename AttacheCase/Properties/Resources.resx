@@ -469,4 +469,7 @@ Decryption failed.</value>
   <data name="labelInvalidChar" xml:space="preserve">
     <value>Invalid character string in path. Do you replace it and decrypt it?</value>
   </data>
+  <data name="labelPasswordInputNewPassword" xml:space="preserve">
+    <value>Discard memorized password and input new password:</value>
+  </data>
 </root>
