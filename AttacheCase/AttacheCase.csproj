@@ -270,7 +270,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main_icon.ico" />
-    <None Include="Resources\calendar.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

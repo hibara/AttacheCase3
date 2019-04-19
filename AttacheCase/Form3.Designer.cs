@@ -1779,7 +1779,6 @@
       // dateToolStripMenuItem
       // 
       resources.ApplyResources(this.dateToolStripMenuItem, "dateToolStripMenuItem");
-      this.dateToolStripMenuItem.Image = global::AttacheCase.Properties.Resources.calendar;
       this.dateToolStripMenuItem.Name = "dateToolStripMenuItem";
       this.dateToolStripMenuItem.Click += new System.EventHandler(this.InsertDateTimeOject);
       // 

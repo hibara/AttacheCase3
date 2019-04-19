@@ -89,9 +89,6 @@ namespace AttacheCase
       public DateTime LastWriteDateTime;
       public DateTime CreationDateTime;
       public string Hash;
-      // ver.3.2.3.0 ~
-      public DateTime LastWriteDateTimeUtc;
-      public DateTime CreationDateTimeUtc;
     }
 
     // Status code
@@ -612,8 +609,6 @@ namespace AttacheCase
         double LastWriteTime, CreateTime;
         DateTime LastWriteDateTime = DateTime.Parse("0001/01/01");
         DateTime CreationDateTime = DateTime.Parse("0001/01/01");
-        DateTime LastWriteDateTimeUtc;
-        DateTime CreationDateTimeUtc;
 
         FileListData fd = new FileListData();
         string[] OutputFileData = OutputLine.Split('\t');
@@ -820,17 +815,17 @@ namespace AttacheCase
           if (_fSameTimeStamp == false)
           {
             // Last update datetime(UTC)
-            DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
+            DateTime.TryParse(OutputFileData[8], out DateTime LastWriteDateTimeUtc);
             TimeZoneInfo tzi = TimeZoneInfo.Local;
-            LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
+            fd.LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
             // Create datetime(UTC)
-            DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
-            CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
+            DateTime.TryParse(OutputFileData[9], out DateTime CreationDateTimeUtc);
+            fd.CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
           }
           else
           {
-            LastWriteDateTime = DateTime.UtcNow;
-            CreationDateTime = DateTime.UtcNow;
+            fd.LastWriteDateTime = DateTime.UtcNow;
+            fd.CreationDateTime = DateTime.UtcNow;
           }
         }
 
@@ -930,6 +925,9 @@ namespace AttacheCase
                   public DateTime LastWriteDateTime;
                   public DateTime CreationDateTime;
                   public string Sha256String;
+                  // ver.3.2.3.0 ~
+                  public DateTime LastWriteDateTimeUtc;
+                  public DateTime CreationDateTimeUtc;
                 }
                 Dictionary<int, FileListData> dic = new Dictionary<int, FileListData>();
                 */
@@ -1260,7 +1258,7 @@ namespace AttacheCase
                         // Restore the timestamp of a file
                         fi.CreationTime = (DateTime)dic[FileIndex].CreationDateTime;
                         fi.LastWriteTime = (DateTime)dic[FileIndex].LastWriteDateTime;
-                        
+
                         // ファイル属性の復元
                         // Restore file attribute.
                         fi.Attributes = (FileAttributes)dic[FileIndex].FileAttribute;
@@ -1338,8 +1336,8 @@ namespace AttacheCase
 
         }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
 
-        e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
-        return (true);
+        //e.Result = new FileDecryptReturnVal(DECRYPT_SUCCEEDED);
+        //return (true);
 
       }
       catch (UnauthorizedAccessException)

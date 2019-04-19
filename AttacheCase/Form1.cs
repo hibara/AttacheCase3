@@ -402,7 +402,7 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch
+        catch(Exception e)
         {
           // ユーザーキャンセル
           // User cancel
@@ -478,7 +478,7 @@ namespace AttacheCase
           Application.DoEvents();
 
         }
-        catch
+        catch(Exception e)
         {
           // ユーザーキャンセル
           // User cancel
@@ -4580,7 +4580,7 @@ namespace AttacheCase
         return (true);
 
       }
-      catch
+      catch(Exception e)
       {
 #if(DEBUG)
         System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);
