@@ -47,6 +47,7 @@
       this.checkBoxEndToExit = new System.Windows.Forms.CheckBox();
       this.tabPagePasswordOption = new System.Windows.Forms.TabPage();
       this.panelPasswordsOption = new System.Windows.Forms.Panel();
+      this.checkBoxEnablePassStrengthMeter = new System.Windows.Forms.CheckBox();
       this.buttonInputDecryptionPassword = new System.Windows.Forms.Button();
       this.buttonInputEncryptionPassword = new System.Windows.Forms.Button();
       this.checkBoxDobyMemorizedPassword = new System.Windows.Forms.CheckBox();
@@ -461,6 +462,7 @@
       // panelPasswordsOption
       // 
       resources.ApplyResources(this.panelPasswordsOption, "panelPasswordsOption");
+      this.panelPasswordsOption.Controls.Add(this.checkBoxEnablePassStrengthMeter);
       this.panelPasswordsOption.Controls.Add(this.buttonInputDecryptionPassword);
       this.panelPasswordsOption.Controls.Add(this.buttonInputEncryptionPassword);
       this.panelPasswordsOption.Controls.Add(this.checkBoxDobyMemorizedPassword);
@@ -469,6 +471,13 @@
       this.panelPasswordsOption.Controls.Add(this.textBoxMyEncodePassword);
       this.panelPasswordsOption.Controls.Add(this.checkBoxMyEncodePasswordKeep);
       this.panelPasswordsOption.Name = "panelPasswordsOption";
+      // 
+      // checkBoxEnablePassStrengthMeter
+      // 
+      resources.ApplyResources(this.checkBoxEnablePassStrengthMeter, "checkBoxEnablePassStrengthMeter");
+      this.checkBoxEnablePassStrengthMeter.Name = "checkBoxEnablePassStrengthMeter";
+      this.checkBoxEnablePassStrengthMeter.UseVisualStyleBackColor = true;
+      this.checkBoxEnablePassStrengthMeter.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // buttonInputDecryptionPassword
       // 
@@ -2154,5 +2163,6 @@
     private System.Windows.Forms.CheckBox checkBoxShowDialogToConfirmToReadIniFileAlways;
     private System.Windows.Forms.Label label15;
     private System.Windows.Forms.CheckBox checkBoxAlwaysReadIniFile;
+    private System.Windows.Forms.CheckBox checkBoxEnablePassStrengthMeter;
   }
 }

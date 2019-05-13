@@ -468,4 +468,112 @@ Decryption failed.</value>
   <data name="labelPasswordInputNewPassword" xml:space="preserve">
     <value>Discard memorized password and input new password:</value>
   </data>
+  <data name="zxcvbnSuggestionAddAnotherWordOrTwo" xml:space="preserve">
+    <value>Add another word or two. Uncommon words are better.</value>
+  </data>
+  <data name="zxcvbnSuggestionAllCapsEasy" xml:space="preserve">
+    <value>All-uppercase is almost as easy to guess as all-lowercase.</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidDatesYearsAssociatedYou" xml:space="preserve">
+    <value>Avoid dates and years that are associated with you.</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidRepeatedWordsAndChars" xml:space="preserve">
+    <value>Avoid repeated words and characters.</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidSequences" xml:space="preserve">
+    <value>Avoid sequences.</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidYearsAssociatedYou" xml:space="preserve">
+    <value>Avoid recent years. Avoid years that are associated with you.</value>
+  </data>
+  <data name="zxcvbnSuggestionCapsDontHelp" xml:space="preserve">
+    <value>Capitalization doesn't help very much.</value>
+  </data>
+  <data name="zxcvbnSuggestionDefault" xml:space="preserve">
+    <value>Use a few words, avoid common phrases. No need for symbols, digits, or uppercase letters.</value>
+  </data>
+  <data name="zxcvbnSuggestionEmpty" xml:space="preserve">
+    <value>Empty string.</value>
+  </data>
+  <data name="zxcvbnSuggestionPredictableSubstitutionsEasy" xml:space="preserve">
+    <value>Predictable substitutions like '@' instead of 'a' don't help very much.</value>
+  </data>
+  <data name="zxcvbnSuggestionReversedWordEasy" xml:space="preserve">
+    <value>Reversed words aren't much harder to guess.</value>
+  </data>
+  <data name="zxcvbnSuggestionUseLongerKeyboardPattern" xml:space="preserve">
+    <value>Use a longer keyboard pattern with more turns.</value>
+  </data>
+  <data name="zxcvbnWarnigDatesEasy" xml:space="preserve">
+    <value>Dates are often easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningCommonNameSurnamesEasy" xml:space="preserve">
+    <value>Common names and surnames are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningCommonPasswords" xml:space="preserve">
+    <value>This is a very common password.</value>
+  </data>
+  <data name="zxcvbnWarningDefault" xml:space="preserve">
+    <value>Empty string.</value>
+  </data>
+  <data name="zxcvbnWarningEmpty" xml:space="preserve">
+    <value>Empty String.</value>
+  </data>
+  <data name="zxcvbnWarningNameSurnamesEasy" xml:space="preserve">
+    <value>Names and surnames by themselves are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningRecentYearsEasy" xml:space="preserve">
+    <value>Recent years are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningRepeatsLikeAaaEasy" xml:space="preserve">
+    <value>Repeats like 'aaa' are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningRepeatsLikeAbcSlighterHarder" xml:space="preserve">
+    <value>Repeats like 'abcabcabc' are only slightly harder to guess than 'abc'.</value>
+  </data>
+  <data name="zxcvbnWarningSequenceAbcEasy" xml:space="preserve">
+    <value>Sequences like abc or 6543 are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningShortKeyboardPatterns" xml:space="preserve">
+    <value>Short keyboard patterns are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningSimilarCommonPasswords" xml:space="preserve">
+    <value>This is similar to a commonly used password.</value>
+  </data>
+  <data name="zxcvbnWarningStraightRow" xml:space="preserve">
+    <value>Straight rows of keys are easy to guess.</value>
+  </data>
+  <data name="zxcvbnWarningTop10Passwords" xml:space="preserve">
+    <value>This is a top-10 common password.</value>
+  </data>
+  <data name="zxcvbnWarningWordEasy" xml:space="preserve">
+    <value>A word by itself is easy to guess.</value>
+  </data>
+  <data name="zxcvbnLabel00" xml:space="preserve">
+    <value>Vulnerable</value>
+  </data>
+  <data name="zxcvbnLabel01" xml:space="preserve">
+    <value>Weak</value>
+  </data>
+  <data name="zxcvbnLabel02" xml:space="preserve">
+    <value>Somewhat weak</value>
+  </data>
+  <data name="zxcvbnLabel03" xml:space="preserve">
+    <value>Good</value>
+  </data>
+  <data name="zxcvbnLabel04" xml:space="preserve">
+    <value>Strong</value>
+  </data>
+  <data name="zxcvbnLabelEmpty" xml:space="preserve">
+    <value>Empty string</value>
+  </data>
+  <data name="zxcvbnToolTipTitleSuggestions" xml:space="preserve">
+    <value>Hint</value>
+  </data>
+  <data name="zxcvbnToolTipTitleWarning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="zxcvbnWarningDatesEasy" xml:space="preserve">
+    <value>Dates are often easy to guess.</value>
+  </data>
 </root>

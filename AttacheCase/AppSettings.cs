@@ -49,10 +49,10 @@ namespace AttacheCase
     // Self instance
     private static AppSettings _Instance;
 
-    private string RegistryPathAppInfo = String.Format(@"Software\Hibara\{0}\AppInfo", "AttacheCase3");
-    private string RegistryPathWindowPos = String.Format(@"Software\Hibara\{0}\WindowPos", "AttacheCase3");
-    private string RegistryPathMyKey = String.Format(@"Software\Hibara\{0}\MyKey", "AttacheCase3");
-    private string RegistryPathOption = String.Format(@"Software\Hibara\{0}\Option", "AttacheCase3");
+    private readonly string RegistryPathAppInfo = String.Format(@"Software\Hibara\{0}\AppInfo", "AttacheCase3");
+    private readonly string RegistryPathWindowPos = String.Format(@"Software\Hibara\{0}\WindowPos", "AttacheCase3");
+    private readonly string RegistryPathMyKey = String.Format(@"Software\Hibara\{0}\MyKey", "AttacheCase3");
+    private readonly string RegistryPathOption = String.Format(@"Software\Hibara\{0}\Option", "AttacheCase3");
     
     // Static instance ( Singleton pattern )
     public static AppSettings Instance
@@ -290,8 +290,15 @@ namespace AttacheCase
       get { return this._fNotMaskPassword; }
       set { this._fNotMaskPassword = value; }
     }
-    
 
+    // Enable password strength meter display
+    private bool _fPasswordStrengthMeter;
+    public bool fPasswordStrengthMeter
+    {
+      get { return this._fPasswordStrengthMeter;　}
+      set { this._fPasswordStrengthMeter = value; }
+    }
+          
     #endregion
 
     //----------------------------------------------------------------------
@@ -1214,7 +1221,7 @@ namespace AttacheCase
       }
 
       //----------------------------------------------------------------------
-      // Store Passwords
+      // Passwords
       using (RegistryKey reg = Registry.CurrentUser.OpenSubKey(RegistryPathMyKey, true))
       {
         _fMyEncryptPasswordKeep = ((string)reg.GetValue("fMyEncryptPasswordKeep", "0") == "1") ? true : false;
@@ -1240,12 +1247,13 @@ namespace AttacheCase
         {
           _MyDecryptPasswordString = DecryptMyPassword(_MyDecryptPasswordBinary);
           _MyDecryptPasswordBinary = null;
-
         }
 
         _fMemPasswordExe = ((string)reg.GetValue("fMemPasswordExe", "0") == "1") ? true : false;
         _fNotMaskPassword = ((string)reg.GetValue("fNotMaskPassword", "0") == "1") ? true : false; 
         
+        _fPasswordStrengthMeter = ((string)reg.GetValue("fPasswordStrengthMeter", "1") == "1") ? true : false;
+
       }
 
       //----------------------------------------------------------------------
@@ -1415,7 +1423,7 @@ namespace AttacheCase
       //「文字列型」で格納します（※記憶パスワードだけ例外）。
       //     
       //----------------------------------------------------------------------
-      // Store Passwords
+      // Passwords
       using (RegistryKey reg = Registry.CurrentUser.CreateSubKey(RegistryPathMyKey))
       {
         reg.SetValue("fMyEncryptPasswordKeep", _fMyEncryptPasswordKeep == true ? "1" : "0");
@@ -1424,6 +1432,7 @@ namespace AttacheCase
         reg.SetValue("MyDecryptPasswordString", EncryptMyPassword(_MyDecryptPasswordString), RegistryValueKind.Binary);
         reg.SetValue("fMemPasswordExe", _fMemPasswordExe == true ? "1" : "0");
         reg.SetValue("fNotMaskPassword", _fNotMaskPassword == true ? "1" : "0");
+        reg.SetValue("fPasswordStrengthMeter", _fPasswordStrengthMeter == true ? "1" : "0");
       }
 
       //----------------------------------------------------------------------
@@ -1604,7 +1613,7 @@ namespace AttacheCase
       ReadIniFile(IniFilePath, ref _InitDirPath, "WindowPos", "InitDirPath", "");
 
       //-----------------------------------
-      // Stored Passwords
+      // Passwords
       //-----------------------------------
       ReadIniFile(IniFilePath, ref _fMyEncryptPasswordKeep, "MyKey", "fMyEncryptPasswordKeep", "");
       ReadIniFile(IniFilePath, ref ReturnValue, "MyKey", "MyEncryptPasswordString", "");
@@ -1623,6 +1632,8 @@ namespace AttacheCase
       }
       ReadIniFile(IniFilePath, ref _fMemPasswordExe, "MyKey", "fMemPasswordExe", "0");
       ReadIniFile(IniFilePath, ref _fNotMaskPassword, "MyKey", "fNotMaskPassword", "0");
+
+      ReadIniFile(IniFilePath, ref _fPasswordStrengthMeter, "MyKey", "fPasswordStrengthMeter", "1");
 
       //-----------------------------------
       // Options
@@ -1757,7 +1768,7 @@ namespace AttacheCase
       WriteIniFile(IniFilePath, _InitDirPath, "WindowPos", "InitDirPath");
       
       //----------------------------------------------------------------------
-      // Store Passwords
+      // Passwords
       WriteIniFile(IniFilePath, _fMyEncryptPasswordKeep, "MyKey", "fMyEncryptPasswordKeep");
       WriteIniFile(IniFilePath, _fMyDecryptPasswordKeep, "MyKey", "fMyDecryptPasswordKeep");
 
@@ -1776,9 +1787,11 @@ namespace AttacheCase
       WriteIniFile(IniFilePath, _fMemPasswordExe, "MyKey", "fMemPasswordExe");
       WriteIniFile(IniFilePath, _fNotMaskPassword, "MyKey", "fNotMaskPassword");
 
+      WriteIniFile(IniFilePath, _fPasswordStrengthMeter, "MyKey", "fPasswordStrengthMeter");
+
       //----------------------------------------------------------------------
       // Options
-            
+
       // General
       WriteIniFile(IniFilePath, _fEndToExit, "Option", "fEndToExit");
       WriteIniFile(IniFilePath, _fOpenFile, "Option", "fOpenFile");
@@ -2170,6 +2183,17 @@ namespace AttacheCase
             }
             break;
 
+          // Enable password strength meter
+          case "/pms":  // パスワード強度メーターを表示するか
+            if (value == "1")
+            {
+              _fPasswordStrengthMeter = true;
+            }
+            else if (value == "0")
+            {
+              _fPasswordStrengthMeter = false;
+            }
+            break;
           #endregion
 
           //-----------------------------------
@@ -3153,7 +3177,6 @@ namespace AttacheCase
       }
     }
 
-
     //----------------------------------------------------------------------
     /// <summary>
     /// 16進数(Hex)文字列からバイナリデータに変換する
@@ -3410,86 +3433,7 @@ namespace AttacheCase
       }
     }
 
-    //----------------------------------------------------------------------
-    /// <summary>
-    /// ファイルからSHA-256(32 bytes)ハッシュ値を求める
-    /// Get SHA-256(32bytes) hash data value from a file.
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns>string[]</returns>
-    //----------------------------------------------------------------------
-    public string GetSha256HashFromFile(string FilePath)
-    {
-      byte[] bytesArray = null;
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
-      {
-        using (SHA256CryptoServiceProvider sha1 = new SHA256CryptoServiceProvider())
-        {
-          bytesArray = sha1.ComputeHash(fs);
-        }
-      }
-
-      StringBuilder result = new StringBuilder();
-      result.Capacity = 32;
-      foreach (byte b in bytesArray)
-      {
-        result.Append(b.ToString());
-      }
-
-      return (result.ToString());
-
-    }
-
-    //----------------------------------------------------------------------
-    /// <summary>
-    /// パスワードファイルからキーとなるSHA-1と混ぜ合わせたハッシュ値を求める
-    /// Get the mixed SHA-1 data value from 'Password file' instead of keys.
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns>string[] (shift_jis)</returns>
-    //----------------------------------------------------------------------
-    public byte[] GetSha1HashFromFile(string FilePath)
-    {
-      byte[] buffer = new byte[255];
-      byte[] result = new byte[32];
-      //byte[] header = new byte[12];
-
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
-      {
-        using (SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider())
-        {
-          byte[] array_bytes = sha1.ComputeHash(fs);
-          for (int i = 0; i < 20; i++)
-          {
-            result[i] = array_bytes[i];
-          }
-        }
-
-        fs.Seek(0, SeekOrigin.Begin);
-        while (fs.Read(buffer, 0, 255) > 0)
-        {
-          // 最後の255バイトを取得しようとしたデータから残り12bytesのパスワードを埋める
-          // Fill the rest data with trying to get the last 255 bytes.
-        }
-
-        for (int i = 0; i < 12; i++)
-        {
-          result[20 + i] = buffer[i];
-        }
-
-      }
-
-      //string text = System.Text.Encoding.UTF8.GetString(result);
-      string text = Encoding.GetEncoding("shift_jis").GetString(result);
-
-      return (result);
-
-    }
-
-    
   }
-
-
 
 }
 

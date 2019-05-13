@@ -219,6 +219,7 @@ namespace AttacheCase
         this.Text = Resources.DialogTitleSettings + " - " + Resources.DialogTitleRegistry;
       }
 
+
       // INI file
       if (File.Exists(AppSettings.Instance.IniFilePath) == true)
 			{
@@ -351,6 +352,8 @@ namespace AttacheCase
 				textBoxMyDecodePassword.Text = new string('*', 16);
 			}
 			checkBoxDobyMemorizedPassword.Checked = AppSettings.Instance.fMemPasswordExe;
+
+      checkBoxEnablePassStrengthMeter.Checked = AppSettings.Instance.fPasswordStrengthMeter;
 
       #endregion
 
@@ -1028,7 +1031,6 @@ THE SOFTWARE.
 			{
 				AppSettings.Instance.Language = "ja";
 				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", false);
-
 			}
 			else {
 				AppSettings.Instance.Language = "en";
@@ -1041,6 +1043,8 @@ THE SOFTWARE.
 			AppSettings.Instance.fMyDecryptPasswordKeep = checkBoxMyDecodePasswordKeep.Checked;
 
 			AppSettings.Instance.fMemPasswordExe = checkBoxDobyMemorizedPassword.Checked;
+
+      AppSettings.Instance.fPasswordStrengthMeter = checkBoxEnablePassStrengthMeter.Checked;
 
 			//-----------------------------------
 			// Window
