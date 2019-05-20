@@ -37,6 +37,7 @@
       this.buttonUnAssociation = new System.Windows.Forms.Button();
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+      this.checkBoxDeleteAllSettingsFromRegistry = new System.Windows.Forms.CheckBox();
       this.statusStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -89,11 +90,18 @@
       this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
       resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
       // 
+      // checkBoxDeleteAllSettingsFromRegistry
+      // 
+      resources.ApplyResources(this.checkBoxDeleteAllSettingsFromRegistry, "checkBoxDeleteAllSettingsFromRegistry");
+      this.checkBoxDeleteAllSettingsFromRegistry.Name = "checkBoxDeleteAllSettingsFromRegistry";
+      this.checkBoxDeleteAllSettingsFromRegistry.UseVisualStyleBackColor = true;
+      // 
       // Form1
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.buttonExit;
+      this.Controls.Add(this.checkBoxDeleteAllSettingsFromRegistry);
       this.Controls.Add(this.statusStrip1);
       this.Controls.Add(this.buttonUnAssociation);
       this.Controls.Add(this.buttonAssociation);
@@ -123,6 +131,7 @@
 		private System.Windows.Forms.Button buttonUnAssociation;
 		private System.Windows.Forms.StatusStrip statusStrip1;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-	}
+    private System.Windows.Forms.CheckBox checkBoxDeleteAllSettingsFromRegistry;
+  }
 }
 

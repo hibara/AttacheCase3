@@ -1486,19 +1486,19 @@
     <value>キャンセル(&amp;C)</value>
   </data>
   <data name="fileNameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="fileNameToolStripMenuItem.Text" xml:space="preserve">
     <value>ファイル名</value>
   </data>
   <data name="extensionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="extensionToolStripMenuItem.Text" xml:space="preserve">
     <value>拡張子</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>157, 6</value>
   </data>
   <data name="dateToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1525,37 +1525,37 @@
 </value>
   </data>
   <data name="dateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="dateToolStripMenuItem.Text" xml:space="preserve">
     <value>日付</value>
   </data>
   <data name="ToolStripMenuItemLowerCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>136, 22</value>
   </data>
   <data name="ToolStripMenuItemLowerCase.Text" xml:space="preserve">
     <value>小文字のみ</value>
   </data>
   <data name="ToolStripMenuItemUpperCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>136, 22</value>
   </data>
   <data name="ToolStripMenuItemUpperCase.Text" xml:space="preserve">
     <value>大文字のみ</value>
   </data>
   <data name="ToolStripMenuItemAlphabet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemAlphabet.Text" xml:space="preserve">
     <value>アルファベット</value>
   </data>
   <data name="ToolStripMenuItemNumbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemNumbers.Text" xml:space="preserve">
     <value>数字</value>
   </data>
   <data name="ToolStripMenuItemSymbols.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemSymbols.Text" xml:space="preserve">
     <value>記号</value>
@@ -1581,7 +1581,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Text" xml:space="preserve">
     <value>ランダム文字列</value>
@@ -1603,13 +1603,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Text" xml:space="preserve">
     <value>連番</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 142</value>
+    <value>161, 120</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

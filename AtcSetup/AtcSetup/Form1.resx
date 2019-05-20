@@ -119,14 +119,14 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="progressBar1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="progressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 52</value>
+    <value>30, 40</value>
   </data>
   <data name="progressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>455, 23</value>
+    <value>403, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="progressBar1.TabIndex" type="System.Int32, mscorlib">
@@ -142,13 +142,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;progressBar1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="labelInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
   <data name="labelInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 32</value>
+    <value>30, 25</value>
   </data>
   <data name="labelInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>11, 12</value>
@@ -169,13 +172,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelInfo.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="buttonExit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 119</value>
+    <value>358, 221</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 24</value>
@@ -196,16 +199,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="labelPercent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+    <value>Left, Right</value>
   </data>
   <data name="labelPercent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 78</value>
+    <value>30, 66</value>
   </data>
   <data name="labelPercent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>455, 22</value>
+    <value>395, 24</value>
   </data>
   <data name="labelPercent.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -226,16 +229,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelPercent.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="buttonAssociation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Left, Right</value>
   </data>
   <data name="buttonAssociation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 119</value>
+    <value>30, 106</value>
   </data>
   <data name="buttonAssociation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
+    <value>403, 24</value>
   </data>
   <data name="buttonAssociation.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -253,16 +256,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonAssociation.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="buttonUnAssociation.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
+    <value>Left, Right</value>
   </data>
   <data name="buttonUnAssociation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>204, 119</value>
+    <value>30, 149</value>
   </data>
   <data name="buttonUnAssociation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
+    <value>403, 24</value>
   </data>
   <data name="buttonUnAssociation.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -280,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonUnAssociation.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -292,10 +295,10 @@
     <value>toolStripStatusLabel1</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 159</value>
+    <value>0, 259</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>508, 23</value>
+    <value>464, 23</value>
   </data>
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -313,6 +316,36 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 182</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>385, 16</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="checkBoxDeleteAllSettingsFromRegistry.Text" xml:space="preserve">
+    <value>In addition, delete all AttacheCase settings from the Windows registry.</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAllSettingsFromRegistry.Name" xml:space="preserve">
+    <value>checkBoxDeleteAllSettingsFromRegistry</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAllSettingsFromRegistry.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAllSettingsFromRegistry.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteAllSettingsFromRegistry.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -322,7 +355,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>508, 182</value>
+    <value>464, 282</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -349,7 +382,7 @@
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>520, 220</value>
+    <value>480, 320</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Association with file Tool</value>

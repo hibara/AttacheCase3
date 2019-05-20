@@ -262,6 +262,15 @@ namespace AtcSetup
         Registry.ClassesRoot.DeleteSubKeyTree("AttacheCase.DataFile");
       }
 
+      // In addition, delete all AttacheCase settings from the Windows registry.
+      if ( checkBoxDeleteAllSettingsFromRegistry.Checked == true)
+      {
+        if (Registry.CurrentUser.OpenSubKey(@"Software\Hibara\AttacheCase3", false) != null)
+        {
+          Registry.CurrentUser.DeleteSubKeyTree(@"Software\Hibara\AttacheCase3");
+        }
+      }
+      
       progressBar1.Style = ProgressBarStyle.Continuous;
 			progressBar1.Value = 100;
 			labelInfo.Text = Resources.UnAssociationComplete;

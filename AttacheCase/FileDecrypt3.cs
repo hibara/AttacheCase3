@@ -224,8 +224,8 @@ namespace AttacheCase
       set { this._fSalvageIntoSameDirectory = value; }
     }
 
-    // パスワード入力回数制限（読み取り専用）
-    //Get limit of times to input password in encrypt files ( readonly ).
+    // 自己実行形式タイプのファイルか
+    // Self-executable file
     private bool _fExecutableType = false;
     public bool fExecutableType
     {
@@ -381,8 +381,8 @@ namespace AttacheCase
         }// end while();
 
 #if (DEBUG)
-        string msg = fToken == true ? "fTokne: true" : "fTokne: false";
-        System.Windows.Forms.MessageBox.Show(msg);
+        //string msg = fToken == true ? "fTokne: true" : "fTokne: false";
+        //System.Windows.Forms.MessageBox.Show(msg);
 #endif
 
       }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
@@ -430,7 +430,7 @@ namespace AttacheCase
         fs.Read(_salt, 0, 8);
 
 #if (DEBUG)
-        System.Windows.Forms.MessageBox.Show("_TokenStr: " + _TokenStr);
+        //System.Windows.Forms.MessageBox.Show("_TokenStr: " + _TokenStr);
 #endif
 
       } // end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
@@ -1356,57 +1356,6 @@ namespace AttacheCase
       }
 
     }// end Decrypt();
-
-    //======================================================================
-    /// <summary>
-    /// ファイルを破壊して、当該内部トークンを「破壊」ステータスに書き換える
-    /// Break a specified file, and rewrite the token of broken status
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns>true: success, false: failure</returns>
-    //======================================================================
-    private bool BreakTheFile(string FilePath)
-    {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.ReadWrite))
-      {
-        byte[] byteArray = new byte[16];
-        if (fs.Read(byteArray, 4, 16) == 16)
-        {
-          string TokenStr = System.Text.Encoding.ASCII.GetString(byteArray);
-          if (TokenStr == "_AttacheCaseData")
-          {
-            // Rewriting Token
-            fs.Seek(4, SeekOrigin.Begin);
-            byteArray = System.Text.Encoding.ASCII.GetBytes("_Atc_Broken_Data");
-            fs.Write(byteArray, 0, 16);
-
-            // Break the 'Salt' of a file
-            byteArray = new byte[6];
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            rng.GetNonZeroBytes(byteArray);
-
-            fs.Seek(28, SeekOrigin.Begin);
-            fs.Write(byteArray, 0, 6);
-          }
-          else if (TokenStr == "_Atc_Broken_Data")
-          {
-            // broken already
-            return (true);
-          }
-          else
-          { // Token is not found.
-            return (false);
-          }
-        }
-        else
-        {
-          return (false);
-        }
-
-      }// end using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read));
-
-      return (true);
-    }
 
     //----------------------------------------------------------------------
     /// <summary>

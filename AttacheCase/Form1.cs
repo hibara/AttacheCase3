@@ -334,10 +334,10 @@ namespace AttacheCase
       this.Update();
 
 #if (DEBUG)
-      string DesktopPath = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-      string FileListTextPath = Path.Combine(DesktopPath, "file_list_text.txt");
-      var FileListText = String.Join("\n", FileList);
-      System.IO.File.WriteAllText(FileListTextPath, FileListText, System.Text.Encoding.UTF8);
+      //string DesktopPath = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+      //string FileListTextPath = Path.Combine(DesktopPath, "file_list_text.txt");
+      //var FileListText = String.Join("\n", FileList);
+      //System.IO.File.WriteAllText(FileListTextPath, FileListText, System.Text.Encoding.UTF8);
 #endif
       // How to delete a way?
       //----------------------------------------------------------------------
@@ -2164,6 +2164,9 @@ namespace AttacheCase
         // Password files
         AppSettings.Instance.TempEncryptionPassFilePath = "";
         AppSettings.Instance.TempDecryptionPassFilePath = "";
+
+        // Clear password input limit count
+        LimitOfInputPassword = -1;
 
       }
     }

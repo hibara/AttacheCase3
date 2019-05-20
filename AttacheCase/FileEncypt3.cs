@@ -466,17 +466,17 @@ namespace AttacheCase
             ms.Write(byteArray, 0, byteArray.Length);
 
 #if (DEBUG)
-            //Output text file of header contents for debug.
-            Int64 NowPosition = ms.Position;
-            ms.Position = 0;
-            //Save to Desktop folder.
-            string OutDirPath = Path.GetDirectoryName(_AtcFilePath);
-            string HeaderTextFilePath = Path.Combine(OutDirPath, "encrypt_header.txt");
-            using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
-            {
-              ms.WriteTo(fsDebug);
-              ms.Position = NowPosition;
-            }
+            ////Output text file of header contents for debug.
+            //Int64 NowPosition = ms.Position;
+            //ms.Position = 0;
+            ////Save to Desktop folder.
+            //string OutDirPath = Path.GetDirectoryName(_AtcFilePath);
+            //string HeaderTextFilePath = Path.Combine(OutDirPath, "encrypt_header.txt");
+            //using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
+            //{
+            //  ms.WriteTo(fsDebug);
+            //  ms.Position = NowPosition;
+            //}
 #endif
             // The Header of MemoryStream is encrypted
             using (Rijndael aes = new RijndaelManaged())

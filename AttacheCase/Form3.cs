@@ -668,7 +668,7 @@ namespace AttacheCase
       // Input Password limit
       //-----------------------------------
       #region
-      comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum;
+      comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum - 1;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
 
       #endregion
@@ -1214,7 +1214,7 @@ THE SOFTWARE.
 
 			//----------------------------------------------------------------------
 			// Input Password limit
-			AppSettings.Instance.MissTypeLimitsNum = comboBoxMissTypeLimitsNum.SelectedIndex;
+			AppSettings.Instance.MissTypeLimitsNum = comboBoxMissTypeLimitsNum.SelectedIndex + 1;
 			AppSettings.Instance.fBroken = checkBoxBroken.Checked;
 			
 			//----------------------------------------------------------------------
