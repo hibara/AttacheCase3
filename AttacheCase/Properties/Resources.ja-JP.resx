@@ -466,4 +466,13 @@
   <data name="labelPasswordInputNewPassword" xml:space="preserve">
     <value>記憶パスワードを破棄して新しいパスワードを入力する：</value>
   </data>
+  <data name="DialogMessageFileInFileListNotFound" xml:space="preserve">
+    <value>以下の指定されたファイルリストの中のファイルが見つかりません！</value>
+  </data>
+  <data name="DialogMessageFileListNotFound" xml:space="preserve">
+    <value>以下の指定されたリストファイルが見つかりません！</value>
+  </data>
+  <data name="DialogMessageFileListEncodingUnknown" xml:space="preserve">
+    <value>以下の指定されたリストファイルの文字エンコードが不明で読み取れません！</value>
+  </data>
 </root>

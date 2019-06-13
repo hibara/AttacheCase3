@@ -468,4 +468,13 @@ Decryption failed.</value>
   <data name="labelPasswordInputNewPassword" xml:space="preserve">
     <value>Discard memorized password and input new password:</value>
   </data>
+  <data name="DialogMessageFileInFileListNotFound" xml:space="preserve">
+    <value>The file in the following specified file's list can not be found!</value>
+  </data>
+  <data name="DialogMessageFileListNotFound" xml:space="preserve">
+    <value>The following specified list file can not be found!</value>
+  </data>
+  <data name="DialogMessageFileListEncodingUnknown" xml:space="preserve">
+    <value>The character encoding of the following specified list file is unknown that can not be read!</value>
+  </data>
 </root>

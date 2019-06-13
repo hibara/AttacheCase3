@@ -19,7 +19,7 @@ namespace AttacheCase.Properties {
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
     // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -286,6 +286,33 @@ namespace AttacheCase.Properties {
         public static string DialogMessageFileIndexInvalid {
             get {
                 return ResourceManager.GetString("DialogMessageFileIndexInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The file in the following specified file&apos;s list can not be found! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageFileInFileListNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageFileInFileListNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The character encoding of the following specified list file is unknown that can not be read! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageFileListEncodingUnknown {
+            get {
+                return ResourceManager.GetString("DialogMessageFileListEncodingUnknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The following specified list file can not be found! に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageFileListNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageFileListNotFound", resourceCulture);
             }
         }
         
