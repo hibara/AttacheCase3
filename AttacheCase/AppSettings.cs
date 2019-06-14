@@ -2039,11 +2039,8 @@ namespace AttacheCase
           continue;
         }
 
-        string[] values = cmdOpt.Split('=');
-        if (values.Length < 2)
-        { // Mistaken?
-          continue;
-        }
+        char[] splitters = {'='};
+        string[] values = cmdOpt.Split(splitters, 2, StringSplitOptions.None);
         string key = values[0];
         string value = values[1];
 
