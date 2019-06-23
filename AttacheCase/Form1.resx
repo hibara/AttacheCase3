@@ -128,10 +128,14 @@
     <value>-</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 439</value>
+    <value>0, 440</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 16, 0</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 23</value>
+    <value>635, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
@@ -153,7 +157,7 @@
     <value>5</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>141, 17</value>
+    <value>133, 17</value>
   </metadata>
   <data name="ToolStripMenuItemEncryptSelectFiles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -171,7 +175,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFiles.Text" xml:space="preserve">
     <value>Select Files...</value>
@@ -191,7 +195,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFolder.Text" xml:space="preserve">
     <value>Select Folder...</value>
@@ -231,13 +235,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Text" xml:space="preserve">
     <value>&amp;Decrypt</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="ToolStripMenuItemExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -255,7 +259,7 @@
     <value>True</value>
   </data>
   <data name="ToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
@@ -283,7 +287,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+    <value>111, 22</value>
   </data>
   <data name="ToolStripMenuItemSetting.Text" xml:space="preserve">
     <value>Se&amp;tting</value>
@@ -308,21 +312,20 @@
         jHiuK+KH3W6H0+kE74ziO+KC+C/xn8l3XjksrSTpFwUHwdRzoEyKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ToolStripMenuItemHelpContents.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F1</value>
   </data>
   <data name="ToolStripMenuItemHelpContents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="ToolStripMenuItemHelpContents.Text" xml:space="preserve">
     <value>On&amp;line Help</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 6</value>
+    <value>153, 6</value>
   </data>
   <data name="ToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>164, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="ToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>&amp;About...</value>
@@ -336,8 +339,11 @@
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 2, 0, 2</value>
+  </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 26</value>
+    <value>635, 24</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -492,6 +498,10 @@
   <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>544, 25</value>
   </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>635, 25</value>
+>>>>>>> bdf5ea5483fd4a027c1a2ef2d2e6e26e035e5324
+  </data>
   <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
@@ -544,10 +554,10 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBoxBackButtonOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 64</value>
+    <value>446, 64</value>
   </data>
   <data name="pictureBoxBackButtonOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxBackButtonOff.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -601,10 +611,8 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBoxBackButtonOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 10</value>
-  </data>
   <data name="pictureBoxBackButtonOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxBackButtonOn.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -637,13 +645,16 @@
         oRfYwp9OobjIqTO5h/gfuASal0IsAvt/4vN5UyUfQPNSiEVwEnch62/gYNyFji3PS8GNjE5kdEJBvXeV
         5HkppA3jLnQk4y5UwbgL9TTuQmXkeSm4kdGJjE5kdCKjExmdyOhERh9t8Q3m6BE39Nt1WwAAAABJRU5E
         rkJggg==
-</value>
+    </value>
+  </data>
+  <data name="pictureBoxHamburgerMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pictureBoxHamburgerMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>463, 3</value>
+    <value>542, 3</value>
   </data>
   <data name="pictureBoxHamburgerMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxHamburgerMenu.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -667,10 +678,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>415, 294</value>
+    <value>486, 295</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 32</value>
+    <value>87, 32</value>
   </data>
   <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -697,7 +708,7 @@
     <value>2, 333</value>
   </data>
   <data name="labelDec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 12</value>
+    <value>100, 12</value>
   </data>
   <data name="labelDec.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -727,7 +738,7 @@
     <value>2, 238</value>
   </data>
   <data name="labelZip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="labelZip.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -758,7 +769,7 @@ ZIP</value>
     <value>3, 149</value>
   </data>
   <data name="labelExe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 24</value>
+    <value>98, 24</value>
   </data>
   <data name="labelExe.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -786,10 +797,10 @@ EXE</value>
     <value>NoControl</value>
   </data>
   <data name="labelAtc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 61</value>
+    <value>5, 61</value>
   </data>
   <data name="labelAtc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 24</value>
+    <value>98, 24</value>
   </data>
   <data name="labelAtc.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -798,6 +809,7 @@ EXE</value>
     <value>Encryption
 ATC</value>
   </data>
+>>>>>>> bdf5ea5483fd4a027c1a2ef2d2e6e26e035e5324
   <data name="labelAtc.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
@@ -841,25 +853,19 @@ ATC</value>
         S8brYgHqUObqKQE+sh6Adt4IGdfGAmhR5uopIesB7Ha7KC8pwRSKrkAAZehc/XRkFECHAJ2dwuVyqWZq
         akoU5+cH6UHuFwlaiQITExNs/XTAB/xwPgErriUAQIjvLl6Mk6l5kHGALmrodDpzDnw8DZBLnuAAZ85E
         /6qea+BDdQD8L8PmTZvcjwvww/kErAhoA9r6uMD5+w+h+Rd1rov9yjEKfgAAAABJRU5ErkJggg==
-</value>
+    </value>
   </data>
   <data name="pictureBoxDec.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDec.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 282</value>
+    <value>24, 282</value>
   </data>
   <data name="pictureBoxDec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDec.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
-  </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>373, 17</value>
-  </metadata>
-  <data name="pictureBoxDec.ToolTip" xml:space="preserve">
-    <value>Decrypt</value>
   </data>
   <data name="&gt;&gt;pictureBoxDec.Name" xml:space="preserve">
     <value>pictureBoxDec</value>
@@ -912,16 +918,13 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 187</value>
+    <value>24, 187</value>
   </data>
   <data name="pictureBoxZip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxZip.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="pictureBoxZip.ToolTip" xml:space="preserve">
-    <value>ZIP</value>
   </data>
   <data name="&gt;&gt;pictureBoxZip.Name" xml:space="preserve">
     <value>pictureBoxZip</value>
@@ -974,16 +977,13 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 98</value>
+    <value>24, 98</value>
   </data>
   <data name="pictureBoxExe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxExe.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="pictureBoxExe.ToolTip" xml:space="preserve">
-    <value>EXE</value>
   </data>
   <data name="&gt;&gt;pictureBoxExe.Name" xml:space="preserve">
     <value>pictureBoxExe</value>
@@ -1049,20 +1049,18 @@ ATC</value>
     <value />
   </data>
   <data name="pictureBoxAtc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 10</value>
+    <value>24, 10</value>
   </data>
   <data name="pictureBoxAtc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxAtc.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="pictureBoxAtc.ToolTip" xml:space="preserve">
-    <value>ATC</value>
-  </data>
   <data name="&gt;&gt;pictureBoxAtc.Name" xml:space="preserve">
     <value>pictureBoxAtc</value>
   </data>
+>>>>>>> bdf5ea5483fd4a027c1a2ef2d2e6e26e035e5324
   <data name="&gt;&gt;pictureBoxAtc.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1079,7 +1077,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 354</value>
+    <value>105, 357</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1123,10 +1121,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDeleteOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 64</value>
+    <value>379, 64</value>
   </data>
   <data name="pictureBoxDeleteOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDeleteOn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1180,10 +1178,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 10</value>
+    <value>316, 10</value>
   </data>
   <data name="pictureBoxDecOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDecOff.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1233,10 +1231,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 64</value>
+    <value>316, 64</value>
   </data>
   <data name="pictureBoxDecOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDecOn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -1295,10 +1293,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZipOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 10</value>
+    <value>253, 10</value>
   </data>
   <data name="pictureBoxZipOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxZipOff.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1351,16 +1349,16 @@ ATC</value>
         jFiFQg1wtT4XwjcFQMtf37B7gfZePQSpl7JJO93FiV1pwxTX88iAAcVZh00MEDSRg9TeMGXKk2wjVL/u
         g9v+KQmGMzsgODhYJlzAbKD/lMpaBAP0YxEVtinbd2qgA4UT2XlxzBwvn4gizKsaC+OOjn49F4zZdGIs
         /m4bDqlXmDjEm5d3PIw7eJUKYNC/jKqQd3nPx49e9S9j7yJVd2JzfgAAAABJRU5ErkJggg==
-</value>
+    </value>
   </data>
   <data name="pictureBoxZipOn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZipOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 64</value>
+    <value>253, 64</value>
   </data>
   <data name="pictureBoxZipOn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxZipOn.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -1384,6 +1382,815 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="pictureBoxExeOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAYFSURBVGhD7VlrSBVbGM0iI0pJyIQoCBT0R/eH/khT
+        L1FC5euKZhpSKoppZWZCqT9SIx/XVxHmQYUoNSqVfCGKiJYmklBUCBFYCkYWpeXj+n58d9Y+Mx7nnPHo
+        dOZkggsWR8/M3nutmW/v/X37bCCiNc11rGOV8Q/HBo4IRrmc55jPcVXRUFdXRzMzM7I5PT1Nrq6uMPK3
+        uqvVwfNnz55JClwJPTw8YMBT3dXq4PnTp0/Z0wSLi4spLS1NL9+/f79w/x9hoKWlhaamphhdXFwg6F89
+        rKuurl64393d/Y804MrRYgkazcBfHFUc0aEswsDk5CTjsWPHyMLCQi8x6YX7eQO/wiGOGRwXoLp9+zZN
+        TEz8NjY3N1NgYCBt3bqVnJ2d6fTp0xQREUHe3t60d+9esra2poyMDPr+/btO269fvwomFvDbDHz8+JEu
+        XrxIBw4coMePH9PY2BiX0ujiw4cPlJiYSJaWlnTjxg1RH0saGB8fNyqrqqrI3NycsrKyaG5ujpeqH1++
+        fCEfHx+KiYlZ6EfSQEpKCr1588ZofPDgAe3YsYMaGxt5aSvH7OwsnTt3joKDg1lfb9++1TFQkp6eTtiU
+        WltbjUIvLy96+PAhL0k+YOL48eMUGRnJ+uE0j6ilq1H34sULUZwpyVu3blFQUBAvRRfY3IqKiig3N5dq
+        amqWnBcIJysrK2pqaoKB/9TS1ahrb2+nkZERGh0dVZToc9u2bdTd3c3L0ADXQkND2fXz589TfHw8+fv7
+        0549e+jJkyf8XWJcv36dzp49q2OgAg0+ffqkOMvKysjT05MfXgOExNGjR+nSpUvU19cnalNRUcFMSZnA
+        dRMTE50QKoqNjaXKykrF6efnR3l5efzwGty7d4/lQlJtwNTUVNq3bx9bdbSxf/9+GBhVS1dDdfPmTRoe
+        HmavVUli4mHT0gZ24fr6esk2AjHxpVYtX19fGBhTS1dDhQkEA0rT0dGRXr9+zQ+tga2tLb17906yjUBs
+        eCqVim+hAT8HxtXS1TCaAcQ5lmdtHDx4kLBwSLURGBISIrn0hoeHSxsYGhpSnGfOnKFHjx7xQ2uQkJDA
+        VhSpNuCPHz9o+/btbIJrw83NDRNZtAqpcnJy6OfPn4oTO+idO3f4oTX4/Pkz7d69m01mqXZYnZA+aAOF
+        kJmZGQwM89oZVNnZ2cy1koR4rO/z8/P88GIghGDi2rVrbHPq7OxkCV5AQACdPHmSpdzaqK2tZWHJGRDn
+        QkobWE68ACRmycnJdPjwYbK3t2fisf5LtcN3R44codLSUmkDg4ODijAqKoouXLiwrHi5QLhhAvf29tLG
+        jRvFBpDiDgwMGExjiUeutnPnTpYY9vT0SBtA9WMIkSkaQ3xDQwPt2rWLCgsL2UNCUbRp0yaNAc6NwQYg
+        Pjo6esXiX716xc6G9KG/v5/1ibwIORXEI0TxBjZv3qz7Br59+7Zi/qp4TNpTp06Rk5MTq3uvXLnCKrWX
+        L19SV1cXOyTA7ot0AQVQUlISG0MQLxjYsmWLYQYEyn3yEGNnZ0coYSE4MzOTTpw4wXZmBwcHtkRi9Sov
+        L2dvQJhbggF8IoRMTU11Q0hKoD7KFS8AZSEmJJI54elqC9WmcA33o+AXTWIYwNaOzQSZ40qIwmM58dg1
+        79+/z3J/bSCmkZHiaFIfEVLaYyPd5mSL6gEVxKwUJSUl7Okv9+QRx9jQUGktBk7lMN7du3f5b+SD0yyu
+        B9ChcOS3HNva2lhChb/1ASsNQgWnCXjiAOpatI2Li9PpVw45zboGpGrapYgKDmv+YkjlLshEkRbDCN6c
+        jY0Ny0Kl+pRDTrPYAAbp6OiQRSRcCANMrLCwMDp06JCkCcwvPHGUl0gHpPqSQySBnGZxOo3XLBc4YMJa
+        jbNMHP9dvXqVzY3FwGZ1+fJlKigo4L9RBpxmcUmJcJCKteWI14n1WvgfZWB+fj4bBG8GNTHCDedDi9sZ
+        Sk6zOISweWjH2a8Q9S8KDjxx1L3I9aXuM5ScZl0DOBFTglh98EbxKXVdCXKaRQbwA0cpR1xYC4R4/CCz
+        jnUYDCypa5e04X+mLiVhLEkZigAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxExeOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxExeOff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 10</value>
+  </data>
+  <data name="pictureBoxExeOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 48</value>
+  </data>
+  <data name="pictureBoxExeOff.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pictureBoxExeOff.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOff.Name" xml:space="preserve">
+    <value>pictureBoxExeOff</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOff.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOff.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOff.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="pictureBoxExeOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        olWr/wGweIBJdW5W3gAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxExeOn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxExeOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>190, 64</value>
+  </data>
+  <data name="pictureBoxExeOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 48</value>
+  </data>
+  <data name="pictureBoxExeOn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="pictureBoxExeOn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOn.Name" xml:space="preserve">
+    <value>pictureBoxExeOn</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOn.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxExeOn.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="pictureBoxAtcOff.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="pictureBoxAtcOff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="pictureBoxAtcOff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxAtcOff.InitialImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="pictureBoxAtcOff.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 10</value>
+  </data>
+  <data name="pictureBoxAtcOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 48</value>
+  </data>
+  <data name="pictureBoxAtcOff.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="pictureBoxAtcOff.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOff.Name" xml:space="preserve">
+    <value>pictureBoxAtcOff</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOff.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOff.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOff.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="pictureBoxAtcOn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="pictureBoxAtcOn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxAtcOn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 64</value>
+  </data>
+  <data name="pictureBoxAtcOn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 48</value>
+  </data>
+  <data name="pictureBoxAtcOn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="pictureBoxAtcOn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOn.Name" xml:space="preserve">
+    <value>pictureBoxAtcOn</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOn.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxAtcOn.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="labelDragAndDrop.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="labelDragAndDrop.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="labelDragAndDrop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelDragAndDrop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>112, 149</value>
+  </data>
+  <data name="labelDragAndDrop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>462, 44</value>
+  </data>
+  <data name="labelDragAndDrop.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelDragAndDrop.Text" xml:space="preserve">
+    <value>Drag and drop files or folders here 
+in this area for encryption or decryption.</value>
+  </data>
+  <data name="labelDragAndDrop.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;labelDragAndDrop.Name" xml:space="preserve">
+    <value>labelDragAndDrop</value>
+  </data>
+  <data name="&gt;&gt;labelDragAndDrop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDragAndDrop.Parent" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;labelDragAndDrop.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="panelStartPage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelStartPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panelStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>621, 359</value>
+  </data>
+  <data name="panelStartPage.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panelStartPage.Name" xml:space="preserve">
+    <value>panelStartPage</value>
+  </data>
+  <data name="&gt;&gt;panelStartPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelStartPage.Parent" xml:space="preserve">
+    <value>tabPageStartPage</value>
+  </data>
+  <data name="&gt;&gt;panelStartPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabPageStartPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPageStartPage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="tabPageStartPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabPageStartPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>627, 365</value>
+  </data>
+  <data name="tabPageStartPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageStartPage.Text" xml:space="preserve">
+    <value>StartPage</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Name" xml:space="preserve">
+    <value>tabPageStartPage</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPageStartPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="textBoxPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="textBoxPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 161</value>
+  </data>
+  <data name="textBoxPassword.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 23</value>
+  </data>
+  <data name="textBoxPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Name" xml:space="preserve">
+    <value>textBoxPassword</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
+    <value>AttacheCase.DelayTextBox, AttacheCase, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;textBoxPassword.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelPasswordStrength.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="labelPasswordStrength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelPasswordStrength.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 141</value>
+  </data>
+  <data name="labelPasswordStrength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 12</value>
+  </data>
+  <data name="labelPasswordStrength.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="labelPasswordStrength.Text" xml:space="preserve">
+    <value>Somewhat weak</value>
+  </data>
+  <data name="labelPasswordStrength.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordStrength.Name" xml:space="preserve">
+    <value>labelPasswordStrength</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordStrength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordStrength.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;labelPasswordStrength.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 215</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 20</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="checkBoxDeleteOriginalFileAfterEncryption.Text" xml:space="preserve">
+    <value>&amp;Delete original files or directories after encryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Name" xml:space="preserve">
+    <value>checkBoxDeleteOriginalFileAfterEncryption</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxDeleteOriginalFileAfterEncryption.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 189</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 20</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="checkBoxNotMaskEncryptedPassword.Text" xml:space="preserve">
+    <value>Not &amp;mask password character</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Name" xml:space="preserve">
+    <value>checkBoxNotMaskEncryptedPassword</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGsSURBVEhLtdXLK0VRFMfxGxNMvKaShAF/gjwG/gkj
+        YiCvMcXAv3H+B0ZeUYSxIpQw8SpDpBQK399tr9s++5zcx7kGn7prnbXWOffcfffORVH0r1KTnmbMYgP3
+        +HDusI4ZqCatNy81iXos4Rk/RahmAXVIzEok0Ilz2IAdTKIDNdDNuzCBbVjdKVQTmxcL0IYHqOEaQwhr
+        Qv24hHrU247Cdb9QT3YMFR7iz3cbaMQB1HuCwuvyi5ahAj2NGvxrpVCPfZMVlyvcoBWv+Ia+suXLpV7d
+        4A35h7QLc9AF/aB+QyW2oFljii256ZLjLs5iFJq1ptiSjy7Z6+IsuqFZt4ot+eWSTS7OQqtRs94VW9Ju
+        0ODiLGqhWS+KLWmvqMfFWejfrFlasokfedrFWWhb0axVxZacd8k9F2exC82KLVP7o+nCgMtVYhCakfij
+        iW0VV6hkq9AKvIFmJLYK0fK6gAqOUM6SbYE2SPVq207d7ET7/BNUqO16BGFNaBiqVY+269iZ4Bea8MDR
+        NqzV1Qe9OtHnKezD6s5Q9MAx5R6Ziyj5yPSFh/4nqnLoV0mU+wWmqoZHKzYmVAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>571, 160</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="pictureBoxPassStrengthMeter.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPassStrengthMeter.Name" xml:space="preserve">
+    <value>pictureBoxPassStrengthMeter</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPassStrengthMeter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPassStrengthMeter.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPassStrengthMeter.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGsSURBVEhLtdXLK0VRFMfxGxNMvKaShAF/gjwG/gkj
+        YiCvMcXAv3H+B0ZeUYSxIpQw8SpDpBQK399tr9s++5zcx7kGn7prnbXWOffcfffORVH0r1KTnmbMYgP3
+        +HDusI4ZqCatNy81iXos4Rk/RahmAXVIzEok0Ilz2IAdTKIDNdDNuzCBbVjdKVQTmxcL0IYHqOEaQwhr
+        Qv24hHrU247Cdb9QT3YMFR7iz3cbaMQB1HuCwuvyi5ahAj2NGvxrpVCPfZMVlyvcoBWv+Ia+suXLpV7d
+        4A35h7QLc9AF/aB+QyW2oFljii256ZLjLs5iFJq1ptiSjy7Z6+IsuqFZt4ot+eWSTS7OQqtRs94VW9Ju
+        0ODiLGqhWS+KLWmvqMfFWejfrFlasokfedrFWWhb0axVxZacd8k9F2exC82KLVP7o+nCgMtVYhCakfij
+        iW0VV6hkq9AKvIFmJLYK0fK6gAqOUM6SbYE2SPVq207d7ET7/BNUqO16BGFNaBiqVY+269iZ4Bea8MDR
+        NqzV1Qe9OtHnKezD6s5Q9MAx5R6Ziyj5yPSFh/4nqnLoV0mU+wWmqoZHKzYmVAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="pictureBoxPasswordStrengthEmpty.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrengthEmpty.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrengthEmpty</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrengthEmpty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrengthEmpty.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrengthEmpty.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGnSURBVEhLtdbJLgRRFMbxMmzYsBZDiCGReAJhZWlN
+        gpWYg8QUw6uIFeINDPEIEhaCPWJvSJuH/9etOY6rqiQsfkn3ufd81V1dfaqiaDmKU4cFbOME17jDGXYw
+        j2qEenOCxVzTBp7xmuAJqwgfKFDsgT5pKCzOJTrxNc8VZvCCUEAa+saT+Mw0b/TJQ+GHGEEDilCCRgzh
+        AH6/Mrrw5QCVuIHdeIthFCK/z9PaADKwvVeowsfGFdgNamiHDYvTCn+QNWQXa6ErwS6OwYck6YfNeESF
+        FhZNUY6gc+0DkhRgDzZrVAu7rjgN35zWOGzWpooXrtgC35hWE2zWqYr+/JfBN6alS9hmZVT0ByiHb0xL
+        v53Nyh7gL09RPWxW9hT5H1njwjempTFhs7ZUXHJFjeVi+OYkukz3YbPmtBD6o03AByQZhM1QZnV+0Y+K
+        e3TABsRpw4+jQkLDTncufZO406WrRgNRg9H2fht20ofQuD7GLJpRCl3rej0FjRW/XxndyOV+vMj51xtO
+        Xi/+7ZaZV4Pf3PTXkfqmb+mxReNcjyjneHiX8rElit4AIoVW50CGch4AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.Location" type="System.Drawing.Point, System.Drawing">
+    <value>322, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="pictureBoxPasswordStrength04.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength04.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrength04</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength04.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength04.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength04.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHkSURBVEhLlda5L0RRFMdxW0OD6MQ6ERKJv0BEo1RT
+        UIg1YkkEEcs/MoUK8Q9YIio1oRAkypmJViyx83zPc18cx53nKT6TmfPe+Z1Z7tz3CoIg+Jfm49QTstjD
+        AuogdS9vSCSdTldiAlvI4JmmwHjDGryD8gWXYhnXCDSa8rlBN+IHEJLCqQrdwxAaUESTLzzyjmn4BxBQ
+        gywk+BKd+rigqRTNGMUJ7JAP9ODnAMLkazly4Qeo1MGRqNGRTzSMB+ght6jFjwErLvwC5TpUkyaPdtgh
+        6/gaQGAVbvCBdhuqSVMeg9ADXlEdNhE6ifAHtYEWTfkU4hB6yHjYRPC2GzBgAy2a4kxCD9gJmwjOuQGt
+        NtCiKU4L9IBM2ETwqxtQYQMtmuLIEtYDHqQof3VdrIBtTKoYOisccGWKbbCNSTVBZ2WkuG+Ks7CNSck2
+        obN2pbhkihcogW3+iyzTY+iseTnQCPs7TMEG/GUEOkMy66KDq64YkX2/CzogTgf8W4U8oAb30CfIlUs+
+        SdzXJatmDI/Qvd+bnTw4/ZCtVp8ozjGHVpRB1ro8n8EZ7PmS0YswVw8QsoJ8Q5L6fcHRL5w+3MEXEMd/
+        ybQFpx6bkHfkC9NktWzAf9H3FZUUFiG3KDm8OAlvW1IFn/EfIrUWfkNlAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.Location" type="System.Drawing.Point, System.Drawing">
+    <value>287, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="pictureBoxPasswordStrength03.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength03.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrength03</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength03.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength03.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength03.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHRSURBVEhLtda9L2RRHMZxLxUNsp142WxkJPwJIhql
+        erXCWpEdEoUo+EdGa/c/8BLFJmgJhd0IJRKlUNhdb7PfR85Pfvc65zKF4lOca57fY+6cOXfqKpVKTarL
+        3X9xhk0soAu6HhUd4rThG1Zxin+Eqjn3WEG0KDZUmrCIS1Q9QilXGMGrBZ9wCBu6iQl8RAOh2HDzgFkk
+        CzpwBg0+wRAyryHUhBK+4gD5kkd8xosC3ZY9aPg2dP/9359YMNA7+oIb+JJrdCJTsAQNP0JLuPaCQhED
+        yJd8x3PBB1zhEQPhWpRCCePwBXdot2AZ9oFmBuYRSqnHLnzJtAXXoIKxsE4iVKQMX7BuwXOooC+skwgV
+        6YUvOLXgHVTQGtZJhIpoC/uCGwtaQXNYJxEq0ohogd2iUlgnESrSA1/wfIvsQ54O6yRCRXRM+IINC85A
+        BT/DOolQirbpPnzBvAXti6aSwXAtilDKJPxwHeNdPmxHxTFqPSoGUXhUiA67X1DJDqJbViFHu2YKf+CH
+        Rw876cEFVKLjehiZ1xDSXu/DHH7DDxYd16N4+icy4SD/wNmCdlc/WsKQlFcfOOZdH5le/qF/Syg/WLvl
+        B2p66CcRUskbf7Z01/0H1QOvJTfBkaQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.Location" type="System.Drawing.Point, System.Drawing">
+    <value>252, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="pictureBoxPasswordStrength02.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength02.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrength02</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength02.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength02.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength02.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHiSURBVEhLrdW9S5tRFMfxaBd1sdqtaBGRCPVPkL4M
+        js6ullqUVO3aQjv038jcjt1sCwqKuiooVhDrpBEcbRTEl9b0+wv3hPvc3BvROHwg59x7ziFPbu6TKxaL
+        t1KZzJ2jhHm8xxMoHxVt4unCNL7jABcUVQJ/8QXRQbGm0o6POEbFR1FKGaO4cUA/fsGazmMCfWilKNbc
+        /MM7JAf0oAQ1/o0XyOyhqB15TGID4ZBrjKFugB7LOtR8BXr+/nqVFTr6Rm9wBn/ICXqRGfAJar6DTper
+        o6KIYYRDvqI24BHKuMawy0WpKOE1/AFXeGyFM7AfNNMwRFFKC9bgDylY4Q9owCsXJ1HUyAz8AT+t8BAa
+        8NTFSRQ1Mgh/wIEVXkEDHro4iaJGdIT9AWdWaAM6XNyMB1CvP4otaY8o7+Jm6B+vXjrutQH2Ixdc3Axd
+        K+r1TbElZ11y0cXNWIB6jSu2pP3RtPDM5e7iOdTjFNXbwF+0q2IXyauiAZ3APajHZ5fLDNBltw1tWMWN
+        R9bTDV2Qqt1EG6pr4cYBHEEbdV2PINwTegntVY2uep2i2rq/0YQvnGXodA1Bj070eQpLsH1byDSXTOBJ
+        vjIjtOcDao/FV5cIhC/9S1xgH3N4i+iLyUST96eY+w/m2WwAsJPp3QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="pictureBoxPasswordStrength01.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength01.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrength01</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength01.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength01.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength01.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHiSURBVEhLrdU9S1xBFMbxjWliGqPpxIiEYEA/ghgt
+        LK3TKioRo0lrIBZ+ja1Nmc4XUFCStBEUFUSt3A2kTFQQXxI3/2eZc5k7O7MS1+IHe87MOYe9Ozu3UCwW
+        /0ulULhAGauYRSeUj4o28bRiGkso4ZKiSuAPFhAdFGsqzfiIX6j4KEo5wTBuHfAcu7CmqxhHF5ooijU3
+        f/EeyQEdKEONDzGA3B6KmtGNN9hCOOQGr1EzQI9lE2r+FXr+/nqVFTr6RhM4hz/kFM+QGzAHNd9Hi8vV
+        UFFEH8Ihn5ANeIoT3KDP5aJUlDAGf8A12q1wBvaD5hqGKEp5gO/wh0xZ4TI0YNTFSRTVMwN/wIoV/oAG
+        9Lg4iaJ6XsIfULLCa2jAExcnUVSPjrA/4NwKbcBjFzfiIdTrt2JL2iPqdnEj9I9XLx33bID9yFMuboSu
+        FfX6rNiS71xy3cWNWIN6jSi2pP3RtNDvcnfxCupxhupt4C/aVXGA5FVRh07gEdRj3uVyA3TZ7UEbvuHW
+        I+tpgy5I1W7jEapr4cYX+Alt1HU9hHBPaBDaqxpd9TpF2bq/0YQvnC/Q6eqFHp3o8yQ2YPt2kGsuucCT
+        fGVGaM8HZI/FV5MIhC/9K1ziGIt4i+iLyUST96dY+AfDyzKguAkf8AAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.Location" type="System.Drawing.Point, System.Drawing">
+    <value>182, 64</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="pictureBoxPasswordStrength00.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength00.Name" xml:space="preserve">
+    <value>pictureBoxPasswordStrength00</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength00.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength00.Parent" xml:space="preserve">
+    <value>panelEncrypt</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxPasswordStrength00.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="pictureBoxEncryptBackButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+>>>>>>> bdf5ea5483fd4a027c1a2ef2d2e6e26e035e5324
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAYFSURBVGhD7VlrSBVbGM0iI0pJyIQoCBT0R/eH/khT
@@ -2167,10 +2974,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
+    <value>559, 3</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -2207,8 +3014,11 @@ ATC</value>
         TkSuQmCC
 </value>
   </data>
+  <data name="pictureBoxCheckPasswordValidation.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxCheckPasswordValidation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 161</value>
+    <value>91, 161</value>
   </data>
   <data name="pictureBoxCheckPasswordValidation.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2241,7 +3051,7 @@ ATC</value>
     <value>3, 200</value>
   </data>
   <data name="labelEncryptionConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="labelEncryptionConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2272,10 +3082,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEncryptionConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 147</value>
+    <value>24, 147</value>
   </data>
   <data name="pictureBoxEncryptionConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxEncryptionConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -2299,7 +3109,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 359</value>
+    <value>105, 359</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -2326,10 +3136,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 298</value>
+    <value>478, 298</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+    <value>117, 32</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -2359,10 +3169,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 298</value>
+    <value>344, 298</value>
   </data>
   <data name="buttonEncryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+    <value>117, 32</value>
   </data>
   <data name="buttonEncryptStart.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -2405,7 +3215,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxInValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 295</value>
+    <value>167, 295</value>
   </data>
   <data name="pictureBoxInValidIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2455,7 +3265,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 295</value>
+    <value>131, 295</value>
   </data>
   <data name="pictureBoxValidIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2494,10 +3304,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxReDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 215</value>
+    <value>128, 215</value>
   </data>
   <data name="checkBoxReDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>361, 20</value>
+    <value>360, 20</value>
   </data>
   <data name="checkBoxReDeleteOriginalFileAfterEncryption.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -2530,7 +3340,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxReNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 189</value>
+    <value>128, 189</value>
   </data>
   <data name="checkBoxReNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 20</value>
@@ -2569,7 +3379,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelInputPasswordAgain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 141</value>
+    <value>128, 141</value>
   </data>
   <data name="labelInputPasswordAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 16</value>
@@ -2599,13 +3409,13 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 161</value>
+    <value>128, 161</value>
   </data>
   <data name="textBoxRePassword.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
     <value>●</value>
   </data>
   <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>395, 23</value>
+    <value>467, 23</value>
   </data>
   <data name="textBoxRePassword.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -2629,7 +3439,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 359</value>
+    <value>621, 359</value>
   </data>
   <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2653,7 +3463,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 365</value>
+    <value>627, 365</value>
   </data>
   <data name="tabPageEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2710,10 +3520,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecryptBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
+    <value>559, 3</value>
   </data>
   <data name="pictureBoxDecryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDecryptBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -2763,10 +3573,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 146</value>
+    <value>24, 146</value>
   </data>
   <data name="pictureBoxDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxDecryption.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -2790,7 +3600,7 @@ ATC</value>
     <value>3, 198</value>
   </data>
   <data name="labelDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="labelDecryption.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2820,7 +3630,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 356</value>
+    <value>105, 359</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -2850,10 +3660,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 214</value>
+    <value>128, 215</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 20</value>
+    <value>279, 20</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -2886,7 +3696,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxNotMaskDecryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 188</value>
+    <value>128, 189</value>
   </data>
   <data name="checkBoxNotMaskDecryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 20</value>
@@ -2918,11 +3728,14 @@ ATC</value>
   <data name="buttonDecryptCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonDecryptCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 295</value>
+    <value>478, 298</value>
   </data>
   <data name="buttonDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+    <value>117, 32</value>
   </data>
   <data name="buttonDecryptCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2948,11 +3761,14 @@ ATC</value>
   <data name="buttonDecryptStart.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonDecryptStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonDecryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 295</value>
+    <value>344, 298</value>
   </data>
   <data name="buttonDecryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+    <value>117, 32</value>
   </data>
   <data name="buttonDecryptStart.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2981,8 +3797,11 @@ ATC</value>
   <data name="labelDecryptionPassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="labelDecryptionPassword.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelDecryptionPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 140</value>
+    <value>132, 141</value>
   </data>
   <data name="labelDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 16</value>
@@ -3012,10 +3831,10 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxDecryptPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 159</value>
+    <value>128, 160</value>
   </data>
   <data name="textBoxDecryptPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>402, 23</value>
+    <value>471, 23</value>
   </data>
   <data name="textBoxDecryptPassword.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3039,7 +3858,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 356</value>
+    <value>621, 359</value>
   </data>
   <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3063,7 +3882,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 362</value>
+    <value>627, 365</value>
   </data>
   <data name="tabPageDecrypt.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3120,10 +3939,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 3</value>
+    <value>559, 3</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -3150,7 +3969,7 @@ ATC</value>
     <value>3, 200</value>
   </data>
   <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 24</value>
+    <value>100, 24</value>
   </data>
   <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3181,10 +4000,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 147</value>
+    <value>24, 147</value>
   </data>
   <data name="pictureBoxProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
+    <value>56, 48</value>
   </data>
   <data name="pictureBoxProgress.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -3208,7 +4027,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 359</value>
+    <value>105, 359</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3234,11 +4053,14 @@ ATC</value>
   <data name="labelCryptionType.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="labelCryptionType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelCryptionType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 109</value>
+    <value>125, 109</value>
   </data>
   <data name="labelCryptionType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 16</value>
+    <value>128, 16</value>
   </data>
   <data name="labelCryptionType.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -3264,11 +4086,14 @@ ATC</value>
   <data name="buttonCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>408, 298</value>
+    <value>478, 298</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 32</value>
+    <value>117, 32</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -3294,11 +4119,14 @@ ATC</value>
   <data name="labelProgressPercentText.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="labelProgressPercentText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelProgressPercentText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 194</value>
+    <value>128, 194</value>
   </data>
   <data name="labelProgressPercentText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 20</value>
+    <value>464, 20</value>
   </data>
   <data name="labelProgressPercentText.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -3330,11 +4158,14 @@ ATC</value>
   <data name="labelProgressMessageText.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="labelProgressMessageText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelProgressMessageText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 134</value>
+    <value>125, 134</value>
   </data>
   <data name="labelProgressMessageText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 16</value>
+    <value>185, 16</value>
   </data>
   <data name="labelProgressMessageText.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -3357,11 +4188,14 @@ ATC</value>
   <data name="progressBar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
+  <data name="progressBar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 161</value>
+    <value>128, 161</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 24</value>
+    <value>464, 24</value>
   </data>
   <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -3385,7 +4219,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>530, 359</value>
+    <value>621, 359</value>
   </data>
   <data name="panelProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3409,7 +4243,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>536, 365</value>
+    <value>627, 365</value>
   </data>
   <data name="tabPageProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3439,7 +4273,7 @@ ATC</value>
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 388</value>
+    <value>635, 391</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3460,10 +4294,10 @@ ATC</value>
     <value>Fill</value>
   </data>
   <data name="panelOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 51</value>
+    <value>0, 49</value>
   </data>
   <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 388</value>
+    <value>635, 391</value>
   </data>
   <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3481,7 +4315,7 @@ ATC</value>
     <value>3</value>
   </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>592, 17</value>
+    <value>466, 17</value>
   </metadata>
   <data name="selectFilesToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3499,7 +4333,7 @@ ATC</value>
 </value>
   </data>
   <data name="selectFilesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="selectFilesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Select Files....</value>
@@ -3519,7 +4353,7 @@ ATC</value>
 </value>
   </data>
   <data name="selectFoldersToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="selectFoldersToolStripMenuItem1.Text" xml:space="preserve">
     <value>Select Folders...</value>
@@ -3540,7 +4374,7 @@ ATC</value>
 </value>
   </data>
   <data name="encryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="encryptToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Encrypt</value>
@@ -3559,13 +4393,13 @@ ATC</value>
 </value>
   </data>
   <data name="decryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="decryptToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Decrypt</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="optionToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3584,13 +4418,13 @@ ATC</value>
 </value>
   </data>
   <data name="optionToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="optionToolStripMenuItem1.Text" xml:space="preserve">
     <value>&amp;Option</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="helpToolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3607,13 +4441,13 @@ ATC</value>
 </value>
   </data>
   <data name="helpToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="helpToolStripMenuItem2.Text" xml:space="preserve">
     <value>&amp;Help</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="exitToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3628,13 +4462,13 @@ ATC</value>
 </value>
   </data>
   <data name="exitToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="exitToolStripMenuItem1.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 132</value>
+    <value>116, 132</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -3643,7 +4477,7 @@ ATC</value>
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>18, 66</value>
+    <value>17, 56</value>
   </metadata>
   <data name="ToolStripMenuItemAtcFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3695,7 +4529,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemAtcFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemAtcFile.Text" xml:space="preserve">
     <value>ATC file</value>
@@ -3741,7 +4575,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemExeFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemExeFile.Text" xml:space="preserve">
     <value>ATC EXE</value>
@@ -3785,13 +4619,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemZipPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemZipPassword.Text" xml:space="preserve">
     <value>Zip password file</value>
   </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 166</value>
+    <value>196, 166</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
     <value>contextMenuStrip2</value>
@@ -3800,7 +4634,7 @@ ATC</value>
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="contextMenuStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>187, 65</value>
+    <value>172, 56</value>
   </metadata>
   <data name="selectFilesToEncryptToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3837,7 +4671,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectFilesToEncryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectFilesToEncryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select files to encrypt</value>
@@ -3878,7 +4712,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectDirectoryToEncryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectDirectoryToEncryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select directory to encrypt</value>
@@ -3915,13 +4749,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectFileToDecryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectFileToDecryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select file to decrypt</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
+    <value>241, 6</value>
   </data>
   <data name="settingsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3958,13 +4792,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 6</value>
+    <value>241, 6</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4003,13 +4837,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Text" xml:space="preserve">
     <value>Online help</value>
   </data>
   <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 286</value>
+    <value>245, 286</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
     <value>contextMenuStrip3</value>
@@ -4018,7 +4852,7 @@ ATC</value>
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>473, 17</value>
+    <value>353, 17</value>
   </metadata>
   <data name="notifyIcon1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4677,7 +5511,7 @@ ATC</value>
     <value>True</value>
   </data>
   <metadata name="saveFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>757, 17</value>
+    <value>621, 17</value>
   </metadata>
   <data name="saveFileDialog1.Filter" xml:space="preserve">
     <value>ATC file(*.atc)|*atc|All files(*.*)|*.*</value>
@@ -4686,13 +5520,19 @@ ATC</value>
     <value>Enter the name of the encrypted file</value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>531, 65</value>
+    <value>491, 56</value>
   </metadata>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>352, 65</value>
+    <value>327, 56</value>
   </metadata>
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>681, 62</value>
+    <value>631, 56</value>
+  </metadata>
+  <metadata name="toolTipZxcvbnWarning.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>757, 17</value>
+  </metadata>
+  <metadata name="toolTipZxcvbnSuggestions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>800, 56</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4701,10 +5541,10 @@ ATC</value>
     <value>126</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>7, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>544, 462</value>
+    <value>635, 462</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5104,7 +5944,7 @@ ATC</value>
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>560, 500</value>
+    <value>651, 500</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabelDataVersion.Name" xml:space="preserve">
     <value>toolStripStatusLabelDataVersion</value>
@@ -5237,12 +6077,6 @@ ATC</value>
   </data>
   <data name="&gt;&gt;toolStripButtonHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;encryptToolStripMenuItem.Name" xml:space="preserve">
     <value>encryptToolStripMenuItem</value>
@@ -5393,6 +6227,18 @@ ATC</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTipZxcvbnWarning.Name" xml:space="preserve">
+    <value>toolTipZxcvbnWarning</value>
+  </data>
+  <data name="&gt;&gt;toolTipZxcvbnWarning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTipZxcvbnSuggestions.Name" xml:space="preserve">
+    <value>toolTipZxcvbnSuggestions</value>
+  </data>
+  <data name="&gt;&gt;toolTipZxcvbnSuggestions.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

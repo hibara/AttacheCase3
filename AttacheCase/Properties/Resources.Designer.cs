@@ -1115,5 +1115,329 @@ namespace AttacheCase.Properties {
                 return ResourceManager.GetString("SaveDialogFilterSelfExeFiles", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Vulnerable に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabel00 {
+            get {
+                return ResourceManager.GetString("zxcvbnLabel00", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Weak に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabel01 {
+            get {
+                return ResourceManager.GetString("zxcvbnLabel01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Somewhat weak に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabel02 {
+            get {
+                return ResourceManager.GetString("zxcvbnLabel02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Good に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabel03 {
+            get {
+                return ResourceManager.GetString("zxcvbnLabel03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Strong に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabel04 {
+            get {
+                return ResourceManager.GetString("zxcvbnLabel04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Empty string に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnLabelEmpty {
+            get {
+                return ResourceManager.GetString("zxcvbnLabelEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Add another word or two. Uncommon words are better. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAddAnotherWordOrTwo {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAddAnotherWordOrTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   All-uppercase is almost as easy to guess as all-lowercase. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAllCapsEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAllCapsEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Avoid dates and years that are associated with you. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAvoidDatesYearsAssociatedYou {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAvoidDatesYearsAssociatedYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Avoid repeated words and characters. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAvoidRepeatedWordsAndChars {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAvoidRepeatedWordsAndChars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Avoid sequences. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAvoidSequences {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAvoidSequences", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Avoid recent years. Avoid years that are associated with you. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionAvoidYearsAssociatedYou {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionAvoidYearsAssociatedYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Capitalization doesn&apos;t help very much. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionCapsDontHelp {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionCapsDontHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Use a few words, avoid common phrases. No need for symbols, digits, or uppercase letters. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionDefault {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Empty string. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionEmpty {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Predictable substitutions like &apos;@&apos; instead of &apos;a&apos; don&apos;t help very much. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionPredictableSubstitutionsEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionPredictableSubstitutionsEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Reversed words aren&apos;t much harder to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionReversedWordEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionReversedWordEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Use a longer keyboard pattern with more turns. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnSuggestionUseLongerKeyboardPattern {
+            get {
+                return ResourceManager.GetString("zxcvbnSuggestionUseLongerKeyboardPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Hint に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnToolTipTitleSuggestions {
+            get {
+                return ResourceManager.GetString("zxcvbnToolTipTitleSuggestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Warning に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnToolTipTitleWarning {
+            get {
+                return ResourceManager.GetString("zxcvbnToolTipTitleWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Dates are often easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarnigDatesEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarnigDatesEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Common names and surnames are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningCommonNameSurnamesEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningCommonNameSurnamesEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   This is a very common password. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningCommonPasswords {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningCommonPasswords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Dates are often easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningDatesEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningDatesEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Empty string. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningDefault {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningDefault", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Empty String. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningEmpty {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Names and surnames by themselves are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningNameSurnamesEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningNameSurnamesEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recent years are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningRecentYearsEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningRecentYearsEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Repeats like &apos;aaa&apos; are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningRepeatsLikeAaaEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningRepeatsLikeAaaEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Repeats like &apos;abcabcabc&apos; are only slightly harder to guess than &apos;abc&apos;. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningRepeatsLikeAbcSlighterHarder {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningRepeatsLikeAbcSlighterHarder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sequences like abc or 6543 are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningSequenceAbcEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningSequenceAbcEasy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Short keyboard patterns are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningShortKeyboardPatterns {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningShortKeyboardPatterns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   This is similar to a commonly used password. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningSimilarCommonPasswords {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningSimilarCommonPasswords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Straight rows of keys are easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningStraightRow {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningStraightRow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   This is a top-10 common password. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningTop10Passwords {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningTop10Passwords", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   A word by itself is easy to guess. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string zxcvbnWarningWordEasy {
+            get {
+                return ResourceManager.GetString("zxcvbnWarningWordEasy", resourceCulture);
+            }
+        }
     }
 }

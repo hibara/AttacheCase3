@@ -84,16 +84,24 @@
       this.labelDragAndDrop = new System.Windows.Forms.Label();
       this.tabPageEncrypt = new System.Windows.Forms.TabPage();
       this.panelEncrypt = new System.Windows.Forms.Panel();
+      this.textBoxPassword = new AttacheCase.DelayTextBox();
+      this.labelPasswordStrength = new System.Windows.Forms.Label();
+      this.checkBoxDeleteOriginalFileAfterEncryption = new System.Windows.Forms.CheckBox();
+      this.checkBoxNotMaskEncryptedPassword = new System.Windows.Forms.CheckBox();
+      this.pictureBoxPassStrengthMeter = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrengthEmpty = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrength04 = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrength03 = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrength02 = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrength01 = new System.Windows.Forms.PictureBox();
+      this.pictureBoxPasswordStrength00 = new System.Windows.Forms.PictureBox();
       this.pictureBoxEncryptBackButton = new System.Windows.Forms.PictureBox();
       this.buttonEncryptionPasswordOk = new System.Windows.Forms.Button();
       this.panel2 = new System.Windows.Forms.Panel();
       this.labelEncryption = new System.Windows.Forms.Label();
       this.pictureBoxEncryption = new System.Windows.Forms.PictureBox();
-      this.checkBoxDeleteOriginalFileAfterEncryption = new System.Windows.Forms.CheckBox();
-      this.checkBoxNotMaskEncryptedPassword = new System.Windows.Forms.CheckBox();
       this.buttonEncryptCancel = new System.Windows.Forms.Button();
       this.labelPassword = new System.Windows.Forms.Label();
-      this.textBoxPassword = new System.Windows.Forms.TextBox();
       this.tabPageEncryptConfirm = new System.Windows.Forms.TabPage();
       this.panelEncryptConfirm = new System.Windows.Forms.Panel();
       this.pictureBoxEncryptConfirmBackButton = new System.Windows.Forms.PictureBox();
@@ -132,7 +140,6 @@
       this.labelProgressPercentText = new System.Windows.Forms.Label();
       this.labelProgressMessageText = new System.Windows.Forms.Label();
       this.progressBar = new System.Windows.Forms.ProgressBar();
-      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.encryptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.selectFilesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,6 +168,8 @@
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+      this.toolTipZxcvbnWarning = new System.Windows.Forms.ToolTip(this.components);
+      this.toolTipZxcvbnSuggestions = new System.Windows.Forms.ToolTip(this.components);
       this.statusStrip1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
@@ -187,6 +196,13 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAtcOn)).BeginInit();
       this.tabPageEncrypt.SuspendLayout();
       this.panelEncrypt.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassStrengthMeter)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrengthEmpty)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength04)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength03)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength02)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength01)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength00)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryptBackButton)).BeginInit();
       this.panel2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryption)).BeginInit();
@@ -508,14 +524,12 @@
       resources.ApplyResources(this.pictureBoxDec, "pictureBoxDec");
       this.pictureBoxDec.Name = "pictureBoxDec";
       this.pictureBoxDec.TabStop = false;
-      this.toolTip1.SetToolTip(this.pictureBoxDec, resources.GetString("pictureBoxDec.ToolTip"));
       // 
       // pictureBoxZip
       // 
       resources.ApplyResources(this.pictureBoxZip, "pictureBoxZip");
       this.pictureBoxZip.Name = "pictureBoxZip";
       this.pictureBoxZip.TabStop = false;
-      this.toolTip1.SetToolTip(this.pictureBoxZip, resources.GetString("pictureBoxZip.ToolTip"));
       this.pictureBoxZip.Click += new System.EventHandler(this.pictureBoxZip_Click);
       // 
       // pictureBoxExe
@@ -523,7 +537,6 @@
       resources.ApplyResources(this.pictureBoxExe, "pictureBoxExe");
       this.pictureBoxExe.Name = "pictureBoxExe";
       this.pictureBoxExe.TabStop = false;
-      this.toolTip1.SetToolTip(this.pictureBoxExe, resources.GetString("pictureBoxExe.ToolTip"));
       this.pictureBoxExe.Click += new System.EventHandler(this.pictureBoxExe_Click);
       // 
       // pictureBoxAtc
@@ -531,7 +544,6 @@
       resources.ApplyResources(this.pictureBoxAtc, "pictureBoxAtc");
       this.pictureBoxAtc.Name = "pictureBoxAtc";
       this.pictureBoxAtc.TabStop = false;
-      this.toolTip1.SetToolTip(this.pictureBoxAtc, resources.GetString("pictureBoxAtc.ToolTip"));
       this.pictureBoxAtc.Click += new System.EventHandler(this.pictureBoxAtc_Click);
       // 
       // pictureBoxDeleteOn
@@ -605,19 +617,97 @@
       // panelEncrypt
       // 
       this.panelEncrypt.BackColor = System.Drawing.Color.White;
+      this.panelEncrypt.Controls.Add(this.textBoxPassword);
+      this.panelEncrypt.Controls.Add(this.labelPasswordStrength);
+      this.panelEncrypt.Controls.Add(this.checkBoxDeleteOriginalFileAfterEncryption);
+      this.panelEncrypt.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPassStrengthMeter);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrengthEmpty);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrength04);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrength03);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrength02);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrength01);
+      this.panelEncrypt.Controls.Add(this.pictureBoxPasswordStrength00);
       this.panelEncrypt.Controls.Add(this.pictureBoxEncryptBackButton);
       this.panelEncrypt.Controls.Add(this.buttonEncryptionPasswordOk);
       this.panelEncrypt.Controls.Add(this.panel2);
-      this.panelEncrypt.Controls.Add(this.checkBoxDeleteOriginalFileAfterEncryption);
-      this.panelEncrypt.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
       this.panelEncrypt.Controls.Add(this.buttonEncryptCancel);
       this.panelEncrypt.Controls.Add(this.labelPassword);
-      this.panelEncrypt.Controls.Add(this.textBoxPassword);
       resources.ApplyResources(this.panelEncrypt, "panelEncrypt");
       this.panelEncrypt.Name = "panelEncrypt";
       this.panelEncrypt.VisibleChanged += new System.EventHandler(this.panelEncrypt_VisibleChanged);
       this.panelEncrypt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelEncrypt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+      // 
+      // textBoxPassword
+      // 
+      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
+      this.textBoxPassword.Name = "textBoxPassword";
+      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
+      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
+      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
+      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
+      // 
+      // labelPasswordStrength
+      // 
+      resources.ApplyResources(this.labelPasswordStrength, "labelPasswordStrength");
+      this.labelPasswordStrength.ForeColor = System.Drawing.Color.Gray;
+      this.labelPasswordStrength.Name = "labelPasswordStrength";
+      // 
+      // checkBoxDeleteOriginalFileAfterEncryption
+      // 
+      resources.ApplyResources(this.checkBoxDeleteOriginalFileAfterEncryption, "checkBoxDeleteOriginalFileAfterEncryption");
+      this.checkBoxDeleteOriginalFileAfterEncryption.Name = "checkBoxDeleteOriginalFileAfterEncryption";
+      this.checkBoxDeleteOriginalFileAfterEncryption.UseVisualStyleBackColor = true;
+      // 
+      // checkBoxNotMaskEncryptedPassword
+      // 
+      resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
+      this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
+      this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
+      // 
+      // pictureBoxPassStrengthMeter
+      // 
+      resources.ApplyResources(this.pictureBoxPassStrengthMeter, "pictureBoxPassStrengthMeter");
+      this.pictureBoxPassStrengthMeter.Name = "pictureBoxPassStrengthMeter";
+      this.pictureBoxPassStrengthMeter.TabStop = false;
+      // 
+      // pictureBoxPasswordStrengthEmpty
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrengthEmpty, "pictureBoxPasswordStrengthEmpty");
+      this.pictureBoxPasswordStrengthEmpty.Name = "pictureBoxPasswordStrengthEmpty";
+      this.pictureBoxPasswordStrengthEmpty.TabStop = false;
+      // 
+      // pictureBoxPasswordStrength04
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrength04, "pictureBoxPasswordStrength04");
+      this.pictureBoxPasswordStrength04.Name = "pictureBoxPasswordStrength04";
+      this.pictureBoxPasswordStrength04.TabStop = false;
+      // 
+      // pictureBoxPasswordStrength03
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrength03, "pictureBoxPasswordStrength03");
+      this.pictureBoxPasswordStrength03.Name = "pictureBoxPasswordStrength03";
+      this.pictureBoxPasswordStrength03.TabStop = false;
+      // 
+      // pictureBoxPasswordStrength02
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrength02, "pictureBoxPasswordStrength02");
+      this.pictureBoxPasswordStrength02.Name = "pictureBoxPasswordStrength02";
+      this.pictureBoxPasswordStrength02.TabStop = false;
+      // 
+      // pictureBoxPasswordStrength01
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrength01, "pictureBoxPasswordStrength01");
+      this.pictureBoxPasswordStrength01.Name = "pictureBoxPasswordStrength01";
+      this.pictureBoxPasswordStrength01.TabStop = false;
+      // 
+      // pictureBoxPasswordStrength00
+      // 
+      resources.ApplyResources(this.pictureBoxPasswordStrength00, "pictureBoxPasswordStrength00");
+      this.pictureBoxPasswordStrength00.Name = "pictureBoxPasswordStrength00";
+      this.pictureBoxPasswordStrength00.TabStop = false;
       // 
       // pictureBoxEncryptBackButton
       // 
@@ -656,20 +746,6 @@
       this.pictureBoxEncryption.TabStop = false;
       this.pictureBoxEncryption.Click += new System.EventHandler(this.pictureBoxEncryption_Click);
       // 
-      // checkBoxDeleteOriginalFileAfterEncryption
-      // 
-      resources.ApplyResources(this.checkBoxDeleteOriginalFileAfterEncryption, "checkBoxDeleteOriginalFileAfterEncryption");
-      this.checkBoxDeleteOriginalFileAfterEncryption.Name = "checkBoxDeleteOriginalFileAfterEncryption";
-      this.checkBoxDeleteOriginalFileAfterEncryption.UseVisualStyleBackColor = true;
-      this.checkBoxDeleteOriginalFileAfterEncryption.CheckedChanged += new System.EventHandler(this.checkBoxDeleteOriginalFileAfterEncryption_CheckedChanged);
-      // 
-      // checkBoxNotMaskEncryptedPassword
-      // 
-      resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
-      this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
-      this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
-      this.checkBoxNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskEncryptedPassword_CheckedChanged);
-      // 
       // buttonEncryptCancel
       // 
       resources.ApplyResources(this.buttonEncryptCancel, "buttonEncryptCancel");
@@ -684,17 +760,6 @@
       this.labelPassword.Name = "labelPassword";
       this.labelPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-      // 
-      // textBoxPassword
-      // 
-      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-      this.textBoxPassword.Name = "textBoxPassword";
-      this.textBoxPassword.UseSystemPasswordChar = true;
-      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
-      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
-      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
-      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
       // 
       // tabPageEncryptConfirm
       // 
@@ -1160,6 +1225,11 @@
       this.saveFileDialog1.DefaultExt = "atc";
       resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
       // 
+      // toolTipZxcvbnWarning
+      // 
+      this.toolTipZxcvbnWarning.IsBalloon = true;
+      this.toolTipZxcvbnWarning.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+      // 
       // Form1
       // 
       this.AllowDrop = true;
@@ -1175,7 +1245,6 @@
       this.Name = "Form1";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
       this.Load += new System.EventHandler(this.Form1_Load);
-      this.Shown += new System.EventHandler(this.Form1_Shown);
       this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
       this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
       this.DragLeave += new System.EventHandler(this.Form1_DragLeave);
@@ -1212,6 +1281,13 @@
       this.tabPageEncrypt.ResumeLayout(false);
       this.panelEncrypt.ResumeLayout(false);
       this.panelEncrypt.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPassStrengthMeter)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrengthEmpty)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength04)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength03)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength02)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength01)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength00)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryptBackButton)).EndInit();
       this.panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryption)).EndInit();
@@ -1284,14 +1360,11 @@
         private System.Windows.Forms.Label labelProgressMessageText;
 				private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelPassword;
-				private System.Windows.Forms.TextBox textBoxPassword;
-				private System.Windows.Forms.ToolTip toolTip1;
 				private System.Windows.Forms.Button buttonEncryptCancel;
 				private System.Windows.Forms.Button buttonDecryptCancel;
 				private System.Windows.Forms.Button buttonDecryptStart;
 				private System.Windows.Forms.Label labelDecryptionPassword;
 				private System.Windows.Forms.TextBox textBoxDecryptPassword;
-				private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
 				private System.Windows.Forms.CheckBox checkBoxNotMaskDecryptedPassword;
 				private System.Windows.Forms.NotifyIcon notifyIcon1;
 				private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -1307,7 +1380,6 @@
 				private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
 				private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 				private System.Windows.Forms.OpenFileDialog openFileDialog1;
-				private System.Windows.Forms.CheckBox checkBoxDeleteOriginalFileAfterEncryption;
 				private System.Windows.Forms.CheckBox checkBoxDeleteAtcFileAfterDecryption;
 				private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
 				private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAtcFile;
@@ -1377,6 +1449,19 @@
     private System.Windows.Forms.PictureBox pictureBoxProgressStateBackButton;
     internal System.Windows.Forms.PictureBox pictureBoxBackButtonOff;
     private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDataVersion;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrengthEmpty;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrength04;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrength03;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrength02;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrength01;
+    private System.Windows.Forms.PictureBox pictureBoxPasswordStrength00;
+    private System.Windows.Forms.PictureBox pictureBoxPassStrengthMeter;
+    private System.Windows.Forms.CheckBox checkBoxDeleteOriginalFileAfterEncryption;
+    private System.Windows.Forms.CheckBox checkBoxNotMaskEncryptedPassword;
+    private System.Windows.Forms.Label labelPasswordStrength;
+    private DelayTextBox textBoxPassword;
+    private System.Windows.Forms.ToolTip toolTipZxcvbnWarning;
+    private System.Windows.Forms.ToolTip toolTipZxcvbnSuggestions;
   }
 }
 

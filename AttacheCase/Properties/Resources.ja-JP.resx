@@ -474,5 +474,115 @@
   </data>
   <data name="DialogMessageFileListEncodingUnknown" xml:space="preserve">
     <value>以下の指定されたリストファイルの文字エンコードが不明で読み取れません！</value>
+  <data name="zxcvbnSuggestionAddAnotherWordOrTwo" xml:space="preserve">
+    <value>もう１，２単語追加してください。珍しい言葉が優れています。</value>
+  </data>
+  <data name="zxcvbnSuggestionAllCapsEasy" xml:space="preserve">
+    <value>すべて大文字は、すべて小文字と同じくらい簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidDatesYearsAssociatedYou" xml:space="preserve">
+    <value>あなたに関係うる年号や日付は避けてください。</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidRepeatedWordsAndChars" xml:space="preserve">
+    <value>単語や文字の繰り返しを避けてください。</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidSequences" xml:space="preserve">
+    <value>順番や並びのあるものは避けてください。</value>
+  </data>
+  <data name="zxcvbnSuggestionAvoidYearsAssociatedYou" xml:space="preserve">
+    <value>新しい年号は避けてください。
+特にあなたに関係する年号は避けるべきです。</value>
+  </data>
+  <data name="zxcvbnSuggestionCapsDontHelp" xml:space="preserve">
+    <value>大文字はあまり役に立ちません。</value>
+  </data>
+  <data name="zxcvbnSuggestionDefault" xml:space="preserve">
+    <value>空文字です。
+少数の単語を使用して、一般的なフレーズを避けてください。
+記号、数字、または大文字は不要です。</value>
+  </data>
+  <data name="zxcvbnSuggestionEmpty" xml:space="preserve">
+    <value>空文字です。</value>
+  </data>
+  <data name="zxcvbnSuggestionPredictableSubstitutionsEasy" xml:space="preserve">
+    <value>「a」の代わりに 「@」のような予測可能な代用はあまり役に立ちません。</value>
+  </data>
+  <data name="zxcvbnSuggestionReversedWordEasy" xml:space="preserve">
+    <value>逆の言葉を推測するのはそれほど難しくありません。</value>
+  </data>
+  <data name="zxcvbnSuggestionUseLongerKeyboardPattern" xml:space="preserve">
+    <value>より長いターンでより長いキーボードパターンを使ってください。</value>
+  </data>
+  <data name="zxcvbnWarnigDatesEasy" xml:space="preserve">
+    <value>日付はしばしば推測しやすいことがあります。</value>
+  </data>
+  <data name="zxcvbnWarningCommonNameSurnamesEasy" xml:space="preserve">
+    <value>一般名と姓は簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnWarningCommonPasswords" xml:space="preserve">
+    <value>これは非常に一般的なパスワードです。</value>
+  </data>
+  <data name="zxcvbnWarningDefault" xml:space="preserve">
+    <value>空文字です。</value>
+  </data>
+  <data name="zxcvbnWarningEmpty" xml:space="preserve">
+    <value>空文字です。</value>
+  </data>
+  <data name="zxcvbnWarningNameSurnamesEasy" xml:space="preserve">
+    <value>名前と姓自体は簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnWarningRecentYearsEasy" xml:space="preserve">
+    <value>新しい年号は推測しやすいです。</value>
+  </data>
+  <data name="zxcvbnWarningRepeatsLikeAaaEasy" xml:space="preserve">
+    <value>「aaa」のような繰り返しは簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnWarningRepeatsLikeAbcSlighterHarder" xml:space="preserve">
+    <value>「abcabcabc」のような繰り返しは、「abc」よりも推測がやや困難です。</value>
+  </data>
+  <data name="zxcvbnWarningSequenceAbcEasy" xml:space="preserve">
+    <value>abcや6543のようなシーケンスは簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnWarningShortKeyboardPatterns" xml:space="preserve">
+    <value>短いキーボードパターンは簡単に推測できます。</value>
+  </data>
+  <data name="zxcvbnWarningSimilarCommonPasswords" xml:space="preserve">
+    <value>これは一般的に使用されるパスワードに似ています。</value>
+  </data>
+  <data name="zxcvbnWarningStraightRow" xml:space="preserve">
+    <value>真っ直ぐな列のキーは推測しやすくなります。</value>
+  </data>
+  <data name="zxcvbnWarningTop10Passwords" xml:space="preserve">
+    <value>これはトップ10の一般的なパスワードです。</value>
+  </data>
+  <data name="zxcvbnWarningWordEasy" xml:space="preserve">
+    <value>単語だけで推測するのが簡単です。</value>
+  </data>
+  <data name="zxcvbnLabel00" xml:space="preserve">
+    <value>脆弱</value>
+  </data>
+  <data name="zxcvbnLabel01" xml:space="preserve">
+    <value>弱い</value>
+  </data>
+  <data name="zxcvbnLabel02" xml:space="preserve">
+    <value>やや弱い</value>
+  </data>
+  <data name="zxcvbnLabel03" xml:space="preserve">
+    <value>安全</value>
+  </data>
+  <data name="zxcvbnLabel04" xml:space="preserve">
+    <value>高安全</value>
+  </data>
+  <data name="zxcvbnLabelEmpty" xml:space="preserve">
+    <value>空文字</value>
+  </data>
+  <data name="zxcvbnToolTipTitleSuggestions" xml:space="preserve">
+    <value>ヒント</value>
+  </data>
+  <data name="zxcvbnToolTipTitleWarning" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="zxcvbnWarningDatesEasy" xml:space="preserve">
+    <value>日付はしばしば推測しやすいことがあります。</value>
   </data>
 </root>

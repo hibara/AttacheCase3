@@ -203,15 +203,6 @@ namespace AttacheCase
     }
 
     /// <summary>
-    /// Form shown event
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void Form1_Shown(object sender, EventArgs e)
-    {
-    }
-
-    /// <summary>
     /// Form closed event
     /// </summary>
     /// <param name="sender"></param>
@@ -2283,6 +2274,24 @@ namespace AttacheCase
           textBoxPassword.AllowDrop = false;
         }
 
+        // Enable the password strength meter
+        // パスワード強度メーターを表示する
+        if (AppSettings.Instance.fPasswordStrengthMeter == true)
+        {
+          labelPasswordStrength.Visible = true;
+          pictureBoxPassStrengthMeter.Visible = true;
+          textBoxPassword.Width = pictureBoxPassStrengthMeter.Left - textBoxPassword.Left - 8;
+        }
+        else
+        {
+          labelPasswordStrength.Visible = false;
+          pictureBoxPassStrengthMeter.Visible = false;
+          textBoxPassword.Width = pictureBoxPassStrengthMeter.Left -
+                                      textBoxPassword.Left + pictureBoxPassStrengthMeter.Width;
+        }
+
+        textBoxPassword_TextChanged(sender, e);
+
         this.AcceptButton = buttonEncryptionPasswordOk;
         this.CancelButton = buttonEncryptCancel;
         textBoxPassword.Focus();
@@ -2588,6 +2597,185 @@ namespace AttacheCase
       else
       {
         textBoxRePassword.BackColor = Color.PapayaWhip;
+      }
+
+      // Password Strength meter ( zxcvbn )
+      if (pictureBoxPassStrengthMeter.Visible == true)
+      {
+        var result = Zxcvbn.Zxcvbn.MatchPassword(textBoxPassword.Text);
+
+        switch (result.Score)
+        {
+          case 0:
+            if (textBoxPassword.Text == "")
+            {
+              pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrengthEmpty.Image;
+              labelPasswordStrength.Text = Resources.zxcvbnWarningEmpty;
+            }
+            else
+            {
+              pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrengthEmpty.Image;
+              labelPasswordStrength.Text = Resources.zxcvbnLabel00;
+            }
+            break;
+
+          case 1:
+            pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrength01.Image;
+            labelPasswordStrength.Text = Resources.zxcvbnLabel01;
+            break;
+
+          case 2:
+            pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrength02.Image;
+            labelPasswordStrength.Text = Resources.zxcvbnLabel02;
+            break;
+
+          case 3:
+            pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrength03.Image;
+            labelPasswordStrength.Text = Resources.zxcvbnLabel03;
+            break;
+
+          case 4:
+            pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrength04.Image;
+            labelPasswordStrength.Text = Resources.zxcvbnLabel04;
+            break;
+
+          default:
+            pictureBoxPassStrengthMeter.Image = pictureBoxPasswordStrengthEmpty.Image;
+            labelPasswordStrength.Text = Resources.zxcvbnLabel00;
+            break;
+        }
+
+        toolTipZxcvbnWarning.ToolTipTitle = Resources.zxcvbnToolTipTitleWarning;
+        switch (result.warning)
+        {
+          case Zxcvbn.Warning.StraightRow:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningStraightRow);
+            break;
+          case Zxcvbn.Warning.ShortKeyboardPatterns:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningShortKeyboardPatterns);
+            break;
+          case Zxcvbn.Warning.RepeatsLikeAaaEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningRepeatsLikeAaaEasy);
+            break;
+          case Zxcvbn.Warning.RepeatsLikeAbcSlighterHarder:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningRepeatsLikeAbcSlighterHarder);
+            break;
+          case Zxcvbn.Warning.SequenceAbcEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningSequenceAbcEasy);
+            break;
+          case Zxcvbn.Warning.RecentYearsEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningRecentYearsEasy);
+            break;
+          case Zxcvbn.Warning.DatesEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningDatesEasy);
+            break;
+          case Zxcvbn.Warning.Top10Passwords:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningTop10Passwords);
+            break;
+          case Zxcvbn.Warning.CommonPasswords:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningCommonPasswords);
+            break;
+          case Zxcvbn.Warning.SimilarCommonPasswords:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningSimilarCommonPasswords);
+            break;
+          case Zxcvbn.Warning.WordEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningWordEasy);
+            break;
+          case Zxcvbn.Warning.NameSurnamesEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningNameSurnamesEasy);
+            break;
+          case Zxcvbn.Warning.CommonNameSurnamesEasy:
+            toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningCommonNameSurnamesEasy);
+            break;
+          case Zxcvbn.Warning.Empty:
+            if (textBoxPassword.Text == "")
+            {
+              toolTipZxcvbnWarning.SetToolTip(labelPasswordStrength, Resources.zxcvbnWarningEmpty);
+            }
+            else
+            {
+              toolTipZxcvbnWarning.ToolTipTitle = "";
+            }
+            break;
+          default:
+            toolTipZxcvbnWarning.ToolTipTitle = "";
+            break;
+        }
+
+        if (toolTipZxcvbnWarning.ToolTipTitle == "")
+        {
+          toolTipZxcvbnWarning.Active = false;
+        }
+        else
+        {
+          toolTipZxcvbnWarning.Active = true;
+        }
+
+        toolTipZxcvbnSuggestions.ToolTipTitle = Resources.zxcvbnToolTipTitleSuggestions;
+        String SuggestionsList = "";
+        for (int i = 0; i < result.suggestions.Count; i++)
+        {
+          String SuggestionText = "";
+          switch (result.suggestions[i])
+          {
+            case Zxcvbn.Suggestion.AddAnotherWordOrTwo:
+              SuggestionText = Resources.zxcvbnSuggestionAddAnotherWordOrTwo;
+              break;
+            case Zxcvbn.Suggestion.UseLongerKeyboardPattern:
+              SuggestionText = Resources.zxcvbnSuggestionUseLongerKeyboardPattern;
+              break;
+            case Zxcvbn.Suggestion.AvoidRepeatedWordsAndChars:
+              SuggestionText = Resources.zxcvbnSuggestionAvoidRepeatedWordsAndChars;
+              break;
+            case Zxcvbn.Suggestion.AvoidSequences:
+              SuggestionText = Resources.zxcvbnSuggestionAvoidSequences;
+              break;
+            case Zxcvbn.Suggestion.AvoidYearsAssociatedYou:
+              SuggestionText = Resources.zxcvbnSuggestionAvoidYearsAssociatedYou;
+              break;
+            case Zxcvbn.Suggestion.AvoidDatesYearsAssociatedYou:
+              SuggestionText = Resources.zxcvbnSuggestionAvoidDatesYearsAssociatedYou;
+              break;
+            case Zxcvbn.Suggestion.CapsDontHelp:
+              SuggestionText = Resources.zxcvbnSuggestionCapsDontHelp;
+              break;
+            case Zxcvbn.Suggestion.AllCapsEasy:
+              SuggestionText = Resources.zxcvbnSuggestionAllCapsEasy;
+              break;
+            case Zxcvbn.Suggestion.ReversedWordEasy:
+              SuggestionText = Resources.zxcvbnSuggestionReversedWordEasy;
+              break;
+            case Zxcvbn.Suggestion.PredictableSubstitutionsEasy:
+              SuggestionText = Resources.zxcvbnSuggestionPredictableSubstitutionsEasy;
+              break;
+            case Zxcvbn.Suggestion.Empty:
+              if (textBoxPassword.Text == "")
+              {
+                SuggestionText = Resources.zxcvbnSuggestionEmpty;
+              }
+              break;
+            case Zxcvbn.Suggestion.Default:
+              SuggestionText = Resources.zxcvbnSuggestionDefault;
+              break;
+            default:
+              break;
+          }
+          if (SuggestionText != "")
+          {
+            SuggestionsList = SuggestionsList + "- " + SuggestionText + "\r\n";
+          }
+        }
+
+        if (SuggestionsList == "")
+        {
+          toolTipZxcvbnSuggestions.SetToolTip(pictureBoxPassStrengthMeter, "");
+          toolTipZxcvbnSuggestions.Active = false;
+        }
+        else
+        {
+          toolTipZxcvbnSuggestions.SetToolTip(pictureBoxPassStrengthMeter, SuggestionsList);
+          toolTipZxcvbnSuggestions.Active = true;
+        }
       }
 
     }
