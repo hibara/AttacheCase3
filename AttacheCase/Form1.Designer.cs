@@ -84,7 +84,6 @@
       this.labelDragAndDrop = new System.Windows.Forms.Label();
       this.tabPageEncrypt = new System.Windows.Forms.TabPage();
       this.panelEncrypt = new System.Windows.Forms.Panel();
-      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.labelPasswordStrength = new System.Windows.Forms.Label();
       this.checkBoxDeleteOriginalFileAfterEncryption = new System.Windows.Forms.CheckBox();
       this.checkBoxNotMaskEncryptedPassword = new System.Windows.Forms.CheckBox();
@@ -170,6 +169,7 @@
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.toolTipZxcvbnWarning = new System.Windows.Forms.ToolTip(this.components);
       this.toolTipZxcvbnSuggestions = new System.Windows.Forms.ToolTip(this.components);
+      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.statusStrip1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
@@ -638,16 +638,6 @@
       this.panelEncrypt.VisibleChanged += new System.EventHandler(this.panelEncrypt_VisibleChanged);
       this.panelEncrypt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelEncrypt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-      // 
-      // textBoxPassword
-      // 
-      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-      this.textBoxPassword.Name = "textBoxPassword";
-      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
-      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
-      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
-      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
       // 
       // labelPasswordStrength
       // 
@@ -1230,6 +1220,16 @@
       this.toolTipZxcvbnWarning.IsBalloon = true;
       this.toolTipZxcvbnWarning.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
       // 
+      // textBoxPassword
+      // 
+      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
+      this.textBoxPassword.Name = "textBoxPassword";
+      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
+      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
+      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
+      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
+      // 
       // Form1
       // 
       this.AllowDrop = true;
@@ -1261,10 +1261,12 @@
       this.tabControl1.ResumeLayout(false);
       this.tabPageStartPage.ResumeLayout(false);
       this.panelStartPage.ResumeLayout(false);
+      this.panelStartPage.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackButtonOff)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackButtonOn)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHamburgerMenu)).EndInit();
       this.panel1.ResumeLayout(false);
+      this.panel1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDec)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxZip)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExe)).EndInit();
@@ -1290,6 +1292,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPasswordStrength00)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryptBackButton)).EndInit();
       this.panel2.ResumeLayout(false);
+      this.panel2.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryption)).EndInit();
       this.tabPageEncryptConfirm.ResumeLayout(false);
       this.panelEncryptConfirm.ResumeLayout(false);
@@ -1297,6 +1300,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryptConfirmBackButton)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckPasswordValidation)).EndInit();
       this.panel3.ResumeLayout(false);
+      this.panel3.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEncryptionConfirm)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInValidIcon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxValidIcon)).EndInit();
@@ -1305,12 +1309,14 @@
       this.panelDecrypt.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDecryptBackButton)).EndInit();
       this.panel4.ResumeLayout(false);
+      this.panel4.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDecryption)).EndInit();
       this.tabPageProgressState.ResumeLayout(false);
       this.panelProgressState.ResumeLayout(false);
       this.panelProgressState.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProgressStateBackButton)).EndInit();
       this.panel5.ResumeLayout(false);
+      this.panel5.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProgress)).EndInit();
       this.contextMenuStrip1.ResumeLayout(false);
       this.contextMenuStrip2.ResumeLayout(false);

@@ -474,6 +474,7 @@
   </data>
   <data name="DialogMessageFileListEncodingUnknown" xml:space="preserve">
     <value>以下の指定されたリストファイルの文字エンコードが不明で読み取れません！</value>
+  </data>
   <data name="zxcvbnSuggestionAddAnotherWordOrTwo" xml:space="preserve">
     <value>もう１，２単語追加してください。珍しい言葉が優れています。</value>
   </data>

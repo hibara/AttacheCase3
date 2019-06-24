@@ -476,6 +476,7 @@ Decryption failed.</value>
   </data>
   <data name="DialogMessageFileListEncodingUnknown" xml:space="preserve">
     <value>The character encoding of the following specified list file is unknown that can not be read!</value>
+  </data>
   <data name="zxcvbnSuggestionAddAnotherWordOrTwo" xml:space="preserve">
     <value>Add another word or two. Uncommon words are better.</value>
   </data>
