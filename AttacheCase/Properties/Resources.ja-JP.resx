@@ -560,16 +560,16 @@
     <value>単語だけで推測するのが簡単です。</value>
   </data>
   <data name="zxcvbnLabel00" xml:space="preserve">
-    <value>脆弱</value>
+    <value>脆弱　</value>
   </data>
   <data name="zxcvbnLabel01" xml:space="preserve">
-    <value>弱い</value>
+    <value>弱い　</value>
   </data>
   <data name="zxcvbnLabel02" xml:space="preserve">
     <value>やや弱い</value>
   </data>
   <data name="zxcvbnLabel03" xml:space="preserve">
-    <value>安全</value>
+    <value>安全　</value>
   </data>
   <data name="zxcvbnLabel04" xml:space="preserve">
     <value>高安全</value>

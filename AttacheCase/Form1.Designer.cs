@@ -726,6 +726,7 @@
       // labelEncryption
       // 
       resources.ApplyResources(this.labelEncryption, "labelEncryption");
+      this.labelEncryption.BackColor = System.Drawing.Color.Transparent;
       this.labelEncryption.Name = "labelEncryption";
       // 
       // pictureBoxEncryption

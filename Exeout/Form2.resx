@@ -775,7 +775,7 @@
     <value>6, 12</value>
   </data>
   <data name="labelCopyright.Text" xml:space="preserve">
-    <value>Copyright(C) M.Hibara, All rights reserved.</value>
+    <value>Copyright(C) 2016-2019 M.Hibara, All rights reserved.</value>
   </data>
   <data name="&gt;&gt;linkLabelURL.Type" xml:space="preserve">
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

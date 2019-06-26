@@ -1,7 +1,7 @@
 @echo. ======================================================================
 @echo. Batch process file that create installer to package.
 @echo. 
-@echo. * Required "Inno Setup 5" later
+@echo. * Required "Inno Setup 5" ( not ver.6 )
 @echo. * Required "7Zip"
 @echo. ======================================================================
 
@@ -67,9 +67,11 @@ SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin";%PATH%
 SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
 SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
 
-signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
-signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe
+@rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
+@rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe
 
+signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AttacheCase.exe
+signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AtcSetup.exe
 
 @echo. 
 @echo. -----------------------------------
@@ -84,14 +86,13 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
 
 echo %ERRORLEVEL%
 
-
 @echo. 
 @echo. -----------------------------------
 @echo. Code signing to Installer
 @echo. -----------------------------------
 
-signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 Archives\atc*.exe
-
+@rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 Archives\atc*.exe
+signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode Archives\atc*.exe
 
 @echo. 
 @echo. -----------------------------------
@@ -105,7 +106,6 @@ echo "ver.%NUM%"
 
 @rem ZIP
 cd bin
-@rem 7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe Microsoft.WindowsAPICodePack.dll Microsoft.WindowsAPICodePack.Shell.dll ja-JP\AttacheCase.resources.dll
 7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe
 cd ..\
 

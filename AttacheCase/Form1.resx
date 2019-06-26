@@ -1803,7 +1803,7 @@ in this area for encryption or decryption.</value>
     <value>textBoxPassword</value>
   </data>
   <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>AttacheCase.DelayTextBox, AttacheCase, Version=3.4.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.DelayTextBox, AttacheCase, Version=3.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
     <value>panelEncrypt</value>
@@ -1812,16 +1812,19 @@ in this area for encryption or decryption.</value>
     <value>0</value>
   </data>
   <data name="labelPasswordStrength.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+    <value>Right</value>
   </data>
   <data name="labelPasswordStrength.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelPasswordStrength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>455, 140</value>
+    <value>434, 140</value>
+  </data>
+  <data name="labelPasswordStrength.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="labelPasswordStrength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 12</value>
+    <value>87, 12</value>
   </data>
   <data name="labelPasswordStrength.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1919,8 +1922,11 @@ in this area for encryption or decryption.</value>
   <data name="&gt;&gt;checkBoxNotMaskEncryptedPassword.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="pictureBoxPassStrengthMeter.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBoxPassStrengthMeter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+    <value>Right</value>
   </data>
   <data name="pictureBoxPassStrengthMeter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

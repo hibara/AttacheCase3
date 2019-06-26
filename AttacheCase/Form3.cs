@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2018  Mitsuhiro Hibara
+// Copyright (C) 2016-2019  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -1686,8 +1686,8 @@ THE SOFTWARE.
       else
       {
         buttonSaveZipFileToFolder.Enabled = false;
-        textBoxZipToSameFldrPath.Enabled = false;
         textBoxZipToSameFldrPath.BackColor = SystemColors.ButtonFace;
+        textBoxZipToSameFldrPath.Enabled = false;
       }
       buttonApply.Enabled = true;
 
@@ -1705,16 +1705,14 @@ THE SOFTWARE.
       {
         if (Directory.Exists(textBoxZipToSameFldrPath.Text) == false)
         {
-          checkBoxDecodeToSameFldr.Checked = false;
+          checkBoxZipToSameFldr.Checked = false;
+          buttonSaveZipFileToFolder.Enabled = false;
+          textBoxZipToSameFldrPath.BackColor = SystemColors.ButtonFace;
+          textBoxZipToSameFldrPath.Enabled = false;
         }
       }
       buttonApply.Enabled = true;
 
-    }
-
-    private void checkBoxZipConfirmOverwrite_CheckedChanged(object sender, EventArgs e)
-    {
-      buttonApply.Enabled = true;
     }
 
     private void comboBoxZipEncryptAlgo_SelectedIndexChanged(object sender, EventArgs e)
