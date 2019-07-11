@@ -814,12 +814,15 @@ namespace AttacheCase
         {
           if (_fSameTimeStamp == false)
           {
+            DateTime LastWriteDateTimeUtc;
+            DateTime CreationDateTimeUtc;
+
             // Last update datetime(UTC)
-            DateTime.TryParse(OutputFileData[8], out DateTime LastWriteDateTimeUtc);
+            DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
             TimeZoneInfo tzi = TimeZoneInfo.Local;
             fd.LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
             // Create datetime(UTC)
-            DateTime.TryParse(OutputFileData[9], out DateTime CreationDateTimeUtc);
+            DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
             fd.CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
           }
           else

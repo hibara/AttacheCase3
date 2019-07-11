@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HiBARA Software")]
 [assembly: AssemblyProduct("Exeout")]
-[assembly: AssemblyCopyright("Copyright© 2006-2019 M.Hibara, All rights reserved.")]
+[assembly: AssemblyCopyright("© 2006-2019 M.Hibara, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

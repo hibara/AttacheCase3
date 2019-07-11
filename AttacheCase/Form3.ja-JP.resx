@@ -240,25 +240,43 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 16</value>
+    <value>131, 16</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>ファイル / フォルダー</value>
   </data>
+  <data name="checkBoxShowDialogWhenMultipleFiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
   <data name="checkBoxShowDialogWhenMultipleFiles.Text" xml:space="preserve">
     <value>複数ある場合は警告ダイアログを出す</value>
+  </data>
+  <data name="checkBoxShowDialogWhenExeFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>359, 20</value>
   </data>
   <data name="checkBoxShowDialogWhenExeFile.Text" xml:space="preserve">
     <value>実行ファイル(*.exe)を含むときは警告ダイアログを出す</value>
   </data>
+  <data name="checkBoxNoHidePassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 20</value>
+  </data>
   <data name="checkBoxNoHidePassword.Text" xml:space="preserve">
     <value>パスワード文字列を隠さず入力する</value>
+  </data>
+  <data name="checkBoxAskEncDecode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
   </data>
   <data name="checkBoxAskEncDecode.Text" xml:space="preserve">
     <value>内容にかかわらず暗号化か復号かを問い合わせる</value>
   </data>
+  <data name="checkBoxOpenFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 20</value>
+  </data>
   <data name="checkBoxOpenFile.Text" xml:space="preserve">
     <value>復号後に、関連付けられたファイルを開く</value>
+  </data>
+  <data name="checkBoxEndToExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 20</value>
   </data>
   <data name="checkBoxEndToExit.Text" xml:space="preserve">
     <value>処理後にアタッシェケースを終了する</value>
@@ -266,8 +284,11 @@
   <data name="tabPageGeneralOption.Text" xml:space="preserve">
     <value>一般</value>
   </data>
+  <data name="checkBoxEnablePassStrengthMeter.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
   <data name="checkBoxEnablePassStrengthMeter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 19</value>
+    <value>239, 20</value>
   </data>
   <data name="checkBoxEnablePassStrengthMeter.Text" xml:space="preserve">
     <value>パスワード強度メーターを表示する</value>
@@ -302,14 +323,23 @@
         YII=
 </value>
   </data>
+  <data name="checkBoxDobyMemorizedPassword.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
   <data name="checkBoxDobyMemorizedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>327, 19</value>
+    <value>366, 20</value>
   </data>
   <data name="checkBoxDobyMemorizedPassword.Text" xml:space="preserve">
     <value>暗号/復号時に確認無しに記憶パスワードで実行する</value>
   </data>
+  <data name="checkBoxMyDecodePasswordKeep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>182, 20</value>
+  </data>
   <data name="checkBoxMyDecodePasswordKeep.Text" xml:space="preserve">
     <value>復号時のパスワード保存</value>
+  </data>
+  <data name="checkBoxMyEncodePasswordKeep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>198, 20</value>
   </data>
   <data name="checkBoxMyEncodePasswordKeep.Text" xml:space="preserve">
     <value>暗号化時のパスワード保存</value>
@@ -317,20 +347,38 @@
   <data name="tabPagePasswordOption.Text" xml:space="preserve">
     <value>パスワード</value>
   </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 16</value>
+  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>※アタッシェケースの再起動が必要です。</value>
+  </data>
+  <data name="checkBoxNoMultipleInstance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 20</value>
   </data>
   <data name="checkBoxNoMultipleInstance.Text" xml:space="preserve">
     <value>アタッシェケースを複数起動しない</value>
   </data>
+  <data name="checkBoxWindowForeground.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 20</value>
+  </data>
   <data name="checkBoxWindowForeground.Text" xml:space="preserve">
     <value>デスクトップでウィンドウを最前面にする</value>
+  </data>
+  <data name="checkBoxMainWindowMinimize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 20</value>
   </data>
   <data name="checkBoxMainWindowMinimize.Text" xml:space="preserve">
     <value>処理中は常に最小化する</value>
   </data>
+  <data name="checkBoxTaskTrayIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 20</value>
+  </data>
   <data name="checkBoxTaskTrayIcon.Text" xml:space="preserve">
     <value>タスクバーに表示する</value>
+  </data>
+  <data name="checkBoxTaskBarHide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 20</value>
   </data>
   <data name="checkBoxTaskBarHide.Text" xml:space="preserve">
     <value>タスクバーに表示することなく最小化する</value>
@@ -339,19 +387,19 @@
     <value>ウィンドウ</value>
   </data>
   <data name="checkBoxEncryptionSameFileTypeBefore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 20</value>
+    <value>262, 20</value>
   </data>
   <data name="checkBoxEncryptionSameFileTypeBefore.Text" xml:space="preserve">
     <value>前に使ったファイルタイプで暗号化する</value>
   </data>
   <data name="radioButtonNotSpecified.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 20</value>
+    <value>126, 20</value>
   </data>
   <data name="radioButtonNotSpecified.Text" xml:space="preserve">
     <value>特に指定しない</value>
   </data>
   <data name="radioButtonEncryptionFileTypeZIP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>207, 20</value>
+    <value>210, 20</value>
   </data>
   <data name="radioButtonEncryptionFileTypeZIP.Text" xml:space="preserve">
     <value>パスワードZIPファイル ( *.zip )</value>
@@ -363,7 +411,7 @@
     <value>アタッシェケースの自己実行形式  ( *.exe )</value>
   </data>
   <data name="radioButtonEncryptionFileTypeATC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>271, 20</value>
+    <value>270, 20</value>
   </data>
   <data name="radioButtonEncryptionFileTypeATC.Text" xml:space="preserve">
     <value>アタッシェケースのファイルタイプ ( *.atc )</value>
@@ -453,20 +501,38 @@
         27ZagBYRBIERNE2jBWgRfM33gitLhFxv20ei1C8GBTG4mOJ+HAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="checkBoxAutoName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 20</value>
+  </data>
   <data name="checkBoxAutoName.Text" xml:space="preserve">
     <value>暗号化ファイル名を自動で設定</value>
+  </data>
+  <data name="checkBoxExtInAtcFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 20</value>
   </data>
   <data name="checkBoxExtInAtcFileName.Text" xml:space="preserve">
     <value>暗号化ファイルに拡張子を含める</value>
   </data>
+  <data name="checkBoxKeepTimeStamp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>381, 20</value>
+  </data>
   <data name="checkBoxKeepTimeStamp.Text" xml:space="preserve">
     <value>オリジナルのファイルとフォルダーのタイムスタンプを保持する</value>
+  </data>
+  <data name="radioButtonFilesOneByOne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 20</value>
   </data>
   <data name="radioButtonFilesOneByOne.Text" xml:space="preserve">
     <value>フォルダー内のファイルを一つずつ暗号化</value>
   </data>
+  <data name="radioButtonAllFilePack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 20</value>
+  </data>
   <data name="radioButtonAllFilePack.Text" xml:space="preserve">
     <value>複数のファイルを一つにまとめる</value>
+  </data>
+  <data name="radioButtonNormal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
   </data>
   <data name="radioButtonNormal.Text" xml:space="preserve">
     <value>通常</value>
@@ -474,8 +540,14 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>複数ファイルの場合：</value>
   </data>
+  <data name="checkBoxConfirmSameFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>346, 20</value>
+  </data>
   <data name="checkBoxConfirmSameFileName.Text" xml:space="preserve">
     <value>同じ名前のファイルがあるときは上書きの確認をする</value>
+  </data>
+  <data name="checkBoxSaveToSameFldr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>294, 20</value>
   </data>
   <data name="checkBoxSaveToSameFldr.Text" xml:space="preserve">
     <value>暗号化ファイルは常に同じ場所に保存する</value>
@@ -493,14 +565,26 @@
         27ZagBYRBIERNE2jBWgRfM33gitLhFxv20ei1C8GBTG4mOJ+HAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="checkBoxSameTimeStamp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 20</value>
+  </data>
   <data name="checkBoxSameTimeStamp.Text" xml:space="preserve">
     <value>ファイル、フォルダーのタイムスタンプを復号時に合わせる</value>
+  </data>
+  <data name="checkBoxfNoParentFldr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 20</value>
   </data>
   <data name="checkBoxfNoParentFldr.Text" xml:space="preserve">
     <value>復号時に親フォルダーを生成しない</value>
   </data>
+  <data name="checkBoxDecryptConfirmOverwrite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 20</value>
+  </data>
   <data name="checkBoxDecryptConfirmOverwrite.Text" xml:space="preserve">
     <value>同名ファイルの上書きを確認する</value>
+  </data>
+  <data name="checkBoxDecodeToSameFldr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>371, 20</value>
   </data>
   <data name="checkBoxDecodeToSameFldr.Text" xml:space="preserve">
     <value>復号したファイル/フォルダーは常に同じ場所に保存する</value>
@@ -518,8 +602,14 @@
         27ZagBYRBIERNE2jBWgRfM33gitLhFxv20ei1C8GBTG4mOJ+HAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="checkBoxZipConfirmOverwrite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 20</value>
+  </data>
   <data name="checkBoxZipConfirmOverwrite.Text" xml:space="preserve">
     <value>同名ファイルの上書きを確認する</value>
+  </data>
+  <data name="checkBoxZipToSameFldr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 20</value>
   </data>
   <data name="checkBoxZipToSameFldr.Text" xml:space="preserve">
     <value>生成したZIPファイルは常に同じ場所に保存する</value>
@@ -561,11 +651,20 @@
   <data name="groupBoxCompleteDelete.Text" xml:space="preserve">
     <value>完全削除する書き込み回数</value>
   </data>
+  <data name="radioButtonCompleteErase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 20</value>
+  </data>
   <data name="radioButtonCompleteErase.Text" xml:space="preserve">
     <value>完全削除</value>
   </data>
+  <data name="radioButtonSendToTrash.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 20</value>
+  </data>
   <data name="radioButtonSendToTrash.Text" xml:space="preserve">
     <value>ゴミ箱へ送る</value>
+  </data>
+  <data name="radioNormalDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 20</value>
   </data>
   <data name="radioNormalDelete.Text" xml:space="preserve">
     <value>通常削除</value>
@@ -573,11 +672,20 @@
   <data name="groupBoxAdvancedDeleteOption.Text" xml:space="preserve">
     <value>高度な削除設定：</value>
   </data>
+  <data name="checkBoxConfirmToDeleteAfterDecryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 20</value>
+  </data>
   <data name="checkBoxConfirmToDeleteAfterDecryption.Text" xml:space="preserve">
     <value>復号後に削除確認メッセージを表示する</value>
   </data>
+  <data name="checkBoxDecryptShowDeleteChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 20</value>
+  </data>
   <data name="checkBoxDecryptShowDeleteChkBox.Text" xml:space="preserve">
     <value>メインウィンドウに削除のチェックボックスを表示する</value>
+  </data>
+  <data name="checkBoxDelEncFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 20</value>
   </data>
   <data name="checkBoxDelEncFile.Text" xml:space="preserve">
     <value>復号後に暗号化ファイルを削除する</value>
@@ -585,11 +693,20 @@
   <data name="groupBox3.Text" xml:space="preserve">
     <value>復号：</value>
   </data>
+  <data name="checkBoxConfirmToDeleteAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 20</value>
+  </data>
   <data name="checkBoxConfirmToDeleteAfterEncryption.Text" xml:space="preserve">
     <value>暗号化後に削除確認メッセージを表示する</value>
   </data>
+  <data name="checkBoxEncryptShowDeleteChkBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 20</value>
+  </data>
   <data name="checkBoxEncryptShowDeleteChkBox.Text" xml:space="preserve">
     <value>メインウィンドウに削除のチェックボックスを表示する</value>
+  </data>
+  <data name="checkBoxDelOrgFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 20</value>
   </data>
   <data name="checkBoxDelOrgFile.Text" xml:space="preserve">
     <value>暗号化完了後に元ファイルを削除する</value>
@@ -603,6 +720,9 @@
   <data name="label4.Text" xml:space="preserve">
     <value>暗号化ファイルの圧縮率設定
 （ 無圧縮&lt;0&gt; ～ 最大&lt;9&gt;※但し速度が落ちる）</value>
+  </data>
+  <data name="checkBoxCompressionOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
   </data>
   <data name="checkBoxCompressionOption.Text" xml:space="preserve">
     <value>圧縮する</value>
@@ -716,7 +836,7 @@
 </value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>67, 13</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>プリセット00</value>
@@ -767,19 +887,19 @@
 </value>
   </data>
   <data name="labelPreset03.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>67, 13</value>
   </data>
   <data name="labelPreset03.Text" xml:space="preserve">
     <value>プリセット03</value>
   </data>
   <data name="labelPreset02.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>67, 13</value>
   </data>
   <data name="labelPreset02.Text" xml:space="preserve">
     <value>プリセット02</value>
   </data>
   <data name="labelPreset01.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>67, 13</value>
   </data>
   <data name="labelPreset01.Text" xml:space="preserve">
     <value>プリセット01</value>
@@ -1012,7 +1132,7 @@
     <value>「送る」フォルダーにショートカットを作成</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 16</value>
+    <value>244, 16</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>※ 別のアプリケーションが起動します。</value>
@@ -1030,22 +1150,25 @@
     <value>システム</value>
   </data>
   <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 16</value>
+    <value>334, 20</value>
   </data>
   <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.Text" xml:space="preserve">
     <value>毎回、確認のためのダイアログ ボックスを表示する</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 12</value>
+    <value>266, 16</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>※ONにするとセキュリティリスクがあります。</value>
   </data>
   <data name="checkBoxAlwaysReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 16</value>
+    <value>311, 20</value>
   </data>
   <data name="checkBoxAlwaysReadIniFile.Text" xml:space="preserve">
     <value>常に、設定ファイル「_AtcCase.ini」を読み込む</value>
+  </data>
+  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
     <value>一時的な設定を現在の設定に置き換える</value>
@@ -1061,6 +1184,12 @@
   </data>
   <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
     <value>設定の保存/復元</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxDoByPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>393, 20</value>
   </data>
   <data name="checkBoxDoByPasswordFile.Text" xml:space="preserve">
     <value>暗号化/復号時、確認無しにパスワードファイルで実行する</value>
@@ -1091,14 +1220,29 @@
         jKLRd0j+Rlv5APf6O8B7ksPDAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="checkBoxNoErrMsgOnPassFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
+  </data>
+  <data name="checkBoxNoErrMsgOnPassFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>369, 20</value>
+  </data>
   <data name="checkBoxNoErrMsgOnPassFile.Text" xml:space="preserve">
     <value>パスワードファイルがなくともエラーメッセージを表示しない</value>
+  </data>
+  <data name="checkBoxCheckPassFileDecrypt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 20</value>
   </data>
   <data name="checkBoxCheckPassFileDecrypt.Text" xml:space="preserve">
     <value>復号時にパスワードファイルを自動チェックする</value>
   </data>
+  <data name="checkBoxCheckPassFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>308, 20</value>
+  </data>
   <data name="checkBoxCheckPassFile.Text" xml:space="preserve">
     <value>暗号時にパスワードファイルを自動チェックする</value>
+  </data>
+  <data name="checkBoxAllowPassFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 20</value>
   </data>
   <data name="checkBoxAllowPassFile.Text" xml:space="preserve">
     <value>パスワードファイルのドラッグ＆ドロップを許可する</value>
@@ -1123,10 +1267,13 @@
     <value>パスワードファイル</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 16</value>
+    <value>155, 16</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>※空白だと拡張子無し</value>
+  </data>
+  <data name="checkBoxAddCamoExt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 20</value>
   </data>
   <data name="checkBoxAddCamoExt.Text" xml:space="preserve">
     <value>暗号化ファイルの拡張子偽装（ピリオドを含む）</value>
@@ -1134,10 +1281,10 @@
   <data name="tabPageCamouflageExtOption.Text" xml:space="preserve">
     <value>拡張子偽装</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="labelTimes.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 16</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
+  <data name="labelTimes.Text" xml:space="preserve">
     <value>回</value>
   </data>
   <data name="groupBox10.Text" xml:space="preserve">
@@ -1145,6 +1292,9 @@
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>これらの設定はアタッシェケースではなく、ファイル自体に設定されます。</value>
+  </data>
+  <data name="checkBoxBroken.Size" type="System.Drawing.Size, System.Drawing">
+    <value>328, 20</value>
   </data>
   <data name="checkBoxBroken.Text" xml:space="preserve">
     <value>その回数を間違えたら暗号化ファイルを破壊する</value>
@@ -1168,7 +1318,7 @@
     <value>※「ファイルのハッシュ値が異なります」のエラーメッセージが出て処理が停まってしまう場合に有効です。ただし、エラー以降のファイルが正しく復号されるかは保証されません。</value>
   </data>
   <data name="checkBoxSalvageIgnoreHashCheck.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 20</value>
+    <value>261, 20</value>
   </data>
   <data name="checkBoxSalvageIgnoreHashCheck.Text" xml:space="preserve">
     <value>ファイルのハッシュ値チェックを無視する</value>
@@ -1178,13 +1328,16 @@
 同じファイル名が存在する場合は、自動で番号を振ることで重複を避けます。</value>
   </data>
   <data name="checkBoxSalvageIntoSameDirectory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>355, 20</value>
+    <value>359, 20</value>
   </data>
   <data name="checkBoxSalvageIntoSameDirectory.Text" xml:space="preserve">
     <value>すべてのファイルを同じ階層のディレクトリーに復号する</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>※一つずつ親フォルダを確認、生成しながら復号していくので、時間がかかります。暗号化ファイル内部にあるファイルリストの不整合によるエラーでの処理中止を抑止します。</value>
+  </data>
+  <data name="checkBoxSalvageToCreateParentFolderOneByOne.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 20</value>
   </data>
   <data name="checkBoxSalvageToCreateParentFolderOneByOne.Text" xml:space="preserve">
     <value>一つずつ親フォルダーを確認、生成しながら復号する</value>
@@ -1237,19 +1390,19 @@
     <value>キャンセル(&amp;C)</value>
   </data>
   <data name="fileNameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="fileNameToolStripMenuItem.Text" xml:space="preserve">
     <value>ファイル名</value>
   </data>
   <data name="extensionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="extensionToolStripMenuItem.Text" xml:space="preserve">
     <value>拡張子</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>157, 6</value>
   </data>
   <data name="dateToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1276,7 +1429,7 @@
 </value>
   </data>
   <data name="dateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="dateToolStripMenuItem.Text" xml:space="preserve">
     <value>日付</value>
@@ -1332,7 +1485,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Text" xml:space="preserve">
     <value>ランダム文字列</value>
@@ -1354,13 +1507,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>160, 22</value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Text" xml:space="preserve">
     <value>連番</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 120</value>
+    <value>161, 120</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("AtcSetup")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HiBARA Software")]
 [assembly: AssemblyProduct("AtcSetup")]
-[assembly: AssemblyCopyright("Copyright © 2016-2019 M.Hibara, All rights reserved.")]
+[assembly: AssemblyCopyright("© 2016-2019 M.Hibara, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
