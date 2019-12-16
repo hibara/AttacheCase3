@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using AttacheCase.Properties;
 using System.Text;
+using System.Security;
 using System.Security.Cryptography;
 
 namespace AttacheCase
@@ -34,6 +35,21 @@ namespace AttacheCase
   /// </summary>
   public class AppSettings
   {
+    [SuppressUnmanagedCodeSecurityAttribute]
+    internal static class UnsafeNativeMethods
+    {
+      //
+      // An INI file handling class using C#
+      // http://www.codeproject.com/Articles/1966/An-INI-file-handling-class-using-C
+      //
+      [DllImport("kernel32", BestFitMapping = false, ThrowOnUnmappableChar = true)]
+      internal static extern uint WritePrivateProfileString(string section, string key, string val, string filePath);
+      [DllImport("kernel32", BestFitMapping = false, ThrowOnUnmappableChar = true)]
+      internal static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+      [DllImport("kernel32", BestFitMapping = false, ThrowOnUnmappableChar = true)]
+      internal static extern uint GetVolumeInformation(string PathName, StringBuilder VolumeNameBuffer, UInt32 VolumeNameSize, ref UInt32 VolumeSerialNumber, ref UInt32 MaximumComponentLength, ref UInt32 FileSystemFlags, StringBuilder FileSystemNameBuffer, UInt32 FileSystemNameSize);
+    }
+
     // File type
     private const int FILE_TYPE_ERROR        = -1;
     private const int FILE_TYPE_NONE         = 0;
@@ -54,10 +70,10 @@ namespace AttacheCase
     // An INI file handling class using C#
     // http://www.codeproject.com/Articles/1966/An-INI-file-handling-class-using-C
     //
-    [DllImport("kernel32")]
-    private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
-    [DllImport("kernel32")]
-    private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
+    //[DllImport("kernel32")]
+    //private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+    //[DllImport("kernel32")]
+    //private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);
 
     //-----------------------------------
     // メンバ変数(Member Variable)
@@ -1939,7 +1955,7 @@ namespace AttacheCase
     public void ReadIniFile(string IniFilePath, ref int o, string section, string key, string defval)  // Integer
     {
       StringBuilder ResultValue = new StringBuilder(255);
-      if (GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
+      if (UnsafeNativeMethods.GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
       {
         o = int.Parse(ResultValue.ToString());
       }
@@ -1948,7 +1964,7 @@ namespace AttacheCase
     public void ReadIniFile(string IniFilePath, ref string o, string section, string key, string defval)  // string
     {
       StringBuilder ResultValue = new StringBuilder(255);
-      if (GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
+      if (UnsafeNativeMethods.GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
       {
         o = ResultValue.ToString();
       }
@@ -1957,7 +1973,7 @@ namespace AttacheCase
     public void ReadIniFile(string IniFilePath, ref bool o, string section, string key, string defval)  // bool
     {
       StringBuilder ResultValue = new StringBuilder(255);
-      if (GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
+      if (UnsafeNativeMethods.GetPrivateProfileString(section, key, defval, ResultValue, 255, IniFilePath) > 0)
       {
         o = (ResultValue.ToString() == "1" ? true : false);
       }
@@ -1989,7 +2005,7 @@ namespace AttacheCase
         value = o.ToString();
       }
 
-      WritePrivateProfileString(section, key, value, IniFilePath);
+      UnsafeNativeMethods.WritePrivateProfileString(section, key, value, IniFilePath);
 
     }
     
@@ -2914,6 +2930,7 @@ namespace AttacheCase
     /// <param name="MyPasswordString"></param>
     /// <returns></returns>
     //----------------------------------------------------------------------
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
     private byte[] EncryptMyPassword(string MyPasswordString)
     {
       if (MyPasswordString == null)
@@ -2975,6 +2992,7 @@ namespace AttacheCase
     /// <param name="bytesPassword"></param>
     /// <returns></returns>
     //----------------------------------------------------------------------
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
     private string DecryptMyPassword(byte[] MyPasswordBinary)
     {
       // Get the drive name where the application is installed
@@ -3186,17 +3204,6 @@ namespace AttacheCase
     /// <returns></returns>
     //----------------------------------------------------------------------
     #region
-    [DllImport("kernel32.dll")]
-    private static extern long GetVolumeInformation(
-                          string PathName,
-                          System.Text.StringBuilder VolumeNameBuffer,
-                          UInt32 VolumeNameSize,
-                          ref UInt32 VolumeSerialNumber,
-                          ref UInt32 MaximumComponentLength,
-                          ref UInt32 FileSystemFlags,
-                          System.Text.StringBuilder FileSystemNameBuffer,
-                          UInt32 FileSystemNameSize
-    );
     private string GetDriveSerialNumber()
     {
       //アプリケーションがインストールされているドライブ名を取得
@@ -3208,7 +3215,7 @@ namespace AttacheCase
       UInt32 file_system_flags = new UInt32();
       System.Text.StringBuilder sb_file_system_name = new System.Text.StringBuilder(256);
 
-      if (GetVolumeInformation(RootDriveName, sb_volume_name,
+      if (UnsafeNativeMethods.GetVolumeInformation(RootDriveName, sb_volume_name,
           (UInt32)sb_volume_name.Capacity, ref serial_number, ref max_component_length,
           ref file_system_flags, sb_file_system_name, (UInt32)sb_file_system_name.Capacity) == 0)
       {

@@ -16,16 +16,9 @@
 // along with this program.If not, see<http://www.gnu.org/licenses/>.
 //---------------------------------------------------------------------- 
 using System;
-using System.Windows.Forms;
 using System.Globalization;
 using System.Threading;
-using System.Runtime.InteropServices;
-
-
-using System.Diagnostics;
-using System.IO;
-using System.Security.Principal;
-using Microsoft.Win32;
+using System.Windows.Forms;
 
 
 namespace Exeout
@@ -50,7 +43,6 @@ namespace Exeout
 		static void Main()
 		{
 
-
       //SetDllDirectory("");
       //MessageBox.Show("SetDllDirectory!");
 
@@ -58,9 +50,7 @@ namespace Exeout
 
       //SetSearchPathMode(0x00000001 | 0x00008000);
       //IntPtr handle = LoadLibrary("schannel.dll");
-
-
-
+      
       CultureInfo ci = Thread.CurrentThread.CurrentUICulture;
 			//Console.WriteLine(ci.Name);  // ja-JP
 			if (ci.Name == "ja-JP")

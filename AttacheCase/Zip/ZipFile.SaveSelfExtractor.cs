@@ -733,7 +733,8 @@ namespace Ionic.Zip
         }
 
 
-        private void _SaveSfxStub(string exeToGenerate, SelfExtractorSaveOptions options)
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
+    private void _SaveSfxStub(string exeToGenerate, SelfExtractorSaveOptions options)
         {
             string nameOfIconFile = null;
             string stubExe = null;

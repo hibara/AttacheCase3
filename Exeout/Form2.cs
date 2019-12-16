@@ -33,15 +33,8 @@ namespace Exeout
 		private void Form2_Load(object sender, EventArgs e)
 		{
 
-      if (CultureInfo.CurrentCulture.Name.IndexOf("ja") > -1)
-      {
-        labelApplicationName.Text = "アタッシェケース（自己実行形式ファイル）";
-        this.Text = "このアプリケーションについて";
-      }
-            
       labelVersion.Text = "Version." + ApplicationInfo.Version;
 			labelCopyright.Text = ApplicationInfo.CopyrightHolder;
-
       //labelBeta.Left = labelVersion.Left + labelVersion.Width;
       //labelBeta.Top = labelVersion.Top;
       

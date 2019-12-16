@@ -24,16 +24,23 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Security;
 
 namespace AttacheCase
 {
-
   public partial class Form3 : Form
 	{
-		// Get shield icon.
-		[DllImport("user32.dll")]
-		private static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-		private const int BCM_FIRST = 0x1600;
+    [SuppressUnmanagedCodeSecurityAttribute]
+    internal static class UnsafeNativeMethods
+    {
+      // Get shield icon.
+      [DllImport("user32")]
+      internal static extern IntPtr SendMessage(HandleRef hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+      //[DllImport("kernel32", BestFitMapping = false, ThrowOnUnmappableChar = true)]
+      //internal static extern uint WritePrivateProfileString(string section, string key, string val, string filePath);
+    }
+
+    private const int BCM_FIRST = 0x1600;
 		private const int BCM_SETSHIELD = BCM_FIRST + 0x000C;
 
     private Panel[] panelObjects = new Panel[16];
@@ -258,11 +265,11 @@ namespace AttacheCase
 			HandleRef hwnd = new HandleRef(buttonAssociateAtcFiles, buttonAssociateAtcFiles.Handle);
 			// 2nd parameter is flaf of setting shield icon
 			uint BCM_SETSHIELD = 0x0000160C;
-			// Call SendMessage function
-			SendMessage(hwnd, BCM_SETSHIELD, new IntPtr(0), new IntPtr(1));
+      // Call SendMessage function
+      UnsafeNativeMethods.SendMessage(hwnd, BCM_SETSHIELD, new IntPtr(0), new IntPtr(1));
 
 			hwnd = new HandleRef(buttonAssociateAtcFiles, buttonUnAssociateAtcFiles.Handle);
-			SendMessage(hwnd, BCM_SETSHIELD, new IntPtr(0), new IntPtr(1));
+      UnsafeNativeMethods.SendMessage(hwnd, BCM_SETSHIELD, new IntPtr(0), new IntPtr(1));
 
 			//-----------------------------------
 			// All items of TreeView is expanded 

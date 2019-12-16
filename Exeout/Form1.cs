@@ -26,6 +26,7 @@ using System.Drawing;
 using System.Collections;
 using System.Collections.ObjectModel;
 using Sha2;
+using Exeout.Properties;
 
 namespace Exeout
 {
@@ -41,15 +42,22 @@ namespace Exeout
     //private const int DELETING            = 7; // Deleting.
 
     // Error code
-    private const int USER_CANCELED            = -1;   // User cancel.
-    private const int ERROR_UNEXPECTED         = -100;
-    private const int NOT_ATC_DATA             = -101;
-    private const int ATC_BROKEN_DATA          = -102;
-    private const int NO_DISK_SPACE            = -103;
-    private const int FILE_INDEX_NOT_FOUND     = -104;
+    private const int USER_CANCELED = -1;   // User cancel.
+    private const int ERROR_UNEXPECTED = -100;
+    private const int NOT_ATC_DATA = -101;
+    private const int ATC_BROKEN_DATA = -102;
+    private const int NO_DISK_SPACE = -103;
+    private const int FILE_INDEX_NOT_FOUND = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
-
-    private string CurrentCultureName = "";
+    private const int NOT_CORRECT_HASH_VALUE = -106;
+    private const int INVALID_FILE_PATH = -107;
+    private const int OS_DENIES_ACCESS = -108;
+    private const int DATA_NOT_FOUND = -109;
+    private const int DIRECTORY_NOT_FOUND = -110;
+    private const int DRIVE_NOT_FOUND = -111;
+    private const int FILE_NOT_LOADED = -112;
+    private const int FILE_NOT_FOUND = -113;
+    private const int PATH_TOO_LONG = -114;
 
 		public static BackgroundWorker bkg;
 		public int LimitOfInputPassword = -1;
@@ -59,26 +67,7 @@ namespace Exeout
 		public Form1()
 		{
 			InitializeComponent();
-
 			this.Text = Path.GetFileName(Application.ExecutablePath);
-
-      //MessageBox.Show(CultureInfo.CurrentCulture.Name);
-      
-      if ( CultureInfo.CurrentCulture.Name.IndexOf("ja") > -1)
-      {
-        CurrentCultureName = "ja";
-
-        labelMessage.Text = "パスワードを入力してください：";
-        checkBoxNotMaskPassword.Text = "パスワードを表示";
-        buttonDecrypt.Text = "復号/元に戻す(&D)";
-        buttonExit.Text = "終了(&X)";
-
-      }
-      else
-      {
-        CurrentCultureName = "en";
-      }
-      
     }
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -209,25 +198,11 @@ namespace Exeout
         // Alert
         // This encrypted file is broken. The process is aborted.
         //
-        string DialogTitleAlert = "Alert";
-        string DialogMessageAtcFileBroken = "This encrypted file is broken. The process is aborted.";
+        MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken,
+          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-        if (CurrentCultureName == "ja")
-        {
-          DialogTitleAlert = "エラー";
-          DialogMessageAtcFileBroken = "この暗号化ファイルは壊れています。処理を中止します。";
-        }
-        MessageBox.Show(DialogMessageAtcFileBroken,	DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-        if (CurrentCultureName == "ja")
-        {
-          labelMessage.Text = "復号処理を中止しました。";
-        }
-        else
-        {
-          labelMessage.Text = "Process of decryption has been aborted.";
-        }
-        labelPercent.Text = "- %";
+        labelMessage.Text = Resources.labelCaptionAborted;
+        //labelMessage.Text = "Process of decryption has been aborted.";
 
         return;
 			}
@@ -240,23 +215,11 @@ namespace Exeout
         // Alert
         // The file is not encrypted file. The process is aborted.
         // 
-        string DialogTitleAlert = "Alert";
-        string DialogMessageNotAtcFile = "The file is not encrypted file. The process is aborted.";
-        if (CurrentCultureName == "ja")
-        {
-          DialogTitleAlert = "エラー";
-          DialogMessageNotAtcFile = "暗号化ファイルではありません。処理を中止します。";
-        }
-        MessageBox.Show(DialogMessageNotAtcFile, DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile, 
+          Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
-        if (CurrentCultureName == "ja")
-        {
-          labelMessage.Text = "復号処理を中止しました。";
-        }
-        else
-        {
-          labelMessage.Text = "Process of decryption has been aborted.";
-        }
+        labelMessage.Text = Resources.labelCaptionAborted;
+        //labelMessage.Text = "Process of decryption has been aborted.";
         labelPercent.Text = "- %";
 
         return;
@@ -320,14 +283,9 @@ namespace Exeout
       {
         progressBar1.Style = ProgressBarStyle.Marquee;
         progressBar1.Value = 0;
-        if (CurrentCultureName == "ja")
-        {
-          labelMessage.Text = "復号するための準備をしています...";
-        }
-        else
-        {
-          labelMessage.Text = "Getting ready for decryption...";
-        }
+        // 復号するための準備をしています...
+        // Getting ready for decryption...
+        labelMessage.Text = Resources.labelGettingReadyForDecryption;
         labelPercent.Text = "- %";
       }
 
@@ -345,43 +303,20 @@ namespace Exeout
         // Canceled
         labelPercent.Text = "- %";
         progressBar1.Value = 0;
-
-        if (CurrentCultureName == "ja")
-        {
-          labelMessage.Text = "キャンセルされました。";
-        }
-        else
-        {
-          labelMessage.Text = "Canceled.";
-        }
+        labelMessage.Text = Resources.labelCaptionCanceled;
         return;
 
       }
       else if (e.Error != null)
       {
         //e.Error.Message;
-        if (CurrentCultureName == "ja")
-        {
-          labelMessage.Text = "エラー：" + e.Error.Message;
-        }
-        else
-        {
-          labelMessage.Text = "Error occurred: " + e.Error.Message;
-        }
+        // "エラー： " 
+        // "Error occurred: "
+        labelMessage.Text = Resources.labelCaptionError + e.Error.Message;
         return;
       }
       else
       {
-        string DialogTitleAlert;
-        if (CurrentCultureName == "ja")
-        {
-          DialogTitleAlert = "エラー";
-        }
-        else
-        {
-          DialogTitleAlert = "Error";
-        }
-
         /*
         // Status code
         private const int ENCRYPT_SUCCEEDED   = 1; // Encrypt is succeeded.
@@ -400,53 +335,63 @@ namespace Exeout
         private const int FILE_INDEX_NOT_FOUND     = -104;
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
+        private const int INVALID_FILE_PATH        = -107;
+        private const int OS_DENIES_ACCESS　        = -108;
+        private const int DATA_NOT_FOUND           = -109;
         */
 
         FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
-
         switch (result.ReturnCode)
         {
           //-----------------------------------
           case DECRYPT_SUCCEEDED:
-
-            labelPercent.Text = "100%";
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.Value = progressBar1.Maximum;
-
-            if (CurrentCultureName == "ja")
-            {
-              labelMessage.Text = "完了";
-            }
-            else
-            {
-              labelMessage.Text = "Completed";
-            }
+            labelPercent.Text = "100%";
+            labelMessage.Text = Resources.labelCaptionCompleted;
+            this.Update();
             return;
+
+          //-----------------------------------
+          case OS_DENIES_ACCESS:
+            // エラー
+            // ファイルへのアクセスが拒否されました。
+            // ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。
+            //
+            // Error
+            // Access to the file has been denied.
+            // Move to a place (eg Desktop) where you can read and write files and try again.
+            // 
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
+            labelPercent.Text = "- %";
+            return;
+
+          //-----------------------------------
+          case ERROR_UNEXPECTED:
+            // エラー
+            // 予期せぬエラーが発生しました。処理を中止します。
+            //
+            // Error
+            // An unexpected error has occurred. And stops processing.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
+            labelPercent.Text = "- %";
+            break;
 
           //-----------------------------------
           case NOT_ATC_DATA:
             // エラー
             // 暗号化ファイルではありません。処理を中止します。
             //
-            // Alert
+            // Error
             // The file is not encrypted file. The process is aborted.
-            string DialogMessageNotAtcFile = "The file is not encrypted file. The process is aborted.";
-            if (CurrentCultureName == "ja")
-            {
-              DialogMessageNotAtcFile = "暗号化ファイルではありません。処理を中止します。";
-            }
-            MessageBox.Show(DialogMessageNotAtcFile, DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            if (CurrentCultureName == "ja")
-            {
-              labelMessage.Text = "復号処理を中止しました。";
-            }
-            else
-            {
-              labelMessage.Text = "Process of decryption has been aborted.";
-            }
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile + Environment.NewLine + result.FilePath,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
             labelPercent.Text = "- %";
-
             return;
 
           //-----------------------------------
@@ -454,51 +399,26 @@ namespace Exeout
             // エラー
             // 暗号化ファイル(.atc)は壊れています。処理を中止します。
             //
-            // Alert
+            // Error
             // Encrypted file ( atc ) is broken. The process is aborted.
-            string DialogMessageAtcFileBroken = "Encrypted file ( atc ) is broken. The process is aborted.";
-            if (CurrentCultureName == "ja")
-            {
-              DialogMessageNotAtcFile = "暗号化ファイル(.atc)は壊れています。処理を中止します。";
-            }
-            MessageBox.Show(DialogMessageAtcFileBroken, DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            if (CurrentCultureName == "ja")
-            {
-              labelMessage.Text = "復号処理を中止しました。";
-            }
-            else
-            {
-              labelMessage.Text = "Process of decryption has been aborted.";
-            }
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken + Environment.NewLine + result.FilePath,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
             labelPercent.Text = "- %";
 
             return;
 
           //-----------------------------------
           case NO_DISK_SPACE:
-            // エラー
+            // 警告
             // ドライブに空き容量がありません。処理を中止します。
             //
             // Alert
             // No free space on the disk. The process is aborted.
-            string DialogMessageNoDiskSpace = "No free space on the disk. The process is aborted.";
-            if (CurrentCultureName == "ja")
-            {
-              DialogMessageNoDiskSpace = "ドライブに空き容量がありません。処理を中止します。";
-            }
-            MessageBox.Show(DialogMessageNoDiskSpace, DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            if (CurrentCultureName == "ja")
-            {
-              labelMessage.Text = "復号処理を中止しました。";
-            }
-            else
-            {
-              labelMessage.Text = "Process of decryption has been aborted.";
-            }
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
+            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
             labelPercent.Text = "- %";
-
             return;
 
           //-----------------------------------
@@ -506,45 +426,55 @@ namespace Exeout
             // エラー
             // 暗号化ファイル内部で、不正なファイルインデックスがありました。
             //
-            // Alert
+            // Error
             // Internal file index is invalid in encrypted file.
-            string DialogMessageFileIndexInvalid = "Internal file index is invalid in encrypted file.";
-            if (CurrentCultureName == "ja")
-            {
-              DialogMessageFileIndexInvalid = "暗号化ファイル内部で、不正なファイルインデックスがありました。";
-            }
-            MessageBox.Show(DialogMessageFileIndexInvalid,
-            DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-            if (CurrentCultureName == "ja")
-            {
-              labelMessage.Text = "復号処理を中止しました。";
-            }
-            else
-            {
-              labelMessage.Text = "Process of decryption has been aborted.";
-            }
+            MessageBox.Show(Resources.DialogMessageFileIndexInvalid,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
             labelPercent.Text = "- %";
+            return;
 
+          //-----------------------------------
+          case INVALID_FILE_PATH:
+            // エラー
+            // ファイル、またはフォルダーパスが不正です。処理を中止します。
+            //
+            // Error
+            // The path of files or folders are invalid. The process is aborted.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath + Environment.NewLine + result.FilePath,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
+            labelPercent.Text = "- %";
+            return;
+
+          //-----------------------------------
+          case DATA_NOT_FOUND:
+            // エラー
+            // 暗号化するデータが見つかりません。ファイルは壊れています。
+            // 復号できませんでした。
+            //
+            // Error
+            // Encrypted data not found. The file is broken.
+            // Decryption failed.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDataNotFound,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            labelMessage.Text = Resources.labelCaptionAborted;
+            labelPercent.Text = "- %";
             return;
 
           //-----------------------------------
           case PASSWORD_TOKEN_NOT_FOUND:
 
-          default:  // ERROR_UNEXPECTED
-                    // エラー
-                    // パスワードがちがうか、ファイルが破損している可能性があります。
-                    // 復号できませんでした。
-                    //
-                    // Alert
-                    // Password is invalid, or the encrypted file might have been broken.
-                    // Decryption is aborted.
-            string DialogMessageDecryptionError = "Password is invalid, or the encrypted file might have been broken.\nDecryption is aborted.";
-            if (CurrentCultureName == "ja")
-            {
-              DialogMessageDecryptionError = "パスワードがちがうか、ファイルが破損している可能性があります。\n復号できませんでした。";
-            }
-            MessageBox.Show(DialogMessageDecryptionError, DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+          default:
+            // エラー
+            // パスワードがちがうか、ファイルが破損している可能性があります。
+            // 復号できませんでした。
+            //
+            // Error
+            // Password is invalid, or the encrypted file might have been broken.
+            // Decryption is aborted.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDecryptionError,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (LimitOfInputPassword > 1)
             {
@@ -553,16 +483,9 @@ namespace Exeout
               textBox1.Focus();
               textBox1.SelectAll();
               buttonDecrypt.Enabled = true;
-
-              if (CurrentCultureName == "ja")
-              {
-                labelMessage.Text = "パスワードを入力してください：";
-              }
-              else
-              {
-                labelMessage.Text = "Input Password:";
-              }
-
+              // "パスワードを入力してください：";
+              // "Input Password:";
+              labelMessage.Text = Resources.labelInputPassword;
             }
             else
             {
@@ -609,26 +532,31 @@ namespace Exeout
 				_busy.Set();
 			}
 
+      string DialogMessageText;
+      if (File.Exists(FilePath))
+      {
+        // file name
+        DialogMessageText = Resources.labelComfirmToOverwriteFile;
+      }
+      else
+      {
+        // dirctory name
+        DialogMessageText = Resources.labelComfirmToOverwriteDir;
+      }
+
       // 問い合わせ
-      // 以下のファイルはすでに存在しています。上書きして保存しますか？
+      // 以下のファイル（フォルダー）はすでに存在しています。上書きして保存しますか？
       // 
       // Question
-      // The following file already exists. Do you overwrite the files to save?
+      // The following file(folder) already exists. Do you overwrite the files to save?
       //
-      string DialogTitleQuestion = "Question";
-      string labelComfirmToOverwriteFile = "The following file already exists. Do you overwrite the files to save?";
-      if (CurrentCultureName == "ja")
+      if (MessageBox.Show(DialogMessageText + "\n" + FilePath,
+            Resources.DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
       {
-        DialogTitleQuestion = "問い合わせ";
-        labelComfirmToOverwriteFile = "以下のファイルはすでに存在しています。上書きして保存しますか？";
+        decryption.TempOverWriteOption = 2; //Overwrite all
       }
-      if (MessageBox.Show(labelComfirmToOverwriteFile + "\n" + FilePath, 
-        DialogTitleQuestion, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-			{
-				decryption.TempOverWriteOption = 2;	//Overwrite all
-			}			
-			
-			_busy.Reset();
+
+      _busy.Reset();
 
 		}
 

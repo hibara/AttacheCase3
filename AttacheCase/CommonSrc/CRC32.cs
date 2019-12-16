@@ -477,26 +477,27 @@ namespace Ionic.Crc
     }
 
 
-    /// <summary>
-    /// A Stream that calculates a CRC32 (a checksum) on all bytes read,
-    /// or on all bytes written.
-    /// </summary>
-    ///
-    /// <remarks>
-    /// <para>
-    /// This class can be used to verify the CRC of a ZipEntry when
-    /// reading from a stream, or to calculate a CRC when writing to a
-    /// stream.  The stream should be used to either read, or write, but
-    /// not both.  If you intermix reads and writes, the results are not
-    /// defined.
-    /// </para>
-    ///
-    /// <para>
-    /// This class is intended primarily for use internally by the
-    /// DotNetZip library.
-    /// </para>
-    /// </remarks>
-    public class CrcCalculatorStream : System.IO.Stream, System.IDisposable
+  /// <summary>
+  /// A Stream that calculates a CRC32 (a checksum) on all bytes read,
+  /// or on all bytes written.
+  /// </summary>
+  ///
+  /// <remarks>
+  /// <para>
+  /// This class can be used to verify the CRC of a ZipEntry when
+  /// reading from a stream, or to calculate a CRC when writing to a
+  /// stream.  The stream should be used to either read, or write, but
+  /// not both.  If you intermix reads and writes, the results are not
+  /// defined.
+  /// </para>
+  ///
+  /// <para>
+  /// This class is intended primarily for use internally by the
+  /// DotNetZip library.
+  /// </para>
+  /// </remarks>
+  [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1063:ImplementIDisposableCorrectly")]
+  public class CrcCalculatorStream : System.IO.Stream, System.IDisposable
     {
         private static readonly Int64 UnsetLengthLimit = -99;
 

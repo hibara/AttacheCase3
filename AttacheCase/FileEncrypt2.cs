@@ -130,7 +130,8 @@ namespace AttacheCase
     /// <param name="OutFilePath">Output encryption file name</param>
     /// <param name="Password">Encription password string</param>
     /// <returns>Encryption success(true) or failed(false)</returns>
-		public Tuple<bool, int> Encrypt(
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
+    public Tuple<bool, int> Encrypt(
 			object sender, DoWorkEventArgs e, 
 			string[] FilePaths, string OutFilePath, 
 			string Password, byte[] PasswordBinary,

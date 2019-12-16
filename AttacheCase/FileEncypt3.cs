@@ -27,57 +27,6 @@ using Sha2;
 
 namespace AttacheCase
 {
-  class FileEncryptReturnVal
-  {
-    public FileEncryptReturnVal(int ReturnCode, string FilePath, Int64 TotalFileSize, Int64 AvailableFreeSpace)
-    {
-      this._ReturnCode = ReturnCode;
-      this._FilePath = FilePath;
-      this._TotalFileSize = TotalFileSize;
-      this._AvailableFreeSpace = AvailableFreeSpace;
-    }
-    public FileEncryptReturnVal(int ReturnCode, string FilePath)
-    {
-      this._ReturnCode = ReturnCode;
-      this._FilePath = FilePath;
-    }
-    public FileEncryptReturnVal(int ReturnCode, int FileIndex)
-    {
-      this._ReturnCode = ReturnCode;
-      this._FileIndex = FileIndex;
-    }
-    public FileEncryptReturnVal(int ReturnCode)
-    {
-      this._ReturnCode = ReturnCode;
-    }
-
-    private int _ReturnCode = -1;
-    public int ReturnCode
-    {
-      get { return this._ReturnCode; }
-    }
-    private int _FileIndex = -1;
-    public int FileIndex
-    {
-      get { return this._FileIndex; }
-    }
-    private string _FilePath = "";
-    public string FilePath
-    {
-      get { return this._FilePath; }
-    }
-    private Int64 _TotalFileSize = -1;
-    public Int64 TotalFileSize
-    {
-      get { return this._TotalFileSize; }
-    }
-    private Int64 _AvailableFreeSpace = -1;
-    public Int64 AvailableFreeSpace
-    {
-      get { return this._AvailableFreeSpace; }
-    }
-  }
-
   public partial class FileEncrypt3
   {
     // Status code
@@ -101,6 +50,13 @@ namespace AttacheCase
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
+    private const int DIRECTORY_NOT_FOUND      = -110;
+    private const int DRIVE_NOT_FOUND          = -111;
+    private const int FILE_NOT_LOADED          = -112;
+    private const int FILE_NOT_FOUND           = -113;
+    private const int PATH_TOO_LONG            = -114;
+    private const int IO_EXCEPTION             = -115;
 
     private byte[] buffer;
     private const int BUFFER_SIZE = 4096;
@@ -115,7 +71,7 @@ namespace AttacheCase
     //Encrypted header data size
     private int _AtcHeaderSize = 0;
     private Int64 _TotalSize = 0;
-    private Int64 _TotalFileSize = 0;
+    //private Int64 _TotalFileSize = 0;
     private Int64 _StartPos = 0;
 
     // The number of files or folders to be encrypted
@@ -125,7 +81,6 @@ namespace AttacheCase
       get { return this._NumberOfFiles; }
       set { this._NumberOfFiles = value; }
     }
-
     // Total number of files or folders to be encrypted
     private int _TotalNumberOfFiles = 1;
     public int TotalNumberOfFiles
@@ -133,7 +88,6 @@ namespace AttacheCase
       get { return this._TotalNumberOfFiles; }
       set { this._TotalNumberOfFiles = value; }
     }
-
     // Set number of times to input password in encrypt files:
     private char _MissTypeLimits = (char)3;
     public char MissTypeLimits
@@ -141,7 +95,6 @@ namespace AttacheCase
       get { return this._MissTypeLimits; }
       set { this._MissTypeLimits = value; }
     }
-
     // Self-executable file
     private bool _fExecutable = false;
     public bool fExecutable
@@ -149,7 +102,6 @@ namespace AttacheCase
       get { return this._fExecutable; }
       set { this._fExecutable = value; }
     }
-
     // Set the timestamp of encryption file to original files or directories
     private bool _fKeepTimeStamp = false;
     public bool fKeepTimeStamp
@@ -157,19 +109,60 @@ namespace AttacheCase
       get { return this._fKeepTimeStamp; }
       set { this._fKeepTimeStamp = value; }
     }
-
+    // ATC file ( encrypted file name ) path to output
     private string _AtcFilePath = "";
     public string AtcFilePath
     {
       get { return this._AtcFilePath; }
     }
-
+    // List of files and folders for encryption
     private List<string> _FileList;
     public List<string> FileList
     {
       get { return this._FileList; }
     }
 
+    //----------------------------------------------------------------------
+    // The return value of error ( ReadOnly)
+    //----------------------------------------------------------------------
+    // Input "Error code" for value
+    private int _ReturnCode = -1;
+    public int ReturnCode
+    {
+      get { return this._ReturnCode; }
+    }
+    // File path that caused the error
+    private string _ErrorFilePath = "";
+    public string ErrorFilePath
+    {
+      get { return this._ErrorFilePath; }
+    }
+    // Drive name to decrypt
+    private string _DriveName = "";
+    public string DriveName
+    {
+      get { return this._DriveName; }
+    }
+    // Total file size of files to be encrypted
+    private Int64 _TotalFileSize = -1;
+    public Int64 TotalFileSize
+    {
+      get { return this._TotalFileSize; }
+    }
+    // Free space on the drive to encrypt the file
+    private Int64 _AvailableFreeSpace = -1;
+    public Int64 AvailableFreeSpace
+    {
+      get { return this._AvailableFreeSpace; }
+    }
+    // Error message by the exception
+    private string _ErrorMessage = "";
+    public string ErrorMessage
+    {
+      get { return this._ErrorMessage; }
+    }
+
+    // Constructor
     public FileEncrypt3()
     {
     }
@@ -182,7 +175,8 @@ namespace AttacheCase
     /// <param name="OutFilePath">Output encryption file name</param>
     /// <param name="Password">Encription password string</param>
     /// <returns>Encryption success(true) or failed(false)</returns>
-		public bool Encrypt(
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
+    public bool Encrypt(
       object sender, DoWorkEventArgs e,
       string[] FilePaths, string OutFilePath,
       string Password, byte[] PasswordBinary,
@@ -199,9 +193,11 @@ namespace AttacheCase
       DateTime dtAccess = File.GetLastAccessTime(FilePaths[0]);
 
       // Create Header data.
-      ArrayList MessageList = new ArrayList();
-      MessageList.Add(READY_FOR_ENCRYPT);
-      MessageList.Add(Path.GetFileName(OutFilePath));
+      ArrayList MessageList = new ArrayList
+      {
+        READY_FOR_ENCRYPT,
+        Path.GetFileName(_AtcFilePath)
+      };
       worker.ReportProgress(0, MessageList);
 
       _FileList = new List<string>();
@@ -226,7 +222,7 @@ namespace AttacheCase
 
       try
       {
-        using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write))
+        using (FileStream outfs = new FileStream(_AtcFilePath, FileMode.Create, FileAccess.Write))
         {
           // 自己実行形式ファイル（Self-executable file）
           if (_fExecutable == true)
@@ -424,7 +420,7 @@ namespace AttacheCase
             //----------------------------------------------------------------------
             // Check the disk space
             //----------------------------------------------------------------------
-            string RootDriveLetter = Path.GetPathRoot(OutFilePath).Substring(0, 1);
+            string RootDriveLetter = Path.GetPathRoot(_AtcFilePath).Substring(0, 1);
 
             if (RootDriveLetter == "\\")
             {
@@ -450,7 +446,10 @@ namespace AttacheCase
                   if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
                   {
                     // not available free space
-                    e.Result = new FileEncryptReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
+                    _ReturnCode = NO_DISK_SPACE;
+                    _DriveName = drive.ToString();
+                    //_TotalFileSize = _TotalFileSize;
+                    _AvailableFreeSpace = drive.AvailableFreeSpace;
                     return (false);
                   }
                   break;
@@ -511,13 +510,13 @@ namespace AttacheCase
 
           }// end  using (MemoryStream ms = new MemoryStream());
 
-        }// end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
+        }// end using (FileStream outfs = new FileStream(_AtcFilePath, FileMode.Create, FileAccess.Write));
 
 
         //----------------------------------------------------------------------
         // 本体データの暗号化
         //----------------------------------------------------------------------
-        using (FileStream outfs = new FileStream(OutFilePath, FileMode.OpenOrCreate, FileAccess.Write))
+        using (FileStream outfs = new FileStream(_AtcFilePath, FileMode.OpenOrCreate, FileAccess.Write))
         {
           byteArray = new byte[4];
           // Back to current positon of 'encrypted file size'
@@ -594,49 +593,39 @@ namespace AttacheCase
                   // Only file is encrypted
                   if (File.Exists(path) == true)
                   {
-                    try
+                    buffer = new byte[BUFFER_SIZE];
+                    using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
                     {
-                      buffer = new byte[BUFFER_SIZE];
-                      using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+                      len = 0;
+                      while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
                       {
-                        len = 0;
-                        while ((len = fs.Read(buffer, 0, BUFFER_SIZE)) > 0)
+                        ds.Write(buffer, 0, len);
+                        _TotalSize += len;
+
+                        string MessageText = "";
+                        if (_TotalNumberOfFiles > 1)
                         {
-                          ds.Write(buffer, 0, len);
-                          _TotalSize += len;
+                          MessageText = path + " ( " + _NumberOfFiles.ToString() + " / " + _TotalNumberOfFiles.ToString() + " files )";
+                        }
+                        else
+                        {
+                          MessageText = path;
+                        }
+                        float percent = ((float)_TotalSize / _TotalFileSize);
+                        MessageList = new ArrayList();
+                        MessageList.Add(ENCRYPTING);
+                        MessageList.Add(MessageText);
+                        worker.ReportProgress((int)(percent * 10000), MessageList);
 
-                          string MessageText = "";
-                          if (_TotalNumberOfFiles > 1)
-                          {
-                            MessageText = path + " ( " + _NumberOfFiles.ToString() + " / " + _TotalNumberOfFiles.ToString() + " files )";
-                          }
-                          else
-                          {
-                            MessageText = path;
-                          }
-                          float percent = ((float)_TotalSize / _TotalFileSize);
-                          MessageList = new ArrayList();
-                          MessageList.Add(ENCRYPTING);
-                          MessageList.Add(MessageText);
-                          worker.ReportProgress((int)(percent * 10000), MessageList);
-
-                          if (worker.CancellationPending == true)
-                          {
-                            fs.Dispose();
-                            e.Cancel = true;
-                            return (false);
-                          }
-
+                        if (worker.CancellationPending == true)
+                        {
+                          fs.Dispose();
+                          e.Cancel = true;
+                          return (false);
                         }
 
                       }
 
-                    }
-                    catch (Exception ex)
-                    {
-                      System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
-                      e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
-                      return (false);
                     }
 
                   } // end if (File.Exists(path) == true);
@@ -659,44 +648,90 @@ namespace AttacheCase
 
           } // end using (Rijndael aes = new RijndaelManaged());
 
-        } // end using (FileStream outfs = new FileStream(OutFilePath, FileMode.Create, FileAccess.Write));
+        } // end using (FileStream outfs = new FileStream(_AtcFilePath, FileMode.Create, FileAccess.Write));
 
         // Set the timestamp of encryption file to original files or directories
         if (_fKeepTimeStamp == true)
         {
-          File.SetCreationTime(OutFilePath, dtCreate);
-          File.SetLastWriteTime(OutFilePath, dtUpdate);
-          File.SetLastAccessTime(OutFilePath, dtAccess);
+          File.SetCreationTime(_AtcFilePath, dtCreate);
+          File.SetLastWriteTime(_AtcFilePath, dtUpdate);
+          File.SetLastAccessTime(_AtcFilePath, dtAccess);
         }
         else
         {
           dtUpdate = DateTime.Now;
-          File.SetLastWriteTime(OutFilePath, dtUpdate);
+          File.SetLastWriteTime(_AtcFilePath, dtUpdate);
         }
 
         //Encryption succeed.
-        e.Result = new FileEncryptReturnVal(ENCRYPT_SUCCEEDED);
+        _ReturnCode = ENCRYPT_SUCCEEDED;
         return (true);
 
       }
       catch (UnauthorizedAccessException)
       {
-        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
-        e.Result = new FileEncryptReturnVal(OS_DENIES_ACCESS);
+        //オペレーティング システムが I/O エラーまたは特定の種類のセキュリティエラーのためにアクセスを拒否する場合、スローされる例外
+        //The exception that is thrown when the operating system denies access
+        //because of an I/O error or a specific type of security error.
+        _ReturnCode = OS_DENIES_ACCESS;
+        _ErrorFilePath = _AtcFilePath;
         return (false);
-
+      }
+      catch (DirectoryNotFoundException ex)
+      {
+        //ファイルまたはディレクトリの一部が見つからない場合にスローされる例外
+        //The exception that is thrown when part of a file or directory cannot be found
+        _ReturnCode = DIRECTORY_NOT_FOUND;
+        _ErrorMessage = ex.Message;
+        return (false);
+      }
+      catch (DriveNotFoundException ex)
+      {
+        //使用できないドライブまたは共有にアクセスしようとするとスローされる例外
+        //The exception that is thrown when trying to access a drive or share that is not available
+        _ReturnCode = DRIVE_NOT_FOUND;
+        _ErrorMessage = ex.Message;
+        return (false);
+      }
+      catch (FileLoadException ex)
+      {
+        //マネージド アセンブリが見つかったが、読み込むことができない場合にスローされる例外
+        //The exception that is thrown when a managed assembly is found but cannot be loaded
+        _ReturnCode = FILE_NOT_LOADED;
+        _ErrorFilePath = ex.FileName;
+        return (false);
+      }
+      catch (FileNotFoundException ex)
+      {
+        //ディスク上に存在しないファイルにアクセスしようとして失敗したときにスローされる例外
+        //The exception that is thrown when an attempt to access a file that does not exist on disk fails
+        _ReturnCode = FILE_NOT_FOUND;
+        _ErrorFilePath = ex.FileName;
+        return (false);
+      }
+      catch (PathTooLongException)
+      {
+        //パス名または完全修飾ファイル名がシステム定義の最大長を超えている場合にスローされる例外
+        //The exception that is thrown when a path or fully qualified file name is longer than the system-defined maximum length
+        _ReturnCode = PATH_TOO_LONG;
+        return (false);
+      }
+      catch (IOException ex)
+      {
+        //I/Oエラーが発生したときにスローされる例外。現在の例外を説明するメッセージを取得します。
+        //The exception that is thrown when an I/O error occurs. Gets a message that describes the current exception.
+        _ReturnCode = IO_EXCEPTION;
+        _ErrorMessage = ex.Message;
+        return (false);
       }
       catch (Exception ex)
       {
-        System.Windows.Forms.MessageBox.Show(ex.Message);
-        e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
+        _ReturnCode = ERROR_UNEXPECTED;
+        _ErrorMessage = ex.Message;
         return (false);
-
       }
 
-
     } // encrypt();
-
 
     /// <summary>
     /// 指定したルートディレクトリのファイルリストを並列処理で取得する

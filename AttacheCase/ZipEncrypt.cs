@@ -21,7 +21,6 @@ using Ionic.Zip;
 using System.IO;
 using System.ComponentModel;
 using System.Collections;
-using System.Text;
 
 namespace AttacheCase
 {
@@ -38,7 +37,7 @@ namespace AttacheCase
     private const int DELETING          = 8;  // Deleting.
 
     // Error code
-    private const int USER_CANCELED            = -1;     // User cancel.
+    private const int USER_CANCELED            = -1;   // User cancel.
     private const int ERROR_UNEXPECTED         = -100;
     private const int NOT_ATC_DATA             = -101;
     private const int ATC_BROKEN_DATA          = -102;
@@ -48,6 +47,13 @@ namespace AttacheCase
     private const int NOT_CORRECT_HASH_VALUE   = -106;
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
+    private const int DIRECTORY_NOT_FOUND      = -110;
+    private const int DRIVE_NOT_FOUND          = -111;
+    private const int FILE_NOT_LOADED          = -112;
+    private const int FILE_NOT_FOUND           = -113;
+    private const int PATH_TOO_LONG            = -114;
+    private const int IO_EXCEPTION             = -115;
 
     // ZIP password encryption algorithm
     private const int ENCRYPTION_ALGORITHM_PKZIPWEAK = 0;
@@ -57,7 +63,7 @@ namespace AttacheCase
     private const int BUFFER_SIZE = 4096;
 
     private Int64 _TotalSize = 0;
-    private Int64 _TotalFileSize = 0;
+    //private Int64 _TotalFileSize = 0;
 
     // The number of files or folders to be compressed
     private int _NumberOfFiles = 0;
@@ -89,6 +95,46 @@ namespace AttacheCase
       get { return this._FileList; }
     }
 
+    //----------------------------------------------------------------------
+    // The return value of error ( ReadOnly)
+    //----------------------------------------------------------------------
+    // Input "Error code" for value
+    private int _ReturnCode = -1;
+    public int ReturnCode
+    {
+      get { return this._ReturnCode; }
+    }
+    // File path that caused the error
+    private string _ErrorFilePath = "";
+    public string ErrorFilePath
+    {
+      get { return this._ErrorFilePath; }
+    }
+    // Drive name to decrypt
+    private string _DriveName = "";
+    public string DriveName
+    {
+      get { return this._DriveName; }
+    }
+    // Total file size of files to be encrypted
+    private Int64 _TotalFileSize = -1;
+    public Int64 TotalFileSize
+    {
+      get { return this._TotalFileSize; }
+    }
+    // Free space on the drive to encrypt the file
+    private Int64 _AvailableFreeSpace = -1;
+    public Int64 AvailableFreeSpace
+    {
+      get { return this._AvailableFreeSpace; }
+    }
+    // Error message by the exception
+    private string _ErrorMessage = "";
+    public string ErrorMessage
+    {
+      get { return this._ErrorMessage; }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -100,6 +146,7 @@ namespace AttacheCase
     /// <param name="PasswordBinary"></param>
     /// <param name="NewArchiveName"></param>
     /// <returns></returns>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2202:オブジェクトを複数回破棄しない")]
     public bool Encrypt( object sender, DoWorkEventArgs e,
       string[] FilePaths, string OutFilePath, string Password, byte[] PasswordBinary, string NewArchiveName)
     {
@@ -140,8 +187,16 @@ namespace AttacheCase
             // The drive is not available, or not enough free space.
             if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
             {
-              e.Result = new FileEncryptReturnVal(NO_DISK_SPACE, drive.ToString(), _TotalFileSize, drive.AvailableFreeSpace);
-              return (false);
+              // The drive is not available, or not enough free space.
+              if (drive.IsReady == false || drive.AvailableFreeSpace < _TotalFileSize)
+              {
+                // not available free space
+                _ReturnCode = NO_DISK_SPACE;
+                _DriveName = drive.ToString();
+                //_TotalFileSize = _TotalFileSize;
+                _AvailableFreeSpace = drive.AvailableFreeSpace;
+                return (false);
+              }
             }
             break;
         }
@@ -402,20 +457,70 @@ namespace AttacheCase
         }// end using (FileStream outfs = File.Open(OutFilePath, FileMode.Create, FileAccess.ReadWrite));
 
         //Encryption succeed.
-        e.Result = new FileEncryptReturnVal(ENCRYPT_SUCCEEDED);
+        _ReturnCode = ENCRYPT_SUCCEEDED;
         return (true);
 
       }
       catch (UnauthorizedAccessException)
       {
-        //The exception that is thrown when the operating system denies access because of an I/O error or a specific type of security error.
-        e.Result = new FileEncryptReturnVal(OS_DENIES_ACCESS);
+        //オペレーティング システムが I/O エラーまたは特定の種類のセキュリティエラーのためにアクセスを拒否する場合、スローされる例外
+        //The exception that is thrown when the operating system denies access
+        //because of an I/O error or a specific type of security error.
+        _ReturnCode = OS_DENIES_ACCESS;
+        _ErrorFilePath = OutFilePath;
+        return (false);
+      }
+      catch (DirectoryNotFoundException ex)
+      {
+        //ファイルまたはディレクトリの一部が見つからない場合にスローされる例外
+        //The exception that is thrown when part of a file or directory cannot be found
+        _ReturnCode = DIRECTORY_NOT_FOUND;
+        _ErrorMessage = ex.Message;
+        return (false);
+      }
+      catch (DriveNotFoundException ex)
+      {
+        //使用できないドライブまたは共有にアクセスしようとするとスローされる例外
+        //The exception that is thrown when trying to access a drive or share that is not available
+        _ReturnCode = DRIVE_NOT_FOUND;
+        _ErrorMessage = ex.Message;
+        return (false);
+      }
+      catch (FileLoadException ex)
+      {
+        //マネージド アセンブリが見つかったが、読み込むことができない場合にスローされる例外
+        //The exception that is thrown when a managed assembly is found but cannot be loaded
+        _ReturnCode = FILE_NOT_LOADED;
+        _ErrorFilePath = ex.FileName;
+        return (false);
+      }
+      catch (FileNotFoundException ex)
+      {
+        //ディスク上に存在しないファイルにアクセスしようとして失敗したときにスローされる例外
+        //The exception that is thrown when an attempt to access a file that does not exist on disk fails
+        _ReturnCode = FILE_NOT_FOUND;
+        _ErrorFilePath = ex.FileName;
+        return (false);
+      }
+      catch (PathTooLongException)
+      {
+        //パス名または完全修飾ファイル名がシステム定義の最大長を超えている場合にスローされる例外
+        //The exception that is thrown when a path or fully qualified file name is longer than the system-defined maximum length
+        _ReturnCode = PATH_TOO_LONG;
+        return (false);
+      }
+      catch (IOException ex)
+      {
+        //I/Oエラーが発生したときにスローされる例外。現在の例外を説明するメッセージを取得します。
+        //The exception that is thrown when an I/O error occurs. Gets a message that describes the current exception.
+        _ReturnCode = IO_EXCEPTION;
+        _ErrorMessage = ex.Message;
         return (false);
       }
       catch (Exception ex)
       {
-        System.Windows.Forms.MessageBox.Show(ex.Message);
-        e.Result = new FileEncryptReturnVal(ERROR_UNEXPECTED);
+        _ReturnCode = ERROR_UNEXPECTED;
+        _ErrorMessage = ex.Message;
         return (false);
       }
 

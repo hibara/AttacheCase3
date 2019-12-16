@@ -36,14 +36,14 @@ namespace AttacheCase
   public partial class Form1 : Form
   {
     // Status Code
-    private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded.
-    private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded.
-    private const int DELETE_SUCCEEDED  = 3; // Delete is succeeded.
-    private const int READY_FOR_ENCRYPT = 4; // Getting ready for encryption or decryption.
-    private const int READY_FOR_DECRYPT = 5; // Getting ready for encryption or decryption.
-    private const int ENCRYPTING        = 6; // Ecrypting.
-    private const int DECRYPTING        = 7; // Decrypting.
-    private const int DELETING          = 8; // Deleting.
+    private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded
+    private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded
+    private const int DELETE_SUCCEEDED  = 3; // Delete is succeeded
+    private const int READY_FOR_ENCRYPT = 4; // Getting ready for encryption
+    private const int READY_FOR_DECRYPT = 5; // Getting ready for decryption
+    private const int ENCRYPTING        = 6; // Ecrypting
+    private const int DECRYPTING        = 7; // Decrypting
+    private const int DELETING          = 8; // Deleting
 
     // Error Code
     private const int USER_CANCELED            = -1;   // User cancel.
@@ -57,6 +57,12 @@ namespace AttacheCase
     private const int INVALID_FILE_PATH        = -107;
     private const int OS_DENIES_ACCESS         = -108;
     private const int DATA_NOT_FOUND           = -109;
+    private const int DIRECTORY_NOT_FOUND      = -110;
+    private const int DRIVE_NOT_FOUND          = -111;
+    private const int FILE_NOT_LOADED          = -112;
+    private const int FILE_NOT_FOUND           = -113;
+    private const int PATH_TOO_LONG            = -114;
+    private const int IO_EXCEPTION             = -115;
 
     // File Type
     private const int FILE_TYPE_ERROR        = -1;
@@ -133,13 +139,6 @@ namespace AttacheCase
       // Exit button of main window.
       buttonExit.Size = new Size(1, 1);
       
-    }
-
-    /// <summary>
-    /// Destructor
-    /// </summary>
-    ~Form1()
-    {
     }
 
     //======================================================================
@@ -883,21 +882,11 @@ namespace AttacheCase
       }
       else if (e.Error != null)
       {
-        //e.Error.Message;
-        labelProgressPercentText.Text = "- %";
-        labelProgressMessageText.Text = e.Error.Message;
-        progressBar.Value = 0;
-        labelProgressMessageText.Text = Resources.labelCaptionError;     // "Error occurred"
-        notifyIcon1.Text = "- % " + Resources.labelCaptionError;
-
         // Atc file is deleted
         if (File.Exists(encryption3.AtcFilePath) == true)
         {
           FileSystem.DeleteFile(encryption3.AtcFilePath);
         }
-
-        return;
-
       }
       else
       {
@@ -921,13 +910,18 @@ namespace AttacheCase
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
         private const int OS_DENIES_ACCESS　       = -108;
+        private const int DATA_NOT_FOUND           = -109;
+        private const int DIRECTORY_NOT_FOUND      = -110;
+        private const int DRIVE_NOT_FOUND          = -111;
+        private const int FILE_NOT_LOADED          = -112;
+        private const int FILE_NOT_FOUND           = -113;
+        private const int PATH_TOO_LONG            = -114;
+        private const int IO_EXCEPTION             = -115;
         */
-        FileEncryptReturnVal result = (FileEncryptReturnVal)e.Result;
-        switch (result.ReturnCode)
+        switch (compression == null ? encryption3.ReturnCode : compression.ReturnCode)
         {
           //-----------------------------------
           case ENCRYPT_SUCCEEDED:
-
             labelProgressPercentText.Text = "100%";
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.Value = progressBar.Maximum;
@@ -989,26 +983,128 @@ namespace AttacheCase
           //-----------------------------------
           case OS_DENIES_ACCESS:
             // エラー
-            // ファイルへのアクセスが拒否されました。
-            // ファイルの読み書きができる場所（デスクトップ等）へ移動して再度実行してください。
+            // オペレーティングシステムが I/O エラーまたは特定の種類のセキュリティエラーのために
+            // アクセスを拒否しました。処理を中止します。
             //
             // Error
-            // Access to the file has been denied.
-            // Move to a place (eg Desktop) where you can read and write files and try again.
+            // Operating system denied access due to I/O error or 
+            // certain types of security errors. The process is aborted.
             // 
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageOsDeniesAccess,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
           case NO_DISK_SPACE:
             // エラー
-            // ドライブに空き容量がありません。処理を中止します。
+            // 以下のドライブに空き容量がありません。処理を中止します。
+            // [ドライブパス名]
             //
             // Alert
-            // No free space on the disk. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            // No free space on the following disk. The process is aborted.
+            // [The drive path]
+            //
+            MessageBox.Show(new Form { TopMost = true },
+              Resources.DialogMessageNoDiskSpace + Environment.NewLine +
+              (compression == null ? encryption3.DriveName : compression.DriveName),
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case DIRECTORY_NOT_FOUND:
+            // エラー
+            // ファイルまたはディレクトリの一部が見つかりません。処理を中止します。
+            // [システムからのエラーメッセージ]
+            //
+            // Error
+            // A part of the file or directory cannot be found. 
+            // The process is aborted.
+            // [Error message from the system]
+            //
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageDirectoryNotFound + Environment.NewLine +
+              (compression == null ? encryption3.ErrorMessage : compression.ErrorMessage),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case DRIVE_NOT_FOUND:
+            // エラー
+            // 使用できないドライブまたは共有にアクセスしようとしました。
+            // 処理を中止します。
+            // [システムからのエラーメッセージ]
+            //
+            // Error
+            // An attempt was made to access an unavailable drive or share.
+            // The process is aborted.
+            // [Error message from the system]
+            //
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageDriveNotFound + Environment.NewLine +
+              (compression == null ? encryption3.ErrorMessage : compression.ErrorMessage),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case FILE_NOT_LOADED:
+            // エラー
+            // マネージドアセンブリが見つかりましたが、読み込むことができませんでした。
+            // 処理を中止します。
+            // [そのファイルパス]
+            //
+            // Error
+            // A managed assembly was found but could not be loaded.
+            // The process is aborted.
+            // [The file path]
+            //
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageFileNotLoaded + Environment.NewLine +
+              (compression == null ? encryption3.ErrorFilePath : compression.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case FILE_NOT_FOUND:
+            // エラー
+            // ディスク上に存在しないファイルにアクセスしようとして失敗しました。
+            // 処理を中止します。
+            // [そのファイルパス]
+            //
+            // Error
+            // An attempt to access a file that does not exist on the disk failed.
+            // The process is aborted.
+            // [The file path]
+            //
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageFileNotFound + Environment.NewLine +
+              (compression == null ? encryption3.ErrorFilePath : compression.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case PATH_TOO_LONG:
+            // エラー
+            // パス名または完全修飾ファイル名がシステム定義の最大長を超えています。
+            // 処理を中止します。
+            //
+            // Error
+            // The path name or fully qualified file name exceeds the system-defined maximum length.
+            // The process is aborted.
+            //
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessagePathTooLong,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            break;
+
+          //-----------------------------------
+          case IO_EXCEPTION:
+            // エラー
+            // [I/O エラーが発生したときにスローされる例外を説明するメッセージ]
+            //
+            // Error
+            // [A message describing the exception that is thrown when an I/O error occurs.]
+            MessageBox.Show(new Form { TopMost = true },
+              (compression == null ? encryption3.ErrorMessage : compression.ErrorMessage),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1018,7 +1114,7 @@ namespace AttacheCase
             // 予期せぬエラーが発生しました。処理を中止します。
             //
             // Error
-            // An unexpected error has occurred. And stops processing.
+            // An unexpected error has occurred. The process is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
             Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
@@ -1032,9 +1128,7 @@ namespace AttacheCase
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         AppSettings.Instance.FileList = null;
         this.Update();
-
       }
-
     }
 
     private void backgroundWorker_Decryption_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1106,17 +1200,13 @@ namespace AttacheCase
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
-        private const int OS_DENIES_ACCESS　       = -108;
+        private const int OS_DENIES_ACCESS　        = -108;
         private const int DATA_NOT_FOUND           = -109;
         */
-
-        FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
-        bool fCancel = false;
-        switch (result.ReturnCode)
+        switch (decryption2 == null ? decryption3.ReturnCode : decryption2.ReturnCode)
         {
           //-----------------------------------
           case DECRYPT_SUCCEEDED:
-
             labelProgressPercentText.Text = "100%";
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.Value = progressBar.Maximum;
@@ -1124,14 +1214,7 @@ namespace AttacheCase
             labelProgressMessageText.Text = Resources.labelCaptionCompleted;  // "Completed"
             notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
 
-            if (decryption2 == null)
-            {
-              OutputFileList.AddRange(decryption3.OutputFileList);
-            }
-            else
-            {
-              OutputFileList.AddRange(decryption2.OutputFileList);
-            }
+            OutputFileList.AddRange(decryption2 == null ? decryption3.OutputFileList : decryption2.OutputFileList);
             
             if ( FileIndex < AppSettings.Instance.FileList.Count)
             {
@@ -1156,18 +1239,7 @@ namespace AttacheCase
             // Move to a place (eg Desktop) where you can read and write files and try again.
             // 
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            break;
-
-          //-----------------------------------
-          case ERROR_UNEXPECTED:
-            // エラー
-            // 予期せぬエラーが発生しました。処理を中止します。
-            //
-            // Error
-            // An unexpected error has occurred. And stops processing.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1177,8 +1249,10 @@ namespace AttacheCase
             //
             // Error
             // The file is not encrypted file. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageNotAtcFile + Environment.NewLine + 
+              (decryption2 == null ? decryption3.ErrorFilePath : decryption2.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1188,19 +1262,26 @@ namespace AttacheCase
             //
             // Error
             // Encrypted file ( atc ) is broken. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageAtcFileBroken + Environment.NewLine +
+              (decryption2 == null ? decryption3.ErrorFilePath : decryption2.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
           case NO_DISK_SPACE:
             // 警告
             // ドライブに空き容量がありません。処理を中止します。
+            // [ドライブパス名]
             //
             // Alert
             // No free space on the disk. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            // [The drive path]
+            //
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageNoDiskSpace + Environment.NewLine +
+              (decryption2 == null ? decryption3.DriveName : decryption2.DriveName),
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1211,7 +1292,7 @@ namespace AttacheCase
             // Error
             // Internal file index is invalid in encrypted file.
             MessageBox.Show(Resources.DialogMessageFileIndexInvalid,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1223,8 +1304,10 @@ namespace AttacheCase
             // Error
             // The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.
             // The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotSameHash + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageNotSameHash + Environment.NewLine +
+              (decryption2 == null ? decryption3.ErrorFilePath : decryption2.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1234,8 +1317,10 @@ namespace AttacheCase
             //
             // Error
             // The path of files or folders are invalid. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageInvalidFilePath + Environment.NewLine +
+              (decryption2 == null ? decryption3.ErrorFilePath : decryption2.ErrorFilePath),
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1248,7 +1333,7 @@ namespace AttacheCase
             // Encrypted data not found. The file is broken.
             // Decryption failed.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDataNotFound,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
 
           //-----------------------------------
@@ -1261,7 +1346,7 @@ namespace AttacheCase
             // Password is invalid, or the encrypted file might have been broken.
             // Decryption is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDecryptionError,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (LimitOfInputPassword > 1)
             {
@@ -1300,29 +1385,28 @@ namespace AttacheCase
               textBoxDecryptPassword.SelectAll();
               return;
             }
-            
+
+          //-----------------------------------
+          case ERROR_UNEXPECTED:
           default:
-            // ユーザーキャンセル
-            fCancel = true;
+            // エラー
+            // 予期せぬエラーが発生しました。処理を中止します。
+            //
+            // Error
+            // An unexpected error has occurred. And stops processing.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
+            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             break;
-        }
+
+        }// end switch();
 
         labelProgressPercentText.Text = "- %";
-        progressBar.Value = 0;
         progressBar.Style = ProgressBarStyle.Continuous;
-
-        if(fCancel == true)
-        {
-          labelCryptionType.Text = Resources.labelDecyptionCanceled;
-        }
-        else
-        {
-          labelCryptionType.Text = Resources.labelCaptionError;
-        }
-
+        progressBar.Value = 0;
+        labelCryptionType.Text = Resources.labelCaptionError;
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         AppSettings.Instance.FileList = null;
-
+        this.Update();
       }
     }
 
@@ -1391,12 +1475,15 @@ namespace AttacheCase
           //-----------------------------------
           case NO_DISK_SPACE:
             // エラー
-            // ドライブに空き容量がありません。処理を中止します。
+            // 以下のドライブに空き容量がありません。処理を中止します。
+            // [ドライブパス名]
             //
             // Alert
-            // No free space on the disk. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            // No free space on the following disk. The process is aborted.
+            // [The drive path]
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageNoDiskSpace + Environment.NewLine + decryption2.DriveName,
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             this.Update();
             break;
 

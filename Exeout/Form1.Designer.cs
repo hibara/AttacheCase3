@@ -59,8 +59,8 @@
       // 
       // textBox1
       // 
-      this.textBox1.AllowDrop = true;
       resources.ApplyResources(this.textBox1, "textBox1");
+      this.textBox1.AllowDrop = true;
       this.textBox1.Name = "textBox1";
       this.textBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox1_DragDrop);
       this.textBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox1_DragEnter);
@@ -69,16 +69,16 @@
       // 
       // statusStrip1
       // 
+      resources.ApplyResources(this.statusStrip1, "statusStrip1");
       this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel1});
-      resources.ApplyResources(this.statusStrip1, "statusStrip1");
       this.statusStrip1.Name = "statusStrip1";
       // 
       // toolStripStatusLabel2
       // 
-      this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
       resources.ApplyResources(this.toolStripStatusLabel2, "toolStripStatusLabel2");
+      this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
       this.toolStripStatusLabel2.Spring = true;
       // 
       // toolStripStatusLabel1
@@ -111,8 +111,8 @@
       // 
       // Form1
       // 
-      this.AllowDrop = true;
       resources.ApplyResources(this, "$this");
+      this.AllowDrop = true;
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.buttonExit;
       this.Controls.Add(this.checkBoxNotMaskPassword);

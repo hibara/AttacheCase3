@@ -139,7 +139,7 @@
     <value>The file is not encrypted file. The process is aborted.</value>
   </data>
   <data name="DialogMessageNoDiskSpace" xml:space="preserve">
-    <value>No free space on the disk. The process is aborted.</value>
+    <value>No free space on the following disk. The process is aborted.</value>
   </data>
   <data name="AttacheCase" xml:space="preserve">
     <value>AttachéCase#3</value>
@@ -584,5 +584,29 @@ Decryption failed.</value>
   </data>
   <data name="zxcvbnWarningDatesEasy" xml:space="preserve">
     <value>Dates are often easy to guess.</value>
+  </data>
+  <data name="DialogMessageDirectoryNotFound" xml:space="preserve">
+    <value>A part of the file or directory cannot be found.
+The process is aborted.</value>
+  </data>
+  <data name="DialogMessageDriveNotFound" xml:space="preserve">
+    <value>An attempt was made to access an unavailable drive or share.
+The process is aborted.</value>
+  </data>
+  <data name="DialogMessageFileNotFound" xml:space="preserve">
+    <value>An attempt to access a file that does not exist on the disk failed.
+The process is aborted.</value>
+  </data>
+  <data name="DialogMessageFileNotLoaded" xml:space="preserve">
+    <value>A managed assembly was found but could not be loaded.
+The process is aborted.</value>
+  </data>
+  <data name="DialogMessageOsDeniesAccess" xml:space="preserve">
+    <value>Operating system denied access due to I/O error or 
+certain types of security errors. The process is aborted.</value>
+  </data>
+  <data name="DialogMessagePathTooLong" xml:space="preserve">
+    <value>The path name or fully qualified file name exceeds the system-defined maximum length.
+The process is aborted.</value>
   </data>
 </root>

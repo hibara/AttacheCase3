@@ -228,7 +228,8 @@
     <value>暗号化ファイル (*.atc)|*.atc|すべてのファイル (*.*)|*.*</value>
   </data>
   <data name="DialogMessageDecryptionError" xml:space="preserve">
-    <value>パスワードがちがうか、ファイルが破損している可能性があります。復号できませんでした。</value>
+    <value>パスワードがちがうか、ファイルが破損している可能性があります。
+復号できませんでした。</value>
   </data>
   <data name="labelCaptionCanceled" xml:space="preserve">
     <value>キャンセルされました。</value>
@@ -264,7 +265,7 @@
     <value>暗号化ファイル内部で、不正なファイルインデックスがありました。</value>
   </data>
   <data name="DialogMessageNoDiskSpace" xml:space="preserve">
-    <value>ドライブに空き容量がありません。処理を中止します。</value>
+    <value>以下のドライブに空き容量がありません。処理を中止します。</value>
   </data>
   <data name="DialogMessageNotAtcFile" xml:space="preserve">
     <value>暗号化ファイルではありません。処理を中止します。</value>
@@ -585,5 +586,28 @@
   </data>
   <data name="zxcvbnWarningDatesEasy" xml:space="preserve">
     <value>日付はしばしば推測しやすいことがあります。</value>
+  </data>
+  <data name="DialogMessageDirectoryNotFound" xml:space="preserve">
+    <value>ファイルまたはディレクトリの一部が見つかりません。処理を中止します。</value>
+  </data>
+  <data name="DialogMessageDriveNotFound" xml:space="preserve">
+    <value>使用できないドライブまたは共有にアクセスしようとしました。
+処理を中止します。</value>
+  </data>
+  <data name="DialogMessageFileNotFound" xml:space="preserve">
+    <value>ディスク上に存在しないファイルにアクセスしようとして失敗しました。
+処理を中止します。</value>
+  </data>
+  <data name="DialogMessageFileNotLoaded" xml:space="preserve">
+    <value>マネージドアセンブリが見つかりましたが、読み込むことができませんでした。
+処理を中止します。</value>
+  </data>
+  <data name="DialogMessageOsDeniesAccess" xml:space="preserve">
+    <value>オペレーティングシステムが I/O エラーまたは特定の種類のセキュリティエラーのために
+アクセスを拒否しました。処理を中止します。</value>
+  </data>
+  <data name="DialogMessagePathTooLong" xml:space="preserve">
+    <value>パス名または完全修飾ファイル名がシステム定義の最大長を超えています。
+処理を中止します。</value>
   </data>
 </root>

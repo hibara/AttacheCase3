@@ -217,6 +217,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   A part of the file or directory cannot be found.
+        ///The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageDirectoryNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageDirectoryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   The folder to save is not found! Process is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageDirectoryNotFount {
@@ -231,6 +241,16 @@ namespace AttacheCase.Properties {
         public static string DialogMessageDragAndDropMixedFiles {
             get {
                 return ResourceManager.GetString("DialogMessageDragAndDropMixedFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   An attempt was made to access an unavailable drive or share.
+        ///The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageDriveNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageDriveNotFound", resourceCulture);
             }
         }
         
@@ -317,6 +337,26 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   An attempt to access a file that does not exist on the disk failed.
+        ///The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageFileNotFound {
+            get {
+                return ResourceManager.GetString("DialogMessageFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   A managed assembly was found but could not be loaded.
+        ///The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageFileNotLoaded {
+            get {
+                return ResourceManager.GetString("DialogMessageFileNotLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Deleting files or folders are not found. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageFilesNotFoundDelete {
@@ -372,7 +412,7 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
-        ///   No free space on the disk. The process is aborted. に類似しているローカライズされた文字列を検索します。
+        ///   No free space on the following disk. The process is aborted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessageNoDiskSpace {
             get {
@@ -448,6 +488,16 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Operating system denied access due to I/O error or 
+        ///certain types of security errors. The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessageOsDeniesAccess {
+            get {
+                return ResourceManager.GetString("DialogMessageOsDeniesAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Password is not found that specified in setting panel. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string DialogMessagePasswordFileNotFound {
@@ -463,6 +513,16 @@ namespace AttacheCase.Properties {
         public static string DialogMessagePasswordsNotMatch {
             get {
                 return ResourceManager.GetString("DialogMessagePasswordsNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   The path name or fully qualified file name exceeds the system-defined maximum length.
+        ///The process is aborted. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string DialogMessagePathTooLong {
+            get {
+                return ResourceManager.GetString("DialogMessagePathTooLong", resourceCulture);
             }
         }
         
