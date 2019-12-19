@@ -284,11 +284,8 @@
   <data name="tabPageGeneralOption.Text" xml:space="preserve">
     <value>一般</value>
   </data>
-  <data name="checkBoxEnablePassStrengthMeter.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
   <data name="checkBoxEnablePassStrengthMeter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 20</value>
+    <value>222, 19</value>
   </data>
   <data name="checkBoxEnablePassStrengthMeter.Text" xml:space="preserve">
     <value>パスワード強度メーターを表示する</value>
@@ -323,11 +320,8 @@
         YII=
 </value>
   </data>
-  <data name="checkBoxDobyMemorizedPassword.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
   <data name="checkBoxDobyMemorizedPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 20</value>
+    <value>301, 17</value>
   </data>
   <data name="checkBoxDobyMemorizedPassword.Text" xml:space="preserve">
     <value>暗号/復号時に確認無しに記憶パスワードで実行する</value>
@@ -909,17 +903,18 @@
   </data>
   <data name="pictureBoxMyIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHxSURBVGhD7ZnLSsUwFEUrqBOnTkTwN9QvEEV8IH6A
-        is4d61U/3b0GhUPISZvaxy2eDQvU2+Ts3TwuJk0oNK12xJ44FOfiUlxPDDXOBDWpjYdB2hVH4lV8iU/x
-        LX4mhhrUoia1jwVeqoKQ/FZsRK7InODhXuCpl0iL+Q+RdrYUeMET3opimJg2uTfP3xjaZ3EjcvP3L9An
-        fVPDq4+34lRimN5ErjHDeCCq52NP0Sd9U4NauRB4K04lVj6LxzaioxPROXwjilrUTEPgDY+u2CoZQmue
-        tzGn+VbUvBPWDz/j0RV7sN0qacCQLiVq2wB4w6MrFlP7MDyJJd5+K2qzsK0nPLpKA7B1TbFg+4raTCPr
-        qSpA8WFHD8L2YeGzWlV5igBSBEgUAWq1mgCPDu/C9mHhs1wb8DRZAPvcGHiKAJ7sc2PgKQJ4ss+NgacI
-        4Cm3FcJqtlFP8U2cKALUKgIk+t8BtuGfes6lrKeqAEsfq3CM+CKsp2KAbT/Y4mjxQrhaw9HiqXCVO9zl
-        96UOd3Neioe73vE6Dec+Xk/NA972hSs66brgYFFNdcFB39Tw6ndecCDewmqvmFoxlWiQexNzgwemVPFm
-        JifSMmTMO+YjQzv3NSu1B12ztqIRyVn5bLFXIjd/x4R9nq2SmizYQcZDoV5qml9KVp3O15+B1wAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAInSURBVGhD7ZnJSgNBFEUjqBu3bkTwN9QvEEUcED9A
+        RfeuHf+8vQdp6lVSL10mPca6cERNv+F2DYGqWVVVG8Hvj01QMTI2/TcjW2JH7ItTcS4uO4YaJ4Ka1KYH
+        XxlGtsWBeBaf4l18ie+OoQa1qEntQ0EvaUMNRngT1+JDpIr1CT3cCnpa1BIjuMfEm5hPOhT0Qk/0Fssx
+        wvAxnVIjwf8Y8kdxJVLzex3ISW5qePXpLZ5ijhGG70WkkjC8e8Kfr+uJnOSmBrVSZugtnmKOEXYKFpkN
+        JuGRWBzW7kQtas6boTd6DHKMsMUytNYEb6dPE7WoeSNsP/xOj0GOEfZwu8USyFAPJWpbI/RGj0GOERZd
+        HQQPYojRqEVtNgDbEz0GZRphy+tiYeeK2kwv29NKRuKgPN0Jm8PCZ3/V8p6KkWYVI46KET8oT5Mzcu/w
+        KmwOC5+lYsBT50bsc23gqRjxg2LZ59rAUzHiB8Wyz7WBp2LED4qV2kJhctuvp/LN7qgY8YPyVIw4KkZs
+        0BgOHzhXsz2tZGTo4yCOR5+E7SnLyNgP6DgyPRNBjpEpHJkeiyDHSOoQm7+HOsRO9ZJ1iO1dK5Cg72uF
+        eRNAb7siyDFCsqaLHhZfVxc95KaGVz/7ogfxViZ/9VaLKUZg6s30DT0w1eKbqloNRhDuGUrmJfOVIe/7
+        epraa11P1yKYN8FOwdZ8IVLzu034nmCLpSYLO22gVqaR8asYGZVmsx+HFcW0ZAfUXAAAAABJRU5ErkJg
+        gg==
 </value>
   </data>
   <data name="pictureBoxMyIcon.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -937,9 +932,6 @@
         epraa11P1yKYN8FOwdZ8IVLzu034nmCLpSYLO22gVqaR8asYGZVmsx+HFcW0ZAfUXAAAAABJRU5ErkJg
         gg==
 </value>
-  </data>
-  <data name="pictureBoxMyIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 48</value>
   </data>
   <data name="pictureBoxIcon03.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1167,9 +1159,6 @@
   <data name="checkBoxAlwaysReadIniFile.Text" xml:space="preserve">
     <value>常に、設定ファイル「_AtcCase.ini」を読み込む</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
   <data name="buttonReplaceCurrentByTemporary.Text" xml:space="preserve">
     <value>一時的な設定を現在の設定に置き換える</value>
   </data>
@@ -1185,11 +1174,8 @@
   <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
     <value>設定の保存/復元</value>
   </data>
-  <data name="checkBoxDoByPasswordFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
   <data name="checkBoxDoByPasswordFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 20</value>
+    <value>298, 16</value>
   </data>
   <data name="checkBoxDoByPasswordFile.Text" xml:space="preserve">
     <value>暗号化/復号時、確認無しにパスワードファイルで実行する</value>
@@ -1220,11 +1206,8 @@
         jKLRd0j+Rlv5APf6O8B7ksPDAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="checkBoxNoErrMsgOnPassFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 12pt</value>
-  </data>
   <data name="checkBoxNoErrMsgOnPassFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>369, 20</value>
+    <value>282, 16</value>
   </data>
   <data name="checkBoxNoErrMsgOnPassFile.Text" xml:space="preserve">
     <value>パスワードファイルがなくともエラーメッセージを表示しない</value>
@@ -1390,19 +1373,19 @@
     <value>キャンセル(&amp;C)</value>
   </data>
   <data name="fileNameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>145, 22</value>
   </data>
   <data name="fileNameToolStripMenuItem.Text" xml:space="preserve">
     <value>ファイル名</value>
   </data>
   <data name="extensionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>145, 22</value>
   </data>
   <data name="extensionToolStripMenuItem.Text" xml:space="preserve">
     <value>拡張子</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
+    <value>142, 6</value>
   </data>
   <data name="dateToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1429,37 +1412,37 @@
 </value>
   </data>
   <data name="dateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>145, 22</value>
   </data>
   <data name="dateToolStripMenuItem.Text" xml:space="preserve">
     <value>日付</value>
   </data>
   <data name="ToolStripMenuItemLowerCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="ToolStripMenuItemLowerCase.Text" xml:space="preserve">
     <value>小文字のみ</value>
   </data>
   <data name="ToolStripMenuItemUpperCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 22</value>
+    <value>131, 22</value>
   </data>
   <data name="ToolStripMenuItemUpperCase.Text" xml:space="preserve">
     <value>大文字のみ</value>
   </data>
   <data name="ToolStripMenuItemAlphabet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="ToolStripMenuItemAlphabet.Text" xml:space="preserve">
     <value>アルファベット</value>
   </data>
   <data name="ToolStripMenuItemNumbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="ToolStripMenuItemNumbers.Text" xml:space="preserve">
     <value>数字</value>
   </data>
   <data name="ToolStripMenuItemSymbols.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="ToolStripMenuItemSymbols.Text" xml:space="preserve">
     <value>記号</value>
@@ -1485,7 +1468,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>145, 22</value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Text" xml:space="preserve">
     <value>ランダム文字列</value>
@@ -1507,13 +1490,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+    <value>145, 22</value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Text" xml:space="preserve">
     <value>連番</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 120</value>
+    <value>146, 120</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

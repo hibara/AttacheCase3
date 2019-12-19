@@ -145,6 +145,7 @@
       resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
       this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
       this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
+      this.checkBoxNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskEncryptedPassword_CheckedChanged);
       // 
       // labelPasswordValid
       // 

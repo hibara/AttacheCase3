@@ -341,8 +341,6 @@ namespace AttacheCase
     {
       if (checkBoxNotMaskEncryptedPassword.Checked == true)
       {
-        textBoxPassword.PasswordChar = (char)0;
-        textBoxRePassword.PasswordChar = (char)0;
         textBoxPassword.UseSystemPasswordChar = false;
         textBoxRePassword.UseSystemPasswordChar = false;
       }
@@ -350,8 +348,6 @@ namespace AttacheCase
       {
         textBoxPassword.UseSystemPasswordChar = true;
         textBoxRePassword.UseSystemPasswordChar = true;
-        textBoxPassword.PasswordChar = '*';
-        textBoxRePassword.PasswordChar = '*';
       }
     }
 
@@ -516,8 +512,8 @@ namespace AttacheCase
       this.Close();
     }
 
-    #endregion
+        #endregion
 
-  }
+    }
 
 }

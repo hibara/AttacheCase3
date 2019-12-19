@@ -128,9 +128,6 @@
   <data name="&gt;&gt;radioButtonNormal.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="pictureBoxMyIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 45</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="treeView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -240,11 +237,11 @@
   <data name="checkBoxMainWindowMinimize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="pictureBoxCommandLineIcon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
+  <data name="&gt;&gt;tabPageSettingsImportExport.Name" xml:space="preserve">
+    <value>tabPageSettingsImportExport</value>
   </data>
-  <data name="tabPageSaveEncryptOption.Text" xml:space="preserve">
-    <value>SaveEncrypt</value>
+  <data name="tabPageSaveOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="&gt;&gt;richTextBox1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -355,8 +352,8 @@
   <data name="checkBoxConfirmToDeleteAfterEncryption.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="checkBoxNoMultipleInstance.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;checkBoxTaskTrayIcon.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="tabPagePasswordFileOption.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -370,14 +367,17 @@
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>537, 15</value>
   </data>
+  <data name="&gt;&gt;tabPageSalvageDataOption.Name" xml:space="preserve">
+    <value>tabPageSalvageDataOption</value>
+  </data>
   <data name="textBoxMyEncodePassword.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="checkBoxWindowForeground.Size" type="System.Drawing.Size, System.Drawing">
     <value>329, 20</value>
   </data>
-  <data name="buttonAssociateAtcFiles.Text" xml:space="preserve">
-    <value>Associate encrypted file[*.atc] &amp;with AttacheCase</value>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="checkBoxConfirmSameFileName.Size" type="System.Drawing.Size, System.Drawing">
     <value>375, 20</value>
@@ -427,6 +427,9 @@
   <data name="&gt;&gt;checkBoxSalvageToCreateParentFolderOneByOne.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>* Use this when an error message "The file is not the same hash value..." appears and processing stops. However, it is not guaranteed that the file after the error will be decrypted correctly.</value>
+  </data>
   <data name="panelPasswordInputLimitOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
@@ -469,8 +472,8 @@
   <data name="comboBoxZipEncryptAlgo.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="radioButtonEncryptionFileTypeZIP.Text" xml:space="preserve">
+    <value>Zip password file ( *.zip )</value>
   </data>
   <data name="checkBoxAlwaysReadIniFile.Text" xml:space="preserve">
     <value>Always read the setting file "_AtcCase.ini"</value>
@@ -527,10 +530,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemrandomNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
-  </data>
-  <data name="&gt;&gt;textBoxMyEncodePassword.Parent" xml:space="preserve">
-    <value>panelPasswordsOption</value>
+    <value>162, 22</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>412, 82</value>
@@ -586,6 +586,9 @@
   <data name="pictureBoxCommandLineIcon.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="&gt;&gt;tabPageLicense.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
   <data name="panelDeleteOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -604,9 +607,6 @@
   <data name="checkBoxZipToSameFldr.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="checkBoxOpenFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 70</value>
-  </data>
   <data name="checkBoxEndToExit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -619,14 +619,14 @@
   <data name="checkBoxAutoName.Text" xml:space="preserve">
     <value>Set encrypted file name automatically</value>
   </data>
-  <data name="tabPagePasswordInputLimitOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>452, 444</value>
+  <data name="pictureBoxIcon02.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 45</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>* Check one by one parent folder, since the create while going to decrypt, it takes time. But this option suppress the stop processing caused by a mismatch error of the internal file list of encrypted file.</value>
   </data>
-  <data name="comboBoxLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;numericUpDownDelZeroNum.Name" xml:space="preserve">
     <value>numericUpDownDelZeroNum</value>
@@ -746,7 +746,7 @@
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 120</value>
+    <value>163, 120</value>
   </data>
   <data name="&gt;&gt;checkBoxNoHidePassword.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -765,6 +765,9 @@
   </data>
   <data name="radioButtonEncryptionFileTypeEXE.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
+  </data>
+  <data name="tabPagePasswordInputLimitOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 444</value>
   </data>
   <data name="&gt;&gt;panelLicenseOption.Name" xml:space="preserve">
     <value>panelLicenseOption</value>
@@ -797,7 +800,7 @@
     <value>groupBox8</value>
   </data>
   <data name="checkBoxMyDecodePasswordKeep.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 20</value>
+    <value>266, 20</value>
   </data>
   <data name="&gt;&gt;radioButtonAllFilePack.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -850,8 +853,8 @@
   <data name="&gt;&gt;tabPageSaveZipOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPagePasswordFileOption.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="checkBoxTaskTrayIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="pictureBoxAtcFile.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
     <value />
@@ -950,8 +953,8 @@
   <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ToolStripMenuItemserialNumber.Text" xml:space="preserve">
-    <value>Serial number</value>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
     <value>groupBox10</value>
@@ -995,6 +998,9 @@
   <data name="buttonInsertFormat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
+  </data>
   <data name="tabPageSettingsImportExport.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -1029,8 +1035,8 @@
   <data name="checkBoxDecryptShowDeleteChkBox.Text" xml:space="preserve">
     <value>Show the check box in main form window</value>
   </data>
-  <data name="&gt;&gt;buttonExportCurrentConf.Parent" xml:space="preserve">
-    <value>groupBox9</value>
+  <data name="&gt;&gt;pictureBoxCheckmarkMyIcon.Parent" xml:space="preserve">
+    <value>groupBox8</value>
   </data>
   <data name="&gt;&gt;tabPageSaveEncryptOption.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1126,9 +1132,6 @@
   </data>
   <data name="&gt;&gt;radioButtonEncryptionFileTypeEXE.Parent" xml:space="preserve">
     <value>groupBox5</value>
-  </data>
-  <data name="panelSystemOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 438</value>
   </data>
   <data name="&gt;&gt;panelPasswordsOption.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1288,9 +1291,6 @@
   <data name="checkBoxAutoName.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 301</value>
   </data>
-  <data name="buttonImportCurrentConf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>397, 32</value>
-  </data>
   <data name="richTextBox1.ScrollBars" type="System.Windows.Forms.RichTextBoxScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
@@ -1315,8 +1315,8 @@
   <data name="&gt;&gt;checkBoxSalvageIntoSameDirectory.Parent" xml:space="preserve">
     <value>panelSalvageDataOption</value>
   </data>
-  <data name="&gt;&gt;tabPageWindowOption.Parent" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="&gt;&gt;ToolStripMenuItemNumbers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1363,9 +1363,6 @@
   <data name="pictureBox6.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;panelDeleteOption.Parent" xml:space="preserve">
-    <value>tabPageDelete</value>
-  </data>
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -1393,8 +1390,8 @@
   <data name="&gt;&gt;groupBox3.Name" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="checkBoxEnablePassStrengthMeter.Text" xml:space="preserve">
+    <value>Enable the password strength meter display</value>
   </data>
   <data name="pictureBoxCheckmark01.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -1429,8 +1426,8 @@
   <data name="checkBoxAlwaysReadIniFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 28</value>
   </data>
-  <data name="pictureBoxAtcFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="pictureBoxMyIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 45</value>
   </data>
   <data name="&gt;&gt;labelPreset01.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1450,8 +1447,8 @@
   <data name="&gt;&gt;checkBoxAllowPassFile.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;checkBoxfNoParentFldr.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="radioNormalDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 20</value>
   </data>
   <data name="&gt;&gt;checkBoxEncryptShowDeleteChkBox.Name" xml:space="preserve">
     <value>checkBoxEncryptShowDeleteChkBox</value>
@@ -1494,9 +1491,6 @@
   </data>
   <data name="checkBoxEncryptionSameFileTypeBefore.Text" xml:space="preserve">
     <value>Save same encryption type that was used to before.</value>
-  </data>
-  <data name="tabPageSystem.Text" xml:space="preserve">
-    <value>System</value>
   </data>
   <data name="checkBoxShowDialogWhenExeFile.Text" xml:space="preserve">
     <value>Show dialog when containing the executable file</value>
@@ -1606,6 +1600,9 @@
   <data name="ToolStripMenuItemSymbols.Text" xml:space="preserve">
     <value>Symbols</value>
   </data>
+  <data name="&gt;&gt;checkBoxfNoParentFldr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="panelSettingImportExportOption.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -1621,9 +1618,6 @@
   <data name="checkBoxAllowPassFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 100</value>
   </data>
-  <data name="tabPageSaveEncryptOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
   <data name="&gt;&gt;label14.Parent" xml:space="preserve">
     <value>panelSalvageDataOption</value>
   </data>
@@ -1631,7 +1625,7 @@
     <value>2</value>
   </data>
   <data name="ToolStripMenuItemUpperCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>132, 22</value>
   </data>
   <data name="panelCompressOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1651,11 +1645,11 @@
   <data name="checkBoxBroken.Text" xml:space="preserve">
     <value>If input wrong password to the limit of times, DESTROY IT.</value>
   </data>
-  <data name="groupBoxAdvancedDeleteOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>424, 196</value>
+  <data name="radioButtonSendToTrash.Text" xml:space="preserve">
+    <value>Send to &amp;Trash folder</value>
   </data>
-  <data name="checkBoxDecryptConfirmOverwrite.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;pictureBoxCheckmark03.Name" xml:space="preserve">
+    <value>pictureBoxCheckmark03</value>
   </data>
   <data name="&gt;&gt;buttonInputDecryptionPassword.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1666,8 +1660,8 @@
   <data name="&gt;&gt;tabPageSalvageDataOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="radioButtonSendToTrash.Text" xml:space="preserve">
-    <value>Send to &amp;Trash folder</value>
+  <data name="&gt;&gt;checkBoxExtInAtcFileName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 28</value>
@@ -1702,8 +1696,8 @@
   <data name="checkBoxBroken.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Parent" xml:space="preserve">
-    <value>panelSettingImportExportOption</value>
+  <data name="buttonSaveDecryptedFileToFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;textBoxZipToSameFldrPath.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1738,11 +1732,11 @@
   <data name="buttonOK.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="label14.Text" xml:space="preserve">
-    <value>* Use this when an error message "The file is not the same hash value..." appears and processing stops. However, it is not guaranteed that the file after the error will be decrypted correctly.</value>
+  <data name="&gt;&gt;panelSaveEncryptOption.Name" xml:space="preserve">
+    <value>panelSaveEncryptOption</value>
   </data>
   <data name="ToolStripMenuItemLowerCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>132, 22</value>
   </data>
   <data name="tabPageSystem.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -1820,14 +1814,14 @@
   <data name="checkBoxAlwaysReadIniFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 20</value>
   </data>
-  <data name="&gt;&gt;radioButtonSendToTrash.Name" xml:space="preserve">
-    <value>radioButtonSendToTrash</value>
-  </data>
   <data name="&gt;&gt;groupBox8.Parent" xml:space="preserve">
     <value>panelSystemOption</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 470</value>
   </data>
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>groupBox8</value>
@@ -1916,14 +1910,11 @@
   <data name="&gt;&gt;checkBoxShowDialogToConfirmToReadIniFileAlways.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonSaveZipFileToFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
   <data name="&gt;&gt;pictureBox6.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fileNameToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="comboBoxMissTypeLimitsNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>158, 24</value>
@@ -1952,8 +1943,8 @@
   <data name="checkBoxfNoParentFldr.Text" xml:space="preserve">
     <value>Create no parent folder in decryption</value>
   </data>
-  <data name="checkBoxTaskTrayIcon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;buttonAddSendToFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;radioButtonSendToTrash.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2099,6 +2090,9 @@
   <data name="groupBox7.Size" type="System.Drawing.Size, System.Drawing">
     <value>423, 196</value>
   </data>
+  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;comboBoxLanguage.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
@@ -2116,6 +2110,9 @@
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 32</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2368,8 +2365,26 @@
   <data name="checkBoxZipToSameFldr.Text" xml:space="preserve">
     <value>Save zip file to the same folder in &amp;decryption</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>files / folders</value>
+  <data name="pictureBoxCheckmarkMyIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOBSURBVEhLxVVbS1RRFF69DAiW4Ium9NZ/CMrH6Kal
+        lY7NqdFRewyEnnroJSiE6sEICiWxsjKM7pZll+mip5slGJYhFJQUmUnSBTJh9X3nrNPM6IwVPbTggzOz
+        9/7WWt9aa28RV/4Jqjor0h5KQhYQBZqBPmAKUPvmf1zLSkccILO5shMYBkg4G7hnp536A3OlAOi2w1p4
+        X7TokWjZY9G6ftHNT/Ddh/8eYI17egy93pkCY8lgPvkAiefdEy0G6WaSBgB5Hf6rAXkM69UgXn5XdG4c
+        Dm57jgbkphQaWxqzyPMRdRRkKeTmgORVd0SdbtHKi8Al0XJ85103J8wkrfmae5FnIq+FVCSv7BTd0JGt
+        z9+72tgT03UdcHIVmdz0sqC002riSggYooMZshgoTQzrkSuipW2i7Y8a0CS+DX/o08jFkC67BXJIZlwh
+        Y4e54pC8ANKkIw+k2YQIGW3syEKdnPpu9KqdTw9oxVk/u4JezwHhGDvMlVb+uQQSkGw6atE1LCg1L24W
+        dV90GrXqxLePWnk4V8NY457FCMQctBo7zPo9DBlIVvvQjzhANaJiUcuOi24/vcaofWuOb9M1R/31GBQg
+        hzkYNnaYK5OovsaQAXWOQkvnmgEHN1wWXXsS2h/I1tGJEaNWfTv+UksOhn7J4wWHjM3BpLHDXJlg9R0s
+        bLwhWnFedEd8hVdMRlfSIrpsn2jbnURhabsuOF5WDISZenKiZukcDLL6pdaCe+86HsHI+LDu767XlQ05
+        WrEbhf2RKOyzNw90VRMkMe0ZPR2EExmkSNQkIF+E6KOXsnXsS0IG2udvn/TVuyH75Vt9e5GubfczDqJn
+        x7FRzEFKkR1mkI9prOnK0ZaHW/XT11GjmmnxwVNafMifYkbPGQlamq1uDlLaNIQaDOEe0aXQs/w0itqa
+        pfuvb0kpKo39X4M5WH8Kc4E7iB0XRM8hNfJpg0brxXhDJo57GE5Y6NJjKDC6ZM/lOn095kt0pr9Ry074
+        E82OC6KvghNeM+Yg7fU9x7uoIFUei42Li91BR9Sa3cTiV53L1UgXCLGPdxOj5901PyFNhsuO5soCYIAz
+        MQ/arkJEJGIhOQ8RXGj8pu4sLKMvAZIiH/Q4ZrXkBweOCoEl+F4NEk4qiUuhu/fgJIj9yH/74CSbKw2A
+        /2TCyQwkiLmnwU79pc189APSlEffdv8PE/kJoKCqtvPh/TYAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2407,8 +2422,8 @@
   <data name="numericUpDownDelZeroNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 23</value>
   </data>
-  <data name="&gt;&gt;pictureBoxCheckmarkMyIcon.Parent" xml:space="preserve">
-    <value>groupBox8</value>
+  <data name="pictureBoxIniFileIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
   </data>
   <data name="&gt;&gt;pictureBoxRegistryIcon.Name" xml:space="preserve">
     <value>pictureBoxRegistryIcon</value>
@@ -2432,7 +2447,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="extensionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="&gt;&gt;radioButtonAllFilePack.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -2482,8 +2497,8 @@
   <data name="&gt;&gt;checkBoxSaveToSameFldr.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageSalvageDataOption.Name" xml:space="preserve">
-    <value>tabPageSalvageDataOption</value>
+  <data name="tabPageSystem.Text" xml:space="preserve">
+    <value>System</value>
   </data>
   <data name="pictureBoxArrow.Location" type="System.Drawing.Point, System.Drawing">
     <value>176, 44</value>
@@ -2573,7 +2588,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="checkBoxMyDecodePasswordKeep.Text" xml:space="preserve">
-    <value>Remember &amp;Decryption password</value>
+    <value>Remember password for &amp;decryption</value>
   </data>
   <data name="textBoxSaveEncryptionToSameFolder.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2581,11 +2596,14 @@
   <data name="groupBox7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="&gt;&gt;tabPageLicense.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPageSaveEncryptOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="&gt;&gt;checkBoxSalvageIgnoreHashCheck.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="checkBoxNoHidePassword.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
@@ -2611,17 +2629,11 @@
   <data name="radioButtonAllFilePack.Location" type="System.Drawing.Point, System.Drawing">
     <value>17, 47</value>
   </data>
-  <data name="tabPageSaveOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
   <data name="&gt;&gt;checkBoxMyDecodePasswordKeep.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="checkBoxAskEncDecode.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxCheckmark03.Name" xml:space="preserve">
-    <value>pictureBoxCheckmark03</value>
   </data>
   <data name="&gt;&gt;comboBoxLanguage.Name" xml:space="preserve">
     <value>comboBoxLanguage</value>
@@ -2629,8 +2641,8 @@
   <data name="&gt;&gt;checkBoxEndToExit.Name" xml:space="preserve">
     <value>checkBoxEndToExit</value>
   </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="buttonInputDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 30</value>
   </data>
   <data name="buttonLoadIconFile.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2638,8 +2650,8 @@
   <data name="buttonCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="&gt;&gt;panelSaveEncryptOption.Name" xml:space="preserve">
-    <value>panelSaveEncryptOption</value>
+  <data name="&gt;&gt;buttonOpenFileDialogForDecryption.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -2647,14 +2659,11 @@
   <data name="radioButtonEncryptionFileTypeATC.Text" xml:space="preserve">
     <value>AttacheCase file type ( *.atc )</value>
   </data>
-  <data name="buttonSaveDecryptedFileToFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="checkBoxDobyMemorizedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>364, 17</value>
   </data>
-  <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="buttonOpenFileDialogForEncryption.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;checkBoxDecryptConfirmOverwrite.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2664,9 +2673,6 @@
   </data>
   <data name="&gt;&gt;groupBoxCompleteDelete.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="buttonOpenFileDialogForEncryption.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
   </data>
   <data name="pictureBoxZipFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2689,6 +2695,9 @@
   <data name="buttonSaveEncryptedFileToFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
+    <value>Import/Export</value>
+  </data>
   <data name="checkBoxBroken.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
@@ -2701,8 +2710,8 @@
   <data name="&gt;&gt;buttonSaveDecryptedFileToFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBoxEnablePassStrengthMeter.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;radioButtonSendToTrash.Name" xml:space="preserve">
+    <value>radioButtonSendToTrash</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2881,6 +2890,9 @@
   <data name="extensionToolStripMenuItem.Text" xml:space="preserve">
     <value>Extension</value>
   </data>
+  <data name="&gt;&gt;tabPageLicense.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;checkBoxConfirmToDeleteAfterDecryption.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
@@ -2981,13 +2993,13 @@
     <value>4</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>159, 6</value>
   </data>
   <data name="groupBox2.Text" xml:space="preserve">
     <value>Encryption:</value>
   </data>
-  <data name="&gt;&gt;tabPageLicense.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="checkBoxCheckPassFileDecrypt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 217</value>
   </data>
   <data name="buttonImportCurrentConf.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 83</value>
@@ -3023,8 +3035,8 @@
   <data name="&gt;&gt;panelSaveDecryptOption.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelGeneralOption.Name" xml:space="preserve">
-    <value>panelGeneralOption</value>
+  <data name="&gt;&gt;panelDeleteOption.Parent" xml:space="preserve">
+    <value>tabPageDelete</value>
   </data>
   <data name="&gt;&gt;checkBoxNoMultipleInstance.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -3032,14 +3044,14 @@
   <data name="&gt;&gt;buttonSaveZipFileToFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBoxEnablePassStrengthMeter.Text" xml:space="preserve">
-    <value>Enable the password strength meter display</value>
-  </data>
   <data name="pictureBoxIcon00.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
   </data>
   <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 188</value>
+  </data>
+  <data name="checkBoxCompressionOption.Text" xml:space="preserve">
+    <value>Enable Compression</value>
   </data>
   <data name="pictureBoxCheckmarkMyIcon.Location" type="System.Drawing.Point, System.Drawing">
     <value>324, 42</value>
@@ -3070,6 +3082,9 @@
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 12</value>
+  </data>
+  <data name="ToolStripMenuItemserialNumber.Text" xml:space="preserve">
+    <value>Serial number</value>
   </data>
   <data name="&gt;&gt;saveFileDialog1.Name" xml:space="preserve">
     <value>saveFileDialog1</value>
@@ -3107,14 +3122,11 @@
   <data name="tabPageLicense.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="&gt;&gt;checkBoxDoByPasswordFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;checkBoxDecryptShowDeleteChkBox.Name" xml:space="preserve">
     <value>checkBoxDecryptShowDeleteChkBox</value>
   </data>
-  <data name="&gt;&gt;tabPagePasswordFileOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="labelPreset03.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 100</value>
   </data>
   <data name="panelSaveOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -3170,8 +3182,8 @@
   <data name="&gt;&gt;textBoxMyDecodePassword.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;tabPageSettingsImportExport.Name" xml:space="preserve">
-    <value>tabPageSettingsImportExport</value>
+  <data name="&gt;&gt;buttonOpenFileDialogForEncryption.Parent" xml:space="preserve">
+    <value>panelPasswordFileOption</value>
   </data>
   <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
     <value>panelSaveOption</value>
@@ -3203,6 +3215,9 @@
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>panelCamouflageExtOption</value>
   </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="panelSaveEncryptOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
@@ -3227,8 +3242,8 @@
   <data name="&gt;&gt;pictureBoxIcon00.Parent" xml:space="preserve">
     <value>groupBox8</value>
   </data>
-  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="buttonImportCurrentConf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>397, 32</value>
   </data>
   <data name="&gt;&gt;labelTimes.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3244,6 +3259,9 @@
   </data>
   <data name="&gt;&gt;tabPageWindowOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonAssociateAtcFiles.Text" xml:space="preserve">
+    <value>Associate encrypted file[*.atc] &amp;with AttacheCase</value>
   </data>
   <data name="&gt;&gt;pictureBoxIcon01.Parent" xml:space="preserve">
     <value>groupBox8</value>
@@ -3268,6 +3286,9 @@
   </data>
   <data name="comboBoxMissTypeLimitsNum.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="pictureBoxCommandLineIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
   </data>
   <data name="buttonInputEncryptionPassword.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3331,6 +3352,9 @@
   </data>
   <data name="checkBoxWindowForeground.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
+  </data>
+  <data name="&gt;&gt;panelGeneralOption.Name" xml:space="preserve">
+    <value>panelGeneralOption</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -3483,6 +3507,9 @@
         ////CQQAAAAAAAAACw==
 </value>
   </data>
+  <data name="&gt;&gt;tabPagePasswordFileOption.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
   <data name="panelPasswordFileOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>446, 438</value>
   </data>
@@ -3543,8 +3570,8 @@
   <data name="checkBoxAskEncDecode.Size" type="System.Drawing.Size, System.Drawing">
     <value>358, 20</value>
   </data>
-  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
-    <value>tabControl1</value>
+  <data name="checkBoxNoErrMsgOnPassFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 296</value>
   </data>
   <data name="checkBoxAutoName.Size" type="System.Drawing.Size, System.Drawing">
     <value>283, 20</value>
@@ -3555,8 +3582,11 @@
   <data name="pictureBoxIcon03.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>AutoSize</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tabPageSaveEncryptOption.Text" xml:space="preserve">
+    <value>SaveEncrypt</value>
+  </data>
+  <data name="&gt;&gt;tabPageWindowOption.Parent" xml:space="preserve">
+    <value>tabControl1</value>
   </data>
   <data name="&gt;&gt;panelGeneralOption.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -3603,8 +3633,8 @@
   <data name="&gt;&gt;labelLanguage.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;radioButtonFilesOneByOne.Name" xml:space="preserve">
+    <value>radioButtonFilesOneByOne</value>
   </data>
   <data name="checkBoxKeepTimeStamp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3626,9 +3656,6 @@
   </data>
   <data name="groupBox7.Text" xml:space="preserve">
     <value>Associated file setting:</value>
-  </data>
-  <data name="radioNormalDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 20</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>* Blank is without extension</value>
@@ -3789,6 +3816,9 @@
   <data name="radioButtonCompleteErase.Size" type="System.Drawing.Size, System.Drawing">
     <value>133, 20</value>
   </data>
+  <data name="radioButtonEncryptionFileTypeEXE.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxIcon01.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
@@ -3860,9 +3890,6 @@
   <data name="panelLicenseOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="checkBoxNoErrMsgOnPassFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>366, 16</value>
-  </data>
   <data name="&gt;&gt;labelLanguage.Name" xml:space="preserve">
     <value>labelLanguage</value>
   </data>
@@ -3885,9 +3912,6 @@
     <value>11, 40</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;textBoxDecodeToSameFldrPath.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="checkBoxAddCamoExt.Text" xml:space="preserve">
@@ -3923,11 +3947,14 @@
   <data name="&gt;&gt;panelPasswordFileOption.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>644, 470</value>
+  </data>
   <data name="comboBoxMissTypeLimitsNum.Items6" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;tabPagePasswordInputLimitOption.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="checkBoxNoErrMsgOnPassFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>366, 16</value>
   </data>
   <data name="&gt;&gt;numericUpDownDelRandNum.Parent" xml:space="preserve">
     <value>groupBoxCompleteDelete</value>
@@ -3976,6 +4003,9 @@
   </data>
   <data name="checkBoxSalvageIntoSameDirectory.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panelWindowOption.Name" xml:space="preserve">
     <value>panelWindowOption</value>
@@ -4046,14 +4076,11 @@
   <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 86</value>
   </data>
-  <data name="&gt;&gt;buttonAddSendToFolder.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="pictureBoxAtcFile.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="checkBoxMyDecodePasswordKeep.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
+  <data name="&gt;&gt;checkBoxSalvageToCreateParentFolderOneByOne.Parent" xml:space="preserve">
+    <value>panelSalvageDataOption</value>
   </data>
   <data name="labelPreset03.Text" xml:space="preserve">
     <value>preset03</value>
@@ -4115,8 +4142,8 @@
   <data name="&gt;&gt;pictureBoxCheckmark02.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="groupBox10.Text" xml:space="preserve">
-    <value>Set number of times to input password in encrypt files:</value>
+  <data name="comboBoxMissTypeLimitsNum.Items" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureAtcExeFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4157,8 +4184,8 @@
   <data name="checkBoxNoMultipleInstance.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 225</value>
   </data>
-  <data name="&gt;&gt;checkBoxSalvageToCreateParentFolderOneByOne.Parent" xml:space="preserve">
-    <value>panelSalvageDataOption</value>
+  <data name="pictureBoxRegistryIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>AutoSize</value>
   </data>
   <data name="&gt;&gt;panelCamouflageExtOption.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -4177,27 +4204,6 @@
   </data>
   <data name="&gt;&gt;checkBoxCheckPassFileDecrypt.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureBoxCheckmarkMyIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOBSURBVEhLxVVbS1RRFF69DAiW4Ium9NZ/CMrH6Kal
-        lY7NqdFRewyEnnroJSiE6sEICiWxsjKM7pZll+mip5slGJYhFJQUmUnSBTJh9X3nrNPM6IwVPbTggzOz
-        9/7WWt9aa28RV/4Jqjor0h5KQhYQBZqBPmAKUPvmf1zLSkccILO5shMYBkg4G7hnp536A3OlAOi2w1p4
-        X7TokWjZY9G6ftHNT/Ddh/8eYI17egy93pkCY8lgPvkAiefdEy0G6WaSBgB5Hf6rAXkM69UgXn5XdG4c
-        Dm57jgbkphQaWxqzyPMRdRRkKeTmgORVd0SdbtHKi8Al0XJ85103J8wkrfmae5FnIq+FVCSv7BTd0JGt
-        z9+72tgT03UdcHIVmdz0sqC002riSggYooMZshgoTQzrkSuipW2i7Y8a0CS+DX/o08jFkC67BXJIZlwh
-        Y4e54pC8ANKkIw+k2YQIGW3syEKdnPpu9KqdTw9oxVk/u4JezwHhGDvMlVb+uQQSkGw6atE1LCg1L24W
-        dV90GrXqxLePWnk4V8NY457FCMQctBo7zPo9DBlIVvvQjzhANaJiUcuOi24/vcaofWuOb9M1R/31GBQg
-        hzkYNnaYK5OovsaQAXWOQkvnmgEHN1wWXXsS2h/I1tGJEaNWfTv+UksOhn7J4wWHjM3BpLHDXJlg9R0s
-        bLwhWnFedEd8hVdMRlfSIrpsn2jbnURhabsuOF5WDISZenKiZukcDLL6pdaCe+86HsHI+LDu767XlQ05
-        WrEbhf2RKOyzNw90VRMkMe0ZPR2EExmkSNQkIF+E6KOXsnXsS0IG2udvn/TVuyH75Vt9e5GubfczDqJn
-        x7FRzEFKkR1mkI9prOnK0ZaHW/XT11GjmmnxwVNafMifYkbPGQlamq1uDlLaNIQaDOEe0aXQs/w0itqa
-        pfuvb0kpKo39X4M5WH8Kc4E7iB0XRM8hNfJpg0brxXhDJo57GE5Y6NJjKDC6ZM/lOn095kt0pr9Ry074
-        E82OC6KvghNeM+Yg7fU9x7uoIFUei42Li91BR9Sa3cTiV53L1UgXCLGPdxOj5901PyFNhsuO5soCYIAz
-        MQ/arkJEJGIhOQ8RXGj8pu4sLKMvAZIiH/Q4ZrXkBweOCoEl+F4NEk4qiUuhu/fgJIj9yH/74CSbKw2A
-        /2TCyQwkiLmnwU79pc189APSlEffdv8PE/kJoKCqtvPh/TYAAAAASUVORK5CYII=
-</value>
   </data>
   <data name="&gt;&gt;panelSettingImportExportOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4298,8 +4304,8 @@
   <data name="fileNameToolStripMenuItem.Text" xml:space="preserve">
     <value>File name</value>
   </data>
-  <data name="richTextBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;tabPagePasswordInputLimitOption.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="pictureBoxCheckmark01.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -4313,14 +4319,17 @@
   <data name="&gt;&gt;panelSystemOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="checkBoxEnablePassStrengthMeter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;pictureBoxEnabled.Name" xml:space="preserve">
     <value>pictureBoxEnabled</value>
   </data>
   <data name="checkBoxSaveToSameFldr.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 470</value>
+  <data name="groupBoxAdvancedDeleteOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>424, 196</value>
   </data>
   <data name="textBoxDecodeToSameFldrPath.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -4346,14 +4355,14 @@
   <data name="&gt;&gt;textBoxPassFilePathDecrypt.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkBoxCompressionOption.Text" xml:space="preserve">
-    <value>Enable Compression</value>
+  <data name="checkBoxDecryptConfirmOverwrite.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="checkBoxEncryptShowDeleteChkBox.Text" xml:space="preserve">
     <value>Show the check box in main form window</value>
   </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>644, 470</value>
+  <data name="&gt;&gt;buttonReplaceCurrentByTemporary.Parent" xml:space="preserve">
+    <value>panelSettingImportExportOption</value>
   </data>
   <data name="checkBoxNoErrMsgOnPassFile.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4470,17 +4479,14 @@
   <data name="tabPageSaveEncryptOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="pictureBoxIniFileIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
   <data name="panelSettingImportExportOption.Size" type="System.Drawing.Size, System.Drawing">
     <value>452, 444</value>
   </data>
   <data name="checkBoxConfirmSameFileName.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 92</value>
   </data>
-  <data name="&gt;&gt;radioButtonEncryptionFileTypeEXE.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="panelSystemOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 438</value>
   </data>
   <data name="buttonSaveDecryptedFileToFolder.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -4680,9 +4686,6 @@
   <data name="checkBoxEnablePassStrengthMeter.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="radioButtonEncryptionFileTypeZIP.Text" xml:space="preserve">
-    <value>Zip password file ( *.zip )</value>
-  </data>
   <data name="ToolStripMenuItemUpperCase.Text" xml:space="preserve">
     <value>Upper case</value>
   </data>
@@ -4694,9 +4697,6 @@
   </data>
   <data name="checkBoxSaveToSameFldr.Text" xml:space="preserve">
     <value>Save the encryption files to the same folder.</value>
-  </data>
-  <data name="checkBoxCheckPassFileDecrypt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 217</value>
   </data>
   <data name="&gt;&gt;checkBoxZipToSameFldr.Name" xml:space="preserve">
     <value>checkBoxZipToSameFldr</value>
@@ -4724,7 +4724,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemserialNumber.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>162, 22</value>
   </data>
   <data name="&gt;&gt;tabPageCamouflageExtOption.Parent" xml:space="preserve">
     <value>tabControl1</value>
@@ -4759,9 +4759,6 @@
   <data name="tabPageGeneralOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;buttonOpenFileDialogForEncryption.Parent" xml:space="preserve">
-    <value>panelPasswordFileOption</value>
-  </data>
   <data name="&gt;&gt;buttonInputEncryptionPassword.Parent" xml:space="preserve">
     <value>panelPasswordsOption</value>
   </data>
@@ -4780,6 +4777,9 @@
   <data name="&gt;&gt;textBoxZipToSameFldrPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="pictureBoxAtcFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
   <data name="pictureBoxIcon00.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>AutoSize</value>
   </data>
@@ -4791,6 +4791,9 @@
   </data>
   <data name="trackBarCompressRate.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 45</value>
+  </data>
+  <data name="&gt;&gt;tabPagePasswordFileOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;pictureBoxMyIcon.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -4819,8 +4822,8 @@
   <data name="checkBoxAddCamoExt.Location" type="System.Drawing.Point, System.Drawing">
     <value>27, 35</value>
   </data>
-  <data name="tabPageSettingsImportExport.Text" xml:space="preserve">
-    <value>Import/Export</value>
+  <data name="buttonSaveZipFileToFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
   <data name="&gt;&gt;checkBoxEncryptionSameFileTypeBefore.Name" xml:space="preserve">
     <value>checkBoxEncryptionSameFileTypeBefore</value>
@@ -4840,8 +4843,8 @@
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
   </data>
-  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>MS UI Gothic, 9pt</value>
+  <data name="checkBoxMyDecodePasswordKeep.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
   </data>
   <data name="tabPageCamouflageExtOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -4899,6 +4902,9 @@
   </data>
   <data name="&gt;&gt;buttonSaveZipFileToFolder.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="checkBoxShowDialogToConfirmToReadIniFileAlways.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="tabPageSalvageDataOption.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -4964,17 +4970,11 @@
   <data name="groupBox7.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 29</value>
   </data>
-  <data name="checkBoxNoErrMsgOnPassFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 296</value>
-  </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
-  </data>
-  <data name="buttonApply.Location" type="System.Drawing.Point, System.Drawing">
-    <value>430, 15</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value />
@@ -5077,8 +5077,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>644, 525</value>
   </data>
-  <data name="buttonInputDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 30</value>
+  <data name="&gt;&gt;checkBoxDoByPasswordFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="checkBoxDoByPasswordFile.Text" xml:space="preserve">
     <value>Encrypt/Decrypt by the password of Password file without confirming</value>
@@ -5106,6 +5106,9 @@
   </data>
   <data name="checkBoxShowDialogWhenMultipleFiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 145</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxIcon02.Parent" xml:space="preserve">
+    <value>groupBox8</value>
   </data>
   <data name="tabPagePasswordInputLimitOption.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -5201,14 +5204,11 @@
   <data name="radioButtonNotSpecified.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="pictureBoxRegistryIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>AutoSize</value>
-  </data>
   <data name="&gt;&gt;checkBoxDobyMemorizedPassword.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="ToolStripMenuItemSymbols.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="&gt;&gt;pictureBoxIcon01.Name" xml:space="preserve">
     <value>pictureBoxIcon01</value>
@@ -5441,9 +5441,6 @@
   <data name="checkBoxAskEncDecode.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 232</value>
   </data>
-  <data name="comboBoxMissTypeLimitsNum.Items" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
@@ -5482,6 +5479,9 @@
   </data>
   <data name="&gt;&gt;checkBoxZipToSameFldr.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonEncryptionFileTypeEXE.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="labelLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 346</value>
@@ -5646,6 +5646,9 @@
   <data name="textBoxZipToSameFldrPath.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 470</value>
+  </data>
   <data name="comboBoxZipEncryptAlgo.Size" type="System.Drawing.Size, System.Drawing">
     <value>363, 20</value>
   </data>
@@ -5682,6 +5685,9 @@
   <data name="&gt;&gt;checkBoxMainWindowMinimize.Name" xml:space="preserve">
     <value>checkBoxMainWindowMinimize</value>
   </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="labelLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>136, 16</value>
   </data>
@@ -5690,6 +5696,9 @@
   </data>
   <data name="checkBoxExtInAtcFileName.Text" xml:space="preserve">
     <value>Create encrypted file &amp;including extension</value>
+  </data>
+  <data name="&gt;&gt;buttonExportCurrentConf.Parent" xml:space="preserve">
+    <value>groupBox9</value>
   </data>
   <data name="textBoxMyDecodePassword.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 136</value>
@@ -5712,8 +5721,8 @@
   <data name="comboBoxMissTypeLimitsNum.Items3" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="pictureBoxIcon02.Location" type="System.Drawing.Point, System.Drawing">
-    <value>165, 45</value>
+  <data name="buttonReplaceCurrentByTemporary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 9pt</value>
   </data>
   <data name="&gt;&gt;treeView1.Name" xml:space="preserve">
     <value>treeView1</value>
@@ -5751,11 +5760,11 @@
   <data name="&gt;&gt;checkBoxBroken.Parent" xml:space="preserve">
     <value>panelPasswordInputLimitOption</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;textBoxMyEncodePassword.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="checkBoxOpenFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 70</value>
   </data>
   <data name="radioNormalDelete.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 22</value>
@@ -5799,8 +5808,8 @@
   <data name="pictureBoxEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
   </data>
-  <data name="&gt;&gt;radioButtonFilesOneByOne.Name" xml:space="preserve">
-    <value>radioButtonFilesOneByOne</value>
+  <data name="dateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 22</value>
   </data>
   <data name="&gt;&gt;checkBoxKeepTimeStamp.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -5832,9 +5841,6 @@
   <data name="pictureBoxCheckmark03.Location" type="System.Drawing.Point, System.Drawing">
     <value>229, 42</value>
   </data>
-  <data name="&gt;&gt;ToolStripMenuItemNumbers.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;checkBoxCheckPassFileDecrypt.Parent" xml:space="preserve">
     <value>panelPasswordFileOption</value>
   </data>
@@ -5859,8 +5865,8 @@
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;textBoxMyEncodePassword.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="buttonApply.Location" type="System.Drawing.Point, System.Drawing">
+    <value>430, 15</value>
   </data>
   <data name="buttonAddSendToFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>328, 32</value>
@@ -5892,17 +5898,14 @@
   <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonOpenFileDialogForDecryption.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;checkBoxExtInAtcFileName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>files / folders</value>
   </data>
   <data name="&gt;&gt;radioButtonEncryptionFileTypeEXE.Name" xml:space="preserve">
     <value>radioButtonEncryptionFileTypeEXE</value>
   </data>
   <data name="ToolStripMenuItemNumbers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="comboBoxMissTypeLimitsNum.Items4" xml:space="preserve">
     <value>5</value>
@@ -5913,8 +5916,8 @@
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="dateToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+  <data name="checkBoxNoMultipleInstance.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;labelPreset03.Name" xml:space="preserve">
     <value>labelPreset03</value>
@@ -6008,9 +6011,6 @@
   <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 470</value>
   </data>
-  <data name="labelPreset03.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 100</value>
-  </data>
   <data name="checkBoxfNoParentFldr.Size" type="System.Drawing.Size, System.Drawing">
     <value>279, 20</value>
   </data>
@@ -6092,8 +6092,8 @@
   <data name="&gt;&gt;checkBoxMainWindowMinimize.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tabPageSaveZipOption.Name" xml:space="preserve">
-    <value>tabPageSaveZipOption</value>
+  <data name="&gt;&gt;textBoxMyEncodePassword.Parent" xml:space="preserve">
+    <value>panelPasswordsOption</value>
   </data>
   <data name="labelLanguage.Text" xml:space="preserve">
     <value>言語 ( Language ) :</value>
@@ -6167,8 +6167,8 @@
   <data name="pictureBoxCheckmark03.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
   </data>
-  <data name="radioButtonEncryptionFileTypeEXE.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="comboBoxLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="pictureBoxCheckmark00.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -6187,9 +6187,6 @@
   </data>
   <data name="panelPasswordInputLimitOption.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
   </data>
   <data name="labelPreset01.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -6217,6 +6214,9 @@
   </data>
   <data name="&gt;&gt;pictureBoxAtcFile.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;tabPageSaveZipOption.Name" xml:space="preserve">
+    <value>tabPageSaveZipOption</value>
   </data>
   <data name="pictureBoxIniFileIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6265,9 +6265,6 @@
   <data name="checkBoxCheckPassFileDecrypt.Text" xml:space="preserve">
     <value>Check password file for Decryption</value>
   </data>
-  <data name="&gt;&gt;checkBoxTaskTrayIcon.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="&gt;&gt;panelDeleteOption.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -6276,6 +6273,9 @@
   </data>
   <data name="&gt;&gt;checkBoxDecryptShowDeleteChkBox.Parent" xml:space="preserve">
     <value>groupBox3</value>
+  </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Set number of times to input password in encrypt files:</value>
   </data>
   <data name="groupBoxCompleteDelete.Size" type="System.Drawing.Size, System.Drawing">
     <value>388, 81</value>
@@ -6302,7 +6302,7 @@
     <value>0, 0</value>
   </data>
   <data name="ToolStripMenuItemAlphabet.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>127, 22</value>
   </data>
   <data name="&gt;&gt;panelDeleteOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -6310,8 +6310,8 @@
   <data name="panelSettingImportExportOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 470</value>
+  <data name="richTextBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -6346,8 +6346,8 @@
   <data name="&gt;&gt;checkBoxCheckPassFileDecrypt.Name" xml:space="preserve">
     <value>checkBoxCheckPassFileDecrypt</value>
   </data>
-  <data name="&gt;&gt;pictureBoxIcon02.Parent" xml:space="preserve">
-    <value>groupBox8</value>
+  <data name="&gt;&gt;textBoxDecodeToSameFldrPath.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="tabPageSaveDecryptOption.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
