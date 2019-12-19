@@ -2085,816 +2085,827 @@ namespace AttacheCase
           continue;
         }
 
-        char[] splitters = {'='};
-        string[] values = cmdOpt.Split(splitters, 2, StringSplitOptions.None);
-        string key = values[0];
-        string value = values[1];
+        //char[] splitters = {'='};
+        //string[] values = cmdOpt.Split(splitters, 2, StringSplitOptions.None);
 
-        switch(key)
+        // 正規表現を使って一番最初に出てくる「=」で分割する
+        // Use regular expressions to split at the first “=”
+        string[] values = Regex.Split("(^.*?)(=)", cmdOpt);
+
+        if (values.Length == 2)
         {
-          //-----------------------------------
-          // 一般設定
-          //-----------------------------------    
-          #region
-          // Password
-          case "/p": // パスワード
-                     // 暗号化、復号の両方にパスワードを入れる
-            _EncryptPasswordStringFromCommandLine = value;
-            _DecryptPasswordStringFromCommandLine = value;
-            break;
+          string key = values[0];
+          string value = values[1];
+          switch (key)
+          {
+            //-----------------------------------
+            // 一般設定
+            //-----------------------------------    
+            #region
+            // Password
+            case "/p": // パスワード
+                       // 暗号化、復号の両方にパスワードを入れる
+              _EncryptPasswordStringFromCommandLine = value;
+              _DecryptPasswordStringFromCommandLine = value;
+              break;
 
-          // Exit AttacheCase after process.
-          case "/exit": // 処理後に終了するか
-            if (value == "1")
-            {
-              _fEndToExit = true;
-            }
-            else if (value == "0")
-            {
-              _fEndToExit = false;
-            }
-            break;
-
-          // Open decrypted files by associated application
-          case "/opf": // 復号したファイルを関連付けされたソフトで開く
-            if (value == "1")
-            {
-              _fOpenFile = true;
-            }
-            else if (value == "0")
-            {
-              _fOpenFile = false;
-            }
-            break;
-            
-          // Show dialog when containing the executable file.
-          case "/exe": // 復号したファイルに実行ファイルが含まれるとき警告ダイアログを出す
-            if (value == "1")
-            {
-              _fShowDialogWhenExeFile = true;
-            }
-            else if (value == "0")
-            {
-              _fShowDialogWhenExeFile = false;
-            }
-            break;
-
-          // Show dialog when more than multiple files.
-          case "/decnum":  // 復号したファイルが複数個あるとき警告ダイアログを出す
-            if (int.TryParse(value, out ResultNum) == true)
-            {
-              _ShowDialogWhenMultipleFilesNum = ResultNum;
-            }
-            break;
-
-          // Ask to encrypt or decrypt regardless of file content
-          case "/askende": // 暗号/復号処理かを問い合わせる
-            if (value == "1")
-            {
-              _fAskEncDecode = true;
-            }
-            else if (value == "0")
-            {
-              _fAskEncDecode = false;
-            }
-            break;
-
-          // Confirm inputting password without masking
-          case "/nohide": //「*」で隠さずパスワードを確認しながら入力する
-            if (value == "1")
-            {
-              _fNoHidePassword = true;
-            }
-            else if (value == "0")
-            {
-              _fNoHidePassword = false;
-            }
-            break;
-
-          // Always output to Executable file
-          case "/exeout": // 常に自己実行形式で出力する
-            if (value == "1")
-            {
-              _fSaveToExeout = true;
-            }
-            else if (value == "0")
-            {
-              _fSaveToExeout = false;
-            }
-            break;
-
-          // Always display chekbox of this option
-          case "/chkexeout": // メインフォームにチェックボックスを表示する
-            if (value == "1")
-            {
-              _fShowExeoutChkBox = true;
-            }
-            else if (value == "0")
-            {
-              _fShowExeoutChkBox = false;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // パスワード
-          //-----------------------------------          
-          #region
-          //Encrypt/Decrypt by &memorized password without confirming
-          case "/mempexe": // 記憶パスワードで確認なく実行する
-            if (value == "1")
-            {
-              _fMemPasswordExe = true;
-            }
-            else if (value == "0")
-            {
-              _fMemPasswordExe = false;
-            }
-            break;
-
-          // Enable password strength meter
-          case "/pms":  // パスワード強度メーターを表示するか
-            if (value == "1")
-            {
-              _fPasswordStrengthMeter = true;
-            }
-            else if (value == "0")
-            {
-              _fPasswordStrengthMeter = false;
-            }
-            break;
-          #endregion
-
-          //-----------------------------------
-          // ウィンドウ
-          //-----------------------------------          
-          #region
-          // Always execute by minimize the window
-          case "/wmin": // 常にウィンドウを最小化して処理する
-            if (value == "1")
-            {
-              _fMainWindowMinimize = true;
-              _fWindowForeground = false;  // not coexist
-            }
-            else if (value == "0")
-            {
-              _fMainWindowMinimize = false;
-            }
-            break;
-
-          // Minimizing a window without appearing in the taskbar
-          case "/tskb": // タスクバーに表示しない
-            if (value == "1")
-            {
-              _fTaskBarHide = true;
-            }
-            else if (value == "0")
-            {
-              _fTaskBarHide = false;
-            }
-            break;
-
-          // Display in the task tray
-          case "/tsktr": // タスクトレイにアイコンを表示する
-            if (value == "1")
-            {
-              _fTaskTrayIcon = true;
-            }
-            else if (value == "0")
-            {
-              _fTaskTrayIcon = false;
-            }
-            break;
-
-          // Bring AttcheCase window in front of Desktop
-          case "/front": // デスクトップで最前面にウィンドウを表示する
-            if (value == "1")
-            {
-              _fWindowForeground = true;
-              _fMainWindowMinimize = false; // not coexist
-            }
-            else if (value == "0")
-            {
-              _fWindowForeground = false;
-            }
-            break;
-
-          // Not Allow multiple in&stance of AttcheCase
-          case "/nomulti": // 複数起動しない 
-            if (value == "1")
-            {
-              _fNoMultipleInstance = true;
-            }
-            else if (value == "0")
-            {
-              _fNoMultipleInstance = false;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // 保存設定
-          //-----------------------------------          
-          #region
-          // Encryption type ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
-          case "/entype": // 暗号化ファイルの種類
-            if (value == "1")
-            {
-              _EncryptionFileType = 1;
-            }
-            else if (value == "2")
-            {
-              _EncryptionFileType = 2;
-            }
-            else if (value == "3")
-            {
-              _EncryptionFileType = 3;
-            } 
-            else
-            {
-              _EncryptionFileType = 0;
-            }
-            break;
-
-          // Save same encryption type always. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
-          case "/sametype":  // 常に同じ暗号化ファイルの種類にする
-            if (value == "1")
-            {
-              _EncryptionSameFileTypeAlways = 1;
-              _fEncryptionSameFileTypeAlways = true;
-            }
-            else if (value == "2")
-            {
-              _EncryptionSameFileTypeAlways = 2;
-              _fEncryptionSameFileTypeAlways = true;
-            }
-            else if (value == "3")
-            {
-              _EncryptionSameFileTypeAlways = 3;
-              _fEncryptionSameFileTypeAlways = true;
-            } 
-            else
-            {
-              _EncryptionSameFileTypeAlways = 0;
-              _fEncryptionSameFileTypeAlways = false;
-            }
-            break;
-
-          // Save same encryption type that was used to before. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
-          case "/beforetype":  // 前に使った暗号化ファイルの種類にする
-            if (value == "1")
-            {
-              _EncryptionSameFileTypeBefore = 1;
-              _fEncryptionSameFileTypeBefore = true;
-            }
-            else if (value == "2")
-            {
-              _EncryptionSameFileTypeBefore = 2;
-              _fEncryptionSameFileTypeBefore = true;
-            }
-            else if (value == "3")
-            {
-              _EncryptionSameFileTypeBefore = 3;
-              _fEncryptionSameFileTypeBefore = true;
-            } 
-            else
-            {
-              _EncryptionSameFileTypeBefore = 0;
-              _fEncryptionSameFileTypeBefore = false;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // 保存設定（暗号化）
-          //-----------------------------------          
-          #region
-          // Save to same folder in &encryption
-          case "/saveto": //常に同じ場所へ暗号化ファイルを保存する
-            if (Directory.Exists(value) == true)
-            {
-              if (Path.IsPathRooted(value) == false)
+            // Exit AttacheCase after process.
+            case "/exit": // 処理後に終了するか
+              if (value == "1")
               {
-                value = Path.GetFullPath(value);
+                _fEndToExit = true;
               }
-              _SaveToSameFldrPath = value;
-              _fSaveToSameFldr = true;
-            }
-            break;
-
-          // Confirm overwriting when same filename exists 
-          case "/ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）
-            if ( value == "1")
-            {
-              _fEncryptConfirmOverwrite = true;
-              _fDecryptConfirmOverwrite = true;
-            }
-            else if (value == "0")
-            {
-              _fEncryptConfirmOverwrite = false;
-              _fDecryptConfirmOverwrite = false;
-            }
-            break;
-            
-          // Create one encrypted file from files
-          case "/allpack": // 複数のファイルを暗号化する際は一つにまとめる
-            if (value == "1")
-            {
-              _fAllFilePack = true;
-            }
-            else if (value == "0")
-            {
-              _fAllFilePack = false;
-            }
-            break;
-
-          // Encrypt or decrypt files in directory one by one
-          case "/oneby": // フォルダ内のファイルは個別に暗号化する
-            if (value == "1")
-            {
-              _fFilesOneByOne = true;
-            }
-            else if (value == "0")
-            {
-              _fFilesOneByOne = false;
-            }
-            break;
-
-          // Set the timestamp of encryption file to original files or directories
-          case "/orgdt": // 暗号化ファイルのタイムスタンプを元ファイルに合わせる
-            if (value == "1")
-            {
-              _fKeepTimeStamp = true;
-            }
-            else if (value == "0")
-            {
-              _fKeepTimeStamp = false;
-            }
-            break;
-            
-          // Create encrypted file &including extension
-          case "/withext": // 暗号化ファイル名に拡張子を含める
-            if(value == "1"){
-              _fExtInAtcFileName = true;
-            }
-            else if (value == "0")
-            {
-              _fExtInAtcFileName = false;
-            }
-            break;
-
-          // Specify the format of the encryption file name
-          case "/autoname": // 自動で暗号化ファイル名を付加する
-            _fAutoName = true;
-            _AutoNameFormatText = value;
-            break;
-
-          // Encrypted files camouflage with extension
-          case "/camoext": // 暗号化ファイルの拡張子を偽装する
-
-            if ( IsValidFileName(value) == false)
-            {
-              // 注意
-              // 
-              // Windowsのファイル名には以下の文字が使えません！
-              // 
-              // \\ / : , * ? \" < > |
-              //
-              // Alert
-              // The following characters cannot be used for the file name of Windows.
-              // 
-              // \\ / : , * ? \" < > |
-              MessageBox.Show(Resources.DialogMessageNotUseWindowsFileName,
-              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-              return(-1);
-            }
-            else
-            {
-              _fAddCamoExt = true;
-              _CamoExt = value;
-            }
-
-            break;
-
-          #endregion
-            
-          //-----------------------------------
-          // 保存設定（復号）
-          //-----------------------------------    
-          #region
-          // Save to the same folder in decryption
-          case "/dsaveto": // 常に同じ場所へファイルを復号化する
-            if (Directory.Exists(value) == true)
-            {
-              if (Path.IsPathRooted(value) == false)
+              else if (value == "0")
               {
-                value = Path.GetFullPath(value);
+                _fEndToExit = false;
               }
-              _DecodeToSameFldrPath = value;
-              _fDecodeToSameFldr = true;
-            }
-            break;
+              break;
 
-          // Confirm overwriting when same filename exists
-          //case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
-          //  break;
-
-          // Create no parent folder in decryption
-          case "/nopfldr": // 復号するときに親フォルダを生成しない
-            if ( value == "1")
-            {
-              _fNoParentFldr = true;
-            }
-            else if (value == "0")
-            {
-              _fNoParentFldr = false;
-            }
-            break;
-
-          // Set the timestamp to decrypted files or directories
-          case "/now": // 復号したファイルのタイムスタンプを生成日時にする
-            if ( value == "1")
-            {
-              _fSameTimeStamp = true;
-            }
-            else if (value == "0")
-            {
-              _fSameTimeStamp = false;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // 保存設定（ZIP）
-          //-----------------------------------    
-          #region
-          // Save to the same folder in ZIP
-          case "/zipsaveto": // 常に同じ場所へファイルを暗号化する
-            if (Directory.Exists(value) == true)
-            {
-              if (Path.IsPathRooted(value) == false)
+            // Open decrypted files by associated application
+            case "/opf": // 復号したファイルを関連付けされたソフトで開く
+              if (value == "1")
               {
-                value = Path.GetFullPath(value);
+                _fOpenFile = true;
               }
-              _ZipToSameFldrPath = value;
-              _fZipToSameFldr = true;
-            }
-            break;
-
-          // Confirm overwriting when same filename exists
-          //case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
-          //  break;
-
-          // EncryptionAlgorithm ( 0: PkzipWeak, 1: WinZipAes128, 2: WinZipAes256 ) 
-          case "/zipalgo":
-            if (value == "1")
-            {
-              _ZipEncryptionAlgorithm = 1;
-            }
-            else if (value == "2")
-            {
-              _ZipEncryptionAlgorithm = 2;
-            }
-            else
-            {
-              _ZipEncryptionAlgorithm = 0;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // 削除設定
-          //-----------------------------------          
-          #region
-          // Delete original files or directories after encryption
-          case "/del": // 元ファイルの完全削除を行うか
-            if (int.TryParse(value, out ResultNum))
-            {
-              if (ResultNum > 0 && ResultNum < 4)
+              else if (value == "0")
               {
-                _fDelOrgFile = true;
-                _fCompleteDelFile = ResultNum;  // 0: 削除しない, 1: 通常削除, 2: ごみ箱, 3: 完全削除
+                _fOpenFile = false;
+              }
+              break;
+
+            // Show dialog when containing the executable file.
+            case "/exe": // 復号したファイルに実行ファイルが含まれるとき警告ダイアログを出す
+              if (value == "1")
+              {
+                _fShowDialogWhenExeFile = true;
+              }
+              else if (value == "0")
+              {
+                _fShowDialogWhenExeFile = false;
+              }
+              break;
+
+            // Show dialog when more than multiple files.
+            case "/decnum":  // 復号したファイルが複数個あるとき警告ダイアログを出す
+              if (int.TryParse(value, out ResultNum) == true)
+              {
+                _ShowDialogWhenMultipleFilesNum = ResultNum;
+              }
+              break;
+
+            // Ask to encrypt or decrypt regardless of file content
+            case "/askende": // 暗号/復号処理かを問い合わせる
+              if (value == "1")
+              {
+                _fAskEncDecode = true;
+              }
+              else if (value == "0")
+              {
+                _fAskEncDecode = false;
+              }
+              break;
+
+            // Confirm inputting password without masking
+            case "/nohide": //「*」で隠さずパスワードを確認しながら入力する
+              if (value == "1")
+              {
+                _fNoHidePassword = true;
+              }
+              else if (value == "0")
+              {
+                _fNoHidePassword = false;
+              }
+              break;
+
+            // Always output to Executable file
+            case "/exeout": // 常に自己実行形式で出力する
+              if (value == "1")
+              {
+                _fSaveToExeout = true;
+              }
+              else if (value == "0")
+              {
+                _fSaveToExeout = false;
+              }
+              break;
+
+            // Always display chekbox of this option
+            case "/chkexeout": // メインフォームにチェックボックスを表示する
+              if (value == "1")
+              {
+                _fShowExeoutChkBox = true;
+              }
+              else if (value == "0")
+              {
+                _fShowExeoutChkBox = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // パスワード
+            //-----------------------------------          
+            #region
+            //Encrypt/Decrypt by &memorized password without confirming
+            case "/mempexe": // 記憶パスワードで確認なく実行する
+              if (value == "1")
+              {
+                _fMemPasswordExe = true;
+              }
+              else if (value == "0")
+              {
+                _fMemPasswordExe = false;
+              }
+              break;
+
+            // Enable password strength meter
+            case "/pms":  // パスワード強度メーターを表示するか
+              if (value == "1")
+              {
+                _fPasswordStrengthMeter = true;
+              }
+              else if (value == "0")
+              {
+                _fPasswordStrengthMeter = false;
+              }
+              break;
+            #endregion
+
+            //-----------------------------------
+            // ウィンドウ
+            //-----------------------------------          
+            #region
+            // Always execute by minimize the window
+            case "/wmin": // 常にウィンドウを最小化して処理する
+              if (value == "1")
+              {
+                _fMainWindowMinimize = true;
+                _fWindowForeground = false;  // not coexist
+              }
+              else if (value == "0")
+              {
+                _fMainWindowMinimize = false;
+              }
+              break;
+
+            // Minimizing a window without appearing in the taskbar
+            case "/tskb": // タスクバーに表示しない
+              if (value == "1")
+              {
+                _fTaskBarHide = true;
+              }
+              else if (value == "0")
+              {
+                _fTaskBarHide = false;
+              }
+              break;
+
+            // Display in the task tray
+            case "/tsktr": // タスクトレイにアイコンを表示する
+              if (value == "1")
+              {
+                _fTaskTrayIcon = true;
+              }
+              else if (value == "0")
+              {
+                _fTaskTrayIcon = false;
+              }
+              break;
+
+            // Bring AttcheCase window in front of Desktop
+            case "/front": // デスクトップで最前面にウィンドウを表示する
+              if (value == "1")
+              {
+                _fWindowForeground = true;
+                _fMainWindowMinimize = false; // not coexist
+              }
+              else if (value == "0")
+              {
+                _fWindowForeground = false;
+              }
+              break;
+
+            // Not Allow multiple in&stance of AttcheCase
+            case "/nomulti": // 複数起動しない 
+              if (value == "1")
+              {
+                _fNoMultipleInstance = true;
+              }
+              else if (value == "0")
+              {
+                _fNoMultipleInstance = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // 保存設定
+            //-----------------------------------          
+            #region
+            // Encryption type ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
+            case "/entype": // 暗号化ファイルの種類
+              if (value == "1")
+              {
+                _EncryptionFileType = 1;
+              }
+              else if (value == "2")
+              {
+                _EncryptionFileType = 2;
+              }
+              else if (value == "3")
+              {
+                _EncryptionFileType = 3;
               }
               else
               {
-                _fDelOrgFile = false;
+                _EncryptionFileType = 0;
               }
-            }
-            break;
+              break;
 
-          // Delete encrypted file after decryption
-          case "/delenc": // 暗号化ファイルの完全削除を行うか
-            if (int.TryParse(value, out ResultNum))
-            {
-              if ( ResultNum > 0 && ResultNum < 4)
+            // Save same encryption type always. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
+            case "/sametype":  // 常に同じ暗号化ファイルの種類にする
+              if (value == "1")
               {
-                _fDelEncFile = true;
-                _fCompleteDelFile = ResultNum;  // 0: Not de;ete 1: Normal delete, 2: Go to trash, 3: Completely delete
+                _EncryptionSameFileTypeAlways = 1;
+                _fEncryptionSameFileTypeAlways = true;
+              }
+              else if (value == "2")
+              {
+                _EncryptionSameFileTypeAlways = 2;
+                _fEncryptionSameFileTypeAlways = true;
+              }
+              else if (value == "3")
+              {
+                _EncryptionSameFileTypeAlways = 3;
+                _fEncryptionSameFileTypeAlways = true;
               }
               else
               {
-                _fDelEncFile = false;
+                _EncryptionSameFileTypeAlways = 0;
+                _fEncryptionSameFileTypeAlways = false;
               }
-            }
-            break;
+              break;
 
-          // Show the check box in main form window
-          case "/chkdel": // メインフォームにチェックボックスを表示する
-            if ( value == "1" )
-            {
-              _fEncryptShowDelChkBox = true;
-              _fDecryptShowDelChkBox = true;
-            }
-            else if (value == "0")
-            {
-              _fEncryptShowDelChkBox = false;
-              _fDecryptShowDelChkBox = false;
-            }
-            break;
-
-          // Show confirmation dialog to delete file or directories
-          case "/comfdel":  //削除確認メッセージを表示するか
-            if ( value == "1" )
-            {
-              _fConfirmToDeleteAfterEncryption = true;
-              _fConfirmToDeleteAfterDecryption = true;
-            }
-            else if (value == "0")
-            {
-              _fConfirmToDeleteAfterEncryption = false;
-              _fConfirmToDeleteAfterDecryption = false;
-            }
-            break;
-
-          //Advanced Delete Option [0: Normal Delete, 1: Complete erase, 2: Send to Trash ]
-          case "/delrand": // 乱数を何回書き込み消去するか
-            if ( int.TryParse(value, out ResultNum) == true)
-            {
-              if ( 0 < ResultNum && ResultNum < 100)
+            // Save same encryption type that was used to before. ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
+            case "/beforetype":  // 前に使った暗号化ファイルの種類にする
+              if (value == "1")
               {
-                _DelRandNum = ResultNum;
+                _EncryptionSameFileTypeBefore = 1;
+                _fEncryptionSameFileTypeBefore = true;
               }
-            }
-            break;
-
-          case "/delnull": // NULLを何回書き込み消去するか
-            if ( int.TryParse(value, out ResultNum) == true)
-            {
-              if ( 0 < ResultNum && ResultNum < 100)
+              else if (value == "2")
               {
-                _DelZeroNum = ResultNum;
+                _EncryptionSameFileTypeBefore = 2;
+                _fEncryptionSameFileTypeBefore = true;
               }
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // 圧縮
-          //-----------------------------------          
-          #region
-          // Enable compression
-          case "/comprate": // 圧縮率
-            if ( int.TryParse(value, out ResultNum) == true)
-            {
-              if ( -1 < ResultNum || ResultNum < 10)
+              else if (value == "3")
               {
-                _CompressRate = ResultNum;
+                _EncryptionSameFileTypeBefore = 3;
+                _fEncryptionSameFileTypeBefore = true;
               }
-
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // パスワードファイル
-          //-----------------------------------          
-          #region
-          // Allow a password file to drag and drop
-          case "/pf": // パスワードにファイルの指定を許可する
-            if ( value == "1" )
-            {
-              _fAllowPassFile = true;
-            }
-            else if (value == "0")
-            {
-              _fAllowPassFile = false;
-            }
-            break;
-
-          // Password file path for encryption
-          case "/pfile": // 暗号化時のパスワードファイルパス
-            if (Directory.Exists(value) == true)
-            {
-              if (Path.IsPathRooted(value) == false)
+              else
               {
-                value = Path.GetFullPath(value);
+                _EncryptionSameFileTypeBefore = 0;
+                _fEncryptionSameFileTypeBefore = false;
               }
-              _PassFilePath = value;
-              _fAllowPassFile = true;
-            }
-            break;
+              break;
 
-          // Password file path for decryption
-          case "/dpfile": // 復号時のパスワードファイルパス
-            if (Directory.Exists(value) == true)
-            {
-              if (Path.IsPathRooted(value) == false)
+            #endregion
+
+            //-----------------------------------
+            // 保存設定（暗号化）
+            //-----------------------------------          
+            #region
+            // Save to same folder in &encryption
+            case "/saveto": //常に同じ場所へ暗号化ファイルを保存する
+              if (Directory.Exists(value) == true)
               {
-                value = Path.GetFullPath(value);
+                if (Path.IsPathRooted(value) == false)
+                {
+                  value = Path.GetFullPath(value);
+                }
+                _SaveToSameFldrPath = value;
+                _fSaveToSameFldr = true;
               }
-              _PassFilePathDecrypt = value;
-              _fAllowPassFile = true;
-            }
-            break;
+              break;
 
-          // It's not issued an error message when password file doesn't exists
-          case "/nomsgp": // パスワードファイルがない場合エラーを出さない
-            if (value == "1")
-            {
-              _fNoErrMsgOnPassFile = true;
-            }
-            else if (value == "0")
-            {
-              _fNoErrMsgOnPassFile = false;
-            }
-            break;
-
-          #endregion
-
-          //-----------------------------------
-          // パスワード入力制限
-          //-----------------------------------          
-          #region
-          // Set number of times to input password in encrypt files
-          case "/typelimit": // パスワードのタイプミス制限回数
-            if (int.TryParse(value, out ResultNum) == true)
-            {
-              if ( 0 <= ResultNum || ResultNum <= 10)
+            // Confirm overwriting when same filename exists 
+            case "/ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）
+              if (value == "1")
               {
-                _MissTypeLimitsNum = ResultNum;
+                _fEncryptConfirmOverwrite = true;
+                _fDecryptConfirmOverwrite = true;
               }
-            }
-            break;
+              else if (value == "0")
+              {
+                _fEncryptConfirmOverwrite = false;
+                _fDecryptConfirmOverwrite = false;
+              }
+              break;
 
-          // If input wrong password to the number of times, destroy it
-          case "/breakfile":  // // タイプミス回数を超えたときにファイルを破壊するか否か
-            if ( value == "1" )
-            {
-              _fBroken = true;
-            }
-            else if (value == "0")
-            {
-              _fBroken = false;
-            }
-            break;
+            // Create one encrypted file from files
+            case "/allpack": // 複数のファイルを暗号化する際は一つにまとめる
+              if (value == "1")
+              {
+                _fAllFilePack = true;
+              }
+              else if (value == "0")
+              {
+                _fAllFilePack = false;
+              }
+              break;
 
-          #endregion
+            // Encrypt or decrypt files in directory one by one
+            case "/oneby": // フォルダ内のファイルは個別に暗号化する
+              if (value == "1")
+              {
+                _fFilesOneByOne = true;
+              }
+              else if (value == "0")
+              {
+                _fFilesOneByOne = false;
+              }
+              break;
 
-          //-----------------------------------
-          // サルベージ
-          //-----------------------------------
-          #region
+            // Set the timestamp of encryption file to original files or directories
+            case "/orgdt": // 暗号化ファイルのタイムスタンプを元ファイルに合わせる
+              if (value == "1")
+              {
+                _fKeepTimeStamp = true;
+              }
+              else if (value == "0")
+              {
+                _fKeepTimeStamp = false;
+              }
+              break;
 
-          // Decrypt one by one while creating the parent folder.
-          case "/slvgfolder": // 一つずつ親フォルダーを確認、生成しながら復号する
-            if (value == "1")
-            {
-              _fSalvageToCreateParentFolderOneByOne = true;
-            }
-            else if (value == "0")
-            {
-              _fSalvageToCreateParentFolderOneByOne = false;
-            }
-            break;
+            // Create encrypted file &including extension
+            case "/withext": // 暗号化ファイル名に拡張子を含める
+              if (value == "1")
+              {
+                _fExtInAtcFileName = true;
+              }
+              else if (value == "0")
+              {
+                _fExtInAtcFileName = false;
+              }
+              break;
 
-          // Decrypt all files into the directory of the same hierarchy.
-          case "/slvgsame": // すべてのファイルを同じ階層のディレクトリーに復号する
-            if (value == "")
-            {
-              _fSalvageIntoSameDirectory = true;
-            }
-            else if (value == "0")
-            {
-              _fSalvageIntoSameDirectory = false;
-            }
-            break;
+            // Specify the format of the encryption file name
+            case "/autoname": // 自動で暗号化ファイル名を付加する
+              _fAutoName = true;
+              _AutoNameFormatText = value;
+              break;
 
-          #endregion
+            // Encrypted files camouflage with extension
+            case "/camoext": // 暗号化ファイルの拡張子を偽装する
 
-          //-----------------------------------
-          //その他（コマンドラインからのみ）
-          //-----------------------------------
-          #region
-          case "/en": // 明示的な暗号処理
-            if (value == "1")
-            {
-              _ProcTypeWithoutAsk = 1;                                 
-            }
-            break;
-
-          case "/de": // 明示的な復号処理
-            if (value == "2")
-            {
-              _ProcTypeWithoutAsk = 2;
-            }
-            break;
-
-          case "/4gbok": // 4GB超えを容認
-            if (value == "1")
-            {
-              _fOver4GBok = true;
-            }
-            else if (value == "0")
-            {
-              _fOver4GBok = false;
-            }
-            break;
-
-          case "/list": // リストファイルからのパスの読み込み
-            if (File.Exists(value) == true)
-            {
-              int c = 0;
-              string dir = Path.GetDirectoryName(value);
-              string line;
-
-              // Detect text encoding
-              byte[] bs = File.ReadAllBytes(value);
-              //文字コードを取得する
-              Encoding enc = DetectEncoding(bs);
-
-              if (enc == null)
+              if (IsValidFileName(value) == false)
               {
                 // 注意
                 // 
-                // 以下の指定されたリストファイルの文字エンコードが不明で読み取れません！
-                // [FileListPath]
+                // Windowsのファイル名には以下の文字が使えません！
+                // 
+                // \\ / : , * ? \" < > |
                 //
                 // Alert
-                // The character encoding of the following specified list file is unknown that can not be read!
-                // [FileListPath]
-                MessageBox.Show(Resources.DialogMessageFileListEncodingUnknown + "\n" + value,
+                // The following characters cannot be used for the file name of Windows.
+                // 
+                // \\ / : , * ? \" < > |
+                MessageBox.Show(Resources.DialogMessageNotUseWindowsFileName,
                 Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return (-1);
               }
-
-              // Read the List file and Add to FileList.
-              using (StreamReader sr = new StreamReader(value, enc))
+              else
               {
-                while ((line = sr.ReadLine()) != null)
+                _fAddCamoExt = true;
+                _CamoExt = value;
+              }
+
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // 保存設定（復号）
+            //-----------------------------------    
+            #region
+            // Save to the same folder in decryption
+            case "/dsaveto": // 常に同じ場所へファイルを復号化する
+              if (Directory.Exists(value) == true)
+              {
+                if (Path.IsPathRooted(value) == false)
                 {
-                  if (line == "") continue;
-                  string filename = Path.Combine(dir, line);
-                  string fullpath = Path.GetFullPath(filename);
-                  if ( File.Exists(fullpath) == true)
-                  {
-                    _FileList.Add(fullpath);
-                  }
-                  else
-                  {
-                    // 注意
-                    // 
-                    // 以下の指定されたファイルリストの中のファイルが見つかりません！
-                    // [FileListPath]
-                    // [FilePath]
-                    //
-                    // Alert
-                    // The file in the following specified file's list can not be found!
-                    // [FileListPath]
-                    // [FilePath]
-                    MessageBox.Show(Resources.DialogMessageFileInFileListNotFound + "\n/list=" + value + "\n" + fullpath,
-                    Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return (-1);
-                  }
-                  c++;
+                  value = Path.GetFullPath(value);
+                }
+                _DecodeToSameFldrPath = value;
+                _fDecodeToSameFldr = true;
+              }
+              break;
+
+            // Confirm overwriting when same filename exists
+            //case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
+            //  break;
+
+            // Create no parent folder in decryption
+            case "/nopfldr": // 復号するときに親フォルダを生成しない
+              if (value == "1")
+              {
+                _fNoParentFldr = true;
+              }
+              else if (value == "0")
+              {
+                _fNoParentFldr = false;
+              }
+              break;
+
+            // Set the timestamp to decrypted files or directories
+            case "/now": // 復号したファイルのタイムスタンプを生成日時にする
+              if (value == "1")
+              {
+                _fSameTimeStamp = true;
+              }
+              else if (value == "0")
+              {
+                _fSameTimeStamp = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // 保存設定（ZIP）
+            //-----------------------------------    
+            #region
+            // Save to the same folder in ZIP
+            case "/zipsaveto": // 常に同じ場所へファイルを暗号化する
+              if (Directory.Exists(value) == true)
+              {
+                if (Path.IsPathRooted(value) == false)
+                {
+                  value = Path.GetFullPath(value);
+                }
+                _ZipToSameFldrPath = value;
+                _fZipToSameFldr = true;
+              }
+              break;
+
+            // Confirm overwriting when same filename exists
+            //case "ow": // 同名ファイルの上書きを確認するか（確認無で上書きするか？）＝暗号化時と共通オプション
+            //  break;
+
+            // EncryptionAlgorithm ( 0: PkzipWeak, 1: WinZipAes128, 2: WinZipAes256 ) 
+            case "/zipalgo":
+              if (value == "1")
+              {
+                _ZipEncryptionAlgorithm = 1;
+              }
+              else if (value == "2")
+              {
+                _ZipEncryptionAlgorithm = 2;
+              }
+              else
+              {
+                _ZipEncryptionAlgorithm = 0;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // 削除設定
+            //-----------------------------------          
+            #region
+            // Delete original files or directories after encryption
+            case "/del": // 元ファイルの完全削除を行うか
+              if (int.TryParse(value, out ResultNum))
+              {
+                if (ResultNum > 0 && ResultNum < 4)
+                {
+                  _fDelOrgFile = true;
+                  _fCompleteDelFile = ResultNum;  // 0: 削除しない, 1: 通常削除, 2: ごみ箱, 3: 完全削除
+                }
+                else
+                {
+                  _fDelOrgFile = false;
                 }
               }
-            }
-            else
-            {
-              // 注意
-              // 
-              // 以下の指定されたリストファイルが見つかりません！
-              // [FilePath]
-              //
-              // Alert
-              // The following specified list file can not be found!
-              // [FilePath]
-              MessageBox.Show(Resources.DialogMessageFileListNotFound + "\n" + value,
-              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-              return (-1);
-            }
-            break;
+              break;
 
-          #endregion
+            // Delete encrypted file after decryption
+            case "/delenc": // 暗号化ファイルの完全削除を行うか
+              if (int.TryParse(value, out ResultNum))
+              {
+                if (ResultNum > 0 && ResultNum < 4)
+                {
+                  _fDelEncFile = true;
+                  _fCompleteDelFile = ResultNum;  // 0: Not de;ete 1: Normal delete, 2: Go to trash, 3: Completely delete
+                }
+                else
+                {
+                  _fDelEncFile = false;
+                }
+              }
+              break;
 
-        }// end switch;
+            // Show the check box in main form window
+            case "/chkdel": // メインフォームにチェックボックスを表示する
+              if (value == "1")
+              {
+                _fEncryptShowDelChkBox = true;
+                _fDecryptShowDelChkBox = true;
+              }
+              else if (value == "0")
+              {
+                _fEncryptShowDelChkBox = false;
+                _fDecryptShowDelChkBox = false;
+              }
+              break;
+
+            // Show confirmation dialog to delete file or directories
+            case "/comfdel":  //削除確認メッセージを表示するか
+              if (value == "1")
+              {
+                _fConfirmToDeleteAfterEncryption = true;
+                _fConfirmToDeleteAfterDecryption = true;
+              }
+              else if (value == "0")
+              {
+                _fConfirmToDeleteAfterEncryption = false;
+                _fConfirmToDeleteAfterDecryption = false;
+              }
+              break;
+
+            //Advanced Delete Option [0: Normal Delete, 1: Complete erase, 2: Send to Trash ]
+            case "/delrand": // 乱数を何回書き込み消去するか
+              if (int.TryParse(value, out ResultNum) == true)
+              {
+                if (0 < ResultNum && ResultNum < 100)
+                {
+                  _DelRandNum = ResultNum;
+                }
+              }
+              break;
+
+            case "/delnull": // NULLを何回書き込み消去するか
+              if (int.TryParse(value, out ResultNum) == true)
+              {
+                if (0 < ResultNum && ResultNum < 100)
+                {
+                  _DelZeroNum = ResultNum;
+                }
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // 圧縮
+            //-----------------------------------          
+            #region
+            // Enable compression
+            case "/comprate": // 圧縮率
+              if (int.TryParse(value, out ResultNum) == true)
+              {
+                if (-1 < ResultNum || ResultNum < 10)
+                {
+                  _CompressRate = ResultNum;
+                }
+
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // パスワードファイル
+            //-----------------------------------          
+            #region
+            // Allow a password file to drag and drop
+            case "/pf": // パスワードにファイルの指定を許可する
+              if (value == "1")
+              {
+                _fAllowPassFile = true;
+              }
+              else if (value == "0")
+              {
+                _fAllowPassFile = false;
+              }
+              break;
+
+            // Password file path for encryption
+            case "/pfile": // 暗号化時のパスワードファイルパス
+              if (Directory.Exists(value) == true)
+              {
+                if (Path.IsPathRooted(value) == false)
+                {
+                  value = Path.GetFullPath(value);
+                }
+                _PassFilePath = value;
+                _fAllowPassFile = true;
+              }
+              break;
+
+            // Password file path for decryption
+            case "/dpfile": // 復号時のパスワードファイルパス
+              if (Directory.Exists(value) == true)
+              {
+                if (Path.IsPathRooted(value) == false)
+                {
+                  value = Path.GetFullPath(value);
+                }
+                _PassFilePathDecrypt = value;
+                _fAllowPassFile = true;
+              }
+              break;
+
+            // It's not issued an error message when password file doesn't exists
+            case "/nomsgp": // パスワードファイルがない場合エラーを出さない
+              if (value == "1")
+              {
+                _fNoErrMsgOnPassFile = true;
+              }
+              else if (value == "0")
+              {
+                _fNoErrMsgOnPassFile = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // パスワード入力制限
+            //-----------------------------------          
+            #region
+            // Set number of times to input password in encrypt files
+            case "/typelimit": // パスワードのタイプミス制限回数
+              if (int.TryParse(value, out ResultNum) == true)
+              {
+                if (0 <= ResultNum || ResultNum <= 10)
+                {
+                  _MissTypeLimitsNum = ResultNum;
+                }
+              }
+              break;
+
+            // If input wrong password to the number of times, destroy it
+            case "/breakfile":  // // タイプミス回数を超えたときにファイルを破壊するか否か
+              if (value == "1")
+              {
+                _fBroken = true;
+              }
+              else if (value == "0")
+              {
+                _fBroken = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // サルベージ
+            //-----------------------------------
+            #region
+
+            // Decrypt one by one while creating the parent folder.
+            case "/slvgfolder": // 一つずつ親フォルダーを確認、生成しながら復号する
+              if (value == "1")
+              {
+                _fSalvageToCreateParentFolderOneByOne = true;
+              }
+              else if (value == "0")
+              {
+                _fSalvageToCreateParentFolderOneByOne = false;
+              }
+              break;
+
+            // Decrypt all files into the directory of the same hierarchy.
+            case "/slvgsame": // すべてのファイルを同じ階層のディレクトリーに復号する
+              if (value == "")
+              {
+                _fSalvageIntoSameDirectory = true;
+              }
+              else if (value == "0")
+              {
+                _fSalvageIntoSameDirectory = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            //その他（コマンドラインからのみ）
+            //-----------------------------------
+            #region
+            case "/en": // 明示的な暗号処理
+              if (value == "1")
+              {
+                _ProcTypeWithoutAsk = 1;
+              }
+              break;
+
+            case "/de": // 明示的な復号処理
+              if (value == "2")
+              {
+                _ProcTypeWithoutAsk = 2;
+              }
+              break;
+
+            case "/4gbok": // 4GB超えを容認
+              if (value == "1")
+              {
+                _fOver4GBok = true;
+              }
+              else if (value == "0")
+              {
+                _fOver4GBok = false;
+              }
+              break;
+
+            case "/list": // リストファイルからのパスの読み込み
+              if (File.Exists(value) == true)
+              {
+                int c = 0;
+                string dir = Path.GetDirectoryName(value);
+                string line;
+
+                // Detect text encoding
+                byte[] bs = File.ReadAllBytes(value);
+                //文字コードを取得する
+                Encoding enc = DetectEncoding(bs);
+
+                if (enc == null)
+                {
+                  // 注意
+                  // 
+                  // 以下の指定されたリストファイルの文字エンコードが不明で読み取れません！
+                  // [FileListPath]
+                  //
+                  // Alert
+                  // The character encoding of the following specified list file is unknown that can not be read!
+                  // [FileListPath]
+                  MessageBox.Show(Resources.DialogMessageFileListEncodingUnknown + "\n" + value,
+                  Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                  return (-1);
+                }
+
+                // Read the List file and Add to FileList.
+                using (StreamReader sr = new StreamReader(value, enc))
+                {
+                  while ((line = sr.ReadLine()) != null)
+                  {
+                    if (line == "") continue;
+                    string filename = Path.Combine(dir, line);
+                    string fullpath = Path.GetFullPath(filename);
+                    if (File.Exists(fullpath) == true)
+                    {
+                      _FileList.Add(fullpath);
+                    }
+                    else
+                    {
+                      // 注意
+                      // 
+                      // 以下の指定されたファイルリストの中のファイルが見つかりません！
+                      // [FileListPath]
+                      // [FilePath]
+                      //
+                      // Alert
+                      // The file in the following specified file's list can not be found!
+                      // [FileListPath]
+                      // [FilePath]
+                      MessageBox.Show(Resources.DialogMessageFileInFileListNotFound + "\n/list=" + value + "\n" + fullpath,
+                      Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                      return (-1);
+                    }
+                    c++;
+                  }
+                }
+              }
+              else
+              {
+                // 注意
+                // 
+                // 以下の指定されたリストファイルが見つかりません！
+                // [FilePath]
+                //
+                // Alert
+                // The following specified list file can not be found!
+                // [FilePath]
+                MessageBox.Show(Resources.DialogMessageFileListNotFound + "\n" + value,
+                Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return (-1);
+              }
+              break;
+
+            #endregion
+
+            default:
+              break;
+
+          }// end switch;
+        }
 
         i++;
 
