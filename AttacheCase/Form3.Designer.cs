@@ -205,6 +205,10 @@
       this.panelLicenseOption = new System.Windows.Forms.Panel();
       this.richTextBox1 = new System.Windows.Forms.RichTextBox();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.splitButton1 = new AttacheCase.SplitButton();
+      this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.toolStripMenuItemOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItemCmdReference = new System.Windows.Forms.ToolStripMenuItem();
       this.pictureBoxCommandLineIcon = new System.Windows.Forms.PictureBox();
       this.pictureBoxIniFileIcon = new System.Windows.Forms.PictureBox();
       this.pictureBoxRegistryIcon = new System.Windows.Forms.PictureBox();
@@ -296,6 +300,7 @@
       this.tabPageLicense.SuspendLayout();
       this.panelLicenseOption.SuspendLayout();
       this.panel1.SuspendLayout();
+      this.contextMenuStrip2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCommandLineIcon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIniFileIcon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistryIcon)).BeginInit();
@@ -1708,6 +1713,7 @@
       // panel1
       // 
       resources.ApplyResources(this.panel1, "panel1");
+      this.panel1.Controls.Add(this.splitButton1);
       this.panel1.Controls.Add(this.pictureBoxCommandLineIcon);
       this.panel1.Controls.Add(this.pictureBoxIniFileIcon);
       this.panel1.Controls.Add(this.pictureBoxRegistryIcon);
@@ -1715,6 +1721,34 @@
       this.panel1.Controls.Add(this.buttonOK);
       this.panel1.Controls.Add(this.buttonCancel);
       this.panel1.Name = "panel1";
+      // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip2;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
+      // 
+      // contextMenuStrip2
+      // 
+      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
+      this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemOnlineHelp,
+            this.toolStripMenuItemCmdReference});
+      this.contextMenuStrip2.Name = "contextMenuStrip2";
+      // 
+      // toolStripMenuItemOnlineHelp
+      // 
+      resources.ApplyResources(this.toolStripMenuItemOnlineHelp, "toolStripMenuItemOnlineHelp");
+      this.toolStripMenuItemOnlineHelp.Name = "toolStripMenuItemOnlineHelp";
+      this.toolStripMenuItemOnlineHelp.Click += new System.EventHandler(this.toolStripMenuItemOnlineHelp_Click);
+      // 
+      // toolStripMenuItemCmdReference
+      // 
+      resources.ApplyResources(this.toolStripMenuItemCmdReference, "toolStripMenuItemCmdReference");
+      this.toolStripMenuItemCmdReference.Name = "toolStripMenuItemCmdReference";
+      this.toolStripMenuItemCmdReference.Click += new System.EventHandler(this.toolStripMenuItemCmdReference_Click);
       // 
       // pictureBoxCommandLineIcon
       // 
@@ -1964,6 +1998,7 @@
       this.panelLicenseOption.ResumeLayout(false);
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
+      this.contextMenuStrip2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCommandLineIcon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIniFileIcon)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRegistryIcon)).EndInit();
@@ -2170,5 +2205,9 @@
     private System.Windows.Forms.CheckBox checkBoxZipConfirmOverwrite;
     private System.Windows.Forms.TextBox textBoxZipToSameFldrPath;
     private System.Windows.Forms.CheckBox checkBoxZipToSameFldr;
-  }
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOnlineHelp;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCmdReference;
+        private SplitButton splitButton1;
+    }
 }

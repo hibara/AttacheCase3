@@ -143,6 +143,9 @@ Decryption failed.</value>
   <data name="DialogMessageNotAtcFile" xml:space="preserve">
     <value>The file is not encrypted file. The process is aborted.</value>
   </data>
+  <data name="DialogMessageNotSameHash" xml:space="preserve">
+    <value>The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.The process is aborted.</value>
+  </data>
   <data name="DialogMessageUnexpectedError" xml:space="preserve">
     <value>An unexpected error has occurred. And stops processing.</value>
   </data>

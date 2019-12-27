@@ -2085,12 +2085,10 @@ namespace AttacheCase
           continue;
         }
 
-        //char[] splitters = {'='};
-        //string[] values = cmdOpt.Split(splitters, 2, StringSplitOptions.None);
-
         // 正規表現を使って一番最初に出てくる「=」で分割する
         // Use regular expressions to split at the first “=”
-        string[] values = Regex.Split("(^.*?)(=)", cmdOpt);
+        char[] splitters = { '=' };
+        string[] values = cmdOpt.Split(splitters, 2, StringSplitOptions.None);
 
         if (values.Length == 2)
         {

@@ -21,7 +21,6 @@ using System.Windows.Forms;
 using AttacheCase;
 using System.IO;
 using System.Security.Cryptography;
-using System.Globalization;
 using System.Drawing;
 using System.Collections;
 using System.Collections.ObjectModel;
@@ -39,27 +38,28 @@ namespace Exeout
     private const int HEADER_DATA_READING   = 4; // Header data is reading.
     //private const int ENCRYPTING          = 5; // Ecrypting.
     private const int DECRYPTING            = 6; // Decrypting.
-    //private const int DELETING            = 7; // Deleting.
+                                                 //private const int DELETING            = 7; // Deleting.
 
-    // Error code
-    private const int USER_CANCELED = -1;   // User cancel.
-    private const int ERROR_UNEXPECTED = -100;
-    private const int NOT_ATC_DATA = -101;
-    private const int ATC_BROKEN_DATA = -102;
-    private const int NO_DISK_SPACE = -103;
-    private const int FILE_INDEX_NOT_FOUND = -104;
+    // Error Code
+    private const int USER_CANCELED            = -1;
+    private const int ERROR_UNEXPECTED         = -100;
+    private const int NOT_ATC_DATA             = -101;
+    private const int ATC_BROKEN_DATA          = -102;
+    private const int NO_DISK_SPACE            = -103;
+    private const int FILE_INDEX_NOT_FOUND     = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
-    private const int NOT_CORRECT_HASH_VALUE = -106;
-    private const int INVALID_FILE_PATH = -107;
-    private const int OS_DENIES_ACCESS = -108;
-    private const int DATA_NOT_FOUND = -109;
-    private const int DIRECTORY_NOT_FOUND = -110;
-    private const int DRIVE_NOT_FOUND = -111;
-    private const int FILE_NOT_LOADED = -112;
-    private const int FILE_NOT_FOUND = -113;
-    private const int PATH_TOO_LONG = -114;
+    private const int NOT_CORRECT_HASH_VALUE   = -106;
+    private const int INVALID_FILE_PATH        = -107;
+    private const int OS_DENIES_ACCESS         = -108;
+    private const int DATA_NOT_FOUND           = -109;
+    private const int DIRECTORY_NOT_FOUND      = -110;
+    private const int DRIVE_NOT_FOUND          = -111;
+    private const int FILE_NOT_LOADED          = -112;
+    private const int FILE_NOT_FOUND           = -113;
+    private const int PATH_TOO_LONG            = -114;
+    private const int IO_EXCEPTION             = -115;
 
-		public static BackgroundWorker bkg;
+    public static BackgroundWorker bkg;
 		public int LimitOfInputPassword = -1;
 		private FileDecrypt3 decryption = null;
 		string TempDecryptionPassFilePath = "";
@@ -328,6 +328,7 @@ namespace Exeout
         private const int DELETING            = 7; // Deleting.
 
         // Error code
+        private const int USER_CANCELED            = -1;
         private const int ERROR_UNEXPECTED         = -100;
         private const int NOT_ATC_DATA             = -101;
         private const int ATC_BROKEN_DATA          = -102;
@@ -336,12 +337,16 @@ namespace Exeout
         private const int PASSWORD_TOKEN_NOT_FOUND = -105;
         private const int NOT_CORRECT_HASH_VALUE   = -106;
         private const int INVALID_FILE_PATH        = -107;
-        private const int OS_DENIES_ACCESS　        = -108;
+        private const int OS_DENIES_ACCESS         = -108;
         private const int DATA_NOT_FOUND           = -109;
+        private const int DIRECTORY_NOT_FOUND      = -110;
+        private const int DRIVE_NOT_FOUND          = -111;
+        private const int FILE_NOT_LOADED          = -112;
+        private const int FILE_NOT_FOUND           = -113;
+        private const int PATH_TOO_LONG            = -114;
+        private const int IO_EXCEPTION             = -115;
         */
-
-        FileDecryptReturnVal result = (FileDecryptReturnVal)e.Result;
-        switch (result.ReturnCode)
+        switch (decryption.ReturnCode)
         {
           //-----------------------------------
           case DECRYPT_SUCCEEDED:
@@ -363,23 +368,10 @@ namespace Exeout
             // Move to a place (eg Desktop) where you can read and write files and try again.
             // 
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAccessDeny,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
             return;
-
-          //-----------------------------------
-          case ERROR_UNEXPECTED:
-            // エラー
-            // 予期せぬエラーが発生しました。処理を中止します。
-            //
-            // Error
-            // An unexpected error has occurred. And stops processing.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
-            break;
 
           //-----------------------------------
           case NOT_ATC_DATA:
@@ -388,10 +380,11 @@ namespace Exeout
             //
             // Error
             // The file is not encrypted file. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNotAtcFile + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageNotAtcFile + Environment.NewLine + decryption.ErrorFilePath,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
             return;
 
           //-----------------------------------
@@ -401,10 +394,11 @@ namespace Exeout
             //
             // Error
             // Encrypted file ( atc ) is broken. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageAtcFileBroken + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageAtcFileBroken + Environment.NewLine + decryption.ErrorFilePath,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
 
             return;
 
@@ -416,9 +410,9 @@ namespace Exeout
             // Alert
             // No free space on the disk. The process is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageNoDiskSpace,
-            Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+              Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
             return;
 
           //-----------------------------------
@@ -429,9 +423,23 @@ namespace Exeout
             // Error
             // Internal file index is invalid in encrypted file.
             MessageBox.Show(Resources.DialogMessageFileIndexInvalid,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
+            return;
+
+          //-----------------------------------
+          case NOT_CORRECT_HASH_VALUE:
+            // エラー
+            // ファイルのハッシュ値が異なります。ファイルが壊れたか、改ざんされた可能性があります。
+            // 処理を中止します。
+            //
+            // Error
+            // The file is not the same hash value. Whether the file is corrupted, it may have been made the falsification.
+            // The process is aborted.
+            MessageBox.Show(new Form { TopMost = true },
+              Resources.DialogMessageNotSameHash + Environment.NewLine + decryption.ErrorFilePath,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             return;
 
           //-----------------------------------
@@ -441,10 +449,11 @@ namespace Exeout
             //
             // Error
             // The path of files or folders are invalid. The process is aborted.
-            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageInvalidFilePath + Environment.NewLine + result.FilePath,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+            MessageBox.Show(new Form { TopMost = true }, 
+              Resources.DialogMessageInvalidFilePath + Environment.NewLine + decryption.ErrorFilePath,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
             return;
 
           //-----------------------------------
@@ -457,10 +466,23 @@ namespace Exeout
             // Encrypted data not found. The file is broken.
             // Decryption failed.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDataNotFound,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            labelMessage.Text = Resources.labelCaptionAborted;
-            labelPercent.Text = "- %";
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
             return;
+
+          //-----------------------------------
+          case ERROR_UNEXPECTED:
+            // エラー
+            // 予期せぬエラーが発生しました。処理を中止します。
+            //
+            // Error
+            // An unexpected error has occurred. And stops processing.
+            MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageUnexpectedError,
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              labelMessage.Text = Resources.labelCaptionAborted;
+              labelPercent.Text = "- %";
+            break;
 
           //-----------------------------------
           case PASSWORD_TOKEN_NOT_FOUND:
@@ -474,7 +496,7 @@ namespace Exeout
             // Password is invalid, or the encrypted file might have been broken.
             // Decryption is aborted.
             MessageBox.Show(new Form { TopMost = true }, Resources.DialogMessageDecryptionError,
-            Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+              Resources.DialogTitleError, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (LimitOfInputPassword > 1)
             {

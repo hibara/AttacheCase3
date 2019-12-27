@@ -40,6 +40,9 @@ namespace AttacheCase
       //internal static extern uint WritePrivateProfileString(string section, string key, string val, string filePath);
     }
 
+		private string OneLineHelpURL = "https://hibara.org/software/attachecase/help/";
+		private string CommandLineReferenceURL = "https://hibara.org/software/attachecase/help/howto/#command-line-option";
+
     private const int BCM_FIRST = 0x1600;
 		private const int BCM_SETSHIELD = BCM_FIRST + 0x000C;
 
@@ -881,10 +884,11 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ";
-#endregion
-      
-      //-----------------------------------
-      buttonApply.Enabled = false;
+			#endregion
+
+			//-----------------------------------
+			splitButton1.Text = toolStripMenuItemOnlineHelp.Text;
+			buttonApply.Enabled = false;
 
 			fLoading = false;
 
@@ -1259,6 +1263,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 			buttonApply.Enabled = false;
       
+		}
+
+		private void toolStripMenuItemOnlineHelp_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(OneLineHelpURL);
+		}
+
+		private void toolStripMenuItemCmdReference_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(CommandLineReferenceURL);
+		}
+
+		private void splitButton1_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(OneLineHelpURL);
 		}
 
 		/// <summary>
@@ -2341,9 +2360,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     }
 
 
-#endregion
+		#endregion
 
-  }
+	}
 
 
 

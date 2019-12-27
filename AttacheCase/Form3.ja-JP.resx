@@ -1331,6 +1331,21 @@
   <data name="tabPageLicense.Text" xml:space="preserve">
     <value>ライセンス</value>
   </data>
+  <data name="toolStripMenuItemOnlineHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="toolStripMenuItemOnlineHelp.Text" xml:space="preserve">
+    <value>オンラインヘルプ</value>
+  </data>
+  <data name="toolStripMenuItemCmdReference.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="toolStripMenuItemCmdReference.Text" xml:space="preserve">
+    <value>コマンドラインレファレンス</value>
+  </data>
+  <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 48</value>
+  </data>
   <data name="pictureBoxCommandLineIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
