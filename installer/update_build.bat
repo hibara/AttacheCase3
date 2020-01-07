@@ -93,7 +93,7 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
 "%ProgramFiles%\Inno Setup 5\ISCC.exe" AttacheCase.iss
 )
 
-echo %ERRORLEVEL%
+@echo "Error level:", %ERRORLEVEL%
 
 @echo. 
 @echo. -----------------------------------

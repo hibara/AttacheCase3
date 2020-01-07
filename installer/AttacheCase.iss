@@ -79,8 +79,7 @@ AppSupportURL=https://hibara.org/software/
 AppUpdatesURL=https://hibara.org/software/AttacheCase/
 ;アプリケーションの説明
 AppComments={cm:AppComments}
-
-#include <idp.iss>
+#include "idp.iss"
 
 [Files]
 Source:"bin\AttacheCase.exe"; DestDir:"{app}";Flags: ignoreversion touch

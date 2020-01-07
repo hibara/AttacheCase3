@@ -3226,10 +3226,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 192</value>
+    <value>3, 192</value>
   </data>
   <data name="labelDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 24</value>
+    <value>74, 24</value>
   </data>
   <data name="labelDecryption.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3595,10 +3595,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 200</value>
+    <value>3, 193</value>
   </data>
   <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 24</value>
+    <value>67, 24</value>
   </data>
   <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3629,7 +3629,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 149</value>
+    <value>13, 142</value>
   </data>
   <data name="pictureBoxProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
