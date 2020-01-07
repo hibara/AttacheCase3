@@ -22,7 +22,6 @@ using System.Globalization;
 
 namespace AttacheCase
 {
-
   static class Program
   {
     /// <summary>
@@ -66,29 +65,29 @@ namespace AttacheCase
 
         //-----------------------------------
         // Check culture
-
-        if (AppSettings.Instance.Language == "")
+        switch (AppSettings.Instance.Language)
         {
-          if (Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
-          {
-            AppSettings.Instance.Language = "ja";
-          }
-          else
-          {
-            AppSettings.Instance.Language = "en";
-          }
-        }
-
-        if (AppSettings.Instance.Language == "ja")
-        {
-          Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
-          Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
-          //AppSettings.Instance.Language = "ja";
-        }
-        else
-        {
-          Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
-          //AppSettings.Instance.Language = "en";
+          case "ja":
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+            break;
+          case "en":
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("", true);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("", true);
+            break;
+          case "":
+          default:
+            if (CultureInfo.CurrentCulture.Name == "ja-JP")
+            {
+              Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP");
+              Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP");
+            }
+            else
+            {
+              Thread.CurrentThread.CurrentCulture = new CultureInfo("", true);
+              Thread.CurrentThread.CurrentUICulture = new CultureInfo("", true);
+            }
+            break;
         }
 
         //-----------------------------------

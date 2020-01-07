@@ -668,10 +668,11 @@ namespace AttacheCase
         // e.g.)
         // 0:sample.txt[\t]49657[\t]32[\t]736194[\t]39585.875[\t]736194[\t]30186.782[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
         string[] FilePathSplits = OutputFileData[0].Split(':');
-          if (Int32.TryParse(FilePathSplits[0], out int FileNum) == false)
-          {
-            FileNum = -1;
-          }
+        int FileNum = 0;
+        if (Int32.TryParse(FilePathSplits[0], out FileNum) == false)
+        {
+          FileNum = -1;
+        }
 
         //-----------------------------------
         // Parent folder is not created.

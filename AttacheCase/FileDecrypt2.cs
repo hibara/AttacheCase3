@@ -690,7 +690,8 @@ namespace AttacheCase
           // or
           // Fn_0:dummy.bin[\t]52426752[\t]32[\t]736214[\t]74714078[\t]736214[\t]74714078
           string[] FilePathSplits = OutputFileData[0].Split(':');
-          if (Int32.TryParse(FilePathSplits[0].Split(':')[0].Remove(0, prefix), out int FileNum) == false)
+          int FileNum = 0;
+          if (Int32.TryParse(FilePathSplits[0].Split(':')[0].Remove(0, prefix), out FileNum) == false)
 				  {
 					  FileNum = -1;
 				  }

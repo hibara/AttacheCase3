@@ -10,7 +10,8 @@
 @echo Clean up
 @echo -----------------------------------
 
-
+rmdir /s /q bin
+mkdir bin
 
 
 @echo 

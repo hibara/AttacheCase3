@@ -285,60 +285,58 @@ namespace AttacheCase
 			//======================================================================
 
 			//-----------------------------------
-			// Localization
-			//-----------------------------------
-      #region
-			string lang = "";
-			if (AppSettings.Instance.Language == "ja")
-			{
-				lang = "ja";
-			}
-			else if (AppSettings.Instance.Language == "en")
-			{
-				lang = "en";
-			}
-			else
-			{
-				if (Thread.CurrentThread.CurrentCulture.Name == "ja-JP")
-				{
-					lang = "ja";
-				}
-				else
-				{
-					lang = "en";
-				}
-			}
-
-      #endregion
-
-			//-----------------------------------
 			// General
 			//-----------------------------------
       #region
 			checkBoxEndToExit.Checked = AppSettings.Instance.fEndToExit;
+
 			checkBoxOpenFile.Checked = AppSettings.Instance.fOpenFile;
 
       checkBoxShowDialogWhenExeFile.Checked = AppSettings.Instance.fShowDialogWhenExeFile;
+
       if( AppSettings.Instance.ShowDialogWhenMultipleFilesNum > 0)
       {
         checkBoxShowDialogWhenMultipleFiles.Checked = true;
         numericUpDownLaunchFiles.Value = AppSettings.Instance.ShowDialogWhenMultipleFilesNum;
       }
+
       checkBoxAskEncDecode.Checked = AppSettings.Instance.fAskEncDecode;
+
 			checkBoxNoHidePassword.Checked = AppSettings.Instance.fNotMaskPassword;
-			if (lang == "ja")
+
+			// Localization
+			switch (AppSettings.Instance.Language)
 			{
-				comboBoxLanguage.Items.Add("既定値");
-				comboBoxLanguage.Items.Add("日本語");
-				comboBoxLanguage.Items.Add("英語");
-				comboBoxLanguage.SelectedIndex = 0;
-			}
-			else
-			{
-				comboBoxLanguage.Items.Add("Default");
-				comboBoxLanguage.Items.Add("Japanese");
-				comboBoxLanguage.Items.Add("English");
-				comboBoxLanguage.SelectedIndex = 0;
+				case "ja":
+					comboBoxLanguage.Items.Add("既定値");
+					comboBoxLanguage.Items.Add("日本語");
+					comboBoxLanguage.Items.Add("英語");
+					comboBoxLanguage.SelectedIndex = 1;
+					break;
+
+				case "en":
+					comboBoxLanguage.Items.Add("Default");
+					comboBoxLanguage.Items.Add("Japanese");
+					comboBoxLanguage.Items.Add("English");
+					comboBoxLanguage.SelectedIndex = 2;
+					break;
+
+				case "":	// Default（既定値）
+				default:
+					if (Thread.CurrentThread.CurrentCulture.Name == "ja-JP")
+					{
+						comboBoxLanguage.Items.Add("既定値");
+						comboBoxLanguage.Items.Add("日本語");
+						comboBoxLanguage.Items.Add("英語");
+					}
+					else
+					{
+						comboBoxLanguage.Items.Add("Default");
+						comboBoxLanguage.Items.Add("Japanese");
+						comboBoxLanguage.Items.Add("English");
+					}
+					comboBoxLanguage.SelectedIndex = 0;
+					break;
 			}
 
 			// Active tab
@@ -1063,14 +1061,24 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			AppSettings.Instance.TabSelectedIndex = tabControl1.SelectedIndex;
 
 			// Language
-			if (comboBoxLanguage.SelectedIndex == 0 || comboBoxLanguage.SelectedIndex == 1)
+			switch (comboBoxLanguage.SelectedIndex)
 			{
-				AppSettings.Instance.Language = "ja";
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", false);
-			}
-			else {
-				AppSettings.Instance.Language = "en";
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo("", false);
+				case 1:	// Japanese
+					AppSettings.Instance.Language = "ja";
+					Thread.CurrentThread.CurrentCulture = new CultureInfo("ja-JP", true);
+					Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", true);
+					break;
+
+				case 2:	// English
+					AppSettings.Instance.Language = "en";
+					Thread.CurrentThread.CurrentUICulture = new CultureInfo("", true);
+					break;
+
+				case 0:	// Default
+				default:
+					AppSettings.Instance.Language = "";
+					Thread.CurrentThread.CurrentUICulture = new CultureInfo("", true);
+					break;
 			}
 			
 			//-----------------------------------
@@ -1335,25 +1343,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 		{
 			if (fLoading == false)
 			{
-        if (comboBoxLanguage.SelectedIndex == 0)
-        {
-          if(Application.CurrentCulture.TwoLetterISOLanguageName == "ja")
-          {
-            AppSettings.Instance.Language = "ja";
-          }
-          else
-          {
+				switch (comboBoxLanguage.SelectedIndex)
+				{
+					case 1:
+						AppSettings.Instance.Language = "ja";
+						break;
+
+					case 2:
             AppSettings.Instance.Language = "en";
-          }
-        }
-        else if (comboBoxLanguage.SelectedIndex == 1)
-        {
-          AppSettings.Instance.Language = "ja";
-        }
-        else if (comboBoxLanguage.SelectedIndex == 2)
-        {
-          AppSettings.Instance.Language = "en";
-        }
+						break;
+
+					case 0:
+					default:
+						AppSettings.Instance.Language = "";
+						break;
+				}
 
         // The message prompt to restart the application
 
