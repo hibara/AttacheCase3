@@ -55,7 +55,7 @@ namespace Exeout
 			//Console.WriteLine(ci.Name);  // ja-JP
 			if (ci.Name == "ja-JP")
 			{
-				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", false);
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", true);
 			}
 
       Application.EnableVisualStyles();

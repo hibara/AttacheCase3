@@ -259,9 +259,6 @@ FodyWeavers.xsd
 # Debug directory
 Debug/
 
-# Archive directory
-installer/Archives/*
-
 # private temporary directory and files
 _*/
 _*

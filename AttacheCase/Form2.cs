@@ -50,17 +50,20 @@ namespace AttacheCase
     {
       this.Close();
     }
-
     private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       linkLabel1.LinkVisited = true;
       System.Diagnostics.Process.Start(linkLabel1.Text);
       this.Close();
     }
-
+    private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      linkLabel2.LinkVisited = true;
+      System.Diagnostics.Process.Start(linkLabel2.Text);
+      this.Close();
+    }
     private void linkLabelCheckForUpdates_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-
       if (pictureBoxProgressCircle.Image == pictureBoxExclamationMark.Image)
       {
         System.Diagnostics.Process.Start("https://hibara.org/software/attachecase/");
@@ -76,7 +79,6 @@ namespace AttacheCase
 
       try
       {
-
         using (WebClient webClient = new WebClient())
         {
           var stream = webClient.OpenRead(new Uri("http://hibara.org/software/attachecase/current/"));
@@ -108,13 +110,12 @@ namespace AttacheCase
         // "Getting updates information is failed."
         linkLabelCheckForUpdates.Text = Resources.linkLabelCheckForUpdatesFailed;
         linkLabelCheckForUpdates.Enabled = false;
-
       }
 
     }
-    
+
   }
-  
+
   /// <summary>
   /// アセンブリ情報を取得する
   /// Get assembly infomations

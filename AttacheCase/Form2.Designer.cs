@@ -39,10 +39,15 @@
       this.linkLabelCheckForUpdates = new System.Windows.Forms.LinkLabel();
       this.pictureBoxCheckMark = new System.Windows.Forms.PictureBox();
       this.pictureBoxExclamationMark = new System.Windows.Forms.PictureBox();
+      this.pictureBoxHome = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.linkLabel2 = new System.Windows.Forms.LinkLabel();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxApplicationIcon)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProgressCircle)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckMark)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExclamationMark)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // labelAppName
@@ -110,11 +115,34 @@
       this.pictureBoxExclamationMark.Name = "pictureBoxExclamationMark";
       this.pictureBoxExclamationMark.TabStop = false;
       // 
+      // pictureBoxHome
+      // 
+      resources.ApplyResources(this.pictureBoxHome, "pictureBoxHome");
+      this.pictureBoxHome.Name = "pictureBoxHome";
+      this.pictureBoxHome.TabStop = false;
+      // 
+      // pictureBox1
+      // 
+      resources.ApplyResources(this.pictureBox1, "pictureBox1");
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.TabStop = false;
+      // 
+      // linkLabel2
+      // 
+      resources.ApplyResources(this.linkLabel2, "linkLabel2");
+      this.linkLabel2.Name = "linkLabel2";
+      this.linkLabel2.TabStop = true;
+      this.linkLabel2.VisitedLinkColor = System.Drawing.Color.Blue;
+      this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+      // 
       // Form2
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.buttonOK;
+      this.Controls.Add(this.linkLabel2);
+      this.Controls.Add(this.pictureBox1);
+      this.Controls.Add(this.pictureBoxHome);
       this.Controls.Add(this.pictureBoxExclamationMark);
       this.Controls.Add(this.pictureBoxCheckMark);
       this.Controls.Add(this.linkLabelCheckForUpdates);
@@ -138,6 +166,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProgressCircle)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCheckMark)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExclamationMark)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -155,5 +185,8 @@
     private System.Windows.Forms.LinkLabel linkLabelCheckForUpdates;
     private System.Windows.Forms.PictureBox pictureBoxCheckMark;
     private System.Windows.Forms.PictureBox pictureBoxExclamationMark;
-  }
+        private System.Windows.Forms.PictureBox pictureBoxHome;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+    }
 }

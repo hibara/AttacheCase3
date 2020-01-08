@@ -16,9 +16,8 @@
 // along with this program.If not, see<http://www.gnu.org/licenses/>.
 //---------------------------------------------------------------------- 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AtcSetup
@@ -31,6 +30,13 @@ namespace AtcSetup
 		[STAThread]
 		static void Main()
 		{
+			CultureInfo ci = Thread.CurrentThread.CurrentUICulture;
+			//Console.WriteLine(ci.Name);  // ja-JP
+			if (ci.Name == "ja-JP")
+			{
+				Thread.CurrentThread.CurrentUICulture = new CultureInfo("ja-JP", true);
+			}
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new Form1());
