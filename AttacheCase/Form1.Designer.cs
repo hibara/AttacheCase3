@@ -658,6 +658,7 @@
       resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
       this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
       this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
+      this.checkBoxNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskEncryptedPassword_CheckedChanged);
       // 
       // pictureBoxPassStrengthMeter
       // 
@@ -1227,6 +1228,7 @@
       // 
       resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
       this.textBoxPassword.Name = "textBoxPassword";
+      this.textBoxPassword.UseSystemPasswordChar = true;
       this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
       this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
       this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);

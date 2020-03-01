@@ -91,7 +91,6 @@ namespace AttacheCase
 
     private int TempOverWriteOption = -1;
 
-
     // The position of mouse down in main form.
     // マウスボタンがダウンされた位置
     private Point MouseDownPoint;
@@ -152,7 +151,6 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void Form1_Load(object sender, EventArgs e)
     {
-        
       // View start window
       panelEncrypt.Visible = false;
       panelEncryptConfirm.Visible = false;
@@ -193,10 +191,6 @@ namespace AttacheCase
         this.TopMost = true;
       }
 
-      // Not mask password character
-      checkBoxNotMaskEncryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
-      checkBoxNotMaskDecryptedPassword.Checked = AppSettings.Instance.fNotMaskPassword == true ? true : false;
-      
       StartProcess();
 
     }
@@ -2957,18 +2951,16 @@ namespace AttacheCase
 
     }
 
-    /// <summary>
-    ///  "Not &mask password character" checkbox click event
-    /// 「パスワードをマスクしない」チェックボックスのクリックイベント
-    /// </summary>
+    ///// <summary>
+    /////  "Not &mask password character" checkbox click event
+    ///// 「パスワードをマスクしない」チェックボックスのクリックイベント
+    ///// </summary>
     private void checkBoxNotMaskEncryptedPassword_CheckedChanged(object sender, EventArgs e)
     {
       if (checkBoxNotMaskEncryptedPassword.Checked == true)
       {
         checkBoxReNotMaskEncryptedPassword.Checked = true;
-        textBoxPassword.PasswordChar = (char)0;
         textBoxPassword.UseSystemPasswordChar = false;
-        textBoxRePassword.PasswordChar = (char)0;
         textBoxRePassword.UseSystemPasswordChar = false;
         AppSettings.Instance.fNotMaskPassword = true;
       }
@@ -2986,9 +2978,7 @@ namespace AttacheCase
       if (checkBoxReNotMaskEncryptedPassword.Checked == true)
       {
         checkBoxNotMaskEncryptedPassword.Checked = true;
-        textBoxPassword.PasswordChar = (char)0;
         textBoxPassword.UseSystemPasswordChar = false;
-        textBoxRePassword.PasswordChar = (char)0;
         textBoxRePassword.UseSystemPasswordChar = false;
         AppSettings.Instance.fNotMaskPassword = true;
       }
@@ -2999,7 +2989,6 @@ namespace AttacheCase
         textBoxRePassword.UseSystemPasswordChar = true;
         AppSettings.Instance.fNotMaskPassword = false;
       }
-
     }
 
     /// <summary>
