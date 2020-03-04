@@ -386,6 +386,14 @@ namespace AttacheCase
       set { this._fNoMultipleInstance = value; }
     }
 
+    private bool _fTurnOnIMEsTextBoxForPasswordEntry; // パスワード入力用のすべてのテキストボックスでIMEをオンにする
+    // Turn on IMEs in all text box for password entry
+    public bool fTurnOnIMEsTextBoxForPasswordEntry
+    {
+      get { return this._fTurnOnIMEsTextBoxForPasswordEntry; }
+      set { this._fTurnOnIMEsTextBoxForPasswordEntry = value; }
+    }
+       
     #endregion
 
     //----------------------------------------------------------------------
@@ -1312,6 +1320,7 @@ namespace AttacheCase
         _fOpenFolder = ((string)reg.GetValue("fOpenFolder", "0") == "1") ? true : false;
         _fWindowForeground = ((string)reg.GetValue("fWindowForeground", "1") == "1") ? true : false;
         _fNoMultipleInstance = ((string)reg.GetValue("fNoMultipleInstance", "0") == "1") ? true : false;
+        _fTurnOnIMEsTextBoxForPasswordEntry = ((string)reg.GetValue("fTurnOnIMEsTextBoxForPasswordEntry", "0") == "1") ? true : false;
 
         //-----------------------------------
         // Save Encrypt
@@ -1492,6 +1501,7 @@ namespace AttacheCase
         reg.SetValue("fOpenFolder", _fOpenFolder == true ? "1" : "0");
         reg.SetValue("fWindowForeground", _fWindowForeground == true ? "1" : "0");
         reg.SetValue("fNoMultipleInstance", _fNoMultipleInstance == true ? "1" : "0");
+        reg.SetValue("fTurnOnIMEsTextBoxForPasswordEntry", _fTurnOnIMEsTextBoxForPasswordEntry == true ? "1" : "0");
 
         //-----------------------------------
         // Save Encrypt
@@ -1689,6 +1699,7 @@ namespace AttacheCase
       ReadIniFile(IniFilePath, ref _fOpenFolder, "Option", "fOpenFolder", "0");
       ReadIniFile(IniFilePath, ref _fWindowForeground, "Option", "fWindowForeground", "1");
       ReadIniFile(IniFilePath, ref _fNoMultipleInstance, "Option", "fNoMultipleInstance", "1");
+      ReadIniFile(IniFilePath, ref _fTurnOnIMEsTextBoxForPasswordEntry, "Option", "fTurnOnIMEsTextBoxForPasswordEntry", "0");
 
       // Save Encrypt
 
@@ -1843,6 +1854,7 @@ namespace AttacheCase
       WriteIniFile(IniFilePath, _fOpenFolder, "Option", "fOpenFolder");
       WriteIniFile(IniFilePath, _fWindowForeground, "Option", "fWindowForeground");
       WriteIniFile(IniFilePath, _fNoMultipleInstance, "Option", "fNoMultipleInstance");
+      WriteIniFile(IniFilePath, _fTurnOnIMEsTextBoxForPasswordEntry, "Option", "fTurnOnIMEsTextBoxForPasswordEntry");
 
       //-----------------------------------
       // Save Encrypt
@@ -2293,6 +2305,18 @@ namespace AttacheCase
               else if (value == "0")
               {
                 _fNoMultipleInstance = false;
+              }
+              break;
+
+            // Turn on IMEs in all text box for password entry
+            case "/imeon": // パスワード入力用のすべてのテキストボックスでIMEをオンにする
+              if (value == "1")
+              {
+                _fTurnOnIMEsTextBoxForPasswordEntry = true;
+              }
+              else if (value == "0")
+              {
+                _fTurnOnIMEsTextBoxForPasswordEntry = false;
               }
               break;
 

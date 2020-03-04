@@ -57,6 +57,7 @@
       this.checkBoxMyEncodePasswordKeep = new System.Windows.Forms.CheckBox();
       this.tabPageWindowOption = new System.Windows.Forms.TabPage();
       this.panelWindowOption = new System.Windows.Forms.Panel();
+      this.checkBoxTurnOnAllIMEs = new System.Windows.Forms.CheckBox();
       this.label1 = new System.Windows.Forms.Label();
       this.checkBoxNoMultipleInstance = new System.Windows.Forms.CheckBox();
       this.checkBoxWindowForeground = new System.Windows.Forms.CheckBox();
@@ -550,6 +551,7 @@
       // panelWindowOption
       // 
       resources.ApplyResources(this.panelWindowOption, "panelWindowOption");
+      this.panelWindowOption.Controls.Add(this.checkBoxTurnOnAllIMEs);
       this.panelWindowOption.Controls.Add(this.label1);
       this.panelWindowOption.Controls.Add(this.checkBoxNoMultipleInstance);
       this.panelWindowOption.Controls.Add(this.checkBoxWindowForeground);
@@ -557,6 +559,13 @@
       this.panelWindowOption.Controls.Add(this.checkBoxTaskTrayIcon);
       this.panelWindowOption.Controls.Add(this.checkBoxTaskBarHide);
       this.panelWindowOption.Name = "panelWindowOption";
+      // 
+      // checkBoxTurnOnAllIMEs
+      // 
+      resources.ApplyResources(this.checkBoxTurnOnAllIMEs, "checkBoxTurnOnAllIMEs");
+      this.checkBoxTurnOnAllIMEs.Name = "checkBoxTurnOnAllIMEs";
+      this.checkBoxTurnOnAllIMEs.UseVisualStyleBackColor = true;
+      this.checkBoxTurnOnAllIMEs.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // label1
       // 
@@ -2209,5 +2218,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemOnlineHelp;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCmdReference;
         private SplitButton splitButton1;
+        private System.Windows.Forms.CheckBox checkBoxTurnOnAllIMEs;
     }
 }

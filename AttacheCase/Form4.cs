@@ -181,6 +181,14 @@ namespace AttacheCase
 			{
 				textBoxPassword.Focus();
 				textBoxPassword.SelectAll();
+        if (AppSettings.Instance.fTurnOnIMEsTextBoxForPasswordEntry == true)
+        {
+          textBoxPassword.ImeMode = ImeMode.On;
+        }
+        else
+        {
+          textBoxPassword.ImeMode = ImeMode.NoControl;
+        }
         this.CancelButton = buttonPasswordCancel;
       }
 			//-----------------------------------

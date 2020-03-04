@@ -2378,6 +2378,19 @@ namespace AttacheCase
                                       textBoxPassword.Left + pictureBoxPassStrengthMeter.Width;
         }
 
+        // Turn on IMEs in all text box for password entry
+        // パスワード入力用のすべてのテキストボックスでIMEをオンにする
+        if (AppSettings.Instance.fTurnOnIMEsTextBoxForPasswordEntry == true)
+        {
+          textBoxPassword.ImeMode = ImeMode.On;
+          textBoxRePassword.ImeMode = ImeMode.On;
+        }
+        else
+        {
+          textBoxPassword.ImeMode = ImeMode.NoControl;
+          textBoxRePassword.ImeMode = ImeMode.NoControl;
+        }
+
         textBoxPassword_TextChanged(sender, e);
 
         this.AcceptButton = buttonEncryptionPasswordOk;
@@ -2543,6 +2556,16 @@ namespace AttacheCase
         else
         {
           textBoxDecryptPassword.AllowDrop = false;
+        }
+
+        // Turn on IMEs in all text box for password entry
+        if (AppSettings.Instance.fTurnOnIMEsTextBoxForPasswordEntry == true)
+        {
+          textBoxDecryptPassword.ImeMode = ImeMode.On;
+        }
+        else
+        {
+          textBoxDecryptPassword.ImeMode = ImeMode.NoControl;
         }
 
         this.AcceptButton = buttonDecryptStart;

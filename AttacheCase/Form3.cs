@@ -374,16 +374,17 @@ namespace AttacheCase
 			checkBoxTaskTrayIcon.Checked = AppSettings.Instance.fTaskTrayIcon;
 			checkBoxWindowForeground.Checked = AppSettings.Instance.fWindowForeground;
 			checkBoxNoMultipleInstance.Checked = AppSettings.Instance.fNoMultipleInstance;
+			checkBoxTurnOnAllIMEs.Checked = AppSettings.Instance.fTurnOnIMEsTextBoxForPasswordEntry;
 
-      #endregion
+			#endregion
 
-      //-----------------------------------
-      // Save
-      //-----------------------------------
-      #region
+			//-----------------------------------
+			// Save
+			//-----------------------------------
+			#region
 
-      // Encryption will be the same file type always.
-      if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC)
+			// Encryption will be the same file type always.
+			if (AppSettings.Instance.EncryptionSameFileTypeAlways == FILE_TYPE_ATC)
       {
         radioButtonEncryptionFileTypeATC.Checked = true;
       }
@@ -1097,10 +1098,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			AppSettings.Instance.fTaskTrayIcon = checkBoxTaskTrayIcon.Checked;
 			AppSettings.Instance.fWindowForeground = checkBoxWindowForeground.Checked;
 			AppSettings.Instance.fNoMultipleInstance = checkBoxNoMultipleInstance.Checked;
+			AppSettings.Instance.fTurnOnIMEsTextBoxForPasswordEntry = checkBoxTurnOnAllIMEs.Checked;
 
-      //-----------------------------------
-      // Save
-      AppSettings.Instance.fSaveToExeout = false;
+			//-----------------------------------
+			// Save
+			AppSettings.Instance.fSaveToExeout = false;
       if (radioButtonEncryptionFileTypeATC.Checked == true)
       {
         AppSettings.Instance.EncryptionSameFileTypeAlways = FILE_TYPE_ATC;
