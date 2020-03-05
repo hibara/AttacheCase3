@@ -778,16 +778,23 @@ namespace AttacheCase
 
     private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
-
       ArrayList MessageList = (ArrayList)e.UserState;
 
       if (e.ProgressPercentage > 0)
       {
         progressBar.Style = ProgressBarStyle.Continuous;
-        progressBar.Value = e.ProgressPercentage;
-
         labelProgressPercentText.Text = ((float)e.ProgressPercentage / 100).ToString("F2") + "%";
-
+        try
+        {
+          progressBar.Value = e.ProgressPercentage;
+        }
+#pragma warning disable CA1031 // Do not catch general exception types
+        catch (ArgumentException)
+        {
+          // When an unexpected value is entered in the progress bar, 
+          // exception process is ignored.
+        }
+#pragma warning restore CA1031 // Do not catch general exception types
       }
       else
       {
