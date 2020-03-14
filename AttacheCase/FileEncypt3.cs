@@ -144,7 +144,7 @@ namespace AttacheCase
       get { return this._DriveName; }
     }
     // Total file size of files to be encrypted
-    private Int64 _TotalFileSize = -1;
+    private Int64 _TotalFileSize = 0;
     public Int64 TotalFileSize
     {
       get { return this._TotalFileSize; }
