@@ -1,0 +1,12 @@
+//comments are preceded by double slashes
+[FILENAMES]
+Open=..\..\AttacheCase\bin\Release\AttacheCase.exe
+Save=..\..\AttacheCase\bin\Release\AttacheCase.exe
+log=ResourceHacker.log
+[COMMANDS]
+//one or more of the following commands ...
+-addskip      ..\..\image\sub_icon\sub_icon00.ico, ICONGROUP,40000
+-addskip      ..\..\image\sub_icon\sub_icon01.ico, ICONGROUP,40001
+-addskip      ..\..\image\sub_icon\sub_icon02.ico, ICONGROUP,40002
+-addskip      ..\..\image\sub_icon\sub_icon03.ico, ICONGROUP,40003
+

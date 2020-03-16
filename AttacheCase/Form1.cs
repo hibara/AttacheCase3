@@ -2366,13 +2366,14 @@ namespace AttacheCase
           labelPasswordStrength.Visible = true;
           pictureBoxPassStrengthMeter.Visible = true;
           textBoxPassword.Width = pictureBoxPassStrengthMeter.Left - textBoxPassword.Left - 8;
+          textBoxPassword_TextChanged(sender, e);
         }
         else
         {
           labelPasswordStrength.Visible = false;
           pictureBoxPassStrengthMeter.Visible = false;
-          textBoxPassword.Width = pictureBoxPassStrengthMeter.Left -
-                                      textBoxPassword.Left + pictureBoxPassStrengthMeter.Width;
+          textBoxPassword.Width = 
+            pictureBoxPassStrengthMeter.Left - textBoxPassword.Left + pictureBoxPassStrengthMeter.Width;
         }
 
         // Turn on IMEs in all text box for password entry

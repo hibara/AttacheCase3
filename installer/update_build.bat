@@ -42,7 +42,7 @@ msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\A
 msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
 
 @rem Insert icons
-..\tools\inserticons\inserticons.exe ..\AttacheCase\bin\Release\AttacheCase.exe ..\image\sub_icon\sub_icon00.ico;..\image\sub_icon\sub_icon01.ico;..\image\sub_icon\sub_icon02.ico;..\image\sub_icon\sub_icon03.ico
+..\tools\resource_hacker\ResourceHacker.exe -script ..\tools\resource_hacker\ResourceHackerScript.txt
 
 
 @echo 
