@@ -106,9 +106,10 @@ Name: association; Description:{cm:AssocFileExtension,{cm:AppName},*.atc};
 ;Filename:"{app}\AtcSetup.exe"; Parameters:"-t=0 -p=""{app}\AttacheCase.exe"""; Tasks:association; Flags:postinstall runascurrentuser skipifsilent shellexec
 Filename:"{app}\AttacheCase.exe"; Description:{cm:LaunchProgram}; Flags:postinstall skipifsilent shellexec
 
-
-[UninstallDelete]
-
+[InstallDelete]
+Type: filesandordirs; Name: {app}\ja-JP
+Type: files; Name: {app}\Microsoft.WindowsAPICodePack.dll
+Type: files; Name: {app}\Microsoft.WindowsAPICodePack.Shell.dll
 
 [Registry]
 ;ä÷òAïtÇØê›íË
