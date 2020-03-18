@@ -67,7 +67,7 @@ After all, the encryotion function of password-protected ZIP be inferior to othe
 
 Please note that when you use. In addition, this software don't have a ZIP decryption function for the time being.
 
-## Download
+## Web site
 
 This repository ( AttacheCase3/installer/Archives/ ), or my web site below.  
 <https://hibara.org/software/attachecase/>
