@@ -1,15 +1,24 @@
 # AttachéCase#3
-File encryption software for Windows XP/Vista/7/8/10.   
+
+File encryption software for Windows XP/Vista/7/8/10.  
 
 ![main icon & main form](./image/readme/main-icon-and-main-form.png)
 
-１． Support from Microsoft have been terminated, but the application can execute even on Windows XP.   
+１． Support from Microsoft have been terminated, but the application can execute even on Windows XP.  
 ２． To run this application that requires [.NET Framework 4.0 Full](https://www.microsoft.com/en-US/download/details.aspx?id=17718), but installer download the .NET Framework 4.0 full automatically if it doesn't exist in your PC.
 
 ## Summary
+
 AttachéCase#3 is focusing on using daily, simplicity and simple operability of appearance, is a powerful file / folder encryption software that uses a cryptographic algorithm of the world standard ( AES - Advanced Encryption Standard ).
 
+## Download & Installing
+
+### Windows
+
+<https://github.com/hibara/AttacheCase3/releases>
+
 ## Just 3-step to encryption of files
+
 Just three steps to the encryption.
 
 Just drag and drop the file, can easily be encrypted. If you drag and drop each folder, combined into one to create an encrypted file.
@@ -60,8 +69,8 @@ Please note that when you use. In addition, this software don't have a ZIP decry
 
 ## Download
 
-This repository ( AttacheCase3/installer/Archives/ ), or my web site below.   
-https://hibara.org/software/attachecase/
+This repository ( AttacheCase3/installer/Archives/ ), or my web site below.  
+<https://hibara.org/software/attachecase/>
 
 ## Open source （ license ）
 
@@ -80,6 +89,7 @@ You should have received a copy of the GNU General Public License along with thi
     AttachéCase#3 uses another library, but please follow the each respective license.
 
 ## Contact me
+
 I do not accept emails, such as basic questions and how to use.
 
 However, feedback and such as "I would like to demand new feature", "Is not it a bug?", Pull requests are welcome. I hope you'll E-mail, or from on GitHub.
@@ -93,4 +103,3 @@ All free to you, but I have done at their own expense. Thank you for your kind a
 
 > Mitsuhiro Hibara
 > m@hibara.org
-
