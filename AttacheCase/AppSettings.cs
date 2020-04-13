@@ -2104,7 +2104,8 @@ namespace AttacheCase
 
         if (values.Length == 2)
         {
-          string key = values[0];
+          //string key = values[0].ToLower();
+          string key = values[0].ToLower();
           string value = values[1];
           switch (key)
           {
@@ -3095,8 +3096,10 @@ namespace AttacheCase
       // ランダムな文字列      : <random:[文字数]> 
       #region
 
+      bool fSerialNum = false;
       int SerialNum = 1;
-      string ReturnString = "";
+      int FigNum;
+      string ReturnString;
       while (true)
       {
         ReturnString = FormatString;
@@ -3127,7 +3130,7 @@ namespace AttacheCase
         m = r.Match(ReturnString);
         while (m.Success)
         {
-          int FigNum = 0;
+          fSerialNum = true; 
           if (int.TryParse(m.Groups[1].Value, out FigNum) == true)
           {
             ReturnString = Regex.Replace(ReturnString, m.Value, SerialNum.ToString(new string('0', FigNum)));
@@ -3141,7 +3144,6 @@ namespace AttacheCase
         m = r.Match(ReturnString);
         while (m.Success)
         {
-          int FigNum = 0;
           if (int.TryParse(m.Groups[1].Value, out FigNum) == false)
           {
             FigNum = 8;
@@ -3213,7 +3215,7 @@ namespace AttacheCase
           Resources.DialogTitleAlert, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        if(File.Exists(Path.Combine(Path.GetDirectoryName(FilePath), ReturnString)) == false)
+        if(fSerialNum == false || File.Exists(Path.Combine(Path.GetDirectoryName(FilePath), ReturnString)) == false)
         {
           break;
         }

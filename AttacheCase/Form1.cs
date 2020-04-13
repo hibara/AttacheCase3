@@ -3618,18 +3618,17 @@ namespace AttacheCase
         // A first file of ArrayList
         string FilePath = AppSettings.Instance.FileList[FileIndex];
 
-        encryption3 = new FileEncrypt3();
-        compression = new ZipEncrypt(); ;
-
         if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC_EXE)
         {
+          encryption3 = new FileEncrypt3();
           encryption3.NumberOfFiles = FileIndex + 1;
           encryption3.TotalNumberOfFiles = TotalNumberOfFiles;
         }
         else if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_PASSWORD_ZIP)
         {
+          compression = new ZipEncrypt();
           compression.NumberOfFiles = FileIndex + 1;
           compression.TotalNumberOfFiles = TotalNumberOfFiles;
         }
@@ -3837,8 +3836,9 @@ namespace AttacheCase
         // In the case of folders ( including subfolders ) are packed in a folder unit.
 
         int TotalNumberOfFiles = AppSettings.Instance.FileList.Count();
+        string FileListPath = AppSettings.Instance.FileList[FileIndex];
 
-        string FilePath = AppSettings.Instance.FileList[FileIndex];
+        Console.WriteLine(FileListPath);
 
         if (AppSettings.Instance.EncryptionFileType == FILE_TYPE_NONE ||
             AppSettings.Instance.EncryptionFileType == FILE_TYPE_ATC ||
@@ -3877,31 +3877,33 @@ namespace AttacheCase
         // Save encryption files to same folder.
         if (AppSettings.Instance.fSaveToSameFldr == false)
         {
-          OutDirPath = Path.GetDirectoryName(FilePath);
+          OutDirPath = Path.GetDirectoryName(FileListPath);
         }
   
         //-----------------------------------
         //Create encrypted file including extension
-        string FileName = Path.GetFileName(FilePath);
+        string FileListName = Path.GetFileName(FileListPath);
         if (AppSettings.Instance.fExtInAtcFileName == true)
         {
-          FileName = Path.GetFileName(FilePath) + Extension;
+          FileListName = Path.GetFileName(FileListPath) + Extension;
         }
         else
         {
-          FileName = Path.GetFileNameWithoutExtension(FilePath) + Extension;
+          FileListName = Path.GetFileNameWithoutExtension(FileListPath) + Extension;
         }
-        AtcFilePath = Path.Combine(OutDirPath, FileName);
+
+        AtcFilePath = Path.Combine(OutDirPath, FileListName);
 
         //-----------------------------------
         // Specify the format of the encryption file name
         if (AppSettings.Instance.fAutoName == true)
         {
-          FileName = AppSettings.Instance.getSpecifyFileNameFormat(
+          FileListName = AppSettings.Instance.getSpecifyFileNameFormat(
             AppSettings.Instance.AutoNameFormatText, AtcFilePath
           );
         }
-        AtcFilePath = Path.Combine(OutDirPath, FileName);
+
+        AtcFilePath = Path.Combine(OutDirPath, FileListName);
 
         //-----------------------------------
         //Confirm &overwriting when same file name exists.
