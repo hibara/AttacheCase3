@@ -41,10 +41,6 @@ msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\A
 
 msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
 
-@rem Insert icons
-..\tools\resource_hacker\ResourceHacker.exe -script ..\tools\resource_hacker\ResourceHackerScript.txt
-
-
 @echo 
 @echo -----------------------------------
 @echo Delete old files
@@ -66,6 +62,15 @@ copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 @rem mkdir bin\ja-JP
 @rem copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
 
+@echo 
+@echo -----------------------------------
+@echo Resource Hacker ( Insert icons )
+@echo -----------------------------------
+
+..\tools\resource_hacker\ResourceHacker.exe -open bin\AttacheCase.exe -save bin\AttacheCase.exe -action addskip -res ..\image\sub_icon\sub_icon00.ico -mask ICONGROUP,40001,
+..\tools\resource_hacker\ResourceHacker.exe -open bin\AttacheCase.exe -save bin\AttacheCase.exe -action addskip -res ..\image\sub_icon\sub_icon01.ico -mask ICONGROUP,40002,
+..\tools\resource_hacker\ResourceHacker.exe -open bin\AttacheCase.exe -save bin\AttacheCase.exe -action addskip -res ..\image\sub_icon\sub_icon02.ico -mask ICONGROUP,40003,
+..\tools\resource_hacker\ResourceHacker.exe -open bin\AttacheCase.exe -save bin\AttacheCase.exe -action addskip -res ..\image\sub_icon\sub_icon03.ico -mask ICONGROUP,40004,
 
 @echo 
 @echo -----------------------------------

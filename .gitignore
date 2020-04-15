@@ -281,3 +281,5 @@ Thumbs.db
 # Repository Avater for SourceTree
 icon.png
 
+# Resource Hacker setting file (ResourceHacker.ini)
+tools/resource_hacker/ResourceHacker.ini
