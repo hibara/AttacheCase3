@@ -23,7 +23,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using Sha2;
 
 namespace AttacheCase
 {
@@ -182,6 +181,14 @@ namespace AttacheCase
       string Password, byte[] PasswordBinary,
       string NewArchiveName)
     {
+
+#if (DEBUG)
+      Logger lg = new Logger();
+      lg.Info("-----------------------------------");
+      lg.Info(OutFilePath);
+      lg.Info("Encryotion satrt.");
+      lg.StopWatchStart();
+#endif
 
       _AtcFilePath = OutFilePath;
 
@@ -460,23 +467,15 @@ namespace AttacheCase
             // Create header data
 
             string[] FileInfoText = (string[])FileInfoList.ToArray(typeof(string));
-
+#if (DEBUG)
+            string DesktopPath = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string FileListTextPath = Path.Combine(DesktopPath, "_header_text.txt");
+            var FileListText = String.Join("\n", FileInfoText);
+            System.IO.File.WriteAllText(FileListTextPath, FileListText, System.Text.Encoding.UTF8);
+#endif
             byteArray = Encoding.UTF8.GetBytes(string.Join("\n", FileInfoText));
             ms.Write(byteArray, 0, byteArray.Length);
 
-#if (DEBUG)
-            ////Output text file of header contents for debug.
-            //Int64 NowPosition = ms.Position;
-            //ms.Position = 0;
-            ////Save to Desktop folder.
-            //string OutDirPath = Path.GetDirectoryName(_AtcFilePath);
-            //string HeaderTextFilePath = Path.Combine(OutDirPath, "encrypt_header.txt");
-            //using (FileStream fsDebug = new FileStream(HeaderTextFilePath, FileMode.Create, FileAccess.Write))
-            //{
-            //  ms.WriteTo(fsDebug);
-            //  ms.Position = NowPosition;
-            //}
-#endif
             // The Header of MemoryStream is encrypted
             using (Rijndael aes = new RijndaelManaged())
             {
@@ -730,6 +729,12 @@ namespace AttacheCase
         _ErrorMessage = ex.Message;
         return (false);
       }
+      finally{
+#if (DEBUG)
+        lg.StopWatchStop();
+        lg.Info("encryption finished!");
+#endif
+      }
 
     } // encrypt();
 
@@ -838,17 +843,14 @@ namespace AttacheCase
       return (List);
     }
 
-    /// <summary>
     /// 計算してチェックサム（SHA-256）を得る
     /// Get a check sum (SHA-256) to calculate
-    /// </summary>
-    /// <param name="dataToCalculate"></param>
-    /// <returns></returns>
-    public static string GetSha256FromFile(string FilePath)
+    private static string GetSha256FromFile(string FilePath)
     {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (BufferedStream bs = new BufferedStream(File.OpenRead(FilePath), 16 * 1024 * 1024))
       {
-        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
+        SHA256Managed sha = new SHA256Managed();
+        byte[] hash = sha.ComputeHash(bs);
 
         StringBuilder result = new StringBuilder();
         result.Capacity = 32;
@@ -856,11 +858,9 @@ namespace AttacheCase
         {
           result.Append(b.ToString());
         }
-
         return (result.ToString());
       }
     }
-
 
   }// end class FileEncrypt()
 

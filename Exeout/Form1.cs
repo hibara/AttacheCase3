@@ -24,8 +24,8 @@ using System.Security.Cryptography;
 using System.Drawing;
 using System.Collections;
 using System.Collections.ObjectModel;
-using Sha2;
 using Exeout.Properties;
+using System.Text;
 
 namespace Exeout
 {
@@ -176,7 +176,7 @@ namespace Exeout
 			byte[] DecryptionPasswordBinary = null;
 			if (File.Exists(TempDecryptionPassFilePath) == true)
 			{
-				DecryptionPasswordBinary = GetPasswordFileHash3(TempDecryptionPassFilePath);
+				DecryptionPasswordBinary = GetSha256FromFile(TempDecryptionPassFilePath);
 			}
 		
 			//-----------------------------------
@@ -594,48 +594,21 @@ namespace Exeout
 			bkg.ReportProgress((int)(percent * 10000), MessageText);
 		}
 
-    /// <summary>
-    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得してバイト列にする
-    /// Get a string of the SHA-256 hash from a file such as the password file
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns></returns>
-    private byte[] GetPasswordFileHash3(string FilePath)
+    /// 計算してチェックサム（SHA-256）を得る
+    /// Get a check sum (SHA-256) to calculate
+    private static byte[] GetSha256FromFile(string FilePath)
     {
-
-      byte[] result = new byte[32];
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (BufferedStream bs = new BufferedStream(File.OpenRead(FilePath), 16 * 1024 * 1024))
       {
-        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
-
+        SHA256Managed sha = new SHA256Managed();
+        byte[] result = new byte[32];
+        byte[] hash = sha.ComputeHash(bs);
         for (int i = 0; i < 32; i++)
         {
           result[i] = hash[i];
         }
-
         return (result);
       }
-
-      /*
-      byte[] buffer = new byte[255];
-      byte[] result = new byte[32];
-
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
-      {
-        //SHA1CryptoServiceProviderオブジェクト
-        using (SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider())
-        {
-          byte[] array_bytes = sha256.ComputeHash(fs);
-          for (int i = 0; i < 32; i++)
-          {
-            result[i] = array_bytes[i];
-          }
-        }
-      }
-      //string text = System.Text.Encoding.ASCII.GetString(result);
-      return (result);
-      */
-
     }
 
     //----------------------------------------------------------------------
@@ -688,8 +661,6 @@ namespace Exeout
 
 			return (true);
 		}
-		
-
 
   }
 

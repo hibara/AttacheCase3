@@ -29,7 +29,6 @@ using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using Sha2;
 
 namespace AttacheCase
 {
@@ -317,12 +316,6 @@ namespace AttacheCase
       labelProgressPercentText.Text = "- %";
       this.Update();
 
-#if (DEBUG)
-      //string DesktopPath = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-      //string FileListTextPath = Path.Combine(DesktopPath, "file_list_text.txt");
-      //var FileListText = String.Join("\n", FileList);
-      //System.IO.File.WriteAllText(FileListTextPath, FileListText, System.Text.Encoding.UTF8);
-#endif
       // How to delete a way?
       //----------------------------------------------------------------------
       // 通常削除
@@ -725,50 +718,21 @@ namespace AttacheCase
 
     }
 
-    /// <summary>
-    /// パスワードファイルとして、ファイルからSHA-256ハッシュを取得してバイト列にする
-    /// Get a string of the SHA-256 hash from a file such as the password file
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns></returns>
-    private byte[] GetPasswordFileHash3(string FilePath)
+    /// 計算してチェックサム（SHA-256）を得る
+    /// Get a check sum (SHA-256) to calculate
+    private static byte[] GetPasswordFileSha256(string FilePath)
     {
-
-      byte[] result = new byte[32];
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (BufferedStream bs = new BufferedStream(File.OpenRead(FilePath), 16 * 1024 * 1024))
       {
-        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
-
+        SHA256Managed sha = new SHA256Managed();
+        byte[] result = new byte[32];
+        byte[] hash = sha.ComputeHash(bs);
         for (int i = 0; i < 32; i++)
         {
           result[i] = hash[i];
         }
-
         return (result);
       }
-
-      /*
-      // This SHA1CryptoServiceProvider object is not used on Windows XP.
-      //
-      byte[] buffer = new byte[255];
-      byte[] result = new byte[32];
-
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
-      {
-        //SHA1CryptoServiceProviderオブジェクト
-        using (SHA256CryptoServiceProvider sha256 = new SHA256CryptoServiceProvider())
-        {
-          byte[] array_bytes = sha256.ComputeHash(fs);
-          for (int i = 0; i < 32; i++)
-          {
-            result[i] = array_bytes[i];
-          }
-        }
-      }
-      //string text = System.Text.Encoding.ASCII.GetString(result);
-      return (result);
-      */
-
     }
 
     //======================================================================
@@ -2028,7 +1992,7 @@ namespace AttacheCase
         {
           if (File.Exists(AppSettings.Instance.PassFilePath) == true)
           {
-            AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePathDecrypt);
+            AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.PassFilePathDecrypt);
             textBoxDecryptPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyDecryptPasswordBinary);
 
             textBoxDecryptPassword.Enabled = false;
@@ -2078,7 +2042,7 @@ namespace AttacheCase
         {
           if (File.Exists(AppSettings.Instance.PassFilePath) == true)
           {
-            AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePath);
+            AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.PassFilePath);
             textBoxPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyDecryptPasswordBinary);
             textBoxRePassword.Text = textBoxPassword.Text;
 
@@ -2909,7 +2873,7 @@ namespace AttacheCase
       if ( File.Exists(FilePaths[0]) == true)
       {
         AppSettings.Instance.TempEncryptionPassFilePath = FilePaths[0];
-        AppSettings.Instance.MyEncryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath);
+        AppSettings.Instance.MyEncryptPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.TempEncryptionPassFilePath);
         textBoxPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyEncryptPasswordBinary);
         textBoxRePassword.Text = textBoxPassword.Text;
 
@@ -3215,7 +3179,7 @@ namespace AttacheCase
         {
           if (File.Exists(AppSettings.Instance.PassFilePath) == true)
           {
-            EncryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePath);
+            EncryptionPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.PassFilePath);
           }
           else
           {
@@ -3238,7 +3202,7 @@ namespace AttacheCase
         // Drag & Drop Password file
         if (File.Exists(AppSettings.Instance.TempEncryptionPassFilePath) == true)
         {
-          EncryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempEncryptionPassFilePath);
+          EncryptionPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.TempEncryptionPassFilePath);
         }
       }
 
@@ -4131,7 +4095,7 @@ namespace AttacheCase
       if (File.Exists(FilePaths[0]) == true)
       {
         AppSettings.Instance.TempDecryptionPassFilePath = FilePaths[0];
-        AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+        AppSettings.Instance.MyDecryptPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.TempDecryptionPassFilePath);
         textBoxDecryptPassword.Text = AppSettings.BytesToHexString(AppSettings.Instance.MyDecryptPasswordBinary);
         textBoxDecryptPassword.BackColor = SystemColors.ButtonFace;
         textBoxDecryptPassword.Enabled = false;
@@ -4381,7 +4345,7 @@ namespace AttacheCase
             }
             else
             {
-              DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.PassFilePathDecrypt);
+              DecryptionPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.PassFilePathDecrypt);
             }
           }
           else
@@ -4419,7 +4383,7 @@ namespace AttacheCase
           }
           else
           {
-            DecryptionPasswordBinary = GetPasswordFileHash3(AppSettings.Instance.TempDecryptionPassFilePath);
+            DecryptionPasswordBinary = GetPasswordFileSha256(AppSettings.Instance.TempDecryptionPassFilePath);
             DecryptionPassword = "";
           }
         }

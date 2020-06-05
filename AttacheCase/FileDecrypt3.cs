@@ -24,7 +24,6 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-using Sha2;
 
 namespace AttacheCase
 {
@@ -43,37 +42,37 @@ namespace AttacheCase
     // Status code
     private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded.
     private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded.
-    private const int DELETE_SUCCEEDED  = 3; // Delete is succeeded.
+    private const int DELETE_SUCCEEDED = 3; // Delete is succeeded.
     private const int READY_FOR_ENCRYPT = 4; // Getting ready for encryption or decryption.
     private const int READY_FOR_DECRYPT = 5; // Getting ready for encryption or decryption.
-    private const int ENCRYPTING        = 6; // Ecrypting.
-    private const int DECRYPTING        = 7; // Decrypting.
-    private const int DELETING          = 8; // Deleting.
+    private const int ENCRYPTING = 6; // Ecrypting.
+    private const int DECRYPTING = 7; // Decrypting.
+    private const int DELETING = 8; // Deleting.
 
     // Error code
-    private const int USER_CANCELED            = -1;   // User cancel.
-    private const int ERROR_UNEXPECTED         = -100;
-    private const int NOT_ATC_DATA             = -101;
-    private const int ATC_BROKEN_DATA          = -102;
-    private const int NO_DISK_SPACE            = -103;
-    private const int FILE_INDEX_NOT_FOUND     = -104;
+    private const int USER_CANCELED = -1;   // User cancel.
+    private const int ERROR_UNEXPECTED = -100;
+    private const int NOT_ATC_DATA = -101;
+    private const int ATC_BROKEN_DATA = -102;
+    private const int NO_DISK_SPACE = -103;
+    private const int FILE_INDEX_NOT_FOUND = -104;
     private const int PASSWORD_TOKEN_NOT_FOUND = -105;
-    private const int NOT_CORRECT_HASH_VALUE   = -106;
-    private const int INVALID_FILE_PATH        = -107;
-    private const int OS_DENIES_ACCESS         = -108;
-    private const int DATA_NOT_FOUND           = -109;
-    private const int DIRECTORY_NOT_FOUND      = -110;
-    private const int DRIVE_NOT_FOUND          = -111;
-    private const int FILE_NOT_LOADED          = -112;
-    private const int FILE_NOT_FOUND           = -113;
-    private const int PATH_TOO_LONG            = -114;
-    private const int IO_EXCEPTION             = -115;
+    private const int NOT_CORRECT_HASH_VALUE = -106;
+    private const int INVALID_FILE_PATH = -107;
+    private const int OS_DENIES_ACCESS = -108;
+    private const int DATA_NOT_FOUND = -109;
+    private const int DIRECTORY_NOT_FOUND = -110;
+    private const int DRIVE_NOT_FOUND = -111;
+    private const int FILE_NOT_LOADED = -112;
+    private const int FILE_NOT_FOUND = -113;
+    private const int PATH_TOO_LONG = -114;
+    private const int IO_EXCEPTION = -115;
 
     // Overwrite Option
     //private const int USER_CANCELED = -1;
-    private const int OVERWRITE      = 1;
-    private const int OVERWRITE_ALL  = 2;
-    private const int KEEP_NEWER     = 3;
+    private const int OVERWRITE = 1;
+    private const int OVERWRITE_ALL = 2;
+    private const int KEEP_NEWER = 3;
     private const int KEEP_NEWER_ALL = 4;
     // ---
     // Skip Option
@@ -663,37 +662,37 @@ namespace AttacheCase
           FileListData fd = new FileListData();
           string[] OutputFileData = OutputLine.Split('\t');
 
-        //-----------------------------------
-        // File number
-        // e.g.)
-        // 0:sample.txt[\t]49657[\t]32[\t]736194[\t]39585.875[\t]736194[\t]30186.782[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
-        string[] FilePathSplits = OutputFileData[0].Split(':');
-        int FileNum = 0;
-        if (Int32.TryParse(FilePathSplits[0], out FileNum) == false)
-        {
-          FileNum = -1;
-        }
-
-        //-----------------------------------
-        // Parent folder is not created.
-        //
-        if (_fNoParentFolder == true)
+          //-----------------------------------
+          // File number
+          // e.g.)
+          // 0:sample.txt[\t]49657[\t]32[\t]736194[\t]39585.875[\t]736194[\t]30186.782[\t]5f43aa1fed05350f34c2fabb7ed938457b2497f2b54a50415b51882f333b8ae1
+          string[] FilePathSplits = OutputFileData[0].Split(':');
+          int FileNum = 0;
+          if (Int32.TryParse(FilePathSplits[0], out FileNum) == false)
           {
-          // root directory
-          if (FileNum == 0)
+            FileNum = -1;
+          }
+
+          //-----------------------------------
+          // Parent folder is not created.
+          //
+          if (_fNoParentFolder == true)
+          {
+            // root directory
+            if (FileNum == 0)
             {
               if (FilePathSplits.Length > 2)
               {
-              // ex. 0:G:\Test.txt
-              ParentFolder = FilePathSplits[2];
+                // ex. 0:G:\Test.txt
+                ParentFolder = FilePathSplits[2];
               }
               else
               {
                 ParentFolder = FilePathSplits[1];
               }
             }
-          // not root directroy ( files )
-          else
+            // not root directroy ( files )
+            else
             {
               if (FilePathSplits.Length > 2)
               {
@@ -710,12 +709,12 @@ namespace AttacheCase
             }
           }
 
-        //-----------------------------------
-        // File path
-        //
-        string OutFilePath = "";
+          //-----------------------------------
+          // File path
+          //
+          string OutFilePath = "";
           if (_fSalvageIntoSameDirectory == true) // Salvage mode?
-        {
+          {
             OutFilePath = Path.Combine(OutDirPath, Path.GetFileName(FilePathSplits[1]));
           }
           else
@@ -730,13 +729,13 @@ namespace AttacheCase
             }
           }
 
-        //-----------------------------------
-        // ディレクトリ・トラバーサル対策
-        // Directory traversal countermeasures
+          //-----------------------------------
+          // ディレクトリ・トラバーサル対策
+          // Directory traversal countermeasures
 
-        // 余計な ":" が含まれている
-        // Extra ":" is included
-        if (FilePathSplits.Length > 2)
+          // 余計な ":" が含まれている
+          // Extra ":" is included
+          if (FilePathSplits.Length > 2)
           {
             fDirectoryTraversal = true;
             InvalidFilePath = OutFilePath;
@@ -744,9 +743,9 @@ namespace AttacheCase
 
           try
           {
-          // ファイルパスを正規化
-          // Canonicalize file path.
-          OutFilePath = Path.GetFullPath(OutFilePath);
+            // ファイルパスを正規化
+            // Canonicalize file path.
+            OutFilePath = Path.GetFullPath(OutFilePath);
           }
           catch
           {
@@ -754,9 +753,9 @@ namespace AttacheCase
             InvalidFilePath = OutFilePath;
           }
 
-        // 正規化したパスが保存先と一致するか
-        // Whether the canonicalized path matches the save destination
-        if (fDirectoryTraversal == false && OutFilePath.StartsWith(OutDirPath))
+          // 正規化したパスが保存先と一致するか
+          // Whether the canonicalized path matches the save destination
+          if (fDirectoryTraversal == false && OutFilePath.StartsWith(OutDirPath))
           {
             fd.FilePath = OutFilePath;
           }
@@ -766,9 +765,9 @@ namespace AttacheCase
             InvalidFilePath = OutFilePath;
           }
 
-        //-----------------------------------
-        // File size
-        if (Int64.TryParse(OutputFileData[1], out fd.FileSize) == false)
+          //-----------------------------------
+          // File size
+          if (Int64.TryParse(OutputFileData[1], out fd.FileSize) == false)
           {
             fd.FileSize = -1;
           }
@@ -776,30 +775,30 @@ namespace AttacheCase
           {
             _TotalFileSize += fd.FileSize;
           }
-        //-----------------------------------
-        // File attribute
-        if (Int32.TryParse(OutputFileData[2], out fd.FileAttribute) == false)
+          //-----------------------------------
+          // File attribute
+          if (Int32.TryParse(OutputFileData[2], out fd.FileAttribute) == false)
           {
             fd.FileAttribute = -1;
           }
 
-        //-----------------------------------
-        /*
-		     * TTimeStamp = record
-		     *  Time: Integer;      { Number of seconds since midnight }
-		     *  Time: Integer;      { Number of milliseconds since midnight }
-		     *  Date: Integer;      { One plus number of days since 1/1/0001 }
-		     * end;
-		    */
-        //-----------------------------------
+          //-----------------------------------
+          /*
+           * TTimeStamp = record
+           *  Time: Integer;      { Number of seconds since midnight }
+           *  Time: Integer;      { Number of milliseconds since midnight }
+           *  Date: Integer;      { One plus number of days since 1/1/0001 }
+           * end;
+          */
+          //-----------------------------------
 
-        // Last update timestamp
-        try
+          // Last update timestamp
+          try
           {
             if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[3], out LastWriteDate) == true)
             {
               LastWriteDateTime = LastWriteDateTime.AddDays(LastWriteDate); // Add days
-          }
+            }
             else
             {
               LastWriteDateTime = DateTime.Now;
@@ -808,7 +807,7 @@ namespace AttacheCase
             if (_fSameTimeStamp == false && Double.TryParse(OutputFileData[4], out LastWriteTime) == true)
             {
               LastWriteDateTime = LastWriteDateTime.AddSeconds(LastWriteTime);  // Add seconds
-          }
+            }
             else
             {
               LastWriteDateTime = DateTime.Now;
@@ -821,9 +820,9 @@ namespace AttacheCase
 
           fd.LastWriteDateTime = LastWriteDateTime;
 
-        //-----------------------------------
-        // Create datetime
-        try
+          //-----------------------------------
+          // Create datetime
+          try
           {
             if (_fSameTimeStamp == false && Int32.TryParse(OutputFileData[5], out CreateDate) == true)
             {
@@ -850,29 +849,29 @@ namespace AttacheCase
 
           fd.CreationDateTime = CreationDateTime;
 
-        //-----------------------------------
-        // SHA-256 hash
-        if (OutputFileData.Length > 7)
+          //-----------------------------------
+          // SHA-256 hash
+          if (OutputFileData.Length > 7)
           {
             fd.Hash = OutputFileData[7];
           }
 
-        //-----------------------------------
-        // File datetime ( UTC )
-        // ver.3.2.3.0 ~
-        if (OutputFileData.Length > 8)
+          //-----------------------------------
+          // File datetime ( UTC )
+          // ver.3.2.3.0 ~
+          if (OutputFileData.Length > 8)
           {
             if (_fSameTimeStamp == false)
             {
               DateTime LastWriteDateTimeUtc;
               DateTime CreationDateTimeUtc;
 
-            // Last update datetime(UTC)
-            DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
+              // Last update datetime(UTC)
+              DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
               TimeZoneInfo tzi = TimeZoneInfo.Local;
               fd.LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
-            // Create datetime(UTC)
-            DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
+              // Create datetime(UTC)
+              DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
               fd.CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
             }
             else
@@ -882,9 +881,9 @@ namespace AttacheCase
             }
           }
 
-        //-----------------------------------
-        // Insert to 'Key-Value' type array data.
-        dic.Add(FileNum, fd);
+          //-----------------------------------
+          // Insert to 'Key-Value' type array data.
+          dic.Add(FileNum, fd);
 
         });
 
@@ -1320,7 +1319,7 @@ namespace AttacheCase
                         // Check the hash of a file
                         if (_fSalvageIgnoreHashCheck == false)
                         {
-                          string hash = GetSha256HashFromFile(dic[FileIndex].FilePath);
+                          string hash = GetSha256FromFile(dic[FileIndex].FilePath);
                           if (hash != dic[FileIndex].Hash.ToString())
                           {
                             _ReturnCode = NOT_CORRECT_HASH_VALUE;
@@ -1455,19 +1454,14 @@ namespace AttacheCase
 
     }// end Decrypt();
 
-    //----------------------------------------------------------------------
-    /// <summary>
-    /// ファイルからSHA-256(32 bytes)ハッシュ値を求める
-    /// Get SHA-256(32bytes) hash data value from a file.
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns>string</returns>
-    //----------------------------------------------------------------------
-    private string GetSha256HashFromFile(string FilePath)
+    /// 計算してチェックサム（SHA-256）を得る
+    /// Get a check sum (SHA-256) to calculate
+    private static string GetSha256FromFile(string FilePath)
     {
-      using (FileStream fs = new FileStream(FilePath, FileMode.Open, FileAccess.Read))
+      using (BufferedStream bs = new BufferedStream(File.OpenRead(FilePath), 16 * 1024 * 1024))
       {
-        ReadOnlyCollection<byte> hash = Sha256.HashFile(fs);
+        SHA256Managed sha = new SHA256Managed();
+        byte[] hash = sha.ComputeHash(bs);
 
         StringBuilder result = new StringBuilder();
         result.Capacity = 32;
@@ -1475,17 +1469,12 @@ namespace AttacheCase
         {
           result.Append(b.ToString());
         }
-
         return (result.ToString());
       }
     }
-
-    /// <summary>
+ 
     /// ファイル名に連番を振る
     /// Put a serial number to the file name
-    /// </summary>
-    /// <param name="FilePath"></param>
-    /// <returns></returns>
     private string getFileNameWithSerialNumber(string FilePath, int SerialNum)
     {
       string DirPath = Path.GetDirectoryName(FilePath);

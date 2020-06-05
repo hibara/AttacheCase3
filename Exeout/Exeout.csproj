@@ -128,9 +128,6 @@
     <Compile Include="..\AttacheCase\FileDecrypt3.cs">
       <Link>FileDecrypt3.cs</Link>
     </Compile>
-    <Compile Include="..\AttacheCase\Sha256.cs">
-      <Link>Sha256.cs</Link>
-    </Compile>
     <Compile Include="..\AttacheCase\Zlib\Deflate.cs">
       <Link>Zlib\Deflate.cs</Link>
     </Compile>
