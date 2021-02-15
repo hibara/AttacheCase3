@@ -1,0 +1,86 @@
+[
+  {
+    "version" : "ver.2.8.5.0",
+    "vernum" : 2850,
+    "date" : "2018/08/05",
+    "contents" : [
+      {
+        "title" : "【変更点】",
+        "items" : [
+          {"t": "fix", "v":"前回のディレクトリトラバーサル対策が不十分だったため、追加修正を行った。"},
+          {"t": "fix", "v":"細工された動作設定ファイル（_AtcCase.ini）が所定の位置に存在する場合、ATCファイルの復号時に任意のスクリプトが実⾏可能になる脆弱性対策。"}
+        ]
+      }
+    ],
+    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs2850.exe",
+        "md5" : "bb7162c242432e52a576404bcd440dc7",
+        "sha1" : "837ae560b555e856c0130c9daf7ca0b6a5e29e3a"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs2850.zip",
+        "md5" : "5e992efbffd94d966be13f7258cfc758",
+        "sha1" : "6ca05307cf65c47114bd849c1b8024e3242ba6f9"
+      }
+    ]
+  },
+  {
+    "version" : "ver.2.8.4.0",
+    "vernum" : 2840,
+    "date" : "2018/08/30",
+    "contents" : [
+      {
+        "title" : "【変更点】",
+        "items" : [
+          {"t": "update", "v":"zlibライブラリを更新（ver.1.2.11）"},
+          {"t": "fix", "v":"さらなるディレクトリトラバーサル対策。"}
+        ]
+      }
+    ],
+    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs2840.exe",
+        "md5" : "01769180b4c049b3a25ae3cc37dc29c1",
+        "sha1" : "4f88eeb43f79160db5eed42141cc31bdf66a8e5c"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs2840.zip",
+        "md5" : "4d7358be42638003774cbc73f0b1b5f3",
+        "sha1" : "a29c856cc6a48404e7fbb34a13c48e40e023cbd8"
+      }
+    ]
+  },
+  {
+    "version" : "ver.2.8.3.0",
+    "vernum" : 2830,
+    "date" : "2017/01/12",
+    "contents" : [
+      {
+        "title" : "【変更点】",
+        "items" : [
+          {"t": "update", "v":"zlibライブラリを更新（ver.1.2.10）"},
+          {"t": "fix", "v":"ディレクトリトラバーサル対策。"}
+        ]
+      }
+    ],
+    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs2830.exe",
+        "md5" : "d5e82612ad7c3138d20632fcdafcfb26",
+        "sha1" : "adf5cbb4cbefa475c8e34c82d8957201eac71e3a"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs2830.zip",
+        "md5" : "ee589b191e71e88d496244814e7b6ebe",
+        "sha1" : "3ce3765927abb5b4b0afa2ee00baafacc596600e"
+      }
+    ]
+  }
+]

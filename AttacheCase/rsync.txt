@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+rsync -vr –ignore-existing –delete　/Volumes/MyPassport /Volumes/backup
+
+
+
+
+
+
+
+

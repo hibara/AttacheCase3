@@ -162,4 +162,10 @@
   <data name="DialogMessageAttacheCaseNotFound" xml:space="preserve">
     <value>アタッシェケース本体が見つかりません！</value>
   </data>
+  <data name="DialogAlert" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MsgTextWhenApplicationLaunched" xml:space="preserve">
+    <value>このツールは通常単体では起動せず、アタッシェケース本体から呼び出されます。単体で操作するにはファイルの関連付けに関する知識が必要です。それでも単体起動しますか？</value>
+  </data>
 </root>

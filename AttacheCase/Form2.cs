@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016-2020  Mitsuhiro Hibara
+// Copyright (C) 2016-2021  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -79,10 +79,12 @@ namespace AttacheCase
 
       try
       {
+        ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
+        // 将来的には、.NET 4.5以上で以下を有効にする
+        // ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
         using (WebClient webClient = new WebClient())
         {
-          var stream = webClient.OpenRead(new Uri("http://hibara.org/software/attachecase/current/"));
-
+          Stream stream = webClient.OpenRead(new Uri("https://hibara.org/software/attachecase/current/index.php"));
           using (StreamReader sr = new StreamReader(stream))
           {
             var content = sr.ReadToEnd();
@@ -100,16 +102,16 @@ namespace AttacheCase
               linkLabelCheckForUpdates.Text = Resources.linkLabelLatestVersion;
               linkLabelCheckForUpdates.Enabled = false;
             }
-
           }
         }
-        
       }
-      catch
+      catch(Exception ex)
       {
         // "Getting updates information is failed."
         linkLabelCheckForUpdates.Text = Resources.linkLabelCheckForUpdatesFailed;
         linkLabelCheckForUpdates.Enabled = false;
+        MessageBox.Show(ex.Message);
+
       }
 
     }

@@ -47,7 +47,6 @@ namespace AtcSetup
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-
 			//-----------------------------------
 			// Get the version of this aooication from assembly infos.
 			Assembly asm = Assembly.GetExecutingAssembly();
@@ -125,6 +124,24 @@ namespace AtcSetup
 
       }
 
+		}
+
+		private void Form1_Shown(object sender, EventArgs e)
+		{
+			// このツールは通常単体では起動せず、アタッシェケース本体から呼び出されます。
+			// 単体で操作するには関連付けに関する知識が必要です。それでも単体起動しますか？
+			//
+			// This tool usually does not run by itself, but is called from the AttachéCase itself.
+			// You require some knowledge of Associations files to operate on this own. 
+			// Can you still run it by itself?
+			//
+			DialogResult result = MessageBox.Show(Resources.MsgTextWhenApplicationLaunched,
+				Resources.DialogAlert, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation,
+				MessageBoxDefaultButton.Button2);
+			if (result == DialogResult.No)
+			{
+				Application.Exit();
+			}
 		}
 
 		//======================================================================

@@ -162,4 +162,10 @@
   <data name="DialogMessageAttacheCaseNotFound" xml:space="preserve">
     <value>"AttacheCase.exe" is not found!</value>
   </data>
+  <data name="DialogAlert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="MsgTextWhenApplicationLaunched" xml:space="preserve">
+    <value>This tool usually does not run by itself, but is called from the AttachéCase itself. you require some knowledge of Associations files to operate on this own. Can you still run it by itself?</value>
+  </data>
 </root>
