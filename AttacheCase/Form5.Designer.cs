@@ -63,7 +63,7 @@ namespace AttacheCase
       // 
       this.statusStrip1.Location = new System.Drawing.Point(0, 419);
       this.statusStrip1.Name = "statusStrip1";
-      this.statusStrip1.Size = new System.Drawing.Size(651, 22);
+      this.statusStrip1.Size = new System.Drawing.Size(624, 22);
       this.statusStrip1.TabIndex = 0;
       this.statusStrip1.Text = "statusStrip1";
       // 
@@ -73,19 +73,20 @@ namespace AttacheCase
       this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.panel1.Location = new System.Drawing.Point(0, 376);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(651, 43);
+      this.panel1.Size = new System.Drawing.Size(624, 43);
       this.panel1.TabIndex = 1;
       // 
       // buttonClose
       // 
       this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
       this.buttonClose.Font = new System.Drawing.Font("MS UI Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-      this.buttonClose.Location = new System.Drawing.Point(545, 7);
+      this.buttonClose.Location = new System.Drawing.Point(518, 7);
       this.buttonClose.Name = "buttonClose";
       this.buttonClose.Size = new System.Drawing.Size(83, 29);
       this.buttonClose.TabIndex = 1;
       this.buttonClose.Text = "&Close";
       this.buttonClose.UseVisualStyleBackColor = true;
+      this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
       // 
       // tabControl1
       // 
@@ -95,7 +96,7 @@ namespace AttacheCase
       this.tabControl1.Location = new System.Drawing.Point(0, 0);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(651, 376);
+      this.tabControl1.Size = new System.Drawing.Size(624, 376);
       this.tabControl1.TabIndex = 2;
       // 
       // tabPageAtc2
@@ -131,14 +132,17 @@ namespace AttacheCase
       this.tabPageAtc3.Location = new System.Drawing.Point(4, 22);
       this.tabPageAtc3.Name = "tabPageAtc3";
       this.tabPageAtc3.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPageAtc3.Size = new System.Drawing.Size(643, 350);
+      this.tabPageAtc3.Size = new System.Drawing.Size(616, 350);
       this.tabPageAtc3.TabIndex = 1;
       this.tabPageAtc3.Text = "AttacheCase3";
       this.tabPageAtc3.UseVisualStyleBackColor = true;
       // 
       // textBoxOutputFileList
       // 
-      this.textBoxOutputFileList.Location = new System.Drawing.Point(23, 198);
+      this.textBoxOutputFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.textBoxOutputFileList.Location = new System.Drawing.Point(13, 195);
       this.textBoxOutputFileList.Multiline = true;
       this.textBoxOutputFileList.Name = "textBoxOutputFileList";
       this.textBoxOutputFileList.ReadOnly = true;
@@ -149,8 +153,11 @@ namespace AttacheCase
       // 
       // labelOutputFileList
       // 
+      this.labelOutputFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.labelOutputFileList.AutoSize = true;
-      this.labelOutputFileList.Location = new System.Drawing.Point(21, 182);
+      this.labelOutputFileList.Location = new System.Drawing.Point(11, 179);
       this.labelOutputFileList.Name = "labelOutputFileList";
       this.labelOutputFileList.Size = new System.Drawing.Size(77, 12);
       this.labelOutputFileList.TabIndex = 24;
@@ -158,8 +165,10 @@ namespace AttacheCase
       // 
       // textBoxRfc2898DeriveBytes
       // 
+      this.textBoxRfc2898DeriveBytes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.textBoxRfc2898DeriveBytes.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxRfc2898DeriveBytes.Location = new System.Drawing.Point(21, 145);
+      this.textBoxRfc2898DeriveBytes.Location = new System.Drawing.Point(13, 145);
       this.textBoxRfc2898DeriveBytes.Name = "textBoxRfc2898DeriveBytes";
       this.textBoxRfc2898DeriveBytes.ReadOnly = true;
       this.textBoxRfc2898DeriveBytes.Size = new System.Drawing.Size(594, 19);
@@ -167,8 +176,10 @@ namespace AttacheCase
       // 
       // labelRfc2898DeriveBytes
       // 
+      this.labelRfc2898DeriveBytes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.labelRfc2898DeriveBytes.AutoSize = true;
-      this.labelRfc2898DeriveBytes.Location = new System.Drawing.Point(21, 130);
+      this.labelRfc2898DeriveBytes.Location = new System.Drawing.Point(13, 130);
       this.labelRfc2898DeriveBytes.Name = "labelRfc2898DeriveBytes";
       this.labelRfc2898DeriveBytes.Size = new System.Drawing.Size(110, 12);
       this.labelRfc2898DeriveBytes.TabIndex = 22;
@@ -176,8 +187,9 @@ namespace AttacheCase
       // 
       // textBoxSalt
       // 
+      this.textBoxSalt.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxSalt.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxSalt.Location = new System.Drawing.Point(327, 88);
+      this.textBoxSalt.Location = new System.Drawing.Point(319, 88);
       this.textBoxSalt.Name = "textBoxSalt";
       this.textBoxSalt.ReadOnly = true;
       this.textBoxSalt.Size = new System.Drawing.Size(288, 19);
@@ -185,8 +197,9 @@ namespace AttacheCase
       // 
       // labelSalt
       // 
+      this.labelSalt.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelSalt.AutoSize = true;
-      this.labelSalt.Location = new System.Drawing.Point(327, 73);
+      this.labelSalt.Location = new System.Drawing.Point(319, 73);
       this.labelSalt.Name = "labelSalt";
       this.labelSalt.Size = new System.Drawing.Size(25, 12);
       this.labelSalt.TabIndex = 20;
@@ -194,8 +207,9 @@ namespace AttacheCase
       // 
       // textBoxAtcHeaderSize
       // 
+      this.textBoxAtcHeaderSize.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxAtcHeaderSize.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxAtcHeaderSize.Location = new System.Drawing.Point(174, 88);
+      this.textBoxAtcHeaderSize.Location = new System.Drawing.Point(166, 88);
       this.textBoxAtcHeaderSize.Name = "textBoxAtcHeaderSize";
       this.textBoxAtcHeaderSize.ReadOnly = true;
       this.textBoxAtcHeaderSize.Size = new System.Drawing.Size(133, 19);
@@ -203,8 +217,9 @@ namespace AttacheCase
       // 
       // labelAtcHeaderSize
       // 
+      this.labelAtcHeaderSize.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelAtcHeaderSize.AutoSize = true;
-      this.labelAtcHeaderSize.Location = new System.Drawing.Point(172, 73);
+      this.labelAtcHeaderSize.Location = new System.Drawing.Point(164, 73);
       this.labelAtcHeaderSize.Name = "labelAtcHeaderSize";
       this.labelAtcHeaderSize.Size = new System.Drawing.Size(80, 12);
       this.labelAtcHeaderSize.TabIndex = 18;
@@ -212,8 +227,9 @@ namespace AttacheCase
       // 
       // textBoxTypeAlgorism
       // 
+      this.textBoxTypeAlgorism.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxTypeAlgorism.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxTypeAlgorism.Location = new System.Drawing.Point(23, 88);
+      this.textBoxTypeAlgorism.Location = new System.Drawing.Point(13, 88);
       this.textBoxTypeAlgorism.Name = "textBoxTypeAlgorism";
       this.textBoxTypeAlgorism.ReadOnly = true;
       this.textBoxTypeAlgorism.Size = new System.Drawing.Size(133, 19);
@@ -221,8 +237,9 @@ namespace AttacheCase
       // 
       // labelTypeAlgorism
       // 
+      this.labelTypeAlgorism.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelTypeAlgorism.AutoSize = true;
-      this.labelTypeAlgorism.Location = new System.Drawing.Point(21, 73);
+      this.labelTypeAlgorism.Location = new System.Drawing.Point(11, 73);
       this.labelTypeAlgorism.Name = "labelTypeAlgorism";
       this.labelTypeAlgorism.Size = new System.Drawing.Size(75, 12);
       this.labelTypeAlgorism.TabIndex = 16;
@@ -230,8 +247,9 @@ namespace AttacheCase
       // 
       // textBoxDataFileVersion
       // 
+      this.textBoxDataFileVersion.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxDataFileVersion.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxDataFileVersion.Location = new System.Drawing.Point(482, 36);
+      this.textBoxDataFileVersion.Location = new System.Drawing.Point(474, 35);
       this.textBoxDataFileVersion.Name = "textBoxDataFileVersion";
       this.textBoxDataFileVersion.ReadOnly = true;
       this.textBoxDataFileVersion.Size = new System.Drawing.Size(133, 19);
@@ -239,8 +257,9 @@ namespace AttacheCase
       // 
       // labelDataFileVersion
       // 
+      this.labelDataFileVersion.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelDataFileVersion.AutoSize = true;
-      this.labelDataFileVersion.Location = new System.Drawing.Point(480, 21);
+      this.labelDataFileVersion.Location = new System.Drawing.Point(472, 20);
       this.labelDataFileVersion.Name = "labelDataFileVersion";
       this.labelDataFileVersion.Size = new System.Drawing.Size(87, 12);
       this.labelDataFileVersion.TabIndex = 14;
@@ -248,8 +267,9 @@ namespace AttacheCase
       // 
       // textBoxTokenStr
       // 
+      this.textBoxTokenStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxTokenStr.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxTokenStr.Location = new System.Drawing.Point(327, 36);
+      this.textBoxTokenStr.Location = new System.Drawing.Point(319, 35);
       this.textBoxTokenStr.Name = "textBoxTokenStr";
       this.textBoxTokenStr.ReadOnly = true;
       this.textBoxTokenStr.Size = new System.Drawing.Size(133, 19);
@@ -257,8 +277,9 @@ namespace AttacheCase
       // 
       // TokenStr
       // 
+      this.TokenStr.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.TokenStr.AutoSize = true;
-      this.TokenStr.Location = new System.Drawing.Point(325, 21);
+      this.TokenStr.Location = new System.Drawing.Point(317, 20);
       this.TokenStr.Name = "TokenStr";
       this.TokenStr.Size = new System.Drawing.Size(75, 12);
       this.TokenStr.TabIndex = 12;
@@ -266,8 +287,9 @@ namespace AttacheCase
       // 
       // textBroken
       // 
+      this.textBroken.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBroken.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBroken.Location = new System.Drawing.Point(174, 36);
+      this.textBroken.Location = new System.Drawing.Point(166, 35);
       this.textBroken.Name = "textBroken";
       this.textBroken.ReadOnly = true;
       this.textBroken.Size = new System.Drawing.Size(133, 19);
@@ -275,8 +297,9 @@ namespace AttacheCase
       // 
       // labelBroken
       // 
+      this.labelBroken.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelBroken.AutoSize = true;
-      this.labelBroken.Location = new System.Drawing.Point(172, 21);
+      this.labelBroken.Location = new System.Drawing.Point(164, 20);
       this.labelBroken.Name = "labelBroken";
       this.labelBroken.Size = new System.Drawing.Size(45, 12);
       this.labelBroken.TabIndex = 10;
@@ -284,8 +307,9 @@ namespace AttacheCase
       // 
       // labelDataSebVersion
       // 
+      this.labelDataSebVersion.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.labelDataSebVersion.AutoSize = true;
-      this.labelDataSebVersion.Location = new System.Drawing.Point(19, 21);
+      this.labelDataSebVersion.Location = new System.Drawing.Point(11, 20);
       this.labelDataSebVersion.Name = "labelDataSebVersion";
       this.labelDataSebVersion.Size = new System.Drawing.Size(87, 12);
       this.labelDataSebVersion.TabIndex = 9;
@@ -293,8 +317,9 @@ namespace AttacheCase
       // 
       // textBoxDataSebVersion
       // 
+      this.textBoxDataSebVersion.Anchor = System.Windows.Forms.AnchorStyles.Top;
       this.textBoxDataSebVersion.BackColor = System.Drawing.SystemColors.ButtonFace;
-      this.textBoxDataSebVersion.Location = new System.Drawing.Point(21, 36);
+      this.textBoxDataSebVersion.Location = new System.Drawing.Point(13, 35);
       this.textBoxDataSebVersion.Name = "textBoxDataSebVersion";
       this.textBoxDataSebVersion.ReadOnly = true;
       this.textBoxDataSebVersion.Size = new System.Drawing.Size(133, 19);
@@ -304,13 +329,15 @@ namespace AttacheCase
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(651, 441);
+      this.ClientSize = new System.Drawing.Size(624, 441);
       this.Controls.Add(this.tabControl1);
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.statusStrip1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+      this.MinimumSize = new System.Drawing.Size(640, 480);
       this.Name = "Form5";
       this.Text = "Developer Console";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form5_FormClosed);
       this.Load += new System.EventHandler(this.Form5_Load);
       this.panel1.ResumeLayout(false);
       this.tabControl1.ResumeLayout(false);

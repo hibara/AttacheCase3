@@ -293,6 +293,12 @@ namespace AttacheCase
       get { return this._deriveBytes; }
     }
 
+    List<string> _FileList;
+    public List<string> FileList
+    {
+      get { return this._FileList; }
+    }
+
     /// <summary>
     /// Constructor
     /// </summary>
@@ -529,7 +535,7 @@ namespace AttacheCase
       int len = 0;
       byte[] byteArray;
 
-      List<string> FileList = new List<string>();
+      _FileList = new List<string>();
       Dictionary<int, FileListData> dic = new Dictionary<int, FileListData>();
 
       if (_TokenStr.Trim() == "_AttacheCaseData")
@@ -639,7 +645,7 @@ namespace AttacheCase
                 {
                   if (Regex.IsMatch(line, @"^[0-9]+:"))
                   {
-                    FileList.Add(line);
+                    _FileList.Add(line);
                   }
                 }
 
@@ -658,7 +664,7 @@ namespace AttacheCase
         string ParentFolder = "";
         bool fDirectoryTraversal = false;
         string InvalidFilePath = "";
-        FileList.ForEach(delegate (string OutputLine)
+        _FileList.ForEach(delegate (string OutputLine)
         {
           int LastWriteDate, CreateDate;
           double LastWriteTime, CreateTime;

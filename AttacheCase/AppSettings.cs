@@ -1460,7 +1460,7 @@ namespace AttacheCase
 
         //-----------------------------------
         // Developer mode
-        _fDeveloperConsole = ((string)reg.GetValue("_fDeveloperConsole", "0") == "1") ? true : false;
+        _fDeveloperConsole = ((string)reg.GetValue("fDeveloperConsole", "0") == "1") ? true : false;
         _DeveloperConsolePosX = int.Parse((string)reg.GetValue("DeveloperConsolePosX", "-1"));
         _DeveloperConsolePosY = int.Parse((string)reg.GetValue("DeveloperConsolePosY", "-1"));
         _DeveloperConsoleWidth = int.Parse((string)reg.GetValue("DeveloperConsoleWidth", "640"));

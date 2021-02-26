@@ -59,7 +59,12 @@ namespace AttacheCase
       get { return textBoxRfc2898DeriveBytes.Text; }
       set { textBoxRfc2898DeriveBytes.Text = value; }
     }
-    
+    public string textBoxOutputFileListText
+    {
+      get { return textBoxOutputFileList.Text; }
+      set { textBoxOutputFileList.Text = value; }
+    }
+
     //----------------------------------------------------------------------
 
     private void Form5_Load(object sender, EventArgs e)
@@ -72,6 +77,17 @@ namespace AttacheCase
       tabControl1.SelectedTab = tabPageAtc3;
     }
 
+    private void buttonClose_Click(object sender, EventArgs e)
+    {
+      this.Close();
+    }
 
+    private void Form5_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      AppSettings.Instance.DeveloperConsolePosX = this.Left;
+      AppSettings.Instance.DeveloperConsolePosY = this.Top;
+      AppSettings.Instance.DeveloperConsoleWidth = this.Width;
+      AppSettings.Instance.DeveloperConsoleHeight = this.Height;
+    }
   }
 }

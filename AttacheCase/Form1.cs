@@ -1189,7 +1189,16 @@ namespace AttacheCase
             notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
 
             OutputFileList.AddRange(decryption2 == null ? decryption3.OutputFileList : decryption2.OutputFileList);
-            
+
+            //-----------------------------------
+            // Developer mode
+            if (AppSettings.Instance.fDeveloperConsole == true)
+            {
+              showDeveloperConsoleWindow();
+            }
+
+            //-----------------------------------
+            // DecryptionEndProcess
             if ( FileIndex < AppSettings.Instance.FileList.Count)
             {
               FileIndex++;
@@ -1198,6 +1207,7 @@ namespace AttacheCase
             }
 
             DecryptionEndProcess();
+
 
             this.Update();
             return;
@@ -1381,34 +1391,7 @@ namespace AttacheCase
         notifyIcon1.Text = "- % " + Resources.labelCaptionError;
         AppSettings.Instance.FileList = null;
         this.Update();
-
-      }
-
-      // Developer mode
-      if (AppSettings.Instance.fDeveloperConsole == true)
-      {
-        if (frm5 == null)
-        {
-          frm5 = new Form5();
-        }
-        frm5.Show();
-
-        if (decryption2 == null)
-        {
-          // AttacheCase3 data
-          Form5.Instance.textBoxDataSebVersionText = decryption3.DataFileVersion.ToString();
-          Form5.Instance.textBrokenText = decryption3.fBroken.ToString();
-          Form5.Instance.textBoxTokenStrText = decryption3.TokenStr;
-          Form5.Instance.textBoxDataFileVersionText = decryption3.DataFileVersion.ToString();
-          Form5.Instance.textBoxTypeAlgorismText = decryption3.TypeAlgorism.ToString();
-          Form5.Instance.textBoxAtcHeaderSizeText = decryption3.AtcHeaderSize.ToString();
-          Form5.Instance.textSaltText = BitConverter.ToString(decryption3.salt);
-          Form5.Instance.textBoxRfc2898DeriveBytesText = BitConverter.ToString(decryption3.deriveBytes.GetBytes(32));
-        }
-        else
-        {
-          // AttacheCase2 data
-        }
+                
       }
 
     }
@@ -4697,12 +4680,12 @@ namespace AttacheCase
     }
 
 
-#endregion
+    #endregion
 
     //======================================================================
     // Progress window ( panelProgressState )
     //======================================================================
-#region
+    #region Progress
 
     /// <summary>
     ///  "Back" button
@@ -4782,11 +4765,13 @@ namespace AttacheCase
 
     #endregion
 
+    //======================================================================
     /// <summary>
     /// Notify Icon Mouse Click event
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
+    //======================================================================
     private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
     {
       if (this.WindowState == FormWindowState.Minimized)
@@ -4888,6 +4873,58 @@ namespace AttacheCase
         System.Windows.Forms.MessageBox.Show(new Form { TopMost = true }, e.Message);
 #endif
         return (false);
+      }
+    }
+
+    //======================================================================
+    /// <summary>
+    /// 開発用ディベロッパーコンソールウィンドウの表示と復号ファイルのヘッダ情報の表示
+    /// Display the Developer Console window for development and 
+    /// display header information of decrypted file
+    /// </summary>
+    /// <returns></returns>
+    //======================================================================
+    private void showDeveloperConsoleWindow()
+    {
+      if (frm5 == null)
+      {
+        frm5 = new Form5();
+      }
+
+      frm5.Show();
+
+      if (AppSettings.Instance.DeveloperConsolePosX < 0 || AppSettings.Instance.DeveloperConsolePosY < 0)
+      {
+        // 位置がマイナス値の場合（デフォルト値も含む）は、画面中央に表示する
+        frm5.Left = Screen.GetBounds(this).Width / 2 - AppSettings.Instance.DeveloperConsoleWidth / 2;
+        frm5.Top = Screen.GetBounds(this).Height / 2 - AppSettings.Instance.DeveloperConsoleHeight / 2;
+        frm5.Width = AppSettings.Instance.DeveloperConsoleWidth;
+        frm5.Height = AppSettings.Instance.DeveloperConsoleHeight;
+      }
+      else
+      {
+        frm5.Left = AppSettings.Instance.DeveloperConsolePosX;
+        frm5.Top = AppSettings.Instance.DeveloperConsolePosY;
+        frm5.Width = AppSettings.Instance.DeveloperConsoleWidth;
+        frm5.Height = AppSettings.Instance.DeveloperConsoleHeight;
+      }
+
+      if (decryption2 == null)
+      {
+        // AttacheCase3 data
+        Form5.Instance.textBoxDataSebVersionText = decryption3.DataFileVersion.ToString();
+        Form5.Instance.textBrokenText = decryption3.fBroken.ToString();
+        Form5.Instance.textBoxTokenStrText = decryption3.TokenStr;
+        Form5.Instance.textBoxDataFileVersionText = decryption3.DataFileVersion.ToString();
+        Form5.Instance.textBoxTypeAlgorismText = decryption3.TypeAlgorism.ToString();
+        Form5.Instance.textBoxAtcHeaderSizeText = decryption3.AtcHeaderSize.ToString();
+        Form5.Instance.textSaltText = BitConverter.ToString(decryption3.salt).Replace("-", string.Empty);
+        Form5.Instance.textBoxRfc2898DeriveBytesText = BitConverter.ToString(decryption3.deriveBytes.GetBytes(32)).Replace("-", string.Empty);
+        Form5.Instance.textBoxOutputFileListText = string.Join(", ", decryption3.FileList.ToArray());
+      }
+      else
+      {
+        // AttacheCase2 data
       }
     }
 

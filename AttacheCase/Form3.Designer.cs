@@ -209,7 +209,6 @@
       this.panelDevelopmentOption = new System.Windows.Forms.Panel();
       this.checkBoxDeveloperConsole = new System.Windows.Forms.CheckBox();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.toolStripMenuItemOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemCmdReference = new System.Windows.Forms.ToolStripMenuItem();
@@ -234,6 +233,7 @@
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+      this.splitButton1 = new AttacheCase.SplitButton();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
@@ -320,12 +320,10 @@
       // 
       // splitContainer1.Panel1
       // 
-      resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
       this.splitContainer1.Panel1.Controls.Add(this.treeView1);
       // 
       // splitContainer1.Panel2
       // 
-      resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
       this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
       // 
       // treeView1
@@ -346,7 +344,6 @@
       // 
       // tabControl1
       // 
-      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Controls.Add(this.tabPageGeneralOption);
       this.tabControl1.Controls.Add(this.tabPagePasswordOption);
       this.tabControl1.Controls.Add(this.tabPageWindowOption);
@@ -364,19 +361,19 @@
       this.tabControl1.Controls.Add(this.tabPageSalvageDataOption);
       this.tabControl1.Controls.Add(this.tabPageLicense);
       this.tabControl1.Controls.Add(this.tabPageDevelopment);
+      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       // 
       // tabPageGeneralOption
       // 
-      resources.ApplyResources(this.tabPageGeneralOption, "tabPageGeneralOption");
       this.tabPageGeneralOption.Controls.Add(this.panelGeneralOption);
+      resources.ApplyResources(this.tabPageGeneralOption, "tabPageGeneralOption");
       this.tabPageGeneralOption.Name = "tabPageGeneralOption";
       this.tabPageGeneralOption.UseVisualStyleBackColor = true;
       // 
       // panelGeneralOption
       // 
-      resources.ApplyResources(this.panelGeneralOption, "panelGeneralOption");
       this.panelGeneralOption.Controls.Add(this.label7);
       this.panelGeneralOption.Controls.Add(this.numericUpDownLaunchFiles);
       this.panelGeneralOption.Controls.Add(this.checkBoxShowDialogWhenMultipleFiles);
@@ -387,6 +384,7 @@
       this.panelGeneralOption.Controls.Add(this.checkBoxAskEncDecode);
       this.panelGeneralOption.Controls.Add(this.checkBoxOpenFile);
       this.panelGeneralOption.Controls.Add(this.checkBoxEndToExit);
+      resources.ApplyResources(this.panelGeneralOption, "panelGeneralOption");
       this.panelGeneralOption.Name = "panelGeneralOption";
       // 
       // label7
@@ -466,14 +464,13 @@
       // 
       // tabPagePasswordOption
       // 
-      resources.ApplyResources(this.tabPagePasswordOption, "tabPagePasswordOption");
       this.tabPagePasswordOption.Controls.Add(this.panelPasswordsOption);
+      resources.ApplyResources(this.tabPagePasswordOption, "tabPagePasswordOption");
       this.tabPagePasswordOption.Name = "tabPagePasswordOption";
       this.tabPagePasswordOption.UseVisualStyleBackColor = true;
       // 
       // panelPasswordsOption
       // 
-      resources.ApplyResources(this.panelPasswordsOption, "panelPasswordsOption");
       this.panelPasswordsOption.Controls.Add(this.checkBoxEnablePassStrengthMeter);
       this.panelPasswordsOption.Controls.Add(this.buttonInputDecryptionPassword);
       this.panelPasswordsOption.Controls.Add(this.buttonInputEncryptionPassword);
@@ -482,6 +479,7 @@
       this.panelPasswordsOption.Controls.Add(this.checkBoxMyDecodePasswordKeep);
       this.panelPasswordsOption.Controls.Add(this.textBoxMyEncodePassword);
       this.panelPasswordsOption.Controls.Add(this.checkBoxMyEncodePasswordKeep);
+      resources.ApplyResources(this.panelPasswordsOption, "panelPasswordsOption");
       this.panelPasswordsOption.Name = "panelPasswordsOption";
       // 
       // checkBoxEnablePassStrengthMeter
@@ -549,14 +547,13 @@
       // 
       // tabPageWindowOption
       // 
-      resources.ApplyResources(this.tabPageWindowOption, "tabPageWindowOption");
       this.tabPageWindowOption.Controls.Add(this.panelWindowOption);
+      resources.ApplyResources(this.tabPageWindowOption, "tabPageWindowOption");
       this.tabPageWindowOption.Name = "tabPageWindowOption";
       this.tabPageWindowOption.UseVisualStyleBackColor = true;
       // 
       // panelWindowOption
       // 
-      resources.ApplyResources(this.panelWindowOption, "panelWindowOption");
       this.panelWindowOption.Controls.Add(this.checkBoxTurnOnAllIMEs);
       this.panelWindowOption.Controls.Add(this.label1);
       this.panelWindowOption.Controls.Add(this.checkBoxNoMultipleInstance);
@@ -564,6 +561,7 @@
       this.panelWindowOption.Controls.Add(this.checkBoxMainWindowMinimize);
       this.panelWindowOption.Controls.Add(this.checkBoxTaskTrayIcon);
       this.panelWindowOption.Controls.Add(this.checkBoxTaskBarHide);
+      resources.ApplyResources(this.panelWindowOption, "panelWindowOption");
       this.panelWindowOption.Name = "panelWindowOption";
       // 
       // checkBoxTurnOnAllIMEs
@@ -621,16 +619,16 @@
       // 
       // tabPageSaveOption
       // 
-      resources.ApplyResources(this.tabPageSaveOption, "tabPageSaveOption");
       this.tabPageSaveOption.Controls.Add(this.panelSaveOption);
+      resources.ApplyResources(this.tabPageSaveOption, "tabPageSaveOption");
       this.tabPageSaveOption.Name = "tabPageSaveOption";
       this.tabPageSaveOption.UseVisualStyleBackColor = true;
       // 
       // panelSaveOption
       // 
-      resources.ApplyResources(this.panelSaveOption, "panelSaveOption");
       this.panelSaveOption.Controls.Add(this.checkBoxEncryptionSameFileTypeBefore);
       this.panelSaveOption.Controls.Add(this.groupBox5);
+      resources.ApplyResources(this.panelSaveOption, "panelSaveOption");
       this.panelSaveOption.Name = "panelSaveOption";
       // 
       // checkBoxEncryptionSameFileTypeBefore
@@ -642,7 +640,6 @@
       // 
       // groupBox5
       // 
-      resources.ApplyResources(this.groupBox5, "groupBox5");
       this.groupBox5.Controls.Add(this.radioButtonNotSpecified);
       this.groupBox5.Controls.Add(this.radioButtonEncryptionFileTypeZIP);
       this.groupBox5.Controls.Add(this.radioButtonEncryptionFileTypeEXE);
@@ -650,6 +647,7 @@
       this.groupBox5.Controls.Add(this.pictureAtcExeFile);
       this.groupBox5.Controls.Add(this.pictureBoxZipFile);
       this.groupBox5.Controls.Add(this.pictureBoxAtcFile);
+      resources.ApplyResources(this.groupBox5, "groupBox5");
       this.groupBox5.Name = "groupBox5";
       this.groupBox5.TabStop = false;
       // 
@@ -706,14 +704,13 @@
       // 
       // tabPageSaveEncryptOption
       // 
-      resources.ApplyResources(this.tabPageSaveEncryptOption, "tabPageSaveEncryptOption");
       this.tabPageSaveEncryptOption.Controls.Add(this.panelSaveEncryptOption);
+      resources.ApplyResources(this.tabPageSaveEncryptOption, "tabPageSaveEncryptOption");
       this.tabPageSaveEncryptOption.Name = "tabPageSaveEncryptOption";
       this.tabPageSaveEncryptOption.UseVisualStyleBackColor = true;
       // 
       // panelSaveEncryptOption
       // 
-      resources.ApplyResources(this.panelSaveEncryptOption, "panelSaveEncryptOption");
       this.panelSaveEncryptOption.Controls.Add(this.buttonSaveEncryptedFileToFolder);
       this.panelSaveEncryptOption.Controls.Add(this.labelEncryptedFileNameFormat);
       this.panelSaveEncryptOption.Controls.Add(this.buttonInsertFormat);
@@ -725,6 +722,7 @@
       this.panelSaveEncryptOption.Controls.Add(this.checkBoxConfirmSameFileName);
       this.panelSaveEncryptOption.Controls.Add(this.textBoxSaveEncryptionToSameFolder);
       this.panelSaveEncryptOption.Controls.Add(this.checkBoxSaveToSameFldr);
+      resources.ApplyResources(this.panelSaveEncryptOption, "panelSaveEncryptOption");
       this.panelSaveEncryptOption.Name = "panelSaveEncryptOption";
       // 
       // buttonSaveEncryptedFileToFolder
@@ -841,20 +839,20 @@
       // 
       // tabPageSaveDecryptOption
       // 
-      resources.ApplyResources(this.tabPageSaveDecryptOption, "tabPageSaveDecryptOption");
       this.tabPageSaveDecryptOption.Controls.Add(this.panelSaveDecryptOption);
+      resources.ApplyResources(this.tabPageSaveDecryptOption, "tabPageSaveDecryptOption");
       this.tabPageSaveDecryptOption.Name = "tabPageSaveDecryptOption";
       this.tabPageSaveDecryptOption.UseVisualStyleBackColor = true;
       // 
       // panelSaveDecryptOption
       // 
-      resources.ApplyResources(this.panelSaveDecryptOption, "panelSaveDecryptOption");
       this.panelSaveDecryptOption.Controls.Add(this.buttonSaveDecryptedFileToFolder);
       this.panelSaveDecryptOption.Controls.Add(this.checkBoxSameTimeStamp);
       this.panelSaveDecryptOption.Controls.Add(this.checkBoxfNoParentFldr);
       this.panelSaveDecryptOption.Controls.Add(this.checkBoxDecryptConfirmOverwrite);
       this.panelSaveDecryptOption.Controls.Add(this.textBoxDecodeToSameFldrPath);
       this.panelSaveDecryptOption.Controls.Add(this.checkBoxDecodeToSameFldr);
+      resources.ApplyResources(this.panelSaveDecryptOption, "panelSaveDecryptOption");
       this.panelSaveDecryptOption.Name = "panelSaveDecryptOption";
       // 
       // buttonSaveDecryptedFileToFolder
@@ -905,20 +903,20 @@
       // 
       // tabPageSaveZipOption
       // 
-      resources.ApplyResources(this.tabPageSaveZipOption, "tabPageSaveZipOption");
       this.tabPageSaveZipOption.Controls.Add(this.panelSaveZipOption);
+      resources.ApplyResources(this.tabPageSaveZipOption, "tabPageSaveZipOption");
       this.tabPageSaveZipOption.Name = "tabPageSaveZipOption";
       this.tabPageSaveZipOption.UseVisualStyleBackColor = true;
       // 
       // panelSaveZipOption
       // 
-      resources.ApplyResources(this.panelSaveZipOption, "panelSaveZipOption");
       this.panelSaveZipOption.Controls.Add(this.labelEncryptAlgoDescription);
       this.panelSaveZipOption.Controls.Add(this.comboBoxZipEncryptAlgo);
       this.panelSaveZipOption.Controls.Add(this.buttonSaveZipFileToFolder);
       this.panelSaveZipOption.Controls.Add(this.checkBoxZipConfirmOverwrite);
       this.panelSaveZipOption.Controls.Add(this.textBoxZipToSameFldrPath);
       this.panelSaveZipOption.Controls.Add(this.checkBoxZipToSameFldr);
+      resources.ApplyResources(this.panelSaveZipOption, "panelSaveZipOption");
       this.panelSaveZipOption.Name = "panelSaveZipOption";
       // 
       // labelEncryptAlgoDescription
@@ -929,8 +927,8 @@
       // 
       // comboBoxZipEncryptAlgo
       // 
-      resources.ApplyResources(this.comboBoxZipEncryptAlgo, "comboBoxZipEncryptAlgo");
       this.comboBoxZipEncryptAlgo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.comboBoxZipEncryptAlgo, "comboBoxZipEncryptAlgo");
       this.comboBoxZipEncryptAlgo.FormattingEnabled = true;
       this.comboBoxZipEncryptAlgo.Items.AddRange(new object[] {
             resources.GetString("comboBoxZipEncryptAlgo.Items"),
@@ -970,17 +968,17 @@
       // 
       // tabPageDelete
       // 
-      resources.ApplyResources(this.tabPageDelete, "tabPageDelete");
       this.tabPageDelete.Controls.Add(this.panelDeleteOption);
+      resources.ApplyResources(this.tabPageDelete, "tabPageDelete");
       this.tabPageDelete.Name = "tabPageDelete";
       this.tabPageDelete.UseVisualStyleBackColor = true;
       // 
       // panelDeleteOption
       // 
-      resources.ApplyResources(this.panelDeleteOption, "panelDeleteOption");
       this.panelDeleteOption.Controls.Add(this.groupBoxAdvancedDeleteOption);
       this.panelDeleteOption.Controls.Add(this.groupBox3);
       this.panelDeleteOption.Controls.Add(this.groupBox2);
+      resources.ApplyResources(this.panelDeleteOption, "panelDeleteOption");
       this.panelDeleteOption.Name = "panelDeleteOption";
       // 
       // groupBoxAdvancedDeleteOption
@@ -1149,18 +1147,18 @@
       // 
       // tabPageCompressOption
       // 
-      resources.ApplyResources(this.tabPageCompressOption, "tabPageCompressOption");
       this.tabPageCompressOption.Controls.Add(this.panelCompressOption);
+      resources.ApplyResources(this.tabPageCompressOption, "tabPageCompressOption");
       this.tabPageCompressOption.Name = "tabPageCompressOption";
       this.tabPageCompressOption.UseVisualStyleBackColor = true;
       // 
       // panelCompressOption
       // 
-      resources.ApplyResources(this.panelCompressOption, "panelCompressOption");
       this.panelCompressOption.Controls.Add(this.labelCompressionRateOption);
       this.panelCompressOption.Controls.Add(this.label4);
       this.panelCompressOption.Controls.Add(this.trackBarCompressRate);
       this.panelCompressOption.Controls.Add(this.checkBoxCompressionOption);
+      resources.ApplyResources(this.panelCompressOption, "panelCompressOption");
       this.panelCompressOption.Name = "panelCompressOption";
       // 
       // labelCompressionRateOption
@@ -1192,16 +1190,16 @@
       // 
       // tabPageSystem
       // 
-      resources.ApplyResources(this.tabPageSystem, "tabPageSystem");
       this.tabPageSystem.Controls.Add(this.panelSystemOption);
+      resources.ApplyResources(this.tabPageSystem, "tabPageSystem");
       this.tabPageSystem.Name = "tabPageSystem";
       this.tabPageSystem.UseVisualStyleBackColor = true;
       // 
       // panelSystemOption
       // 
-      resources.ApplyResources(this.panelSystemOption, "panelSystemOption");
       this.panelSystemOption.Controls.Add(this.groupBox8);
       this.panelSystemOption.Controls.Add(this.groupBox7);
+      resources.ApplyResources(this.panelSystemOption, "panelSystemOption");
       this.panelSystemOption.Name = "panelSystemOption";
       // 
       // groupBox8
@@ -1263,8 +1261,8 @@
       // 
       // pictureBoxIcon00
       // 
-      resources.ApplyResources(this.pictureBoxIcon00, "pictureBoxIcon00");
       this.pictureBoxIcon00.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.pictureBoxIcon00, "pictureBoxIcon00");
       this.pictureBoxIcon00.Name = "pictureBoxIcon00";
       this.pictureBoxIcon00.TabStop = false;
       this.pictureBoxIcon00.Click += new System.EventHandler(this.pictureBoxIcon00_Click);
@@ -1370,19 +1368,19 @@
       // 
       // tabPageSettingsImportExport
       // 
-      resources.ApplyResources(this.tabPageSettingsImportExport, "tabPageSettingsImportExport");
       this.tabPageSettingsImportExport.Controls.Add(this.panelSettingImportExportOption);
+      resources.ApplyResources(this.tabPageSettingsImportExport, "tabPageSettingsImportExport");
       this.tabPageSettingsImportExport.Name = "tabPageSettingsImportExport";
       this.tabPageSettingsImportExport.UseVisualStyleBackColor = true;
       // 
       // panelSettingImportExportOption
       // 
-      resources.ApplyResources(this.panelSettingImportExportOption, "panelSettingImportExportOption");
       this.panelSettingImportExportOption.Controls.Add(this.checkBoxShowDialogToConfirmToReadIniFileAlways);
       this.panelSettingImportExportOption.Controls.Add(this.label15);
       this.panelSettingImportExportOption.Controls.Add(this.checkBoxAlwaysReadIniFile);
       this.panelSettingImportExportOption.Controls.Add(this.buttonReplaceCurrentByTemporary);
       this.panelSettingImportExportOption.Controls.Add(this.groupBox9);
+      resources.ApplyResources(this.panelSettingImportExportOption, "panelSettingImportExportOption");
       this.panelSettingImportExportOption.Name = "panelSettingImportExportOption";
       // 
       // checkBoxShowDialogToConfirmToReadIniFileAlways
@@ -1428,22 +1426,21 @@
       // 
       // buttonExportCurrentConf
       // 
-      resources.ApplyResources(this.buttonExportCurrentConf, "buttonExportCurrentConf");
       this.buttonExportCurrentConf.ForeColor = System.Drawing.SystemColors.ControlText;
+      resources.ApplyResources(this.buttonExportCurrentConf, "buttonExportCurrentConf");
       this.buttonExportCurrentConf.Name = "buttonExportCurrentConf";
       this.buttonExportCurrentConf.UseVisualStyleBackColor = true;
       this.buttonExportCurrentConf.Click += new System.EventHandler(this.buttonExportCurrentConf_Click);
       // 
       // tabPagePasswordFileOption
       // 
-      resources.ApplyResources(this.tabPagePasswordFileOption, "tabPagePasswordFileOption");
       this.tabPagePasswordFileOption.Controls.Add(this.panelPasswordFileOption);
+      resources.ApplyResources(this.tabPagePasswordFileOption, "tabPagePasswordFileOption");
       this.tabPagePasswordFileOption.Name = "tabPagePasswordFileOption";
       this.tabPagePasswordFileOption.UseVisualStyleBackColor = true;
       // 
       // panelPasswordFileOption
       // 
-      resources.ApplyResources(this.panelPasswordFileOption, "panelPasswordFileOption");
       this.panelPasswordFileOption.Controls.Add(this.checkBoxDoByPasswordFile);
       this.panelPasswordFileOption.Controls.Add(this.buttonOpenFileDialogForDecryption);
       this.panelPasswordFileOption.Controls.Add(this.buttonOpenFileDialogForEncryption);
@@ -1455,6 +1452,7 @@
       this.panelPasswordFileOption.Controls.Add(this.checkBoxAllowPassFile);
       this.panelPasswordFileOption.Controls.Add(this.label5);
       this.panelPasswordFileOption.Controls.Add(this.pictureBox5);
+      resources.ApplyResources(this.panelPasswordFileOption, "panelPasswordFileOption");
       this.panelPasswordFileOption.Name = "panelPasswordFileOption";
       // 
       // checkBoxDoByPasswordFile
@@ -1488,8 +1486,8 @@
       // 
       // textBoxPassFilePathDecrypt
       // 
-      resources.ApplyResources(this.textBoxPassFilePathDecrypt, "textBoxPassFilePathDecrypt");
       this.textBoxPassFilePathDecrypt.AllowDrop = true;
+      resources.ApplyResources(this.textBoxPassFilePathDecrypt, "textBoxPassFilePathDecrypt");
       this.textBoxPassFilePathDecrypt.Name = "textBoxPassFilePathDecrypt";
       this.textBoxPassFilePathDecrypt.TextChanged += new System.EventHandler(this.options_ComponentChanged);
       this.textBoxPassFilePathDecrypt.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassFilePathDecrypt_DragDrop);
@@ -1506,8 +1504,8 @@
       // 
       // textBoxPassFilePath
       // 
-      resources.ApplyResources(this.textBoxPassFilePath, "textBoxPassFilePath");
       this.textBoxPassFilePath.AllowDrop = true;
+      resources.ApplyResources(this.textBoxPassFilePath, "textBoxPassFilePath");
       this.textBoxPassFilePath.Name = "textBoxPassFilePath";
       this.textBoxPassFilePath.TextChanged += new System.EventHandler(this.options_ComponentChanged);
       this.textBoxPassFilePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassFilePath_DragDrop);
@@ -1544,17 +1542,17 @@
       // 
       // tabPageCamouflageExtOption
       // 
-      resources.ApplyResources(this.tabPageCamouflageExtOption, "tabPageCamouflageExtOption");
       this.tabPageCamouflageExtOption.Controls.Add(this.panelCamouflageExtOption);
+      resources.ApplyResources(this.tabPageCamouflageExtOption, "tabPageCamouflageExtOption");
       this.tabPageCamouflageExtOption.Name = "tabPageCamouflageExtOption";
       this.tabPageCamouflageExtOption.UseVisualStyleBackColor = true;
       // 
       // panelCamouflageExtOption
       // 
-      resources.ApplyResources(this.panelCamouflageExtOption, "panelCamouflageExtOption");
       this.panelCamouflageExtOption.Controls.Add(this.label6);
       this.panelCamouflageExtOption.Controls.Add(this.checkBoxAddCamoExt);
       this.panelCamouflageExtOption.Controls.Add(this.textBoxCamoExt);
+      resources.ApplyResources(this.panelCamouflageExtOption, "panelCamouflageExtOption");
       this.panelCamouflageExtOption.Name = "panelCamouflageExtOption";
       // 
       // label6
@@ -1579,18 +1577,18 @@
       // 
       // tabPagePasswordInputLimitOption
       // 
-      resources.ApplyResources(this.tabPagePasswordInputLimitOption, "tabPagePasswordInputLimitOption");
       this.tabPagePasswordInputLimitOption.Controls.Add(this.panelPasswordInputLimitOption);
+      resources.ApplyResources(this.tabPagePasswordInputLimitOption, "tabPagePasswordInputLimitOption");
       this.tabPagePasswordInputLimitOption.Name = "tabPagePasswordInputLimitOption";
       this.tabPagePasswordInputLimitOption.UseVisualStyleBackColor = true;
       // 
       // panelPasswordInputLimitOption
       // 
-      resources.ApplyResources(this.panelPasswordInputLimitOption, "panelPasswordInputLimitOption");
       this.panelPasswordInputLimitOption.Controls.Add(this.groupBox10);
       this.panelPasswordInputLimitOption.Controls.Add(this.label9);
       this.panelPasswordInputLimitOption.Controls.Add(this.checkBoxBroken);
       this.panelPasswordInputLimitOption.Controls.Add(this.pictureBox6);
+      resources.ApplyResources(this.panelPasswordInputLimitOption, "panelPasswordInputLimitOption");
       this.panelPasswordInputLimitOption.Name = "panelPasswordInputLimitOption";
       // 
       // groupBox10
@@ -1648,20 +1646,20 @@
       // 
       // tabPageSalvageDataOption
       // 
-      resources.ApplyResources(this.tabPageSalvageDataOption, "tabPageSalvageDataOption");
       this.tabPageSalvageDataOption.Controls.Add(this.panelSalvageDataOption);
+      resources.ApplyResources(this.tabPageSalvageDataOption, "tabPageSalvageDataOption");
       this.tabPageSalvageDataOption.Name = "tabPageSalvageDataOption";
       this.tabPageSalvageDataOption.UseVisualStyleBackColor = true;
       // 
       // panelSalvageDataOption
       // 
-      resources.ApplyResources(this.panelSalvageDataOption, "panelSalvageDataOption");
       this.panelSalvageDataOption.Controls.Add(this.label14);
       this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageIgnoreHashCheck);
       this.panelSalvageDataOption.Controls.Add(this.label13);
       this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageIntoSameDirectory);
       this.panelSalvageDataOption.Controls.Add(this.label12);
       this.panelSalvageDataOption.Controls.Add(this.checkBoxSalvageToCreateParentFolderOneByOne);
+      resources.ApplyResources(this.panelSalvageDataOption, "panelSalvageDataOption");
       this.panelSalvageDataOption.Name = "panelSalvageDataOption";
       // 
       // label14
@@ -1707,35 +1705,35 @@
       // 
       // tabPageLicense
       // 
-      resources.ApplyResources(this.tabPageLicense, "tabPageLicense");
       this.tabPageLicense.Controls.Add(this.panelLicenseOption);
+      resources.ApplyResources(this.tabPageLicense, "tabPageLicense");
       this.tabPageLicense.Name = "tabPageLicense";
       this.tabPageLicense.UseVisualStyleBackColor = true;
       // 
       // panelLicenseOption
       // 
-      resources.ApplyResources(this.panelLicenseOption, "panelLicenseOption");
       this.panelLicenseOption.Controls.Add(this.richTextBox1);
+      resources.ApplyResources(this.panelLicenseOption, "panelLicenseOption");
       this.panelLicenseOption.Name = "panelLicenseOption";
       // 
       // richTextBox1
       // 
-      resources.ApplyResources(this.richTextBox1, "richTextBox1");
       this.richTextBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+      resources.ApplyResources(this.richTextBox1, "richTextBox1");
       this.richTextBox1.Name = "richTextBox1";
       this.richTextBox1.ReadOnly = true;
       // 
       // tabPageDevelopment
       // 
-      resources.ApplyResources(this.tabPageDevelopment, "tabPageDevelopment");
       this.tabPageDevelopment.Controls.Add(this.panelDevelopmentOption);
+      resources.ApplyResources(this.tabPageDevelopment, "tabPageDevelopment");
       this.tabPageDevelopment.Name = "tabPageDevelopment";
       this.tabPageDevelopment.UseVisualStyleBackColor = true;
       // 
       // panelDevelopmentOption
       // 
-      resources.ApplyResources(this.panelDevelopmentOption, "panelDevelopmentOption");
       this.panelDevelopmentOption.Controls.Add(this.checkBoxDeveloperConsole);
+      resources.ApplyResources(this.panelDevelopmentOption, "panelDevelopmentOption");
       this.panelDevelopmentOption.Name = "panelDevelopmentOption";
       // 
       // checkBoxDeveloperConsole
@@ -1743,10 +1741,10 @@
       resources.ApplyResources(this.checkBoxDeveloperConsole, "checkBoxDeveloperConsole");
       this.checkBoxDeveloperConsole.Name = "checkBoxDeveloperConsole";
       this.checkBoxDeveloperConsole.UseVisualStyleBackColor = true;
+      this.checkBoxDeveloperConsole.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // panel1
       // 
-      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Controls.Add(this.splitButton1);
       this.panel1.Controls.Add(this.pictureBoxCommandLineIcon);
       this.panel1.Controls.Add(this.pictureBoxIniFileIcon);
@@ -1754,34 +1752,27 @@
       this.panel1.Controls.Add(this.buttonApply);
       this.panel1.Controls.Add(this.buttonOK);
       this.panel1.Controls.Add(this.buttonCancel);
+      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
-      // 
-      // splitButton1
-      // 
-      resources.ApplyResources(this.splitButton1, "splitButton1");
-      this.splitButton1.Menu = this.contextMenuStrip2;
-      this.splitButton1.Name = "splitButton1";
-      this.splitButton1.UseVisualStyleBackColor = true;
-      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // contextMenuStrip2
       // 
-      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemOnlineHelp,
             this.toolStripMenuItemCmdReference});
       this.contextMenuStrip2.Name = "contextMenuStrip2";
+      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       // 
       // toolStripMenuItemOnlineHelp
       // 
-      resources.ApplyResources(this.toolStripMenuItemOnlineHelp, "toolStripMenuItemOnlineHelp");
       this.toolStripMenuItemOnlineHelp.Name = "toolStripMenuItemOnlineHelp";
+      resources.ApplyResources(this.toolStripMenuItemOnlineHelp, "toolStripMenuItemOnlineHelp");
       this.toolStripMenuItemOnlineHelp.Click += new System.EventHandler(this.toolStripMenuItemOnlineHelp_Click);
       // 
       // toolStripMenuItemCmdReference
       // 
-      resources.ApplyResources(this.toolStripMenuItemCmdReference, "toolStripMenuItemCmdReference");
       this.toolStripMenuItemCmdReference.Name = "toolStripMenuItemCmdReference";
+      resources.ApplyResources(this.toolStripMenuItemCmdReference, "toolStripMenuItemCmdReference");
       this.toolStripMenuItemCmdReference.Click += new System.EventHandler(this.toolStripMenuItemCmdReference_Click);
       // 
       // pictureBoxCommandLineIcon
@@ -1826,7 +1817,6 @@
       // 
       // contextMenuStrip1
       // 
-      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileNameToolStripMenuItem,
             this.extensionToolStripMenuItem,
@@ -1835,23 +1825,24 @@
             this.ToolStripMenuItemrandomNumber,
             this.ToolStripMenuItemserialNumber});
       this.contextMenuStrip1.Name = "contextMenuStrip1";
+      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       // 
       // fileNameToolStripMenuItem
       // 
-      resources.ApplyResources(this.fileNameToolStripMenuItem, "fileNameToolStripMenuItem");
       this.fileNameToolStripMenuItem.Name = "fileNameToolStripMenuItem";
+      resources.ApplyResources(this.fileNameToolStripMenuItem, "fileNameToolStripMenuItem");
       this.fileNameToolStripMenuItem.Click += new System.EventHandler(this.InsertFileNameOject);
       // 
       // extensionToolStripMenuItem
       // 
-      resources.ApplyResources(this.extensionToolStripMenuItem, "extensionToolStripMenuItem");
       this.extensionToolStripMenuItem.Name = "extensionToolStripMenuItem";
+      resources.ApplyResources(this.extensionToolStripMenuItem, "extensionToolStripMenuItem");
       this.extensionToolStripMenuItem.Click += new System.EventHandler(this.InsertExtensionOject);
       // 
       // toolStripMenuItem1
       // 
-      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       // 
       // dateToolStripMenuItem
       // 
@@ -1861,49 +1852,49 @@
       // 
       // ToolStripMenuItemrandomNumber
       // 
-      resources.ApplyResources(this.ToolStripMenuItemrandomNumber, "ToolStripMenuItemrandomNumber");
       this.ToolStripMenuItemrandomNumber.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemAlphabet,
             this.ToolStripMenuItemNumbers,
             this.ToolStripMenuItemSymbols});
+      resources.ApplyResources(this.ToolStripMenuItemrandomNumber, "ToolStripMenuItemrandomNumber");
       this.ToolStripMenuItemrandomNumber.Name = "ToolStripMenuItemrandomNumber";
       // 
       // ToolStripMenuItemAlphabet
       // 
-      resources.ApplyResources(this.ToolStripMenuItemAlphabet, "ToolStripMenuItemAlphabet");
       this.ToolStripMenuItemAlphabet.CheckOnClick = true;
       this.ToolStripMenuItemAlphabet.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemLowerCase,
             this.ToolStripMenuItemUpperCase});
       this.ToolStripMenuItemAlphabet.Name = "ToolStripMenuItemAlphabet";
+      resources.ApplyResources(this.ToolStripMenuItemAlphabet, "ToolStripMenuItemAlphabet");
       this.ToolStripMenuItemAlphabet.Click += new System.EventHandler(this.InsertRandomStringOject);
       // 
       // ToolStripMenuItemLowerCase
       // 
-      resources.ApplyResources(this.ToolStripMenuItemLowerCase, "ToolStripMenuItemLowerCase");
       this.ToolStripMenuItemLowerCase.CheckOnClick = true;
       this.ToolStripMenuItemLowerCase.Name = "ToolStripMenuItemLowerCase";
+      resources.ApplyResources(this.ToolStripMenuItemLowerCase, "ToolStripMenuItemLowerCase");
       this.ToolStripMenuItemLowerCase.Click += new System.EventHandler(this.InsertRandomStringOject);
       // 
       // ToolStripMenuItemUpperCase
       // 
-      resources.ApplyResources(this.ToolStripMenuItemUpperCase, "ToolStripMenuItemUpperCase");
       this.ToolStripMenuItemUpperCase.CheckOnClick = true;
       this.ToolStripMenuItemUpperCase.Name = "ToolStripMenuItemUpperCase";
+      resources.ApplyResources(this.ToolStripMenuItemUpperCase, "ToolStripMenuItemUpperCase");
       this.ToolStripMenuItemUpperCase.Click += new System.EventHandler(this.InsertRandomStringOject);
       // 
       // ToolStripMenuItemNumbers
       // 
-      resources.ApplyResources(this.ToolStripMenuItemNumbers, "ToolStripMenuItemNumbers");
       this.ToolStripMenuItemNumbers.CheckOnClick = true;
       this.ToolStripMenuItemNumbers.Name = "ToolStripMenuItemNumbers";
+      resources.ApplyResources(this.ToolStripMenuItemNumbers, "ToolStripMenuItemNumbers");
       this.ToolStripMenuItemNumbers.Click += new System.EventHandler(this.InsertRandomStringOject);
       // 
       // ToolStripMenuItemSymbols
       // 
-      resources.ApplyResources(this.ToolStripMenuItemSymbols, "ToolStripMenuItemSymbols");
       this.ToolStripMenuItemSymbols.CheckOnClick = true;
       this.ToolStripMenuItemSymbols.Name = "ToolStripMenuItemSymbols";
+      resources.ApplyResources(this.ToolStripMenuItemSymbols, "ToolStripMenuItemSymbols");
       this.ToolStripMenuItemSymbols.Click += new System.EventHandler(this.InsertRandomStringOject);
       // 
       // ToolStripMenuItemserialNumber
@@ -1916,13 +1907,13 @@
       // 
       resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
       // 
-      // openFileDialog1
+      // splitButton1
       // 
-      resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
-      // 
-      // saveFileDialog1
-      // 
-      resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip2;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // Form3
       // 
