@@ -46,7 +46,7 @@ namespace AttacheCase
     private const int BCM_FIRST = 0x1600;
 		private const int BCM_SETSHIELD = BCM_FIRST + 0x000C;
 
-    private Panel[] panelObjects = new Panel[16];
+    private Panel[] panelObjects = new Panel[17];
 
 		private bool fAssociationSettings = false;
 		private bool fLoading = false;
@@ -91,6 +91,7 @@ namespace AttacheCase
 			panelObjects[13] = this.panelPasswordInputLimitOption;
 			panelObjects[14] = this.panelSalvageDataOption;
 			panelObjects[15] = this.panelLicenseOption;
+			panelObjects[16] = this.panelDevelopmentOption;
 
 			foreach (Panel obj in panelObjects)
 			{
@@ -447,9 +448,6 @@ namespace AttacheCase
 			ToolStripMenuItemNumbers.Checked = AppSettings.Instance.fAutoNameNumbers;
 			ToolStripMenuItemSymbols.Checked = AppSettings.Instance.fAutoNameSymbols;
 
-			checkBoxAddCamoExt.Checked = AppSettings.Instance.fAddCamoExt;
-			textBoxCamoExt.Text = AppSettings.Instance.CamoExt;
-
       #endregion
 			
 			//-----------------------------------
@@ -660,46 +658,50 @@ namespace AttacheCase
       {
         checkBoxShowDialogToConfirmToReadIniFileAlways.Checked = false;
       }
-      #endregion
+			#endregion
 
-      //-----------------------------------
-      // Password file
-      //-----------------------------------
-      #region
-      checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
+			//-----------------------------------
+			// Advanced
+			//-----------------------------------
+			#region
+			//-----------------------------------
+			// Password file
+			checkBoxAllowPassFile.Checked = AppSettings.Instance.fAllowPassFile;
 			checkBoxCheckPassFile.Checked = AppSettings.Instance.fCheckPassFile;
 			textBoxPassFilePath.Text = AppSettings.Instance.PassFilePath;
 
-      checkBoxCheckPassFileDecrypt.Checked = AppSettings.Instance.fCheckPassFileDecrypt;
+			checkBoxCheckPassFileDecrypt.Checked = AppSettings.Instance.fCheckPassFileDecrypt;
 			textBoxPassFilePathDecrypt.Text = AppSettings.Instance.PassFilePathDecrypt;
 			checkBoxNoErrMsgOnPassFile.Checked = AppSettings.Instance.fNoErrMsgOnPassFile;
-      checkBoxDoByPasswordFile.Checked = AppSettings.Instance.fPasswordFileExe;
-      #endregion
+			checkBoxDoByPasswordFile.Checked = AppSettings.Instance.fPasswordFileExe;
 
-      //-----------------------------------
-      // Input Password limit
-      //-----------------------------------
-      #region
-      comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum - 1;
+			//-----------------------------------
+			// Input Password limit
+			comboBoxMissTypeLimitsNum.SelectedIndex = AppSettings.Instance.MissTypeLimitsNum - 1;
 			checkBoxBroken.Checked = AppSettings.Instance.fBroken;
-
-      #endregion
 
       //-----------------------------------
       // Salvage data
-      //-----------------------------------
-      #region
       checkBoxSalvageIntoSameDirectory.Checked = AppSettings.Instance.fSalvageIntoSameDirectory;
       checkBoxSalvageToCreateParentFolderOneByOne.Checked = AppSettings.Instance.fSalvageToCreateParentFolderOneByOne;
       checkBoxSalvageIgnoreHashCheck.Checked = AppSettings.Instance.fSalvageIgnoreHashCheck;
 
-      #endregion
+			//-----------------------------------
+			// Camouflage Extension
+			checkBoxAddCamoExt.Checked = AppSettings.Instance.fAddCamoExt;
+			textBoxCamoExt.Text = AppSettings.Instance.CamoExt;
 
-      //-----------------------------------
-      // License
-      //-----------------------------------
-      #region zlib license
-      richTextBox1.Text =
+			//-----------------------------------
+			// Development mode
+			checkBoxDeveloperConsole.Checked = AppSettings.Instance.fDeveloperConsole;
+
+			#endregion
+
+			//-----------------------------------
+			// License
+			//-----------------------------------
+			#region zlib license
+			richTextBox1.Text =
 @"zlib
 http://www.zlib.net/
 
@@ -988,7 +990,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
           panelCamouflageExtOption.Visible = true;
           panelCamouflageExtOption.Focus();
           break;
-        case "nodePasswordInputLimit":
+				case "nodeDevelopment":
+					panelDevelopmentOption.Visible = true;
+					panelDevelopmentOption.Focus();
+					break;
+				case "nodePasswordInputLimit":
 					panelPasswordInputLimitOption.Visible = true;
 					panelPasswordInputLimitOption.Focus();
 					break;
@@ -1266,7 +1272,11 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 			// Input Password limit
 			AppSettings.Instance.MissTypeLimitsNum = comboBoxMissTypeLimitsNum.SelectedIndex + 1;
 			AppSettings.Instance.fBroken = checkBoxBroken.Checked;
-			
+
+			//----------------------------------------------------------------------
+			// Developer mode
+			AppSettings.Instance.fDeveloperConsole = checkBoxDeveloperConsole.Checked;
+
 			//----------------------------------------------------------------------
 			// Save to the settings of each source
 			AppSettings.Instance.SaveOptions(fTemporarySettings);

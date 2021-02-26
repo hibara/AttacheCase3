@@ -287,6 +287,12 @@ namespace AttacheCase
       get { return this._salt; }
     }
 
+    private Rfc2898DeriveBytes _deriveBytes;
+    public Rfc2898DeriveBytes deriveBytes
+    {
+      get { return this._deriveBytes; }
+    }
+
     /// <summary>
     /// Constructor
     /// </summary>
@@ -545,18 +551,18 @@ namespace AttacheCase
         return (false);
       }
 
-      Rfc2898DeriveBytes deriveBytes;
+      //Rfc2898DeriveBytes _deriveBytes;
       if (PasswordBinary == null)
       {
-        deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
+        _deriveBytes = new Rfc2898DeriveBytes(Password, _salt, 1000);
       }
       else
       {
-        deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, _salt, 1000);
+        _deriveBytes = new Rfc2898DeriveBytes(PasswordBinary, _salt, 1000);
       }
 
-      byte[] key = deriveBytes.GetBytes(32);
-      byte[] iv = deriveBytes.GetBytes(32);
+      byte[] key = _deriveBytes.GetBytes(32);
+      byte[] iv = _deriveBytes.GetBytes(32);
 
       try
       {

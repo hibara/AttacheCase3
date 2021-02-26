@@ -205,6 +205,9 @@
       this.tabPageLicense = new System.Windows.Forms.TabPage();
       this.panelLicenseOption = new System.Windows.Forms.Panel();
       this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+      this.tabPageDevelopment = new System.Windows.Forms.TabPage();
+      this.panelDevelopmentOption = new System.Windows.Forms.Panel();
+      this.checkBoxDeveloperConsole = new System.Windows.Forms.CheckBox();
       this.panel1 = new System.Windows.Forms.Panel();
       this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -300,6 +303,8 @@
       this.panelSalvageDataOption.SuspendLayout();
       this.tabPageLicense.SuspendLayout();
       this.panelLicenseOption.SuspendLayout();
+      this.tabPageDevelopment.SuspendLayout();
+      this.panelDevelopmentOption.SuspendLayout();
       this.panel1.SuspendLayout();
       this.contextMenuStrip2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCommandLineIcon)).BeginInit();
@@ -358,6 +363,7 @@
       this.tabControl1.Controls.Add(this.tabPagePasswordInputLimitOption);
       this.tabControl1.Controls.Add(this.tabPageSalvageDataOption);
       this.tabControl1.Controls.Add(this.tabPageLicense);
+      this.tabControl1.Controls.Add(this.tabPageDevelopment);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       // 
@@ -1719,6 +1725,25 @@
       this.richTextBox1.Name = "richTextBox1";
       this.richTextBox1.ReadOnly = true;
       // 
+      // tabPageDevelopment
+      // 
+      resources.ApplyResources(this.tabPageDevelopment, "tabPageDevelopment");
+      this.tabPageDevelopment.Controls.Add(this.panelDevelopmentOption);
+      this.tabPageDevelopment.Name = "tabPageDevelopment";
+      this.tabPageDevelopment.UseVisualStyleBackColor = true;
+      // 
+      // panelDevelopmentOption
+      // 
+      resources.ApplyResources(this.panelDevelopmentOption, "panelDevelopmentOption");
+      this.panelDevelopmentOption.Controls.Add(this.checkBoxDeveloperConsole);
+      this.panelDevelopmentOption.Name = "panelDevelopmentOption";
+      // 
+      // checkBoxDeveloperConsole
+      // 
+      resources.ApplyResources(this.checkBoxDeveloperConsole, "checkBoxDeveloperConsole");
+      this.checkBoxDeveloperConsole.Name = "checkBoxDeveloperConsole";
+      this.checkBoxDeveloperConsole.UseVisualStyleBackColor = true;
+      // 
       // panel1
       // 
       resources.ApplyResources(this.panel1, "panel1");
@@ -2005,6 +2030,9 @@
       this.panelSalvageDataOption.PerformLayout();
       this.tabPageLicense.ResumeLayout(false);
       this.panelLicenseOption.ResumeLayout(false);
+      this.tabPageDevelopment.ResumeLayout(false);
+      this.panelDevelopmentOption.ResumeLayout(false);
+      this.panelDevelopmentOption.PerformLayout();
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
       this.contextMenuStrip2.ResumeLayout(false);
@@ -2219,5 +2247,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemCmdReference;
         private SplitButton splitButton1;
         private System.Windows.Forms.CheckBox checkBoxTurnOnAllIMEs;
-    }
+    private System.Windows.Forms.TabPage tabPageDevelopment;
+    private System.Windows.Forms.Panel panelDevelopmentOption;
+    private System.Windows.Forms.CheckBox checkBoxDeveloperConsole;
+  }
 }

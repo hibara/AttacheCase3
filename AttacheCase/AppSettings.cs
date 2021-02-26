@@ -1017,7 +1017,46 @@ namespace AttacheCase
       get { return this._fSalvageIgnoreHashCheck; }
       set { this._fSalvageIgnoreHashCheck = value; }
     }
+    #endregion
 
+    //----------------------------------------------------------------------
+    // Develop mode
+    #region
+    private bool _fDeveloperConsole;
+    // Ignore file hash value check.
+    public bool fDeveloperConsole
+    {
+      get { return this._fDeveloperConsole; }
+      set { this._fDeveloperConsole = value; }
+    }
+
+    private int _DeveloperConsolePosX;
+    public int DeveloperConsolePosX
+    {
+      get { return this._DeveloperConsolePosX; }
+      set { this._DeveloperConsolePosX = value; }
+    }
+
+    private int _DeveloperConsolePosY;
+    public int DeveloperConsolePosY
+    {
+      get { return this._DeveloperConsolePosY; }
+      set { this._DeveloperConsolePosY = value; }
+    }
+
+    private int _DeveloperConsoleWidth;
+    public int DeveloperConsoleWidth
+    {
+      get { return this._DeveloperConsoleWidth; }
+      set { this._DeveloperConsoleWidth = value; }
+    }
+
+    private int _DeveloperConsoleHeight;
+    public int DeveloperConsoleHeight
+    {
+      get { return this._DeveloperConsoleHeight; }
+      set { this._DeveloperConsoleHeight = value; }
+    }
     #endregion
 
     //----------------------------------------------------------------------
@@ -1380,7 +1419,7 @@ namespace AttacheCase
         _DelZeroNum = int.Parse((string)reg.GetValue("DelZeroNum", "1"));
         
         //-----------------------------------
-        //Compression
+        // Compression
         _CompressRate = int.Parse((string)reg.GetValue("CompressRate", "6"));
         
         //-----------------------------------
@@ -1395,7 +1434,7 @@ namespace AttacheCase
         _fShowDialogToConfirmToReadIniFile = ((string)reg.GetValue("fShowDialogToConfirmToReadIniFile", "1") == "1") ? true : false;
         
         //-----------------------------------
-        //Password file 
+        // Password file 
         _fAllowPassFile = ((string)reg.GetValue("fAllowPassFile", "0") == "1") ? true : false;
         _fCheckPassFile = ((string)reg.GetValue("fCheckPassFile", "0") == "1") ? true : false;
         _fCheckPassFileDecrypt = ((string)reg.GetValue("fCheckPassFileDecrypt", "0") == "1") ? true : false;
@@ -1405,7 +1444,7 @@ namespace AttacheCase
         _fPasswordFileExe = ((string)reg.GetValue("fPasswordFileExe", "0") == "1") ? true : false;
 
         //-----------------------------------
-        //Camouflage Extension 
+        // Camouflage Extension 
         _fAddCamoExt = ((string)reg.GetValue("fAddCamoExt", "0") == "1") ? true : false;
         _CamoExt = (string)reg.GetValue("CamoExt", ".jpg");
 
@@ -1418,7 +1457,15 @@ namespace AttacheCase
         // Salvage
         _fSalvageToCreateParentFolderOneByOne = ((string)reg.GetValue("fSalvageToCreateParentFolderOneByOne", "0") == "1") ? true : false;
         _fSalvageIntoSameDirectory = ((string)reg.GetValue("fSalvageIntoSameDirectory", "0") == "1") ? true : false;
-        
+
+        //-----------------------------------
+        // Developer mode
+        _fDeveloperConsole = ((string)reg.GetValue("_fDeveloperConsole", "0") == "1") ? true : false;
+        _DeveloperConsolePosX = int.Parse((string)reg.GetValue("DeveloperConsolePosX", "-1"));
+        _DeveloperConsolePosY = int.Parse((string)reg.GetValue("DeveloperConsolePosY", "-1"));
+        _DeveloperConsoleWidth = int.Parse((string)reg.GetValue("DeveloperConsoleWidth", "640"));
+        _DeveloperConsoleHeight = int.Parse((string)reg.GetValue("DeveloperConsoleHeight", "480"));
+
         //-----------------------------------
         // Others
         _Language = (string)reg.GetValue("Language", "");
@@ -1595,7 +1642,15 @@ namespace AttacheCase
         // Salvage
         reg.SetValue("fSalvageToCreateParentFolderOneByOne", _fSalvageToCreateParentFolderOneByOne == true ? "1" : "0");
         reg.SetValue("fSalvageIntoSameDirectory", _fSalvageIntoSameDirectory == true ? "1" : "0");
-        
+
+        //-----------------------------------
+        // Developer mode
+        reg.SetValue("fDeveloperConsole", _fDeveloperConsole == true ? "1" : "0");
+        reg.SetValue("DeveloperConsolePosX", _DeveloperConsolePosX.ToString());
+        reg.SetValue("DeveloperConsolePosY", _DeveloperConsolePosY.ToString());
+        reg.SetValue("DeveloperConsoleWidth", _DeveloperConsoleWidth.ToString());
+        reg.SetValue("DeveloperConsoleHeight", _DeveloperConsoleHeight.ToString());
+
         //-----------------------------------
         // Others
         reg.SetValue("Language", _Language);
@@ -1781,6 +1836,13 @@ namespace AttacheCase
       ReadIniFile(IniFilePath, ref _fSalvageToCreateParentFolderOneByOne, "Option", "fSalvageToCreateParentFolderOneByOne", "0");
       ReadIniFile(IniFilePath, ref _fSalvageIntoSameDirectory, "Option", "fSalvageIntoSameDirectory", "0");
 
+      // Developer mode
+      ReadIniFile(IniFilePath, ref _fDeveloperConsole, "Option", "fDeveloperConsole", "0");
+      ReadIniFile(IniFilePath, ref _DeveloperConsolePosX, "Option", "DeveloperConsolePosX", "-1");
+      ReadIniFile(IniFilePath, ref _DeveloperConsolePosY, "Option", "DeveloperConsolePosY", "-1");
+      ReadIniFile(IniFilePath, ref _DeveloperConsoleWidth, "Option", "DeveloperConsoleWidth", "640");
+      ReadIniFile(IniFilePath, ref _DeveloperConsoleHeight, "Option", "DeveloperConsoleHeight", "480");
+
       // Others
       ReadIniFile(IniFilePath, ref _Language, "Option", "Language", "");
       
@@ -1945,7 +2007,15 @@ namespace AttacheCase
       // Salvage
       WriteIniFile(IniFilePath, _fSalvageToCreateParentFolderOneByOne, "Option", "fSalvageToCreateParentFolderOneByOne");
       WriteIniFile(IniFilePath, _fSalvageIntoSameDirectory, "Option", "fSalvageIntoSameDirectory");
-  
+
+      //-----------------------------------
+      // Developer mode
+      WriteIniFile(IniFilePath, _fDeveloperConsole, "Option", "fDeveloperConsole");
+      WriteIniFile(IniFilePath, _DeveloperConsolePosX, "Option", "DeveloperConsolePosX");
+      WriteIniFile(IniFilePath, _DeveloperConsolePosY, "Option", "DeveloperConsolePosY");
+      WriteIniFile(IniFilePath, _DeveloperConsoleWidth, "Option", "DeveloperConsoleWidth");
+      WriteIniFile(IniFilePath, _DeveloperConsoleHeight, "Option", "DeveloperConsoleHeight");
+
       //-----------------------------------
       // Others
       WriteIniFile(IniFilePath, _Language, "Option", "Language");
@@ -2110,7 +2180,7 @@ namespace AttacheCase
           switch (key)
           {
             //-----------------------------------
-            // 一般設定
+            // General 一般設定
             //-----------------------------------    
             #region
             // Password
@@ -2215,7 +2285,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // パスワード
+            // Password パスワード
             //-----------------------------------          
             #region
             //Encrypt/Decrypt by &memorized password without confirming
@@ -2244,7 +2314,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // ウィンドウ
+            // Window ウィンドウ
             //-----------------------------------          
             #region
             // Always execute by minimize the window
@@ -2324,7 +2394,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 保存設定
+            // Save 保存設定
             //-----------------------------------          
             #region
             // Encryption type ( Integer = 1: ATC, 2: EXE(ATC), 3: ZIP, 0: false )
@@ -2398,7 +2468,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 保存設定（暗号化）
+            // Save Encrypt 保存設定（暗号化）
             //-----------------------------------          
             #region
             // Save to same folder in &encryption
@@ -2512,7 +2582,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 保存設定（復号）
+            // Save Decrypt 保存設定（復号）
             //-----------------------------------    
             #region
             // Save to the same folder in decryption
@@ -2559,7 +2629,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 保存設定（ZIP）
+            // Save ZIP 保存設定（ZIP）
             //-----------------------------------    
             #region
             // Save to the same folder in ZIP
@@ -2598,7 +2668,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 削除設定
+            // Delete 削除設定
             //-----------------------------------          
             #region
             // Delete original files or directories after encryption
@@ -2685,7 +2755,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // 圧縮
+            // Compression 圧縮
             //-----------------------------------          
             #region
             // Enable compression
@@ -2703,7 +2773,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // パスワードファイル
+            // Password file パスワードファイル
             //-----------------------------------          
             #region
             // Allow a password file to drag and drop
@@ -2759,7 +2829,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // パスワード入力制限
+            // Input Password limit パスワード入力制限
             //-----------------------------------          
             #region
             // Set number of times to input password in encrypt files
@@ -2788,7 +2858,7 @@ namespace AttacheCase
             #endregion
 
             //-----------------------------------
-            // サルベージ
+            // Salvage サルベージ
             //-----------------------------------
             #region
 
@@ -2813,6 +2883,25 @@ namespace AttacheCase
               else if (value == "0")
               {
                 _fSalvageIntoSameDirectory = false;
+              }
+              break;
+
+            #endregion
+
+            //-----------------------------------
+            // Developer mode 開発者モード
+            //-----------------------------------
+            #region
+
+            // Open developer console window 
+            case "/devcl": // 開発用のデベロッパーコンソールウィンドウの表示
+              if (value == "")
+              {
+                _fDeveloperConsole = true;
+              }
+              else if (value == "0")
+              {
+                _fDeveloperConsole = false;
               }
               break;
 

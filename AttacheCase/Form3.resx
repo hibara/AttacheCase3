@@ -598,6 +598,9 @@
   <data name="groupBox10.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
+  <data name="panelDevelopmentOption.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="tabPageSaveDecryptOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
@@ -704,6 +707,9 @@
   </data>
   <data name="&gt;&gt;panelSalvageDataOption.Parent" xml:space="preserve">
     <value>tabPageSalvageDataOption</value>
+  </data>
+  <data name="&gt;&gt;tabPageDevelopment.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
   <data name="pictureBoxIcon03.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
@@ -1447,6 +1453,9 @@
   <data name="pictureBoxMyIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
   </data>
+  <data name="&gt;&gt;tabPageDevelopment.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
   <data name="buttonSaveDecryptedFileToFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1503,6 +1512,9 @@
   </data>
   <data name="&gt;&gt;labelPreset01.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxDeveloperConsole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;pictureBoxCheckmark00.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1601,6 +1613,9 @@
         27ZagBYRBIERNE2jBWgRfM33gitLhFxv20ei1C8GBTG4mOJ+HAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="&gt;&gt;checkBoxDeveloperConsole.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;labelEncryptedFileNameFormat.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1635,29 +1650,33 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAAB1TeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQ0AAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
+        ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQ4AAAAEVGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tl
         ZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNo
-        aWxkQ291bnQJY2hpbGRyZW4wCWNoaWxkcmVuMQljaGlsZHJlbjIJY2hpbGRyZW4zAQEBAAABAAEABAQE
-        BAEICAgdU3lzdGVtLldpbmRvd3MuRm9ybXMuVHJlZU5vZGUCAAAAHVN5c3RlbS5XaW5kb3dzLkZvcm1z
-        LlRyZWVOb2RlAgAAAB1TeXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQIAAAAdU3lzdGVtLldpbmRv
-        d3MuRm9ybXMuVHJlZU5vZGUCAAAAAgAAAAYDAAAACEFkdmFuY2VkBgQAAAAABgUAAAAMbm9kZUFkdmFu
-        Y2VkAP////8JBAAAAP////8JBAAAAAQAAAAJBwAAAAkIAAAACQkAAAAJCgAAAAUHAAAAHVN5c3RlbS5X
-        aW5kb3dzLkZvcm1zLlRyZWVOb2RlCQAAAARUZXh0C1Rvb2xUaXBUZXh0BE5hbWUJSXNDaGVja2VkCklt
-        YWdlSW5kZXgISW1hZ2VLZXkSU2VsZWN0ZWRJbWFnZUluZGV4EFNlbGVjdGVkSW1hZ2VLZXkKQ2hpbGRD
-        b3VudAEBAQAAAQABAAEICAgCAAAABgsAAAANUGFzc3dvcmQgZmlsZQkEAAAABg0AAAAQbm9kZVBhc3N3
-        b3JkRmlsZQD/////CQQAAAD/////CQQAAAAAAAAABQgAAAAdU3lzdGVtLldpbmRvd3MuRm9ybXMuVHJl
-        ZU5vZGUJAAAABFRleHQLVG9vbFRpcFRleHQETmFtZQlJc0NoZWNrZWQKSW1hZ2VJbmRleAhJbWFnZUtl
-        eRJTZWxlY3RlZEltYWdlSW5kZXgQU2VsZWN0ZWRJbWFnZUtleQpDaGlsZENvdW50AQEBAAABAAEAAQgI
-        CAIAAAAGDwAAABRQYXNzd29yZCBpbnB1dCBsaW1pdAkEAAAABhEAAAAWbm9kZVBhc3N3b3JkSW5wdXRM
-        aW1pdAD/////CQQAAAD/////CQQAAAAAAAAABQkAAAAdU3lzdGVtLldpbmRvd3MuRm9ybXMuVHJlZU5v
-        ZGUJAAAABFRleHQLVG9vbFRpcFRleHQETmFtZQlJc0NoZWNrZWQKSW1hZ2VJbmRleAhJbWFnZUtleRJT
-        ZWxlY3RlZEltYWdlSW5kZXgQU2VsZWN0ZWRJbWFnZUtleQpDaGlsZENvdW50AQEBAAABAAEAAQgICAIA
-        AAAGEwAAAAxTYWx2YWdlIGRhdGEJBAAAAAYVAAAAD25vZGVTYWx2YWdlRGF0YQD/////CQQAAAD/////
-        CQQAAAAAAAAABQoAAAAdU3lzdGVtLldpbmRvd3MuRm9ybXMuVHJlZU5vZGUJAAAABFRleHQLVG9vbFRp
-        cFRleHQETmFtZQlJc0NoZWNrZWQKSW1hZ2VJbmRleAhJbWFnZUtleRJTZWxlY3RlZEltYWdlSW5kZXgQ
-        U2VsZWN0ZWRJbWFnZUtleQpDaGlsZENvdW50AQEBAAABAAEAAQgICAIAAAAGFwAAABRDYW1vdWZsYWdl
-        IEV4dGVuc2lvbgkEAAAABhkAAAARbm9kZUNhbW91ZmxhZ2VFeHQA/////wkEAAAA/////wkEAAAAAAAA
-        AAs=
+        aWxkQ291bnQJY2hpbGRyZW4wCWNoaWxkcmVuMQljaGlsZHJlbjIJY2hpbGRyZW4zCWNoaWxkcmVuNAEB
+        AQAAAQABAAQEBAQEAQgICB1TeXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQIAAAAdU3lzdGVtLldp
+        bmRvd3MuRm9ybXMuVHJlZU5vZGUCAAAAHVN5c3RlbS5XaW5kb3dzLkZvcm1zLlRyZWVOb2RlAgAAAB1T
+        eXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQIAAAAdU3lzdGVtLldpbmRvd3MuRm9ybXMuVHJlZU5v
+        ZGUCAAAAAgAAAAYDAAAACEFkdmFuY2VkBgQAAAAABgUAAAAMbm9kZUFkdmFuY2VkAP////8JBAAAAP//
+        //8JBAAAAAUAAAAJBwAAAAkIAAAACQkAAAAJCgAAAAkLAAAABQcAAAAdU3lzdGVtLldpbmRvd3MuRm9y
+        bXMuVHJlZU5vZGUJAAAABFRleHQLVG9vbFRpcFRleHQETmFtZQlJc0NoZWNrZWQKSW1hZ2VJbmRleAhJ
+        bWFnZUtleRJTZWxlY3RlZEltYWdlSW5kZXgQU2VsZWN0ZWRJbWFnZUtleQpDaGlsZENvdW50AQEBAAAB
+        AAEAAQgICAIAAAAGDAAAAA1QYXNzd29yZCBmaWxlCQQAAAAGDgAAABBub2RlUGFzc3dvcmRGaWxlAP//
+        //8JBAAAAP////8JBAAAAAAAAAAFCAAAAB1TeXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQkAAAAE
+        VGV4dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVk
+        SW1hZ2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQEAAAEAAQABCAgIAgAAAAYQAAAA
+        FFBhc3N3b3JkIGlucHV0IGxpbWl0CQQAAAAGEgAAABZub2RlUGFzc3dvcmRJbnB1dExpbWl0AP////8J
+        BAAAAP////8JBAAAAAAAAAAFCQAAAB1TeXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQkAAAAEVGV4
+        dAtUb29sVGlwVGV4dAROYW1lCUlzQ2hlY2tlZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1h
+        Z2VJbmRleBBTZWxlY3RlZEltYWdlS2V5CkNoaWxkQ291bnQBAQEAAAEAAQABCAgIAgAAAAYUAAAADFNh
+        bHZhZ2UgZGF0YQkEAAAABhYAAAAPbm9kZVNhbHZhZ2VEYXRhAP////8JBAAAAP////8JBAAAAAAAAAAF
+        CgAAAB1TeXN0ZW0uV2luZG93cy5Gb3Jtcy5UcmVlTm9kZQkAAAAEVGV4dAtUb29sVGlwVGV4dAROYW1l
+        CUlzQ2hlY2tlZApJbWFnZUluZGV4CEltYWdlS2V5ElNlbGVjdGVkSW1hZ2VJbmRleBBTZWxlY3RlZElt
+        YWdlS2V5CkNoaWxkQ291bnQBAQEAAAEAAQABCAgIAgAAAAYYAAAAFENhbW91ZmxhZ2UgRXh0ZW5zaW9u
+        CQQAAAAGGgAAABFub2RlQ2Ftb3VmbGFnZUV4dAD/////CQQAAAD/////CQQAAAAAAAAABQsAAAAdU3lz
+        dGVtLldpbmRvd3MuRm9ybXMuVHJlZU5vZGUJAAAABFRleHQLVG9vbFRpcFRleHQETmFtZQlJc0NoZWNr
+        ZWQKSW1hZ2VJbmRleAhJbWFnZUtleRJTZWxlY3RlZEltYWdlSW5kZXgQU2VsZWN0ZWRJbWFnZUtleQpD
+        aGlsZENvdW50AQEBAAABAAEAAQgICAIAAAAGHAAAABBEZXZlbG9wbWVudCBtb2RlCQQAAAAGHgAAAA9u
+        b2RlRGV2ZWxvcG1lbnQA/////wkEAAAA/////wkEAAAAAAAAAAs=
 </value>
   </data>
   <data name="&gt;&gt;textBoxAutoNameFormatText.Name" xml:space="preserve">
@@ -1670,7 +1689,7 @@
     <value>panelLicenseOption</value>
   </data>
   <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.5.1.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.5.4.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxSaveEncryptionToSameFolder.Parent" xml:space="preserve">
     <value>panelSaveEncryptOption</value>
@@ -1952,6 +1971,9 @@
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>400, 107</value>
   </data>
+  <data name="tabPageDevelopment.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>groupBox7</value>
   </data>
@@ -2032,6 +2054,9 @@
   </data>
   <data name="&gt;&gt;checkBoxAlwaysReadIniFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tabPageDevelopment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 444</value>
   </data>
   <data name="buttonAddSendToFolder.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 144</value>
@@ -2186,9 +2211,6 @@
   <data name="label11.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="panelPasswordsOption.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -2299,6 +2321,9 @@
   </data>
   <data name="radioButtonCompleteErase.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 81</value>
+  </data>
+  <data name="panelDevelopmentOption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
     <value>groupBox8</value>
@@ -2550,6 +2575,9 @@
   </data>
   <data name="radioButtonAllFilePack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;buttonOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="comboBoxMissTypeLimitsNum.Items1" xml:space="preserve">
     <value>2</value>
@@ -2970,6 +2998,9 @@
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
   </data>
+  <data name="&gt;&gt;checkBoxDeveloperConsole.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="labelCompressionRateOption.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -3023,6 +3054,9 @@
   </data>
   <data name="extensionToolStripMenuItem.Text" xml:space="preserve">
     <value>Extension</value>
+  </data>
+  <data name="checkBoxDeveloperConsole.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="groupBox9.Text" xml:space="preserve">
     <value>Import/Eport setting data:</value>
@@ -3080,6 +3114,9 @@
   </data>
   <data name="&gt;&gt;pictureBox5.ZOrder" xml:space="preserve">
     <value>10</value>
+  </data>
+  <data name="checkBoxDeveloperConsole.Text" xml:space="preserve">
+    <value>&amp;Open developer console window</value>
   </data>
   <data name="checkBoxDobyMemorizedPassword.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -3680,6 +3717,9 @@
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>panelPasswordFileOption</value>
   </data>
+  <data name="checkBoxDeveloperConsole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 20</value>
+  </data>
   <data name="labelPreset01.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -3757,6 +3797,9 @@
   </data>
   <data name="&gt;&gt;panelGeneralOption.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="panelDevelopmentOption.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="checkBoxDecryptConfirmOverwrite.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 104</value>
@@ -4082,6 +4125,9 @@
   <data name="panelLicenseOption.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="panelDevelopmentOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 438</value>
+  </data>
   <data name="&gt;&gt;labelLanguage.Name" xml:space="preserve">
     <value>labelLanguage</value>
   </data>
@@ -4196,6 +4242,9 @@
   <data name="checkBoxfNoParentFldr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;checkBoxDeveloperConsole.Name" xml:space="preserve">
+    <value>checkBoxDeveloperConsole</value>
+  </data>
   <data name="checkBoxSalvageIntoSameDirectory.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -4232,11 +4281,17 @@
   <data name="pictureBoxRegistryIcon.Location" type="System.Drawing.Point, System.Drawing">
     <value>234, 27</value>
   </data>
+  <data name="checkBoxDeveloperConsole.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 36</value>
+  </data>
   <data name="groupBoxAdvancedDeleteOption.Font" type="System.Drawing.Font, System.Drawing">
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="buttonAssociateAtcFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>405, 32</value>
+  </data>
+  <data name="tabPageDevelopment.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="labelPreset02.Text" xml:space="preserve">
     <value>preset02</value>
@@ -4318,6 +4373,9 @@
   </data>
   <data name="&gt;&gt;checkBoxSalvageIntoSameDirectory.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxDeveloperConsole.Font" type="System.Drawing.Font, System.Drawing">
+    <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="buttonSaveDecryptedFileToFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 32</value>
@@ -4583,8 +4641,8 @@
   <data name="&gt;&gt;pictureBoxMyIcon.Name" xml:space="preserve">
     <value>pictureBoxMyIcon</value>
   </data>
-  <data name="&gt;&gt;buttonOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panelDevelopmentOption.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>* Another application is launched</value>
@@ -4663,6 +4721,9 @@
   </data>
   <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tabPageDevelopment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pictureBoxAtcFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4845,6 +4906,9 @@
   <data name="&gt;&gt;tabPageSaveDecryptOption.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="checkBoxDeveloperConsole.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -4880,6 +4944,9 @@
   </data>
   <data name="label12.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;panelDevelopmentOption.Parent" xml:space="preserve">
+    <value>tabPageDevelopment</value>
   </data>
   <data name="pictureBoxCheckmark02.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
@@ -5010,6 +5077,9 @@
   </data>
   <data name="buttonLoadIconFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;panelDevelopmentOption.Name" xml:space="preserve">
+    <value>panelDevelopmentOption</value>
   </data>
   <data name="pictureBoxCheckmark01.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -5151,6 +5221,9 @@
   </data>
   <data name="&gt;&gt;buttonSaveZipFileToFolder.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="tabPageDevelopment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
   </data>
   <data name="tabPageSalvageDataOption.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -6165,6 +6238,9 @@
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
   </data>
+  <data name="tabPageDevelopment.Text" xml:space="preserve">
+    <value>Development</value>
+  </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -6565,6 +6641,9 @@
         zg+yAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="&gt;&gt;checkBoxDeveloperConsole.Parent" xml:space="preserve">
+    <value>panelDevelopmentOption</value>
+  </data>
   <data name="&gt;&gt;buttonInsertFormat.Name" xml:space="preserve">
     <value>buttonInsertFormat</value>
   </data>
@@ -6718,6 +6797,9 @@
   <data name="&gt;&gt;checkBoxConfirmToDeleteAfterEncryption.Name" xml:space="preserve">
     <value>checkBoxConfirmToDeleteAfterEncryption</value>
   </data>
+  <data name="&gt;&gt;tabPageDevelopment.Name" xml:space="preserve">
+    <value>tabPageDevelopment</value>
+  </data>
   <data name="checkBoxEncryptionSameFileTypeBefore.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
@@ -6759,6 +6841,9 @@
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelDevelopmentOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripMenuItemrandomNumber.Name" xml:space="preserve">
     <value>ToolStripMenuItemrandomNumber</value>
