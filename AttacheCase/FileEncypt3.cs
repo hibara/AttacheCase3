@@ -23,6 +23,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace AttacheCase
 {
@@ -161,6 +162,14 @@ namespace AttacheCase
       get { return this._ErrorMessage; }
     }
 
+    // Decryption time
+    private string _EncryptionTimeString;
+    public string EncryptionTimeString
+    {
+      get { return this._EncryptionTimeString; }
+    }
+
+
     // Constructor
     public FileEncrypt3()
     {
@@ -206,6 +215,14 @@ namespace AttacheCase
         Path.GetFileName(_AtcFilePath)
       };
       worker.ReportProgress(0, MessageList);
+
+      // Stopwatch for measuring time and adjusting the progress bar display
+      Stopwatch swEncrypt = new Stopwatch();
+      Stopwatch swProgress = new Stopwatch();
+      swEncrypt.Start();
+      swProgress.Start();
+
+      float percent = 0;
 
       _FileList = new List<string>();
       byte[] byteArray = null;
@@ -291,7 +308,7 @@ namespace AttacheCase
                                dtNow.TimeOfDay.TotalSeconds + "\t" + // Last write time
                                dtNow.Date.Subtract(new DateTime(1, 1, 1)).TotalDays + "\t" +  // Creation date
                                dtNow.TimeOfDay.TotalSeconds + "\t" + // Creation time
-                               "" + "\t" + 
+                               "" + "\t" +
                                // ver.3.2.3.0 ~
                                DateTime.UtcNow.ToString() + "\t" +
                                DateTime.UtcNow.ToString());
@@ -324,8 +341,8 @@ namespace AttacheCase
               {
                 ArrayList Item = GetFileInfo(ParentPath, FilePath);
                 FileInfoList.Add(FileNumber.ToString() + ":" + // File number
-                                  //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
-                                  //Item[1] + "\t" +           // Absolute file path
+                                                               //Item[0] + "\t" +           // TypeFlag ( Directory: 0, file: 1 ) 
+                                                               //Item[1] + "\t" +           // Absolute file path
                                   NewArchiveName +
                                   Item[2] + "\t" +             // Relative file path
                                   Item[3].ToString() + "\t" +  // File size 
@@ -335,7 +352,7 @@ namespace AttacheCase
                                   Item[7].ToString() + "\t" +  // Creation date
                                   Item[8].ToString() + "\t" +  // Creation time             
                                   Item[9].ToString() + "\t" +  // SHA-256 Hash string
-                                  // ver.3.2.3.0 ~      
+                                                               // ver.3.2.3.0 ~      
                                   Item[10].ToString() + "\t" + // Last write date time(UTC)      
                                   Item[11].ToString());        // Creation date time(UTC)       
 
@@ -399,7 +416,7 @@ namespace AttacheCase
                                       Item[7].ToString() + "\t" +  // Creation date
                                       Item[8].ToString() + "\t" +  // Creation time             
                                       Item[9].ToString() + "\t" +  // SHA-256 hash
-                                      // ver.3.2.3.0 ～
+                                                                   // ver.3.2.3.0 ～
                                       Item[10].ToString() + "\t" + // Last write date time(UTC)
                                       Item[11].ToString());        // Creation date date time(UTC)
                   }
@@ -483,7 +500,6 @@ namespace AttacheCase
               aes.KeySize = 256;                // KeySize = 16bytes
               aes.Mode = CipherMode.CBC;        // CBC mode
                                                 //aes.Padding = PaddingMode.Zeros;  // Padding mode is "None".
-
               aes.Key = key;
               aes.IV = iv;
 
@@ -610,11 +626,18 @@ namespace AttacheCase
                         {
                           MessageText = path;
                         }
-                        float percent = ((float)_TotalSize / _TotalFileSize);
+
                         MessageList = new ArrayList();
                         MessageList.Add(ENCRYPTING);
                         MessageList.Add(MessageText);
-                        worker.ReportProgress((int)(percent * 10000), MessageList);
+
+                        // プログレスバーの更新間隔を100msに調整
+                        if (swProgress.ElapsedMilliseconds > 100)
+                        {
+                          percent = ((float)_TotalSize / _TotalFileSize);
+                          worker.ReportProgress((int)(percent * 10000), MessageList);
+                          swProgress.Restart();
+                        }
 
                         if (worker.CancellationPending == true)
                         {
@@ -729,13 +752,20 @@ namespace AttacheCase
         _ErrorMessage = ex.Message;
         return (false);
       }
-      finally{
+      finally
+      {
 #if (DEBUG)
         lg.StopWatchStop();
         lg.Info("encryption finished!");
 #endif
+        swEncrypt.Stop();
+        swProgress.Stop();
+        // 計測時間
+        TimeSpan ts = swEncrypt.Elapsed;
+        _EncryptionTimeString =
+          Convert.ToString(ts.Hours) + "h" + Convert.ToString(ts.Minutes) + "m" +
+          Convert.ToString(ts.Seconds) + "s" + Convert.ToString(ts.Milliseconds) + "ms";
       }
-
     } // encrypt();
 
     /// <summary>

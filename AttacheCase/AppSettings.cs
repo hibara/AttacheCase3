@@ -82,10 +82,10 @@ namespace AttacheCase
     // Self instance
     private static AppSettings _Instance;
 
-    private readonly string RegistryPathAppInfo = String.Format(@"Software\Hibara\{0}\AppInfo", "AttacheCase3");
-    private readonly string RegistryPathWindowPos = String.Format(@"Software\Hibara\{0}\WindowPos", "AttacheCase3");
-    private readonly string RegistryPathMyKey = String.Format(@"Software\Hibara\{0}\MyKey", "AttacheCase3");
-    private readonly string RegistryPathOption = String.Format(@"Software\Hibara\{0}\Option", "AttacheCase3");
+    private readonly string RegistryPathAppInfo = string.Format(@"Software\Hibara\{0}\AppInfo", "AttacheCase3");
+    private readonly string RegistryPathWindowPos = string.Format(@"Software\Hibara\{0}\WindowPos", "AttacheCase3");
+    private readonly string RegistryPathMyKey = string.Format(@"Software\Hibara\{0}\MyKey", "AttacheCase3");
+    private readonly string RegistryPathOption = string.Format(@"Software\Hibara\{0}\Option", "AttacheCase3");
     
     // Static instance ( Singleton pattern )
     public static AppSettings Instance
@@ -1166,6 +1166,11 @@ namespace AttacheCase
     //----------------------------------------------------------------------
     private AppSettings()
     {
+    }
+
+    public AppSettings(string registryPathMyKey)
+    {
+      RegistryPathMyKey = registryPathMyKey;
     }
 
     //----------------------------------------------------------------------

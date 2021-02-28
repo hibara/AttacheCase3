@@ -30,18 +30,36 @@ namespace GetHash
         
         foreach (string file in FileList)
         {
+          string dirpath = Path.GetDirectoryName(file);
+          string filename = Path.GetFileName(file);
+          StreamWriter sw = new StreamWriter(Path.Combine(dirpath, filename + ".json"), 
+            false, Encoding.UTF8);
+
+          sw.WriteLine("{");
+          string OneLine = "\t\"title\" : \"" + filename + "\",";
+          sw.WriteLine(OneLine);
+
           //-----------------------------------
           // MD5
           string md5 = getMd5Hash(file);
-          string HashFilePath = Path.GetDirectoryName(file) + "\\" + Path.GetFileName(file) + ".md5";
-
+          string HashFilePath = Path.Combine(dirpath, filename) + ".md5";
           File.WriteAllText(HashFilePath, md5, Encoding.UTF8);
+
+          OneLine = "\t\"md5\" : \"" + md5 + "\",";
+          sw.WriteLine(OneLine);
 
           //-----------------------------------
           // SHA-1
           string sha1 = getSha1Hash(file);
           HashFilePath = Path.GetDirectoryName(file) + "\\" + Path.GetFileName(file) + ".sha1";
           File.WriteAllText(HashFilePath, sha1, Encoding.UTF8);
+
+          OneLine = "\t\"sha1\" : \"" + sha1 + "\"";
+          sw.WriteLine(OneLine);
+          sw.WriteLine("}");
+          sw.WriteLine("");
+
+          sw.Close();
 
         }
       }

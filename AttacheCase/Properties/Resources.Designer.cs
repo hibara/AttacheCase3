@@ -79,6 +79,51 @@ namespace AttacheCase.Properties {
         }
         
         /// <summary>
+        ///   Confirm Password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BreadcrumbsConfirmPassword {
+            get {
+                return ResourceManager.GetString("BreadcrumbsConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Decrypt に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BreadcrumbsExecuteDecrypt {
+            get {
+                return ResourceManager.GetString("BreadcrumbsExecuteDecrypt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Encrypt に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BreadcrumbsExecuteEncrypt {
+            get {
+                return ResourceManager.GetString("BreadcrumbsExecuteEncrypt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Home に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BreadcrumbsHome {
+            get {
+                return ResourceManager.GetString("BreadcrumbsHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Input Password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BreadcrumbsInputPassword {
+            get {
+                return ResourceManager.GetString("BreadcrumbsInputPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   &amp;Back に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ButtonTextBack {

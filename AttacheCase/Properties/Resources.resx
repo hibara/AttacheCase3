@@ -609,4 +609,19 @@ certain types of security errors. The process is aborted.</value>
     <value>The path name or fully qualified file name exceeds the system-defined maximum length.
 The process is aborted.</value>
   </data>
+  <data name="BreadcrumbsConfirmPassword" xml:space="preserve">
+    <value>Confirm Password</value>
+  </data>
+  <data name="BreadcrumbsExecuteDecrypt" xml:space="preserve">
+    <value>Decrypt</value>
+  </data>
+  <data name="BreadcrumbsExecuteEncrypt" xml:space="preserve">
+    <value>Encrypt</value>
+  </data>
+  <data name="BreadcrumbsHome" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="BreadcrumbsInputPassword" xml:space="preserve">
+    <value>Input Password</value>
+  </data>
 </root>

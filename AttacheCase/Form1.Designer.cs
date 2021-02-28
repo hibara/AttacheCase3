@@ -34,6 +34,7 @@
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
       this.statusStrip1 = new System.Windows.Forms.StatusStrip();
       this.toolStripStatusLabelDataVersion = new System.Windows.Forms.ToolStripStatusLabel();
+      this.toolStripStatusLabelEncryptionTime = new System.Windows.Forms.ToolStripStatusLabel();
       this.menuStrip1 = new System.Windows.Forms.MenuStrip();
       this.ToolStripMenuItemFile = new System.Windows.Forms.ToolStripMenuItem();
       this.ToolStripMenuItemEncrypt = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +87,6 @@
       this.labelDragAndDrop = new System.Windows.Forms.Label();
       this.tabPageEncrypt = new System.Windows.Forms.TabPage();
       this.panelEncrypt = new System.Windows.Forms.Panel();
-      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.labelPasswordStrength = new System.Windows.Forms.Label();
       this.checkBoxDeleteOriginalFileAfterEncryption = new System.Windows.Forms.CheckBox();
       this.checkBoxNotMaskEncryptedPassword = new System.Windows.Forms.CheckBox();
@@ -104,6 +104,7 @@
       this.pictureBoxEncryption = new System.Windows.Forms.PictureBox();
       this.buttonEncryptCancel = new System.Windows.Forms.Button();
       this.labelPassword = new System.Windows.Forms.Label();
+      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.tabPageEncryptConfirm = new System.Windows.Forms.TabPage();
       this.panelEncryptConfirm = new System.Windows.Forms.Panel();
       this.pictureBoxEncryptConfirmBackButton = new System.Windows.Forms.PictureBox();
@@ -172,6 +173,14 @@
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.toolTipZxcvbnWarning = new System.Windows.Forms.ToolTip(this.components);
       this.toolTipZxcvbnSuggestions = new System.Windows.Forms.ToolTip(this.components);
+      this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+      this.toolStripLabelHome = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripLabelInputPassword = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripLabelConfirmPassword = new System.Windows.Forms.ToolStripLabel();
+      this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+      this.toolStripLabelExecute = new System.Windows.Forms.ToolStripLabel();
       this.statusStrip1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
@@ -229,50 +238,53 @@
       this.contextMenuStrip1.SuspendLayout();
       this.contextMenuStrip2.SuspendLayout();
       this.contextMenuStrip3.SuspendLayout();
+      this.toolStrip2.SuspendLayout();
       this.SuspendLayout();
       // 
       // statusStrip1
       // 
-      resources.ApplyResources(this.statusStrip1, "statusStrip1");
       this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelDataVersion});
+            this.toolStripStatusLabelDataVersion,
+            this.toolStripStatusLabelEncryptionTime});
+      resources.ApplyResources(this.statusStrip1, "statusStrip1");
       this.statusStrip1.Name = "statusStrip1";
-      this.toolTipZxcvbnWarning.SetToolTip(this.statusStrip1, resources.GetString("statusStrip1.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.statusStrip1, resources.GetString("statusStrip1.ToolTip1"));
       // 
       // toolStripStatusLabelDataVersion
       // 
-      resources.ApplyResources(this.toolStripStatusLabelDataVersion, "toolStripStatusLabelDataVersion");
       this.toolStripStatusLabelDataVersion.Name = "toolStripStatusLabelDataVersion";
+      resources.ApplyResources(this.toolStripStatusLabelDataVersion, "toolStripStatusLabelDataVersion");
+      // 
+      // toolStripStatusLabelEncryptionTime
+      // 
+      this.toolStripStatusLabelEncryptionTime.Name = "toolStripStatusLabelEncryptionTime";
+      resources.ApplyResources(this.toolStripStatusLabelEncryptionTime, "toolStripStatusLabelEncryptionTime");
       // 
       // menuStrip1
       // 
-      resources.ApplyResources(this.menuStrip1, "menuStrip1");
       this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemFile,
             this.ToolStripMenuItemOption,
             this.ToolStripMenuItemHelp});
+      resources.ApplyResources(this.menuStrip1, "menuStrip1");
       this.menuStrip1.Name = "menuStrip1";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.menuStrip1, resources.GetString("menuStrip1.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.menuStrip1, resources.GetString("menuStrip1.ToolTip1"));
       // 
       // ToolStripMenuItemFile
       // 
-      resources.ApplyResources(this.ToolStripMenuItemFile, "ToolStripMenuItemFile");
       this.ToolStripMenuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemEncrypt,
             this.ToolStripMenuItemDecrypt,
             this.toolStripMenuItem2,
             this.ToolStripMenuItemExit});
       this.ToolStripMenuItemFile.Name = "ToolStripMenuItemFile";
+      resources.ApplyResources(this.ToolStripMenuItemFile, "ToolStripMenuItemFile");
       this.ToolStripMenuItemFile.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemFile_DropDownOpened);
       // 
       // ToolStripMenuItemEncrypt
       // 
-      resources.ApplyResources(this.ToolStripMenuItemEncrypt, "ToolStripMenuItemEncrypt");
       this.ToolStripMenuItemEncrypt.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemEncryptSelectFiles,
             this.ToolStripMenuItemEncryptSelectFolder});
+      resources.ApplyResources(this.ToolStripMenuItemEncrypt, "ToolStripMenuItemEncrypt");
       this.ToolStripMenuItemEncrypt.Name = "ToolStripMenuItemEncrypt";
       // 
       // ToolStripMenuItemEncryptSelectFiles
@@ -295,8 +307,8 @@
       // 
       // toolStripMenuItem2
       // 
-      resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
       this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+      resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
       // 
       // ToolStripMenuItemExit
       // 
@@ -306,10 +318,10 @@
       // 
       // ToolStripMenuItemOption
       // 
-      resources.ApplyResources(this.ToolStripMenuItemOption, "ToolStripMenuItemOption");
       this.ToolStripMenuItemOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSetting});
       this.ToolStripMenuItemOption.Name = "ToolStripMenuItemOption";
+      resources.ApplyResources(this.ToolStripMenuItemOption, "ToolStripMenuItemOption");
       this.ToolStripMenuItemOption.DropDownOpened += new System.EventHandler(this.ToolStripMenuItemOption_DropDownOpened);
       // 
       // ToolStripMenuItemSetting
@@ -320,12 +332,12 @@
       // 
       // ToolStripMenuItemHelp
       // 
-      resources.ApplyResources(this.ToolStripMenuItemHelp, "ToolStripMenuItemHelp");
       this.ToolStripMenuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemHelpContents,
             this.toolStripMenuItem1,
             this.ToolStripMenuItemAbout});
       this.ToolStripMenuItemHelp.Name = "ToolStripMenuItemHelp";
+      resources.ApplyResources(this.ToolStripMenuItemHelp, "ToolStripMenuItemHelp");
       // 
       // ToolStripMenuItemHelpContents
       // 
@@ -335,18 +347,17 @@
       // 
       // toolStripMenuItem1
       // 
-      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+      resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
       // 
       // ToolStripMenuItemAbout
       // 
-      resources.ApplyResources(this.ToolStripMenuItemAbout, "ToolStripMenuItemAbout");
       this.ToolStripMenuItemAbout.Name = "ToolStripMenuItemAbout";
+      resources.ApplyResources(this.ToolStripMenuItemAbout, "ToolStripMenuItemAbout");
       this.ToolStripMenuItemAbout.Click += new System.EventHandler(this.ToolStripMenuItemAbout_Click);
       // 
       // toolStrip1
       // 
-      resources.ApplyResources(this.toolStrip1, "toolStrip1");
       this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonEncryptSelectFiles,
             this.toolStripButtonEncryptSelectFolder,
@@ -356,97 +367,89 @@
             this.toolStripButtonOption,
             this.toolStripSeparator3,
             this.toolStripButtonHelp});
+      resources.ApplyResources(this.toolStrip1, "toolStrip1");
       this.toolStrip1.Name = "toolStrip1";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.toolStrip1, resources.GetString("toolStrip1.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.toolStrip1, resources.GetString("toolStrip1.ToolTip1"));
       // 
       // toolStripButtonEncryptSelectFiles
       // 
-      resources.ApplyResources(this.toolStripButtonEncryptSelectFiles, "toolStripButtonEncryptSelectFiles");
       this.toolStripButtonEncryptSelectFiles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButtonEncryptSelectFiles, "toolStripButtonEncryptSelectFiles");
       this.toolStripButtonEncryptSelectFiles.Name = "toolStripButtonEncryptSelectFiles";
       this.toolStripButtonEncryptSelectFiles.Click += new System.EventHandler(this.ToolStripMenuItemEncryptSelectFiles_Click);
       // 
       // toolStripButtonEncryptSelectFolder
       // 
-      resources.ApplyResources(this.toolStripButtonEncryptSelectFolder, "toolStripButtonEncryptSelectFolder");
       this.toolStripButtonEncryptSelectFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButtonEncryptSelectFolder, "toolStripButtonEncryptSelectFolder");
       this.toolStripButtonEncryptSelectFolder.Name = "toolStripButtonEncryptSelectFolder";
       this.toolStripButtonEncryptSelectFolder.Click += new System.EventHandler(this.ToolStripMenuItemEncryptSelectFolder_Click);
       // 
       // toolStripSeparator1
       // 
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
       this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
       // 
       // toolStripButtonDecryptSelectAtcFiles
       // 
-      resources.ApplyResources(this.toolStripButtonDecryptSelectAtcFiles, "toolStripButtonDecryptSelectAtcFiles");
       this.toolStripButtonDecryptSelectAtcFiles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButtonDecryptSelectAtcFiles, "toolStripButtonDecryptSelectAtcFiles");
       this.toolStripButtonDecryptSelectAtcFiles.Name = "toolStripButtonDecryptSelectAtcFiles";
       this.toolStripButtonDecryptSelectAtcFiles.Click += new System.EventHandler(this.ToolStripMenuItemDecrypt_Click);
       // 
       // toolStripSeparator2
       // 
-      resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
       this.toolStripSeparator2.Name = "toolStripSeparator2";
+      resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
       // 
       // toolStripButtonOption
       // 
-      resources.ApplyResources(this.toolStripButtonOption, "toolStripButtonOption");
       this.toolStripButtonOption.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButtonOption, "toolStripButtonOption");
       this.toolStripButtonOption.Name = "toolStripButtonOption";
       this.toolStripButtonOption.Click += new System.EventHandler(this.ToolStripMenuItemSetting_Click);
       // 
       // toolStripSeparator3
       // 
-      resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
       this.toolStripSeparator3.Name = "toolStripSeparator3";
+      resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
       // 
       // toolStripButtonHelp
       // 
-      resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
       this.toolStripButtonHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButtonHelp, "toolStripButtonHelp");
       this.toolStripButtonHelp.Name = "toolStripButtonHelp";
       this.toolStripButtonHelp.Click += new System.EventHandler(this.ToolStripMenuItemHelpContents_Click);
       // 
       // panelOuter
       // 
-      resources.ApplyResources(this.panelOuter, "panelOuter");
       this.panelOuter.Controls.Add(this.tabControl1);
+      resources.ApplyResources(this.panelOuter, "panelOuter");
       this.panelOuter.Name = "panelOuter";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelOuter, resources.GetString("panelOuter.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelOuter, resources.GetString("panelOuter.ToolTip1"));
       // 
       // tabControl1
       // 
-      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.AllowDrop = true;
       this.tabControl1.Controls.Add(this.tabPageStartPage);
       this.tabControl1.Controls.Add(this.tabPageEncrypt);
       this.tabControl1.Controls.Add(this.tabPageEncryptConfirm);
       this.tabControl1.Controls.Add(this.tabPageDecrypt);
       this.tabControl1.Controls.Add(this.tabPageProgressState);
+      resources.ApplyResources(this.tabControl1, "tabControl1");
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
       this.tabControl1.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabControl1, resources.GetString("tabControl1.ToolTip1"));
       this.tabControl1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.tabControl1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
       // tabPageStartPage
       // 
-      resources.ApplyResources(this.tabPageStartPage, "tabPageStartPage");
       this.tabPageStartPage.BackColor = System.Drawing.SystemColors.Control;
       this.tabPageStartPage.Controls.Add(this.panelStartPage);
+      resources.ApplyResources(this.tabPageStartPage, "tabPageStartPage");
       this.tabPageStartPage.Name = "tabPageStartPage";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabPageStartPage, resources.GetString("tabPageStartPage.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabPageStartPage, resources.GetString("tabPageStartPage.ToolTip1"));
       // 
       // panelStartPage
       // 
-      resources.ApplyResources(this.panelStartPage, "panelStartPage");
       this.panelStartPage.BackColor = System.Drawing.Color.White;
       this.panelStartPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.panelStartPage.Controls.Add(this.pictureBoxBackButtonOff);
@@ -464,9 +467,8 @@
       this.panelStartPage.Controls.Add(this.pictureBoxAtcOff);
       this.panelStartPage.Controls.Add(this.pictureBoxAtcOn);
       this.panelStartPage.Controls.Add(this.labelDragAndDrop);
+      resources.ApplyResources(this.panelStartPage, "panelStartPage");
       this.panelStartPage.Name = "panelStartPage";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelStartPage, resources.GetString("panelStartPage.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelStartPage, resources.GetString("panelStartPage.ToolTip1"));
       this.panelStartPage.VisibleChanged += new System.EventHandler(this.panelStartPage_VisibleChanged);
       this.panelStartPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelStartPage.MouseEnter += new System.EventHandler(this.panelStartPage_MouseEnter);
@@ -478,16 +480,12 @@
       resources.ApplyResources(this.pictureBoxBackButtonOff, "pictureBoxBackButtonOff");
       this.pictureBoxBackButtonOff.Name = "pictureBoxBackButtonOff";
       this.pictureBoxBackButtonOff.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxBackButtonOff, resources.GetString("pictureBoxBackButtonOff.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxBackButtonOff, resources.GetString("pictureBoxBackButtonOff.ToolTip1"));
       // 
       // pictureBoxBackButtonOn
       // 
       resources.ApplyResources(this.pictureBoxBackButtonOn, "pictureBoxBackButtonOn");
       this.pictureBoxBackButtonOn.Name = "pictureBoxBackButtonOn";
       this.pictureBoxBackButtonOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxBackButtonOn, resources.GetString("pictureBoxBackButtonOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxBackButtonOn, resources.GetString("pictureBoxBackButtonOn.ToolTip1"));
       // 
       // pictureBoxHamburgerMenu
       // 
@@ -495,22 +493,17 @@
       this.pictureBoxHamburgerMenu.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxHamburgerMenu.Name = "pictureBoxHamburgerMenu";
       this.pictureBoxHamburgerMenu.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxHamburgerMenu, resources.GetString("pictureBoxHamburgerMenu.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxHamburgerMenu, resources.GetString("pictureBoxHamburgerMenu.ToolTip1"));
       this.pictureBoxHamburgerMenu.Click += new System.EventHandler(this.pictureBoxHamburgerMenu_Click);
       // 
       // buttonExit
       // 
       resources.ApplyResources(this.buttonExit, "buttonExit");
       this.buttonExit.Name = "buttonExit";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonExit, resources.GetString("buttonExit.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonExit, resources.GetString("buttonExit.ToolTip1"));
       this.buttonExit.UseVisualStyleBackColor = true;
       this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
       // 
       // panel1
       // 
-      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
       this.panel1.Controls.Add(this.labelDec);
       this.panel1.Controls.Add(this.labelZip);
@@ -520,54 +513,41 @@
       this.panel1.Controls.Add(this.pictureBoxZip);
       this.panel1.Controls.Add(this.pictureBoxExe);
       this.panel1.Controls.Add(this.pictureBoxAtc);
+      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip1"));
       // 
       // labelDec
       // 
       resources.ApplyResources(this.labelDec, "labelDec");
       this.labelDec.Name = "labelDec";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelDec, resources.GetString("labelDec.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelDec, resources.GetString("labelDec.ToolTip1"));
       // 
       // labelZip
       // 
       resources.ApplyResources(this.labelZip, "labelZip");
       this.labelZip.Name = "labelZip";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelZip, resources.GetString("labelZip.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelZip, resources.GetString("labelZip.ToolTip1"));
       // 
       // labelExe
       // 
       resources.ApplyResources(this.labelExe, "labelExe");
       this.labelExe.Name = "labelExe";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelExe, resources.GetString("labelExe.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelExe, resources.GetString("labelExe.ToolTip1"));
       // 
       // labelAtc
       // 
-      resources.ApplyResources(this.labelAtc, "labelAtc");
       this.labelAtc.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.labelAtc, "labelAtc");
       this.labelAtc.Name = "labelAtc";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelAtc, resources.GetString("labelAtc.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelAtc, resources.GetString("labelAtc.ToolTip1"));
       // 
       // pictureBoxDec
       // 
       resources.ApplyResources(this.pictureBoxDec, "pictureBoxDec");
       this.pictureBoxDec.Name = "pictureBoxDec";
       this.pictureBoxDec.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDec, resources.GetString("pictureBoxDec.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDec, resources.GetString("pictureBoxDec.ToolTip1"));
       // 
       // pictureBoxZip
       // 
       resources.ApplyResources(this.pictureBoxZip, "pictureBoxZip");
       this.pictureBoxZip.Name = "pictureBoxZip";
       this.pictureBoxZip.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxZip, resources.GetString("pictureBoxZip.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxZip, resources.GetString("pictureBoxZip.ToolTip1"));
       this.pictureBoxZip.Click += new System.EventHandler(this.pictureBoxZip_Click);
       // 
       // pictureBoxExe
@@ -575,8 +555,6 @@
       resources.ApplyResources(this.pictureBoxExe, "pictureBoxExe");
       this.pictureBoxExe.Name = "pictureBoxExe";
       this.pictureBoxExe.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxExe, resources.GetString("pictureBoxExe.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxExe, resources.GetString("pictureBoxExe.ToolTip1"));
       this.pictureBoxExe.Click += new System.EventHandler(this.pictureBoxExe_Click);
       // 
       // pictureBoxAtc
@@ -584,8 +562,6 @@
       resources.ApplyResources(this.pictureBoxAtc, "pictureBoxAtc");
       this.pictureBoxAtc.Name = "pictureBoxAtc";
       this.pictureBoxAtc.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxAtc, resources.GetString("pictureBoxAtc.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxAtc, resources.GetString("pictureBoxAtc.ToolTip1"));
       this.pictureBoxAtc.Click += new System.EventHandler(this.pictureBoxAtc_Click);
       // 
       // pictureBoxDeleteOn
@@ -593,96 +569,72 @@
       resources.ApplyResources(this.pictureBoxDeleteOn, "pictureBoxDeleteOn");
       this.pictureBoxDeleteOn.Name = "pictureBoxDeleteOn";
       this.pictureBoxDeleteOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDeleteOn, resources.GetString("pictureBoxDeleteOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDeleteOn, resources.GetString("pictureBoxDeleteOn.ToolTip1"));
       // 
       // pictureBoxDecOff
       // 
       resources.ApplyResources(this.pictureBoxDecOff, "pictureBoxDecOff");
       this.pictureBoxDecOff.Name = "pictureBoxDecOff";
       this.pictureBoxDecOff.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDecOff, resources.GetString("pictureBoxDecOff.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDecOff, resources.GetString("pictureBoxDecOff.ToolTip1"));
       // 
       // pictureBoxDecOn
       // 
       resources.ApplyResources(this.pictureBoxDecOn, "pictureBoxDecOn");
       this.pictureBoxDecOn.Name = "pictureBoxDecOn";
       this.pictureBoxDecOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDecOn, resources.GetString("pictureBoxDecOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDecOn, resources.GetString("pictureBoxDecOn.ToolTip1"));
       // 
       // pictureBoxZipOff
       // 
       resources.ApplyResources(this.pictureBoxZipOff, "pictureBoxZipOff");
       this.pictureBoxZipOff.Name = "pictureBoxZipOff";
       this.pictureBoxZipOff.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxZipOff, resources.GetString("pictureBoxZipOff.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxZipOff, resources.GetString("pictureBoxZipOff.ToolTip1"));
       // 
       // pictureBoxZipOn
       // 
       resources.ApplyResources(this.pictureBoxZipOn, "pictureBoxZipOn");
       this.pictureBoxZipOn.Name = "pictureBoxZipOn";
       this.pictureBoxZipOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxZipOn, resources.GetString("pictureBoxZipOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxZipOn, resources.GetString("pictureBoxZipOn.ToolTip1"));
       // 
       // pictureBoxExeOff
       // 
       resources.ApplyResources(this.pictureBoxExeOff, "pictureBoxExeOff");
       this.pictureBoxExeOff.Name = "pictureBoxExeOff";
       this.pictureBoxExeOff.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxExeOff, resources.GetString("pictureBoxExeOff.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxExeOff, resources.GetString("pictureBoxExeOff.ToolTip1"));
       // 
       // pictureBoxExeOn
       // 
       resources.ApplyResources(this.pictureBoxExeOn, "pictureBoxExeOn");
       this.pictureBoxExeOn.Name = "pictureBoxExeOn";
       this.pictureBoxExeOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxExeOn, resources.GetString("pictureBoxExeOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxExeOn, resources.GetString("pictureBoxExeOn.ToolTip1"));
       // 
       // pictureBoxAtcOff
       // 
       resources.ApplyResources(this.pictureBoxAtcOff, "pictureBoxAtcOff");
       this.pictureBoxAtcOff.Name = "pictureBoxAtcOff";
       this.pictureBoxAtcOff.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxAtcOff, resources.GetString("pictureBoxAtcOff.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxAtcOff, resources.GetString("pictureBoxAtcOff.ToolTip1"));
       // 
       // pictureBoxAtcOn
       // 
       resources.ApplyResources(this.pictureBoxAtcOn, "pictureBoxAtcOn");
       this.pictureBoxAtcOn.Name = "pictureBoxAtcOn";
       this.pictureBoxAtcOn.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxAtcOn, resources.GetString("pictureBoxAtcOn.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxAtcOn, resources.GetString("pictureBoxAtcOn.ToolTip1"));
       // 
       // labelDragAndDrop
       // 
       resources.ApplyResources(this.labelDragAndDrop, "labelDragAndDrop");
       this.labelDragAndDrop.Name = "labelDragAndDrop";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelDragAndDrop, resources.GetString("labelDragAndDrop.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelDragAndDrop, resources.GetString("labelDragAndDrop.ToolTip1"));
       this.labelDragAndDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelDragAndDrop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
       // tabPageEncrypt
       // 
-      resources.ApplyResources(this.tabPageEncrypt, "tabPageEncrypt");
       this.tabPageEncrypt.BackColor = System.Drawing.SystemColors.Control;
       this.tabPageEncrypt.Controls.Add(this.panelEncrypt);
+      resources.ApplyResources(this.tabPageEncrypt, "tabPageEncrypt");
       this.tabPageEncrypt.Name = "tabPageEncrypt";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabPageEncrypt, resources.GetString("tabPageEncrypt.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabPageEncrypt, resources.GetString("tabPageEncrypt.ToolTip1"));
       // 
       // panelEncrypt
       // 
-      resources.ApplyResources(this.panelEncrypt, "panelEncrypt");
       this.panelEncrypt.BackColor = System.Drawing.Color.White;
-      this.panelEncrypt.Controls.Add(this.textBoxPassword);
       this.panelEncrypt.Controls.Add(this.labelPasswordStrength);
       this.panelEncrypt.Controls.Add(this.checkBoxDeleteOriginalFileAfterEncryption);
       this.panelEncrypt.Controls.Add(this.checkBoxNotMaskEncryptedPassword);
@@ -698,48 +650,29 @@
       this.panelEncrypt.Controls.Add(this.panel2);
       this.panelEncrypt.Controls.Add(this.buttonEncryptCancel);
       this.panelEncrypt.Controls.Add(this.labelPassword);
+      this.panelEncrypt.Controls.Add(this.textBoxPassword);
+      resources.ApplyResources(this.panelEncrypt, "panelEncrypt");
       this.panelEncrypt.Name = "panelEncrypt";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelEncrypt, resources.GetString("panelEncrypt.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelEncrypt, resources.GetString("panelEncrypt.ToolTip1"));
       this.panelEncrypt.VisibleChanged += new System.EventHandler(this.panelEncrypt_VisibleChanged);
       this.panelEncrypt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelEncrypt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-      // 
-      // textBoxPassword
-      // 
-      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-      this.textBoxPassword.Name = "textBoxPassword";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.textBoxPassword, resources.GetString("textBoxPassword.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.textBoxPassword, resources.GetString("textBoxPassword.ToolTip1"));
-      this.textBoxPassword.UseSystemPasswordChar = true;
-      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
-      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
-      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
-      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
       // 
       // labelPasswordStrength
       // 
       resources.ApplyResources(this.labelPasswordStrength, "labelPasswordStrength");
       this.labelPasswordStrength.ForeColor = System.Drawing.Color.Gray;
       this.labelPasswordStrength.Name = "labelPasswordStrength";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelPasswordStrength, resources.GetString("labelPasswordStrength.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelPasswordStrength, resources.GetString("labelPasswordStrength.ToolTip1"));
       // 
       // checkBoxDeleteOriginalFileAfterEncryption
       // 
       resources.ApplyResources(this.checkBoxDeleteOriginalFileAfterEncryption, "checkBoxDeleteOriginalFileAfterEncryption");
       this.checkBoxDeleteOriginalFileAfterEncryption.Name = "checkBoxDeleteOriginalFileAfterEncryption";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxDeleteOriginalFileAfterEncryption, resources.GetString("checkBoxDeleteOriginalFileAfterEncryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxDeleteOriginalFileAfterEncryption, resources.GetString("checkBoxDeleteOriginalFileAfterEncryption.ToolTip1"));
       this.checkBoxDeleteOriginalFileAfterEncryption.UseVisualStyleBackColor = true;
       // 
       // checkBoxNotMaskEncryptedPassword
       // 
       resources.ApplyResources(this.checkBoxNotMaskEncryptedPassword, "checkBoxNotMaskEncryptedPassword");
       this.checkBoxNotMaskEncryptedPassword.Name = "checkBoxNotMaskEncryptedPassword";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxNotMaskEncryptedPassword, resources.GetString("checkBoxNotMaskEncryptedPassword.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxNotMaskEncryptedPassword, resources.GetString("checkBoxNotMaskEncryptedPassword.ToolTip1"));
       this.checkBoxNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
       this.checkBoxNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskEncryptedPassword_CheckedChanged);
       // 
@@ -748,56 +681,42 @@
       resources.ApplyResources(this.pictureBoxPassStrengthMeter, "pictureBoxPassStrengthMeter");
       this.pictureBoxPassStrengthMeter.Name = "pictureBoxPassStrengthMeter";
       this.pictureBoxPassStrengthMeter.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPassStrengthMeter, resources.GetString("pictureBoxPassStrengthMeter.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPassStrengthMeter, resources.GetString("pictureBoxPassStrengthMeter.ToolTip1"));
       // 
       // pictureBoxPasswordStrengthEmpty
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrengthEmpty, "pictureBoxPasswordStrengthEmpty");
       this.pictureBoxPasswordStrengthEmpty.Name = "pictureBoxPasswordStrengthEmpty";
       this.pictureBoxPasswordStrengthEmpty.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrengthEmpty, resources.GetString("pictureBoxPasswordStrengthEmpty.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrengthEmpty, resources.GetString("pictureBoxPasswordStrengthEmpty.ToolTip1"));
       // 
       // pictureBoxPasswordStrength04
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrength04, "pictureBoxPasswordStrength04");
       this.pictureBoxPasswordStrength04.Name = "pictureBoxPasswordStrength04";
       this.pictureBoxPasswordStrength04.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrength04, resources.GetString("pictureBoxPasswordStrength04.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrength04, resources.GetString("pictureBoxPasswordStrength04.ToolTip1"));
       // 
       // pictureBoxPasswordStrength03
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrength03, "pictureBoxPasswordStrength03");
       this.pictureBoxPasswordStrength03.Name = "pictureBoxPasswordStrength03";
       this.pictureBoxPasswordStrength03.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrength03, resources.GetString("pictureBoxPasswordStrength03.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrength03, resources.GetString("pictureBoxPasswordStrength03.ToolTip1"));
       // 
       // pictureBoxPasswordStrength02
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrength02, "pictureBoxPasswordStrength02");
       this.pictureBoxPasswordStrength02.Name = "pictureBoxPasswordStrength02";
       this.pictureBoxPasswordStrength02.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrength02, resources.GetString("pictureBoxPasswordStrength02.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrength02, resources.GetString("pictureBoxPasswordStrength02.ToolTip1"));
       // 
       // pictureBoxPasswordStrength01
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrength01, "pictureBoxPasswordStrength01");
       this.pictureBoxPasswordStrength01.Name = "pictureBoxPasswordStrength01";
       this.pictureBoxPasswordStrength01.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrength01, resources.GetString("pictureBoxPasswordStrength01.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrength01, resources.GetString("pictureBoxPasswordStrength01.ToolTip1"));
       // 
       // pictureBoxPasswordStrength00
       // 
       resources.ApplyResources(this.pictureBoxPasswordStrength00, "pictureBoxPasswordStrength00");
       this.pictureBoxPasswordStrength00.Name = "pictureBoxPasswordStrength00";
       this.pictureBoxPasswordStrength00.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxPasswordStrength00, resources.GetString("pictureBoxPasswordStrength00.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxPasswordStrength00, resources.GetString("pictureBoxPasswordStrength00.ToolTip1"));
       // 
       // pictureBoxEncryptBackButton
       // 
@@ -805,8 +724,6 @@
       this.pictureBoxEncryptBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxEncryptBackButton.Name = "pictureBoxEncryptBackButton";
       this.pictureBoxEncryptBackButton.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxEncryptBackButton, resources.GetString("pictureBoxEncryptBackButton.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxEncryptBackButton, resources.GetString("pictureBoxEncryptBackButton.ToolTip1"));
       this.pictureBoxEncryptBackButton.Click += new System.EventHandler(this.buttonEncryptCancel_Click);
       this.pictureBoxEncryptBackButton.MouseEnter += new System.EventHandler(this.pictureBoxEncryptBackButton_MouseEnter);
       this.pictureBoxEncryptBackButton.MouseLeave += new System.EventHandler(this.pictureBoxEncryptBackButton_MouseLeave);
@@ -815,27 +732,21 @@
       // 
       resources.ApplyResources(this.buttonEncryptionPasswordOk, "buttonEncryptionPasswordOk");
       this.buttonEncryptionPasswordOk.Name = "buttonEncryptionPasswordOk";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonEncryptionPasswordOk, resources.GetString("buttonEncryptionPasswordOk.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonEncryptionPasswordOk, resources.GetString("buttonEncryptionPasswordOk.ToolTip1"));
       this.buttonEncryptionPasswordOk.UseVisualStyleBackColor = true;
       this.buttonEncryptionPasswordOk.Click += new System.EventHandler(this.buttonEncryptionPasswordOk_Click);
       // 
       // panel2
       // 
-      resources.ApplyResources(this.panel2, "panel2");
       this.panel2.Controls.Add(this.labelEncryption);
       this.panel2.Controls.Add(this.pictureBoxEncryption);
+      resources.ApplyResources(this.panel2, "panel2");
       this.panel2.Name = "panel2";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panel2, resources.GetString("panel2.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panel2, resources.GetString("panel2.ToolTip1"));
       // 
       // labelEncryption
       // 
       resources.ApplyResources(this.labelEncryption, "labelEncryption");
       this.labelEncryption.BackColor = System.Drawing.Color.Transparent;
       this.labelEncryption.Name = "labelEncryption";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelEncryption, resources.GetString("labelEncryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelEncryption, resources.GetString("labelEncryption.ToolTip1"));
       // 
       // pictureBoxEncryption
       // 
@@ -843,16 +754,12 @@
       this.pictureBoxEncryption.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxEncryption.Name = "pictureBoxEncryption";
       this.pictureBoxEncryption.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxEncryption, resources.GetString("pictureBoxEncryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxEncryption, resources.GetString("pictureBoxEncryption.ToolTip1"));
       this.pictureBoxEncryption.Click += new System.EventHandler(this.pictureBoxEncryption_Click);
       // 
       // buttonEncryptCancel
       // 
       resources.ApplyResources(this.buttonEncryptCancel, "buttonEncryptCancel");
       this.buttonEncryptCancel.Name = "buttonEncryptCancel";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonEncryptCancel, resources.GetString("buttonEncryptCancel.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonEncryptCancel, resources.GetString("buttonEncryptCancel.ToolTip1"));
       this.buttonEncryptCancel.UseVisualStyleBackColor = true;
       this.buttonEncryptCancel.Click += new System.EventHandler(this.buttonEncryptCancel_Click);
       // 
@@ -861,23 +768,29 @@
       resources.ApplyResources(this.labelPassword, "labelPassword");
       this.labelPassword.BackColor = System.Drawing.Color.Transparent;
       this.labelPassword.Name = "labelPassword";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelPassword, resources.GetString("labelPassword.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelPassword, resources.GetString("labelPassword.ToolTip1"));
       this.labelPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
+      // textBoxPassword
+      // 
+      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
+      this.textBoxPassword.Name = "textBoxPassword";
+      this.textBoxPassword.UseSystemPasswordChar = true;
+      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
+      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
+      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
+      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
+      // 
       // tabPageEncryptConfirm
       // 
-      resources.ApplyResources(this.tabPageEncryptConfirm, "tabPageEncryptConfirm");
       this.tabPageEncryptConfirm.BackColor = System.Drawing.Color.White;
       this.tabPageEncryptConfirm.Controls.Add(this.panelEncryptConfirm);
+      resources.ApplyResources(this.tabPageEncryptConfirm, "tabPageEncryptConfirm");
       this.tabPageEncryptConfirm.Name = "tabPageEncryptConfirm";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabPageEncryptConfirm, resources.GetString("tabPageEncryptConfirm.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabPageEncryptConfirm, resources.GetString("tabPageEncryptConfirm.ToolTip1"));
       // 
       // panelEncryptConfirm
       // 
-      resources.ApplyResources(this.panelEncryptConfirm, "panelEncryptConfirm");
       this.panelEncryptConfirm.BackColor = System.Drawing.Color.White;
       this.panelEncryptConfirm.Controls.Add(this.pictureBoxEncryptConfirmBackButton);
       this.panelEncryptConfirm.Controls.Add(this.pictureBoxCheckPasswordValidation);
@@ -890,9 +803,8 @@
       this.panelEncryptConfirm.Controls.Add(this.checkBoxReNotMaskEncryptedPassword);
       this.panelEncryptConfirm.Controls.Add(this.labelInputPasswordAgain);
       this.panelEncryptConfirm.Controls.Add(this.textBoxRePassword);
+      resources.ApplyResources(this.panelEncryptConfirm, "panelEncryptConfirm");
       this.panelEncryptConfirm.Name = "panelEncryptConfirm";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelEncryptConfirm, resources.GetString("panelEncryptConfirm.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelEncryptConfirm, resources.GetString("panelEncryptConfirm.ToolTip1"));
       this.panelEncryptConfirm.VisibleChanged += new System.EventHandler(this.panelEncryptConfirm_VisibleChanged);
       this.panelEncryptConfirm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelEncryptConfirm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -903,8 +815,6 @@
       this.pictureBoxEncryptConfirmBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxEncryptConfirmBackButton.Name = "pictureBoxEncryptConfirmBackButton";
       this.pictureBoxEncryptConfirmBackButton.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxEncryptConfirmBackButton, resources.GetString("pictureBoxEncryptConfirmBackButton.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxEncryptConfirmBackButton, resources.GetString("pictureBoxEncryptConfirmBackButton.ToolTip1"));
       this.pictureBoxEncryptConfirmBackButton.Click += new System.EventHandler(this.buttonEncryptionConfirmCancel_Click);
       this.pictureBoxEncryptConfirmBackButton.MouseEnter += new System.EventHandler(this.pictureBoxEncryptConfirmBackButton_MouseEnter);
       this.pictureBoxEncryptConfirmBackButton.MouseLeave += new System.EventHandler(this.pictureBoxEncryptConfirmBackButton_MouseLeave);
@@ -914,24 +824,18 @@
       resources.ApplyResources(this.pictureBoxCheckPasswordValidation, "pictureBoxCheckPasswordValidation");
       this.pictureBoxCheckPasswordValidation.Name = "pictureBoxCheckPasswordValidation";
       this.pictureBoxCheckPasswordValidation.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxCheckPasswordValidation, resources.GetString("pictureBoxCheckPasswordValidation.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxCheckPasswordValidation, resources.GetString("pictureBoxCheckPasswordValidation.ToolTip1"));
       // 
       // panel3
       // 
-      resources.ApplyResources(this.panel3, "panel3");
       this.panel3.Controls.Add(this.labelEncryptionConfirm);
       this.panel3.Controls.Add(this.pictureBoxEncryptionConfirm);
+      resources.ApplyResources(this.panel3, "panel3");
       this.panel3.Name = "panel3";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panel3, resources.GetString("panel3.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panel3, resources.GetString("panel3.ToolTip1"));
       // 
       // labelEncryptionConfirm
       // 
       resources.ApplyResources(this.labelEncryptionConfirm, "labelEncryptionConfirm");
       this.labelEncryptionConfirm.Name = "labelEncryptionConfirm";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelEncryptionConfirm, resources.GetString("labelEncryptionConfirm.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelEncryptionConfirm, resources.GetString("labelEncryptionConfirm.ToolTip1"));
       // 
       // pictureBoxEncryptionConfirm
       // 
@@ -939,15 +843,11 @@
       this.pictureBoxEncryptionConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxEncryptionConfirm.Name = "pictureBoxEncryptionConfirm";
       this.pictureBoxEncryptionConfirm.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxEncryptionConfirm, resources.GetString("pictureBoxEncryptionConfirm.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxEncryptionConfirm, resources.GetString("pictureBoxEncryptionConfirm.ToolTip1"));
       // 
       // buttonEncryptionConfirmCancel
       // 
       resources.ApplyResources(this.buttonEncryptionConfirmCancel, "buttonEncryptionConfirmCancel");
       this.buttonEncryptionConfirmCancel.Name = "buttonEncryptionConfirmCancel";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonEncryptionConfirmCancel, resources.GetString("buttonEncryptionConfirmCancel.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonEncryptionConfirmCancel, resources.GetString("buttonEncryptionConfirmCancel.ToolTip1"));
       this.buttonEncryptionConfirmCancel.UseVisualStyleBackColor = true;
       this.buttonEncryptionConfirmCancel.Click += new System.EventHandler(this.buttonEncryptionConfirmCancel_Click);
       // 
@@ -955,8 +855,6 @@
       // 
       resources.ApplyResources(this.buttonEncryptStart, "buttonEncryptStart");
       this.buttonEncryptStart.Name = "buttonEncryptStart";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonEncryptStart, resources.GetString("buttonEncryptStart.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonEncryptStart, resources.GetString("buttonEncryptStart.ToolTip1"));
       this.buttonEncryptStart.UseVisualStyleBackColor = true;
       this.buttonEncryptStart.Click += new System.EventHandler(this.buttonEncryptStart_Click);
       // 
@@ -965,23 +863,17 @@
       resources.ApplyResources(this.pictureBoxInValidIcon, "pictureBoxInValidIcon");
       this.pictureBoxInValidIcon.Name = "pictureBoxInValidIcon";
       this.pictureBoxInValidIcon.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxInValidIcon, resources.GetString("pictureBoxInValidIcon.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxInValidIcon, resources.GetString("pictureBoxInValidIcon.ToolTip1"));
       // 
       // pictureBoxValidIcon
       // 
       resources.ApplyResources(this.pictureBoxValidIcon, "pictureBoxValidIcon");
       this.pictureBoxValidIcon.Name = "pictureBoxValidIcon";
       this.pictureBoxValidIcon.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxValidIcon, resources.GetString("pictureBoxValidIcon.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxValidIcon, resources.GetString("pictureBoxValidIcon.ToolTip1"));
       // 
       // checkBoxReDeleteOriginalFileAfterEncryption
       // 
       resources.ApplyResources(this.checkBoxReDeleteOriginalFileAfterEncryption, "checkBoxReDeleteOriginalFileAfterEncryption");
       this.checkBoxReDeleteOriginalFileAfterEncryption.Name = "checkBoxReDeleteOriginalFileAfterEncryption";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxReDeleteOriginalFileAfterEncryption, resources.GetString("checkBoxReDeleteOriginalFileAfterEncryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxReDeleteOriginalFileAfterEncryption, resources.GetString("checkBoxReDeleteOriginalFileAfterEncryption.ToolTip1"));
       this.checkBoxReDeleteOriginalFileAfterEncryption.UseVisualStyleBackColor = true;
       this.checkBoxReDeleteOriginalFileAfterEncryption.CheckedChanged += new System.EventHandler(this.checkBoxReDeleteOriginalFileAfterEncryption_CheckedChanged);
       // 
@@ -989,8 +881,6 @@
       // 
       resources.ApplyResources(this.checkBoxReNotMaskEncryptedPassword, "checkBoxReNotMaskEncryptedPassword");
       this.checkBoxReNotMaskEncryptedPassword.Name = "checkBoxReNotMaskEncryptedPassword";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxReNotMaskEncryptedPassword, resources.GetString("checkBoxReNotMaskEncryptedPassword.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxReNotMaskEncryptedPassword, resources.GetString("checkBoxReNotMaskEncryptedPassword.ToolTip1"));
       this.checkBoxReNotMaskEncryptedPassword.UseVisualStyleBackColor = true;
       this.checkBoxReNotMaskEncryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxReNotMaskEncryptedPassword_CheckedChanged);
       // 
@@ -999,32 +889,25 @@
       resources.ApplyResources(this.labelInputPasswordAgain, "labelInputPasswordAgain");
       this.labelInputPasswordAgain.BackColor = System.Drawing.Color.Transparent;
       this.labelInputPasswordAgain.Name = "labelInputPasswordAgain";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelInputPasswordAgain, resources.GetString("labelInputPasswordAgain.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelInputPasswordAgain, resources.GetString("labelInputPasswordAgain.ToolTip1"));
       // 
       // textBoxRePassword
       // 
       resources.ApplyResources(this.textBoxRePassword, "textBoxRePassword");
       this.textBoxRePassword.BackColor = System.Drawing.Color.PapayaWhip;
       this.textBoxRePassword.Name = "textBoxRePassword";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.textBoxRePassword, resources.GetString("textBoxRePassword.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.textBoxRePassword, resources.GetString("textBoxRePassword.ToolTip1"));
       this.textBoxRePassword.UseSystemPasswordChar = true;
       this.textBoxRePassword.TextChanged += new System.EventHandler(this.textBoxRePassword_TextChanged);
       this.textBoxRePassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxRePassword_KeyDown);
       // 
       // tabPageDecrypt
       // 
-      resources.ApplyResources(this.tabPageDecrypt, "tabPageDecrypt");
       this.tabPageDecrypt.BackColor = System.Drawing.SystemColors.Control;
       this.tabPageDecrypt.Controls.Add(this.panelDecrypt);
+      resources.ApplyResources(this.tabPageDecrypt, "tabPageDecrypt");
       this.tabPageDecrypt.Name = "tabPageDecrypt";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabPageDecrypt, resources.GetString("tabPageDecrypt.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabPageDecrypt, resources.GetString("tabPageDecrypt.ToolTip1"));
       // 
       // panelDecrypt
       // 
-      resources.ApplyResources(this.panelDecrypt, "panelDecrypt");
       this.panelDecrypt.BackColor = System.Drawing.Color.White;
       this.panelDecrypt.Controls.Add(this.pictureBoxDecryptBackButton);
       this.panelDecrypt.Controls.Add(this.panel4);
@@ -1034,9 +917,8 @@
       this.panelDecrypt.Controls.Add(this.buttonDecryptStart);
       this.panelDecrypt.Controls.Add(this.labelDecryptionPassword);
       this.panelDecrypt.Controls.Add(this.textBoxDecryptPassword);
+      resources.ApplyResources(this.panelDecrypt, "panelDecrypt");
       this.panelDecrypt.Name = "panelDecrypt";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelDecrypt, resources.GetString("panelDecrypt.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelDecrypt, resources.GetString("panelDecrypt.ToolTip1"));
       this.panelDecrypt.VisibleChanged += new System.EventHandler(this.panelDecrtpt_VisibleChanged);
       this.panelDecrypt.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelDecrypt.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -1047,42 +929,32 @@
       this.pictureBoxDecryptBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxDecryptBackButton.Name = "pictureBoxDecryptBackButton";
       this.pictureBoxDecryptBackButton.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDecryptBackButton, resources.GetString("pictureBoxDecryptBackButton.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDecryptBackButton, resources.GetString("pictureBoxDecryptBackButton.ToolTip1"));
       this.pictureBoxDecryptBackButton.Click += new System.EventHandler(this.buttonDecryptCancel_Click);
       this.pictureBoxDecryptBackButton.MouseEnter += new System.EventHandler(this.pictureBoxDecryptBackButton_MouseEnter);
       this.pictureBoxDecryptBackButton.MouseLeave += new System.EventHandler(this.pictureBoxDecryptBackButton_MouseLeave);
       // 
       // panel4
       // 
-      resources.ApplyResources(this.panel4, "panel4");
       this.panel4.Controls.Add(this.pictureBoxDecryption);
       this.panel4.Controls.Add(this.labelDecryption);
+      resources.ApplyResources(this.panel4, "panel4");
       this.panel4.Name = "panel4";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panel4, resources.GetString("panel4.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panel4, resources.GetString("panel4.ToolTip1"));
       // 
       // pictureBoxDecryption
       // 
       resources.ApplyResources(this.pictureBoxDecryption, "pictureBoxDecryption");
       this.pictureBoxDecryption.Name = "pictureBoxDecryption";
       this.pictureBoxDecryption.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxDecryption, resources.GetString("pictureBoxDecryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxDecryption, resources.GetString("pictureBoxDecryption.ToolTip1"));
       // 
       // labelDecryption
       // 
       resources.ApplyResources(this.labelDecryption, "labelDecryption");
       this.labelDecryption.Name = "labelDecryption";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelDecryption, resources.GetString("labelDecryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelDecryption, resources.GetString("labelDecryption.ToolTip1"));
       // 
       // checkBoxDeleteAtcFileAfterDecryption
       // 
       resources.ApplyResources(this.checkBoxDeleteAtcFileAfterDecryption, "checkBoxDeleteAtcFileAfterDecryption");
       this.checkBoxDeleteAtcFileAfterDecryption.Name = "checkBoxDeleteAtcFileAfterDecryption";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxDeleteAtcFileAfterDecryption, resources.GetString("checkBoxDeleteAtcFileAfterDecryption.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxDeleteAtcFileAfterDecryption, resources.GetString("checkBoxDeleteAtcFileAfterDecryption.ToolTip1"));
       this.checkBoxDeleteAtcFileAfterDecryption.UseVisualStyleBackColor = true;
       this.checkBoxDeleteAtcFileAfterDecryption.CheckedChanged += new System.EventHandler(this.checkBoxDeleteAtcFileAfterDecryption_CheckedChanged);
       // 
@@ -1090,8 +962,6 @@
       // 
       resources.ApplyResources(this.checkBoxNotMaskDecryptedPassword, "checkBoxNotMaskDecryptedPassword");
       this.checkBoxNotMaskDecryptedPassword.Name = "checkBoxNotMaskDecryptedPassword";
-      this.toolTipZxcvbnWarning.SetToolTip(this.checkBoxNotMaskDecryptedPassword, resources.GetString("checkBoxNotMaskDecryptedPassword.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.checkBoxNotMaskDecryptedPassword, resources.GetString("checkBoxNotMaskDecryptedPassword.ToolTip1"));
       this.checkBoxNotMaskDecryptedPassword.UseVisualStyleBackColor = true;
       this.checkBoxNotMaskDecryptedPassword.CheckedChanged += new System.EventHandler(this.checkBoxNotMaskDecryptedPassword_CheckedChanged);
       // 
@@ -1099,8 +969,6 @@
       // 
       resources.ApplyResources(this.buttonDecryptCancel, "buttonDecryptCancel");
       this.buttonDecryptCancel.Name = "buttonDecryptCancel";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonDecryptCancel, resources.GetString("buttonDecryptCancel.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonDecryptCancel, resources.GetString("buttonDecryptCancel.ToolTip1"));
       this.buttonDecryptCancel.UseVisualStyleBackColor = true;
       this.buttonDecryptCancel.Click += new System.EventHandler(this.buttonDecryptCancel_Click);
       // 
@@ -1108,8 +976,6 @@
       // 
       resources.ApplyResources(this.buttonDecryptStart, "buttonDecryptStart");
       this.buttonDecryptStart.Name = "buttonDecryptStart";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonDecryptStart, resources.GetString("buttonDecryptStart.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonDecryptStart, resources.GetString("buttonDecryptStart.ToolTip1"));
       this.buttonDecryptStart.UseVisualStyleBackColor = true;
       this.buttonDecryptStart.Click += new System.EventHandler(this.buttonDecryptStart_Click);
       // 
@@ -1117,18 +983,14 @@
       // 
       resources.ApplyResources(this.labelDecryptionPassword, "labelDecryptionPassword");
       this.labelDecryptionPassword.Name = "labelDecryptionPassword";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelDecryptionPassword, resources.GetString("labelDecryptionPassword.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelDecryptionPassword, resources.GetString("labelDecryptionPassword.ToolTip1"));
       this.labelDecryptionPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelDecryptionPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
       // textBoxDecryptPassword
       // 
-      resources.ApplyResources(this.textBoxDecryptPassword, "textBoxDecryptPassword");
       this.textBoxDecryptPassword.AllowDrop = true;
+      resources.ApplyResources(this.textBoxDecryptPassword, "textBoxDecryptPassword");
       this.textBoxDecryptPassword.Name = "textBoxDecryptPassword";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.textBoxDecryptPassword, resources.GetString("textBoxDecryptPassword.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.textBoxDecryptPassword, resources.GetString("textBoxDecryptPassword.ToolTip1"));
       this.textBoxDecryptPassword.UseSystemPasswordChar = true;
       this.textBoxDecryptPassword.TextChanged += new System.EventHandler(this.textBoxDecryptPassword_TextChanged);
       this.textBoxDecryptPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxDecryptPassword_DragDrop);
@@ -1138,16 +1000,13 @@
       // 
       // tabPageProgressState
       // 
-      resources.ApplyResources(this.tabPageProgressState, "tabPageProgressState");
       this.tabPageProgressState.BackColor = System.Drawing.SystemColors.Control;
       this.tabPageProgressState.Controls.Add(this.panelProgressState);
+      resources.ApplyResources(this.tabPageProgressState, "tabPageProgressState");
       this.tabPageProgressState.Name = "tabPageProgressState";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.tabPageProgressState, resources.GetString("tabPageProgressState.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.tabPageProgressState, resources.GetString("tabPageProgressState.ToolTip1"));
       // 
       // panelProgressState
       // 
-      resources.ApplyResources(this.panelProgressState, "panelProgressState");
       this.panelProgressState.BackColor = System.Drawing.Color.White;
       this.panelProgressState.Controls.Add(this.pictureBoxProgressStateBackButton);
       this.panelProgressState.Controls.Add(this.panel5);
@@ -1156,9 +1015,8 @@
       this.panelProgressState.Controls.Add(this.labelProgressPercentText);
       this.panelProgressState.Controls.Add(this.labelProgressMessageText);
       this.panelProgressState.Controls.Add(this.progressBar);
+      resources.ApplyResources(this.panelProgressState, "panelProgressState");
       this.panelProgressState.Name = "panelProgressState";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panelProgressState, resources.GetString("panelProgressState.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panelProgressState, resources.GetString("panelProgressState.ToolTip1"));
       this.panelProgressState.VisibleChanged += new System.EventHandler(this.panelProgressState_VisibleChanged);
       this.panelProgressState.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.panelProgressState.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
@@ -1169,42 +1027,32 @@
       this.pictureBoxProgressStateBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pictureBoxProgressStateBackButton.Name = "pictureBoxProgressStateBackButton";
       this.pictureBoxProgressStateBackButton.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxProgressStateBackButton, resources.GetString("pictureBoxProgressStateBackButton.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxProgressStateBackButton, resources.GetString("pictureBoxProgressStateBackButton.ToolTip1"));
       this.pictureBoxProgressStateBackButton.Click += new System.EventHandler(this.pictureBoxProgressStateBackButton_Click);
       this.pictureBoxProgressStateBackButton.MouseEnter += new System.EventHandler(this.pictureBoxProgressStateBackButton_MouseEnter);
       this.pictureBoxProgressStateBackButton.MouseLeave += new System.EventHandler(this.pictureBoxProgressStateBackButton_MouseLeave);
       // 
       // panel5
       // 
-      resources.ApplyResources(this.panel5, "panel5");
       this.panel5.Controls.Add(this.labelProgress);
       this.panel5.Controls.Add(this.pictureBoxProgress);
+      resources.ApplyResources(this.panel5, "panel5");
       this.panel5.Name = "panel5";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.panel5, resources.GetString("panel5.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.panel5, resources.GetString("panel5.ToolTip1"));
       // 
       // labelProgress
       // 
       resources.ApplyResources(this.labelProgress, "labelProgress");
       this.labelProgress.Name = "labelProgress";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelProgress, resources.GetString("labelProgress.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelProgress, resources.GetString("labelProgress.ToolTip1"));
       // 
       // pictureBoxProgress
       // 
       resources.ApplyResources(this.pictureBoxProgress, "pictureBoxProgress");
       this.pictureBoxProgress.Name = "pictureBoxProgress";
       this.pictureBoxProgress.TabStop = false;
-      this.toolTipZxcvbnWarning.SetToolTip(this.pictureBoxProgress, resources.GetString("pictureBoxProgress.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.pictureBoxProgress, resources.GetString("pictureBoxProgress.ToolTip1"));
       // 
       // labelCryptionType
       // 
       resources.ApplyResources(this.labelCryptionType, "labelCryptionType");
       this.labelCryptionType.Name = "labelCryptionType";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelCryptionType, resources.GetString("labelCryptionType.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelCryptionType, resources.GetString("labelCryptionType.ToolTip1"));
       this.labelCryptionType.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelCryptionType.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
@@ -1213,8 +1061,6 @@
       resources.ApplyResources(this.buttonCancel, "buttonCancel");
       this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.buttonCancel.Name = "buttonCancel";
-      this.toolTipZxcvbnWarning.SetToolTip(this.buttonCancel, resources.GetString("buttonCancel.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.buttonCancel, resources.GetString("buttonCancel.ToolTip1"));
       this.buttonCancel.UseVisualStyleBackColor = true;
       this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
       // 
@@ -1222,8 +1068,6 @@
       // 
       resources.ApplyResources(this.labelProgressPercentText, "labelProgressPercentText");
       this.labelProgressPercentText.Name = "labelProgressPercentText";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelProgressPercentText, resources.GetString("labelProgressPercentText.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelProgressPercentText, resources.GetString("labelProgressPercentText.ToolTip1"));
       this.labelProgressPercentText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelProgressPercentText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
@@ -1231,8 +1075,6 @@
       // 
       resources.ApplyResources(this.labelProgressMessageText, "labelProgressMessageText");
       this.labelProgressMessageText.Name = "labelProgressMessageText";
-      this.toolTipZxcvbnWarning.SetToolTip(this.labelProgressMessageText, resources.GetString("labelProgressMessageText.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.labelProgressMessageText, resources.GetString("labelProgressMessageText.ToolTip1"));
       this.labelProgressMessageText.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelProgressMessageText.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
@@ -1243,14 +1085,11 @@
       this.progressBar.Name = "progressBar";
       this.progressBar.Step = 1;
       this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-      this.toolTipZxcvbnWarning.SetToolTip(this.progressBar, resources.GetString("progressBar.ToolTip"));
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.progressBar, resources.GetString("progressBar.ToolTip1"));
       this.progressBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.progressBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
       // contextMenuStrip1
       // 
-      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.encryptToolStripMenuItem,
             this.decryptToolStripMenuItem,
@@ -1261,15 +1100,14 @@
             this.toolStripMenuItem5,
             this.exitToolStripMenuItem1});
       this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.contextMenuStrip1, resources.GetString("contextMenuStrip1.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.contextMenuStrip1, resources.GetString("contextMenuStrip1.ToolTip1"));
+      resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
       // 
       // encryptToolStripMenuItem
       // 
-      resources.ApplyResources(this.encryptToolStripMenuItem, "encryptToolStripMenuItem");
       this.encryptToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectFilesToolStripMenuItem1,
             this.selectFoldersToolStripMenuItem1});
+      resources.ApplyResources(this.encryptToolStripMenuItem, "encryptToolStripMenuItem");
       this.encryptToolStripMenuItem.Name = "encryptToolStripMenuItem";
       // 
       // selectFilesToolStripMenuItem1
@@ -1289,8 +1127,8 @@
       // 
       // toolStripMenuItem3
       // 
-      resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
       this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+      resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
       // 
       // optionToolStripMenuItem1
       // 
@@ -1299,8 +1137,8 @@
       // 
       // toolStripMenuItem4
       // 
-      resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
       this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+      resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
       // 
       // helpToolStripMenuItem2
       // 
@@ -1309,8 +1147,8 @@
       // 
       // toolStripMenuItem5
       // 
-      resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
       this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+      resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
       // 
       // exitToolStripMenuItem1
       // 
@@ -1319,14 +1157,12 @@
       // 
       // contextMenuStrip2
       // 
-      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemAtcFile,
             this.ToolStripMenuItemExeFile,
             this.ToolStripMenuItemZipPassword});
       this.contextMenuStrip2.Name = "contextMenuStrip2";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.contextMenuStrip2, resources.GetString("contextMenuStrip2.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.contextMenuStrip2, resources.GetString("contextMenuStrip2.ToolTip1"));
+      resources.ApplyResources(this.contextMenuStrip2, "contextMenuStrip2");
       // 
       // ToolStripMenuItemAtcFile
       // 
@@ -1348,7 +1184,6 @@
       // 
       // contextMenuStrip3
       // 
-      resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
       this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.selectFilesToEncryptToolStripMenuItem,
             this.selectDirectoryToEncryptToolStripMenuItem,
@@ -1358,8 +1193,7 @@
             this.toolStripMenuItem7,
             this.onlineHelpToolStripMenuItem});
       this.contextMenuStrip3.Name = "contextMenuStrip3";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this.contextMenuStrip3, resources.GetString("contextMenuStrip3.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this.contextMenuStrip3, resources.GetString("contextMenuStrip3.ToolTip1"));
+      resources.ApplyResources(this.contextMenuStrip3, "contextMenuStrip3");
       // 
       // selectFilesToEncryptToolStripMenuItem
       // 
@@ -1381,8 +1215,8 @@
       // 
       // toolStripMenuItem6
       // 
-      resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
       this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+      resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
       // 
       // settingsToolStripMenuItem
       // 
@@ -1392,8 +1226,8 @@
       // 
       // toolStripMenuItem7
       // 
-      resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
       this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+      resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
       // 
       // onlineHelpToolStripMenuItem
       // 
@@ -1403,8 +1237,8 @@
       // 
       // notifyIcon1
       // 
-      resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
       this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+      resources.ApplyResources(this.notifyIcon1, "notifyIcon1");
       this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
       // 
       // saveFileDialog1
@@ -1412,34 +1246,84 @@
       this.saveFileDialog1.DefaultExt = "atc";
       resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
       // 
-      // openFileDialog1
-      // 
-      resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
-      // 
-      // folderBrowserDialog1
-      // 
-      resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
-      // 
       // toolTipZxcvbnWarning
       // 
       this.toolTipZxcvbnWarning.IsBalloon = true;
       this.toolTipZxcvbnWarning.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
       // 
+      // toolStrip2
+      // 
+      this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+      this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelHome,
+            this.toolStripButton1,
+            this.toolStripLabelInputPassword,
+            this.toolStripButton2,
+            this.toolStripLabelConfirmPassword,
+            this.toolStripButton3,
+            this.toolStripLabelExecute});
+      resources.ApplyResources(this.toolStrip2, "toolStrip2");
+      this.toolStrip2.Name = "toolStrip2";
+      // 
+      // toolStripLabelHome
+      // 
+      this.toolStripLabelHome.BackColor = System.Drawing.SystemColors.Control;
+      this.toolStripLabelHome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+      resources.ApplyResources(this.toolStripLabelHome, "toolStripLabelHome");
+      this.toolStripLabelHome.ForeColor = System.Drawing.Color.DarkGreen;
+      this.toolStripLabelHome.Name = "toolStripLabelHome";
+      this.toolStripLabelHome.Click += new System.EventHandler(this.toolStripLabelHome_Click);
+      // 
+      // toolStripButton1
+      // 
+      this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButton1, "toolStripButton1");
+      this.toolStripButton1.Name = "toolStripButton1";
+      // 
+      // toolStripLabelInputPassword
+      // 
+      resources.ApplyResources(this.toolStripLabelInputPassword, "toolStripLabelInputPassword");
+      this.toolStripLabelInputPassword.Name = "toolStripLabelInputPassword";
+      this.toolStripLabelInputPassword.Click += new System.EventHandler(this.toolStripLabelInputPassword_Click);
+      // 
+      // toolStripButton2
+      // 
+      this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButton2, "toolStripButton2");
+      this.toolStripButton2.Name = "toolStripButton2";
+      // 
+      // toolStripLabelConfirmPassword
+      // 
+      resources.ApplyResources(this.toolStripLabelConfirmPassword, "toolStripLabelConfirmPassword");
+      this.toolStripLabelConfirmPassword.Name = "toolStripLabelConfirmPassword";
+      this.toolStripLabelConfirmPassword.Click += new System.EventHandler(this.toolStripLabelConfirmPassword_Click);
+      // 
+      // toolStripButton3
+      // 
+      this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.toolStripButton3, "toolStripButton3");
+      this.toolStripButton3.Name = "toolStripButton3";
+      // 
+      // toolStripLabelExecute
+      // 
+      resources.ApplyResources(this.toolStripLabelExecute, "toolStripLabelExecute");
+      this.toolStripLabelExecute.Name = "toolStripLabelExecute";
+      this.toolStripLabelExecute.Click += new System.EventHandler(this.toolStripLabelExecute_Click);
+      // 
       // Form1
       // 
-      resources.ApplyResources(this, "$this");
       this.AllowDrop = true;
+      resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.panelOuter);
-      this.Controls.Add(this.toolStrip1);
       this.Controls.Add(this.statusStrip1);
+      this.Controls.Add(this.toolStrip2);
+      this.Controls.Add(this.toolStrip1);
       this.Controls.Add(this.menuStrip1);
       this.DoubleBuffered = true;
       this.KeyPreview = true;
       this.MainMenuStrip = this.menuStrip1;
       this.Name = "Form1";
-      this.toolTipZxcvbnSuggestions.SetToolTip(this, resources.GetString("$this.ToolTip"));
-      this.toolTipZxcvbnWarning.SetToolTip(this, resources.GetString("$this.ToolTip1"));
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
       this.Load += new System.EventHandler(this.Form1_Load);
       this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
@@ -1448,6 +1332,7 @@
       this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
       this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+      this.Resize += new System.EventHandler(this.Form1_Resize);
       this.statusStrip1.ResumeLayout(false);
       this.statusStrip1.PerformLayout();
       this.menuStrip1.ResumeLayout(false);
@@ -1518,6 +1403,8 @@
       this.contextMenuStrip1.ResumeLayout(false);
       this.contextMenuStrip2.ResumeLayout(false);
       this.contextMenuStrip3.ResumeLayout(false);
+      this.toolStrip2.ResumeLayout(false);
+      this.toolStrip2.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1665,6 +1552,15 @@
     private DelayTextBox textBoxPassword;
     private System.Windows.Forms.ToolTip toolTipZxcvbnWarning;
     private System.Windows.Forms.ToolTip toolTipZxcvbnSuggestions;
+    private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelEncryptionTime;
+    private System.Windows.Forms.ToolStrip toolStrip2;
+    private System.Windows.Forms.ToolStripButton toolStripButton1;
+    private System.Windows.Forms.ToolStripLabel toolStripLabelInputPassword;
+    private System.Windows.Forms.ToolStripButton toolStripButton2;
+    private System.Windows.Forms.ToolStripLabel toolStripLabelConfirmPassword;
+    private System.Windows.Forms.ToolStripButton toolStripButton3;
+    private System.Windows.Forms.ToolStripLabel toolStripLabelExecute;
+    private System.Windows.Forms.ToolStripLabel toolStripLabelHome;
   }
 }
 

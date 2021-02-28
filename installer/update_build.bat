@@ -21,7 +21,7 @@ mkdir bin
 
 SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
 
-msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /p:PostBuildEvent= /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
+MSBuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /p:PostBuildEvent= /t:ReBuild /v:n ..\ExeOut\Exeout.csproj
 
 ..\tools\ExeToHex\ExeToHex\bin\Release\ExeToHex.exe ..\ExeOut\bin\Release\Exeout.exe ..\AttacheCase\ExeOut3.cs
 
@@ -31,7 +31,7 @@ msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platfor
 @echo Rebuild AtcSetup.exe
 @echo -----------------------------------
 
-msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
+MSBuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
 
 
 @echo 
@@ -39,7 +39,7 @@ msbuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\A
 @echo Rebuild AttacheCase.exe
 @echo -----------------------------------
 
-msbuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
+MSBuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AttacheCase\AttacheCase.csproj
 
 @echo 
 @echo -----------------------------------
@@ -129,8 +129,7 @@ cd ..\
 @echo. make hash file
 @echo. -----------------------------------
 
-..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.exe
-..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.zip
+..\tools\GetHash\GetHash\bin\Release\GetHash.exe Archives\atcs%NUM%.exe Archives\atcs%NUM%.zip
 
 
 @echo. 

@@ -117,7 +117,7 @@ Type: files; Name: {app}\Microsoft.WindowsAPICodePack.Shell.dll
 Root: HKCR; Subkey: ".atc"; ValueData: "AttacheCase.DataFile"; Flags: uninsdeletevalue; ValueType: string; ValueName: ""; Tasks:association
 
 Root:HKCR; Subkey:"AttacheCase.DataFile"; ValueData:""; Flags:uninsdeletekey; ValueType:string; ValueName:""; Tasks:association
-Root:HKCR; Subkey:"AttacheCase.DataFile\DefaultIcon";ValueData:"{app}\AttacheCase.exe,0"; ValueType:string; ValueName:""; Tasks:association
+Root:HKCR; Subkey:"AttacheCase.DataFile\DefaultIcon";ValueData:"{app}\AttacheCase.exe,1"; ValueType:string; ValueName:""; Tasks:association
 
 Root:HKCR; Subkey:"AttacheCase.DataFile\shell\open\command"; ValueData:"""{app}\AttacheCase.exe"" ""%1"""; ValueType:string; ValueName:""; Tasks:association
 ;Root:HKCR; Subkey:"AttacheCase.DataFile\shell\decode\command"; ValueData:"""{app}\AttacheCase.exe"" ""%1"""; ValueType:string; ValueName:"{cm:DecodeFile}"; Tasks:association

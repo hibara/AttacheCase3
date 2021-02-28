@@ -23,6 +23,8 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
+using System.Diagnostics;
+
 
 namespace AttacheCase
 {
@@ -238,8 +240,14 @@ namespace AttacheCase
 		{
 			get { return this._DataSebVersion; }
 		}
-		// The broken status of file
-		private bool _fBroken = false;
+    // reserved
+    private byte[] _reserved;
+    public byte[] reserved
+    {
+      get { return this._reserved; }
+    }
+    // The broken status of file
+    private bool _fBroken = false;
 		public bool fBroken
 		{
 			get { return this._fBroken; }
@@ -280,7 +288,14 @@ namespace AttacheCase
     {
       get { return this._TempFilePath; }
     }
-    
+
+    // Decryption time
+    private string _DecryptionTimeString;
+    public string DecryptionTimeString
+    {
+      get { return this._DecryptionTimeString; }
+    }
+
     /// <summary>
     /// Constructor
     /// </summary>
@@ -390,7 +405,8 @@ namespace AttacheCase
 				byteArray = new byte[1];
 				fs.Read(byteArray, 0, 1);                                    // reserved = NULL(0)
 				byteArray = new byte[1];
-				fs.Read(byteArray, 0, 1);
+        _reserved = byteArray;
+        fs.Read(byteArray, 0, 1);
 				_MissTypeLimits = (char)byteArray[0];                        // MissTypeLimits
 				byteArray = new byte[1];
 				fs.Read(byteArray, 0, 1);
@@ -435,6 +451,11 @@ namespace AttacheCase
 		{
 			BackgroundWorker worker = sender as BackgroundWorker;
 			worker.WorkerSupportsCancellation = true;
+
+      //-----------------------------------
+      // ストップウォッチ
+      Stopwatch swDecrypt = new Stopwatch();
+      swDecrypt.Start();
 
       //-----------------------------------
       // Header data is starting.
@@ -1389,6 +1410,12 @@ namespace AttacheCase
         {
           File.Delete(_TempFilePath);
         }
+
+        swDecrypt.Stop();
+        TimeSpan ts = swDecrypt.Elapsed;
+        _DecryptionTimeString =
+          Convert.ToString(ts.Hours) + "h" + Convert.ToString(ts.Minutes) + "m" +
+          Convert.ToString(ts.Seconds) + "s" + Convert.ToString(ts.Milliseconds) + "ms";
       }
 
     }// end Decrypt2();

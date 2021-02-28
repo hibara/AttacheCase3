@@ -610,4 +610,19 @@
     <value>パス名または完全修飾ファイル名がシステム定義の最大長を超えています。
 処理を中止します。</value>
   </data>
+  <data name="BreadcrumbsConfirmPassword" xml:space="preserve">
+    <value>再入力</value>
+  </data>
+  <data name="BreadcrumbsExecuteDecrypt" xml:space="preserve">
+    <value>復号</value>
+  </data>
+  <data name="BreadcrumbsExecuteEncrypt" xml:space="preserve">
+    <value>暗号化</value>
+  </data>
+  <data name="BreadcrumbsHome" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
+  <data name="BreadcrumbsInputPassword" xml:space="preserve">
+    <value>パスワード入力</value>
+  </data>
 </root>

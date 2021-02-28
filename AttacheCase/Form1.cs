@@ -152,6 +152,11 @@ namespace AttacheCase
     /// <param name="e"></param>
     private void Form1_Load(object sender, EventArgs e)
     {
+      tabControl1.Dock = DockStyle.Fill;
+
+      toolStripStatusLabelEncryptionTime.Visible = false;
+      toolStripStatusLabelDataVersion.Text = "-";
+
       // View start window
       panelEncrypt.Visible = false;
       panelEncryptConfirm.Visible = false;
@@ -194,6 +199,19 @@ namespace AttacheCase
 
       StartProcess();
 
+    }
+
+    /// <summary>
+    /// Form1 Resize Event
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Form1_Resize(object sender, EventArgs e)
+    {
+      // ドラッグ＆ドロップの説明文をパネル内で中央表示
+      // Center the drag & drop description in the panel.
+      labelDragAndDrop.Left = (panelStartPage.Width - panel1.Width) / 2 - labelDragAndDrop.Width / 2 + panel1.Width; ;
+      labelDragAndDrop.Top = panelStartPage.Height / 2 - labelDragAndDrop.Height / 2;
     }
 
     /// <summary>
@@ -814,7 +832,6 @@ namespace AttacheCase
     {
       try
       {
-
         buttonCancel.Text = Resources.ButtonTextOK;
 
         if (e.Cancelled)
@@ -889,6 +906,12 @@ namespace AttacheCase
               notifyIcon1.Text = "100% " + Resources.labelCaptionCompleted;
 
               FileIndex++;
+
+              if ( AppSettings.Instance.fDeveloperConsole == true)
+              {
+                toolStripStatusLabelEncryptionTime.Visible = true;
+                toolStripStatusLabelEncryptionTime.Text = "Encryption Time : " + encryption3.EncryptionTimeString;
+              }
 
               // One more encryption
               if (FileIndex < AppSettings.Instance.FileList.Count)
@@ -1194,7 +1217,7 @@ namespace AttacheCase
             // Developer mode
             if (AppSettings.Instance.fDeveloperConsole == true)
             {
-              showDeveloperConsoleWindow();
+              showDeveloperConsoleWindowDecrypt();
             }
 
             //-----------------------------------
@@ -2232,6 +2255,22 @@ namespace AttacheCase
         // Clear password input limit count
         LimitOfInputPassword = -1;
 
+        // Breadcrumbs
+        toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+        toolStripLabelHome.ForeColor = Color.DarkGreen;
+        toolStripButton1.Visible = true;
+        toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+        toolStripLabelInputPassword.Visible = true;
+        toolStripLabelInputPassword.ForeColor = SystemColors.ControlText;
+        toolStripButton2.Visible = true;
+        toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+        toolStripLabelConfirmPassword.Visible = true;
+        toolStripLabelConfirmPassword.ForeColor = SystemColors.ControlText;
+        toolStripButton3.Visible = true;
+        toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteEncrypt + "/" + Resources.BreadcrumbsExecuteDecrypt;
+        toolStripLabelExecute.Visible = true;
+        toolStripLabelExecute.ForeColor = SystemColors.ControlText;
+        
       }
     }
 
@@ -2382,8 +2421,24 @@ namespace AttacheCase
         this.AcceptButton = buttonEncryptionPasswordOk;
         this.CancelButton = buttonEncryptCancel;
         textBoxPassword.Focus();
-      }
 
+        // Breadcrumbs
+        toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+        toolStripLabelHome.ForeColor = SystemColors.ControlText;
+        toolStripButton1.Visible = true;
+        toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+        toolStripLabelInputPassword.Visible = true;
+        toolStripLabelInputPassword.ForeColor = Color.DarkGreen;
+        toolStripButton2.Visible = true;
+        toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+        toolStripLabelConfirmPassword.Visible = true;
+        toolStripLabelConfirmPassword.ForeColor = SystemColors.ControlText;
+        toolStripButton3.Visible = true;
+        toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteEncrypt;
+        toolStripLabelExecute.Visible = true;
+        toolStripLabelExecute.ForeColor = SystemColors.ControlText;
+
+      }
     }
 
     /// <summary>
@@ -2412,7 +2467,23 @@ namespace AttacheCase
         this.AcceptButton = buttonEncryptStart;
         this.CancelButton = buttonEncryptionConfirmCancel;
         textBoxRePassword.Focus();
-        
+
+        // Breadcrumbs
+        toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+        toolStripLabelHome.ForeColor = SystemColors.ControlText;
+        toolStripButton1.Visible = true;
+        toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+        toolStripLabelInputPassword.Visible = true;
+        toolStripLabelInputPassword.ForeColor = SystemColors.ControlText;
+        toolStripButton2.Visible = true;
+        toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+        toolStripLabelConfirmPassword.Visible = true;
+        toolStripLabelConfirmPassword.ForeColor = Color.DarkGreen;
+        toolStripButton3.Visible = true;
+        toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteEncrypt;
+        toolStripLabelExecute.Visible = true;
+        toolStripLabelExecute.ForeColor = SystemColors.ControlText;
+
       }
     }
 
@@ -2464,7 +2535,6 @@ namespace AttacheCase
       }
 
     }
-
 
     /// <summary>
     /// panelDecrtpt
@@ -2558,8 +2628,22 @@ namespace AttacheCase
         this.CancelButton = buttonDecryptCancel;
         textBoxRePassword.Focus();
 
+        // Breadcrumbs
+        toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+        toolStripLabelHome.ForeColor = SystemColors.ControlText;
+        toolStripButton1.Visible = true;
+        toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+        toolStripLabelInputPassword.Visible = true;
+        toolStripLabelInputPassword.ForeColor = Color.DarkGreen;
+        toolStripButton2.Visible = false;
+        toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+        toolStripLabelConfirmPassword.Visible = false;
+        toolStripLabelConfirmPassword.ForeColor = SystemColors.ControlText;
+        toolStripButton3.Visible = true;
+        toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteDecrypt;
+        toolStripLabelExecute.Visible = true;
+        toolStripLabelExecute.ForeColor = SystemColors.ControlText;
       }
-
     }
 
     private void panelProgressState_VisibleChanged(object sender, EventArgs e)
@@ -3124,6 +3208,23 @@ namespace AttacheCase
       panelDecrypt.Visible = false;
       panelProgressState.Visible = true;
       labelCryptionType.Text = Resources.labelProcessNameEncrypt;
+
+      //-----------------------------------
+      // Breadcrumbs
+      toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+      toolStripLabelHome.ForeColor = SystemColors.ControlText;
+      toolStripButton1.Visible = true;
+      toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+      toolStripLabelInputPassword.Visible = true;
+      toolStripLabelInputPassword.ForeColor = SystemColors.ControlText;
+      toolStripButton2.Visible = true;
+      toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+      toolStripLabelConfirmPassword.Visible = true;
+      toolStripLabelConfirmPassword.ForeColor = SystemColors.ControlText;
+      toolStripButton3.Visible = true;
+      toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteEncrypt;
+      toolStripLabelExecute.Visible = true;
+      toolStripLabelExecute.ForeColor = Color.DarkGreen;
 
       if (FileIndex > AppSettings.Instance.FileList.Count - 1)
       {
@@ -4222,6 +4323,23 @@ namespace AttacheCase
       labelCryptionType.Text = Resources.labelProcessNameDecrypt;
       buttonCancel.Text = Resources.ButtonTextCancel;
 
+      //-----------------------------------
+      // Breadcrumbs
+      toolStripLabelHome.Text = Resources.BreadcrumbsHome;
+      toolStripLabelHome.ForeColor = SystemColors.ControlText;
+      toolStripButton1.Visible = true;
+      toolStripLabelInputPassword.Text = Resources.BreadcrumbsInputPassword;
+      toolStripLabelInputPassword.Visible = true;
+      toolStripLabelInputPassword.ForeColor = SystemColors.ControlText;
+      toolStripButton2.Visible = false;
+      toolStripLabelConfirmPassword.Text = Resources.BreadcrumbsConfirmPassword;
+      toolStripLabelConfirmPassword.Visible = false;
+      toolStripLabelConfirmPassword.ForeColor = SystemColors.ControlText;
+      toolStripButton3.Visible = true;
+      toolStripLabelExecute.Text = Resources.BreadcrumbsExecuteDecrypt;
+      toolStripLabelExecute.Visible = true;
+      toolStripLabelExecute.ForeColor = Color.DarkGreen;
+
       this.Update();
 
       if (FileIndex > AppSettings.Instance.FileList.Count - 1)
@@ -4884,13 +5002,12 @@ namespace AttacheCase
     /// </summary>
     /// <returns></returns>
     //======================================================================
-    private void showDeveloperConsoleWindow()
+    private void showDeveloperConsoleWindowDecrypt()
     {
-      if (frm5 == null)
+      if (frm5 == null || frm5.IsDisposed)
       {
         frm5 = new Form5();
       }
-
       frm5.Show();
 
       if (AppSettings.Instance.DeveloperConsolePosX < 0 || AppSettings.Instance.DeveloperConsolePosY < 0)
@@ -4909,24 +5026,37 @@ namespace AttacheCase
         frm5.Height = AppSettings.Instance.DeveloperConsoleHeight;
       }
 
-      if (decryption2 == null)
+      if (decryption3 != null)
       {
         // AttacheCase3 data
-        Form5.Instance.textBoxDataSebVersionText = decryption3.DataFileVersion.ToString();
-        Form5.Instance.textBrokenText = decryption3.fBroken.ToString();
-        Form5.Instance.textBoxTokenStrText = decryption3.TokenStr;
-        Form5.Instance.textBoxDataFileVersionText = decryption3.DataFileVersion.ToString();
-        Form5.Instance.textBoxTypeAlgorismText = decryption3.TypeAlgorism.ToString();
+        Form5.Instance.textBoxAppFileVersionText = decryption3.DataFileVersion.ToString();
+        Form5.Instance.textBrokenText3 = decryption3.fBroken.ToString();
+        Form5.Instance.textBoxFileSignature3Text = decryption3.TokenStr;
+        Form5.Instance.textBoxMissTypeLimit3Text = ((int)decryption3.MissTypeLimits).ToString();
+        Form5.Instance.textBoxDataFileVersion3Text = decryption3.DataFileVersion.ToString();
         Form5.Instance.textBoxAtcHeaderSizeText = decryption3.AtcHeaderSize.ToString();
         Form5.Instance.textSaltText = BitConverter.ToString(decryption3.salt).Replace("-", string.Empty);
         Form5.Instance.textBoxRfc2898DeriveBytesText = BitConverter.ToString(decryption3.deriveBytes.GetBytes(32)).Replace("-", string.Empty);
         Form5.Instance.textBoxOutputFileListText = string.Join(", ", decryption3.FileList.ToArray());
+        Form5.Instance.toolStripStatusLabelDecryptionTimeText = "Decryption Time: " + decryption3.DecryptionTimeString;
       }
-      else
+      else if (decryption2 != null)
       {
         // AttacheCase2 data
+        Form5.Instance.textBoxDataSubVersionText = decryption2.DataSebVersion.ToString();
+        Form5.Instance.textBoxReservedText = BitConverter.ToString(decryption2.reserved);
+        Form5.Instance.textBoxMissTypeLimit2Text = ((int)decryption2.MissTypeLimits).ToString();
+        Form5.Instance.textBoxfBroken2Text = decryption2.fBroken.ToString();
+        Form5.Instance.textBoxlFileSignature2Text = decryption2.TokenStr;
+        Form5.Instance.textBoxDataFileVersion2Text = decryption2.DataFileVersion.ToString();
+        Form5.Instance.textBoxTypeAlgorismText = decryption2.TypeAlgorism.ToString();
+        Form5.Instance.textBoxAtcHeaderSize2Text = decryption2.AtcHeaderSize.ToString();
+        Form5.Instance.textBoxOutputFileList2Text = string.Join(", ", decryption2.OutputFileList.ToArray());
+        Form5.Instance.toolStripStatusLabelDecryptionTimeText = "Decryption Time: " + decryption2.DecryptionTimeString;
+
       }
     }
+    //----------------------------------------------------------------------
 
     private void panelStartPage_MouseEnter(object sender, EventArgs e)
     {
@@ -4937,12 +5067,7 @@ namespace AttacheCase
     {
       panelStartPage.BackColor = Color.White;
     }
-    
-    private void pictureBoxDec_Click(object sender, EventArgs e)
-    {
-
-    }
-
+   
     private void Form1_MouseDown(object sender, MouseEventArgs e)
     {
       if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -5054,6 +5179,59 @@ namespace AttacheCase
       p.X += pictureBoxHamburgerMenu.Width;
       this.contextMenuStrip3.Show(p);
 
+    }
+    //----------------------------------------------------------------------
+    // Breadcrumb
+    private void toolStripLabelHome_Click(object sender, EventArgs e)
+    {
+      if (panelEncrypt.Visible == true)
+      {
+        textBoxPassword.Text = "";
+      }
+      else if (panelEncryptConfirm.Visible == true)
+      {
+        textBoxPassword.Text = "";
+        textBoxRePassword.Text = "";
+      }
+      else if (panelDecrypt.Visible == true)
+      {
+        textBoxDecryptPassword.Text = "";
+      }
+      else if (panelProgressState.Visible == true)
+      {
+        if (buttonCancel.Text != Resources.ButtonTextOK)
+        {
+          // Working. Not back to Home.
+          return;
+        }
+      }
+      panelStartPage.Visible = true;
+      panelEncrypt.Visible = false;
+      panelEncryptConfirm.Visible = false;
+      panelDecrypt.Visible = false;
+      panelProgressState.Visible = false;
+      panelStartPage_VisibleChanged(sender, e);
+    }
+    private void toolStripLabelInputPassword_Click(object sender, EventArgs e)
+    {
+      if (panelEncryptConfirm.Visible == true)
+      {
+        panelEncrypt.Visible = true;
+        panelEncryptConfirm.Visible = false;
+        panelDecrypt.Visible = false;
+        panelProgressState.Visible = false;
+        panelStartPage.Visible = false;
+        textBoxRePassword.Text = "";
+        AppSettings.Instance.TempDecryptionPassFilePath = "";
+      }
+    }
+    private void toolStripLabelConfirmPassword_Click(object sender, EventArgs e)
+    {
+      // Nothing's working
+    }
+    private void toolStripLabelExecute_Click(object sender, EventArgs e)
+    {
+      // Nothing's working
     }
 
   }// end public partial class Form1 : Form;

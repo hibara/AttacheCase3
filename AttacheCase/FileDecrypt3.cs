@@ -23,7 +23,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace AttacheCase
 {
@@ -293,11 +293,20 @@ namespace AttacheCase
       get { return this._deriveBytes; }
     }
 
-    List<string> _FileList;
+    // List of files to decrypt
+    private List<string> _FileList;
     public List<string> FileList
     {
       get { return this._FileList; }
     }
+
+    // Decryption time
+    private string _DecryptionTimeString;
+    public string DecryptionTimeString
+    {
+      get { return this._DecryptionTimeString; }
+    }
+
 
     /// <summary>
     /// Constructor
@@ -531,6 +540,13 @@ namespace AttacheCase
       MessageList.Add(READY_FOR_DECRYPT);
       MessageList.Add(Path.GetFileName(FilePath));
       worker.ReportProgress(0, MessageList);
+
+      Stopwatch swDecrypt = new Stopwatch();
+      Stopwatch swProgress = new Stopwatch();
+
+      swDecrypt.Start();
+      swProgress.Start();
+      float percent = 0;
 
       int len = 0;
       byte[] byteArray;
@@ -1234,7 +1250,6 @@ namespace AttacheCase
 
                                 //すべての属性を解除
                                 File.SetAttributes(path, FileAttributes.Normal);
-
                               }
 
                             }
@@ -1369,12 +1384,13 @@ namespace AttacheCase
                     MessageList = new ArrayList();
                     MessageList.Add(DECRYPTING);
                     MessageList.Add(MessageText);
-                    float percent = ((float)_TotalSize / _TotalFileSize);
 
-                    System.Random r = new System.Random();
-                    if (r.Next(0, 20) == 4)
+                    // プログレスバーの更新間隔を100msに調整
+                    if (swProgress.ElapsedMilliseconds > 100)
                     {
+                      percent = ((float)_TotalSize / _TotalFileSize);
                       worker.ReportProgress((int)(percent * 10000), MessageList);
+                      swProgress.Restart();
                     }
 
                     // User cancel
@@ -1462,6 +1478,16 @@ namespace AttacheCase
         _ReturnCode = IO_EXCEPTION;
         _ErrorMessage = ex.Message;
         return (false);
+      }
+      finally
+      {
+        swProgress.Stop();
+        swDecrypt.Stop();
+        // 計測時間
+        TimeSpan ts = swDecrypt.Elapsed;
+        _DecryptionTimeString = 
+          Convert.ToString(ts.Hours) + "h" + Convert.ToString(ts.Minutes) + "m" + 
+          Convert.ToString(ts.Seconds) + "s" +Convert.ToString(ts.Milliseconds) + "ms";
       }
 
     }// end Decrypt();
