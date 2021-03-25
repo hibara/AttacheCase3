@@ -31,6 +31,7 @@ MSBuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platfor
 @echo Rebuild AtcSetup.exe
 @echo -----------------------------------
 
+SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
 MSBuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
 
 
@@ -58,7 +59,7 @@ mkdir bin
 copy ..\AttacheCase\bin\Release\AttacheCase.exe bin\AttacheCase.exe
 @rem copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.dll bin\Microsoft.WindowsAPICodePack.dll
 @rem copy ..\AttacheCase\bin\Release\Microsoft.WindowsAPICodePack.Shell.dll bin\Microsoft.WindowsAPICodePack.Shell.dll
-copy ..\AtcSetup\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
+copy ..\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 @rem mkdir bin\ja-JP
 @rem copy ..\AttacheCase\bin\Release\ja-JP\AttacheCase.resources.dll bin\ja-JP\AttacheCase.resources.dll
 

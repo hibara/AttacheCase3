@@ -24,6 +24,7 @@ using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace AttacheCase
 {
@@ -893,14 +894,24 @@ namespace AttacheCase
             {
               DateTime LastWriteDateTimeUtc;
               DateTime CreationDateTimeUtc;
+              TimeZoneInfo tzi = TimeZoneInfo.Local;
 
               // Last update datetime(UTC)
-              DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc);
-              TimeZoneInfo tzi = TimeZoneInfo.Local;
-              fd.LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
+              var culture = new CultureInfo("", true);
+
+              // DateTime.TryParse(OutputFileData[8], culture, DateTimeStyles.None, out LastWriteDateTimeUtc);
+              if (DateTime.TryParse(OutputFileData[8], out LastWriteDateTimeUtc) == true)
+              {
+                fd.LastWriteDateTime = LastWriteDateTimeUtc;
+                fd.LastWriteDateTime = TimeZoneInfo.ConvertTimeFromUtc(LastWriteDateTimeUtc, tzi);
+              }
+
               // Create datetime(UTC)
-              DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc);
-              fd.CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
+              if (DateTime.TryParse(OutputFileData[9], out CreationDateTimeUtc))
+              {
+                fd.CreationDateTime = CreationDateTimeUtc;
+                fd.CreationDateTime = TimeZoneInfo.ConvertTimeFromUtc(CreationDateTimeUtc, tzi);
+              }
             }
             else
             {

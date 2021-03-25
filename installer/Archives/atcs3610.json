@@ -1,0 +1,29 @@
+﻿    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs3610.exe",
+        "md5" : "2c60dcb3b499a4242ca14327031f029d",
+        "sha1" : "a2051df01d31938dc54eea12ad692baf8cd2323e"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs3610.zip",
+        "md5" : "c117560a6333a0bf6d078b82c87b5c0b",
+        "sha1" : "c2646d858b144dac8b91f7dc1b041af92f14824a"
+      }
+    ]
+
+    "archives" : [
+      {
+        "title" : "Self-executable installer",
+        "archive" : "atcs3610.exe",
+        "md5" : "2c60dcb3b499a4242ca14327031f029d",
+        "sha1" : "a2051df01d31938dc54eea12ad692baf8cd2323e"
+      },
+      {
+        "title" : "ZIP file",
+        "archive" : "atcs3610.zip",
+        "md5" : "c117560a6333a0bf6d078b82c87b5c0b",
+        "sha1" : "c2646d858b144dac8b91f7dc1b041af92f14824a"
+      }
+    ]

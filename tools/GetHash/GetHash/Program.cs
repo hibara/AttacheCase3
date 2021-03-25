@@ -11,57 +11,124 @@ namespace GetHash
   {
     static void Main(string[] args)
     {
+      string exeFileName = "";
+      string zipFileName = "";
+      string dirpath = "";
+      string filename = "";
+      string basefilename = "";
+      string ext = "";
+      string exeMD5Hash = "";
+      string zipMD5Hash = "";
+      string exeSHA1Hash = "";
+      string zipSHA1Hash = "";
+
       if (args.Length == 0)
       {
         Console.WriteLine("コマンドライン引数はありません。");
+        return;
       }
-      else
+
+      List<string> FileList = new List<string>();
+
+      string[] cmds = Environment.GetCommandLineArgs();
+      foreach (string cmd in cmds)
       {
-        List<string> FileList = new List<string>();
-
-        string[] cmds = Environment.GetCommandLineArgs();
-        foreach (string cmd in cmds)
+        if (File.Exists(Path.GetFullPath(cmd)) == true)
         {
-          if (File.Exists(Path.GetFullPath(cmd)) == true)
-          {
-            FileList.Add(Path.GetFullPath(cmd));
-          }
+          FileList.Add(Path.GetFullPath(cmd));
         }
-        
-        foreach (string file in FileList)
+      }
+
+      foreach (string file in FileList)
+      {
+        dirpath = Path.GetDirectoryName(file);
+        filename = Path.GetFileName(file);
+        basefilename = Path.GetFileNameWithoutExtension(file);
+        ext = Path.GetExtension(file);
+        //-----------------------------------
+        //　File type
+        if (ext == ".exe")
         {
-          string dirpath = Path.GetDirectoryName(file);
-          string filename = Path.GetFileName(file);
-          StreamWriter sw = new StreamWriter(Path.Combine(dirpath, filename + ".json"), 
-            false, Encoding.UTF8);
-
-          sw.WriteLine("{");
-          string OneLine = "\t\"title\" : \"" + filename + "\",";
-          sw.WriteLine(OneLine);
-
-          //-----------------------------------
-          // MD5
-          string md5 = getMd5Hash(file);
-          string HashFilePath = Path.Combine(dirpath, filename) + ".md5";
-          File.WriteAllText(HashFilePath, md5, Encoding.UTF8);
-
-          OneLine = "\t\"md5\" : \"" + md5 + "\",";
-          sw.WriteLine(OneLine);
-
-          //-----------------------------------
-          // SHA-1
-          string sha1 = getSha1Hash(file);
-          HashFilePath = Path.GetDirectoryName(file) + "\\" + Path.GetFileName(file) + ".sha1";
-          File.WriteAllText(HashFilePath, sha1, Encoding.UTF8);
-
-          OneLine = "\t\"sha1\" : \"" + sha1 + "\"";
-          sw.WriteLine(OneLine);
-          sw.WriteLine("}");
-          sw.WriteLine("");
-
-          sw.Close();
-
+          exeFileName = filename;
         }
+        else
+        {
+          zipFileName = filename;
+        }
+        //-----------------------------------
+        // MD5
+        string md5 = getMd5Hash(file);
+        string HashFilePath = Path.Combine(dirpath, filename) + ".md5";
+        File.WriteAllText(HashFilePath, md5, Encoding.UTF8);
+        if (ext == ".exe")
+        {
+          exeMD5Hash = md5;
+        }
+        else
+        {
+          zipMD5Hash = md5;
+        }
+
+        //-----------------------------------
+        // SHA-1
+        string sha1 = getSha1Hash(file);
+        HashFilePath = Path.GetDirectoryName(file) + "\\" + Path.GetFileName(file) + ".sha1";
+        File.WriteAllText(HashFilePath, sha1, Encoding.UTF8);
+        if (ext == ".exe")
+        {
+          exeSHA1Hash = sha1;
+        }
+        else
+        {
+          zipSHA1Hash = sha1;
+        }
+      }
+
+      //    "archives" : [
+      //      {
+      //        "title" : "自己解凍インストーラー",
+      //        "archive" : "atcs3600.exe",
+      //        "md5" : "8ed3471dba35d7a75573da6703335b74",
+      //        "sha1" : "7a9c14aaaa7ef52896982be72c3228a0b0452be4"
+      //      },
+      //      {
+      //        "title" : "ZIPファイル",
+      //        "archive" : "atcs3600.zip",
+      //        "md5" : "d8def05a5eef5540f12f25eeef5226b4",
+      //        "sha1" : "5ccff3566e6b614791355b0d9ff3a388c1f502fa"
+      //      }
+      //    ]
+      using (StreamWriter sw = new StreamWriter(Path.Combine(dirpath, basefilename + ".json"), false, Encoding.UTF8))
+      {
+        sw.WriteLine("    \"archives\" : [");
+        sw.WriteLine("      {");
+        sw.WriteLine("        \"title\" : \"自己解凍インストーラー\",");
+        sw.WriteLine("        \"archive\" : \"" + exeFileName + "\",");
+        sw.WriteLine("        \"md5\" : \"" + exeMD5Hash + "\",");
+        sw.WriteLine("        \"sha1\" : \"" + exeSHA1Hash + "\"");
+        sw.WriteLine("      },");
+        sw.WriteLine("      {");
+        sw.WriteLine("        \"title\" : \"ZIPファイル\",");
+        sw.WriteLine("        \"archive\" : \"" + zipFileName + "\",");
+        sw.WriteLine("        \"md5\" : \"" + zipMD5Hash + "\",");
+        sw.WriteLine("        \"sha1\" : \"" + zipSHA1Hash + "\"");
+        sw.WriteLine("      }");
+        sw.WriteLine("    ]");
+        sw.WriteLine("");
+        sw.WriteLine("    \"archives\" : [");
+        sw.WriteLine("      {");
+        sw.WriteLine("        \"title\" : \"Self-executable installer\",");
+        sw.WriteLine("        \"archive\" : \"" + exeFileName + "\",");
+        sw.WriteLine("        \"md5\" : \"" + exeMD5Hash + "\",");
+        sw.WriteLine("        \"sha1\" : \"" + exeSHA1Hash + "\"");
+        sw.WriteLine("      },");
+        sw.WriteLine("      {");
+        sw.WriteLine("        \"title\" : \"ZIP file\",");
+        sw.WriteLine("        \"archive\" : \"" + zipFileName + "\",");
+        sw.WriteLine("        \"md5\" : \"" + zipMD5Hash + "\",");
+        sw.WriteLine("        \"sha1\" : \"" + zipSHA1Hash + "\"");
+        sw.WriteLine("      }");
+        sw.WriteLine("    ]");
       }
     }
 

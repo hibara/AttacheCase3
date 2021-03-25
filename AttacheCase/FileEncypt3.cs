@@ -251,6 +251,7 @@ namespace AttacheCase
           // 自己実行形式ファイル（Self-executable file）
           if (_fExecutable == true)
           {
+            // Read from ExeOut3.cs
             ExeOutFileSize = rawData.Length;
             outfs.Write(rawData, 0, (int)ExeOutFileSize);
           }
@@ -310,8 +311,8 @@ namespace AttacheCase
                                dtNow.TimeOfDay.TotalSeconds + "\t" + // Creation time
                                "" + "\t" +
                                // ver.3.2.3.0 ~
-                               DateTime.UtcNow.ToString() + "\t" +
-                               DateTime.UtcNow.ToString());
+                               DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss") + "\t" +
+                               DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss"));
               FileNumber++;
             }
 
@@ -834,8 +835,8 @@ namespace AttacheCase
       List.Add(di.CreationTime.TimeOfDay.TotalSeconds);
       List.Add("");
       // ver.3.2.3.0～
-      List.Add(di.LastWriteTimeUtc);
-      List.Add(di.CreationTimeUtc);
+      List.Add(di.LastWriteTimeUtc.ToString("yyyy/MM/dd HH:mm:ss"));
+      List.Add(di.CreationTimeUtc.ToString("yyyy/MM/dd HH:mm:ss"));
       return (List);
     }
 
@@ -868,8 +869,8 @@ namespace AttacheCase
       List.Add(fi.CreationTime.TimeOfDay.TotalSeconds);
       List.Add((string)GetSha256FromFile(AbsoluteFilePath));
       // ver.3.2.3.0～
-      List.Add(fi.LastWriteTimeUtc);
-      List.Add(fi.CreationTimeUtc);
+      List.Add(fi.LastWriteTimeUtc.ToString("yyyy/MM/dd HH:mm:ss"));
+      List.Add(fi.CreationTimeUtc.ToString("yyyy/MM/dd HH:mm:ss"));
       return (List);
     }
 
