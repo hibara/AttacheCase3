@@ -19,11 +19,22 @@ using System;
 using System.Windows.Forms;
 using System.Threading;
 using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace AttacheCase
 {
   static class Program
   {
+    [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+    static extern bool SetDllDirectory(string lpPathName);
+    [DllImport("kernel32", CharSet = CharSet.Auto, SetLastError = true)]
+    static extern bool SetDefaultDllDirectories(uint directoryFlags);
+    // LOAD_LIBRARY_SEARCH_APPLICATION_DIR : 0x00000200
+    // LOAD_LIBRARY_SEARCH_DEFAULT_DIRS    : 0x00001000
+    // LOAD_LIBRARY_SEARCH_SYSTEM32        : 0x00000800
+    // LOAD_LIBRARY_SEARCH_USER_DIRS       : 0x00000400
+    private const uint DllSearchFlags = 0x00000800;
+
     /// <summary>
     /// This is the main entry point for this application.
     /// アプリケーションのメイン エントリ ポイントです。
@@ -31,6 +42,11 @@ namespace AttacheCase
     [STAThread]
     static void Main()
     {
+      // DLLプリロード攻撃対策
+      // Prevent DLL preloading attacks
+      SetDllDirectory(null);
+      SetDefaultDllDirectories(DllSearchFlags);
+
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
 

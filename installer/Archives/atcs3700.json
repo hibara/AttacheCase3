@@ -1,0 +1,29 @@
+﻿    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs3700.exe",
+        "md5" : "f2af463866628672d553d16b1752693d",
+        "sha1" : "f9a1fde87ff0cd0e0ca6b90886bced08bfd4b8e8"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs3700.zip",
+        "md5" : "d2ac06f3bcd6dd42b9f9acc1b27c1689",
+        "sha1" : "67e24f8f80de18e2b3c188e089ad8718300afbb4"
+      }
+    ]
+
+    "archives" : [
+      {
+        "title" : "Self-executable installer",
+        "archive" : "atcs3700.exe",
+        "md5" : "f2af463866628672d553d16b1752693d",
+        "sha1" : "f9a1fde87ff0cd0e0ca6b90886bced08bfd4b8e8"
+      },
+      {
+        "title" : "ZIP file",
+        "archive" : "atcs3700.zip",
+        "md5" : "d2ac06f3bcd6dd42b9f9acc1b27c1689",
+        "sha1" : "67e24f8f80de18e2b3c188e089ad8718300afbb4"
+      }
+    ]

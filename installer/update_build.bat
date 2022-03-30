@@ -85,8 +85,8 @@ SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
 @rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
 @rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe
 
-signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AttacheCase.exe
-signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AtcSetup.exe
+@REM signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AttacheCase.exe
+@REM signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode bin\AtcSetup.exe
 
 @echo. 
 @echo. -----------------------------------
@@ -107,7 +107,7 @@ if "%PROCESSOR_ARCHITECTURE%" == "AMD64" (
 @echo. -----------------------------------
 
 @rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 Archives\atc*.exe
-signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode Archives\atc*.exe
+@REM signtool.exe sign /a /v /n "Mitsuhiro Hibara" /t http://timestamp.comodoca.com/authenticode Archives\atc*.exe
 
 @echo. 
 @echo. -----------------------------------
@@ -121,7 +121,7 @@ echo "ver.%NUM%"
 
 @rem ZIP
 cd bin
-7z a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe
+"%ProgramFiles%\7-Zip\7z.exe" a -tzip ..\Archives\atcs%NUM%.zip AttacheCase.exe AtcSetup.exe
 cd ..\
 
 

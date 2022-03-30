@@ -1226,7 +1226,7 @@ namespace AttacheCase
                               else
                               {
                                 // Show dialog of comfirming to overwrite. 
-                                dialog(0, path);
+                                dialog(1, path);
 
                                 // Cancel
                                 if (_TempOverWriteOption == USER_CANCELED)
