@@ -41,10 +41,22 @@ namespace AtcSetup
 		[STAThread]
 		static void Main()
 		{
+			// Countermeasure that "Font '?' cannot be found" error
+			// ref. https://chowdera.com/2022/03/202203241328277504.html
+			var font = System.Drawing.SystemFonts.DefaultFont; // Load first 
+
 			// DLLプリロード攻撃対策
 			// Prevent DLL preloading attacks
-			SetDllDirectory(null);
-			SetDefaultDllDirectories(DllSearchFlags);
+			try
+			{
+				SetDllDirectory("");
+				SetDefaultDllDirectories(DllSearchFlags);
+			}
+			catch
+			{
+				// Pre-Windows 7, KB2533623 
+				SetDllDirectory("");
+			}
 
 			CultureInfo ci = Thread.CurrentThread.CurrentUICulture;
 			//Console.WriteLine(ci.Name);  // ja-JP

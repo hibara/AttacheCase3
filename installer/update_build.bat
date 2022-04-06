@@ -31,7 +31,6 @@ MSBuild.exe /p:Configuration="Release" /p:DefineConstants="AESCRYPTO" /p:Platfor
 @echo Rebuild AtcSetup.exe
 @echo -----------------------------------
 
-SET PATH="C:\Windows\Microsoft.NET\Framework\v4.0.30319";%PATH%
 MSBuild.exe /p:Configuration="Release" /p:Platform="AnyCPU" /t:ReBuild /v:n ..\AtcSetup\AtcSetup.csproj
 
 
@@ -78,9 +77,9 @@ copy ..\AtcSetup\bin\Release\AtcSetup.exe bin\AtcSetup.exe
 @echo Code signing to each exe file
 @echo -----------------------------------
 
-SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin";%PATH%
-SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
-SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
+@REM SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin";%PATH%
+@REM SET PATH="C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin";%PATH%
+@REM SET PATH="C:\Program Files\Windows Kits\8.0\bin\x86";%PATH%
 
 @rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AttacheCase.exe
 @rem signtool.exe sign /v /a /n "Mitsuhiro Hibara" /tr http://rfc3161timestamp.globalsign.com/advanced /td sha256 bin\AtcSetup.exe

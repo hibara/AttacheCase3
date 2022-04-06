@@ -104,7 +104,6 @@
       this.pictureBoxEncryption = new System.Windows.Forms.PictureBox();
       this.buttonEncryptCancel = new System.Windows.Forms.Button();
       this.labelPassword = new System.Windows.Forms.Label();
-      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.tabPageEncryptConfirm = new System.Windows.Forms.TabPage();
       this.panelEncryptConfirm = new System.Windows.Forms.Panel();
       this.pictureBoxEncryptConfirmBackButton = new System.Windows.Forms.PictureBox();
@@ -181,6 +180,7 @@
       this.toolStripLabelConfirmPassword = new System.Windows.Forms.ToolStripLabel();
       this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
       this.toolStripLabelExecute = new System.Windows.Forms.ToolStripLabel();
+      this.textBoxPassword = new AttacheCase.DelayTextBox();
       this.statusStrip1.SuspendLayout();
       this.menuStrip1.SuspendLayout();
       this.toolStrip1.SuspendLayout();
@@ -771,17 +771,6 @@
       this.labelPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
       this.labelPassword.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
       // 
-      // textBoxPassword
-      // 
-      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
-      this.textBoxPassword.Name = "textBoxPassword";
-      this.textBoxPassword.UseSystemPasswordChar = true;
-      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
-      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
-      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
-      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
-      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
-      // 
       // tabPageEncryptConfirm
       // 
       this.tabPageEncryptConfirm.BackColor = System.Drawing.Color.White;
@@ -1309,6 +1298,17 @@
       resources.ApplyResources(this.toolStripLabelExecute, "toolStripLabelExecute");
       this.toolStripLabelExecute.Name = "toolStripLabelExecute";
       this.toolStripLabelExecute.Click += new System.EventHandler(this.toolStripLabelExecute_Click);
+      // 
+      // textBoxPassword
+      // 
+      resources.ApplyResources(this.textBoxPassword, "textBoxPassword");
+      this.textBoxPassword.Name = "textBoxPassword";
+      this.textBoxPassword.UseSystemPasswordChar = true;
+      this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
+      this.textBoxPassword.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragDrop);
+      this.textBoxPassword.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBoxPassword_DragEnter);
+      this.textBoxPassword.DragLeave += new System.EventHandler(this.textBoxPassword_DragLeave);
+      this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
       // 
       // Form1
       // 

@@ -1,0 +1,29 @@
+﻿    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs3701.exe",
+        "md5" : "1f893d105d7130c9c2ec178954467cdf",
+        "sha1" : "6e7260278bcebce37c6445c16ac2a564f0bdbe2f"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs3701.zip",
+        "md5" : "15ebe3f926921b1715afb0f8d217de38",
+        "sha1" : "27a8135776f691238a679c8c6dda3d1f7bb84784"
+      }
+    ]
+
+    "archives" : [
+      {
+        "title" : "Self-executable installer",
+        "archive" : "atcs3701.exe",
+        "md5" : "1f893d105d7130c9c2ec178954467cdf",
+        "sha1" : "6e7260278bcebce37c6445c16ac2a564f0bdbe2f"
+      },
+      {
+        "title" : "ZIP file",
+        "archive" : "atcs3701.zip",
+        "md5" : "15ebe3f926921b1715afb0f8d217de38",
+        "sha1" : "27a8135776f691238a679c8c6dda3d1f7bb84784"
+      }
+    ]

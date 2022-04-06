@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HiBARA Software")]
 [assembly: AssemblyProduct("Exeout")]
-[assembly: AssemblyCopyright("© 2006-2021 M.Hibara, All rights reserved.")]
+[assembly: AssemblyCopyright("© 2006-2022 M.Hibara, All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.7.0.0")]
-[assembly: AssemblyFileVersion("3.7.0.0")]
+[assembly: AssemblyVersion("3.7.0.1")]
+[assembly: AssemblyFileVersion("3.7.0.1")]
