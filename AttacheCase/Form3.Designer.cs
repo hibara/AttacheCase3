@@ -209,6 +209,7 @@
       this.panelDevelopmentOption = new System.Windows.Forms.Panel();
       this.checkBoxDeveloperConsole = new System.Windows.Forms.CheckBox();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.splitButton1 = new AttacheCase.SplitButton();
       this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.toolStripMenuItemOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItemCmdReference = new System.Windows.Forms.ToolStripMenuItem();
@@ -233,7 +234,6 @@
       this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-      this.splitButton1 = new AttacheCase.SplitButton();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
       this.splitContainer1.Panel2.SuspendLayout();
@@ -1388,6 +1388,7 @@
       resources.ApplyResources(this.checkBoxShowDialogToConfirmToReadIniFileAlways, "checkBoxShowDialogToConfirmToReadIniFileAlways");
       this.checkBoxShowDialogToConfirmToReadIniFileAlways.Name = "checkBoxShowDialogToConfirmToReadIniFileAlways";
       this.checkBoxShowDialogToConfirmToReadIniFileAlways.UseVisualStyleBackColor = true;
+      this.checkBoxShowDialogToConfirmToReadIniFileAlways.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // label15
       // 
@@ -1400,6 +1401,7 @@
       resources.ApplyResources(this.checkBoxAlwaysReadIniFile, "checkBoxAlwaysReadIniFile");
       this.checkBoxAlwaysReadIniFile.Name = "checkBoxAlwaysReadIniFile";
       this.checkBoxAlwaysReadIniFile.UseVisualStyleBackColor = true;
+      this.checkBoxAlwaysReadIniFile.CheckedChanged += new System.EventHandler(this.options_ComponentChanged);
       // 
       // buttonReplaceCurrentByTemporary
       // 
@@ -1755,6 +1757,14 @@
       resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
       // 
+      // splitButton1
+      // 
+      resources.ApplyResources(this.splitButton1, "splitButton1");
+      this.splitButton1.Menu = this.contextMenuStrip2;
+      this.splitButton1.Name = "splitButton1";
+      this.splitButton1.UseVisualStyleBackColor = true;
+      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
+      // 
       // contextMenuStrip2
       // 
       this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1906,14 +1916,6 @@
       // folderBrowserDialog1
       // 
       resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
-      // 
-      // splitButton1
-      // 
-      resources.ApplyResources(this.splitButton1, "splitButton1");
-      this.splitButton1.Menu = this.contextMenuStrip2;
-      this.splitButton1.Name = "splitButton1";
-      this.splitButton1.UseVisualStyleBackColor = true;
-      this.splitButton1.Click += new System.EventHandler(this.splitButton1_Click);
       // 
       // Form3
       // 

@@ -6321,7 +6321,7 @@
     <value>splitButton1</value>
   </data>
   <data name="&gt;&gt;splitButton1.Type" xml:space="preserve">
-    <value>AttacheCase.SplitButton, AttacheCase, Version=3.5.5.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.SplitButton, AttacheCase, Version=3.7.0.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;splitButton1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -6775,9 +6775,6 @@
         AAAAAAAAAAAAAAAAAAB3d3ceiIaF/66trP+uraz/rq2s/4WDgv+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAD/wAAA
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

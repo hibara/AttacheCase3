@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016-2020  Mitsuhiro Hibara
+// Copyright (C) 2016-2022  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -64,7 +64,10 @@ namespace AttacheCase
     private const int PROCESS_TYPE_ATC_EXE      = 2;
     private const int PROCESS_TYPE_PASSWORD_ZIP = 3;
     private const int PROCESS_TYPE_DECRYPTION   = 4;
-    
+
+    // Dialog Button
+    private const int MESSAGE_BOX_BUTTONS_YES = 7;
+    private const int MESSAGE_BOX_BUTTONS_NO = 8;
 
     //
     // An INI file handling class using C#
@@ -1675,17 +1678,25 @@ namespace AttacheCase
       string ReturnValue = "";
 
       //----------------------------------------------------------------------
-      // Whether to read the found setting file (_AtcCase.ini)?
-      if ( _fShowDialogToConfirmToReadIniFile == true)
-      {
+      // Show dialog asking whether to read a found setting file (_AtcCase.ini)
 
+      // Import / Export
+
+      if (_fShowDialogToConfirmToReadIniFile == true)
+      {
         Form4 frm4;
-        frm4 = new Form4("ConfirmToReadIniFile", FilePath);
+        if (_fAlwaysReadIniFile == true)
+        { // Always read the INI file
+          frm4 = new Form4("ConfirmToReadIniFile", FilePath, MESSAGE_BOX_BUTTONS_YES);
+        }
+        else
+        {
+          frm4 = new Form4("ConfirmToReadIniFile", FilePath, MESSAGE_BOX_BUTTONS_NO);
+        }
+
         frm4.ShowDialog();
 
-        bool _fReadIniFile = frm4.fReadIniFile;
-
-        if (_fReadIniFile == true)
+        if (frm4.fReadIniFile == MESSAGE_BOX_BUTTONS_YES)
         {
           frm4.Dispose();
         }
@@ -1693,6 +1704,18 @@ namespace AttacheCase
         {
           _IniFilePath = "";
           frm4.Dispose();
+          return;
+        }
+      }
+      else
+      {
+        if (_fAlwaysReadIniFile == true)
+        {
+          // Always read the INI file
+        }
+        else
+        {
+          _IniFilePath = "";
           return;
         }
       }
@@ -1728,7 +1751,7 @@ namespace AttacheCase
 
       ReadIniFile(IniFilePath, ref _fMyDecryptPasswordKeep, "MyKey", "fMyDecryptPasswordKeep", "");
       ReadIniFile(IniFilePath, ref ReturnValue, "MyKey", "MyDecryptPasswordString", "");
-      if(ReturnValue != "")
+      if (ReturnValue != "")
       {
         _MyDecryptPasswordBinary = HexStringToByteArray(ReturnValue.ToString());
         _MyDecryptPasswordString = DecryptMyPassword(_MyDecryptPasswordBinary);
@@ -1986,6 +2009,14 @@ namespace AttacheCase
       // System
       WriteIniFile(IniFilePath, _fAssociationFile, "Option", "fAssociationFile");  // int
       WriteIniFile(IniFilePath, _UserRegIconFilePath, "Option", "UserRegIconFilePath");
+
+      //-----------------------------------
+      // Import / Export ( Only this setting is written to the registry )
+      using (RegistryKey reg = Registry.CurrentUser.CreateSubKey(RegistryPathOption))
+      {
+        reg.SetValue("fAlwaysReadIniFile", _fAlwaysReadIniFile == true ? "1" : "0");
+        reg.SetValue("fShowDialogToConfirmToReadIniFile", _fShowDialogToConfirmToReadIniFile == true ? "1" : "0");
+      }
 
       //-----------------------------------
       //Password file

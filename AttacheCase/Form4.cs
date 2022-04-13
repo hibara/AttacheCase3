@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016-2021  Mitsuhiro Hibara
+// Copyright (C) 2016-2022  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -34,6 +34,9 @@ namespace AttacheCase
     // Skip Option
     private const int SKIP           = 5;
     private const int SKIP_ALL       = 6;
+    // ---
+    private const int MESSAGE_BOX_BUTTONS_YES = 7;
+    private const int MESSAGE_BOX_BUTTONS_NO = 8;
 
     private int OverwriteButtonTextNum = OVERWRITE;
     private int SkipButtonTextNum = SKIP;
@@ -70,15 +73,15 @@ namespace AttacheCase
     }
 
     // Whether to read the found setting file "_AtcCase.ini"?
-    private bool _fReadIniFile;
-    public bool fReadIniFile
+    private int _fReadIniFile;
+    public int fReadIniFile
     {
       get { return _fReadIniFile; }
     }
     
     //-----------------------------------
 
-    public Form4(string InputType, string MessageText)
+    public Form4(string InputType, string MessageText, int OptionButtons = 0)
 		{
 			InitializeComponent();
       
@@ -162,6 +165,14 @@ namespace AttacheCase
           panelConfirmToReadIniFile.Visible = true;
           this.Text = Resources.DialogTitleQuestion;
           labelIniFilePath.Text = MessageText;
+          if (OptionButtons == MESSAGE_BOX_BUTTONS_YES)
+          {
+            buttonConfirmToReadIniFileYes.Focus();
+          }
+          else
+          {
+            buttonConfirmToReadIniFileNo.Focus();
+          }
           break;
           
         // 無指定？
@@ -500,27 +511,19 @@ namespace AttacheCase
 
     private void buttonConfirmToReadIniFileYes_Click(object sender, EventArgs e)
     {
-      if (checkBoxConfirmToReadIniFile.Checked == true)
-      {
-        AppSettings.Instance.fShowDialogToConfirmToReadIniFile = false;
-      }
-      AppSettings.Instance.fAlwaysReadIniFile = true;
-      _fReadIniFile = true;
+      AppSettings.Instance.fShowDialogToConfirmToReadIniFile = (checkBoxConfirmToReadIniFile.Checked == true ? false : true);
+      _fReadIniFile = MESSAGE_BOX_BUTTONS_YES;
       this.Close();
     }
 
     private void buttonConfirmToReadIniFileNo_Click(object sender, EventArgs e)
     {
-      if (checkBoxConfirmToReadIniFile.Checked == true)
-      {
-        AppSettings.Instance.fShowDialogToConfirmToReadIniFile = false;
-      }
-      AppSettings.Instance.fAlwaysReadIniFile = false;
-      _fReadIniFile = false;
+      AppSettings.Instance.fShowDialogToConfirmToReadIniFile = (checkBoxConfirmToReadIniFile.Checked == true ? false : true);
+      _fReadIniFile = MESSAGE_BOX_BUTTONS_NO;
       this.Close();
     }
 
-        #endregion
+    #endregion
 
     }
 

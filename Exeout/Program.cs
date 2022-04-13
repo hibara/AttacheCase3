@@ -42,9 +42,14 @@ namespace Exeout
     [STAThread]
 		static void Main()
 		{
-      // Countermeasure that "Font '?' cannot be found" error
-      // ref. https://chowdera.com/2022/03/202203241328277504.html
-      var font = System.Drawing.SystemFonts.DefaultFont; // Load first 
+
+      OperatingSystem os = Environment.OSVersion;
+      if (os.Version.Major <= 6 && os.Version.Minor <= 1)
+      {
+        // Countermeasure that "Font '?' cannot be found" error
+        // ref. https://chowdera.com/2022/03/202203241328277504.html
+        var font = System.Drawing.SystemFonts.DefaultFont; // Load first 
+      }
 
       // DLLプリロード攻撃対策
       // Prevent DLL preloading attacks

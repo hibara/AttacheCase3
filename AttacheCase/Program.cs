@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------- 
 // "アタッシェケース#3 ( AttachéCase#3 )" -- File encryption software.
-// Copyright (C) 2016-2021  Mitsuhiro Hibara
+// Copyright (C) 2016-2022  Mitsuhiro Hibara
 // 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -42,9 +42,14 @@ namespace AttacheCase
     [STAThread]
     static void Main()
     {
-      // Countermeasure that "Font '?' cannot be found" error
-      // ref. https://chowdera.com/2022/03/202203241328277504.html
-      var font = System.Drawing.SystemFonts.DefaultFont; // Load first 
+
+      OperatingSystem os = Environment.OSVersion;
+      if (os.Version.Major <= 6 && os.Version.Minor <= 1)
+      {
+        // Countermeasure that "Font '?' cannot be found" error
+        // ref. https://chowdera.com/2022/03/202203241328277504.html
+        var font = System.Drawing.SystemFonts.DefaultFont; // Load first 
+      }
 
       // DLLプリロード攻撃対策
       // Prevent DLL preloading attacks

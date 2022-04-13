@@ -1,0 +1,29 @@
+﻿    "archives" : [
+      {
+        "title" : "自己解凍インストーラー",
+        "archive" : "atcs3702.exe",
+        "md5" : "54c5a4aa70633634c4efc6ff47cf9e41",
+        "sha1" : "4b0ee53e70f0dd73dec9c70f90a778ba455b1783"
+      },
+      {
+        "title" : "ZIPファイル",
+        "archive" : "atcs3702.zip",
+        "md5" : "2740ef0ecd5715148ec9830d1f41cc8e",
+        "sha1" : "ef0b02ab89ea5465ecc8c15a0dcc4129711471cf"
+      }
+    ]
+
+    "archives" : [
+      {
+        "title" : "Self-executable installer",
+        "archive" : "atcs3702.exe",
+        "md5" : "54c5a4aa70633634c4efc6ff47cf9e41",
+        "sha1" : "4b0ee53e70f0dd73dec9c70f90a778ba455b1783"
+      },
+      {
+        "title" : "ZIP file",
+        "archive" : "atcs3702.zip",
+        "md5" : "2740ef0ecd5715148ec9830d1f41cc8e",
+        "sha1" : "ef0b02ab89ea5465ecc8c15a0dcc4129711471cf"
+      }
+    ]

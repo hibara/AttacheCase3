@@ -122,13 +122,13 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripStatusLabelDataVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 17</value>
+    <value>69, 17</value>
   </data>
   <data name="toolStripStatusLabelDataVersion.Text" xml:space="preserve">
     <value>DataVersion</value>
   </data>
   <data name="toolStripStatusLabelEncryptionTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
+    <value>98, 17</value>
   </data>
   <data name="toolStripStatusLabelEncryptionTime.Text" xml:space="preserve">
     <value>Processing Time :</value>
@@ -138,7 +138,7 @@
     <value>False</value>
   </data>
   <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 527</value>
+    <value>0, 485</value>
   </data>
   <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>576, 22</value>
@@ -180,7 +180,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFiles.Text" xml:space="preserve">
     <value>Select Files...</value>
@@ -200,7 +200,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="ToolStripMenuItemEncryptSelectFolder.Text" xml:space="preserve">
     <value>Select Folder...</value>
@@ -221,7 +221,7 @@
 </value>
   </data>
   <data name="ToolStripMenuItemEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="ToolStripMenuItemEncrypt.Text" xml:space="preserve">
     <value>&amp;Encrypt</value>
@@ -240,13 +240,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="ToolStripMenuItemDecrypt.Text" xml:space="preserve">
     <value>&amp;Decrypt</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="ToolStripMenuItemExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -264,13 +264,13 @@
     <value>True</value>
   </data>
   <data name="ToolStripMenuItemExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="ToolStripMenuItemExit.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
   <data name="ToolStripMenuItemFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
+    <value>37, 20</value>
   </data>
   <data name="ToolStripMenuItemFile.Text" xml:space="preserve">
     <value>&amp;File</value>
@@ -292,13 +292,13 @@
 </value>
   </data>
   <data name="ToolStripMenuItemSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
+    <value>111, 22</value>
   </data>
   <data name="ToolStripMenuItemSetting.Text" xml:space="preserve">
     <value>Se&amp;tting</value>
   </data>
   <data name="ToolStripMenuItemOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 20</value>
+    <value>56, 20</value>
   </data>
   <data name="ToolStripMenuItemOption.Text" xml:space="preserve">
     <value>&amp;Option</value>
@@ -322,22 +322,22 @@
     <value>F1</value>
   </data>
   <data name="ToolStripMenuItemHelpContents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="ToolStripMenuItemHelpContents.Text" xml:space="preserve">
     <value>On&amp;line Help</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 6</value>
+    <value>153, 6</value>
   </data>
   <data name="ToolStripMenuItemAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="ToolStripMenuItemAbout.Text" xml:space="preserve">
     <value>&amp;About...</value>
   </data>
   <data name="ToolStripMenuItemHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 20</value>
+    <value>44, 20</value>
   </data>
   <data name="ToolStripMenuItemHelp.Text" xml:space="preserve">
     <value>&amp;Help</value>
@@ -556,7 +556,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBoxBackButtonOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 69</value>
+    <value>382, 64</value>
   </data>
   <data name="pictureBoxBackButtonOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -616,7 +616,7 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBoxBackButtonOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>436, 69</value>
+    <value>436, 64</value>
   </data>
   <data name="pictureBoxBackButtonOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -664,7 +664,7 @@
     <value>490, 3</value>
   </data>
   <data name="pictureBoxHamburgerMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 52</value>
+    <value>48, 48</value>
   </data>
   <data name="pictureBoxHamburgerMenu.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -688,10 +688,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 261</value>
+    <value>314, 238</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 35</value>
+    <value>75, 32</value>
   </data>
   <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -715,10 +715,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelDec.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 361</value>
+    <value>2, 333</value>
   </data>
   <data name="labelDec.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 13</value>
+    <value>86, 12</value>
   </data>
   <data name="labelDec.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -745,10 +745,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelZip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 258</value>
+    <value>2, 238</value>
   </data>
   <data name="labelZip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 26</value>
+    <value>86, 24</value>
   </data>
   <data name="labelZip.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -776,10 +776,10 @@ ZIP</value>
     <value>NoControl</value>
   </data>
   <data name="labelExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 161</value>
+    <value>3, 149</value>
   </data>
   <data name="labelExe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 26</value>
+    <value>84, 24</value>
   </data>
   <data name="labelExe.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -807,10 +807,10 @@ EXE</value>
     <value>NoControl</value>
   </data>
   <data name="labelAtc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 66</value>
+    <value>4, 61</value>
   </data>
   <data name="labelAtc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 26</value>
+    <value>84, 24</value>
   </data>
   <data name="labelAtc.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -884,7 +884,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDec.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 306</value>
+    <value>21, 282</value>
   </data>
   <data name="pictureBoxDec.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -952,7 +952,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 203</value>
+    <value>21, 187</value>
   </data>
   <data name="pictureBoxZip.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1021,7 +1021,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxExe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 106</value>
+    <value>21, 98</value>
   </data>
   <data name="pictureBoxExe.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1096,7 +1096,7 @@ ATC</value>
     <value />
   </data>
   <data name="pictureBoxAtc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 11</value>
+    <value>21, 10</value>
   </data>
   <data name="pictureBoxAtc.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1126,7 +1126,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 365</value>
+    <value>90, 334</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1170,7 +1170,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDeleteOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 69</value>
+    <value>325, 64</value>
   </data>
   <data name="pictureBoxDeleteOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1252,7 +1252,7 @@ ATC</value>
     <value />
   </data>
   <data name="pictureBoxDecOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 11</value>
+    <value>271, 10</value>
   </data>
   <data name="pictureBoxDecOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1333,7 +1333,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 69</value>
+    <value>271, 64</value>
   </data>
   <data name="pictureBoxDecOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1404,7 +1404,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZipOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 11</value>
+    <value>217, 10</value>
   </data>
   <data name="pictureBoxZipOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1469,7 +1469,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxZipOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 69</value>
+    <value>217, 64</value>
   </data>
   <data name="pictureBoxZipOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1541,7 +1541,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxExeOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 11</value>
+    <value>147, 10</value>
   </data>
   <data name="pictureBoxExeOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1608,7 +1608,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxExeOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 69</value>
+    <value>147, 64</value>
   </data>
   <data name="pictureBoxExeOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1686,7 +1686,7 @@ ATC</value>
     <value />
   </data>
   <data name="pictureBoxAtcOff.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 11</value>
+    <value>93, 10</value>
   </data>
   <data name="pictureBoxAtcOff.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1762,7 +1762,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxAtcOn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 69</value>
+    <value>93, 64</value>
   </data>
   <data name="pictureBoxAtcOn.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -1801,7 +1801,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelDragAndDrop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 140</value>
+    <value>105, 129</value>
   </data>
   <data name="labelDragAndDrop.Size" type="System.Drawing.Size, System.Drawing">
     <value>281, 32</value>
@@ -1835,7 +1835,7 @@ in this area for encryption or decryption.</value>
     <value>3, 3</value>
   </data>
   <data name="panelStartPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 367</value>
+    <value>490, 336</value>
   </data>
   <data name="panelStartPage.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1862,7 +1862,7 @@ in this area for encryption or decryption.</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageStartPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 373</value>
+    <value>496, 342</value>
   </data>
   <data name="tabPageStartPage.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1889,13 +1889,13 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="labelPasswordStrength.Location" type="System.Drawing.Point, System.Drawing">
-    <value>394, 142</value>
+    <value>394, 130</value>
   </data>
   <data name="labelPasswordStrength.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="labelPasswordStrength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
+    <value>87, 12</value>
   </data>
   <data name="labelPasswordStrength.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -1931,7 +1931,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 222</value>
+    <value>94, 204</value>
   </data>
   <data name="checkBoxDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 20</value>
@@ -1967,7 +1967,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 194</value>
+    <value>94, 178</value>
   </data>
   <data name="checkBoxNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 20</value>
@@ -2016,7 +2016,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPassStrengthMeter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>449, 162</value>
+    <value>449, 149</value>
   </data>
   <data name="pictureBoxPassStrengthMeter.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2059,7 +2059,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrengthEmpty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>110, 69</value>
+    <value>110, 64</value>
   </data>
   <data name="pictureBoxPasswordStrengthEmpty.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2102,7 +2102,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrength04.Location" type="System.Drawing.Point, System.Drawing">
-    <value>276, 69</value>
+    <value>276, 64</value>
   </data>
   <data name="pictureBoxPasswordStrength04.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2146,7 +2146,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrength03.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 69</value>
+    <value>246, 64</value>
   </data>
   <data name="pictureBoxPasswordStrength03.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2190,7 +2190,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrength02.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 69</value>
+    <value>216, 64</value>
   </data>
   <data name="pictureBoxPasswordStrength02.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2234,7 +2234,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrength01.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 69</value>
+    <value>186, 64</value>
   </data>
   <data name="pictureBoxPasswordStrength01.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2278,7 +2278,7 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxPasswordStrength00.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 69</value>
+    <value>156, 64</value>
   </data>
   <data name="pictureBoxPasswordStrength00.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2374,10 +2374,10 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptionPasswordOk.Location" type="System.Drawing.Point, System.Drawing">
-    <value>287, 301</value>
+    <value>287, 275</value>
   </data>
   <data name="buttonEncryptionPasswordOk.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 35</value>
+    <value>86, 32</value>
   </data>
   <data name="buttonEncryptionPasswordOk.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -2404,10 +2404,10 @@ in this area for encryption or decryption.</value>
     <value>NoControl</value>
   </data>
   <data name="labelEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 206</value>
+    <value>3, 189</value>
   </data>
   <data name="labelEncryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 26</value>
+    <value>73, 24</value>
   </data>
   <data name="labelEncryption.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -2438,7 +2438,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 151</value>
+    <value>14, 138</value>
   </data>
   <data name="pictureBoxEncryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -2468,7 +2468,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 367</value>
+    <value>77, 336</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -2495,10 +2495,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 301</value>
+    <value>386, 275</value>
   </data>
   <data name="buttonEncryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 35</value>
+    <value>86, 32</value>
   </data>
   <data name="buttonEncryptCancel.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2531,7 +2531,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 142</value>
+    <value>91, 130</value>
   </data>
   <data name="labelPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 16</value>
@@ -2561,7 +2561,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 162</value>
+    <value>94, 149</value>
   </data>
   <data name="textBoxPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>349, 23</value>
@@ -2588,7 +2588,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 367</value>
+    <value>490, 336</value>
   </data>
   <data name="panelEncrypt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2612,7 +2612,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEncrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 373</value>
+    <value>496, 342</value>
   </data>
   <data name="tabPageEncrypt.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2672,7 +2672,7 @@ ATC</value>
     <value>439, 3</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 52</value>
+    <value>48, 48</value>
   </data>
   <data name="pictureBoxEncryptConfirmBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -2713,7 +2713,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxCheckPasswordValidation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 164</value>
+    <value>68, 150</value>
   </data>
   <data name="pictureBoxCheckPasswordValidation.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2743,10 +2743,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelEncryptionConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 206</value>
+    <value>3, 189</value>
   </data>
   <data name="labelEncryptionConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 26</value>
+    <value>73, 24</value>
   </data>
   <data name="labelEncryptionConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -2777,7 +2777,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxEncryptionConfirm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 151</value>
+    <value>14, 138</value>
   </data>
   <data name="pictureBoxEncryptionConfirm.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -2807,7 +2807,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 367</value>
+    <value>77, 336</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
@@ -2834,10 +2834,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 301</value>
+    <value>368, 275</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 35</value>
+    <value>100, 32</value>
   </data>
   <data name="buttonEncryptionConfirmCancel.TabIndex" type="System.Int32, mscorlib">
     <value>38</value>
@@ -2867,10 +2867,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonEncryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 301</value>
+    <value>253, 275</value>
   </data>
   <data name="buttonEncryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 35</value>
+    <value>100, 32</value>
   </data>
   <data name="buttonEncryptStart.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
@@ -2913,7 +2913,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxInValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 298</value>
+    <value>143, 272</value>
   </data>
   <data name="pictureBoxInValidIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -2963,7 +2963,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxValidIcon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>112, 298</value>
+    <value>112, 272</value>
   </data>
   <data name="pictureBoxValidIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -3002,7 +3002,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxReDeleteOriginalFileAfterEncryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 222</value>
+    <value>94, 204</value>
   </data>
   <data name="checkBoxReDeleteOriginalFileAfterEncryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>361, 20</value>
@@ -3038,7 +3038,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxReNotMaskEncryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 194</value>
+    <value>94, 178</value>
   </data>
   <data name="checkBoxReNotMaskEncryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 20</value>
@@ -3077,7 +3077,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelInputPasswordAgain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 143</value>
+    <value>91, 131</value>
   </data>
   <data name="labelInputPasswordAgain.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 16</value>
@@ -3107,7 +3107,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxRePassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 164</value>
+    <value>94, 150</value>
   </data>
   <data name="textBoxRePassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>359, 23</value>
@@ -3134,7 +3134,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 367</value>
+    <value>490, 336</value>
   </data>
   <data name="panelEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3158,7 +3158,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageEncryptConfirm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 373</value>
+    <value>496, 342</value>
   </data>
   <data name="tabPageEncryptConfirm.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3218,7 +3218,7 @@ ATC</value>
     <value>439, 3</value>
   </data>
   <data name="pictureBoxDecryptBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 52</value>
+    <value>48, 48</value>
   </data>
   <data name="pictureBoxDecryptBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -3290,7 +3290,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 142</value>
+    <value>17, 130</value>
   </data>
   <data name="pictureBoxDecryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -3320,10 +3320,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 197</value>
+    <value>3, 181</value>
   </data>
   <data name="labelDecryption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 26</value>
+    <value>74, 24</value>
   </data>
   <data name="labelDecryption.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -3353,7 +3353,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 367</value>
+    <value>77, 336</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -3383,7 +3383,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 222</value>
+    <value>83, 204</value>
   </data>
   <data name="checkBoxDeleteAtcFileAfterDecryption.Size" type="System.Drawing.Size, System.Drawing">
     <value>281, 20</value>
@@ -3419,7 +3419,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="checkBoxNotMaskDecryptedPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 194</value>
+    <value>83, 178</value>
   </data>
   <data name="checkBoxNotMaskDecryptedPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 20</value>
@@ -3455,10 +3455,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonDecryptCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 301</value>
+    <value>368, 275</value>
   </data>
   <data name="buttonDecryptCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 35</value>
+    <value>100, 32</value>
   </data>
   <data name="buttonDecryptCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3488,10 +3488,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonDecryptStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 301</value>
+    <value>253, 275</value>
   </data>
   <data name="buttonDecryptStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 35</value>
+    <value>100, 32</value>
   </data>
   <data name="buttonDecryptStart.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3524,7 +3524,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelDecryptionPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 142</value>
+    <value>83, 130</value>
   </data>
   <data name="labelDecryptionPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 16</value>
@@ -3554,7 +3554,7 @@ ATC</value>
     <value>MS UI Gothic, 12pt</value>
   </data>
   <data name="textBoxDecryptPassword.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 162</value>
+    <value>83, 149</value>
   </data>
   <data name="textBoxDecryptPassword.Size" type="System.Drawing.Size, System.Drawing">
     <value>385, 23</value>
@@ -3581,7 +3581,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 367</value>
+    <value>490, 336</value>
   </data>
   <data name="panelDecrypt.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3605,7 +3605,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageDecrypt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 373</value>
+    <value>496, 342</value>
   </data>
   <data name="tabPageDecrypt.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3665,7 +3665,7 @@ ATC</value>
     <value>439, 3</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 52</value>
+    <value>48, 48</value>
   </data>
   <data name="pictureBoxProgressStateBackButton.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -3689,10 +3689,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 198</value>
+    <value>3, 182</value>
   </data>
   <data name="labelProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 26</value>
+    <value>67, 24</value>
   </data>
   <data name="labelProgress.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3723,7 +3723,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="pictureBoxProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 143</value>
+    <value>13, 131</value>
   </data>
   <data name="pictureBoxProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 48</value>
@@ -3753,7 +3753,7 @@ ATC</value>
     <value>0, 0</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 367</value>
+    <value>64, 336</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -3783,7 +3783,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelCryptionType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 126</value>
+    <value>70, 115</value>
   </data>
   <data name="labelCryptionType.Size" type="System.Drawing.Size, System.Drawing">
     <value>129, 16</value>
@@ -3816,10 +3816,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>368, 301</value>
+    <value>368, 275</value>
   </data>
   <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 35</value>
+    <value>100, 32</value>
   </data>
   <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -3849,10 +3849,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelProgressPercentText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 193</value>
+    <value>70, 177</value>
   </data>
   <data name="labelProgressPercentText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 22</value>
+    <value>396, 20</value>
   </data>
   <data name="labelProgressPercentText.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -3888,7 +3888,7 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="labelProgressMessageText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 143</value>
+    <value>70, 131</value>
   </data>
   <data name="labelProgressMessageText.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 16</value>
@@ -3918,10 +3918,10 @@ ATC</value>
     <value>NoControl</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>70, 164</value>
+    <value>70, 150</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>396, 26</value>
+    <value>396, 24</value>
   </data>
   <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -3945,7 +3945,7 @@ ATC</value>
     <value>3, 3</value>
   </data>
   <data name="panelProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 367</value>
+    <value>490, 336</value>
   </data>
   <data name="panelProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3969,7 +3969,7 @@ ATC</value>
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPageProgressState.Size" type="System.Drawing.Size, System.Drawing">
-    <value>496, 373</value>
+    <value>496, 342</value>
   </data>
   <data name="tabPageProgressState.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3990,13 +3990,13 @@ ATC</value>
     <value>4</value>
   </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 15</value>
+    <value>32, 14</value>
   </data>
   <data name="tabControl1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>504, 399</value>
+    <value>504, 368</value>
   </data>
   <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -4020,7 +4020,7 @@ ATC</value>
     <value>0, 74</value>
   </data>
   <data name="panelOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>576, 453</value>
+    <value>576, 411</value>
   </data>
   <data name="panelOuter.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4056,7 +4056,7 @@ ATC</value>
 </value>
   </data>
   <data name="selectFilesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="selectFilesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Select Files....</value>
@@ -4076,7 +4076,7 @@ ATC</value>
 </value>
   </data>
   <data name="selectFoldersToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="selectFoldersToolStripMenuItem1.Text" xml:space="preserve">
     <value>Select Folders...</value>
@@ -4097,7 +4097,7 @@ ATC</value>
 </value>
   </data>
   <data name="encryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="encryptToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Encrypt</value>
@@ -4116,13 +4116,13 @@ ATC</value>
 </value>
   </data>
   <data name="decryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="decryptToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Decrypt</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="optionToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4141,13 +4141,13 @@ ATC</value>
 </value>
   </data>
   <data name="optionToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="optionToolStripMenuItem1.Text" xml:space="preserve">
     <value>&amp;Option</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="helpToolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4164,13 +4164,13 @@ ATC</value>
 </value>
   </data>
   <data name="helpToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="helpToolStripMenuItem2.Text" xml:space="preserve">
     <value>&amp;Help</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 6</value>
+    <value>112, 6</value>
   </data>
   <data name="exitToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4185,13 +4185,13 @@ ATC</value>
 </value>
   </data>
   <data name="exitToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 22</value>
+    <value>115, 22</value>
   </data>
   <data name="exitToolStripMenuItem1.Text" xml:space="preserve">
     <value>E&amp;xit</value>
   </data>
   <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 132</value>
+    <value>116, 132</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
     <value>contextMenuStrip1</value>
@@ -4252,7 +4252,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemAtcFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemAtcFile.Text" xml:space="preserve">
     <value>ATC file</value>
@@ -4298,7 +4298,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemExeFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemExeFile.Text" xml:space="preserve">
     <value>ATC EXE</value>
@@ -4342,13 +4342,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="ToolStripMenuItemZipPassword.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 54</value>
+    <value>195, 54</value>
   </data>
   <data name="ToolStripMenuItemZipPassword.Text" xml:space="preserve">
     <value>Zip password file</value>
   </data>
   <data name="contextMenuStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 166</value>
+    <value>196, 166</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip2.Name" xml:space="preserve">
     <value>contextMenuStrip2</value>
@@ -4394,7 +4394,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectFilesToEncryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectFilesToEncryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select files to encrypt</value>
@@ -4435,7 +4435,7 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectDirectoryToEncryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectDirectoryToEncryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select directory to encrypt</value>
@@ -4472,13 +4472,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="selectFileToDecryptToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="selectFileToDecryptToolStripMenuItem.Text" xml:space="preserve">
     <value>Select file to decrypt</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
+    <value>241, 6</value>
   </data>
   <data name="settingsToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4515,13 +4515,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="settingsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="settingsToolStripMenuItem.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
+    <value>241, 6</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4560,13 +4560,13 @@ ATC</value>
     <value>None</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 54</value>
+    <value>244, 54</value>
   </data>
   <data name="onlineHelpToolStripMenuItem.Text" xml:space="preserve">
     <value>Online help</value>
   </data>
   <data name="contextMenuStrip3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 286</value>
+    <value>245, 286</value>
   </data>
   <data name="&gt;&gt;contextMenuStrip3.Name" xml:space="preserve">
     <value>contextMenuStrip3</value>
@@ -5399,10 +5399,10 @@ ATC</value>
     <value>126</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>576, 549</value>
+    <value>576, 507</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -6671,7 +6671,7 @@ ATC</value>
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>560, 539</value>
+    <value>560, 501</value>
   </data>
   <data name="&gt;&gt;toolStripStatusLabelDataVersion.Name" xml:space="preserve">
     <value>toolStripStatusLabelDataVersion</value>
