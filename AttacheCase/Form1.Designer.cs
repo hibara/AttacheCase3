@@ -668,6 +668,7 @@
       resources.ApplyResources(this.checkBoxDeleteOriginalFileAfterEncryption, "checkBoxDeleteOriginalFileAfterEncryption");
       this.checkBoxDeleteOriginalFileAfterEncryption.Name = "checkBoxDeleteOriginalFileAfterEncryption";
       this.checkBoxDeleteOriginalFileAfterEncryption.UseVisualStyleBackColor = true;
+      this.checkBoxDeleteOriginalFileAfterEncryption.CheckedChanged += new System.EventHandler(this.checkBoxDeleteOriginalFileAfterEncryption_CheckedChanged);
       // 
       // checkBoxNotMaskEncryptedPassword
       // 

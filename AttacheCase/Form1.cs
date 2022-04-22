@@ -29,11 +29,15 @@ using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
 
 namespace AttacheCase
 {
   public partial class Form1 : Form
   {
+    [DllImport("shell32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+    private static extern void SHChangeNotify(int wEventId, int uFlags, IntPtr dwItem1, IntPtr dwItem2);
+
     // Status Code
     private const int ENCRYPT_SUCCEEDED = 1; // Encrypt is succeeded
     private const int DECRYPT_SUCCEEDED = 2; // Decrypt is succeeded
@@ -388,6 +392,10 @@ namespace AttacheCase
               UICancelOption.ThrowException
             );
           }
+
+          // 削除後、たまにアイコンが残ることがあるのでアイコンキャッシュをリフレッシュする
+          // Refresh these icons cache be^cause sometimes icons remain after deletion.
+          SHChangeNotify(0x08000000, 0x0000, (IntPtr)null, (IntPtr)null);
 
           labelCryptionType.Text = "";
           // 指定のファイル及びフォルダーは削除されました。
@@ -928,7 +936,7 @@ namespace AttacheCase
                 }
 
                 // Delete file or directories
-                if (AppSettings.Instance.fDelOrgFile == true || checkBoxReDeleteOriginalFileAfterEncryption.Checked == true)
+                if (checkBoxReDeleteOriginalFileAfterEncryption.Checked == true)
                 {
                   if (AppSettings.Instance.fConfirmToDeleteAfterEncryption == true)
                   {
@@ -2357,20 +2365,21 @@ namespace AttacheCase
         {
           checkBoxDeleteOriginalFileAfterEncryption.Visible = true;
           checkBoxReDeleteOriginalFileAfterEncryption.Visible = true;
-
-          if (AppSettings.Instance.fDelOrgFile == true)
-          {
-            checkBoxDeleteOriginalFileAfterEncryption.Checked = true;
-          }
-          else
-          {
-            checkBoxDeleteOriginalFileAfterEncryption.Checked = false;
-          }
         }
         else
         {
           checkBoxDeleteOriginalFileAfterEncryption.Visible = false;
           checkBoxReDeleteOriginalFileAfterEncryption.Visible = false;
+        }
+
+        // Delete original files or directories after encryption
+        if (AppSettings.Instance.fDelOrgFile == true)
+        {
+          checkBoxDeleteOriginalFileAfterEncryption.Checked = true;
+        }
+        else
+        {
+          checkBoxDeleteOriginalFileAfterEncryption.Checked = false;
         }
 
         // Allow Drag and Drop 'password file' instead of password
@@ -2600,6 +2609,16 @@ namespace AttacheCase
         else
         {
           checkBoxDeleteAtcFileAfterDecryption.Visible = false;
+        }
+
+        // Delete encrypted file after decryption
+        if (AppSettings.Instance.fDelEncFile == true)
+        {
+          checkBoxDeleteAtcFileAfterDecryption.Checked = true;
+        }
+        else
+        {
+          checkBoxDeleteAtcFileAfterDecryption.Checked = false;
         }
 
         textBoxDecryptPassword.Focus();
@@ -4743,7 +4762,7 @@ namespace AttacheCase
       }
         
       // Delete file or directories
-      if (AppSettings.Instance.fDelEncFile == true || checkBoxDeleteAtcFileAfterDecryption.Checked == true)
+      if (checkBoxDeleteAtcFileAfterDecryption.Checked == true)
       {
         if (AppSettings.Instance.fConfirmToDeleteAfterDecryption == true)
         {

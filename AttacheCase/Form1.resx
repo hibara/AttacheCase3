@@ -2573,7 +2573,7 @@ ATC</value>
     <value>textBoxPassword</value>
   </data>
   <data name="&gt;&gt;textBoxPassword.Type" xml:space="preserve">
-    <value>AttacheCase.DelayTextBox, AttacheCase, Version=3.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>AttacheCase.DelayTextBox, AttacheCase, Version=3.7.0.2, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;textBoxPassword.Parent" xml:space="preserve">
     <value>panelEncrypt</value>
